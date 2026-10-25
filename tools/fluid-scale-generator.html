@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="タイポグラフィ・余白・UIサイズの流体スケールを設計し、CSSカスタムプロパティとして出力します。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>Fluid Scale Generator | MARK BENCH</title>
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+  </head>
+  <body data-site="coding-note" data-page="tools" data-tool-id="fluid-scale-generator">
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header">
+      <div class="site-header__bar">
+        <nav class="site-breadcrumb-logo" aria-label="パンくずリスト">
+          <a class="site-logo" href="../index.html">MARK BENCH</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <a class="site-breadcrumb-logo__parent" href="./">TOOLS</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <span class="site-breadcrumb-logo__current" aria-current="page" data-site-breadcrumb-current>Fluid Scale Generator</span>
+        </nav>
+      </div>
+    </header>
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション">
+      <a href="./" aria-current="location"><strong>TOOLS</strong></a>
+      <a href="../build-logs/"><strong>BUILD LOGS</strong></a>
+      <a href="../about.html"><strong>ABOUT</strong></a>
+    </nav>
+    <main id="main" tabindex="-1">
+      <header class="tool-header">
+        <div class="tool-header__main reveal">
+          <p class="section-index" data-tool-number>CSS_TOOLS</p>
+          <h1 data-tool-title>Fluid Scale Generator</h1>
+          <p data-tool-summary>モバイル・デスクトップの基準値から、タイポグラフィ・余白・UIサイズの流体トークンを一括生成します。</p>
+        </div>
+        <dl class="tool-header__meta reveal">
+          <div><dt>STATUS</dt><dd><span class="badge" data-tool-status>READY</span></dd></div>
+          <div><dt>PROCESS</dt><dd>LOCAL BROWSER</dd></div>
+          <div><dt>VERSION</dt><dd data-tool-version>0.1.0</dd></div>
+          <div><dt>UPDATED</dt><dd>2026.10.25</dd></div>
+        </dl>
+      </header>
+      <section class="workspace-section" aria-labelledby="workspace-title">
+        <div class="workspace-section__label reveal">
+          <p class="section-index">TOOL_WORKSPACE</p>
+          <h2 id="workspace-title">流体スケールを設計</h2>
+        </div>
+        <div class="tool-workspace reveal" data-tool-workspace>
+          <div class="tool-workspace__loading"><p>&gt; loading tool module<span class="terminal-cursor">_</span></p></div>
+        </div>
+        <p class="privacy-note reveal"><span aria-hidden="true">●</span><strong>LOCAL PROCESSING</strong> 入力値と生成したCSSはブラウザ上だけで処理され、外部サーバーには送信されません。</p>
+      </section>
+      <section class="tool-documentation" aria-labelledby="how-to-use-title">
+        <div class="tool-documentation__main reveal">
+          <p class="section-index">HOW_TO_USE</p>
+          <h2 id="how-to-use-title">使い方</h2>
+          <ol data-tool-steps>
+            <li>共通の最小・最大ビューポートと出力単位を指定します。</li>
+            <li>SCALE SYSTEMで文字・余白・UIサイズの基準値と比率を設定します。</li>
+            <li>任意の画面幅で各トークンの現在値と視覚的な変化を確認します。</li>
+            <li>CSSトークンまたは使用例をコピーし、必要に応じてCSSファイルを保存します。</li>
+          </ol>
+        </div>
+        <aside class="tool-documentation__aside reveal">
+          <p class="section-index">SPECIFICATION</p>
+          <dl data-tool-specs>
+            <div><dt>MODES</dt><dd>Scale System / Single</dd></div>
+            <div><dt>OUTPUT</dt><dd>CSS Custom Properties</dd></div>
+            <div><dt>UNITS</dt><dd>rem + vi / px + vi / cqi</dd></div>
+            <div><dt>TYPE</dt><dd>5 / 8 / 10 Steps</dd></div>
+            <div><dt>SIZE TOKENS</dt><dd>Up to 12</dd></div>
+            <div><dt>VIEWPORT</dt><dd>240–3840px</dd></div>
+            <div><dt>STORAGE</dt><dd>None</dd></div>
+          </dl>
+        </aside>
+      </section>
+    </main>
+    <div class="toast" role="status" aria-live="polite" data-toast hidden>コピーが完了しました。</div>
+    <script src="../js/fluid-scale-generator.js" defer></script>
+    <script src="../js/fluid-scale-generator-ui.js" defer></script>
+    <script src="../js/tool.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

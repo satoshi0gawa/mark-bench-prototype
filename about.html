@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="MARK BENCHの目的、制作方針、技術構成について。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>ABOUT | MARK BENCH</title>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <link rel="stylesheet" href="./css/foundation.css" />
+    <link rel="stylesheet" href="./css/components.css" />
+    <link rel="stylesheet" href="./css/pages.css" />
+  </head>
+  <body data-site="coding-note" data-page="about">
+    <a class="skip-link" href="#main">本文へ移動</a>
+
+    <header class="site-header">
+      <div class="site-header__bar">
+        <nav class="site-breadcrumb-logo" aria-label="パンくずリスト">
+          <a class="site-logo" href="./index.html">MARK BENCH</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <span class="site-breadcrumb-logo__current" aria-current="page">ABOUT</span>
+        </nav>
+      </div>
+    </header>
+
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション">
+      <a href="./tools/"><strong>TOOLS</strong></a>
+      <a href="./build-logs/"><strong>BUILD LOGS</strong></a>
+      <a href="./about.html" aria-current="location"><strong>ABOUT</strong></a>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <header class="page-heading">
+        <p class="section-index reveal">ABOUT_THIS_SITE</p>
+        <div class="page-heading__main reveal"><h1>ABOUT</h1></div>
+        <div class="page-heading__meta reveal">
+          <span>FRONTEND: HTML / CSS / VANILLA JAVASCRIPT</span><span>LAYOUT: 70% MAIN / 15% SITE RAILS</span><span>PROCESSING: LOCAL BROWSER / STATIC BUILD</span>
+        </div>
+      </header>
+
+      <section class="manifesto reveal" aria-labelledby="manifesto-title">
+        <div class="manifesto__heading">
+          <p class="section-index">OVERVIEW</p>
+          <h2 id="manifesto-title">このサイトについて</h2>
+        </div>
+        <div class="manifesto__body">
+          <p>MARK BENCHは、Web制作の作業を少し便利にするツールの制作と、その設計・実装・検証の過程を記録するサイトです。</p>
+          <p>テキスト変換やディレクトリ構成の整理、Markdown編集など、日々の制作で役立つ機能をひとつずつ形にしています。完成したツールだけでなく、試行錯誤や改善の記録も残しながら、継続的に更新していきます。</p>
+        </div>
+      </section>
+
+      <section class="site-design" aria-labelledby="site-design-title">
+        <header class="section-heading reveal">
+          <div>
+            <p class="section-index">SITE_STRUCTURE</p>
+            <h2 id="site-design-title">現在のサイト構成</h2>
+          </div>
+        </header>
+        <ol class="site-design-list about-info-list reveal">
+          <li><span>01 / HOME</span><strong>TREE ROOT</strong><p>HOMEをルートとし、TOOLS、BUILD LOGS、ABOUTをファイルパス付きのツリーで案内する。</p><small>ENTRY</small></li>
+          <li><span>02 / RESPONSIVE SHELL</span><strong>70 / 15 / 15</strong><p>PCはメイン約70％、左右レール約15％ずつ。1024px以下では上部配置へ切り替える。</p><small>LAYOUT</small></li>
+          <li><span>03 / WAYFINDING</span><strong>PAGE CONTEXT</strong><p>左レールは現在のページタイトルまでをツリー型パンくずで示し、右レールに主要ナビゲーションを固定する。</p><small>NAVIGATION</small></li>
+          <li><span>04 / DIRECTORY</span><strong>STATIC ROUTES</strong><p>TOOLSとBUILD LOGSは、各ディレクトリのindex.htmlと内容を表すファイル名の詳細ページで管理する。</p><small>FILES</small></li>
+        </ol>
+      </section>
+
+      <section class="foundations" aria-labelledby="foundations-title">
+        <header class="section-heading foundations__heading reveal">
+          <div>
+            <p class="section-index">STYLE GUIDE</p>
+            <h2 id="foundations-title">スタイルガイド</h2>
+          </div>
+        </header>
+        <div class="foundations__content">
+          <section class="foundation-block foundation-block--palette reveal" aria-labelledby="foundation-colors-title">
+            <header class="foundation-subheading">
+              <h3 id="foundation-colors-title">COLOR_THEME</h3>
+              <span>09 TOKENS</span>
+            </header>
+            <ul class="foundation-palette">
+              <li class="foundation-swatch"><span class="foundation-swatch__sample" style="--foundation-swatch: #18243b" aria-hidden="true"></span><div><strong>PRIMARY</strong><code>#18243B</code></div></li>
+              <li class="foundation-swatch"><span class="foundation-swatch__sample" style="--foundation-swatch: #263a5e" aria-hidden="true"></span><div><strong>PRIMARY HOVER</strong><code>#263A5E</code></div></li>
+              <li class="foundation-swatch"><span class="foundation-swatch__sample" style="--foundation-swatch: #edf1f7" aria-hidden="true"></span><div><strong>PRIMARY SOFT</strong><code>#EDF1F7</code></div></li>
+              <li class="foundation-swatch"><span class="foundation-swatch__sample" style="--foundation-swatch: #ffffff" aria-hidden="true"></span><div><strong>BACKGROUND</strong><code>#FFFFFF</code></div></li>
+              <li class="foundation-swatch"><span class="foundation-swatch__sample" style="--foundation-swatch: #f5f7fa" aria-hidden="true"></span><div><strong>SUBTLE</strong><code>#F5F7FA</code></div></li>
+              <li class="foundation-swatch"><span class="foundation-swatch__sample" style="--foundation-swatch: #1c2430" aria-hidden="true"></span><div><strong>TEXT</strong><code>#1C2430</code></div></li>
+              <li class="foundation-swatch"><span class="foundation-swatch__sample" style="--foundation-swatch: #667085" aria-hidden="true"></span><div><strong>TEXT SUBTLE</strong><code>#667085</code></div></li>
+              <li class="foundation-swatch"><span class="foundation-swatch__sample" style="--foundation-swatch: #d9dfe8" aria-hidden="true"></span><div><strong>GRID</strong><code>#D9DFE8</code></div></li>
+              <li class="foundation-swatch"><span class="foundation-swatch__sample" style="--foundation-swatch: #ffff00" aria-hidden="true"></span><div><strong>ACCENT</strong><code>#FFFF00</code></div></li>
+            </ul>
+          </section>
+
+          <div class="foundations__duo">
+            <section class="foundation-block reveal" aria-labelledby="foundation-type-title">
+              <header class="foundation-subheading">
+                <h3 id="foundation-type-title">TYPE_SCALE</h3>
+                <span>SPACE MONO + BIZ UDPGOTHIC</span>
+              </header>
+              <div class="foundation-type-list">
+                <div class="foundation-type-row foundation-type-row--page"><span>PAGE TITLE</span><strong>MARK BENCH</strong><code>CLAMP(1.75REM, 3VW, 3REM)</code></div>
+                <div class="foundation-type-row foundation-type-row--section"><span>SECTION</span><strong>現在のサイト構成</strong><code>HEADING_SM</code></div>
+                <div class="foundation-type-row foundation-type-row--body"><span>BODY</span><p>制作の過程を記録し、次の実装へつなげます。</p><code>0.9REM / 1.7</code></div>
+                <div class="foundation-type-row foundation-type-row--label"><span>LABEL</span><strong>STYLE GUIDE / TYPE_SCALE</strong><code>0.68REM / 600</code></div>
+              </div>
+            </section>
+
+            <section class="foundation-block reveal" aria-labelledby="foundation-grid-title">
+              <header class="foundation-subheading">
+                <h3 id="foundation-grid-title">LAYOUT_GRID</h3>
+                <span>DESKTOP</span>
+              </header>
+              <div class="foundation-layout-grid" aria-label="左レール15%、メインエリア70%、右レール15%">
+                <span><small>LEFT</small><strong>15%</strong></span>
+                <span><small>MAIN</small><strong>70%</strong></span>
+                <span><small>RIGHT</small><strong>15%</strong></span>
+              </div>
+              <p class="foundation-layout-note">PCはメイン70％・左右レール15％。1024px以下ではヘッダーとナビゲーションを上部へ配置します。</p>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section class="spec-grid reveal" aria-labelledby="spec-title">
+        <header class="section-heading spec-grid__heading">
+          <div>
+            <p class="section-index">IMPLEMENTATION</p>
+            <h2 id="spec-title">実装仕様</h2>
+          </div>
+        </header>
+        <ul class="spec-list about-info-list">
+          <li><span>FRONTEND</span><strong>HTML / CSS / VANILLA JAVASCRIPT</strong></li>
+          <li><span>PAGE STRUCTURE</span><strong>HOME / TOOLS / BUILD LOGS / ABOUT</strong></li>
+          <li><span>ROUTING</span><strong>DIRECTORY INDEX / NAMED DETAIL PAGES</strong></li>
+          <li><span>LAYOUT</span><strong>70% MAIN / 15% SITE RAILS</strong></li>
+          <li><span>FILTER</span><strong>KEYWORDS / CATEGORY</strong></li>
+          <li><span>PROCESSING</span><strong>LOCAL BROWSER / STATIC BUILD</strong></li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="./js/main.js" defer></script>
+  </body>
+</html>

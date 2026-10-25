@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="MARK BENCHの制作・検証記録を掲載するBUILD LOGSです。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>BUILD LOGS | MARK BENCH</title>
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+  </head>
+  <body data-site="coding-note" data-page="blog">
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header">
+      <div class="site-header__bar">
+        <nav class="site-breadcrumb-logo" aria-label="パンくずリスト">
+          <a class="site-logo" href="../index.html">MARK BENCH</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <span class="site-breadcrumb-logo__current" aria-current="page">BUILD LOGS</span>
+        </nav>
+      </div>
+    </header>
+
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション">
+      <a href="../tools/"><strong>TOOLS</strong></a>
+      <a href="./" aria-current="location"><strong>BUILD LOGS</strong></a>
+      <a href="../about.html"><strong>ABOUT</strong></a>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <header class="page-heading">
+        <p class="section-index reveal">LOG_ARCHIVE</p>
+        <div class="page-heading__main reveal"><h1>BUILD LOGS</h1></div>
+        <div class="page-heading__meta reveal"><span>ALL: 04</span><span>PUBLISHED: 02</span><span>PLANNED: 02</span></div>
+      </header>
+
+      <section class="build-log-directory" aria-labelledby="archive-title">
+        <h2 class="visually-hidden" id="archive-title">BUILD LOGS一覧</h2>
+        <ol class="note-list reveal" data-reveal-threshold="0.01">
+          <li>
+            <a class="note-row" href="./px-rem-converter.html"><span>BUILD_LOG_004</span><strong>pxとremの換算基準を整理する</strong><time datetime="2026-10-25">2026.10.25</time><i aria-hidden="true">→</i></a>
+          </li>
+          <li>
+            <a class="note-row" href="./case-style-guide.html"><span>BUILD_LOG_001</span><strong>テキストケース変換の仕組みを整理する</strong><time datetime="2026-10-25">2026.10.25</time><i aria-hidden="true">→</i></a>
+          </li>
+          <li>
+            <div class="note-row is-disabled"><span>BUILD_LOG_XXX</span><strong>JSON.parse()のエラー処理を確認する</strong><small>PLANNED</small><i aria-hidden="true">×</i></div>
+          </li>
+          <li>
+            <div class="note-row is-disabled"><span>BUILD_LOG_XXX</span><strong>clamp()で流動的な値を設計する</strong><small>PLANNED</small><i aria-hidden="true">×</i></div>
+          </li>
+        </ol>
+        <div class="directory-status" aria-live="polite"><p><span>04</span> LOGS FOUND</p><p>STATIC DATA / BUILD 0.1.0</p></div>
+      </section>
+    </main>
+
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

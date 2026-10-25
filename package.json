@@ -1,0 +1,38 @@
+{
+  "name": "mark-bench-static",
+  "version": "0.2.0",
+  "private": true,
+  "description": "MARK BENCH - WEB PRODUCTION TOOLS AND BUILD LOGS static prototype",
+  "scripts": {
+    "dev": "node scripts/build.mjs && node scripts/dev-server.mjs --root=dist",
+    "dev:source": "node scripts/dev-server.mjs",
+    "preview": "node scripts/dev-server.mjs --root=dist",
+    "check": "node scripts/check.mjs",
+    "check:dist": "node scripts/check.mjs dist && node scripts/check-build-output.mjs dist",
+    "check:counter": "node scripts/check-character-counter.mjs",
+    "check:slug": "node scripts/check-slug-generator.mjs",
+    "check:json": "node scripts/check-json-formatter.mjs",
+    "check:html": "node scripts/check-html-escape-converter.mjs",
+    "check:px": "node scripts/check-px-rem-converter.mjs",
+    "check:formatter": "node scripts/check-text-formatter.mjs",
+    "check:unicode": "node scripts/check-unicode-inspector.mjs",
+    "check:tree": "node scripts/check-directory-tree-generator.mjs",
+    "check:markdown": "node scripts/check-markdown-preview-editor.mjs",
+    "check:table": "node scripts/check-html-table-builder.mjs",
+    "check:bem": "node scripts/check-bem-class-builder.mjs",
+    "check:color": "node scripts/check-color-format-converter.mjs",
+    "check:numeric": "node scripts/check-numeric-character-reference-converter.mjs",
+    "check:fluid": "node scripts/check-fluid-scale-generator.mjs",
+    "check:width": "node scripts/check-width-converter.mjs",
+    "check:detail": "node scripts/check-tool-detail-pages.mjs",
+    "test:build-logs": "node scripts/test-build-logs.mjs",
+    "build": "node scripts/build.mjs --source=fixture",
+    "build:cms": "node scripts/build.mjs --source=microcms"
+  },
+  "engines": {
+    "node": ">=22.12"
+  },
+  "dependencies": {
+    "sanitize-html": "2.18.1"
+  }
+}

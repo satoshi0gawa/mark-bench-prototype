@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ルートフォントサイズを基準に、pxとremを双方向変換する設計と丸め・入力検証の考え方を整理します。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>pxとremの換算基準を整理する | MARK BENCH</title>
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+  </head>
+  <body data-site="coding-note" data-page="blog">
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header">
+      <div class="site-header__bar">
+        <nav class="site-breadcrumb-logo" aria-label="パンくずリスト">
+          <a class="site-logo" href="../index.html">MARK BENCH</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <a class="site-breadcrumb-logo__parent" href="./">BUILD LOGS</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <span class="site-breadcrumb-logo__current" aria-current="page">pxとremの換算基準を整理する</span>
+        </nav>
+      </div>
+    </header>
+
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション">
+      <a href="../tools/"><strong>TOOLS</strong></a>
+      <a href="./" aria-current="location"><strong>BUILD LOGS</strong></a>
+      <a href="../about.html"><strong>ABOUT</strong></a>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <article class="article-layout" aria-labelledby="article-title">
+        <header class="article-header reveal" data-reveal-order="0"><p class="section-index">BUILD_LOG_004 / CSS TOOLS</p><h1 id="article-title">pxとremの換算基準を整理する</h1><p class="article-header__lead">pxとremの変換は単純な割り算と掛け算ですが、結果を正しく使うには基準となるルートフォントサイズと丸め方を共有する必要があります。双方向変換を安定させるための設計と検証内容を整理します。</p><div class="note-meta"><span>2026.10.25</span><span>7 MIN READ</span><span>PUBLISHED</span></div></header>
+
+        <aside class="article-toc reveal" data-reveal-order="1" aria-label="目次"><p>CONTENTS</p><ol><li><a href="#section-1">換算ツールを作る理由</a></li><li><a href="#section-2">ルートサイズを基準にする</a></li><li><a href="#section-3">双方向の計算式を揃える</a></li><li><a href="#section-4">丸め精度を選べるようにする</a></li><li><a href="#section-5">入力値と状態表示を検証する</a></li><li><a href="#section-6">実装から得た判断</a></li></ol></aside>
+
+        <div class="article-body">
+          <section class="article-section reveal" id="section-1" aria-labelledby="section-1-title" data-reveal-threshold="0.01">
+            <p class="section-index">01 / PURPOSE</p>
+            <h2 id="section-1-title">換算ツールを作る理由</h2>
+            <p>デザインデータではpx、CSSのタイポグラフィや余白ではremというように、Web制作では同じ寸法を異なる単位で扱う場面があります。値が少なければ暗算できますが、複数のサイズを確認しながら実装すると、割り算の基準や小数点以下の扱いが担当者ごとに変わりやすくなります。</p>
+            <p>PX / REM Converterでは、変換する数値とルートフォントサイズを明示し、計算結果と式を同じ画面で確認できる状態を目指しました。pxからremへ変換するだけでなく、remから元のpxへ戻す操作も同じ条件で行えるようにします。</p>
+            <div class="article-callout"><strong>PROCESS</strong><p>入力値 → 変換方向を選択 → ルートフォントサイズを適用 → 丸め精度を反映 → 結果と計算式を表示</p></div>
+          </section>
+
+          <section class="article-section reveal" id="section-2" aria-labelledby="section-2-title" data-reveal-threshold="0.01">
+            <p class="section-index">02 / ROOT SIZE</p>
+            <h2 id="section-2-title">ルートサイズを基準にする</h2>
+            <p>remはルート要素のフォントサイズを基準にした相対単位です。ブラウザの一般的な初期値である16pxを使う場合、16pxは1rem、32pxは2remになります。ただし、プロジェクト側でルートサイズを変更している場合は同じpx値でも結果が変わります。</p>
+            <p>そのため、ツールでは16pxを初期値としながら、1〜256pxの範囲で基準値を変更できるようにしました。変換結果だけでなく、現在使用しているルートサイズを画面へ常に表示し、どの条件で算出した値かを見失わない構成にしています。</p>
+            <div class="article-callout"><strong>DESIGN NOTE</strong><p>remは固定の換算表ではありません。ルートフォントサイズを変換条件の一部として扱うことで、プロジェクトごとの設計基準に合わせられます。</p></div>
+          </section>
+
+          <section class="article-section reveal" id="section-3" aria-labelledby="section-3-title" data-reveal-threshold="0.01">
+            <p class="section-index">03 / FORMULA</p>
+            <h2 id="section-3-title">双方向の計算式を揃える</h2>
+            <p>pxからremへ変換するときは入力値をルートサイズで割り、remからpxへ戻すときはルートサイズを掛けます。変換方向によって入力欄の単位表示と演算子を切り替え、結果には必ず出力単位を付けます。</p>
+            <pre><code>const numericResult = direction === 'rem-to-px'
+  ? inputValue * rootSize
+  : inputValue / rootSize;
+
+// root size: 16px
+32px ÷ 16px = 2rem
+2rem × 16px = 32px</code></pre>
+            <p>結果の数値だけでなく、<code>32px ÷ 16px = 2rem</code>のように式も表示します。入力値、基準値、演算方向を一度に確認できるため、別のプロジェクトへ値を移すときも換算条件を追いやすくなります。</p>
+          </section>
+
+          <section class="article-section reveal" id="section-4" aria-labelledby="section-4-title" data-reveal-threshold="0.01">
+            <p class="section-index">04 / PRECISION</p>
+            <h2 id="section-4-title">丸め精度を選べるようにする</h2>
+            <p>pxをremへ変換すると、割り切れない小数が発生します。用途によって必要な精度が異なるため、不要な末尾の0を除くAUTO、小数点以下を2桁に揃える2 DEC、4桁に揃える4 DECの3種類を用意しました。</p>
+            <pre><code>const formatNumber = (value, precision) =&gt; {
+  const normalized = Object.is(value, -0) ? 0 : value;
+  if (precision === '2') return normalized.toFixed(2);
+  if (precision === '4') return normalized.toFixed(4);
+  return String(Number(normalized.toFixed(6)));
+};</code></pre>
+            <p>AUTOでは内部計算の長い小数を最大6桁で整理してから、不要な末尾の0を取り除きます。また、計算過程で発生する可能性がある<code>-0</code>は<code>0</code>へ正規化し、コピー後も扱いやすい出力にします。</p>
+          </section>
+
+          <section class="article-section reveal" id="section-5" aria-labelledby="section-5-title" data-reveal-threshold="0.01">
+            <p class="section-index">05 / VALIDATION</p>
+            <h2 id="section-5-title">入力値と状態表示を検証する</h2>
+            <p>入力値は正負どちらにも対応し、絶対値1,000,000までを有効範囲としました。ルートフォントサイズは1〜256pxに制限し、空欄、数値以外、範囲外の値をそれぞれ判定します。無効な場合は結果を「—」へ戻し、コピーボタンを操作できない状態にします。</p>
+            <p>画面には<code>INPUT EMPTY</code>、<code>READY</code>、<code>INVALID VALUE</code>、<code>ROOT SIZE OUT OF RANGE</code>を表示し、該当する入力欄へ<code>aria-invalid</code>を設定します。SAMPLE、CLEAR、変換方向、精度の変更後も同じ描画処理を通し、表示と内部結果がずれないことを確認しました。</p>
+          </section>
+
+          <section class="article-section reveal" id="section-6" aria-labelledby="section-6-title" data-reveal-threshold="0.01">
+            <p class="section-index">06 / RESULT</p>
+            <h2 id="section-6-title">実装から得た判断</h2>
+            <p>計算ロジックと画面更新を分離したことで、変換方向や精度が変わっても同じ検証結果を利用できるようになりました。結果へ単位を含め、計算式を併記することで、単なる数値だけを返すよりも変換条件を確認しやすくなっています。</p>
+            <p>一方、remを採用すれば自動的に読みやすくなるわけではありません。タイポグラフィ、余白、コンポーネント寸法のどこへ相対単位を使うかは、サイト全体の設計ルールとして決める必要があります。このツールは、その判断に必要な換算を素早く確かめるための補助として位置づけています。</p>
+            <div class="article-callout article-callout--cta">
+              <strong>TRY THE TOOL</strong>
+              <p>プロジェクトのルートフォントサイズを指定し、pxとremを双方向に変換できます。丸め精度と計算式を確認し、必要な結果をそのままコピーできます。</p>
+              <a class="button button--primary" href="../tools/px-rem-converter.html">PX / REM CONVERTERを使う <span>→</span></a>
+            </div>
+          </section>
+        </div>
+      </article>
+    </main>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="入力文字列を単語へ分割し、9種類のテキストケースへ再構築するまでの設計と検証内容を整理します。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>テキストケース変換の仕組みを整理する | MARK BENCH</title>
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+  </head>
+  <body data-site="coding-note" data-page="blog">
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header">
+      <div class="site-header__bar">
+        <nav class="site-breadcrumb-logo" aria-label="パンくずリスト">
+          <a class="site-logo" href="../index.html">MARK BENCH</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <a class="site-breadcrumb-logo__parent" href="./">BUILD LOGS</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <span class="site-breadcrumb-logo__current" aria-current="page">テキストケース変換の仕組みを整理する</span>
+        </nav>
+      </div>
+    </header>
+
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション">
+      <a href="../tools/"><strong>TOOLS</strong></a>
+      <a href="./" aria-current="location"><strong>BUILD LOGS</strong></a>
+      <a href="../about.html"><strong>ABOUT</strong></a>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <article class="article-layout" aria-labelledby="article-title">
+        <header class="article-header reveal" data-reveal-order="0"><p class="section-index">BUILD_LOG_001 / TEXT TOOLS</p><h1 id="article-title">テキストケース変換の仕組みを整理する</h1><p class="article-header__lead">命名規則の変換は、区切り文字を置き換えるだけでは安定しません。入力を共通の単語配列へ戻し、9種類のケースへ再構築するまでの設計と検証内容を整理します。</p><div class="note-meta"><span>2026.10.25</span><span>7 MIN READ</span><span>PUBLISHED</span></div></header>
+
+        <aside class="article-toc reveal" data-reveal-order="1" aria-label="目次"><p>CONTENTS</p><ol><li><a href="#section-1">変換処理を整理した理由</a></li><li><a href="#section-2">入力を共通形式へ戻す</a></li><li><a href="#section-3">単語境界を判定する</a></li><li><a href="#section-4">9種類のケースへ組み立てる</a></li><li><a href="#section-5">境界値と操作を検証する</a></li><li><a href="#section-6">実装から得た判断</a></li></ol></aside>
+
+        <div class="article-body">
+          <section class="article-section reveal" id="section-1" aria-labelledby="section-1-title" data-reveal-threshold="0.01">
+            <p class="section-index">01 / PURPOSE</p>
+            <h2 id="section-1-title">変換処理を整理した理由</h2>
+            <p>Web制作では、同じ言葉をCSSクラス、JavaScriptの変数、ファイル名、CMSの管理項目などへ繰り返し入力します。用途ごとに求められる命名規則は異なり、手作業で大文字や区切り文字を直していると、表記揺れや入力ミスが起こりやすくなります。</p>
+            <p>Text Case Converterでは、ひとつの入力から複数の命名候補を同時に生成し、必要な形式をそのままコピーできる状態を目指しました。ここで重要なのは、出力時に大文字と小文字を切り替えることより、入力された文字列を正しく「単語」へ戻すことです。</p>
+            <div class="article-callout"><strong>PROCESS</strong><p>入力文字列 → 単語境界を検出 → 共通の単語配列へ正規化 → 9種類のケースへ再構築</p></div>
+          </section>
+
+          <section class="article-section reveal" id="section-2" aria-labelledby="section-2-title" data-reveal-threshold="0.01">
+            <p class="section-index">02 / NORMALIZE</p>
+            <h2 id="section-2-title">入力を共通形式へ戻す</h2>
+            <p>入力欄へ渡される文字列は、スペース区切りとは限りません。すでに<code>camelCase</code>や<code>snake_case</code>になっている場合もあれば、ハイフン、記号、連続した空白が混在している場合もあります。形式ごとに別の変換処理を用意すると、出力形式を追加するたびに同じ判定が増えてしまいます。</p>
+            <p>そこで、最初にハイフンとアンダースコアを区切りへ置き換え、不要な記号を除去し、空白で分割した単語配列へ統一します。文字の判定にはUnicodeプロパティを使用し、日本語を含む文字や数字を不用意に削除しないようにしました。大文字と小文字を持たない文字はそのまま保持され、区切り文字だけが出力形式に合わせて変化します。</p>
+          </section>
+
+          <section class="article-section reveal" id="section-3" aria-labelledby="section-3-title" data-reveal-threshold="0.01">
+            <p class="section-index">03 / TOKENIZE</p>
+            <h2 id="section-3-title">単語境界を判定する</h2>
+            <p><code>camelCase</code>や<code>PascalCase</code>には目に見える区切り文字がありません。そのため、小文字または数字の直後に大文字が続く位置へ区切りを追加します。さらに、<code>XMLHttpRequest</code>のように大文字が連続する入力では、頭字語と次の単語の境界も先に検出します。</p>
+            <pre><code>const toWords = (value) =&gt; value
+  .replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2')
+  .replace(/([a-z0-9])([A-Z])/g, '$1 $2')
+  .replace(/[_-]+/g, ' ')
+  .replace(/[^\p{L}\p{N}\s]+/gu, ' ')
+  .trim()
+  .split(/\s+/)
+  .filter(Boolean)
+  .map((word) =&gt; word.toLocaleLowerCase());</code></pre>
+            <div class="article-callout"><strong>DESIGN NOTE</strong><p>変換結果の品質は、出力側の処理よりも単語をどこで分けるかによって決まります。すべての出力形式が同じ単語配列を参照することで、形式ごとの判定差も防げます。</p></div>
+          </section>
+
+          <section class="article-section reveal" id="section-4" aria-labelledby="section-4-title" data-reveal-threshold="0.01">
+            <p class="section-index">04 / REBUILD</p>
+            <h2 id="section-4-title">9種類のケースへ組み立てる</h2>
+            <p>正規化した単語配列が用意できれば、あとは大文字・小文字と区切り文字の組み合わせです。Space系、ハイフン・アンダースコア系、識別子系の3グループへ整理し、同じ入力結果を比較できるようにしました。</p>
+            <pre><code>INPUT        test text pattern
+
+SPACE CASE   TEST TEXT PATTERN
+space case   test text pattern
+Space Case   Test Text Pattern
+KEBAB-CASE   TEST-TEXT-PATTERN
+kebab-case   test-text-pattern
+SNAKE_CASE   TEST_TEXT_PATTERN
+snake_case   test_text_pattern
+PascalCase   TestTextPattern
+camelCase    testTextPattern</code></pre>
+            <p><code>Space Case</code>は各単語の先頭を大文字にする形式です。見出し候補や表示用ラベルとして使える一方、<code>PascalCase</code>とは異なり単語間のスペースを保持します。</p>
+          </section>
+
+          <section class="article-section reveal" id="section-5" aria-labelledby="section-5-title" data-reveal-threshold="0.01">
+            <p class="section-index">05 / VALIDATION</p>
+            <h2 id="section-5-title">境界値と操作を検証する</h2>
+            <p>通常の文章だけでなく、空入力、連続した区切り文字、先頭や末尾の記号、連続する大文字、日本語と英数字の混在も確認します。どの入力でも同じ正規化処理を通るため、変換形式ごとに結果が食い違っていないかを比較できます。</p>
+            <p>操作面では、入力に合わせた自動更新、空結果の「—」表示、結果がないときのコピーボタン無効化、コピー完了時の状態通知を確認しました。処理はブラウザ内で完結し、入力内容を外部サーバーへ送信しない構成です。</p>
+          </section>
+
+          <section class="article-section reveal" id="section-6" aria-labelledby="section-6-title" data-reveal-threshold="0.01">
+            <p class="section-index">06 / RESULT</p>
+            <h2 id="section-6-title">実装から得た判断</h2>
+            <p>入力の解析と出力の組み立てを分離したことで、新しい変換形式を追加するときも共通の単語配列を利用できるようになりました。また、画面に表示するラベルと処理で使用するキーを分けたことで、表示順や名称を変更しても変換ロジックへ影響しにくい構成になっています。</p>
+            <p>一方で、頭字語を常に大文字で残すか、言語ごとのタイトル表記をどこまで扱うかは用途によって判断が変わります。Text Case Converterでは、結果を予測しやすい共通ルールを優先し、複数形式を並べて比較できることで選択を補助します。</p>
+            <div class="article-callout article-callout--cta">
+              <strong>TRY THE TOOL</strong>
+              <p>HTML、CSS、JavaScriptで使用する命名候補を9形式で比較し、必要な結果をコピーできます。入力内容はブラウザ内で処理され、外部へ送信されません。</p>
+              <a class="button button--primary" href="../tools/text-case-converter.html">TEXT CASE CONVERTERを使う <span>→</span></a>
+            </div>
+          </section>
+        </div>
+      </article>
+    </main>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>
