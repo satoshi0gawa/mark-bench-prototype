@@ -48,8 +48,12 @@ for (const file of detailLinks) {
   if (JSON.stringify(tocTargets) !== JSON.stringify(sectionIds)) {
     failures.push(`${relativePath}: table of contents does not match article sections`);
   }
-  if (!html.includes('article-callout article-callout--cta')) {
-    failures.push(`${relativePath}: related tool CTA is missing`);
+  const ctaType = html.match(/<article class="article-layout"[^>]+data-cta-type="(tool|link|none)"/)?.[1];
+  const hasCta = html.includes('article-callout article-callout--cta');
+  if (!ctaType) failures.push(`${relativePath}: CTA type metadata is missing`);
+  if (ctaType === 'none' && hasCta) failures.push(`${relativePath}: CTA must be omitted when its type is none`);
+  if ((ctaType === 'tool' || ctaType === 'link') && !hasCta) {
+    failures.push(`${relativePath}: ${ctaType} CTA is missing`);
   }
 }
 

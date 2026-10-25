@@ -152,4 +152,6 @@ BUILD LOGS一覧・詳細を静的生成
   -> GitHub Pagesへデプロイ
 ```
 
-ブラウザ側へmicroCMSのAPIキーを置かず、GitHub Actions Secretsで管理します。スキーマと外部サービスの設定手順は`docs/microcms-setup.md`を参照してください。
+ブラウザ側へmicroCMSのAPIキーを置かず、GitHub Actions Secretsで管理します。スキーマと外部サービスの設定手順は`docs/microcms-setup.md`、新規記事の作成・公開手順は`docs/operations/build-log-publishing.md`、Webhook用GitHub PATの交換手順は`docs/operations/github-pat-rotation.md`を参照してください。
+
+公開記事のCTAは、ツールカテゴリーでは関連ツールを必須とし、`SITE`カテゴリーでは関連ツール、任意のHTTPS URL、CTAなしから選択できます。既存記事は`relatedToolId`から従来のツールCTAとして自動判定されます。

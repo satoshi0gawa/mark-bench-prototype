@@ -25,6 +25,56 @@ const detailHtml = renderBuildLogDetail(normalized[0]);
 assert.equal(detailHtml.includes('class="article-layout"'), true);
 assert.equal(detailHtml.includes('class="article-toc reveal"'), true);
 assert.equal(detailHtml.includes('../tools/px-rem-converter.html'), true);
+assert.equal(detailHtml.includes('data-cta-type="tool"'), true);
+
+const createSiteLog = (overrides = {}) => ({
+  ...structuredClone(fixture[0]),
+  id: 'fixture-site-log',
+  logNumber: 'BUILD_LOG_005',
+  title: 'microCMSを活用したWeb制作ロードマップ',
+  slug: 'microcms-web-production-roadmap',
+  category: 'SITE',
+  relatedToolId: '',
+  ctaType: 'none',
+  ctaLabel: '',
+  ctaDescription: '',
+  ctaUrl: '',
+  ...overrides,
+});
+
+const siteWithoutCta = normalizeBuildLogs([createSiteLog()])[0];
+const siteWithoutCtaHtml = renderBuildLogDetail(siteWithoutCta);
+assert.equal(siteWithoutCta.ctaType, 'none');
+assert.equal(siteWithoutCtaHtml.includes('data-cta-type="none"'), true);
+assert.equal(siteWithoutCtaHtml.includes('article-callout--cta'), false);
+
+const siteWithInferredCtaType = normalizeBuildLogs([createSiteLog({ ctaType: undefined })])[0];
+assert.equal(siteWithInferredCtaType.ctaType, 'none');
+
+const siteWithLink = normalizeBuildLogs([createSiteLog({
+  ctaType: 'link',
+  ctaLabel: 'microCMS公式サイトを見る',
+  ctaDescription: 'サービスの機能と導入方法を確認できます。',
+  ctaUrl: 'https://microcms.io/',
+})])[0];
+const siteWithLinkHtml = renderBuildLogDetail(siteWithLink);
+assert.equal(siteWithLinkHtml.includes('data-cta-type="link"'), true);
+assert.equal(siteWithLinkHtml.includes('<strong>RELATED PAGE</strong>'), true);
+assert.equal(siteWithLinkHtml.includes('href="https://microcms.io/"'), true);
+
+assert.throws(
+  () => normalizeBuildLogs([createSiteLog({ category: 'TEXT TOOLS' })]),
+  /require a tool CTA/,
+);
+assert.throws(
+  () => normalizeBuildLogs([createSiteLog({
+    ctaType: 'link',
+    ctaLabel: '外部ページを見る',
+    ctaDescription: '関連情報を確認できます。',
+    ctaUrl: 'http://example.com/',
+  })]),
+  /ctaUrl must use HTTPS/,
+);
 
 const duplicate = structuredClone(fixture);
 duplicate[1].slug = duplicate[0].slug;

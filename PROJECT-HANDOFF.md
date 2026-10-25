@@ -84,7 +84,7 @@
 ページヘッダー
   -> aside.article-toc
   -> 本文（見出し階層、本文、コード、コールアウト）
-  -> 関連ツールへのCTA
+  -> CTA（tool／link。noneの場合は非表示）
 ```
 
 - CTA通常時：ネイビー背景・黄色テキスト
@@ -113,16 +113,25 @@ microCMSで公開・更新・削除
 - `summary`：リード文
 - `category`：カテゴリー
 - `displayDate`：移行記事の日付上書き
-- `relatedToolId`：関連ツール識別子
+- `ctaType`：`tool`、`link`、`none`。既存投稿は関連ツールIDから補完
+- `relatedToolId`：`tool`で使用する関連ツール識別子
 - `sections`：構造化された本文セクション
-- `ctaLabel`：CTA文言
-- `ctaDescription`：CTA説明
+- `ctaLabel`：`tool`または`link`のCTA文言
+- `ctaDescription`：`tool`または`link`のCTA説明
+- `ctaUrl`：`link`で使用するHTTPS URL
 - `readingTime`：所要時間
 - `plannedOrder`：予定記事の表示順
 - `ogImage`：OGP画像
 - microCMS標準の公開日・更新日
 
 APIキーはGitHub Actions Secretsで管理し、ブラウザ向けHTMLやJavaScriptへ出力しません。Webhook失敗に備え、`workflow_dispatch`による手動デプロイも用意します。
+
+公開記事のCTA規則：
+
+- `TEXT TOOLS`、`CODE TOOLS`、`CSS TOOLS`は`tool`必須
+- `SITE`は`tool`、`link`、`none`から選択可能
+- `none`では最終セクションにCTAを生成しない
+- `link`のURLはHTTPSだけを許可
 
 実装済みファイル：
 

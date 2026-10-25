@@ -111,12 +111,14 @@ const renderCallout = (section) => {
 };
 
 const renderCta = (entry) => {
-  const tool = TOOL_CATALOG[entry.relatedToolId];
+  if (entry.ctaType === 'none') return '';
+  const isTool = entry.ctaType === 'tool';
+  const href = isTool ? TOOL_CATALOG[entry.relatedToolId].href : entry.ctaUrl;
   return `
             <div class="article-callout article-callout--cta">
-              <strong>TRY THE TOOL</strong>
+              <strong>${isTool ? 'TRY THE TOOL' : 'RELATED PAGE'}</strong>
               <p>${escapeHtml(entry.ctaDescription)}</p>
-              <a class="button button--primary" href="${tool.href}">${escapeHtml(entry.ctaLabel)} <span>→</span></a>
+              <a class="button button--primary" href="${escapeHtml(href)}">${escapeHtml(entry.ctaLabel)} <span>→</span></a>
             </div>`;
 };
 
@@ -142,7 +144,7 @@ ${renderHead({
   ${renderShellStart({ breadcrumbCurrent: entry.title, breadcrumbParent: true })}
 
     <main id="main" tabindex="-1">
-      <article class="article-layout" aria-labelledby="article-title">
+      <article class="article-layout" aria-labelledby="article-title" data-cta-type="${escapeHtml(entry.ctaType)}">
         <header class="article-header reveal" data-reveal-order="0"><p class="section-index">${escapeHtml(entry.logNumber)} / ${escapeHtml(entry.category)}</p><h1 id="article-title">${escapeHtml(entry.title)}</h1><p class="article-header__lead">${escapeHtml(entry.summary)}</p><div class="note-meta"><span>${date.display}</span><span>${entry.readingTime} MIN READ</span><span>PUBLISHED</span></div></header>
 
         <aside class="article-toc reveal" data-reveal-order="1" aria-label="目次"><p>CONTENTS</p><ol>${entry.sections.map((section, index) => `<li><a href="#section-${index + 1}">${escapeHtml(section.heading)}</a></li>`).join('')}</ol></aside>

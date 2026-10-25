@@ -7,6 +7,7 @@ const ENDPOINT = 'build-logs';
 const PAGE_LIMIT = 100;
 const ALLOWED_STATUSES = new Set(['published', 'planned']);
 const ALLOWED_CATEGORIES = new Set(['TEXT TOOLS', 'CODE TOOLS', 'CSS TOOLS', 'SITE']);
+const ALLOWED_CTA_TYPES = new Set(['tool', 'link', 'none']);
 const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const LOG_NUMBER_PATTERN = /^BUILD_LOG_\d{3}$/;
 const SECTION_NUMBER_PATTERN = /^\d{2}$/;
@@ -25,6 +26,22 @@ const requireText = (value, field, context) => {
 };
 
 const optionalText = (value) => String(value ?? '').trim();
+
+const normalizeHttpsUrl = (value, field, context) => {
+  const normalized = optionalText(value);
+  if (!normalized) return '';
+
+  let url;
+  try {
+    url = new URL(normalized);
+  } catch {
+    throw new Error(`${context}: ${field} must be a valid HTTPS URL`);
+  }
+  if (url.protocol !== 'https:') {
+    throw new Error(`${context}: ${field} must use HTTPS`);
+  }
+  return url.toString();
+};
 
 const normalizeDate = (value, field, context, required = false) => {
   if (!value && !required) return null;
@@ -124,6 +141,12 @@ const normalizeLog = (entry, index) => {
     throw new Error(`${context}: unknown relatedToolId ${relatedToolId}`);
   }
 
+  const explicitCtaType = optionalText(normalizeSelection(entry?.ctaType));
+  if (explicitCtaType && !ALLOWED_CTA_TYPES.has(explicitCtaType)) {
+    throw new Error(`${context}: ctaType must be tool, link, or none`);
+  }
+  const ctaType = explicitCtaType || (relatedToolId ? 'tool' : category === 'SITE' ? 'none' : '');
+
   const publishedAt = normalizeDate(entry?.publishedAt, 'publishedAt', context, displayStatus === 'published');
   const displayDate = normalizeDate(entry?.displayDate, 'displayDate', context) || publishedAt;
   const sections = Array.isArray(entry?.sections)
@@ -162,9 +185,11 @@ const normalizeLog = (entry, index) => {
     publishedAt,
     updatedAt: normalizeDate(entry?.updatedAt, 'updatedAt', context),
     readingTime,
+    ctaType,
     relatedToolId,
     ctaLabel: optionalText(entry?.ctaLabel),
     ctaDescription: optionalText(entry?.ctaDescription),
+    ctaUrl: normalizeHttpsUrl(entry?.ctaUrl, 'ctaUrl', context),
     ogImage,
     plannedOrder: Number(entry?.plannedOrder) || 0,
     sections,
@@ -173,10 +198,29 @@ const normalizeLog = (entry, index) => {
   if (displayStatus === 'published') {
     requireText(normalized.summary, 'summary', context);
     if (!normalized.readingTime) throw new Error(`${context}: readingTime is required`);
-    if (!normalized.relatedToolId) throw new Error(`${context}: relatedToolId is required`);
-    requireText(normalized.ctaLabel, 'ctaLabel', context);
-    requireText(normalized.ctaDescription, 'ctaDescription', context);
     if (!normalized.sections.length) throw new Error(`${context}: at least one section is required`);
+
+    if (normalized.category !== 'SITE' && normalized.ctaType !== 'tool') {
+      throw new Error(`${context}: published ${normalized.category} logs require a tool CTA`);
+    }
+
+    if (normalized.ctaType === 'tool') {
+      if (!normalized.relatedToolId) throw new Error(`${context}: relatedToolId is required for a tool CTA`);
+      requireText(normalized.ctaLabel, 'ctaLabel', context);
+      requireText(normalized.ctaDescription, 'ctaDescription', context);
+      if (normalized.ctaUrl) throw new Error(`${context}: ctaUrl must be empty for a tool CTA`);
+    } else if (normalized.ctaType === 'link') {
+      if (normalized.relatedToolId) throw new Error(`${context}: relatedToolId must be empty for a link CTA`);
+      requireText(normalized.ctaUrl, 'ctaUrl', context);
+      requireText(normalized.ctaLabel, 'ctaLabel', context);
+      requireText(normalized.ctaDescription, 'ctaDescription', context);
+    } else if (normalized.ctaType === 'none') {
+      if (normalized.relatedToolId || normalized.ctaLabel || normalized.ctaDescription || normalized.ctaUrl) {
+        throw new Error(`${context}: CTA fields must be empty when ctaType is none`);
+      }
+    } else {
+      throw new Error(`${context}: ctaType is required`);
+    }
   }
 
   return normalized;
