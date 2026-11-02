@@ -2131,7 +2131,7 @@ body[data-page="about"] {
 .article-body table { width: 100%; min-width: 34rem; border-collapse: collapse; }
 .article-body :is(th, td) { padding: 0.9rem 1rem; text-align: left; vertical-align: top; border: var(--border); }
 .article-body th { color: var(--color-text-inverse); font-family: var(--font-mono); font-size: 0.68rem; background: var(--color-primary); }
-.article-body th p { color: inherit; }
+.article-body th p { margin: 0; color: inherit; }
 .article-body td { color: #394254; font-size: 0.86rem; }
 .article-callout { margin: 2rem 0 0; padding: 1.5rem; background: var(--color-primary-soft); border-left: 3px solid var(--color-primary); }
 .article-callout strong { font-family: var(--font-mono); font-size: 0.65rem; }
