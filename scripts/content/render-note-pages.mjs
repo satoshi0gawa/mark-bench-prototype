@@ -219,6 +219,22 @@ const replaceNoteList = (html, rows, className) => {
   return html.replace(pattern, (_match, opening, closing) => `${opening}\n${rows}\n        ${closing}`);
 };
 
+const countCodingNotes = async (output) => {
+  const file = join(output, 'build-notes/coding-note/index.html');
+  const html = await readFile(file, 'utf8');
+  return [...html.matchAll(/<a\b[^>]*class="[^"]*\bcoding-note-card\b[^"]*"[^>]*>/g)].length;
+};
+
+const updateHomeIndex = async (output, codingNoteCount, noteToSelfCount) => {
+  const file = join(output, 'index.html');
+  let html = await readFile(file, 'utf8');
+  const total = codingNoteCount + noteToSelfCount;
+  const pattern = /(<span class="home-tree__status" data-build-notes-count>)[^<]*(<\/span>)/;
+  if (!pattern.test(html)) throw new Error('HOME BUILD NOTES count target not found');
+  html = html.replace(pattern, `$1${twoDigits(total)} NOTES$2`);
+  await writeFile(file, html);
+};
+
 const updateNoteArchive = async (output, entries) => {
   const file = join(output, 'build-notes/note-to-self/index.html');
   let html = await readFile(file, 'utf8');
@@ -235,10 +251,15 @@ const updateNoteArchive = async (output, entries) => {
   await writeFile(file, html);
 };
 
-const updateBuildNotesIndex = async (output, entries) => {
+const updateBuildNotesIndex = async (output, entries, codingNoteCount) => {
   const file = join(output, 'build-notes/index.html');
   let html = await readFile(file, 'utf8');
+  html = html.replace(/CODING NOTE: \d+/, `CODING NOTE: ${twoDigits(codingNoteCount)}`);
   html = html.replace(/NOTE to SELF: \d+/, `NOTE to SELF: ${twoDigits(entries.length)}`);
+  html = html.replace(
+    /(<span>CODING_NOTE_ARCHIVE<\/span><span>)\d+ NOTES/,
+    `$1${twoDigits(codingNoteCount)} NOTES`,
+  );
 
   const start = html.indexOf('<section class="build-log-overview build-log-overview--note-to-self');
   const end = html.indexOf('</section>', start);
@@ -257,10 +278,12 @@ const updateBuildNotesIndex = async (output, entries) => {
 };
 
 export const renderNotePages = async ({ output, entries }) => {
+  const codingNoteCount = await countCodingNotes(output);
   for (const article of entries) {
     await writeFile(join(output, article.outputPath), renderDetailPage(article));
   }
   await updateNoteArchive(output, entries);
-  await updateBuildNotesIndex(output, entries);
+  await updateBuildNotesIndex(output, entries, codingNoteCount);
+  await updateHomeIndex(output, codingNoteCount, entries.length);
   return entries.map((entry) => entry.outputPath);
 };

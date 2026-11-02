@@ -10,13 +10,22 @@ const count = (value, pattern) => [...value.matchAll(pattern)].length;
 export const checkNoteBuild = async (output, sourceEntries) => {
   const entries = sourceEntries || normalizeBlogEntries(fixture);
   const archive = await readFile(join(output, 'build-notes/note-to-self/index.html'), 'utf8');
+  const codingArchive = await readFile(join(output, 'build-notes/coding-note/index.html'), 'utf8');
   const buildNotes = await readFile(join(output, 'build-notes/index.html'), 'utf8');
+  const home = await readFile(join(output, 'index.html'), 'utf8');
+  const codingNoteCount = count(codingArchive, /<a\b[^>]*class="[^"]*\bcoding-note-card\b[^"]*"[^>]*>/g);
 
   assert.equal(count(archive, /<a class="note-row"/g), entries.length);
   assert.equal(count(buildNotes, /<a class="note-row"/g), Math.min(entries.length, 5));
   assert.ok(!archive.includes('test-notetoself'));
   assert.ok(!buildNotes.includes('test-notetoself'));
   assert.ok(buildNotes.includes('test-codingnote-00.html'), 'CODING NOTE static cards must remain unchanged');
+  assert.ok(buildNotes.includes(`CODING NOTE: ${String(codingNoteCount).padStart(2, '0')}`));
+  assert.ok(buildNotes.includes(`CODING_NOTE_ARCHIVE</span><span>${String(codingNoteCount).padStart(2, '0')} NOTES`));
+  assert.ok(
+    home.includes(`data-build-notes-count>${String(codingNoteCount + entries.length).padStart(2, '0')} NOTES</span>`),
+    'HOME must show the total number of visible BUILD NOTES',
+  );
 
   for (const article of entries) {
     const file = join(output, article.outputPath);
