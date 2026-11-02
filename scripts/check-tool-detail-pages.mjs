@@ -79,6 +79,8 @@ for (const actionAttribute of [
 ]) {
   assert.match(styles, new RegExp(`\\[${actionAttribute}\\]`, 'u'), `${actionAttribute} should use the shared tool action treatment`);
 }
+assert.match(styles, /data-tool-id="markdown-preview-editor"[^}]*button\[data-download-markdown\] \{\s*--markdown-download-gutter: 0\.5rem;[\s\S]*?min-height: 4rem;[\s\S]*?margin: var\(--markdown-download-gutter\);[\s\S]*?font-size: 0\.58rem;[\s\S]*?background: var\(--color-primary\);[\s\S]*?box-shadow: 0 0 0 var\(--markdown-download-gutter\) var\(--color-primary\);/u);
+assert.match(styles, /button\[data-download-markdown\]:not\(:disabled\):hover \{\s*color: var\(--color-primary\);\s*background: var\(--color-accent-yellow\);/u);
 assert.match(componentStyles, /body\[data-page="tools"\]\[data-tool-id\] \.site-breadcrumb-logo__current/u);
 assert.match(componentStyles, /\.toast:is\(\[data-toast-tone="copy"\], \[data-toast-tone="download"\]\) \{\s*color: var\(--color-accent-yellow\);\s*font-weight: 700;/u);
 assert.match(componentStyles, /body\[data-page="tools"\]\[data-tool-id\] \.toast \{\s*text-align: center;\s*\}/u);
