@@ -1,0 +1,243 @@
+# MARK BENCH サイト仕様・開発運用
+
+この文書は、MARK BENCHの現行実装と開発・公開手順の正本です。公開READMEには概要だけを残し、変わりやすい技術仕様と運用情報をここで管理します。
+
+## 1. サイト概要
+
+- サイト名：MARK BENCH
+- 公開URL：<https://satoshi0gawa.github.io/mark-bench-prototype/>
+- 目的：Web制作で使うツール、再利用可能なUIパーツ、制作・運用メモの集約
+- フロントエンド：HTML / CSS / Vanilla JavaScript
+- 静的生成：Node.js
+- ホスティング：GitHub Pages
+
+## 2. コンテンツと管理元
+
+| セクション | 管理方法 | 主な配置 |
+| --- | --- | --- |
+| TOOLS | Git上の静的HTML・JavaScript | `tools/` |
+| WEB PARTS | Git上の静的HTML・CSS・JavaScript | `web-parts/` |
+| CODING NOTE | 個別の静的HTML | `build-notes/coding-note/` |
+| NOTE to SELF | microCMSを正本として静的生成 | `build-notes/note-to-self/` |
+| ABOUT | Git上の静的HTML | `about.html` |
+
+microCMSの管理対象は`NOTE to SELF`だけです。CODING NOTE、TOOLS、WEB PARTS、ABOUTはGit側で管理します。`dist/`はビルド生成物のため直接編集しません。
+
+## 3. ディレクトリと編集責務
+
+```text
+/
+├── assets/                         画像、アイコン、OG画像
+├── build-notes/
+│   ├── coding-note/                静的な実装メモ
+│   └── note-to-self/               microCMS生成記事
+├── css/
+│   ├── foundation.css              トークン、リセット、基礎スタイル
+│   ├── components.css              共通UIコンポーネント
+│   ├── pages.css                   ページ固有レイアウト
+│   ├── tools.css                   TOOLS固有スタイル
+│   └── web-parts.css               WEB PARTS固有スタイル
+├── docs/                            現行仕様と監査記録
+├── js/
+│   ├── main.js                     共通ナビゲーション、表示制御
+│   ├── tools.js                    TOOLS一覧
+│   └── tool.js                     TOOLS詳細共通処理
+├── microcms/                       スキーマ例、Fixture、運用資料
+├── scripts/                        検証、head同期、静的生成
+├── tools/                          ツール一覧・詳細ページ
+├── web-parts/                      UIパーツ一覧・詳細ページ
+├── site.config.mjs                 URL、SEO、favicon等の共通設定
+└── package.json                    実行スクリプトと依存関係
+```
+
+### 編集時の基本方針
+
+- 色、フォント、余白などの共通値は`css/foundation.css`のトークンを優先する
+- 複数ページで使うUIは`css/components.css`へ置く
+- ページ固有の構造調整は`css/pages.css`または専用CSSへ置く
+- GitHub Pagesのリポジトリ配下URLを考慮し、ルート絶対パスへの一括置換を避ける
+- 動的クラスや`data-*`属性をJavaScriptが参照しているため、未使用判定だけで一括削除しない
+
+## 4. サイト共通デザイン・UI
+
+### タイポグラフィ
+
+- UI・英数字：Space Mono
+- 日本語：BIZ UDPGothic
+- フォントはGoogle Fontsから読み込む
+
+### カラー
+
+- 主色：ネイビー
+- アクセント：黄色
+- 背景、境界線、テキスト、状態色は共通トークンから参照する
+- 通常文字と背景のコントラストを確保し、色だけに依存した状態表現を避ける
+
+### レイアウト
+
+- PC：左側パンくずレール、中央メインエリア、右側サイトナビゲーション
+- Tablet以下：上部パンくずと横並びナビゲーションへ切り替え
+- 最小表示幅：320px
+- コードやテーブルなど幅を持つ要素は、ページ全体ではなく要素内で横スクロールさせる
+
+### インタラクションとアクセシビリティ
+
+- キーボードだけで主要操作を完了できる状態を保つ
+- フォーカス表示を消さない
+- リンクとボタンは役割に応じたHTML要素を使う
+- ホバー時の色変更と矢印移動は共通トランジションを使う
+- `prefers-reduced-motion`では不要なアニメーションを省略する
+
+## 5. ページ別仕様
+
+### TOOLS
+
+- 一覧はカテゴリとキーワードで絞り込める
+- ツール処理は原則ブラウザ内で完結し、入力内容を外部送信しない
+- 詳細ページはツール本体、使い方、仕様、共通フッターで構成する
+- ツール追加時は一覧カード、件数、対応する検証スクリプトも更新する
+
+### WEB PARTS
+
+- 一覧でカテゴリ、パターン数、状態を管理する
+- 詳細ページの掲載コードは`c-`接頭辞とBEM形式で統一する
+- JSなしページはHTML・CSS、JSありページはHTML・CSS・JavaScriptを掲載する
+- コード領域は固定高とし、内容が収まらない場合だけ領域内で縦横スクロールする
+- PCは2列、1279px以下は1列表示を基本とする
+
+### BUILD NOTES
+
+- 一覧はCODING NOTE、NOTE to SELFの順に表示する
+- CODING NOTEはGit上の静的ページとして追加する
+- NOTE to SELFはmicroCMSから一覧と詳細ページを生成する
+- 記事本文のテーブルは小さい画面で要素内横スクロールを許可する
+- 参照リンクは記事データに存在する場合だけ表示する
+
+## 6. ローカル起動
+
+推奨環境はNode.js 22.12以上です。
+
+```bash
+npm ci
+npm run dev
+```
+
+表示先は`http://localhost:4173/`です。終了は実行中のターミナルで`Ctrl+C`を使用します。別ポートを使う場合は`PORT`環境変数で指定します。
+
+## 7. 検証
+
+基本の検証は次の順で実行します。
+
+```bash
+npm run check
+npm run check:detail
+npm run build
+```
+
+用途別の主なコマンドは次のとおりです。
+
+| コマンド | 対象 |
+| --- | --- |
+| `npm run check` | HTMLとローカル参照 |
+| `npm run check:seo` | head、canonical、OGP、favicon、構造化データ |
+| `npm run check:detail` | TOOLS詳細ページの構成 |
+| `npm run check:content` | microCMS記事データ |
+| `npm run check:sanitize` | CMS本文のサニタイズ |
+| `npm run check:secrets` | 公開成果物への秘密情報混入 |
+| `npm run check:note-build` | NOTE to SELFのFixture生成 |
+
+ツール固有処理を変更した場合は、`package.json`に定義された対応する`check:*`も実行します。
+
+## 8. 静的ビルド
+
+通常のローカル確認ではFixture記事を使う静的ビルドを実行します。
+
+```bash
+npm run build
+```
+
+`npm run build`は`npm run build:fixture`と同じ処理です。生成先は`dist/`で、既存の静的ファイルとFixtureから生成したNOTE to SELFを配置します。
+
+microCMSの実データを明示的に使う場合は次を実行します。
+
+```bash
+MICROCMS_SERVICE_DOMAIN=your-service-id \
+MICROCMS_API_KEY=your-get-only-api-key \
+npm run build:cms
+```
+
+ローカル確認用の値をGit管理ファイルへ保存しないでください。
+
+## 9. microCMS
+
+- APIエンドポイント：`blog`
+- 管理対象：`NOTE to SELF`のみ
+- APIキー：GET専用
+- GitHub Actions Variable：`MICROCMS_SERVICE_DOMAIN`
+- GitHub Actions Secret：`MICROCMS_API_KEY`
+- Webhook：GitHub Actionsの`repository_dispatch`
+- イベント名：`microcms_blog_update`
+
+スキーマ、入力ルール、Fixture、生成先の詳細は[`microcms/README.md`](../microcms/README.md)を参照してください。導入時の検討履歴は[`MICROCMS-INTEGRATION-MEMO.md`](../MICROCMS-INTEGRATION-MEMO.md)に残します。
+
+## 10. GitHub Actions・GitHub Pages
+
+- `Validate`：pull request、`main`へのpush、手動実行で検証する
+- `Deploy GitHub Pages`：`main`へのpush、手動実行、microCMS Webhookで静的生成して公開する
+- 公開元はGitHub Actionsを使用する
+- APIキーなどの機密値はRepository Secretsに保存する
+- microCMS Webhook用のGitHubトークンは対象リポジトリだけに限定し、必要最小限の権限を付与する
+
+`main`へpushした後は、両ワークフローの成功と公開URLの表示を確認します。
+
+## 11. Head・SEO・公開URL
+
+共通設定は`site.config.mjs`で管理します。HTMLの追加やタイトル、description、公開URL、favicon、OG画像の変更時は次を実行します。
+
+```bash
+npm run sync:head
+npm run check:seo
+```
+
+主な方針は次のとおりです。
+
+- 公開URLは`siteConfig.baseUrl`を正本とする
+- 各ページへ一意の`title`とdescriptionを付ける
+- canonical、Open Graph、Twitter Card、favicon、テーマカラーを全ページで整合させる
+- 記事詳細ではArticle構造化データを生成する
+- `test-`で始まる検証ページはnoindexとする
+- 生成済みHTMLを手編集せず、設定・テンプレート・生成元を修正する
+
+## 12. Git運用
+
+変更前後で差分を確認し、目的に関係するファイルだけをステージングします。
+
+```bash
+git status --short
+git diff
+git add <変更したファイル>
+git diff --cached
+git commit -m "type: concise summary"
+git push
+```
+
+コミット例：
+
+- `docs: update public project documentation`
+- `fix: improve article table contrast`
+- `feat: add a new web tool`
+
+毎回同じ`Add initial website`を使わず、変更内容が分かるメッセージにします。
+
+## 13. ドキュメントの役割
+
+| ファイル | 役割 |
+| --- | --- |
+| `README.md` | 公開向けの短い概要 |
+| `docs/SITE-SPEC.md` | 現行仕様と開発・公開手順の正本 |
+| `PROJECT-HANDOFF.md` | 新しいチャット・作業環境向けの再開手順 |
+| `microcms/README.md` | microCMSスキーマと記事運用 |
+| `MICROCMS-INTEGRATION-MEMO.md` | microCMS導入時の設計判断・検討履歴 |
+| `docs/github-pages-migration-audit.md` | 旧Git履歴と公開移行の監査記録 |
+
+仕様変更時はまずこの文書を更新し、READMEや引き継ぎ文書へ同じ詳細を重複させない方針とします。
