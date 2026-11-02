@@ -240,9 +240,9 @@ npm run check:secrets
 - 入力内容とツール処理はブラウザ内で完結
 - `prefers-reduced-motion`に対応
 
-## 次期構成
+## 公開構成
 
-NOTE to SELFの投稿管理をmicroCMSへ移行し、GitHub Actionsで静的HTMLを生成してGitHub Pagesへデプロイする予定です。CODING NOTEは個別静的ページとして管理します。
+NOTE to SELFの投稿管理だけをmicroCMSへ移行し、GitHub Actionsで静的HTMLを生成してGitHub Pagesへデプロイします。CODING NOTEは個別静的ページとして管理します。
 
 ```text
 microCMS
@@ -254,6 +254,13 @@ NOTE to SELF一覧・詳細とBUILD NOTES入口の最新記事領域を静的生
 ```
 
 ブラウザ側へmicroCMSのAPIキーを置かず、GitHub Actions Secretsで管理します。詳細は`PROJECT-HANDOFF.md`を参照してください。
+
+- `.github/workflows/check.yml`：push、pull request、手動実行でfixtureを使った検証・ビルドを行う
+- `.github/workflows/pages.yml`：mainへのpush、microCMS用`repository_dispatch`、手動実行で本番ビルドを行う
+- Repository Variable：`MICROCMS_SERVICE_DOMAIN`
+- Repository Secret：`MICROCMS_API_KEY`
+
+VariableとSecretが両方未登録の場合、Pagesデプロイは安全にスキップします。片方だけ登録されている場合は設定不備として失敗します。両方を登録した後、`Deploy GitHub Pages`を手動実行して初回公開を確認します。
 
 ## Head・SEO・GitHub Pages公開設定
 

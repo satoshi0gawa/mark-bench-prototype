@@ -63,6 +63,17 @@ npm run build:cms
 
 API未接続でも、`content/blog.fixture.mjs`を使って内部モデル、スキーマ、生成HTMLを検証できる。
 
+## GitHub Actions設定
+
+リポジトリのSettingsから次を登録する。
+
+- Actions variable：`MICROCMS_SERVICE_DOMAIN`
+- Actions secret：`MICROCMS_API_KEY`
+
+`.github/workflows/pages.yml`は両方が未登録の間はデプロイをスキップし、片方だけ登録された場合は失敗する。両方を登録した後、Actionsの`Deploy GitHub Pages`から手動実行してContent API取得と初回デプロイを確認する。
+
+記事更新用イベント名は`microcms_blog_update`とする。Webhook連携は初回デプロイ確認後に設定する。
+
 ## 参考
 
 - [APIスキーマのエクスポート／インポート](https://document.microcms.io/manual/export-and-import-api-schema)

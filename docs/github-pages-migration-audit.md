@@ -99,9 +99,11 @@ npm run build  : 63 indexable pages生成成功
 8. `fixture`／`microcms`ビルドモードとAPI取得のモック検証を追加
 9. `sanitize-html@2.18.1`による許可リスト型のリッチHTML無害化を追加
 10. `dist/`へのAPIキー値・資格情報マーカー混入検査をビルドへ統合
+11. 公開GitHubリポジトリを作成し、復元済み履歴と現行統合コミットを`main`へpush
+12. fixture検証用Actionsと、microCMS本番生成用PagesデプロイActionsを追加
 
 次の実装：
 
-1. GitHubリポジトリを再作成し、履歴付きでpushする
-2. GitHub Pages用の検証・デプロイワークフローとSecretsを追加する
-3. microCMS Webhookと手動再実行を追加する
+1. GitHubへ`MICROCMS_SERVICE_DOMAIN` Variableと`MICROCMS_API_KEY` Secretを登録する
+2. Pagesの初回手動デプロイを実行して公開URLを検証する
+3. microCMS Webhookから`microcms_blog_update`を送信する連携を追加する

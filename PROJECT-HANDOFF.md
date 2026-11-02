@@ -184,6 +184,8 @@ microCMSで公開・更新・削除
 
 APIキーはGitHub Actions Secretsで管理し、ブラウザ向けHTMLやJavaScriptへ出力しません。リッチエディタHTMLは`sanitize-html@2.18.1`の許可リストで無害化し、ビルド時に`dist/`への資格情報混入も検査します。Webhook失敗に備え、`workflow_dispatch`による手動デプロイも用意します。
 
+検証用`.github/workflows/check.yml`とPages用`.github/workflows/pages.yml`は実装済みです。Pages用ワークフローはRepository Variable `MICROCMS_SERVICE_DOMAIN`とRepository Secret `MICROCMS_API_KEY`が両方揃った場合だけ本番生成・デプロイへ進みます。microCMS更新時の`repository_dispatch`イベント名は`microcms_blog_update`です。
+
 ## 推奨実装順
 
 1. `test-notetoself-00.html`を基準にNOTE to SELFの詳細テンプレートを抽出する

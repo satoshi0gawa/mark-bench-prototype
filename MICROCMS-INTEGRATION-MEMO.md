@@ -343,7 +343,7 @@ fixtureには最低限、以下の3記事を用意する。
 
 ## 15. GitHub ActionsとSecrets
 
-想定Variable・Secret：
+使用するVariable・Secret：
 
 - Variable：`MICROCMS_SERVICE_DOMAIN`
 - Secret：`MICROCMS_API_KEY`
@@ -357,6 +357,8 @@ fixtureには最低限、以下の3記事を用意する。
 Content API取得失敗、検証失敗、HTML生成失敗、リンク検証失敗のいずれかが発生した場合はデプロイしない。
 
 APIキーを含むHTTPヘッダー、完全なレスポンス、Secretsをデバッグログへ出力しない。
+
+**実装済み**：`.github/workflows/check.yml`はfixtureによるソース検証と静的ビルドを行う。`.github/workflows/pages.yml`は`MICROCMS_SERVICE_DOMAIN`と`MICROCMS_API_KEY`が揃った場合だけ本番ビルドへ進み、片方だけの場合は失敗する。Actionは確認済みの完全コミットSHAへ固定し、権限はジョブごとに必要最小限へ限定する。microCMS更新イベント名は`microcms_blog_update`とする。
 
 ## 16. API取得時の考慮事項
 

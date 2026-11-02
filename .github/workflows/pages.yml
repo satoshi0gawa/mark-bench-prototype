@@ -1,0 +1,104 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  repository_dispatch:
+    types: [microcms_blog_update]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  configuration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      deploy-enabled: ${{ steps.credentials.outputs.deploy-enabled }}
+    steps:
+      - name: Check microCMS configuration
+        id: credentials
+        shell: bash
+        env:
+          MICROCMS_SERVICE_DOMAIN: ${{ vars.MICROCMS_SERVICE_DOMAIN }}
+          MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
+        run: |
+          if [[ -z "$MICROCMS_SERVICE_DOMAIN" && -z "$MICROCMS_API_KEY" ]]; then
+            echo "deploy-enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Pages deployment is disabled until MICROCMS_SERVICE_DOMAIN and MICROCMS_API_KEY are configured."
+            exit 0
+          fi
+
+          if [[ -z "$MICROCMS_SERVICE_DOMAIN" || -z "$MICROCMS_API_KEY" ]]; then
+            echo "::error::Configure both the MICROCMS_SERVICE_DOMAIN repository variable and MICROCMS_API_KEY repository secret."
+            exit 1
+          fi
+
+          echo "deploy-enabled=true" >> "$GITHUB_OUTPUT"
+
+  build:
+    if: needs.configuration.outputs.deploy-enabled == 'true'
+    needs: configuration
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: 22.12.0
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Validate source and content model
+        run: npm run check
+
+      - name: Validate tool detail pages
+        run: npm run check:detail
+
+      - name: Build from microCMS
+        run: npm run build:cms
+        env:
+          MICROCMS_SERVICE_DOMAIN: ${{ vars.MICROCMS_SERVICE_DOMAIN }}
+          MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5
+        with:
+          path: dist
+          include-hidden-files: true
+
+  deploy:
+    if: needs.configuration.outputs.deploy-enabled == 'true' && needs.build.result == 'success'
+    needs: [configuration, build]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5
