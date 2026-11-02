@@ -175,7 +175,7 @@
           "name": "ツールID",
           "kind": "text",
           "description": "tools/{toolId}.htmlのファイル名部分を入力します。",
-          "required": true,
+          "required": false,
           "isUnique": false,
           "patternMatchValidation": {
             "regexp": { "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$", "flags": null }
@@ -186,7 +186,7 @@
           "fieldId": "label",
           "name": "CTAラベル",
           "kind": "text",
-          "required": true,
+          "required": false,
           "isUnique": false,
           "textSizeLimitValidation": { "textSize": { "min": 1, "max": 100 } }
         },
@@ -194,7 +194,7 @@
           "fieldId": "description",
           "name": "CTA概要",
           "kind": "textArea",
-          "required": true,
+          "required": false,
           "textSizeLimitValidation": { "textSize": { "min": 1, "max": 240 } }
         }
       ]

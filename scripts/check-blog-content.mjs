@@ -19,6 +19,15 @@ assert.equal(normalized[2].seo.description, normalized[2].summary);
 assert.ok(normalized.every((entry) => entry.outputPath.startsWith(`${BLOG_OUTPUT_DIRECTORY}/`)));
 assert.ok(normalized.every((entry) => !Object.hasOwn(entry, 'articleType')));
 
+const blankRelatedTool = structuredClone(fixture);
+blankRelatedTool[1].relatedTool = {
+  fieldId: 'relatedTool',
+  toolId: '',
+  label: '',
+  description: '',
+};
+assert.equal(normalizeBlogEntries(blankRelatedTool)[1].relatedTool, null);
+
 const invalidFixture = (mutate) => {
   const copy = structuredClone(fixture);
   mutate(copy);
@@ -43,7 +52,7 @@ assert.throws(
 );
 assert.throws(
   () => normalizeBlogEntries(invalidFixture((entries) => { delete entries[0].relatedTool.label; })),
-  /relatedTool: label is required/,
+  /toolId, label, and description must be supplied together/,
 );
 assert.throws(
   () => normalizeBlogEntries(invalidFixture((entries) => {
@@ -91,5 +100,8 @@ assert.equal(slugField.patternMatchValidation.regexp.pattern, '^[a-z0-9]+(?:-[a-
 const sectionsField = schema.apiFields.find((field) => field.fieldId === 'sections');
 assert.equal(sectionsField.required, true);
 assert.equal(sectionsField.repeaterCountLimitValidation.repeatCount.min, 1);
+
+const relatedToolField = schema.customFields.find((field) => field.fieldId === 'relatedTool');
+assert.ok(relatedToolField.fields.every((field) => field.required === false));
 
 console.log(`NOTE to SELF content validation passed: ${normalized.length} fixture entries and microCMS schema.`);

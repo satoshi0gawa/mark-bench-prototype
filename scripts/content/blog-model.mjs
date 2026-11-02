@@ -88,16 +88,22 @@ const normalizeReferences = (references, context) => {
 };
 
 const normalizeRelatedTool = (relatedTool, context) => {
-  if (!relatedTool || Object.keys(relatedTool).every((key) => key === 'fieldId')) return null;
+  if (!relatedTool) return null;
   validateFieldId(relatedTool.fieldId, 'relatedTool', `${context} relatedTool`);
-  const toolId = requireText(relatedTool.toolId, 'toolId', `${context} relatedTool`);
+  const toolId = optionalText(relatedTool.toolId);
+  const label = optionalText(relatedTool.label);
+  const description = optionalText(relatedTool.description);
+  if (![toolId, label, description].some(Boolean)) return null;
+  if (![toolId, label, description].every(Boolean)) {
+    throw new Error(`${context} relatedTool: toolId, label, and description must be supplied together`);
+  }
   if (!TOOL_ID_PATTERN.test(toolId)) {
     throw new Error(`${context} relatedTool: toolId must use lowercase letters, numbers, and hyphens`);
   }
   return {
     toolId,
-    label: requireText(relatedTool.label, 'label', `${context} relatedTool`),
-    description: requireText(relatedTool.description, 'description', `${context} relatedTool`),
+    label,
+    description,
   };
 };
 
