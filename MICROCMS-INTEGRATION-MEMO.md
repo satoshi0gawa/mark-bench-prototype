@@ -84,6 +84,7 @@ API名・エンドポイント：`blog`
 | `sections` | 本文セクション | 繰り返しフィールド | 必須 | 1件以上。後述の`articleSection`を順番に保持 |
 | `references` | 参照リンク | 繰り返しフィールド | 任意 | 0件ならREFERENCES全体を出力しない |
 | `relatedTool` | 関連ツール | カスタムフィールド | 任意 | 関連ツールCTA。未登録ならCTAを出力しない |
+| `relatedWebPart` | 関連WEB PARTS | カスタムフィールド | 任意 | 関連WEB PARTS CTA。未登録ならCTAを出力しない |
 | `seo` | SEO設定 | カスタムフィールド | 任意 | SEOタイトル、SEO概要、OGP画像。未登録項目は通常フィールドと共通画像へフォールバック |
 
 公開日の表示にはmicroCMS標準の`publishedAt`を使用する。`createdAt`は投稿日として使用しない。`updatedAt`は初期表示に含めない。
@@ -131,6 +132,20 @@ API名・エンドポイント：`blog`
 
 TOOLSも将来microCMSへ移行する場合は、コンテンツ参照への変更ではなく新フィールドを作成して移行する。microCMSでは既存フィールドの種類を後から変更できないためである。
 
+### 関連WEB PARTS用カスタムフィールド
+
+WEB PARTSはGit側の静的ページとして管理するため、関連ツールと同様にローカルページへリンクするカスタムフィールドとする。
+
+カスタムフィールド名：`relatedWebPart`
+
+| フィールドID | 表示名 | 型 | 必須 | 用途 |
+| --- | --- | --- | --- | --- |
+| `partId` | WEB PARTS ID | テキストフィールド | 必須 | `web-parts/{partId}.html`の識別子 |
+| `label` | CTA文言 | テキストフィールド | 必須 | CTAの表示テキスト |
+| `description` | CTA概要 | テキストエリア | 必須 | CTAの説明文 |
+
+記事には`relatedTool`または`relatedWebPart`のどちらか一方だけを登録する。両方が入力された場合は、CTAの重複を避けるためビルドエラーとして扱う。
+
 ## 6. 生成後のHTML構造
 
 基準ファイル：`build-notes/note-to-self/test-notetoself-00.html`
@@ -172,6 +187,10 @@ if (article.references?.length > 0) {
 ### 関連ツールCTA
 
 `relatedTool`が有効な場合だけCTAを生成する。入力が不完全な場合はビルドエラーとして扱い、リンク切れのCTAを公開しない。
+
+### 関連WEB PARTS CTA
+
+`relatedWebPart`が有効な場合だけ最終セクションの末尾へCTAを生成する。リンク先は`web-parts/{partId}.html`とし、入力が不完全な場合、対象ファイルが存在しない場合、`relatedTool`と同時入力された場合はビルドエラーとして扱う。
 
 ### OGP画像
 
@@ -329,7 +348,8 @@ Content API接続前に、microCMSのレスポンスを模したJSON fixtureで�
 fixtureには最低限、以下の3記事を用意する。
 
 1. REFERENCESあり、テーブルあり、関連ツールあり
-2. REFERENCESなし、テーブルなし、関連ツールなし
+2. REFERENCESなし、テーブルなし、関連WEB PARTSあり
+3. REFERENCESなし、テーブルなし、CTAなし
 3. 長い見出し、参照リンクあり
 
 確認項目：

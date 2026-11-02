@@ -5,6 +5,7 @@ export const BLOG_OUTPUT_DIRECTORY = 'build-notes/note-to-self';
 
 const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const TOOL_ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const WEB_PART_ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 const requireText = (value, field, context) => {
   const normalized = String(value ?? '').trim();
@@ -107,6 +108,26 @@ const normalizeRelatedTool = (relatedTool, context) => {
   };
 };
 
+const normalizeRelatedWebPart = (relatedWebPart, context) => {
+  if (!relatedWebPart) return null;
+  validateFieldId(relatedWebPart.fieldId, 'relatedWebPart', `${context} relatedWebPart`);
+  const partId = optionalText(relatedWebPart.partId);
+  const label = optionalText(relatedWebPart.label);
+  const description = optionalText(relatedWebPart.description);
+  if (![partId, label, description].some(Boolean)) return null;
+  if (![partId, label, description].every(Boolean)) {
+    throw new Error(`${context} relatedWebPart: partId, label, and description must be supplied together`);
+  }
+  if (!WEB_PART_ID_PATTERN.test(partId)) {
+    throw new Error(`${context} relatedWebPart: partId must use lowercase letters, numbers, and hyphens`);
+  }
+  return {
+    partId,
+    label,
+    description,
+  };
+};
+
 const normalizeSeo = (seo, context) => {
   if (!seo || Object.keys(seo).every((key) => key === 'fieldId')) return null;
   validateFieldId(seo.fieldId, 'seoSettings', `${context} seo`);
@@ -145,6 +166,11 @@ const normalizeEntry = (entry, index) => {
 
   const sections = entry.sections.map((section, sectionIndex) => normalizeSection(section, sectionIndex, context));
   const seo = normalizeSeo(entry.seo, context);
+  const relatedTool = normalizeRelatedTool(entry.relatedTool, context);
+  const relatedWebPart = normalizeRelatedWebPart(entry.relatedWebPart, context);
+  if (relatedTool && relatedWebPart) {
+    throw new Error(`${context}: relatedTool and relatedWebPart cannot be supplied together`);
+  }
 
   return {
     id: requireText(entry?.id, 'id', context),
@@ -159,7 +185,8 @@ const normalizeEntry = (entry, index) => {
     revisedAt: normalizeDate(entry?.revisedAt, 'revisedAt', context),
     sections,
     references: normalizeReferences(entry.references, context),
-    relatedTool: normalizeRelatedTool(entry.relatedTool, context),
+    relatedTool,
+    relatedWebPart,
     seo: {
       title: seo?.title || requireText(entry?.title, 'title', context),
       description: seo?.description || requireText(entry?.summary, 'summary', context),

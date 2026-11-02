@@ -103,17 +103,29 @@ const renderRelatedTool = (tool) => {
             </aside>`;
 };
 
+const renderRelatedWebPart = (webPart) => {
+  if (!webPart) return '';
+  return `
+            <aside class="article-callout article-callout--cta" aria-label="関連WEB PARTS">
+              <strong>RELATED WEB PART</strong>
+              <p>${escapeHtml(webPart.description)}</p>
+              <a class="button" href="../../web-parts/${escapeAttribute(webPart.partId)}.html"><span>${escapeHtml(webPart.label)}</span> <i aria-hidden="true">→</i></a>
+            </aside>`;
+};
+
 const renderSection = (section, index, article) => {
   const label = section.label ? ` / ${escapeHtml(section.label)}` : '';
   const callout = section.calloutBody
     ? `
             <div class="article-callout"><strong>${escapeHtml(section.calloutLabel)}</strong>${section.calloutBody}</div>`
     : '';
-  const relatedTool = index === article.sections.length - 1 ? renderRelatedTool(article.relatedTool) : '';
+  const relatedCta = index === article.sections.length - 1
+    ? renderRelatedTool(article.relatedTool) || renderRelatedWebPart(article.relatedWebPart)
+    : '';
   return `          <section class="article-section reveal" id="${section.id}" aria-labelledby="${section.id}-title" data-reveal-threshold="0.01">
             <p class="section-index">${section.number}${label}</p>
             <h2 id="${section.id}-title">${escapeHtml(section.heading)}</h2>
-            ${wrapTables(section.body, section.heading)}${callout}${relatedTool}
+            ${wrapTables(section.body, section.heading)}${callout}${relatedCta}
           </section>`;
 };
 

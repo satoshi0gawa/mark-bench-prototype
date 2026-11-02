@@ -82,6 +82,12 @@ export default [
       },
     ],
     references: [],
+    relatedWebPart: {
+      fieldId: 'relatedWebPart',
+      partId: 'accordion',
+      label: 'ACCORDIONを見る',
+      description: 'JavaScriptで実装したアコーディオンの動作とコードを確認する。',
+    },
   },
   {
     id: 'fixture-github-pages-troubleshooting',

@@ -25,7 +25,16 @@ export const checkNoteBuild = async (output, sourceEntries) => {
     assert.equal(count(html, /<h1\b/g), 1, `${article.slug}: h1 count`);
     assert.equal(count(html, /class="article-section reveal"/g), article.sections.length);
     assert.equal(count(html, /<div class="article-toc__references">/g), article.references.length ? 1 : 0);
-    assert.equal(count(html, /class="article-callout article-callout--cta"/g), article.relatedTool ? 1 : 0);
+    assert.equal(
+      count(html, /class="article-callout article-callout--cta"/g),
+      article.relatedTool || article.relatedWebPart ? 1 : 0,
+    );
+    if (article.relatedWebPart) {
+      assert.ok(
+        html.includes(`href="../../web-parts/${article.relatedWebPart.partId}.html"`),
+        `${article.slug}: missing related WEB PARTS link`,
+      );
+    }
 
     for (const section of article.sections) {
       assert.ok(html.includes(`href="#${section.id}"`), `${article.slug}: missing TOC link ${section.id}`);

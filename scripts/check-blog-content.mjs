@@ -13,6 +13,8 @@ assert.equal(normalized[0].references.length, 2);
 assert.equal(normalized[0].relatedTool.toolId, 'html-table-builder');
 assert.equal(normalized[1].references.length, 0);
 assert.equal(normalized[1].relatedTool, null);
+assert.equal(normalized[1].relatedWebPart.partId, 'accordion');
+assert.equal(normalized[0].relatedWebPart, null);
 assert.equal(normalized[2].outputPath, 'build-notes/note-to-self/github-pages-troubleshooting.html');
 assert.equal(normalized[2].seo.title, normalized[2].title);
 assert.equal(normalized[2].seo.description, normalized[2].summary);
@@ -27,6 +29,15 @@ blankRelatedTool[1].relatedTool = {
   description: '',
 };
 assert.equal(normalizeBlogEntries(blankRelatedTool)[1].relatedTool, null);
+
+const blankRelatedWebPart = structuredClone(fixture);
+blankRelatedWebPart[2].relatedWebPart = {
+  fieldId: 'relatedWebPart',
+  partId: '',
+  label: '',
+  description: '',
+};
+assert.equal(normalizeBlogEntries(blankRelatedWebPart)[2].relatedWebPart, null);
 
 const invalidFixture = (mutate) => {
   const copy = structuredClone(fixture);
@@ -55,6 +66,16 @@ assert.throws(
   /toolId, label, and description must be supplied together/,
 );
 assert.throws(
+  () => normalizeBlogEntries(invalidFixture((entries) => { delete entries[1].relatedWebPart.label; })),
+  /partId, label, and description must be supplied together/,
+);
+assert.throws(
+  () => normalizeBlogEntries(invalidFixture((entries) => {
+    entries[0].relatedWebPart = structuredClone(entries[1].relatedWebPart);
+  })),
+  /relatedTool and relatedWebPart cannot be supplied together/,
+);
+assert.throws(
   () => normalizeBlogEntries(invalidFixture((entries) => {
     entries[0].seo.ogImage = { url: 'not-a-url', width: 1200, height: 630 };
   })),
@@ -62,8 +83,12 @@ assert.throws(
 );
 
 for (const entry of normalized) {
-  if (!entry.relatedTool) continue;
-  await access(new URL(`../tools/${entry.relatedTool.toolId}.html`, import.meta.url));
+  if (entry.relatedTool) {
+    await access(new URL(`../tools/${entry.relatedTool.toolId}.html`, import.meta.url));
+  }
+  if (entry.relatedWebPart) {
+    await access(new URL(`../web-parts/${entry.relatedWebPart.partId}.html`, import.meta.url));
+  }
 }
 
 const schemaUrl = new URL('../microcms/blog-schema.json', import.meta.url);
@@ -103,5 +128,7 @@ assert.equal(sectionsField.repeaterCountLimitValidation.repeatCount.min, 1);
 
 const relatedToolField = schema.customFields.find((field) => field.fieldId === 'relatedTool');
 assert.ok(relatedToolField.fields.every((field) => field.required === false));
+const relatedWebPartField = schema.customFields.find((field) => field.fieldId === 'relatedWebPart');
+assert.ok(relatedWebPartField.fields.every((field) => field.required === false));
 
 console.log(`NOTE to SELF content validation passed: ${normalized.length} fixture entries and microCMS schema.`);

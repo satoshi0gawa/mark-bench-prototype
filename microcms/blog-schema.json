@@ -75,6 +75,15 @@
       "listViewFieldId": "label"
     },
     {
+      "fieldId": "relatedWebPart",
+      "name": "関連WEB PARTS",
+      "kind": "custom",
+      "description": "関連するWEB PARTSページがある場合だけ登録します。",
+      "required": false,
+      "customFieldId": "relatedWebPart",
+      "listViewFieldId": "label"
+    },
+    {
       "fieldId": "seo",
       "name": "SEO設定",
       "kind": "custom",
@@ -175,6 +184,40 @@
           "name": "ツールID",
           "kind": "text",
           "description": "tools/{toolId}.htmlのファイル名部分を入力します。",
+          "required": false,
+          "isUnique": false,
+          "patternMatchValidation": {
+            "regexp": { "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$", "flags": null }
+          },
+          "textSizeLimitValidation": { "textSize": { "min": 1, "max": 100 } }
+        },
+        {
+          "fieldId": "label",
+          "name": "CTAラベル",
+          "kind": "text",
+          "required": false,
+          "isUnique": false,
+          "textSizeLimitValidation": { "textSize": { "min": 1, "max": 100 } }
+        },
+        {
+          "fieldId": "description",
+          "name": "CTA概要",
+          "kind": "textArea",
+          "required": false,
+          "textSizeLimitValidation": { "textSize": { "min": 1, "max": 240 } }
+        }
+      ]
+    },
+    {
+      "fieldId": "relatedWebPart",
+      "name": "関連WEB PARTS",
+      "fieldOrderByColumn": [["partId", "label", "description"]],
+      "fields": [
+        {
+          "fieldId": "partId",
+          "name": "WEB PARTS ID",
+          "kind": "text",
+          "description": "web-parts/{partId}.htmlのファイル名部分を入力します。",
           "required": false,
           "isUnique": false,
           "patternMatchValidation": {

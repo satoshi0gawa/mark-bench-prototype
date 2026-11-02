@@ -15,6 +15,8 @@ API作成画面で基本情報とリスト形式を選択した後、`blog-schem
 - `sections`の配列順からセクション番号とCONTENTSを生成する
 - `references`が0件の場合はREFERENCES全体を出力しない
 - `relatedTool`が未登録の場合はCTAを出力しない
+- `relatedWebPart`が未登録の場合はWEB PARTS CTAを出力しない
+- `relatedTool`と`relatedWebPart`は同時に登録しない
 - SEOタイトル、SEO概要、OGP画像は任意とし、未登録時は記事の通常フィールドとサイト共通画像を使用する
 - 投稿日はmicroCMS標準の`publishedAt`を使用する
 - 公開状態や予定状態を独自フィールドで重複管理しない
