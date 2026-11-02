@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="セクションや話題の切り替わりを視覚的に示す、再利用可能なCSS区切り線12パターンです。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>DIVIDER | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/divider.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="DIVIDER | MARK BENCH" />
+    <meta property="og:description" content="セクションや話題の切り替わりを視覚的に示す、再利用可能なCSS区切り線12パターンです。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/divider.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DIVIDER | MARK BENCH" />
+    <meta name="twitter:description" content="セクションや話題の切り替わりを視覚的に示す、再利用可能なCSS区切り線12パターンです。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "DIVIDER",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/divider.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/web-parts.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts-detail" data-parts-detail>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header">
+      <div class="site-header__bar">
+        <nav class="site-breadcrumb-logo" aria-label="パンくずリスト">
+          <a class="site-logo" href="../index.html">MARK BENCH</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <a class="site-breadcrumb-logo__parent" href="./">WEB PARTS</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <span class="site-breadcrumb-logo__current" aria-current="page">DIVIDER</span>
+        </nav>
+      </div>
+    </header>
+
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション">
+      <a href="../tools/"><strong>TOOLS</strong></a>
+      <a href="./" aria-current="location"><strong>WEB PARTS</strong></a>
+      <a href="../build-notes/"><strong>BUILD NOTES</strong></a>
+      <a href="../about.html"><strong>ABOUT</strong></a>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <header class="part-detail-header">
+        <p class="section-index reveal">WEB_PARTS / DIVIDER</p>
+        <h1 class="reveal">DIVIDER</h1>
+        <p class="part-detail-header__lead reveal">記事内の話題転換、カード内の情報整理、セクション境界を視覚的に伝える区切り線12パターンです。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 12</span><span>TYPE: CSS</span><span>DEPENDENCY: NONE</span></div>
+        <a class="part-detail-header__anchor reveal" href="#divider-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
+      </header>
+
+      <section class="part-detail-controls directory-search directory-keywords" aria-label="区切り線パターンを絞り込み">
+        <div class="directory-keywords__group">
+          <p class="directory-keywords__label">KEYWORDS</p>
+          <div class="directory-keywords__list">
+            <button type="button" aria-pressed="false" data-pattern-keyword="基本"># 基本</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="点線"># 点線</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="装飾"># 装飾</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="中央"># 中央</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="パターン"># パターン</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="セクション"># セクション</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="シンプル"># シンプル</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="有機的"># 有機的</button>
+          </div>
+        </div>
+        <p>DISPLAY: <span data-pattern-count>12</span> / 12</p>
+      </section>
+
+      <div class="part-example-list">
+        <section class="part-example reveal" data-pattern data-search="装飾 グラデーション gradient fade 基本">
+          <header class="part-example__header"><div><span class="part-example__index">GRADIENT</span><h2>グラデーション線</h2></div><small>SOFT EDGE</small></header>
+          <div class="part-example__preview"><hr class="c-divider c-divider--gradient" /></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;hr class="c-divider c-divider--gradient"&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-divider--gradient {
+  width: min(100%, 38rem);
+  height: 3px;
+  margin: 0;
+  background: linear-gradient(90deg,
+    transparent,
+    var(--color-primary, #18243b),
+    transparent);
+  border: 0;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>記事本文や説明ブロックの間を、余白になじむ穏やかな境界で分ける場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="基本 実線 solid シンプル standard">
+          <header class="part-example__header"><div><span class="part-example__index">SOLID</span><h2>実線</h2></div><small>STANDARD</small></header>
+          <div class="part-example__preview"><hr class="c-divider c-divider--solid" /></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;hr class="c-divider c-divider--solid"&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-divider--solid {
+  width: min(100%, 38rem);
+  height: 0;
+  margin: 0;
+  border: 0;
+  border-top: 2px solid
+    var(--color-primary, #18243b);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>設定画面、仕様一覧、フォームなどで明確な情報境界が必要な場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="点線 破線 dashed 軽い 補助">
+          <header class="part-example__header"><div><span class="part-example__index">DASHED</span><h2>破線</h2></div><small>LIGHT SEPARATOR</small></header>
+          <div class="part-example__preview"><hr class="c-divider c-divider--dashed" /></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;hr class="c-divider c-divider--dashed"&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-divider--dashed {
+  width: min(100%, 38rem);
+  height: 0;
+  margin: 0;
+  border: 0;
+  border-top: 2px dashed
+    var(--color-grid-strong, #aeb8c7);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>カード内の補足情報やリスト項目など、軽い階層差を示す場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="点線 ドット dotted 丸 リズム">
+          <header class="part-example__header"><div><span class="part-example__index">DOTTED</span><h2>ドット線</h2></div><small>RHYTHM</small></header>
+          <div class="part-example__preview"><hr class="c-divider c-divider--dotted" /></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;hr class="c-divider c-divider--dotted"&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-divider--dotted {
+  width: min(100%, 38rem);
+  height: 0;
+  margin: 0;
+  border: 0;
+  border-top: 4px dotted
+    var(--color-primary-hover, #263a5e);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>プロフィール、FAQ、読み物などへ少し親しみのあるリズムを加える場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="基本 二重 double line 強調">
+          <header class="part-example__header"><div><span class="part-example__index">DOUBLE</span><h2>二重線</h2></div><small>EMPHASIS</small></header>
+          <div class="part-example__preview"><hr class="c-divider c-divider--double" /></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;hr class="c-divider c-divider--double"&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-divider--double {
+  width: min(100%, 38rem);
+  height: 8px;
+  margin: 0;
+  border: 0;
+  border-block: 2px solid
+    var(--color-primary, #18243b);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>章の切り替わりや重要な集計結果の前後など、境界を強く示す場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="基本 丸端 pill rounded シンプル 短い">
+          <header class="part-example__header"><div><span class="part-example__index">ROUND BAR</span><h2>丸端ライン</h2></div><small>COMPACT</small></header>
+          <div class="part-example__preview"><hr class="c-divider c-divider--round" /></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;hr class="c-divider c-divider--round"&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-divider--round {
+  width: min(70%, 26rem);
+  height: .5rem;
+  margin: 0;
+  background: var(--color-primary, #18243b);
+  border: 0;
+  border-radius: 999px;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>短い導入文やカードタイトルの後に、まとまりを示すアクセントを置く場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="中央 ラベル label text divider セクション">
+          <header class="part-example__header"><div><span class="part-example__index">CENTER LABEL</span><h2>中央ラベル</h2></div><small>TEXT SEPARATOR</small></header>
+          <div class="part-example__preview"><div class="c-divider c-divider--label" role="separator" aria-label="関連情報">RELATED</div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-divider c-divider--label"
+  role="separator" aria-label="関連情報"&gt;
+  RELATED
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-divider--label {
+  display: flex;
+  width: min(100%, 38rem);
+  margin: 0;
+  gap: 1rem;
+  align-items: center;
+  color: var(--color-primary, #18243b);
+  font: 700 .72rem/1.4 monospace;
+}
+.c-divider--label::before,
+.c-divider--label::after {
+  height: 1px;
+  flex: 1;
+  background: var(--color-grid-strong, #aeb8c7);
+  content: "";
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>関連記事、補足資料、次の工程など、区切りの意味も短い語で伝える場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="中央 ダイヤ diamond 装飾 幾何学">
+          <header class="part-example__header"><div><span class="part-example__index">DIAMOND</span><h2>ダイヤ飾り</h2></div><small>GEOMETRIC</small></header>
+          <div class="part-example__preview"><div class="c-divider c-divider--diamond" role="separator"><span aria-hidden="true"></span></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-divider c-divider--diamond"
+  role="separator"&gt;
+  &lt;span aria-hidden="true"&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-divider--diamond {
+  display: flex;
+  width: min(100%, 38rem);
+  margin: 0;
+  gap: 1rem;
+  align-items: center;
+}
+.c-divider--diamond::before,
+.c-divider--diamond::after {
+  height: 2px;
+  flex: 1;
+  background: var(--color-primary, #18243b);
+  content: "";
+}
+.c-divider--diamond span {
+  width: .8rem;
+  height: .8rem;
+  background: var(--color-accent-yellow, #ff0);
+  border: 2px solid var(--color-primary, #18243b);
+  transform: rotate(45deg);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ブランド紹介や実績ページなど、規則的で端正な装飾を加える場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="パターン ジグザグ zigzag 装飾 リズム">
+          <header class="part-example__header"><div><span class="part-example__index">ZIGZAG</span><h2>ジグザグ線</h2></div><small>REPEAT PATTERN</small></header>
+          <div class="part-example__preview"><hr class="c-divider c-divider--zigzag" /></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;hr class="c-divider c-divider--zigzag"&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-divider--zigzag {
+  width: min(100%, 38rem);
+  height: 12px;
+  margin: 0;
+  background:
+    linear-gradient(135deg,
+      var(--color-primary, #18243b) 25%,
+      transparent 25%) -12px 0 / 24px 24px repeat-x,
+    linear-gradient(225deg,
+      var(--color-primary, #18243b) 25%,
+      transparent 25%) -12px 0 / 24px 24px repeat-x;
+  border: 0;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>キャンペーンや特集ページで、通常の線より強いリズムを作る場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="パターン 波線 wave wavy 有機的 装飾">
+          <header class="part-example__header"><div><span class="part-example__index">WAVE</span><h2>波線</h2></div><small>CSS GRADIENT</small></header>
+          <div class="part-example__preview"><hr class="c-divider c-divider--wave" /></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;hr class="c-divider c-divider--wave"&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-divider--wave {
+  width: min(100%, 38rem);
+  height: 12px;
+  margin: 0;
+  color: var(--color-primary-hover, #263a5e);
+  background:
+    radial-gradient(12px 6px at 50% 0,
+      transparent 6px, currentColor 6.5px 8px,
+      transparent 8.5px) 0 0 / 24px 12px repeat-x,
+    radial-gradient(12px 6px at 50% 100%,
+      transparent 6px, currentColor 6.5px 8px,
+      transparent 8.5px) 12px 0 / 24px 12px repeat-x;
+  border: 0;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ライフスタイル、イベント、子ども向けなど、柔らかな印象を加える場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="セクション 斜め slant diagonal 境界 大きい">
+          <header class="part-example__header"><div><span class="part-example__index">SLANT</span><h2>斜めセクション境界</h2></div><small>SECTION EDGE</small></header>
+          <div class="part-example__preview"><hr class="c-divider c-divider--slant" /></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;hr class="c-divider c-divider--slant"&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-divider--slant {
+  width: min(100%, 38rem);
+  height: 3rem;
+  margin: 0;
+  background: var(--color-primary, #18243b);
+  border: 0;
+  clip-path: polygon(0 100%, 100% 0, 100% 100%);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>キービジュアルから本文、白背景から色面など、大きなセクションを切り替える場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="有機的 手描き hand drawn ラフ ナチュラル">
+          <header class="part-example__header"><div><span class="part-example__index">HAND DRAWN</span><h2>手描き風</h2></div><small>ORGANIC</small></header>
+          <div class="part-example__preview">
+            <div class="c-divider c-divider--hand" role="separator">
+              <svg viewBox="0 0 600 16" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                <path d="M2 9 C72 3 126 13 192 8 S310 3 380 9 S500 13 598 6" />
+              </svg>
+            </div>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-divider c-divider--hand"
+  role="separator"&gt;
+  &lt;svg viewBox="0 0 600 16"
+    preserveAspectRatio="none"
+    aria-hidden="true" focusable="false"&gt;
+    &lt;path d="M2 9 C72 3 126 13 192 8
+      S310 3 380 9 S500 13 598 6"&gt;&lt;/path&gt;
+  &lt;/svg&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-divider--hand {
+  width: min(100%, 38rem);
+  height: 1rem;
+  margin: 0;
+  color: var(--color-primary-hover, #263a5e);
+}
+
+.c-divider--hand svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.c-divider--hand path {
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 3;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>制作ノート、プロフィール、クラフト系コンテンツへ自然な揺らぎを加える場面。</p></div>
+        </section>
+      </div>
+
+      <div class="part-detail-empty" data-pattern-empty hidden><p>[ NO_PATTERN_FOUND ]</p><p>検索語を変更してください。</p></div>
+
+      <section class="part-common-styles" id="divider-common-styles" aria-labelledby="divider-common-styles-title">
+        <header class="part-common-styles__header reveal">
+          <p class="section-index">DIVIDER / COMMON_STYLE</p>
+          <h2 id="divider-common-styles-title">共通スタイル</h2>
+          <p>区切り線共通の幅・余白・色・ブラウザ標準線のリセット設定です。</p>
+        </header>
+        <div class="part-common-styles__code reveal" data-reveal-threshold="0.01">
+          <div class="part-code">
+            <div class="part-code__header"><span>CSS / COMMON</span><button type="button" data-copy-code>COPY</button></div>
+            <pre><code>.c-divider {
+  box-sizing: border-box;
+  display: block;
+  width: min(100%, 38rem);
+  margin: 0;
+  color: var(--color-primary, #18243b);
+  border: 0;
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <footer class="page-footer" aria-label="ページナビゲーション">
+        <a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO WEB PARTS</span></a>
+        <a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a>
+      </footer>
+    </main>
+
+    <script src="../js/web-parts-detail.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,234 @@
+{
+  "apiFields": [
+    {
+      "fieldId": "title",
+      "name": "タイトル",
+      "kind": "text",
+      "description": "記事のh1と一覧見出しに使用します。",
+      "required": true,
+      "isUnique": false,
+      "textSizeLimitValidation": { "textSize": { "min": 1, "max": 100 } }
+    },
+    {
+      "fieldId": "slug",
+      "name": "スラッグ",
+      "kind": "text",
+      "description": "公開後は変更しません。半角小文字、数字、ハイフンだけを使用します。",
+      "required": true,
+      "isUnique": true,
+      "patternMatchValidation": {
+        "regexp": { "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$", "flags": null }
+      },
+      "textSizeLimitValidation": { "textSize": { "min": 1, "max": 100 } }
+    },
+    {
+      "fieldId": "themeLabel",
+      "name": "テーマラベル",
+      "kind": "text",
+      "description": "記事ヘッダー上部へ表示します。例：GITHUB PAGES",
+      "required": true,
+      "isUnique": false,
+      "textSizeLimitValidation": { "textSize": { "min": 1, "max": 60 } }
+    },
+    {
+      "fieldId": "summary",
+      "name": "概要",
+      "kind": "textArea",
+      "description": "一覧、記事リード、SEO descriptionの既定値に使用します。",
+      "required": true,
+      "textSizeLimitValidation": { "textSize": { "min": 1, "max": 240 } }
+    },
+    {
+      "fieldId": "category",
+      "name": "カテゴリー",
+      "kind": "text",
+      "description": "記事の分類を短い英字ラベルで入力します。",
+      "required": true,
+      "isUnique": false,
+      "textSizeLimitValidation": { "textSize": { "min": 1, "max": 60 } }
+    },
+    {
+      "fieldId": "sections",
+      "name": "本文セクション",
+      "kind": "repeater",
+      "description": "表示順に本文セクションを登録します。CONTENTSはこの順序から生成します。",
+      "required": true,
+      "customFieldIds": ["articleSection"],
+      "repeaterCountLimitValidation": { "repeatCount": { "min": 1, "max": 30 } }
+    },
+    {
+      "fieldId": "references",
+      "name": "参照リンク",
+      "kind": "repeater",
+      "description": "0件の場合はREFERENCES全体を表示しません。",
+      "required": false,
+      "customFieldIds": ["referenceLink"],
+      "repeaterCountLimitValidation": { "repeatCount": { "min": 0, "max": 20 } }
+    },
+    {
+      "fieldId": "relatedTool",
+      "name": "関連ツール",
+      "kind": "custom",
+      "description": "関連するTOOLSページがある場合だけ登録します。",
+      "required": false,
+      "customFieldId": "relatedTool",
+      "listViewFieldId": "label"
+    },
+    {
+      "fieldId": "seo",
+      "name": "SEO設定",
+      "kind": "custom",
+      "description": "未入力項目は記事タイトル、概要、サイト共通OGP画像へフォールバックします。",
+      "required": false,
+      "customFieldId": "seoSettings",
+      "listViewFieldId": "seoTitle"
+    }
+  ],
+  "customFields": [
+    {
+      "fieldId": "articleSection",
+      "name": "本文セクション",
+      "fieldOrderByColumn": [["label", "heading", "body", "calloutLabel", "calloutBody"]],
+      "fields": [
+        {
+          "fieldId": "label",
+          "name": "セクションラベル",
+          "kind": "text",
+          "description": "OVERVIEW、PURPOSEなど。空欄の場合は番号だけを表示します。",
+          "required": false,
+          "isUnique": false,
+          "textSizeLimitValidation": { "textSize": { "max": 40 } }
+        },
+        {
+          "fieldId": "heading",
+          "name": "見出し",
+          "kind": "text",
+          "description": "h2とCONTENTSのリンク文言に使用します。",
+          "required": true,
+          "isUnique": false,
+          "textSizeLimitValidation": { "textSize": { "min": 1, "max": 120 } }
+        },
+        {
+          "fieldId": "body",
+          "name": "本文",
+          "kind": "richEditorV2",
+          "description": "h1とh2は使用せず、必要な場合はh3以下を使用します。",
+          "required": true,
+          "richEditorV2Options": [
+            "headerThree", "headerFour", "paragraph", "bold", "italic", "underline", "strike",
+            "code", "blockquote", "codeBlock", "listBullet", "listOrdered", "link", "image",
+            "table", "horizontalRule"
+          ]
+        },
+        {
+          "fieldId": "calloutLabel",
+          "name": "補足ラベル",
+          "kind": "text",
+          "description": "補足本文とセットで入力します。",
+          "required": false,
+          "isUnique": false,
+          "textSizeLimitValidation": { "textSize": { "max": 40 } }
+        },
+        {
+          "fieldId": "calloutBody",
+          "name": "補足本文",
+          "kind": "richEditorV2",
+          "description": "補足ラベルとセットで入力します。",
+          "required": false,
+          "richEditorV2Options": ["paragraph", "bold", "italic", "code", "listBullet", "listOrdered", "link"]
+        }
+      ]
+    },
+    {
+      "fieldId": "referenceLink",
+      "name": "参照リンク",
+      "fieldOrderByColumn": [["label", "url"]],
+      "fields": [
+        {
+          "fieldId": "label",
+          "name": "リンク名",
+          "kind": "text",
+          "required": true,
+          "isUnique": false,
+          "textSizeLimitValidation": { "textSize": { "min": 1, "max": 160 } }
+        },
+        {
+          "fieldId": "url",
+          "name": "URL",
+          "kind": "text",
+          "required": true,
+          "isUnique": false,
+          "patternMatchValidation": {
+            "regexp": { "pattern": "^https?://", "flags": "i" }
+          },
+          "textSizeLimitValidation": { "textSize": { "min": 8, "max": 2048 } }
+        }
+      ]
+    },
+    {
+      "fieldId": "relatedTool",
+      "name": "関連ツール",
+      "fieldOrderByColumn": [["toolId", "label", "description"]],
+      "fields": [
+        {
+          "fieldId": "toolId",
+          "name": "ツールID",
+          "kind": "text",
+          "description": "tools/{toolId}.htmlのファイル名部分を入力します。",
+          "required": true,
+          "isUnique": false,
+          "patternMatchValidation": {
+            "regexp": { "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$", "flags": null }
+          },
+          "textSizeLimitValidation": { "textSize": { "min": 1, "max": 100 } }
+        },
+        {
+          "fieldId": "label",
+          "name": "CTAラベル",
+          "kind": "text",
+          "required": true,
+          "isUnique": false,
+          "textSizeLimitValidation": { "textSize": { "min": 1, "max": 100 } }
+        },
+        {
+          "fieldId": "description",
+          "name": "CTA概要",
+          "kind": "textArea",
+          "required": true,
+          "textSizeLimitValidation": { "textSize": { "min": 1, "max": 240 } }
+        }
+      ]
+    },
+    {
+      "fieldId": "seoSettings",
+      "name": "SEO設定",
+      "fieldOrderByColumn": [["seoTitle", "seoDescription", "ogImage"]],
+      "fields": [
+        {
+          "fieldId": "seoTitle",
+          "name": "SEOタイトル",
+          "kind": "text",
+          "description": "空欄の場合は記事タイトルを使用します。",
+          "required": false,
+          "isUnique": false,
+          "textSizeLimitValidation": { "textSize": { "max": 70 } }
+        },
+        {
+          "fieldId": "seoDescription",
+          "name": "SEO概要",
+          "kind": "textArea",
+          "description": "空欄の場合は記事概要を使用します。",
+          "required": false,
+          "textSizeLimitValidation": { "textSize": { "max": 160 } }
+        },
+        {
+          "fieldId": "ogImage",
+          "name": "OGP画像",
+          "kind": "media",
+          "description": "推奨サイズは1200×630pxです。空欄の場合はサイト共通画像を使用します。",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="送信、通信、画面更新などの待ち時間に処理中であることを伝える、CSSローディング表現14パターンです。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>LOADING | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/loading.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="LOADING | MARK BENCH" />
+    <meta property="og:description" content="送信、通信、画面更新などの待ち時間に処理中であることを伝える、CSSローディング表現14パターンです。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/loading.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="LOADING | MARK BENCH" />
+    <meta name="twitter:description" content="送信、通信、画面更新などの待ち時間に処理中であることを伝える、CSSローディング表現14パターンです。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "LOADING",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/loading.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/web-parts.css" />
+    <link rel="stylesheet" href="../css/web-parts-loading.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts-detail" data-parts-detail>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header"><div class="site-header__bar"><nav class="site-breadcrumb-logo" aria-label="パンくずリスト">
+      <a class="site-logo" href="../index.html">MARK BENCH</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><a class="site-breadcrumb-logo__parent" href="./">WEB PARTS</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><span class="site-breadcrumb-logo__current" aria-current="page">LOADING</span>
+    </nav></div></header>
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション"><a href="../tools/"><strong>TOOLS</strong></a><a href="./" aria-current="location"><strong>WEB PARTS</strong></a><a href="../build-notes/"><strong>BUILD NOTES</strong></a><a href="../about.html"><strong>ABOUT</strong></a></nav>
+
+    <main id="main" tabindex="-1">
+      <header class="part-detail-header">
+        <p class="section-index reveal">WEB_PARTS / LOADING</p>
+        <h1 class="reveal">LOADING</h1>
+        <p class="part-detail-header__lead reveal">フォーム送信、データ取得、画面遷移などの待ち時間に、処理中であることを伝えるCSSローディング表現14パターンです。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 14</span><span>TYPE: CSS</span><span>DEPENDENCY: NONE</span></div>
+        <a class="part-detail-header__anchor reveal" href="#loading-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
+      </header>
+
+      <section class="part-detail-controls directory-search directory-keywords" aria-label="ローディングパターンを絞り込み">
+        <div class="directory-keywords__group"><p class="directory-keywords__label">KEYWORDS</p><div class="directory-keywords__list">
+          <button type="button" aria-pressed="false" data-pattern-keyword="基本"># 基本</button><button type="button" aria-pressed="false" data-pattern-keyword="回転"># 回転</button><button type="button" aria-pressed="false" data-pattern-keyword="ドット"># ドット</button><button type="button" aria-pressed="false" data-pattern-keyword="進捗"># 進捗</button><button type="button" aria-pressed="false" data-pattern-keyword="バー"># バー</button><button type="button" aria-pressed="false" data-pattern-keyword="コンテンツ"># コンテンツ</button><button type="button" aria-pressed="false" data-pattern-keyword="操作"># 操作</button><button type="button" aria-pressed="false" data-pattern-keyword="テキスト"># テキスト</button><button type="button" aria-pressed="false" data-pattern-keyword="装飾"># 装飾</button>
+        </div></div><p>DISPLAY: <span data-pattern-count>14</span> / 14</p>
+      </section>
+
+      <div class="part-example-list">
+        <section class="part-example reveal" data-pattern data-search="基本 回転 spinner スピナー シンプル 待機 通信">
+          <header class="part-example__header"><div><span class="part-example__index">BASIC / 01</span><h2>スピナー</h2></div><small>SINGLE RING</small></header>
+          <div class="part-example__preview"><div class="c-loading c-loading--spinner" role="status" aria-label="読み込み中"></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-loading c-loading--spinner"
+  role="status" aria-label="読み込み中"&gt;&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-loading--spinner {
+  display: grid; min-height: 6rem; place-items: center;
+}
+.c-loading--spinner::before {
+  width: 3rem; height: 3rem; border: .3rem solid #edf1f7;
+  border-top-color: var(--color-primary, #18243b);
+  border-radius: 50%; content: "";
+  animation: loading-spin .85s linear infinite;
+}
+@keyframes loading-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .c-loading--spinner::before { animation: none; }
+}</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>送信や通信など、完了までの時間を予測できない短い待機状態。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="基本 回転 dual ring デュアルリング 二重 待機">
+          <header class="part-example__header"><div><span class="part-example__index">BASIC / 02</span><h2>デュアルリング</h2></div><small>DOUBLE EDGE</small></header>
+          <div class="part-example__preview"><div class="c-loading c-loading--ring" role="status" aria-label="読み込み中"></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-loading c-loading--ring"
+  role="status" aria-label="読み込み中"&gt;&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-loading--ring { display: grid; min-height: 6rem; place-items: center; }
+.c-loading--ring::before {
+  width: 3rem; height: 3rem; border: .3rem solid;
+  border-color: var(--color-primary, #18243b) transparent;
+  border-radius: 50%; content: "";
+  animation: loading-ring 1.15s linear infinite;
+}
+@keyframes loading-ring { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .c-loading--ring::before { animation: none; }
+}</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>単線より存在感が必要な、画面中央やダイアログ内の待機表示。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="基本 ドット dots 三点 タイピング 小型 状態">
+          <header class="part-example__header"><div><span class="part-example__index">BASIC / 03</span><h2>ドット</h2></div><small>SEQUENCE</small></header>
+          <div class="part-example__preview"><div class="c-loading c-loading--dots" role="status" aria-label="読み込み中"><span></span><span></span><span></span></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-loading c-loading--dots"
+  role="status" aria-label="読み込み中"&gt;
+  &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-loading--dots { display: flex; min-height: 6rem; align-items: center; justify-content: center; }
+.c-loading--dots span {
+  width: .75rem; height: .75rem; margin: 0 .28rem;
+  background: var(--color-primary, #18243b); border-radius: 50%;
+  animation: loading-dot 1.15s ease-in-out infinite;
+}
+.c-loading--dots span:nth-child(2) { animation-delay: .14s; }
+.c-loading--dots span:nth-child(3) { animation-delay: .28s; }
+@keyframes loading-dot {
+  0%, 80%, 100% { opacity: .28; transform: scale(.72); }
+  40% { opacity: 1; transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) { .c-loading--dots span { animation: none; } }</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>チャット返信やインライン更新など、限られた領域の軽い待機表示。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="基本 ドット pulse パルス 呼吸 状態 待機">
+          <header class="part-example__header"><div><span class="part-example__index">BASIC / 04</span><h2>パルス</h2></div><small>BREATHING</small></header>
+          <div class="part-example__preview"><div class="c-loading c-loading--pulse" role="status" aria-label="読み込み中"></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-loading c-loading--pulse"
+  role="status" aria-label="読み込み中"&gt;&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-loading--pulse { display: grid; min-height: 6rem; place-items: center; }
+.c-loading--pulse::before {
+  width: 1.6rem; height: 1.6rem;
+  background: var(--color-primary, #18243b); border-radius: 50%;
+  box-shadow: 0 0 0 0 rgb(24 36 59 / 25%); content: "";
+  animation: loading-pulse 1.35s ease-out infinite;
+}
+@keyframes loading-pulse {
+  70% { box-shadow: 0 0 0 1.15rem rgb(24 36 59 / 0%); transform: scale(1.08); }
+  100% { box-shadow: 0 0 0 0 rgb(24 36 59 / 0%); }
+}
+@media (prefers-reduced-motion: reduce) { .c-loading--pulse::before { animation: none; } }</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>バックグラウンド同期や接続中など、処理が継続していることを静かに示す場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="進捗 バー progress indeterminate 不確定 通信">
+          <header class="part-example__header"><div><span class="part-example__index">PROGRESS / 01</span><h2>不確定プログレスバー</h2></div><small>UNKNOWN TIME</small></header>
+          <div class="part-example__preview"><div class="c-loading c-loading--bar" role="progressbar" aria-label="読み込み中"><span></span></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-loading c-loading--bar"
+  role="progressbar" aria-label="読み込み中"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-loading--bar {
+  position: relative; width: min(100%, 19rem); height: .75rem;
+  overflow: hidden; background: #edf1f7; border: 1px solid #aeb8c7;
+}
+.c-loading--bar span {
+  position: absolute; inset-block: 0; width: 42%;
+  background: var(--color-primary, #18243b);
+  animation: loading-slide 1.35s ease-in-out infinite;
+}
+@keyframes loading-slide {
+  0% { transform: translateX(-110%); }
+  50%, 100% { transform: translateX(250%); }
+}
+@media (prefers-reduced-motion: reduce) { .c-loading--bar span { animation: none; left: 29%; } }</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>ページ上部やカード内で、完了率を算出できない通信処理を示す場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="進捗 回転 circular conic 円形 プログレス">
+          <header class="part-example__header"><div><span class="part-example__index">PROGRESS / 02</span><h2>円形プログレス</h2></div><small>CONIC RING</small></header>
+          <div class="part-example__preview"><div class="c-loading c-loading--conic" role="progressbar" aria-label="読み込み中"></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-loading c-loading--conic"
+  role="progressbar" aria-label="読み込み中"&gt;&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-loading--conic { display: grid; min-height: 6rem; place-items: center; }
+.c-loading--conic::before {
+  width: 3.5rem; height: 3.5rem; border-radius: 50%; content: "";
+  background: conic-gradient(var(--color-primary, #18243b) 0 75%, #edf1f7 75%);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - .42rem), #000 0);
+  mask: radial-gradient(farthest-side, transparent calc(100% - .42rem), #000 0);
+  animation: loading-conic 1.25s linear infinite;
+}
+@keyframes loading-conic { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .c-loading--conic::before { animation: none; } }</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>ファイル解析やダッシュボード更新など、進行感をコンパクトに見せたい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="進捗 バー stripe ストライプ アップロード 装飾">
+          <header class="part-example__header"><div><span class="part-example__index">PROGRESS / 03</span><h2>ストライプバー</h2></div><small>FLOW</small></header>
+          <div class="part-example__preview"><div class="c-loading c-loading--stripes" role="progressbar" aria-label="アップロード中"></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-loading c-loading--stripes"
+  role="progressbar" aria-label="アップロード中"&gt;&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-loading--stripes {
+  position: relative; width: min(100%, 19rem); height: .75rem;
+  overflow: hidden; border: 1px solid #aeb8c7;
+}
+.c-loading--stripes::before {
+  position: absolute; inset: 0 -2rem; content: "";
+  background: repeating-linear-gradient(135deg, #18243b 0 .7rem, #263a5e .7rem 1.4rem);
+  animation: loading-stripes .8s linear infinite;
+}
+@keyframes loading-stripes { to { transform: translateX(1.98rem); } }
+@media (prefers-reduced-motion: reduce) { .c-loading--stripes::before { animation: none; } }</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>ファイルのアップロードや一括処理など、進行中の動きを強めに伝える場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="進捗 テキスト blink 点滅 loading 軽量">
+          <header class="part-example__header"><div><span class="part-example__index">PROGRESS / 04</span><h2>点滅テキスト</h2></div><small>TEXT ONLY</small></header>
+          <div class="part-example__preview"><div class="c-loading c-loading--text" role="status" aria-label="読み込み中">LOADING<span>.</span><span>.</span><span>.</span></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-loading c-loading--text"
+  role="status" aria-label="読み込み中"&gt;
+  LOADING&lt;span&gt;.&lt;/span&gt;&lt;span&gt;.&lt;/span&gt;&lt;span&gt;.&lt;/span&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-loading--text {
+  display: flex; min-height: 6rem; gap: .25rem;
+  align-items: center; justify-content: center;
+  color: var(--color-primary, #18243b); font: 700 1rem monospace;
+  letter-spacing: .14em;
+}
+.c-loading--text span { animation: loading-blink 1.2s ease-in-out infinite; }
+.c-loading--text span:nth-child(2) { animation-delay: .16s; }
+.c-loading--text span:nth-child(3) { animation-delay: .32s; }
+@keyframes loading-blink { 0%, 100% { opacity: .25; } 50% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .c-loading--text span { animation: none; } }</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>管理画面やテキスト中心の画面で、追加画像を使わず処理中と伝える場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="コンテンツ skeleton スケルトン shimmer レイアウト 記事">
+          <header class="part-example__header"><div><span class="part-example__index">CONTENT / 01</span><h2>スケルトンスクリーン</h2></div><small>LAYOUT HOLD</small></header>
+          <div class="part-example__preview"><div class="c-loading c-loading--skeleton" role="status" aria-label="コンテンツを読み込み中"><span class="c-loading__skeleton-avatar"></span><span class="c-loading__skeleton-lines"><span class="c-loading__skeleton-line"></span><span class="c-loading__skeleton-line"></span><span class="c-loading__skeleton-line"></span></span></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-loading c-loading--skeleton" role="status"
+  aria-label="コンテンツを読み込み中"&gt;
+  &lt;span class="c-loading__skeleton-avatar"&gt;&lt;/span&gt;
+  &lt;span class="c-loading__skeleton-lines"&gt;
+    &lt;span class="c-loading__skeleton-line"&gt;&lt;/span&gt;
+    &lt;span class="c-loading__skeleton-line"&gt;&lt;/span&gt;
+    &lt;span class="c-loading__skeleton-line"&gt;&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-loading--skeleton {
+  display: grid; width: min(100%, 21rem); padding: 1rem;
+  grid-template-columns: 3.25rem 1fr; gap: .85rem;
+  border: 1px solid #aeb8c7;
+}
+.c-loading__skeleton-avatar, .c-loading__skeleton-line {
+  position: relative; overflow: hidden; background: #edf1f7;
+}
+.c-loading__skeleton-avatar { width: 3.25rem; height: 3.25rem; border-radius: 50%; }
+.c-loading__skeleton-lines { display: grid; gap: .55rem; }
+.c-loading__skeleton-line { height: .72rem; }
+.c-loading__skeleton-line:nth-child(2) { width: 82%; }
+.c-loading__skeleton-line:nth-child(3) { width: 58%; }
+.c-loading__skeleton-avatar::after, .c-loading__skeleton-line::after {
+  position: absolute; inset: 0; content: "";
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 80%), transparent);
+  transform: translateX(-100%); animation: loading-shimmer 1.4s ease-in-out infinite;
+}
+@keyframes loading-shimmer { to { transform: translateX(100%); } }
+@media (prefers-reduced-motion: reduce) {
+  .c-loading__skeleton-avatar::after, .c-loading__skeleton-line::after { animation: none; }
+}</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>記事一覧やプロフィールなど、読み込み前から最終レイアウトを保ちたい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="コンテンツ ドット bounce バウンス チャット タイピング">
+          <header class="part-example__header"><div><span class="part-example__index">CONTENT / 02</span><h2>バウンスボール</h2></div><small>CHAT WAIT</small></header>
+          <div class="part-example__preview"><div class="c-loading c-loading--bounce" role="status" aria-label="返信を入力中"><span></span><span></span><span></span></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-loading c-loading--bounce"
+  role="status" aria-label="返信を入力中"&gt;
+  &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-loading--bounce { display: flex; min-height: 6rem; align-items: center; justify-content: center; }
+.c-loading--bounce span {
+  width: .75rem; height: .75rem; margin: 0 .28rem;
+  background: var(--color-primary, #18243b); border-radius: 50%;
+  animation: loading-bounce 1.1s ease-in-out infinite;
+}
+.c-loading--bounce span:nth-child(2) { animation-delay: .14s; }
+.c-loading--bounce span:nth-child(3) { animation-delay: .28s; }
+@keyframes loading-bounce {
+  0%, 70%, 100% { transform: translateY(0); }
+  35% { transform: translateY(-.85rem); }
+}
+@media (prefers-reduced-motion: reduce) { .c-loading--bounce span { animation: none; } }</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>チャットやAI応答など、相手が入力・生成している状態を伝える場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="コンテンツ equalizer イコライザー 音声 波形 バー">
+          <header class="part-example__header"><div><span class="part-example__index">CONTENT / 03</span><h2>イコライザー</h2></div><small>MEDIA WAIT</small></header>
+          <div class="part-example__preview"><div class="c-loading c-loading--equalizer" role="status" aria-label="メディアを読み込み中"><span></span><span></span><span></span><span></span></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-loading c-loading--equalizer" role="status"
+  aria-label="メディアを読み込み中"&gt;
+  &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-loading--equalizer {
+  display: flex; height: 4rem; gap: .28rem;
+  align-items: end; justify-content: center;
+}
+.c-loading--equalizer span {
+  width: .48rem; height: 2.8rem; transform-origin: bottom;
+  background: var(--color-primary, #18243b);
+  animation: loading-equalizer .75s ease-in-out infinite alternate;
+}
+.c-loading--equalizer span:nth-child(2) { animation-delay: .12s; }
+.c-loading--equalizer span:nth-child(3) { animation-delay: .24s; }
+.c-loading--equalizer span:nth-child(4) { animation-delay: .36s; }
+@keyframes loading-equalizer { from { transform: scaleY(.25); } to { transform: scaleY(1); } }
+@media (prefers-reduced-motion: reduce) { .c-loading--equalizer span { animation: none; } }</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>音声、動画、ライブ配信など、メディア文脈の読み込みを示す場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="操作 独自 applied button ボタン 送信中 インライン spinner disabled aria busy">
+          <header class="part-example__header"><div><span class="part-example__index">APPLIED / 01</span><h2>ボタン内ローダー</h2></div><small>ORIGINAL</small></header>
+          <div class="part-example__preview"><button class="c-loading-button" type="button" aria-busy="true" disabled><span class="c-loading-button__spinner" aria-hidden="true"></span><span>送信中</span></button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-loading-button" type="button"
+  aria-busy="true" disabled&gt;
+  &lt;span class="c-loading-button__spinner" aria-hidden="true"&gt;&lt;/span&gt;
+  &lt;span&gt;送信中&lt;/span&gt;
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-loading-button {
+  display: inline-flex; min-height: 2.75rem; padding: .7rem 1rem;
+  gap: .65rem; align-items: center; justify-content: center;
+  color: var(--color-text-inverse, #fff);
+  font: 700 .72rem/1.2 var(--font-mono, monospace);
+  background: var(--color-primary, #18243b);
+  border: 1px solid var(--color-primary, #18243b); cursor: wait;
+}
+.c-loading-button__spinner {
+  width: 1rem; height: 1rem;
+  border: .16rem solid rgb(255 255 255 / 38%);
+  border-top-color: currentcolor; border-radius: 50%;
+  animation: loading-button-spin .8s linear infinite;
+}
+@keyframes loading-button-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .c-loading-button__spinner { animation: none; }
+}</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>フォーム送信や購入処理で、二重送信を防ぎながらボタン内で進行状態を伝える場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="操作 独自 applied overlay パネル 被覆 ブロック 更新中 コンテンツ aria busy">
+          <header class="part-example__header"><div><span class="part-example__index">APPLIED / 02</span><h2>パネルオーバーレイ</h2></div><small>ORIGINAL</small></header>
+          <div class="part-example__preview"><div class="c-loading-overlay" aria-busy="true"><div class="c-loading-overlay__content" aria-hidden="true"><strong>REPORT / TODAY</strong><span class="c-loading-overlay__line"></span><span class="c-loading-overlay__line"></span></div><div class="c-loading-overlay__layer" role="status" aria-label="データを更新中"><span class="c-loading-overlay__spinner" aria-hidden="true"></span><span>更新中</span></div></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-loading-overlay" aria-busy="true"&gt;
+  &lt;div class="c-loading-overlay__content" aria-hidden="true"&gt;
+    &lt;strong&gt;REPORT / TODAY&lt;/strong&gt;
+    &lt;span class="c-loading-overlay__line"&gt;&lt;/span&gt;
+    &lt;span class="c-loading-overlay__line"&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="c-loading-overlay__layer" role="status"
+    aria-label="データを更新中"&gt;
+    &lt;span class="c-loading-overlay__spinner" aria-hidden="true"&gt;&lt;/span&gt;
+    &lt;span&gt;更新中&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-loading-overlay, .c-loading-overlay * { box-sizing: border-box; }
+.c-loading-overlay {
+  position: relative; width: min(100%, 21rem); min-height: 8.5rem;
+  overflow: hidden; background: #fff; border: 1px solid #aeb8c7;
+}
+.c-loading-overlay__content { display: grid; padding: 1rem; gap: .65rem; }
+.c-loading-overlay__content strong { font: 700 .72rem/1.2 monospace; }
+.c-loading-overlay__line { width: 100%; height: .6rem; background: #edf1f7; }
+.c-loading-overlay__line:last-child { width: 68%; }
+.c-loading-overlay__layer {
+  position: absolute; inset: 0; display: grid; gap: .55rem;
+  place-content: center; justify-items: center; color: #fff;
+  font: 700 .65rem/1.2 monospace; background: rgb(24 36 59 / 88%);
+}
+.c-loading-overlay__spinner {
+  width: 2rem; height: 2rem; border: .22rem solid rgb(255 255 255 / 32%);
+  border-top-color: var(--color-accent-yellow, #ffff00); border-radius: 50%;
+  animation: loading-overlay-spin .9s linear infinite;
+}
+@keyframes loading-overlay-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .c-loading-overlay__spinner { animation: none; }
+}</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>検索結果、集計パネル、設定画面など、更新対象の領域だけを一時的に操作不可とする場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="装飾 flip square フリップ スクエア 立体 ブランド">
+          <header class="part-example__header"><div><span class="part-example__index">EXPRESSIVE / 01</span><h2>フリップスクエア</h2></div><small>BRAND MOTION</small></header>
+          <div class="part-example__preview"><div class="c-loading c-loading--flip" role="status" aria-label="読み込み中"></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-loading c-loading--flip"
+  role="status" aria-label="読み込み中"&gt;&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-loading--flip { display: grid; min-height: 6rem; place-items: center; }
+.c-loading--flip::before {
+  width: 2.75rem; height: 2.75rem; content: "";
+  background: var(--color-primary, #18243b);
+  border: .28rem solid var(--color-accent-yellow, #ffff00);
+  animation: loading-flip 1.25s cubic-bezier(.65, 0, .35, 1) infinite;
+}
+@keyframes loading-flip {
+  0% { transform: perspective(5rem) rotateX(0) rotateY(0); }
+  50% { transform: perspective(5rem) rotateX(180deg) rotateY(0); }
+  100% { transform: perspective(5rem) rotateX(180deg) rotateY(180deg); }
+}
+@media (prefers-reduced-motion: reduce) { .c-loading--flip::before { animation: none; } }</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>ブランドサイトや起動画面など、短い待ち時間にも固有の印象を加えたい場面。</p></div>
+        </section>
+      </div>
+
+      <div class="part-detail-empty" data-pattern-empty hidden><p>[ NO_PATTERN_FOUND ]</p><p>検索語を変更してください。</p></div>
+
+      <section class="part-common-styles" id="loading-common-styles" aria-labelledby="loading-common-styles-title">
+        <header class="part-common-styles__header reveal"><p class="section-index">LOADING / COMMON_STYLE</p><h2 id="loading-common-styles-title">共通スタイル</h2><p>サイズ・配色・配置と、動きを抑える環境の共通設定です。</p></header>
+        <div class="part-common-styles__code reveal" data-reveal-threshold="0.01"><div class="part-code"><div class="part-code__header"><span>CSS / COMMON</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-loading,
+.c-loading * {
+  box-sizing: border-box;
+}
+.c-loading {
+  --loading-color: var(--color-primary, #18243b);
+  --loading-accent: var(--color-accent-yellow, #ffff00);
+  --loading-soft: var(--color-primary-soft, #edf1f7);
+  color: var(--loading-color);
+  font-family: var(--font-mono, monospace);
+}
+@media (prefers-reduced-motion: reduce) {
+  .c-loading,
+  .c-loading *,
+  .c-loading::before,
+  .c-loading::after,
+  .c-loading *::before,
+  .c-loading *::after {
+    animation: none !important;
+  }
+}</code></pre></div></div>
+      </section>
+
+      <footer class="page-footer" aria-label="ページナビゲーション"><a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO WEB PARTS</span></a><a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a></footer>
+    </main>
+    <script src="../js/web-parts-detail.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

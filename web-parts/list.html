@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="記事、機能紹介、手順、ランキング、リンク、ステータスなどの情報を読み取りやすく整理するCSSリスト16パターンです。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>LIST | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/list.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="LIST | MARK BENCH" />
+    <meta property="og:description" content="記事、機能紹介、手順、ランキング、リンク、ステータスなどの情報を読み取りやすく整理するCSSリスト16パターンです。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/list.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="LIST | MARK BENCH" />
+    <meta name="twitter:description" content="記事、機能紹介、手順、ランキング、リンク、ステータスなどの情報を読み取りやすく整理するCSSリスト16パターンです。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "LIST",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/list.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/web-parts.css" />
+    <link rel="stylesheet" href="../css/web-parts-list.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts-detail" data-parts-detail>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header">
+      <div class="site-header__bar">
+        <nav class="site-breadcrumb-logo" aria-label="パンくずリスト">
+          <a class="site-logo" href="../index.html">MARK BENCH</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <a class="site-breadcrumb-logo__parent" href="./">WEB PARTS</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <span class="site-breadcrumb-logo__current" aria-current="page">LIST</span>
+        </nav>
+      </div>
+    </header>
+
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション">
+      <a href="../tools/"><strong>TOOLS</strong></a>
+      <a href="./" aria-current="location"><strong>WEB PARTS</strong></a>
+      <a href="../build-notes/"><strong>BUILD NOTES</strong></a>
+      <a href="../about.html"><strong>ABOUT</strong></a>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <header class="part-detail-header">
+        <p class="section-index reveal">WEB_PARTS / LIST</p>
+        <h1 class="reveal">LIST</h1>
+        <p class="part-detail-header__lead reveal">記事の要点、商品やサービスの特徴、作業手順、ランキング、関連リンク、進行状態などを、内容の意味と順序を保ちながら読み取りやすく整理するCSSリスト16パターンです。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 16</span><span>TYPE: CSS</span><span>DEPENDENCY: NONE</span></div>
+        <a class="part-detail-header__anchor reveal" href="#list-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
+      </header>
+
+      <section class="part-detail-controls directory-search directory-keywords" aria-label="リストパターンを絞り込み">
+        <div class="directory-keywords__group">
+          <p class="directory-keywords__label">KEYWORDS</p>
+          <div class="directory-keywords__list">
+            <button type="button" aria-pressed="false" data-pattern-keyword="マーカー"># マーカー</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="状態"># 状態</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="番号"># 番号</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="手順"># 手順</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="強調"># 強調</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="背景"># 背景</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="実務追加"># 実務追加</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="リンク"># リンク</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="説明"># 説明</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="ステータス"># ステータス</button>
+          </div>
+        </div>
+        <p>DISPLAY: <span data-pattern-count>16</span> / 16</p>
+      </section>
+
+      <div class="part-example-list">
+        <section class="part-example reveal" data-pattern data-search="マーカー 基本 ドット 点 丸 dot bullet unordered ul 箇条書き">
+          <header class="part-example__header"><div><span class="part-example__index">MARKER / 01</span><h2>カラードット</h2></div><small>DOT</small></header>
+          <div class="part-example__preview"><ul class="c-list c-list--dot" role="list"><li>要点を短く整理する</li><li>項目を同じ粒度で揃える</li><li>視線の起点を明確にする</li></ul></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;ul class="c-list c-list--dot" role="list"&gt;
+  &lt;li&gt;要点を短く整理する&lt;/li&gt;
+  &lt;li&gt;項目を同じ粒度で揃える&lt;/li&gt;
+  &lt;li&gt;視線の起点を明確にする&lt;/li&gt;
+&lt;/ul&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-list { display: grid; width: min(100%, 22rem); margin: 0; padding: 0; gap: .7rem; color: var(--color-text, #1c2430); font: 700 .875rem/1.55 sans-serif; list-style: none; }
+.c-list &gt; li { display: flex; gap: .7rem; align-items: center; }
+.c-list--dot &gt; li::before { width: .65rem; height: .65rem; flex: none; background: var(--color-primary, #18243b); border-radius: 50%; content: ""; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>本文の要点、仕様、特徴など、順序を持たない情報を控えめな目印で整理する場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="マーカー 基本 ダッシュ 線 dash note supplement unordered ul 注釈 補足">
+          <header class="part-example__header"><div><span class="part-example__index">MARKER / 02</span><h2>ダッシュ</h2></div><small>DASH</small></header>
+          <div class="part-example__preview"><ul class="c-list c-list--dash" role="list"><li>対象ブラウザを確認</li><li>公開前に表示を確認</li><li>更新履歴へ記録</li></ul></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;ul class="c-list c-list--dash" role="list"&gt;
+  &lt;li&gt;対象ブラウザを確認&lt;/li&gt;
+  &lt;li&gt;公開前に表示を確認&lt;/li&gt;
+  &lt;li&gt;更新履歴へ記録&lt;/li&gt;
+&lt;/ul&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-list { display: grid; width: min(100%, 22rem); margin: 0; padding: 0; gap: .7rem; color: var(--color-text, #1c2430); font: 700 .875rem/1.55 sans-serif; list-style: none; }
+.c-list &gt; li { display: flex; gap: .7rem; align-items: center; }
+.c-list--dash &gt; li::before { flex: none; color: var(--color-primary, #18243b); font-weight: 900; content: "—" / ""; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>補足条件や注記など、強く主張せず本文の流れになじませたい箇条書き。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="マーカー 矢印 arrow link navigation point unordered ul 関連 導線">
+          <header class="part-example__header"><div><span class="part-example__index">MARKER / 03</span><h2>矢印マーカー</h2></div><small>ARROW</small></header>
+          <div class="part-example__preview"><ul class="c-list c-list--arrow" role="list"><li>導入事例を見る</li><li>料金プランを比較する</li><li>お問い合わせへ進む</li></ul></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;ul class="c-list c-list--arrow" role="list"&gt;
+  &lt;li&gt;導入事例を見る&lt;/li&gt;
+  &lt;li&gt;料金プランを比較する&lt;/li&gt;
+  &lt;li&gt;お問い合わせへ進む&lt;/li&gt;
+&lt;/ul&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-list { display: grid; width: min(100%, 22rem); margin: 0; padding: 0; gap: .7rem; color: var(--color-text, #1c2430); font: 700 .875rem/1.55 sans-serif; list-style: none; }
+.c-list &gt; li { display: flex; gap: .7rem; align-items: center; }
+.c-list--arrow &gt; li::before { flex: none; color: var(--color-primary, #18243b); font-family: monospace; font-weight: 900; content: "→" / ""; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>関連ページ、次の操作、資料一覧など、移動先や進行方向を示す項目。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="マーカー 円 リング 輪 circle ring outline unordered ul 選択 候補">
+          <header class="part-example__header"><div><span class="part-example__index">MARKER / 04</span><h2>円マーカー</h2></div><small>RING</small></header>
+          <div class="part-example__preview"><ul class="c-list c-list--ring" role="list"><li>スタンダードプラン</li><li>チームプラン</li><li>エンタープライズプラン</li></ul></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;ul class="c-list c-list--ring" role="list"&gt;
+  &lt;li&gt;スタンダードプラン&lt;/li&gt;
+  &lt;li&gt;チームプラン&lt;/li&gt;
+  &lt;li&gt;エンタープライズプラン&lt;/li&gt;
+&lt;/ul&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-list { display: grid; width: min(100%, 22rem); margin: 0; padding: 0; gap: .7rem; color: var(--color-text, #1c2430); font: 700 .875rem/1.55 sans-serif; list-style: none; }
+.c-list &gt; li { display: flex; gap: .7rem; align-items: center; }
+.c-list--ring &gt; li::before { width: .7rem; height: .7rem; flex: none; border: 2px solid var(--color-primary, #18243b); border-radius: 50%; content: ""; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>候補、プラン、カテゴリなど、同列の選択肢を軽い輪郭で区別する場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="状態 強調 チェック 丸 check complete done feature merit unordered ul 完了 機能">
+          <header class="part-example__header"><div><span class="part-example__index">STATUS / 01</span><h2>チェックリスト</h2></div><small>CHECK</small></header>
+          <div class="part-example__preview"><ul class="c-list c-list--check" role="list"><li>レスポンシブ対応</li><li>キーボード操作対応</li><li>外部ライブラリ不要</li></ul></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;ul class="c-list c-list--check" role="list"&gt;
+  &lt;li&gt;レスポンシブ対応&lt;/li&gt;
+  &lt;li&gt;キーボード操作対応&lt;/li&gt;
+  &lt;li&gt;外部ライブラリ不要&lt;/li&gt;
+&lt;/ul&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-list { display: grid; width: min(100%, 22rem); margin: 0; padding: 0; gap: .7rem; color: var(--color-text, #1c2430); font: 700 .875rem/1.55 sans-serif; list-style: none; }
+.c-list &gt; li { display: flex; gap: .7rem; align-items: center; }
+.c-list--check &gt; li::before { display: inline-grid; width: 1.35rem; height: 1.35rem; flex: none; place-items: center; color: #fff; font-size: .72rem; background: var(--color-primary, #18243b); border-radius: 50%; content: "✓" / ""; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>商品やサービスの対応機能、メリット、完了済み項目を肯定的に伝える場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="状態 強調 角 四角 チェック square checkbox todo task unordered ul タスク 完了">
+          <header class="part-example__header"><div><span class="part-example__index">STATUS / 02</span><h2>角チェック</h2></div><small>SQUARE CHECK</small></header>
+          <div class="part-example__preview"><ul class="c-list c-list--square-check" role="list"><li>原稿を確認する</li><li>画像を最適化する</li><li>公開日時を設定する</li></ul></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;ul class="c-list c-list--square-check" role="list"&gt;
+  &lt;li&gt;原稿を確認する&lt;/li&gt;
+  &lt;li&gt;画像を最適化する&lt;/li&gt;
+  &lt;li&gt;公開日時を設定する&lt;/li&gt;
+&lt;/ul&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-list { display: grid; width: min(100%, 22rem); margin: 0; padding: 0; gap: .7rem; color: var(--color-text, #1c2430); font: 700 .875rem/1.55 sans-serif; list-style: none; }
+.c-list &gt; li { display: flex; gap: .7rem; align-items: center; }
+.c-list--square-check &gt; li::before { display: inline-grid; width: 1.35rem; height: 1.35rem; flex: none; place-items: center; color: #fff; font-size: .72rem; background: var(--color-primary, #18243b); border-radius: .2rem; content: "✓" / ""; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>公開前チェックや作業項目など、タスクリストに近い整然とした印象が必要な場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="状態 強調 チェックマーク tick レ点 complete done minimal unordered ul 完了 シンプル">
+          <header class="part-example__header"><div><span class="part-example__index">STATUS / 03</span><h2>チェックマーク</h2></div><small>TICK</small></header>
+          <div class="part-example__preview"><ul class="c-list c-list--tick" role="list"><li>登録情報の入力</li><li>メールアドレスの確認</li><li>初期設定の完了</li></ul></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;ul class="c-list c-list--tick" role="list"&gt;
+  &lt;li&gt;登録情報の入力&lt;/li&gt;
+  &lt;li&gt;メールアドレスの確認&lt;/li&gt;
+  &lt;li&gt;初期設定の完了&lt;/li&gt;
+&lt;/ul&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-list { display: grid; width: min(100%, 22rem); margin: 0; padding: 0; gap: .7rem; color: var(--color-text, #1c2430); font: 700 .875rem/1.55 sans-serif; list-style: none; }
+.c-list &gt; li { display: flex; gap: .7rem; align-items: center; }
+.c-list--tick &gt; li::before { width: .45rem; height: .8rem; margin: -.18rem .25rem 0 .1rem; flex: none; border: solid var(--color-primary, #18243b); border-width: 0 3px 3px 0; content: ""; transform: rotate(45deg); }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>背景付きマーカーを避け、完了状態や対応事項をすっきり表示したい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="状態 強調 スター 星 star recommend feature benefit unordered ul おすすめ 特典 評価">
+          <header class="part-example__header"><div><span class="part-example__index">STATUS / 04</span><h2>スター</h2></div><small>STAR</small></header>
+          <div class="part-example__preview"><ul class="c-list c-list--star" role="list"><li>導入サポート付き</li><li>チーム共有に対応</li><li>30日間無料で利用可能</li></ul></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;ul class="c-list c-list--star" role="list"&gt;
+  &lt;li&gt;導入サポート付き&lt;/li&gt;
+  &lt;li&gt;チーム共有に対応&lt;/li&gt;
+  &lt;li&gt;30日間無料で利用可能&lt;/li&gt;
+&lt;/ul&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-list { display: grid; width: min(100%, 22rem); margin: 0; padding: 0; gap: .7rem; color: var(--color-text, #1c2430); font: 700 .875rem/1.55 sans-serif; list-style: none; }
+.c-list &gt; li { display: flex; gap: .7rem; align-items: center; }
+.c-list--star &gt; li::before { flex: none; color: var(--color-primary, #18243b); font-size: 1rem; line-height: 1; content: "★" / ""; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>おすすめ機能、特典、注目ポイントなど、価値を少し強く印象付けたい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="番号 手順 連番 number badge counter ordered ol 順序 ランキング">
+          <header class="part-example__header"><div><span class="part-example__index">SEQUENCE / 01</span><h2>番号バッジ</h2></div><small>NUMBER BADGE</small></header>
+          <div class="part-example__preview"><ol class="c-list c-list--number" role="list"><li>目的を決める</li><li>構成を整える</li><li>表示を確認する</li></ol></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;ol class="c-list c-list--number" role="list"&gt;
+  &lt;li&gt;目的を決める&lt;/li&gt;
+  &lt;li&gt;構成を整える&lt;/li&gt;
+  &lt;li&gt;表示を確認する&lt;/li&gt;
+&lt;/ol&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-list { display: grid; width: min(100%, 22rem); margin: 0; padding: 0; gap: .7rem; color: var(--color-text, #1c2430); font: 700 .875rem/1.55 sans-serif; list-style: none; }
+.c-list &gt; li { display: flex; gap: .7rem; align-items: center; }
+.c-list--number { counter-reset: number; }
+.c-list--number &gt; li { counter-increment: number; }
+.c-list--number &gt; li::before { display: inline-grid; width: 1.5rem; height: 1.5rem; flex: none; place-items: center; color: #fff; font: .68rem monospace; background: var(--color-primary, #18243b); border-radius: 50%; content: counter(number) / ""; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>短い手順、ランキング、優先順位など、各項目の順序を明確に伝える場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="番号 強調 ビッグ 大きい big number leading zero ranking feature ordered ol ランキング 特集">
+          <header class="part-example__header"><div><span class="part-example__index">SEQUENCE / 02</span><h2>ビッグ番号</h2></div><small>BIG NUMBER</small></header>
+          <div class="part-example__preview"><ol class="c-list c-list--big-number" role="list"><li>読みやすい情報設計</li><li>迷わない操作導線</li><li>継続しやすい運用</li></ol></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;ol class="c-list c-list--big-number" role="list"&gt;
+  &lt;li&gt;読みやすい情報設計&lt;/li&gt;
+  &lt;li&gt;迷わない操作導線&lt;/li&gt;
+  &lt;li&gt;継続しやすい運用&lt;/li&gt;
+&lt;/ol&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-list { width: min(100%, 22rem); margin: 0; padding: 0; color: var(--color-text, #1c2430); font: 700 .875rem/1.55 sans-serif; list-style: none; }
+.c-list--big-number { counter-reset: big-number; }
+.c-list--big-number &gt; li { position: relative; min-height: 2.75rem; padding: .65rem 0 .65rem 3.6rem; counter-increment: big-number; }
+.c-list--big-number &gt; li::before { position: absolute; top: 50%; left: 0; color: var(--color-grid-strong, #aeb8c7); font: 800 2rem/1 monospace; content: counter(big-number, decimal-leading-zero) / ""; transform: translateY(-50%); }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>特集記事、ランキング、重要ポイントなど、番号をグラフィックとして強く見せる場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="番号 手順 ステップ タイムライン step timeline counter ordered ol flow process 流れ 申込">
+          <header class="part-example__header"><div><span class="part-example__index">SEQUENCE / 03</span><h2>ステップ・タイムライン</h2></div><small>TIMELINE</small></header>
+          <div class="part-example__preview"><ol class="c-list c-list--step" role="list"><li>フォームから申し込む</li><li>担当者と内容を確認する</li><li>制作物を受け取る</li></ol></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;ol class="c-list c-list--step" role="list"&gt;
+  &lt;li&gt;フォームから申し込む&lt;/li&gt;
+  &lt;li&gt;担当者と内容を確認する&lt;/li&gt;
+  &lt;li&gt;制作物を受け取る&lt;/li&gt;
+&lt;/ol&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-list { width: min(100%, 22rem); margin: 0; padding: 0; color: var(--color-text, #1c2430); font: 700 .875rem/1.55 sans-serif; list-style: none; }
+.c-list--step { counter-reset: step; }
+.c-list--step &gt; li { position: relative; min-height: 2.6rem; padding: .1rem 0 1.25rem 2.75rem; counter-increment: step; }
+.c-list--step &gt; li::before { position: absolute; top: 0; left: 0; display: grid; width: 1.75rem; height: 1.75rem; place-items: center; color: #fff; font: .68rem monospace; background: var(--color-primary, #18243b); border-radius: 50%; content: counter(step) / ""; }
+.c-list--step &gt; li::after { position: absolute; top: 1.95rem; bottom: .2rem; left: .83rem; width: 2px; background: var(--color-grid-strong, #aeb8c7); content: ""; }
+.c-list--step &gt; li:last-child { padding-bottom: .1rem; }
+.c-list--step &gt; li:last-child::after { content: none; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>申し込み、制作、配送など、前後関係のある工程をひと続きの流れとして説明する場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="背景 ゼブラ 交互 行 zebra stripe nth child unordered ul 一覧 可読性">
+          <header class="part-example__header"><div><span class="part-example__index">SURFACE / 01</span><h2>ゼブラ（交互背景）</h2></div><small>ZEBRA</small></header>
+          <div class="part-example__preview"><ul class="c-list c-list--zebra" role="list"><li>企画・要件整理</li><li>デザイン制作</li><li>実装・動作確認</li><li>公開・運用支援</li></ul></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;ul class="c-list c-list--zebra" role="list"&gt;
+  &lt;li&gt;企画・要件整理&lt;/li&gt;
+  &lt;li&gt;デザイン制作&lt;/li&gt;
+  &lt;li&gt;実装・動作確認&lt;/li&gt;
+  &lt;li&gt;公開・運用支援&lt;/li&gt;
+&lt;/ul&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-list { width: min(100%, 22rem); margin: 0; padding: 0; color: var(--color-text, #1c2430); font: 700 .875rem/1.55 sans-serif; list-style: none; }
+.c-list--zebra { overflow: hidden; border: 1px solid var(--color-grid-strong, #aeb8c7); border-radius: .35rem; }
+.c-list--zebra &gt; li { padding: .65rem .9rem; }
+.c-list--zebra &gt; li:nth-child(odd) { background: var(--color-primary-soft, #edf1f7); }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>項目数の多い機能一覧や業務項目で、隣接する行を追いやすくする場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="実務追加 区切り線 行 divided border separator settings menu 一覧 設定 メニュー">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL ADDITION / 01</span><h2>区切り線リスト</h2></div><small>DIVIDED ROWS</small></header>
+          <div class="part-example__preview"><ul class="c-list c-list--divided" role="list"><li>プロフィール設定</li><li>通知とメール配信</li><li>セキュリティ設定</li></ul></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;ul class="c-list c-list--divided" role="list"&gt;
+  &lt;li&gt;プロフィール設定&lt;/li&gt;
+  &lt;li&gt;通知とメール配信&lt;/li&gt;
+  &lt;li&gt;セキュリティ設定&lt;/li&gt;
+&lt;/ul&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-list { display: grid; width: min(100%, 22rem); margin: 0; padding: 0; gap: 0; color: var(--color-text, #1c2430); font: 700 .875rem/1.55 sans-serif; list-style: none; }
+.c-list--divided &gt; li { display: flex; padding: .8rem 0; gap: .7rem; align-items: center; border-bottom: 1px solid var(--color-grid-strong, #aeb8c7); }
+.c-list--divided &gt; li:first-child { border-top: 1px solid var(--color-grid-strong, #aeb8c7); }
+.c-list--divided &gt; li::before { width: .4rem; height: .4rem; flex: none; background: var(--color-primary, #18243b); content: ""; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>設定、メニュー、仕様一覧など、密度を保ちながら行ごとの境界を明確にしたい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="実務追加 リンク navigation link arrow hover focus menu related 関連 導線 ナビゲーション">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL ADDITION / 02</span><h2>リンクリスト</h2></div><small>LINK ROWS</small></header>
+          <div class="part-example__preview"><ul class="c-list c-list--link" role="list"><li><a class="c-list__link" href="./">WEB PARTS一覧</a></li><li><a class="c-list__link" href="../tools/">制作ツール一覧</a></li><li><a class="c-list__link" href="../about.html">MARK BENCHについて</a></li></ul></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;ul class="c-list c-list--link" role="list"&gt;
+  &lt;li&gt;&lt;a class="c-list__link" href="./"&gt;WEB PARTS一覧&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a class="c-list__link" href="../tools/"&gt;制作ツール一覧&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a class="c-list__link" href="../about.html"&gt;MARK BENCHについて&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-list { display: grid; width: min(100%, 22rem); margin: 0; padding: 0; gap: .5rem; font: 700 .875rem/1.55 sans-serif; list-style: none; }
+.c-list__link { display: flex; min-height: 2.9rem; padding: .7rem .85rem; gap: 1rem; align-items: center; justify-content: space-between; color: var(--color-primary, #18243b); text-decoration: none; background: #fff; border: 1px solid var(--color-grid-strong, #aeb8c7); }
+.c-list__link::after { flex: none; font-family: monospace; content: "→" / ""; transition: transform 160ms ease; }
+.c-list__link:is(:hover, :focus-visible) { background: var(--color-primary-soft, #edf1f7); }
+.c-list__link:is(:hover, :focus-visible)::after { transform: translateX(.25rem); }
+.c-list__link:focus-visible { outline: 3px solid var(--color-focus, #315a9b); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .c-list__link::after { transition-duration: .01ms; } }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>関連ページ、設定メニュー、ヘルプ項目など、行全体を押せる明確な移動導線が必要な場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="実務追加 説明 title description supporting text feature glossary list 見出し 補足 機能 用語">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL ADDITION / 03</span><h2>説明付きリスト</h2></div><small>TITLE + DESCRIPTION</small></header>
+          <div class="part-example__preview part-example__preview--description-list"><ul class="c-list c-list--description" role="list"><li><span class="c-list__title">自動保存</span><span class="c-list__description">入力内容を端末内へ一時保存します。</span></li><li><span class="c-list__title">共有リンク</span><span class="c-list__description">閲覧用URLをワンクリックで発行します。</span></li><li><span class="c-list__title">履歴管理</span><span class="c-list__description">過去の更新内容を時系列で確認できます。</span></li></ul></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;ul class="c-list c-list--description" role="list"&gt;
+  &lt;li&gt;
+    &lt;span class="c-list__title"&gt;自動保存&lt;/span&gt;
+    &lt;span class="c-list__description"&gt;入力内容を端末内へ一時保存します。&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;span class="c-list__title"&gt;共有リンク&lt;/span&gt;
+    &lt;span class="c-list__description"&gt;閲覧用URLをワンクリックで発行します。&lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-list { display: grid; width: min(100%, 22rem); margin: 0; padding: 0; gap: .7rem; color: var(--color-text, #1c2430); font: 700 .875rem/1.55 sans-serif; list-style: none; }
+.c-list--description &gt; li { display: grid; padding: .2rem 0 .2rem 1rem; gap: .2rem; border-left: 3px solid var(--color-primary, #18243b); }
+.c-list__title { font-weight: 800; }
+.c-list__description { color: var(--color-text-subtle, #626c7a); font-size: .78rem; font-weight: 400; }
+@media (max-width: 40rem) {
+  .c-list--description { gap: .45rem; }
+  .c-list--description &gt; li { padding-block: .05rem; }
+  .c-list__description { font-size: .72rem; line-height: 1.4; }
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>機能名と補足、用語と定義、サービス内容など、見出しと短い説明を一組で示す場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="実務追加 ステータス status badge progress workflow review ready pending project task 進捗 状態 管理">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL ADDITION / 04</span><h2>ステータス付きリスト</h2></div><small>STATUS META</small></header>
+          <div class="part-example__preview"><ul class="c-list c-list--status" role="list"><li><strong>要件定義</strong><span class="c-list__status">READY</span></li><li><strong>デザイン確認</strong><span class="c-list__status c-list__status--pending">REVIEW</span></li><li><strong>公開作業</strong><span class="c-list__status c-list__status--pending">WAIT</span></li></ul></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;ul class="c-list c-list--status" role="list"&gt;
+  &lt;li&gt;&lt;strong&gt;要件定義&lt;/strong&gt;&lt;span class="c-list__status"&gt;READY&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;デザイン確認&lt;/strong&gt;&lt;span class="c-list__status c-list__status--pending"&gt;REVIEW&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;公開作業&lt;/strong&gt;&lt;span class="c-list__status c-list__status--pending"&gt;WAIT&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-list { display: grid; width: min(100%, 22rem); margin: 0; padding: 0; gap: 0; color: var(--color-text, #1c2430); font: 700 .875rem/1.55 sans-serif; list-style: none; }
+.c-list--status &gt; li { display: flex; min-height: 2.75rem; padding: .65rem 0; gap: .7rem; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--color-grid-strong, #aeb8c7); }
+.c-list--status &gt; li:first-child { border-top: 1px solid var(--color-grid-strong, #aeb8c7); }
+.c-list__status { padding: .25rem .5rem; flex: none; color: #fff; font: .58rem/1.2 monospace; background: var(--color-primary, #18243b); }
+.c-list__status--pending { color: var(--color-primary, #18243b); background: var(--color-accent-yellow, #ff0); }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>制作工程、申請、案件、タスクなど、項目名と現在の進行状態を同時に確認する場面。</p></div>
+        </section>
+      </div>
+
+      <div class="part-detail-empty" data-pattern-empty hidden><p>[ NO_PATTERNS_FOUND ]</p><p>別のキーワードを選択してください。</p></div>
+
+      <section class="part-common-styles" id="list-common-styles" aria-labelledby="list-common-title">
+        <header class="part-common-styles__header reveal">
+          <p class="section-index">COMMON STYLE</p>
+          <h2 id="list-common-title">共通スタイル</h2>
+          <p>リストの横幅、文字組み、標準マーカーの解除を揃える基礎スタイルです。</p>
+        </header>
+        <div class="part-common-styles__code reveal" data-reveal-threshold="0.01">
+          <div class="part-code">
+            <div class="part-code__header"><span>CSS / COMMON</span><button type="button" data-copy-code>COPY</button></div>
+            <pre><code>.c-list,
+.c-list * {
+  box-sizing: border-box;
+}
+
+.c-list {
+  width: min(100%, 22rem);
+  margin: 0;
+  padding: 0;
+  color: var(--color-text, #1c2430);
+  font-family: var(--font-sans, sans-serif);
+  font-size: .875rem;
+  font-weight: 700;
+  line-height: 1.55;
+  list-style: none;
+}
+
+.c-list:not(.c-list--step, .c-list--zebra, .c-list--big-number) {
+  display: grid;
+  gap: .7rem;
+}
+
+.c-list:not(.c-list--step, .c-list--zebra, .c-list--big-number) &gt; li {
+  display: flex;
+  min-width: 0;
+  gap: .7rem;
+  align-items: center;
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <footer class="page-footer" aria-label="ページナビゲーション">
+        <a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO WEB PARTS</span></a>
+        <a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a>
+      </footer>
+    </main>
+
+    <script src="../js/web-parts-detail.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

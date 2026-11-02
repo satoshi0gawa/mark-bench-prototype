@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">MARK BENCH</title>
+  <desc id="desc">Web production tools, reusable web parts, and build notes.</desc>
+  <defs>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" fill="none" stroke="#d9dfe8" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fff"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect x="72" y="72" width="1056" height="486" fill="#fff" stroke="#18243b" stroke-width="2"/>
+  <rect x="72" y="72" width="18" height="486" fill="#18243b"/>
+  <rect x="96" y="96" width="936" height="12" fill="#ff0"/>
+  <text x="132" y="270" fill="#18243b" font-family="Space Mono, BIZ UDPGothic, monospace" font-size="92" font-weight="700" letter-spacing="-3">MARK BENCH</text>
+  <text x="136" y="336" fill="#667085" font-family="Space Mono, BIZ UDPGothic, monospace" font-size="27" font-weight="700" letter-spacing="3">WEB PRODUCTION WORKBENCH</text>
+  <line x1="136" y1="390" x2="1064" y2="390" stroke="#aeb8c7" stroke-width="2" stroke-dasharray="5 8"/>
+  <text x="136" y="454" fill="#18243b" font-family="Space Mono, BIZ UDPGothic, monospace" font-size="23">TOOLS / WEB PARTS / BUILD NOTES</text>
+  <text x="136" y="510" fill="#667085" font-family="Space Mono, BIZ UDPGothic, monospace" font-size="18">satoshi0gawa.github.io/mark-bench-prototype/</text>
+</svg>

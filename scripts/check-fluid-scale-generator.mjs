@@ -88,14 +88,14 @@ assert.match(page, /js\/fluid-scale-generator-ui\.js/u);
 assert.match(page, /data-tool-workspace/u);
 
 const directory = await readFile(new URL('../tools/index.html', import.meta.url), 'utf8');
-assert.match(directory, /AVAILABLE: 16/u);
-assert.match(directory, /data-filter="all">ALL <span>16<\/span>/u);
-assert.match(directory, /data-filter="css">CSS <span>04<\/span>/u);
+assert.match(directory, /TOOLS: 25/u);
+assert.match(directory, /data-filter="all">ALL <span>25<\/span>/u);
+assert.match(directory, /data-filter="css">CSS <span>06<\/span>/u);
 assert.match(directory, /data-id="fluid-scale-generator"/u);
 assert.match(directory, /href="\.\/fluid-scale-generator\.html"/u);
 
 const home = await readFile(new URL('../index.html', import.meta.url), 'utf8');
-assert.match(home, /16 TOOLS/u);
+assert.match(home, /25 TOOLS/u);
 
 const controller = await readFile(new URL('../js/tool.js', import.meta.url), 'utf8');
 assert.match(controller, /kind: 'fluid-scale'/u);
@@ -106,7 +106,7 @@ const ui = await readFile(new URL('../js/fluid-scale-generator-ui.js', import.me
 assert.match(ui, /SCALE SYSTEM/u);
 assert.match(ui, /SINGLE VALUE/u);
 assert.match(ui, /DOWNLOAD CSS/u);
-assert.match(ui, /ダウンロードが完了しました。/u);
+assert.doesNotMatch(ui, /MARK BENCH SAMPLE LOADED|INPUT RESET|ダウンロードが完了しました。/u);
 assert.match(ui, /fluid-scale__preview-pane/u);
 assert.match(ui, /fluid-scale__token-pane/u);
 assert.match(ui, /fluid-scale__source-pane/u);
@@ -116,5 +116,8 @@ assert.match(styles, /\.fluid-scale__mode-tabs/u);
 assert.match(styles, /\.workspace-grid--fluid-scale/u);
 assert.match(styles, /\.fluid-scale__token-table/u);
 assert.match(styles, /\.fluid-scale__data-pane/u);
+assert.match(styles, /\.fluid-scale__viewport-control input \{ width: 100%; accent-color: #e5e7eb; \}/u);
+assert.match(styles, /data-tool-id="fluid-scale-generator"[^}]*\[data-fluid-token-rows\] button\[data-copy-token\] \{\s*display: block;\s*width: 100%;/u);
+assert.match(styles, /data-tool-id="fluid-scale-generator"[^}]*button\[data-fluid-download\] \{\s*border: 0;/u);
 
 console.log('Fluid Scale Generator checks passed.');

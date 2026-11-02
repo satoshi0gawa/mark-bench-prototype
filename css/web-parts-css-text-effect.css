@@ -1,0 +1,214 @@
+@charset "UTF-8";
+
+/* CSS-TEXT-EFFECT: JavaScript-free text expressions. */
+
+.part-example__preview--effect-dark {
+  background: var(--color-code-background, #111827);
+}
+.part-example__preview--effect-warm {
+  background: linear-gradient(135deg, var(--color-background, #fff), var(--color-primary-soft, #edf1f7));
+}
+
+.c-text-effect {
+  display: inline-block;
+  max-width: 100%;
+  color: var(--color-text, #1c2430);
+  font-family: var(--font-sans, sans-serif);
+  font-size: clamp(1.55rem, 5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.c-text-effect--neon {
+  color: var(--color-text-inverse, #fff);
+  text-shadow:
+    0 0 0.3rem var(--color-focus, #315a9b),
+    0 0 0.8rem var(--color-focus, #315a9b),
+    0 0 1.5rem var(--color-focus, #315a9b);
+  animation: c-text-effect-neon 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes c-text-effect-neon {
+  from {
+    text-shadow:
+      0 0 0.2rem var(--color-focus, #315a9b),
+      0 0 0.55rem var(--color-focus, #315a9b);
+  }
+  to {
+    text-shadow:
+      0 0 0.45rem var(--color-focus, #315a9b),
+      0 0 1rem var(--color-focus, #315a9b),
+      0 0 1.8rem var(--color-accent-yellow, #ff0);
+  }
+}
+
+.c-text-effect--shimmer {
+  color: transparent;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary, #18243b) 0%,
+    var(--color-focus, #315a9b) 25%,
+    var(--color-accent-yellow, #ff0) 50%,
+    var(--color-focus, #315a9b) 75%,
+    var(--color-primary, #18243b) 100%
+  );
+  background-position: 0 50%;
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: c-text-effect-shimmer 2.8s linear infinite;
+}
+
+@keyframes c-text-effect-shimmer {
+  from { background-position: 0 50%; }
+  to { background-position: 200% 50%; }
+}
+
+.c-text-effect--typing {
+  box-sizing: content-box;
+  width: 8ch;
+  overflow: hidden;
+  color: var(--color-primary, #18243b);
+  font-family: var(--font-mono, monospace);
+  letter-spacing: 0;
+  white-space: nowrap;
+  border-right: 0.12em solid var(--color-focus, #315a9b);
+  animation:
+    c-text-effect-typing 2.8s steps(8) infinite,
+    c-text-effect-caret 0.7s step-end infinite;
+}
+
+@keyframes c-text-effect-typing {
+  0%, 18% { width: 0; }
+  62%, 100% { width: 8ch; }
+}
+
+@keyframes c-text-effect-caret {
+  50% { border-color: transparent; }
+}
+
+.c-text-effect--depth {
+  color: var(--color-accent-yellow, #ff0);
+  -webkit-text-stroke: 1px var(--color-primary, #18243b);
+  text-shadow:
+    0.12em 0.12em 0 var(--color-primary-hover, #263a5e),
+    0.22em 0.22em 0 var(--color-primary, #18243b);
+}
+
+.c-text-effect--outline {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--color-primary, #18243b);
+}
+
+.c-text-effect--marker {
+  padding-inline: 0.12em;
+  background-image: linear-gradient(
+    var(--color-accent-yellow, #ff0),
+    var(--color-accent-yellow, #ff0)
+  );
+  background-position: 0 82%;
+  background-repeat: no-repeat;
+  background-size: 0 38%;
+  animation: c-text-effect-marker 2.6s ease-in-out infinite;
+}
+
+@keyframes c-text-effect-marker {
+  0%, 20% { background-size: 0 38%; }
+  62%, 100% { background-size: 100% 38%; }
+}
+
+.c-text-effect--bounce {
+  color: var(--color-primary, #18243b);
+  animation: c-text-effect-bounce 1.5s ease-in-out infinite;
+}
+
+@keyframes c-text-effect-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-0.35em); }
+}
+
+.c-text-effect--wave {
+  color: var(--color-primary, #18243b);
+  white-space: nowrap;
+}
+
+.c-text-effect--wave > span {
+  display: inline-block;
+  animation: c-text-effect-wave 1.6s ease-in-out infinite;
+}
+
+.c-text-effect--wave > span:nth-child(2) { animation-delay: 0.1s; }
+.c-text-effect--wave > span:nth-child(3) { animation-delay: 0.2s; }
+.c-text-effect--wave > span:nth-child(4) { animation-delay: 0.3s; }
+.c-text-effect--wave > span:nth-child(5) { animation-delay: 0.4s; }
+.c-text-effect--wave > span:nth-child(6) { animation-delay: 0.5s; }
+
+@keyframes c-text-effect-wave {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-0.28em); }
+}
+
+.c-text-effect--focus {
+  color: var(--color-focus, #315a9b);
+  animation: c-text-effect-focus 2.5s ease-in-out infinite;
+}
+
+@keyframes c-text-effect-focus {
+  0%, 100% { filter: blur(0); opacity: 1; }
+  48% { filter: blur(0.22em); opacity: 0.35; }
+}
+
+.c-text-effect--tracking {
+  color: var(--color-primary, #18243b);
+  white-space: nowrap;
+  animation: c-text-effect-tracking 3s ease-out infinite;
+}
+
+@keyframes c-text-effect-tracking {
+  0%, 15% { letter-spacing: -0.3em; opacity: 0; }
+  55%, 100% { letter-spacing: 0.12em; opacity: 1; }
+}
+
+.c-text-effect--retro {
+  color: color-mix(
+    in srgb,
+    var(--color-accent-yellow, #ff0) 38%,
+    var(--color-code-background, #111827)
+  );
+  text-shadow: 0.16em 0.16em 0 var(--color-accent-yellow, #ff0);
+}
+
+.c-text-effect--glitch {
+  color: var(--color-primary, #18243b);
+  animation: c-text-effect-glitch 1.1s steps(2, jump-none) infinite;
+}
+
+@keyframes c-text-effect-glitch {
+  0%, 100% {
+    text-shadow:
+      0.08em 0 var(--color-focus, #315a9b),
+      -0.08em 0 var(--color-accent-yellow, #ff0);
+    transform: translateX(0);
+  }
+  35% {
+    text-shadow:
+      -0.08em 0 var(--color-focus, #315a9b),
+      0.08em 0 var(--color-accent-yellow, #ff0);
+    transform: translateX(0.025em);
+  }
+  70% {
+    text-shadow:
+      0.06em 0.06em var(--color-focus, #315a9b),
+      -0.06em -0.06em var(--color-accent-yellow, #ff0);
+    transform: translateX(-0.025em);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .c-text-effect,
+  .c-text-effect * { animation: none !important; }
+  .c-text-effect--marker { background-size: 100% 38%; }
+}

@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="表示設定、絞り込み、並び替え、運用補助に使えるVanilla JavaScriptの実用スクリプト12パターンです。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>UTILITY SCRIPT | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/utility-script.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="UTILITY SCRIPT | MARK BENCH" />
+    <meta property="og:description" content="表示設定、絞り込み、並び替え、運用補助に使えるVanilla JavaScriptの実用スクリプト12パターンです。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/utility-script.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="UTILITY SCRIPT | MARK BENCH" />
+    <meta name="twitter:description" content="表示設定、絞り込み、並び替え、運用補助に使えるVanilla JavaScriptの実用スクリプト12パターンです。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "UTILITY SCRIPT",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/utility-script.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/web-parts.css" />
+    <link rel="stylesheet" href="../css/web-parts-utility-script.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts-detail" data-parts-detail>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header"><div class="site-header__bar"><nav class="site-breadcrumb-logo" aria-label="パンくずリスト"><a class="site-logo" href="../index.html">MARK BENCH</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><a class="site-breadcrumb-logo__parent" href="./">WEB PARTS</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><span class="site-breadcrumb-logo__current" aria-current="page">UTILITY SCRIPT</span></nav></div></header>
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション"><a href="../tools/"><strong>TOOLS</strong></a><a href="./" aria-current="location"><strong>WEB PARTS</strong></a><a href="../build-notes/"><strong>BUILD NOTES</strong></a><a href="../about.html"><strong>ABOUT</strong></a></nav>
+
+    <main id="main" tabindex="-1">
+      <header class="part-detail-header">
+        <p class="section-index reveal">WEB_PARTS / UTILITY SCRIPT</p>
+        <h1 class="reveal">UTILITY SCRIPT</h1>
+        <p class="part-detail-header__lead reveal">閲覧設定、コンテンツの絞り込み・並び替え、ページ内移動、リンクや年表記の保守、印刷など、サイト運用を支えるVanilla JavaScriptスニペット12パターンです。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 12</span><span>TYPE: CSS + JS</span><span>DEPENDENCY: NONE</span></div>
+        <a class="part-detail-header__anchor reveal" href="#utility-script-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
+      </header>
+
+      <section class="part-detail-controls directory-search directory-keywords" aria-label="実用スクリプトを絞り込み">
+        <div class="directory-keywords__group"><p class="directory-keywords__label">KEYWORDS</p><div class="directory-keywords__list">
+          <button type="button" aria-pressed="false" data-pattern-keyword="表示設定"># 表示設定</button><button type="button" aria-pressed="false" data-pattern-keyword="展開"># 展開</button><button type="button" aria-pressed="false" data-pattern-keyword="絞り込み"># 絞り込み</button><button type="button" aria-pressed="false" data-pattern-keyword="検索"># 検索</button><button type="button" aria-pressed="false" data-pattern-keyword="並び替え"># 並び替え</button><button type="button" aria-pressed="false" data-pattern-keyword="変換"># 変換</button><button type="button" aria-pressed="false" data-pattern-keyword="移動"># 移動</button><button type="button" aria-pressed="false" data-pattern-keyword="保守"># 保守</button><button type="button" aria-pressed="false" data-pattern-keyword="出力"># 出力</button>
+        </div></div><p>DISPLAY: <span data-pattern-count>12</span> / 12</p>
+      </section>
+
+      <div class="part-example-list">
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="表示設定 ダークモード theme dark light localStorage preference 配色 保存">
+          <header class="part-example__header"><div><span class="part-example__index">PREFERENCE / 01</span><h2>ダークモード切替</h2></div><small>THEME STORAGE</small></header>
+          <div class="part-example__preview part-example__preview--utility-script"><div class="c-utility-script c-utility-script--theme" data-utility-theme><div class="c-utility-script__controls"><button class="c-utility-script__button" type="button" aria-pressed="false" data-theme-toggle><span class="c-utility-script__switch" aria-hidden="true"></span>ダークモード</button></div><div class="c-utility-script__panel"><strong>表示プレビュー</strong><p>選択した配色はブラウザへ保存されます。</p></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-theme" data-theme&gt;
+  &lt;button type="button" aria-pressed="false" data-toggle&gt;ダークモード&lt;/button&gt;
+  &lt;div class="c-theme__view"&gt;&lt;strong&gt;表示プレビュー&lt;/strong&gt;&lt;p&gt;選択した配色を保存します。&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-theme { width: min(100%, 24rem); color: #1c2430; font-family: sans-serif; }
+.c-theme button { padding: .6rem .8rem; color: #18243b; font-weight: 800; background: #fff; border: 1px solid #18243b; cursor: pointer; }
+.c-theme__view { margin-top: .7rem; padding: 1rem; background: #fff; border: 1px solid #aeb8c7; }
+.c-theme.is-dark .c-theme__view { color: #fff; background: #18243b; border-color: #18243b; }
+.c-theme button:focus-visible { outline: 3px solid #315a9b; outline-offset: 2px; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-theme]');
+const button = root.querySelector('[data-toggle]');
+let dark = false;
+try { dark = localStorage.getItem('site-theme') === 'dark'; } catch {}
+const apply = () =&gt; { root.classList.toggle('is-dark', dark); button.setAttribute('aria-pressed', String(dark)); };
+button.addEventListener('click', () =&gt; { dark = !dark; apply(); try { localStorage.setItem('site-theme', dark ? 'dark' : 'light'); } catch {} });
+apply();</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>サイトや管理画面の配色を閲覧者が選択し、次回訪問時にも同じ設定を復元する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="表示設定 文字サイズ font size accessibility localStorage preference 保存">
+          <header class="part-example__header"><div><span class="part-example__index">PREFERENCE / 02</span><h2>文字サイズ切替</h2></div><small>FONT SCALE</small></header>
+          <div class="part-example__preview part-example__preview--utility-script"><div class="c-utility-script c-utility-script--font" data-utility-font><div class="c-utility-script__controls" role="group" aria-label="文字サイズ"><button class="c-utility-script__button" type="button" data-font-size="s" aria-pressed="false">小</button><button class="c-utility-script__button" type="button" data-font-size="m" aria-pressed="true">標準</button><button class="c-utility-script__button" type="button" data-font-size="l" aria-pressed="false">大</button></div><div class="c-utility-script__panel c-utility-script__sample" data-font-sample><strong>読みやすさを調整</strong><p>本文の大きさだけを3段階で切り替えます。</p></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-font" data-font&gt;
+  &lt;div role="group" aria-label="文字サイズ"&gt;&lt;button type="button" data-size="s"&gt;小&lt;/button&gt;&lt;button type="button" data-size="m"&gt;標準&lt;/button&gt;&lt;button type="button" data-size="l"&gt;大&lt;/button&gt;&lt;/div&gt;
+  &lt;div class="c-font__sample" data-sample&gt;読みやすさを調整します。&lt;/div&gt;
+&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-font { width: min(100%, 24rem); font-family: sans-serif; }
+.c-font button { padding: .5rem .75rem; color: #18243b; background: #fff; border: 1px solid #18243b; cursor: pointer; }
+.c-font button[aria-pressed="true"] { background: #ffff00; }
+.c-font__sample { margin-top: .7rem; padding: 1rem; font-size: var(--font-size, 100%); background: #fff; border: 1px solid #aeb8c7; }
+.c-font button:focus-visible { outline: 3px solid #315a9b; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-font]');
+const sample = root.querySelector('[data-sample]');
+const buttons = [...root.querySelectorAll('[data-size]')];
+const sizes = { s: '87.5%', m: '100%', l: '112.5%' };
+const apply = (size) =&gt; { sample.style.setProperty('--font-size', sizes[size]); buttons.forEach((button) =&gt; button.setAttribute('aria-pressed', String(button.dataset.size === size))); try { localStorage.setItem('font-size', size); } catch {} };
+buttons.forEach((button) =&gt; button.addEventListener('click', () =&gt; apply(button.dataset.size)));
+let saved = 'm'; try { saved = localStorage.getItem('font-size') || 'm'; } catch {} apply(sizes[saved] ? saved : 'm');</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>長文記事や案内ページで、閲覧者が読みやすい文字サイズを選んで保存する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="展開 もっと見る more reveal progressive list お知らせ 残り件数">
+          <header class="part-example__header"><div><span class="part-example__index">CONTENT / 01</span><h2>もっと見るボタン</h2></div><small>PROGRESSIVE REVEAL</small></header>
+          <div class="part-example__preview part-example__preview--utility-script"><div class="c-utility-script" data-utility-more data-show="3"><ul class="c-utility-script__list"><li>新機能を公開しました</li><li>メンテナンスのお知らせ</li><li>利用規約を更新しました</li><li>導入事例を追加しました</li><li>年末年始の営業案内</li><li>サポート窓口の変更</li></ul><div class="c-utility-script__controls"><button class="c-utility-script__button" type="button" data-more-button>もっと見る</button></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-more" data-more data-show="3"&gt;
+  &lt;ul&gt;&lt;li&gt;お知らせ1&lt;/li&gt;&lt;li&gt;お知らせ2&lt;/li&gt;&lt;li&gt;お知らせ3&lt;/li&gt;&lt;li&gt;お知らせ4&lt;/li&gt;&lt;/ul&gt;
+  &lt;button type="button" data-more-button&gt;もっと見る&lt;/button&gt;
+&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-more { width: min(100%, 24rem); font-family: sans-serif; }
+.c-more ul { margin: 0 0 .7rem; padding: 0; list-style: none; border: 1px solid #aeb8c7; }
+.c-more li { padding: .6rem .75rem; }.c-more li + li { border-top: 1px solid #d9dfe8; }
+.c-more [hidden] { display: none; }
+.c-more button { padding: .55rem .8rem; color: #fff; font-weight: 800; background: #18243b; border: 1px solid #18243b; cursor: pointer; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-more]');
+const items = [...root.querySelectorAll('li')];
+const button = root.querySelector('[data-more-button]');
+const show = Number(root.dataset.show || 3);
+items.forEach((item, index) =&gt; { item.hidden = index &gt;= show; });
+button.textContent = `もっと見る（残り${Math.max(0, items.length - show)}件）`;
+button.addEventListener('click', () =&gt; { items.forEach((item) =&gt; { item.hidden = false; }); button.hidden = true; });</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>お知らせや履歴の初期表示を短く保ち、必要な人だけ残りを展開する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="絞り込み ボタン filter category cards aria pressed 商品 タグ">
+          <header class="part-example__header"><div><span class="part-example__index">CONTENT / 02</span><h2>ボタンフィルタ</h2></div><small>CATEGORY FILTER</small></header>
+          <div class="part-example__preview part-example__preview--utility-script"><div class="c-utility-script c-utility-script--filter" data-utility-filter><div class="c-utility-script__controls"><button class="c-utility-script__button" type="button" data-filter="all" aria-pressed="true">すべて</button><button class="c-utility-script__button" type="button" data-filter="design" aria-pressed="false">デザイン</button><button class="c-utility-script__button" type="button" data-filter="code" aria-pressed="false">実装</button></div><div class="c-utility-script__cards"><span class="c-utility-script__chip" data-category="design">配色設計</span><span class="c-utility-script__chip" data-category="code">HTML</span><span class="c-utility-script__chip" data-category="design code">UI設計</span><span class="c-utility-script__chip" data-category="code">JavaScript</span></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-filter" data-filter-root&gt;
+  &lt;div&gt;&lt;button type="button" data-filter="all" aria-pressed="true"&gt;すべて&lt;/button&gt;&lt;button type="button" data-filter="design" aria-pressed="false"&gt;デザイン&lt;/button&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;span data-category="design"&gt;配色設計&lt;/span&gt;&lt;span data-category="code"&gt;HTML&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-filter { width: min(100%, 24rem); font-family: sans-serif; }
+.c-filter button, .c-filter span { display: inline-block; margin: .2rem; padding: .55rem .7rem; color: #18243b; background: #fff; border: 1px solid #18243b; }
+.c-filter button { cursor: pointer; }.c-filter button[aria-pressed="true"] { background: #ffff00; }
+.c-filter [data-category] { background: #edf1f7; border-color: #aeb8c7; }.c-filter [hidden] { display: none; }
+.c-filter button:focus-visible { outline: 3px solid #315a9b; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-filter-root]');
+const buttons = [...root.querySelectorAll('[data-filter]')];
+const cards = [...root.querySelectorAll('[data-category]')];
+buttons.forEach((button) =&gt; button.addEventListener('click', () =&gt; {
+  buttons.forEach((control) =&gt; control.setAttribute('aria-pressed', String(control === button)));
+  cards.forEach((card) =&gt; { card.hidden = button.dataset.filter !== 'all' &amp;&amp; !card.dataset.category.split(' ').includes(button.dataset.filter); });
+}));</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>商品、実績、記事などをカテゴリ単位で即座に絞り込み、現在条件もボタン状態で示す場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="検索 ハイライト search highlight mark query safe DOM 文字列">
+          <header class="part-example__header"><div><span class="part-example__index">CONTENT / 03</span><h2>簡易検索ハイライト</h2></div><small>SAFE MARKUP</small></header>
+          <div class="part-example__preview part-example__preview--utility-script"><div class="c-utility-script c-utility-script--highlight" data-utility-highlight><label><span class="visually-hidden">項目を検索</span><input class="c-utility-script__input" type="search" placeholder="例：営業時間" /></label><ul class="c-utility-script__list"><li>東京オフィスの営業時間</li><li>大阪オフィスへのアクセス</li><li>オンライン相談の予約方法</li><li>定休日と営業時間の変更</li></ul></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-highlight" data-highlight&gt;
+  &lt;input type="search" placeholder="キーワードを入力" aria-label="項目を検索"&gt;
+  &lt;ul&gt;&lt;li&gt;東京オフィスの営業時間&lt;/li&gt;&lt;li&gt;大阪オフィスへのアクセス&lt;/li&gt;&lt;/ul&gt;
+&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-highlight { display: grid; width: min(100%, 24rem); gap: .6rem; font-family: sans-serif; }
+.c-highlight input { padding: .6rem .7rem; color: #1c2430; background: #fff; border: 1px solid #18243b; }
+.c-highlight ul { margin: 0; padding: 0; list-style: none; border: 1px solid #aeb8c7; }
+.c-highlight li { padding: .6rem .7rem; }.c-highlight li + li { border-top: 1px solid #d9dfe8; }
+.c-highlight mark { color: #18243b; background: #ffff00; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-highlight]');
+const input = root.querySelector('input');
+const items = [...root.querySelectorAll('li')];
+const texts = items.map((item) =&gt; item.textContent);
+input.addEventListener('input', () =&gt; { const query = input.value.trim().toLowerCase(); items.forEach((item, i) =&gt; { const text = texts[i], index = text.toLowerCase().indexOf(query); item.replaceChildren(); if (!query || index &lt; 0) { item.textContent = text; return; } item.append(text.slice(0, index)); const mark = document.createElement('mark'); mark.textContent = text.slice(index, index + query.length); item.append(mark, text.slice(index + query.length)); }); });</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>FAQや用語集で入力語の位置を安全なDOM操作で強調し、読み飛ばしを助ける場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="並び替え セレクト sort select price name 商品 価格">
+          <header class="part-example__header"><div><span class="part-example__index">ORDER / 01</span><h2>並び替え（セレクト）</h2></div><small>SELECT SORT</small></header>
+          <div class="part-example__preview part-example__preview--utility-script"><div class="c-utility-script c-utility-script--sort" data-utility-sort><label><span class="visually-hidden">商品を並び替え</span><select class="c-utility-script__select"><option value="name">名前順</option><option value="price-asc">価格が安い順</option><option value="price-desc">価格が高い順</option></select></label><ul class="c-utility-script__list"><li data-name="みかん" data-price="480"><strong>みかん</strong><span>¥480</span></li><li data-name="いちご" data-price="880"><strong>いちご</strong><span>¥880</span></li><li data-name="バナナ" data-price="220"><strong>バナナ</strong><span>¥220</span></li><li data-name="メロン" data-price="1580"><strong>メロン</strong><span>¥1,580</span></li></ul></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-sort" data-sort&gt;&lt;select aria-label="商品を並び替え"&gt;&lt;option value="name"&gt;名前順&lt;/option&gt;&lt;option value="price-asc"&gt;価格が安い順&lt;/option&gt;&lt;option value="price-desc"&gt;価格が高い順&lt;/option&gt;&lt;/select&gt;&lt;ul&gt;&lt;li data-name="みかん" data-price="480"&gt;みかん ¥480&lt;/li&gt;&lt;li data-name="バナナ" data-price="220"&gt;バナナ ¥220&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-sort { width: min(100%, 24rem); font-family: sans-serif; }
+.c-sort select { width: 100%; padding: .6rem .7rem; color: #18243b; background: #fff; border: 1px solid #18243b; }
+.c-sort ul { margin: .7rem 0 0; padding: 0; list-style: none; border: 1px solid #aeb8c7; }
+.c-sort li { padding: .6rem .7rem; }.c-sort li + li { border-top: 1px solid #d9dfe8; }
+.c-sort select:focus-visible { outline: 3px solid #315a9b; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-sort]');
+const select = root.querySelector('select');
+const list = root.querySelector('ul');
+select.addEventListener('change', () =&gt; { const items = [...list.children]; items.sort((a, b) =&gt; select.value === 'name' ? a.dataset.name.localeCompare(b.dataset.name, 'ja') : (Number(a.dataset.price) - Number(b.dataset.price)) * (select.value === 'price-desc' ? -1 : 1)); items.forEach((item) =&gt; list.append(item)); });</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>商品や記事を名前・価格などの基準で並べ替え、比較しやすい順序を選べるようにする場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="並び替え テーブル sort table ascending descending aria 数値 価格 在庫">
+          <header class="part-example__header"><div><span class="part-example__index">ORDER / 02</span><h2>テーブルソート</h2></div><small>COLUMN SORT</small></header>
+          <div class="part-example__preview part-example__preview--utility-script"><div class="c-utility-script"><div class="c-utility-script__table-wrap"><table class="c-utility-script__table" data-utility-table-sort><thead><tr><th><button class="c-utility-script__sort-button" type="button">商品</button></th><th><button class="c-utility-script__sort-button" type="button">価格</button></th><th><button class="c-utility-script__sort-button" type="button">在庫</button></th></tr></thead><tbody><tr><td>クッキー缶</td><td>¥1,800</td><td>12</td></tr><tr><td>紅茶セット</td><td>¥2,400</td><td>5</td></tr><tr><td>ジャム3種</td><td>¥1,250</td><td>28</td></tr><tr><td>コーヒー豆</td><td>¥980</td><td>40</td></tr></tbody></table></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;table class="c-table-sort" data-table-sort&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;button type="button"&gt;商品&lt;/button&gt;&lt;/th&gt;&lt;th&gt;&lt;button type="button"&gt;価格&lt;/button&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;クッキー缶&lt;/td&gt;&lt;td&gt;¥1,800&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;紅茶セット&lt;/td&gt;&lt;td&gt;¥2,400&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-table-sort { width: 100%; border-collapse: collapse; font: .8rem/1.4 sans-serif; }
+.c-table-sort th, .c-table-sort td { padding: .65rem; text-align: left; border: 1px solid #d9dfe8; }
+.c-table-sort th { color: #fff; background: #18243b; }.c-table-sort button { color: inherit; font: inherit; background: none; border: 0; cursor: pointer; }
+.c-table-sort th[aria-sort="ascending"] button::after { content: " ↑"; }.c-table-sort th[aria-sort="descending"] button::after { content: " ↓"; }
+.c-table-sort button:focus-visible { outline: 3px solid #ffff00; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const table = document.querySelector('[data-table-sort]');
+const heads = [...table.querySelectorAll('th')], body = table.tBodies[0];
+heads.forEach((head, index) =&gt; head.querySelector('button').addEventListener('click', () =&gt; { const asc = head.getAttribute('aria-sort') !== 'ascending'; heads.forEach((cell) =&gt; cell.removeAttribute('aria-sort')); head.setAttribute('aria-sort', asc ? 'ascending' : 'descending'); const rows = [...body.rows]; rows.sort((a, b) =&gt; { const x = a.cells[index].textContent.trim(), y = b.cells[index].textContent.trim(); const nx = parseFloat(x.replace(/[^0-9.-]/g, '')), ny = parseFloat(y.replace(/[^0-9.-]/g, '')); const result = Number.isNaN(nx) || Number.isNaN(ny) ? x.localeCompare(y, 'ja') : nx - ny; return asc ? result : -result; }); rows.forEach((row) =&gt; body.append(row)); }));</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>料金表、在庫一覧、比較表を列単位で昇順・降順へ切り替え、ARIAでも状態を伝える場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="変換 テーブル カード table card responsive view toggle 表示切替">
+          <header class="part-example__header"><div><span class="part-example__index">VIEW / 01</span><h2>テーブル ⇄ カード表示切替</h2></div><small>VIEW TRANSFORM</small></header>
+          <div class="part-example__preview part-example__preview--utility-script"><div class="c-utility-script c-utility-script--table-card" data-utility-table-card><div class="c-utility-script__controls"><button class="c-utility-script__button" type="button" aria-pressed="false" data-table-card-toggle>カード表示にする</button></div><div class="c-utility-script__table-wrap"><table class="c-utility-script__table"><thead><tr><th>プラン</th><th>料金</th><th>サポート</th></tr></thead><tbody><tr><td data-label="プラン">ライト</td><td data-label="料金">¥980/月</td><td data-label="サポート">メール</td></tr><tr><td data-label="プラン">スタンダード</td><td data-label="料金">¥2,480/月</td><td data-label="サポート">電話対応</td></tr></tbody></table></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-table-card" data-table-card&gt;&lt;button type="button" aria-pressed="false" data-toggle&gt;カード表示にする&lt;/button&gt;&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;プラン&lt;/th&gt;&lt;th&gt;料金&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td data-label="プラン"&gt;ライト&lt;/td&gt;&lt;td data-label="料金"&gt;¥980/月&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-table-card { width: min(100%, 24rem); font-family: sans-serif; }.c-table-card table { width: 100%; border-collapse: collapse; }.c-table-card th, .c-table-card td { padding: .6rem; border: 1px solid #d9dfe8; }.c-table-card th { color: #fff; background: #18243b; }
+.c-table-card.is-cards thead { display: none; }.c-table-card.is-cards tbody, .c-table-card.is-cards tr, .c-table-card.is-cards td { display: block; }.c-table-card.is-cards tr { margin-top: .5rem; padding: .4rem; border: 1px solid #aeb8c7; }.c-table-card.is-cards td { display: flex; justify-content: space-between; border: 0; }.c-table-card.is-cards td::before { content: attr(data-label); font-weight: 800; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-table-card]');
+const button = root.querySelector('[data-toggle]');
+button.addEventListener('click', () =&gt; { const cards = root.classList.toggle('is-cards'); button.setAttribute('aria-pressed', String(cards)); button.textContent = cards ? '表に戻す' : 'カード表示にする'; });</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>比較しやすい表と、狭い画面で読みやすいカードを利用者が任意に切り替える場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="移動 スムーススクロール smooth scroll anchor offset sticky header navigation reduced motion">
+          <header class="part-example__header"><div><span class="part-example__index">NAVIGATION / 01</span><h2>スムーススクロール</h2></div><small>HEADER OFFSET</small></header>
+          <div class="part-example__preview part-example__preview--utility-script"><div class="c-utility-script c-utility-script--smooth" data-utility-smooth data-offset="36"><nav class="c-utility-script__nav" aria-label="デモ内目次"><a class="c-utility-script__link" href="#utility-overview">概要</a><a class="c-utility-script__link" href="#utility-price">料金</a><a class="c-utility-script__link" href="#utility-access">アクセス</a></nav><div class="c-utility-script__frame" data-scroll-frame><div class="c-utility-script__sticky">固定ヘッダー</div><section class="c-utility-script__section" id="utility-overview"><strong>概要</strong><p>表示領域内を移動します。</p></section><section class="c-utility-script__section" id="utility-price"><strong>料金</strong><p>固定ヘッダーの手前で停止します。</p></section><section class="c-utility-script__section" id="utility-access"><strong>アクセス</strong><p>キーボードでもリンクを選択できます。</p></section></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-smooth" data-smooth data-offset="36"&gt;&lt;nav&gt;&lt;a href="#sec-a"&gt;概要&lt;/a&gt;&lt;a href="#sec-b"&gt;料金&lt;/a&gt;&lt;/nav&gt;&lt;div class="c-smooth__frame" data-frame&gt;&lt;div class="c-smooth__header"&gt;固定ヘッダー&lt;/div&gt;&lt;section id="sec-a"&gt;概要&lt;/section&gt;&lt;section id="sec-b"&gt;料金&lt;/section&gt;&lt;/div&gt;&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-smooth { width: min(100%, 24rem); font-family: sans-serif; }.c-smooth nav { display: flex; gap: .4rem; margin-bottom: .5rem; }.c-smooth a { padding: .5rem; color: #18243b; border: 1px solid #18243b; }.c-smooth__frame { position: relative; height: 12rem; overflow-y: auto; scroll-behavior: smooth; border: 1px solid #aeb8c7; }.c-smooth__header { position: sticky; top: 0; height: 2.25rem; padding: .5rem; color: #fff; background: #18243b; }.c-smooth section { min-height: 9rem; padding: .8rem; scroll-margin-top: 2.25rem; }
+@media (prefers-reduced-motion: reduce) { .c-smooth__frame { scroll-behavior: auto; } }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-smooth]');
+const frame = root.querySelector('[data-frame]');
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+root.querySelectorAll('a[href^="#"]').forEach((link) =&gt; link.addEventListener('click', (event) =&gt; { const target = root.querySelector(link.getAttribute('href')); if (!target) return; event.preventDefault(); frame.scrollTo({ top: target.offsetTop - Number(root.dataset.offset || 0), behavior: reduced ? 'auto' : 'smooth' }); }));</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>固定ヘッダーがある目次や長いページで、移動先の見出しを隠さず滑らかに案内する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="保守 外部リンク external link target blank rel noopener noreferrer icon security">
+          <header class="part-example__header"><div><span class="part-example__index">MAINTENANCE / 01</span><h2>外部リンク自動処理</h2></div><small>SAFE NEW TAB</small></header>
+          <div class="part-example__preview part-example__preview--utility-script"><div class="c-utility-script c-utility-script--links" data-utility-links><ul class="c-utility-script__list"><li><a href="../about.html">内部リンク</a></li><li><a href="https://example.com/">外部サンプル</a></li><li><a href="https://developer.mozilla.org/ja/">MDN Web Docs</a></li></ul></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-links" data-links&gt;&lt;ul&gt;&lt;li&gt;&lt;a href="../about.html"&gt;内部リンク&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="https://example.com/"&gt;外部リンク&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-links { width: min(100%, 24rem); font-family: sans-serif; }.c-links ul { margin: 0; padding: 0; list-style: none; border: 1px solid #aeb8c7; }.c-links li { padding: .65rem .75rem; }.c-links li + li { border-top: 1px dashed #d9dfe8; }.c-links a { color: #315a9b; font-weight: 800; }.c-links__icon { margin-left: .25rem; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-links]');
+root.querySelectorAll('a[href^="http"]').forEach((link) =&gt; { if (link.host === location.host) return; link.target = '_blank'; link.rel = 'noopener noreferrer'; const icon = document.createElement('span'); icon.className = 'c-links__icon'; icon.setAttribute('aria-hidden', 'true'); icon.textContent = '↗'; link.append(icon); });</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>記事やサービスページ内の外部URLへ、安全な新規タブ属性と識別アイコンを一括付与する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="保守 コピーライト 年 copyright year current date auto update footer">
+          <header class="part-example__header"><div><span class="part-example__index">MAINTENANCE / 02</span><h2>コピーライト年 自動更新</h2></div><small>CURRENT YEAR</small></header>
+          <div class="part-example__preview part-example__preview--utility-script"><footer class="c-utility-script c-utility-script--year"><p>© <span data-utility-year>2020</span> MARK BENCH SAMPLE</p></footer></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;footer class="c-year"&gt;&lt;p&gt;© &lt;span data-current-year&gt;2020&lt;/span&gt; Example Inc.&lt;/p&gt;&lt;/footer&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-year { width: min(100%, 24rem); color: #fff; font-family: sans-serif; text-align: center; background: #18243b; border: 1px solid #18243b; }.c-year p { margin: 0; padding: 1rem; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-current-year]').forEach((element) =&gt; { element.textContent = String(new Date().getFullYear()); });</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>サイトフッターの年表記を毎年手作業で変更せず、常に閲覧時点の年へ更新する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="出力 印刷 print media paper dialog no-print document">
+          <header class="part-example__header"><div><span class="part-example__index">OUTPUT / 01</span><h2>印刷ボタン</h2></div><small>PRINT DIALOG</small></header>
+          <div class="part-example__preview part-example__preview--utility-script"><div class="c-utility-script c-utility-script--print"><button class="c-utility-script__button no-print" type="button" data-utility-print>このページを印刷</button><div class="c-utility-script__panel no-print"><strong>印刷用スタイル</strong><p>この注記と操作ボタンは印刷時に非表示になります。</p></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-print"&gt;&lt;button class="no-print" type="button" data-print&gt;このページを印刷&lt;/button&gt;&lt;p class="no-print"&gt;この注記は印刷されません。&lt;/p&gt;&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-print { display: grid; width: min(100%, 24rem); gap: .7rem; justify-items: center; font-family: sans-serif; }.c-print button { padding: .6rem .8rem; color: #fff; font-weight: 800; background: #18243b; border: 1px solid #18243b; cursor: pointer; }.c-print p { margin: 0; padding: .8rem; border: 1px dashed #aeb8c7; }
+@media print { .no-print { display: none !important; } }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelector('[data-print]').addEventListener('click', () =&gt; window.print());</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>記事、申込内容、地図などを紙やPDFへ出力し、操作UIを印刷物から除外する場面。</p></div>
+        </section>
+      </div>
+
+      <div class="part-detail-empty" data-pattern-empty hidden><p>[ NO_PATTERNS_FOUND ]</p><p>別のキーワードを選択してください。</p></div>
+
+      <section class="part-common-styles" id="utility-script-common-styles" aria-labelledby="utility-script-common-title">
+        <header class="part-common-styles__header reveal"><p class="section-index">COMMON STYLE</p><h2 id="utility-script-common-title">共通スタイル</h2><p>操作ボタン、入力欄、表示パネル、フォーカス表示を揃える基礎スタイルです。</p></header>
+        <div class="part-common-styles__code reveal" data-reveal-threshold="0.01"><div class="part-code"><div class="part-code__header"><span>CSS / COMMON</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-utility-script,
+.c-utility-script * { box-sizing: border-box; }
+
+.c-utility-script {
+  width: min(100%, 24rem);
+  color: var(--color-text, #1c2430);
+  font-family: var(--font-sans, sans-serif);
+}
+
+.c-utility-script__button,
+.c-utility-script__select,
+.c-utility-script__input {
+  min-height: 2.3rem;
+  padding: .5rem .72rem;
+  color: var(--color-primary, #18243b);
+  font: 800 .68rem/1.3 var(--font-sans, sans-serif);
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-primary, #18243b);
+}
+
+.c-utility-script__button { cursor: pointer; }
+.c-utility-script__button:focus-visible,
+.c-utility-script__select:focus-visible,
+.c-utility-script__input:focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: 2px;
+}
+
+.c-utility-script__panel {
+  padding: 1rem;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .c-utility-script * { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}</code></pre></div></div>
+      </section>
+
+      <footer class="page-footer" aria-label="ページナビゲーション"><a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO WEB PARTS</span></a><a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a></footer>
+    </main>
+    <script src="../js/web-parts-detail.js" defer></script>
+    <script src="../js/web-parts-utility-script.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

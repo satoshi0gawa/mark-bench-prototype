@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="実績数値、進捗、残り時間、現在時刻、読了時間などを表示するVanilla JavaScript対応のカウンター12パターンです。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>COUNTER | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/counter.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="COUNTER | MARK BENCH" />
+    <meta property="og:description" content="実績数値、進捗、残り時間、現在時刻、読了時間などを表示するVanilla JavaScript対応のカウンター12パターンです。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/counter.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="COUNTER | MARK BENCH" />
+    <meta name="twitter:description" content="実績数値、進捗、残り時間、現在時刻、読了時間などを表示するVanilla JavaScript対応のカウンター12パターンです。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "COUNTER",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/counter.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/web-parts.css" />
+    <link rel="stylesheet" href="../css/web-parts-counter.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts-detail" data-parts-detail>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header"><div class="site-header__bar"><nav class="site-breadcrumb-logo" aria-label="パンくずリスト"><a class="site-logo" href="../index.html">MARK BENCH</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><a class="site-breadcrumb-logo__parent" href="./">WEB PARTS</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><span class="site-breadcrumb-logo__current" aria-current="page">COUNTER</span></nav></div></header>
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション"><a href="../tools/"><strong>TOOLS</strong></a><a href="./" aria-current="location"><strong>WEB PARTS</strong></a><a href="../build-notes/"><strong>BUILD NOTES</strong></a><a href="../about.html"><strong>ABOUT</strong></a></nav>
+
+    <main id="main" tabindex="-1">
+      <header class="part-detail-header">
+        <p class="section-index reveal">WEB_PARTS / COUNTER</p>
+        <h1 class="reveal">COUNTER</h1>
+        <p class="part-detail-header__lead reveal">実績数値や達成率を印象的に提示し、キャンペーンの残り時間、計測時間、営業時間、読了時間などを現在の状態に合わせて更新するカウンター12パターンです。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 12</span><span>TYPE: CSS + JS</span><span>DEPENDENCY: NONE</span></div>
+        <a class="part-detail-header__anchor reveal" href="#counter-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
+      </header>
+
+      <section class="part-detail-controls directory-search directory-keywords" aria-label="カウンターパターンを絞り込み">
+        <div class="directory-keywords__group"><p class="directory-keywords__label">KEYWORDS</p><div class="directory-keywords__list">
+          <button type="button" aria-pressed="false" data-pattern-keyword="数値"># 数値</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="進捗"># 進捗</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="時間"># 時間</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="時計"># 時計</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="テキスト"># テキスト</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="自動計算"># 自動計算</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="保存"># 保存</button>
+        </div></div>
+        <p>DISPLAY: <span data-pattern-count>12</span> / 12</p>
+      </section>
+
+      <div class="part-example-list">
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="数値 基本 count up counter animation requestAnimationFrame replay 実績">
+          <header class="part-example__header"><div><span class="part-example__index">NUMBER / 01</span><h2>数値カウントアップ</h2></div><small>BASIC COUNT</small></header>
+          <div class="part-example__preview"><div class="c-counter" data-counter-value data-to="1280" data-duration="1400"><div class="c-counter__panel"><p class="c-counter__eyebrow">TOTAL PROJECTS</p><span class="c-counter__value" data-counter-output>0</span><span class="c-counter__unit">件</span><p class="c-counter__label">累計制作実績</p><button class="c-counter__button" type="button" data-counter-replay>REPLAY</button></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-counter" data-count data-to="1280" data-duration="1400"&gt;
+  &lt;p class="c-counter__label"&gt;累計制作実績&lt;/p&gt;
+  &lt;span class="c-counter__value" data-output&gt;0&lt;/span&gt;&lt;span&gt;件&lt;/span&gt;
+  &lt;button type="button" data-replay&gt;REPLAY&lt;/button&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-counter { padding: 1rem; text-align: center; font-family: sans-serif; background: #fff; border: 1px solid #aeb8c7; }
+.c-counter__label { margin: 0; color: #667085; font-size: .72rem; }
+.c-counter__value { display: inline-block; margin-top: .4rem; color: #18243b; font: 700 2.5rem/1 monospace; font-variant-numeric: tabular-nums; }
+.c-counter button { display: block; margin: .75rem auto 0; padding: .5rem .75rem; color: #fff; background: #18243b; border: 0; cursor: pointer; }
+.c-counter button:focus-visible { outline: 3px solid #315a9b; outline-offset: 3px; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-count]').forEach((root) =&gt; {
+  const output = root.querySelector('[data-output]');
+  const target = Number(root.dataset.to);
+  const duration = Number(root.dataset.duration || 1400);
+  let frame = 0;
+  const play = () =&gt; {
+    cancelAnimationFrame(frame);
+    const start = performance.now();
+    const step = (now) =&gt; {
+      const progress = Math.min((now - start) / duration, 1);
+      output.textContent = Math.round(target * (1 - Math.pow(1 - progress, 3)));
+      if (progress &lt; 1) frame = requestAnimationFrame(step);
+    };
+    frame = requestAnimationFrame(step);
+  };
+  root.querySelector('[data-replay]').addEventListener('click', play);
+  play();
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>コーポレートサイトや採用ページで、制作実績、導入社数、社員数などの確定値へ視線を集める場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="数値 カンマ comma locale large number member total 金額 会員">
+          <header class="part-example__header"><div><span class="part-example__index">NUMBER / 02</span><h2>カンマ区切りカウント</h2></div><small>FORMATTED</small></header>
+          <div class="part-example__preview"><div class="c-counter c-counter--accent" data-counter-value data-to="128540" data-duration="1600" data-format="comma"><div class="c-counter__panel"><p class="c-counter__eyebrow">TOTAL MEMBERS</p><span class="c-counter__value" data-counter-output>0</span><span class="c-counter__unit">人</span><p class="c-counter__label">累計会員数</p><button class="c-counter__button" type="button" data-counter-replay>REPLAY</button></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-count-comma" data-count-comma data-to="128540"&gt;
+  &lt;p&gt;累計会員数&lt;/p&gt;
+  &lt;strong data-output&gt;0&lt;/strong&gt;&lt;span&gt;人&lt;/span&gt;
+  &lt;button type="button" data-replay&gt;REPLAY&lt;/button&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-count-comma { padding: 1rem; font-family: sans-serif; background: #fff; border: 1px solid #aeb8c7; border-left: .4rem solid #ff0; }
+.c-count-comma p { margin: 0 0 .4rem; color: #667085; font-size: .72rem; }
+.c-count-comma strong { color: #18243b; font: 700 2.25rem/1 monospace; font-variant-numeric: tabular-nums; }
+.c-count-comma button { display: block; margin-top: .75rem; padding: .5rem .75rem; color: #fff; background: #18243b; border: 0; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-count-comma]').forEach((root) =&gt; {
+  const output = root.querySelector('[data-output]');
+  const target = Number(root.dataset.to);
+  let frame = 0;
+  const play = () =&gt; {
+    cancelAnimationFrame(frame);
+    const start = performance.now();
+    const step = (now) =&gt; {
+      const progress = Math.min((now - start) / 1600, 1);
+      const value = Math.round(target * (1 - Math.pow(1 - progress, 3)));
+      output.textContent = value.toLocaleString('ja-JP');
+      if (progress &lt; 1) frame = requestAnimationFrame(step);
+    };
+    frame = requestAnimationFrame(step);
+  };
+  root.querySelector('[data-replay]').addEventListener('click', play);
+  play();
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>会員数、販売数、売上など桁数の多い値を、読み間違いにくい形式で提示する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="進捗 円形 progress ring percentage percent 達成率 満足度 skill">
+          <header class="part-example__header"><div><span class="part-example__index">PROGRESS / 01</span><h2>円形プログレス</h2></div><small>RING</small></header>
+          <div class="part-example__preview"><div class="c-counter" data-counter-ring data-to="82"><div class="c-counter-ring__graphic" data-counter-ring-graphic><span class="c-counter-ring__value"><b data-counter-ring-output>0</b>%</span></div><p class="c-counter__label">顧客満足度</p><button class="c-counter__button" type="button" data-counter-replay>REPLAY</button></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-ring" data-ring data-to="82"&gt;
+  &lt;div class="c-ring__graphic" data-graphic&gt;&lt;b data-output&gt;0&lt;/b&gt;%&lt;/div&gt;
+  &lt;p&gt;顧客満足度&lt;/p&gt;
+  &lt;button type="button" data-replay&gt;REPLAY&lt;/button&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-ring { text-align: center; font-family: sans-serif; }
+.c-ring__graphic { --p: 0; position: relative; display: grid; width: 7rem; height: 7rem; margin: auto; place-items: center; background: conic-gradient(#18243b calc(var(--p) * 1%), #edf1f7 0); border-radius: 50%; }
+.c-ring__graphic::before { position: absolute; inset: .75rem; background: #fff; border-radius: 50%; content: ""; }
+.c-ring__graphic b, .c-ring__graphic { font: 700 1.5rem monospace; }
+.c-ring__graphic b { position: relative; }
+.c-ring button { padding: .5rem .75rem; color: #fff; background: #18243b; border: 0; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-ring]').forEach((root) =&gt; {
+  const graphic = root.querySelector('[data-graphic]');
+  const output = root.querySelector('[data-output]');
+  const target = Math.min(100, Number(root.dataset.to));
+  const play = () =&gt; {
+    const start = performance.now();
+    const step = (now) =&gt; {
+      const progress = Math.min((now - start) / 1200, 1);
+      const value = target * (1 - Math.pow(1 - progress, 3));
+      graphic.style.setProperty('--p', value);
+      output.textContent = Math.round(value);
+      if (progress &lt; 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  root.querySelector('[data-replay]').addEventListener('click', play);
+  play();
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>満足度、達成率、スキルレベルなど、100を基準にした進捗を数字と面積で同時に示す場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="進捗 数値 roll odometer digits transform reel animation download ロール オドメーター">
+          <header class="part-example__header"><div><span class="part-example__index">PROGRESS / 02</span><h2>数字ロール</h2></div><small>ODOMETER</small></header>
+          <div class="part-example__preview"><div class="c-counter" data-counter-roll data-to="2,489"><div class="c-counter__panel"><p class="c-counter__eyebrow">DOWNLOADS</p><span class="c-counter-roll__digits" data-counter-roll-digits aria-label="2,489"></span><span class="c-counter__unit">回</span><p class="c-counter__label">累計ダウンロード</p><button class="c-counter__button" type="button" data-counter-replay>REPLAY</button></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-roll" data-roll data-to="2,489"&gt;
+  &lt;span class="c-roll__digits" data-digits aria-label="2,489"&gt;&lt;/span&gt;
+  &lt;span&gt;回&lt;/span&gt;
+  &lt;button type="button" data-replay&gt;REPLAY&lt;/button&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-roll { text-align: center; font-family: sans-serif; }
+.c-roll__digits { display: inline-flex; overflow: hidden; color: #18243b; font: 700 2.4rem/1 monospace; }
+.c-roll__column { display: block; height: 1em; overflow: hidden; }
+.c-roll__strip { display: flex; flex-direction: column; transition: transform 1.2s cubic-bezier(.16, 1, .3, 1); }
+.c-roll__strip span { display: block; height: 1em; }
+.c-roll button { display: block; margin: .75rem auto 0; padding: .5rem .75rem; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-roll]').forEach((root) =&gt; {
+  const digits = root.querySelector('[data-digits]');
+  const columns = [];
+  [...root.dataset.to].forEach((character) =&gt; {
+    if (!/\d/.test(character)) { const separator = document.createElement('span'); separator.textContent = character; separator.setAttribute('aria-hidden', 'true'); digits.append(separator); return; }
+    const column = document.createElement('span');
+    const strip = document.createElement('span');
+    column.className = 'c-roll__column'; column.setAttribute('aria-hidden', 'true'); strip.className = 'c-roll__strip';
+    for (let n = 0; n &lt; 10; n += 1) { const digit = document.createElement('span'); digit.textContent = n; strip.append(digit); }
+    column.append(strip); digits.append(column); columns.push([strip, Number(character)]);
+  });
+  const play = () =&gt; {
+    columns.forEach(([strip]) =&gt; { strip.style.transition = 'none'; strip.style.transform = 'translateY(0)'; });
+    void digits.offsetWidth;
+    columns.forEach(([strip, value], index) =&gt; {
+      strip.style.transition = '';
+      setTimeout(() =&gt; { strip.style.transform = `translateY(-${value}em)`; }, index * 100);
+    });
+  };
+  root.querySelector('[data-replay]').addEventListener('click', play); play();
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ダウンロード数や販売数など、機械式メーターの印象で桁ごとの変化を強調したい場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="時間 countdown timer deadline remaining sale event 日 時 分 秒 カウントダウン">
+          <header class="part-example__header"><div><span class="part-example__index">TIME / 01</span><h2>カウントダウンタイマー</h2></div><small>REMAINING</small></header>
+          <div class="part-example__preview"><div class="c-counter c-counter-countdown" data-counter-countdown data-seconds="86435" role="timer" aria-label="キャンペーン終了まで"><span class="c-counter-countdown__segment"><b data-countdown-days>0</b><small>日</small></span><span class="c-counter-countdown__segment"><b data-countdown-hours>00</b><small>時間</small></span><span class="c-counter-countdown__segment"><b data-countdown-minutes>00</b><small>分</small></span><span class="c-counter-countdown__segment"><b data-countdown-seconds>00</b><small>秒</small></span></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-countdown" data-countdown data-seconds="86435" role="timer"&gt;
+  &lt;span&gt;&lt;b data-days&gt;0&lt;/b&gt;&lt;small&gt;日&lt;/small&gt;&lt;/span&gt;
+  &lt;span&gt;&lt;b data-hours&gt;00&lt;/b&gt;&lt;small&gt;時間&lt;/small&gt;&lt;/span&gt;
+  &lt;span&gt;&lt;b data-minutes&gt;00&lt;/b&gt;&lt;small&gt;分&lt;/small&gt;&lt;/span&gt;
+  &lt;span&gt;&lt;b data-seconds-output&gt;00&lt;/b&gt;&lt;small&gt;秒&lt;/small&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-countdown { display: grid; grid-template-columns: repeat(4, 1fr); gap: .4rem; font-family: sans-serif; }
+.c-countdown span { padding: .75rem .25rem; text-align: center; background: #fff; border: 1px solid #aeb8c7; }
+.c-countdown b { display: block; font: 700 1.3rem/1 monospace; font-variant-numeric: tabular-nums; }
+.c-countdown small { display: block; margin-top: .4rem; color: #667085; font-size: .6rem; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-countdown]').forEach((root) =&gt; {
+  const end = Date.now() + Number(root.dataset.seconds) * 1000;
+  const pad = (value) =&gt; String(value).padStart(2, '0');
+  const tick = () =&gt; {
+    const total = Math.max(0, Math.ceil((end - Date.now()) / 1000));
+    root.querySelector('[data-days]').textContent = Math.floor(total / 86400);
+    root.querySelector('[data-hours]').textContent = pad(Math.floor(total / 3600) % 24);
+    root.querySelector('[data-minutes]').textContent = pad(Math.floor(total / 60) % 60);
+    root.querySelector('[data-seconds-output]').textContent = pad(total % 60);
+    if (total &gt; 0) setTimeout(tick, 1000);
+  };
+  tick();
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>セール終了、申込締切、イベント開始までの残り時間を、日・時・分・秒で明確に伝える場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="時間 stopwatch start stop reset performance measure 計測 開始 停止 リセット disabled">
+          <header class="part-example__header"><div><span class="part-example__index">TIME / 02</span><h2>ストップウォッチ</h2></div><small>MEASURE</small></header>
+          <div class="part-example__preview"><div class="c-counter c-counter-stopwatch" data-counter-stopwatch><div class="c-counter__panel"><div class="c-counter-stopwatch__time" data-stopwatch-output role="timer">00:00.00</div><div class="c-counter-stopwatch__controls"><button class="c-counter__button" type="button" data-stopwatch-start>START</button><button class="c-counter__button" type="button" data-stopwatch-stop disabled>STOP</button><button class="c-counter__button" type="button" data-stopwatch-reset>RESET</button></div></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-stopwatch" data-stopwatch&gt;
+  &lt;output data-output&gt;00:00.00&lt;/output&gt;
+  &lt;button type="button" data-start&gt;START&lt;/button&gt;
+  &lt;button type="button" data-stop disabled&gt;STOP&lt;/button&gt;
+  &lt;button type="button" data-reset&gt;RESET&lt;/button&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-stopwatch { padding: 1rem; text-align: center; font-family: sans-serif; border: 1px solid #aeb8c7; }
+.c-stopwatch output { display: block; color: #18243b; font: 700 2.25rem/1 monospace; font-variant-numeric: tabular-nums; }
+.c-stopwatch button { margin: .75rem .2rem 0; padding: .5rem .7rem; color: #fff; background: #18243b; border: 0; }
+.c-stopwatch button:disabled { color: #667085; background: #edf1f7; }
+.c-stopwatch button:focus-visible { outline: 3px solid #315a9b; outline-offset: 3px; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-stopwatch]');
+const output = root.querySelector('[data-output]');
+const startButton = root.querySelector('[data-start]');
+const stopButton = root.querySelector('[data-stop]');
+let base = 0, startedAt = null, frame = 0;
+const pad = (n) =&gt; String(n).padStart(2, '0');
+const render = () =&gt; { const ms = base + performance.now() - startedAt; output.textContent = `${pad(Math.floor(ms / 60000))}:${pad(Math.floor(ms / 1000) % 60)}.${pad(Math.floor(ms / 10) % 100)}`; frame = requestAnimationFrame(render); };
+startButton.addEventListener('click', () =&gt; { if (startedAt !== null) return; startedAt = performance.now(); startButton.disabled = true; stopButton.disabled = false; frame = requestAnimationFrame(render); });
+stopButton.addEventListener('click', () =&gt; { if (startedAt === null) return; base += performance.now() - startedAt; startedAt = null; cancelAnimationFrame(frame); startButton.disabled = false; stopButton.disabled = true; });
+root.querySelector('[data-reset]').addEventListener('click', () =&gt; { base = 0; startedAt = null; cancelAnimationFrame(frame); startButton.disabled = false; stopButton.disabled = true; output.textContent = '00:00.00'; });</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>作業時間、トレーニング、デモ計測など、開始・停止・再開・リセットを利用者が操作する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="時間 自動計算 elapsed days since date anniversary 経過日数 記念日 創業">
+          <header class="part-example__header"><div><span class="part-example__index">TIME / 03</span><h2>経過日数カウンター</h2></div><small>ELAPSED DAYS</small></header>
+          <div class="part-example__preview"><div class="c-counter c-counter-days" data-counter-days data-from="2020-04-01"><div class="c-counter__panel"><p class="c-counter-days__sentence">サイト開設から<span class="c-counter-days__value" data-counter-days-output>0</span>日</p></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;p class="c-days" data-days data-from="2020-04-01"&gt;
+  サイト開設から&lt;strong data-output&gt;0&lt;/strong&gt;日
+&lt;/p&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-days { margin: 0; padding: 1rem; text-align: center; font: 700 .8rem sans-serif; background: #fff; border: 1px solid #aeb8c7; }
+.c-days strong { margin-inline: .35rem; color: #18243b; font: 700 2.25rem/1 monospace; font-variant-numeric: tabular-nums; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-days]').forEach((root) =&gt; {
+  const start = new Date(`${root.dataset.from}T00:00:00`);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const days = Math.max(0, Math.floor((today - start) / 86400000));
+  root.querySelector('[data-output]').textContent = days.toLocaleString('ja-JP');
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>創業、サイト公開、記念日、無事故継続など、起点日から今日までを手動更新せず表示する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="時間 時計 real time clock date weekday second current 現在時刻 日付 曜日">
+          <header class="part-example__header"><div><span class="part-example__index">TIME / 04</span><h2>リアルタイム時計</h2></div><small>LIVE CLOCK</small></header>
+          <div class="part-example__preview"><div class="c-counter c-counter-clock" data-counter-clock><div class="c-counter__panel"><p class="c-counter-clock__date" data-clock-date>----年--月--日（-）</p><div class="c-counter-clock__time" data-clock-time role="timer">--:--:--</div></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-clock" data-clock&gt;
+  &lt;p data-date&gt;----年--月--日（-）&lt;/p&gt;
+  &lt;time data-time&gt;--:--:--&lt;/time&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-clock { padding: 1rem; text-align: center; font-family: sans-serif; background: #fff; border: 1px solid #aeb8c7; }
+.c-clock p { margin: 0 0 .5rem; color: #667085; font-size: .72rem; }
+.c-clock time { color: #18243b; font: 700 2.25rem/1 monospace; font-variant-numeric: tabular-nums; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-clock]').forEach((root) =&gt; {
+  const week = ['日', '月', '火', '水', '木', '金', '土'];
+  const pad = (n) =&gt; String(n).padStart(2, '0');
+  const tick = () =&gt; {
+    const now = new Date();
+    root.querySelector('[data-date]').textContent = `${now.getFullYear()}年${now.getMonth() + 1}月${now.getDate()}日（${week[now.getDay()]}）`;
+    root.querySelector('[data-time]').textContent = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+    setTimeout(tick, 1000 - Date.now() % 1000);
+  };
+  tick();
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>受付ページ、イベント画面、ダッシュボード、サイネージで現在の日付・曜日・時刻を表示する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="時間 時計 business hours open closed status auto schedule 営業中 営業時間外 店舗">
+          <header class="part-example__header"><div><span class="part-example__index">TIME / 05</span><h2>営業時間ステータス</h2></div><small>OPEN / CLOSED</small></header>
+          <div class="part-example__preview"><div class="c-counter c-counter-business" data-counter-business data-open="10:00" data-close="19:00" data-days="1,2,3,4,5"><div class="c-counter__panel"><p class="c-counter-business__status" data-business-output aria-live="polite">判定中</p><p class="c-counter-business__hours">営業時間 10:00–19:00（平日）</p></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-business" data-business data-open="10:00"
+  data-close="19:00" data-days="1,2,3,4,5"&gt;
+  &lt;p data-output aria-live="polite"&gt;判定中&lt;/p&gt;
+  &lt;small&gt;営業時間 10:00–19:00（平日）&lt;/small&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-business { padding: 1rem; text-align: center; font-family: sans-serif; border: 1px solid #aeb8c7; }
+.c-business p { display: inline-block; margin: 0; padding: .55rem 1rem; color: #fff; font-weight: 700; background: #667085; }
+.c-business.is-open p { background: #1f7a4c; }
+.c-business small { display: block; margin-top: .65rem; color: #667085; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-business]').forEach((root) =&gt; {
+  const toMinutes = (time) =&gt; { const [h, m] = time.split(':').map(Number); return h * 60 + m; };
+  const days = root.dataset.days.split(',').map(Number);
+  const update = () =&gt; {
+    const now = new Date();
+    const current = now.getHours() * 60 + now.getMinutes();
+    const open = days.includes(now.getDay()) &amp;&amp; current &gt;= toMinutes(root.dataset.open) &amp;&amp; current &lt; toMinutes(root.dataset.close);
+    root.classList.toggle('is-open', open);
+    root.querySelector('[data-output]').textContent = open ? '営業中' : '営業時間外';
+  };
+  update(); setInterval(update, 60000);
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>店舗・窓口サイトで、曜日と時刻から現在の営業状態を目安として自動表示する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="テキスト typewriter typing loop words cursor animation タイプライター コピー 見出し">
+          <header class="part-example__header"><div><span class="part-example__index">TEXT / 01</span><h2>タイプライター</h2></div><small>TYPING LOOP</small></header>
+          <div class="part-example__preview"><p class="c-counter c-counter-typewriter" data-counter-typewriter data-words="Webサイト制作,バナーデザイン,ロゴ・ブランディング"><span class="c-counter-typewriter__prefix">お手伝いできること</span><span class="c-counter-typewriter__output" data-typewriter-output></span><span class="c-counter-typewriter__cursor" aria-hidden="true"></span></p></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;p class="c-typewriter" data-typewriter
+  data-words="Webサイト制作,バナーデザイン,ロゴ・ブランディング"&gt;
+  &lt;small&gt;お手伝いできること&lt;/small&gt;
+  &lt;span data-output&gt;&lt;/span&gt;&lt;i aria-hidden="true"&gt;&lt;/i&gt;
+&lt;/p&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-typewriter { min-height: 6rem; margin: 0; padding: 1rem; color: #fff; font-family: sans-serif; background: #18243b; }
+.c-typewriter small { display: block; margin-bottom: .5rem; color: rgb(255 255 255 / 65%); }
+.c-typewriter span { color: #ff0; font-weight: 700; }
+.c-typewriter i { display: inline-block; width: 2px; height: 1em; margin-left: .2rem; background: #ff0; animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-typewriter]').forEach((root) =&gt; {
+  const words = root.dataset.words.split(',');
+  const output = root.querySelector('[data-output]');
+  let word = 0, index = 0, deleting = false;
+  const type = () =&gt; {
+    index += deleting ? -1 : 1;
+    output.textContent = words[word].slice(0, index);
+    if (!deleting &amp;&amp; index === words[word].length) { deleting = true; setTimeout(type, 1200); return; }
+    if (deleting &amp;&amp; index === 0) { deleting = false; word = (word + 1) % words.length; }
+    setTimeout(type, deleting ? 45 : 90);
+  };
+  type();
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ヒーローやサービス紹介で、複数の対応領域や役割を同じ位置へ順番に提示する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="テキスト 自動計算 read time article content characters cpm 読了時間 記事 文字数">
+          <header class="part-example__header"><div><span class="part-example__index">TEXT / 02</span><h2>読了時間の自動計算</h2></div><small>READ TIME</small></header>
+          <div class="part-example__preview"><div class="c-counter c-counter-readtime"><p class="c-counter-readtime__badge" data-counter-readtime data-target="#counter-article-demo" data-cpm="120">この記事は約<b data-readtime-output>1</b>分で読めます</p><div class="c-counter-readtime__article" id="counter-article-demo">デザインシステムは、色、文字、余白、部品の原則を共有し、制作速度と品質を両立するための仕組みです。チームで判断基準を揃えることで、画面ごとの不整合を減らせます。</div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;p class="c-readtime" data-readtime data-target="#article" data-cpm="500"&gt;
+  この記事は約&lt;b data-output&gt;1&lt;/b&gt;分で読めます
+&lt;/p&gt;
+&lt;article id="article"&gt;ここに記事本文を入れます。&lt;/article&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-readtime { display: inline-block; margin: 0; padding: .5rem .75rem; color: #fff; font: 700 .72rem sans-serif; background: #18243b; }
+.c-readtime b { margin-inline: .2rem; font-size: .9rem; }
+#article { margin-top: .75rem; padding-top: .75rem; color: #667085; font: .75rem/1.7 sans-serif; border-top: 1px dotted #aeb8c7; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-readtime]').forEach((root) =&gt; {
+  const article = document.querySelector(root.dataset.target);
+  if (!article) return;
+  const length = article.textContent.replace(/\s/g, '').length;
+  const minutes = Math.max(1, Math.ceil(length / Number(root.dataset.cpm || 500)));
+  root.querySelector('[data-output]').textContent = minutes;
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ブログ、技術記事、読み物コンテンツで、本文量から閲覧前の所要時間を概算して伝える場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="保存 visit count localStorage persistence returning user 訪問回数 おかえり リセット">
+          <header class="part-example__header"><div><span class="part-example__index">PERSISTENCE / 01</span><h2>訪問回数カウンター</h2></div><small>LOCAL STORAGE</small></header>
+          <div class="part-example__preview"><div class="c-counter c-counter-visits" data-counter-visits data-key="markbench-counter-visit-demo"><div class="c-counter__panel"><p class="c-counter-visits__message"><b class="c-counter-visits__value" data-visits-output>1</b>回目のご訪問です</p><p class="c-counter-visits__thanks" data-visits-message>はじめまして！</p><button class="c-counter__button" type="button" data-visits-reset>RESET DEMO</button></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-visits" data-visits data-key="site-visits"&gt;
+  &lt;p&gt;&lt;b data-output&gt;1&lt;/b&gt;回目のご訪問です&lt;/p&gt;
+  &lt;small data-message&gt;はじめまして！&lt;/small&gt;
+  &lt;button type="button" data-reset&gt;RESET DEMO&lt;/button&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-visits { padding: 1rem; text-align: center; font-family: sans-serif; background: #fff; border: 1px solid #aeb8c7; }
+.c-visits p { margin: 0; font-weight: 700; }
+.c-visits b { margin-inline: .3rem; color: #18243b; font: 700 2.25rem/1 monospace; }
+.c-visits small { display: block; margin-top: .5rem; color: #667085; }
+.c-visits button { margin-top: .75rem; padding: .5rem .75rem; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-visits]').forEach((root) =&gt; {
+  const key = root.dataset.key || 'site-visits';
+  const output = root.querySelector('[data-output]');
+  const message = root.querySelector('[data-message]');
+  const show = (count) =&gt; { output.textContent = count; message.textContent = count === 1 ? 'はじめまして！' : 'いつもありがとうございます！'; };
+  let count = 1;
+  try { count = Number(localStorage.getItem(key) || 0) + 1; localStorage.setItem(key, count); } catch {}
+  show(count);
+  root.querySelector('[data-reset]').addEventListener('click', () =&gt; {
+    try { localStorage.setItem(key, '1'); } catch {}
+    show(1);
+  });
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>同じブラウザで再訪した利用者へ、回数に応じた挨拶や継続利用の演出を表示する場面。アクセス解析用途には使用しません。</p></div>
+        </section>
+      </div>
+
+      <div class="part-detail-empty" data-pattern-empty hidden><p>[ NO_PATTERNS_FOUND ]</p><p>別のキーワードを選択してください。</p></div>
+
+      <section class="part-common-styles" id="counter-common-styles" aria-labelledby="counter-common-title">
+        <header class="part-common-styles__header reveal"><p class="section-index">COMMON STYLE</p><h2 id="counter-common-title">共通スタイル</h2><p>数値の桁幅、操作ボタン、パネルの余白とフォーカス表示を揃える基礎スタイルです。</p></header>
+        <div class="part-common-styles__code reveal" data-reveal-threshold="0.01"><div class="part-code"><div class="part-code__header"><span>CSS / COMMON</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-counter,
+.c-counter * { box-sizing: border-box; }
+
+.c-counter {
+  width: min(100%, 21rem);
+  color: var(--color-text, #1c2430);
+  font-family: var(--font-sans, sans-serif);
+  text-align: center;
+}
+
+.c-counter__panel {
+  padding: 1rem;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+}
+
+.c-counter__value {
+  color: var(--color-primary, #18243b);
+  font-family: var(--font-mono, monospace);
+  font-variant-numeric: tabular-nums;
+}
+
+.c-counter__button:focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: 3px;
+}</code></pre></div></div>
+      </section>
+
+      <footer class="page-footer" aria-label="ページナビゲーション"><a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO WEB PARTS</span></a><a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a></footer>
+    </main>
+
+    <script src="../js/web-parts-detail.js" defer></script>
+    <script src="../js/web-parts-counter.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+.c-background-pattern {
+  display: grid;
+  width: min(100%, 34rem);
+  min-height: 8rem;
+  padding: 1rem;
+  overflow: hidden;
+  place-items: center;
+  color: var(--color-text, #1c2430);
+  background-color: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+}
+
+.c-background-pattern__label {
+  padding: 0.45rem 0.7rem;
+  color: var(--color-text, #1c2430);
+  font: 700 0.6rem/1.3 var(--font-mono, monospace);
+  letter-spacing: 0.04em;
+  background: rgb(255 255 255 / 88%);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+  box-shadow: 0 0.35rem 0.9rem rgb(24 36 59 / 10%);
+}
+
+.c-background-pattern--dots {
+  background-image: radial-gradient(var(--pattern-color, rgb(24 36 59 / 24%)) 2px, transparent 2px);
+  background-size: var(--pattern-size, 18px) var(--pattern-size, 18px);
+}
+
+.c-background-pattern--diagonal-stripe {
+  background-image: repeating-linear-gradient(45deg, var(--pattern-color, rgb(24 36 59 / 18%)) 0 9px, transparent 9px 22px);
+}
+
+.c-background-pattern--vertical-stripe {
+  background-image: repeating-linear-gradient(90deg, var(--pattern-color, rgb(38 58 94 / 18%)) 0 3px, transparent 3px 16px);
+}
+
+.c-background-pattern--horizontal-stripe {
+  background-image: repeating-linear-gradient(0deg, var(--pattern-color, rgb(49 90 155 / 14%)) 0 10px, transparent 10px 24px);
+}
+
+.c-background-pattern--hairline {
+  background-image: repeating-linear-gradient(45deg, var(--pattern-color, rgb(24 36 59 / 20%)) 0 1px, transparent 1px 10px);
+}
+
+.c-background-pattern--crosshatch {
+  background-image:
+    repeating-linear-gradient(45deg, var(--pattern-color, rgb(24 36 59 / 14%)) 0 1px, transparent 1px 12px),
+    repeating-linear-gradient(-45deg, var(--pattern-color, rgb(24 36 59 / 14%)) 0 1px, transparent 1px 12px);
+}
+
+.c-background-pattern--grid {
+  background-image:
+    linear-gradient(var(--pattern-color, rgb(49 90 155 / 18%)) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, var(--pattern-color, rgb(49 90 155 / 18%)) 1.5px, transparent 1.5px);
+  background-size: var(--pattern-size, 24px) var(--pattern-size, 24px);
+}
+
+.c-background-pattern--square-grid {
+  background-image:
+    linear-gradient(var(--pattern-color, rgb(24 36 59 / 14%)) 1px, transparent 1px),
+    linear-gradient(90deg, var(--pattern-color, rgb(24 36 59 / 14%)) 1px, transparent 1px);
+  background-size: var(--pattern-size, 12px) var(--pattern-size, 12px);
+}
+
+.c-background-pattern--checker {
+  background-image: conic-gradient(
+    var(--pattern-color, rgb(38 58 94 / 18%)) 25%,
+    transparent 25% 50%,
+    var(--pattern-color, rgb(38 58 94 / 18%)) 50% 75%,
+    transparent 75%
+  );
+  background-size: var(--pattern-size, 32px) var(--pattern-size, 32px);
+}
+
+.c-background-pattern--triangle {
+  background-image:
+    linear-gradient(135deg, var(--pattern-color, rgb(49 90 155 / 18%)) 25%, transparent 25%),
+    linear-gradient(225deg, var(--pattern-accent, rgb(255 255 0 / 16%)) 25%, transparent 25%);
+  background-size: var(--pattern-size, 20px) var(--pattern-size, 20px);
+}
+
+.c-background-pattern--paper {
+  background-color: #f8f6ef;
+  background-image:
+    radial-gradient(var(--pattern-color, rgb(24 36 59 / 12%)) 1px, transparent 1px),
+    radial-gradient(var(--pattern-accent, rgb(49 90 155 / 10%)) 1px, transparent 1px);
+  background-position: 0 0, 6px 8px;
+  background-size: 11px 11px, 17px 17px;
+}
+
+.c-background-pattern--graph-paper {
+  background-image:
+    linear-gradient(var(--pattern-major, rgb(24 36 59 / 28%)) 1px, transparent 1px),
+    linear-gradient(90deg, var(--pattern-major, rgb(24 36 59 / 28%)) 1px, transparent 1px),
+    linear-gradient(var(--pattern-minor, rgb(49 90 155 / 10%)) 1px, transparent 1px),
+    linear-gradient(90deg, var(--pattern-minor, rgb(49 90 155 / 10%)) 1px, transparent 1px);
+  background-size: 48px 48px, 48px 48px, 12px 12px, 12px 12px;
+}
+
+.c-background-pattern--halftone {
+  background-image:
+    radial-gradient(circle, var(--pattern-color, rgb(24 36 59 / 30%)) 0 2.5px, transparent 3px),
+    radial-gradient(circle, var(--pattern-accent, rgb(49 90 155 / 16%)) 0 1.5px, transparent 2px);
+  background-position: 0 0, 8px 8px;
+  background-size: 16px 16px;
+}
+
+.c-background-pattern--isometric {
+  background-image:
+    repeating-linear-gradient(30deg, var(--pattern-color, rgb(49 90 155 / 18%)) 0 1px, transparent 1px 32px),
+    repeating-linear-gradient(-30deg, var(--pattern-color, rgb(49 90 155 / 18%)) 0 1px, transparent 1px 32px),
+    repeating-linear-gradient(90deg, var(--pattern-color, rgb(49 90 155 / 18%)) 0 1px, transparent 1px 32px);
+}
+
+.c-background-pattern--cube {
+  --tile-color: var(--pattern-color, rgb(49 90 155 / 16%));
+
+  background-image:
+    linear-gradient(30deg, var(--tile-color) 12%, transparent 12.5% 87%, var(--tile-color) 87.5%),
+    linear-gradient(150deg, var(--tile-color) 12%, transparent 12.5% 87%, var(--tile-color) 87.5%),
+    linear-gradient(30deg, var(--tile-color) 12%, transparent 12.5% 87%, var(--tile-color) 87.5%),
+    linear-gradient(150deg, var(--tile-color) 12%, transparent 12.5% 87%, var(--tile-color) 87.5%),
+    linear-gradient(60deg, var(--tile-color) 25%, transparent 25.5% 75%, var(--tile-color) 75%);
+  background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0;
+  background-size: 40px 70px;
+}
+
+.c-background-pattern--mesh {
+  background-color: var(--color-background-subtle, #f5f7fa);
+  background-image:
+    radial-gradient(circle at 14% 18%, var(--mesh-blue, rgb(49 90 155 / 32%)) 0, transparent 34%),
+    radial-gradient(circle at 82% 24%, var(--mesh-yellow, rgb(255 255 0 / 26%)) 0, transparent 30%),
+    radial-gradient(circle at 62% 88%, var(--mesh-navy, rgb(38 58 94 / 22%)) 0, transparent 38%);
+  background-blend-mode: multiply;
+}
+
+@media (max-width: 640px) {
+  .c-background-pattern { min-height: 7rem; }
+}

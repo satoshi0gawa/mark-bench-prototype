@@ -396,17 +396,14 @@
       anchor.click();
       anchor.remove();
       URL.revokeObjectURL(url);
-      showToast('ダウンロードが完了しました。');
     });
     query('[data-fluid-sample]').addEventListener('click', () => {
       applyConfig(generator.cloneDefaultConfig());
       getInput('viewportMin').focus();
-      showToast('MARK BENCH SAMPLE LOADED');
     });
     query('[data-fluid-reset]').addEventListener('click', () => {
       applyConfig(generator.cloneDefaultConfig());
       getInput('viewportMin').focus();
-      showToast('INPUT RESET');
     });
 
     renderSizeRows();

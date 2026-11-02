@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="会話、操作ヒント、フォームエラー、無効理由、リンクプレビューなどに使えるCSS吹き出し・ツールチップ18パターンです。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>TOOL TIP | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/tool-tip.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="TOOL TIP | MARK BENCH" />
+    <meta property="og:description" content="会話、操作ヒント、フォームエラー、無効理由、リンクプレビューなどに使えるCSS吹き出し・ツールチップ18パターンです。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/tool-tip.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="TOOL TIP | MARK BENCH" />
+    <meta name="twitter:description" content="会話、操作ヒント、フォームエラー、無効理由、リンクプレビューなどに使えるCSS吹き出し・ツールチップ18パターンです。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "TOOL TIP",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/tool-tip.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/web-parts.css" />
+    <link rel="stylesheet" href="../css/web-parts-tool-tip.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts-detail" data-parts-detail>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header">
+      <div class="site-header__bar">
+        <nav class="site-breadcrumb-logo" aria-label="パンくずリスト">
+          <a class="site-logo" href="../index.html">MARK BENCH</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <a class="site-breadcrumb-logo__parent" href="./">WEB PARTS</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <span class="site-breadcrumb-logo__current" aria-current="page">TOOL TIP</span>
+        </nav>
+      </div>
+    </header>
+
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション">
+      <a href="../tools/"><strong>TOOLS</strong></a>
+      <a href="./" aria-current="location"><strong>WEB PARTS</strong></a>
+      <a href="../build-notes/"><strong>BUILD NOTES</strong></a>
+      <a href="../about.html"><strong>ABOUT</strong></a>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <header class="part-detail-header">
+        <p class="section-index reveal">WEB_PARTS / TOOL TIP</p>
+        <h1 class="reveal">TOOL TIP</h1>
+        <p class="part-detail-header__lead reveal">記事内の発言やチャット、操作ボタンの補足説明、フォームエラー、無効操作の理由などを、対象との位置関係を保ちながら伝える吹き出し・ツールチップ18パターンです。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 18</span><span>TYPE: CSS</span><span>DEPENDENCY: NONE</span></div>
+        <a class="part-detail-header__anchor reveal" href="#tool-tip-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
+      </header>
+
+      <section class="part-detail-controls directory-search directory-keywords" aria-label="吹き出し・ツールチップパターンを絞り込み">
+        <div class="directory-keywords__group">
+          <p class="directory-keywords__label">KEYWORDS</p>
+          <div class="directory-keywords__list">
+            <button type="button" aria-pressed="false" data-pattern-keyword="しっぽ"># しっぽ</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="方向"># 方向</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="形状"># 形状</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="会話"># 会話</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="思考"># 思考</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="ツールチップ"># ツールチップ</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="ヒント"># ヒント</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="通知"># 通知</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="実務追加"># 実務追加</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="フォーム"># フォーム</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="無効"># 無効</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="省略"># 省略</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="プレビュー"># プレビュー</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="ホットスポット"># ホットスポット</button>
+          </div>
+        </div>
+        <p>DISPLAY: <span data-pattern-count>18</span> / 18</p>
+      </section>
+
+      <div class="part-example-list">
+        <section class="part-example reveal" data-pattern data-search="しっぽ 方向 下 bottom tail speech bubble 基本 発言 補足">
+          <header class="part-example__header"><div><span class="part-example__index">DIRECTION / 01</span><h2>下しっぽ</h2></div><small>BOTTOM TAIL</small></header>
+          <div class="part-example__preview"><p class="c-tool-tip c-tool-tip--tail-bottom">対象の上から補足します。</p></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;p class="c-tool-tip c-tool-tip--tail-bottom"&gt;
+  対象の上から補足します。
+&lt;/p&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tool-tip { position: relative; display: inline-block; max-width: 20rem; margin: 0; padding: .75rem 1rem; color: #fff; font: .82rem/1.65 sans-serif; background: #18243b; border-radius: .35rem; }
+.c-tool-tip::after { position: absolute; width: 0; height: 0; border: .55rem solid transparent; content: ""; }
+.c-tool-tip--tail-bottom::after { top: 100%; left: 1.4rem; border-top-color: #18243b; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>カード、画像、入力欄など、吹き出しの直下にある対象へ説明を結び付ける場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="しっぽ 方向 上 top tail speech bubble 基本 指示 画像">
+          <header class="part-example__header"><div><span class="part-example__index">DIRECTION / 02</span><h2>上しっぽ</h2></div><small>TOP TAIL</small></header>
+          <div class="part-example__preview"><p class="c-tool-tip c-tool-tip--tail-top">上の項目について説明します。</p></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;p class="c-tool-tip c-tool-tip--tail-top"&gt;
+  上の項目について説明します。
+&lt;/p&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tool-tip { position: relative; display: inline-block; max-width: 20rem; margin: 0; padding: .75rem 1rem; color: #fff; font: .82rem/1.65 sans-serif; background: #18243b; border-radius: .35rem; }
+.c-tool-tip::after { position: absolute; width: 0; height: 0; border: .55rem solid transparent; content: ""; }
+.c-tool-tip--tail-top::after { bottom: 100%; left: 1.4rem; border-bottom-color: #18243b; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>上側の見出し、画像、ステータス表示を指しながら、直後に短い解説を添える場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="しっぽ 方向 左 left tail speech bubble avatar icon 発言者 会話">
+          <header class="part-example__header"><div><span class="part-example__index">DIRECTION / 03</span><h2>左しっぽ</h2></div><small>LEFT TAIL</small></header>
+          <div class="part-example__preview"><p class="c-tool-tip c-tool-tip--tail-left">左側の発言者からのメッセージです。</p></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;p class="c-tool-tip c-tool-tip--tail-left"&gt;
+  左側の発言者からのメッセージです。
+&lt;/p&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tool-tip { position: relative; display: inline-block; max-width: 20rem; margin: 0; padding: .75rem 1rem; color: #fff; font: .82rem/1.65 sans-serif; background: #18243b; border-radius: .35rem; }
+.c-tool-tip::after { position: absolute; width: 0; height: 0; border: .55rem solid transparent; content: ""; }
+.c-tool-tip--tail-left::after { top: 50%; right: 100%; border-right-color: #18243b; transform: translateY(-50%); }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>人物アイコンを左に置くインタビュー、レビュー、Q&amp;Aの発言表示。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="しっぽ 方向 右 right tail speech bubble avatar reply 返信 会話">
+          <header class="part-example__header"><div><span class="part-example__index">DIRECTION / 04</span><h2>右しっぽ</h2></div><small>RIGHT TAIL</small></header>
+          <div class="part-example__preview"><p class="c-tool-tip c-tool-tip--tail-right">右側の返信者からのメッセージです。</p></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;p class="c-tool-tip c-tool-tip--tail-right"&gt;
+  右側の返信者からのメッセージです。
+&lt;/p&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tool-tip { position: relative; display: inline-block; max-width: 20rem; margin: 0; padding: .75rem 1rem; color: #fff; font: .82rem/1.65 sans-serif; background: #18243b; border-radius: .35rem; }
+.c-tool-tip::after { position: absolute; width: 0; height: 0; border: .55rem solid transparent; content: ""; }
+.c-tool-tip--tail-right::after { top: 50%; left: 100%; border-left-color: #18243b; transform: translateY(-50%); }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>回答者や自分側の発言を右寄せし、左しっぽと対になる返信を示す場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="形状 しっぽ ピル pill round rounded 丸 中央 キャラクター speech">
+          <header class="part-example__header"><div><span class="part-example__index">SHAPE / 01</span><h2>ピル吹き出し</h2></div><small>ROUNDED</small></header>
+          <div class="part-example__preview"><p class="c-tool-tip c-tool-tip--pill">まずはここから始めましょう。</p></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;p class="c-tool-tip c-tool-tip--pill"&gt;
+  まずはここから始めましょう。
+&lt;/p&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tool-tip { position: relative; display: inline-block; margin: 0; padding: .75rem 1.35rem; font: .82rem/1.65 sans-serif; }
+.c-tool-tip--pill { color: #18243b; background: #ff0; border-radius: 999px; }
+.c-tool-tip--pill::after { position: absolute; top: 100%; left: 50%; border: .55rem solid transparent; border-top-color: #ff0; content: ""; transform: translateX(-50%); }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>オンボーディングやキャラクターのひと言など、親しみやすく短い案内。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="形状 しっぽ 枠線 outline border frame white speech bubble 補足">
+          <header class="part-example__header"><div><span class="part-example__index">SHAPE / 02</span><h2>枠線ふきだし</h2></div><small>OUTLINE</small></header>
+          <div class="part-example__preview"><p class="c-tool-tip c-tool-tip--outline">補足事項はこちらです。</p></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;p class="c-tool-tip c-tool-tip--outline"&gt;
+  補足事項はこちらです。
+&lt;/p&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tool-tip--outline { position: relative; display: inline-block; margin: 0; padding: 13px 17px; color: var(--color-primary, #18243b); font: 700 14px sans-serif; background: var(--color-background, #fff); border: 2px solid var(--color-primary, #18243b); border-radius: 14px; }
+.c-tool-tip--outline::before { position: absolute; bottom: -9px; left: 24px; width: 14px; height: 14px; background: var(--color-background, #fff); border-right: 2px solid var(--color-primary, #18243b); border-bottom: 2px solid var(--color-primary, #18243b); content: ""; transform: rotate(45deg); }
+.c-tool-tip--outline::after { content: none; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>本文の背景になじませつつ、FAQ回答や注釈を明確な輪郭で区切る場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="形状 思考 考え事 thought bubble circle mind 心の声 漫画">
+          <header class="part-example__header"><div><span class="part-example__index">SHAPE / 03</span><h2>考え事バブル</h2></div><small>THOUGHT</small></header>
+          <div class="part-example__preview"><p class="c-tool-tip c-tool-tip--thought">どちらを選ぼうかな…</p></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;p class="c-tool-tip c-tool-tip--thought"&gt;
+  どちらを選ぼうかな…
+&lt;/p&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tool-tip--thought { position: relative; display: inline-block; margin: 0; padding: .9rem 1.2rem; color: var(--color-text-inverse, #fff); font: .82rem/1.65 sans-serif; background: var(--color-primary, #18243b); border-radius: 1.25rem; }
+.c-tool-tip--thought::before, .c-tool-tip--thought::after { position: absolute; background: var(--color-primary, #18243b); border-radius: 50%; content: ""; }
+.c-tool-tip--thought::before { top: calc(100% + .18rem); left: 1.35rem; width: .72rem; height: .72rem; }
+.c-tool-tip--thought::after { top: calc(100% + .95rem); left: .95rem; width: .38rem; height: .38rem; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>体験談、ストーリー、比較記事で、発言ではなく人物の内心を表現する場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="形状 雲 もこもこ cloud fluffy rounded decorative speech bubble 強調">
+          <header class="part-example__header"><div><span class="part-example__index">SHAPE / 04</span><h2>もこもこ雲形</h2></div><small>CLOUD</small></header>
+          <div class="part-example__preview"><p class="c-tool-tip c-tool-tip--cloud">ひらめきの種</p></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;p class="c-tool-tip c-tool-tip--cloud"&gt;
+  ひらめきの種
+&lt;/p&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tool-tip--cloud { position: relative; z-index: 0; isolation: isolate; display: inline-block; margin: 0; padding: 22px 34px 18px; color: var(--color-primary, #18243b); font: 700 14px sans-serif; background: var(--color-background, #fff); border-radius: 999px; filter: drop-shadow(1px 0 0 var(--color-primary, #18243b)) drop-shadow(-1px 0 0 var(--color-primary, #18243b)) drop-shadow(0 1px 0 var(--color-primary, #18243b)) drop-shadow(0 -1px 0 var(--color-primary, #18243b)); }
+.c-tool-tip--cloud::before, .c-tool-tip--cloud::after { position: absolute; z-index: -1; background: var(--color-background, #fff); border-radius: 50%; content: ""; }
+.c-tool-tip--cloud::before { top: -20px; left: 30px; width: 50px; height: 50px; }
+.c-tool-tip--cloud::after { top: -10px; right: 40px; width: 36px; height: 36px; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>キャンペーンや特集ページで、アイデア・夢・想像を装飾的に強調する場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="会話 チャット chat message talk incoming outgoing qa support conversation">
+          <header class="part-example__header"><div><span class="part-example__index">CONVERSATION / 01</span><h2>チャット風会話</h2></div><small>MESSAGE PAIR</small></header>
+          <div class="part-example__preview"><div class="c-tool-tip-chat" aria-label="チャット例"><p class="c-tool-tip-chat__message">公開前に確認できますか？</p><p class="c-tool-tip-chat__message c-tool-tip-chat__message--outgoing">はい、確認済みです。</p></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-tool-tip-chat" aria-label="チャット例"&gt;
+  &lt;p class="c-tool-tip-chat__message"&gt;公開前に確認できますか？&lt;/p&gt;
+  &lt;p class="c-tool-tip-chat__message c-tool-tip-chat__message--outgoing"&gt;
+    はい、確認済みです。
+  &lt;/p&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tool-tip-chat { display: flex; width: min(100%, 210px); gap: 10px; flex-direction: column; font: 700 13px sans-serif; }
+.c-tool-tip-chat__message { align-self: flex-start; margin: 0; padding: 10px 14px; color: var(--color-text, #1c2430); background: var(--color-background, #fff); border-radius: 4px 16px 16px 16px; box-shadow: 0 2px 6px rgb(0 0 0 / 8%); }
+.c-tool-tip-chat__message--outgoing { align-self: flex-end; color: var(--color-text-inverse, #fff); background: var(--color-primary, #18243b); border-radius: 16px 4px 16px 16px; box-shadow: none; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>問い合わせ例、利用者とサポートのやり取り、対談記事を短い会話として見せる場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="ツールチップ ヒント 上 above top hover focus keyboard tooltip 操作 補足">
+          <header class="part-example__header"><div><span class="part-example__index">TOOLTIP / 01</span><h2>上ツールチップ</h2></div><small>HOVER / FOCUS</small></header>
+          <div class="part-example__preview"><button class="c-tool-tip-trigger c-tool-tip-trigger--above" type="button" aria-describedby="tool-tip-above-text">HELP<span class="c-tool-tip-trigger__content" id="tool-tip-above-text" role="tooltip">入力ルールを確認できます。</span></button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-tool-tip-trigger c-tool-tip-trigger--above"
+  type="button" aria-describedby="tooltip-above-text"&gt;
+  HELP
+  &lt;span class="c-tool-tip-trigger__content"
+    id="tooltip-above-text" role="tooltip"&gt;入力ルールを確認できます。&lt;/span&gt;
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tool-tip-trigger { position: relative; min-height: 2.75rem; padding: .65rem .9rem; font: 700 .72rem monospace; background: #fff; border: 1px solid #18243b; cursor: help; }
+.c-tool-tip-trigger__content { position: absolute; bottom: calc(100% + .65rem); left: 50%; width: max-content; max-width: 14rem; padding: .5rem .65rem; color: #fff; font: .68rem/1.45 sans-serif; background: #18243b; opacity: 0; visibility: hidden; pointer-events: none; transform: translate(-50%, .35rem); transition: .16s; }
+.c-tool-tip-trigger__content::after { position: absolute; top: 100%; left: 50%; border: .38rem solid transparent; border-top-color: #18243b; content: ""; transform: translateX(-50%); }
+.c-tool-tip-trigger:is(:hover, :focus-visible) .c-tool-tip-trigger__content { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.c-tool-tip-trigger:focus-visible { outline: 3px solid #315a9b; outline-offset: 3px; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>アイコンや短いボタンの意味を補足し、上側に表示領域を確保できる操作UI。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="ツールチップ ヒント 下 below bottom hover focus keyboard tooltip header nav 操作">
+          <header class="part-example__header"><div><span class="part-example__index">TOOLTIP / 02</span><h2>下ツールチップ</h2></div><small>HOVER / FOCUS</small></header>
+          <div class="part-example__preview"><button class="c-tool-tip-trigger c-tool-tip-trigger--below" type="button" aria-describedby="tool-tip-below-text">INFO<span class="c-tool-tip-trigger__content" id="tool-tip-below-text" role="tooltip">最新の更新内容を表示します。</span></button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-tool-tip-trigger c-tool-tip-trigger--below"
+  type="button" aria-describedby="tooltip-below-text"&gt;
+  INFO
+  &lt;span class="c-tool-tip-trigger__content"
+    id="tooltip-below-text" role="tooltip"&gt;最新の更新内容を表示します。&lt;/span&gt;
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tool-tip-trigger { position: relative; min-height: 2.75rem; padding: .65rem .9rem; font: 700 .72rem monospace; background: #fff; border: 1px solid #18243b; cursor: help; }
+.c-tool-tip-trigger__content { position: absolute; top: calc(100% + .65rem); left: 50%; width: max-content; max-width: 14rem; padding: .5rem .65rem; color: #fff; font: .68rem/1.45 sans-serif; background: #18243b; opacity: 0; visibility: hidden; pointer-events: none; transform: translate(-50%, -.35rem); transition: .16s; }
+.c-tool-tip-trigger__content::after { position: absolute; bottom: 100%; left: 50%; border: .38rem solid transparent; border-bottom-color: #18243b; content: ""; transform: translateX(-50%); }
+.c-tool-tip-trigger:is(:hover, :focus-visible) .c-tool-tip-trigger__content { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.c-tool-tip-trigger:focus-visible { outline: 3px solid #315a9b; outline-offset: 3px; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ヘッダーや上端付近のアイコンなど、上に余白がなく下方向へヒントを出したい操作UI。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="通知 トースト toast notification 完了 success 保存 feedback toggle checkbox css only">
+          <header class="part-example__header"><div><span class="part-example__index">NOTIFICATION / 01</span><h2>トースト通知</h2></div><small>CSS TOGGLE</small></header>
+          <div class="part-example__preview"><div class="c-tool-tip-toast-demo"><input class="c-tool-tip-toast-demo__toggle" id="tool-tip-toast-toggle" type="checkbox" checked /><label class="c-tool-tip-toast-demo__button" for="tool-tip-toast-toggle">通知を表示 / 非表示</label><p class="c-tool-tip-toast-demo__toast" role="status"><span aria-hidden="true">✓</span>変更を保存しました。</p></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-tool-tip-toast-demo"&gt;
+  &lt;input class="c-tool-tip-toast-demo__toggle"
+    id="toast-toggle" type="checkbox" checked&gt;
+  &lt;label class="c-tool-tip-toast-demo__button" for="toast-toggle"&gt;
+    通知を表示 / 非表示
+  &lt;/label&gt;
+  &lt;p class="c-tool-tip-toast-demo__toast" role="status"&gt;
+    &lt;span aria-hidden="true"&gt;✓&lt;/span&gt;変更を保存しました。
+  &lt;/p&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tool-tip-toast-demo { position: relative; display: grid; width: min(100%, 22rem); min-height: 8rem; place-items: start center; font-family: sans-serif; }
+.c-tool-tip-toast-demo__toggle { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.c-tool-tip-toast-demo__button { display: inline-flex; min-height: 2.75rem; padding: .65rem .9rem; align-items: center; color: #fff; font: 700 .68rem monospace; background: #18243b; cursor: pointer; }
+.c-tool-tip-toast-demo__toast { position: absolute; bottom: 0; left: 50%; width: min(100%, 19rem); margin: 0; padding: .75rem .9rem; color: #fff; background: #18243b; border-left: .35rem solid #ff0; opacity: 0; visibility: hidden; transform: translate(-50%, .6rem); transition: .18s; }
+.c-tool-tip-toast-demo__toggle:checked ~ .c-tool-tip-toast-demo__toast { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.c-tool-tip-toast-demo__toggle:focus-visible + .c-tool-tip-toast-demo__button { outline: 3px solid #315a9b; outline-offset: 3px; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>保存や設定変更の完了を短時間で伝える通知の見た目と、CSSだけの表示切替を確認する場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="実務追加 ヘルプ アイコン help icon question mark hover focus keyboard tooltip 説明 補足">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL ADDITION / 01</span><h2>ヘルプアイコン</h2></div><small>ICON HINT</small></header>
+          <div class="part-example__preview"><button class="c-tool-tip-help" type="button" aria-describedby="tool-tip-help-text"><span aria-hidden="true">?</span><span class="c-tool-tip-help__content" id="tool-tip-help-text" role="tooltip">公開後も設定から変更できます。</span><span class="u-visually-hidden">公開設定の説明</span></button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-tool-tip-help" type="button"
+  aria-describedby="help-tip-text"&gt;
+  &lt;span aria-hidden="true"&gt;?&lt;/span&gt;
+  &lt;span class="c-tool-tip-help__content"
+    id="help-tip-text" role="tooltip"&gt;
+    公開後も設定から変更できます。
+  &lt;/span&gt;
+  &lt;span class="u-visually-hidden"&gt;公開設定の説明&lt;/span&gt;
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.u-visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.c-tool-tip-help { position: relative; display: inline-grid; width: 2.5rem; height: 2.5rem; place-items: center; color: #18243b; font: 700 1rem sans-serif; background: #fff; border: 2px solid #18243b; border-radius: 50%; cursor: help; }
+.c-tool-tip-help__content { position: absolute; bottom: calc(100% + .65rem); left: 50%; width: max-content; max-width: 14rem; padding: .55rem .7rem; color: #fff; font: .72rem/1.5 sans-serif; background: #18243b; opacity: 0; visibility: hidden; pointer-events: none; transform: translate(-50%, .35rem); transition: .16s; }
+.c-tool-tip-help__content::after { position: absolute; top: 100%; left: 50%; border: .4rem solid transparent; border-top-color: #18243b; content: ""; transform: translateX(-50%); }
+.c-tool-tip-help:is(:hover, :focus-visible) .c-tool-tip-help__content { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.c-tool-tip-help:focus-visible { outline: 3px solid #315a9b; outline-offset: 3px; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>設定項目や専門用語の横で、画面を離れずに短い補足を確認できるようにする場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="実務追加 フォーム 入力 エラー validation error invalid alert field email 常時表示">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL ADDITION / 02</span><h2>入力エラーヒント</h2></div><small>VALIDATION</small></header>
+          <div class="part-example__preview"><div class="c-tool-tip-field"><label class="c-tool-tip-field__label" for="tool-tip-email">EMAIL</label><input class="c-tool-tip-field__input" id="tool-tip-email" type="email" value="markbench.example" aria-invalid="true" aria-describedby="tool-tip-email-error" /><p class="c-tool-tip-field__error" id="tool-tip-email-error" role="alert">@を含むメールアドレスを入力してください。</p></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-tool-tip-field"&gt;
+  &lt;label class="c-tool-tip-field__label" for="email"&gt;EMAIL&lt;/label&gt;
+  &lt;input class="c-tool-tip-field__input" id="email" type="email"
+    value="markbench.example" aria-invalid="true"
+    aria-describedby="email-error"&gt;
+  &lt;p class="c-tool-tip-field__error" id="email-error" role="alert"&gt;
+    @を含むメールアドレスを入力してください。
+  &lt;/p&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tool-tip-field { width: min(100%, 20rem); font-family: sans-serif; }
+.c-tool-tip-field__label { display: block; margin-bottom: .4rem; font: 700 .68rem monospace; }
+.c-tool-tip-field__input { box-sizing: border-box; width: 100%; min-height: 2.75rem; padding: .65rem .75rem; font: .82rem sans-serif; background: #fff; border: 2px solid #b42318; }
+.c-tool-tip-field__input:focus-visible { outline: 3px solid #315a9b; outline-offset: 2px; }
+.c-tool-tip-field__error { position: relative; margin: .65rem 0 0; padding: .55rem .7rem; color: #fff; font-size: .72rem; line-height: 1.5; background: #b42318; }
+.c-tool-tip-field__error::before { position: absolute; bottom: 100%; left: 1rem; border: .4rem solid transparent; border-bottom-color: #b42318; content: ""; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>送信前後のバリデーションで、問題のある入力欄と修正方法を視覚的・音声的に関連付ける場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="実務追加 無効 disabled button reason permission 権限 理由 hover focus keyboard 操作">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL ADDITION / 03</span><h2>無効操作の理由</h2></div><small>DISABLED REASON</small></header>
+          <div class="part-example__preview"><div class="c-tool-tip-disabled" tabindex="0" aria-describedby="tool-tip-disabled-text"><button class="c-tool-tip-disabled__button" type="button" disabled>DELETE</button><span class="c-tool-tip-disabled__reason" id="tool-tip-disabled-text" role="tooltip">削除には管理者権限が必要です。</span></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-tool-tip-disabled" tabindex="0"
+  aria-describedby="disabled-reason"&gt;
+  &lt;button class="c-tool-tip-disabled__button"
+    type="button" disabled&gt;DELETE&lt;/button&gt;
+  &lt;span class="c-tool-tip-disabled__reason"
+    id="disabled-reason" role="tooltip"&gt;
+    削除には管理者権限が必要です。
+  &lt;/span&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tool-tip-disabled { position: relative; display: inline-block; }
+.c-tool-tip-disabled:focus-visible { outline: 3px solid #315a9b; outline-offset: 4px; }
+.c-tool-tip-disabled__button { min-height: 2.75rem; padding: .65rem 1rem; color: #626c7a; font: 700 .72rem monospace; background: #edf1f7; border: 1px solid #aeb8c7; cursor: not-allowed; }
+.c-tool-tip-disabled__reason { position: absolute; bottom: calc(100% + .65rem); left: 50%; width: max-content; max-width: 15rem; padding: .55rem .7rem; color: #fff; font: .72rem/1.5 sans-serif; background: #18243b; opacity: 0; visibility: hidden; pointer-events: none; transform: translate(-50%, .35rem); transition: .16s; }
+.c-tool-tip-disabled__reason::after { position: absolute; top: 100%; left: 50%; border: .4rem solid transparent; border-top-color: #18243b; content: ""; transform: translateX(-50%); }
+.c-tool-tip-disabled:is(:hover, :focus-visible) .c-tool-tip-disabled__reason { opacity: 1; visibility: visible; transform: translate(-50%, 0); }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>権限不足や未完了の前提条件によって操作できない理由を、無効ボタンの近くで説明する場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="実務追加 省略 テキスト ellipsis truncate full text hover focus keyboard table list ファイル名">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL ADDITION / 04</span><h2>省略テキストの全文</h2></div><small>ELLIPSIS</small></header>
+          <div class="part-example__preview"><button class="c-tool-tip-truncate" type="button" aria-describedby="tool-tip-truncate-text"><span class="c-tool-tip-truncate__label">2026_annual_report_final_revised.pdf</span><span class="c-tool-tip-truncate__full" id="tool-tip-truncate-text" role="tooltip">2026_annual_report_final_revised.pdf</span></button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-tool-tip-truncate" type="button"
+  aria-describedby="full-file-name"&gt;
+  &lt;span class="c-tool-tip-truncate__label"&gt;
+    2026_annual_report_final_revised.pdf
+  &lt;/span&gt;
+  &lt;span class="c-tool-tip-truncate__full"
+    id="full-file-name" role="tooltip"&gt;
+    2026_annual_report_final_revised.pdf
+  &lt;/span&gt;
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tool-tip-truncate { position: relative; display: block; width: min(100%, 15rem); padding: .65rem .75rem; color: #18243b; text-align: left; background: #fff; border: 1px solid #aeb8c7; cursor: help; }
+.c-tool-tip-truncate__label { display: block; overflow: hidden; font: .76rem/1.5 monospace; text-overflow: ellipsis; white-space: nowrap; }
+.c-tool-tip-truncate__full { position: absolute; bottom: calc(100% + .65rem); left: 50%; width: max-content; max-width: min(20rem, calc(100vw - 2rem)); padding: .55rem .7rem; color: #fff; font: .68rem/1.5 monospace; overflow-wrap: anywhere; background: #18243b; opacity: 0; visibility: hidden; pointer-events: none; transform: translate(-50%, .35rem); transition: .16s; }
+.c-tool-tip-truncate:is(:hover, :focus-visible) .c-tool-tip-truncate__full { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.c-tool-tip-truncate:focus-visible { outline: 3px solid #315a9b; outline-offset: 3px; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>テーブル、ファイル一覧、狭いカードで省略された名称を、レイアウトを変えずに全文確認させる場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="実務追加 プレビュー リンク preview link rich card url hover focus keyboard destination">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL ADDITION / 05</span><h2>リンクプレビュー</h2></div><small>RICH PREVIEW</small></header>
+          <div class="part-example__preview part-example__preview--link-preview"><a class="c-tool-tip-preview-link" href="#tool-tip-common-styles" aria-describedby="tool-tip-preview-text">料金プランを見る<span aria-hidden="true"> ↗</span><span class="c-tool-tip-preview-link__card" id="tool-tip-preview-text" role="tooltip"><strong>料金プラン</strong><span>機能と月額料金を比較できます。</span><small>example.com/pricing</small></span></a></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;a class="c-tool-tip-preview-link" href="/pricing/"
+  aria-describedby="pricing-preview"&gt;
+  料金プランを見る&lt;span aria-hidden="true"&gt; ↗&lt;/span&gt;
+  &lt;span class="c-tool-tip-preview-link__card"
+    id="pricing-preview" role="tooltip"&gt;
+    &lt;strong&gt;料金プラン&lt;/strong&gt;
+    &lt;span&gt;機能と月額料金を比較できます。&lt;/span&gt;
+    &lt;small&gt;example.com/pricing&lt;/small&gt;
+  &lt;/span&gt;
+&lt;/a&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tool-tip-preview-link { position: relative; display: inline-block; color: #18243b; font: 700 .82rem/1.5 sans-serif; text-underline-offset: .25rem; }
+.c-tool-tip-preview-link__card { position: absolute; bottom: calc(100% + .75rem); left: 50%; z-index: 2; display: grid; width: min(17rem, calc(100vw - 2rem)); padding: .8rem; gap: .3rem; color: #18243b; font: .72rem/1.5 sans-serif; text-align: left; text-decoration: none; background: #fff; border: 1px solid #18243b; box-shadow: .35rem .35rem 0 #ff0; opacity: 0; visibility: hidden; pointer-events: none; transform: translate(-50%, .35rem); transition: .16s; }
+.c-tool-tip-preview-link__card strong { font-size: .78rem; }
+.c-tool-tip-preview-link__card small { color: #626c7a; font: .64rem monospace; }
+.c-tool-tip-preview-link:is(:hover, :focus-visible) .c-tool-tip-preview-link__card { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.c-tool-tip-preview-link:focus-visible { outline: 3px solid #315a9b; outline-offset: 4px; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>外部リンクや資料リンクの遷移先を、移動前にタイトル・概要・ドメインで確認させる場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="実務追加 ホットスポット hotspot annotation pin image product tour hover focus keyboard 注釈 図解">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL ADDITION / 06</span><h2>ホットスポット注釈</h2></div><small>ANNOTATION PIN</small></header>
+          <div class="part-example__preview"><div class="c-tool-tip-hotspot" aria-label="製品画像の注釈例"><span class="c-tool-tip-hotspot__label" aria-hidden="true">PRODUCT / 01</span><button class="c-tool-tip-hotspot__pin" type="button" aria-describedby="tool-tip-hotspot-text"><span aria-hidden="true">1</span><span class="u-visually-hidden">素材についての注釈</span><span class="c-tool-tip-hotspot__content" id="tool-tip-hotspot-text" role="tooltip"><strong>再生素材</strong>外装の80%に再生樹脂を使用。</span></button></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-tool-tip-hotspot" aria-label="製品画像の注釈例"&gt;
+  &lt;span class="c-tool-tip-hotspot__label" aria-hidden="true"&gt;
+    PRODUCT / 01
+  &lt;/span&gt;
+  &lt;button class="c-tool-tip-hotspot__pin" type="button"
+    aria-describedby="material-note"&gt;
+    &lt;span aria-hidden="true"&gt;1&lt;/span&gt;
+    &lt;span class="u-visually-hidden"&gt;素材についての注釈&lt;/span&gt;
+    &lt;span class="c-tool-tip-hotspot__content"
+      id="material-note" role="tooltip"&gt;
+      &lt;strong&gt;再生素材&lt;/strong&gt;外装の80%に再生樹脂を使用。
+    &lt;/span&gt;
+  &lt;/button&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.u-visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.c-tool-tip-hotspot { position: relative; width: min(100%, 18rem); height: 7rem; overflow: visible; font-family: sans-serif; background: linear-gradient(135deg, #edf1f7 50%, #d8e0eb 50%); border: 1px solid #aeb8c7; }
+.c-tool-tip-hotspot__label { position: absolute; bottom: .65rem; left: .75rem; font: 700 .62rem monospace; }
+.c-tool-tip-hotspot__pin { position: absolute; top: 2.4rem; right: 3.2rem; display: grid; width: 2rem; height: 2rem; place-items: center; color: #18243b; font-weight: 700; background: #ff0; border: 2px solid #18243b; border-radius: 50%; cursor: help; }
+.c-tool-tip-hotspot__content { position: absolute; bottom: calc(100% + .65rem); left: 50%; display: grid; width: 12rem; padding: .65rem; gap: .2rem; color: #fff; font: .68rem/1.5 sans-serif; text-align: left; background: #18243b; opacity: 0; visibility: hidden; pointer-events: none; transform: translate(-50%, .35rem); transition: .16s; }
+.c-tool-tip-hotspot__content strong { color: #ff0; font-size: .72rem; }
+.c-tool-tip-hotspot__pin:is(:hover, :focus-visible) .c-tool-tip-hotspot__content { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.c-tool-tip-hotspot__pin:focus-visible { outline: 3px solid #315a9b; outline-offset: 3px; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>商品画像、管理画面、図解の特定箇所へ、番号付きの機能説明や素材情報を紐付ける場面。</p></div>
+        </section>
+      </div>
+
+      <div class="part-detail-empty" data-pattern-empty hidden><p>[ NO_PATTERNS_FOUND ]</p><p>別のキーワードを選択してください。</p></div>
+
+      <section class="part-common-styles" id="tool-tip-common-styles" aria-labelledby="tool-tip-common-title">
+        <header class="part-common-styles__header reveal">
+          <p class="section-index">COMMON STYLE</p>
+          <h2 id="tool-tip-common-title">共通スタイル</h2>
+          <p>吹き出し本体の余白、文字組み、背景、角丸を揃える基礎スタイルです。</p>
+        </header>
+        <div class="part-common-styles__code reveal" data-reveal-threshold="0.01">
+          <div class="part-code">
+            <div class="part-code__header"><span>CSS / COMMON</span><button type="button" data-copy-code>COPY</button></div>
+            <pre><code>.c-tool-tip,
+.c-tool-tip * {
+  box-sizing: border-box;
+}
+
+.c-tool-tip {
+  position: relative;
+  display: inline-block;
+  max-width: min(100%, 20rem);
+  margin: 0;
+  padding: .75rem 1rem;
+  color: var(--color-text-inverse, #fff);
+  font-family: var(--font-sans, sans-serif);
+  font-size: .82rem;
+  line-height: 1.65;
+  background: var(--color-primary, #18243b);
+  border-radius: .35rem;
+}
+
+.c-tool-tip::after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: .55rem solid transparent;
+  content: "";
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <footer class="page-footer" aria-label="ページナビゲーション">
+        <a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO WEB PARTS</span></a>
+        <a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a>
+      </footer>
+    </main>
+
+    <script src="../js/web-parts-detail.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

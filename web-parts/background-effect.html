@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="粒子、自然現象、ポインター追従、デジタル表現をVanilla JavaScriptで動かす背景エフェクト12パターンです。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>BACKGROUND-EFFECT | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/background-effect.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="BACKGROUND-EFFECT | MARK BENCH" />
+    <meta property="og:description" content="粒子、自然現象、ポインター追従、デジタル表現をVanilla JavaScriptで動かす背景エフェクト12パターンです。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/background-effect.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="BACKGROUND-EFFECT | MARK BENCH" />
+    <meta name="twitter:description" content="粒子、自然現象、ポインター追従、デジタル表現をVanilla JavaScriptで動かす背景エフェクト12パターンです。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "BACKGROUND-EFFECT",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/background-effect.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/web-parts.css" />
+    <link rel="stylesheet" href="../css/web-parts-background-effect.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts-detail" data-parts-detail>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header"><div class="site-header__bar"><nav class="site-breadcrumb-logo" aria-label="パンくずリスト"><a class="site-logo" href="../index.html">MARK BENCH</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><a class="site-breadcrumb-logo__parent" href="./">WEB PARTS</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><span class="site-breadcrumb-logo__current" aria-current="page">BACKGROUND-EFFECT</span></nav></div></header>
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション"><a href="../tools/"><strong>TOOLS</strong></a><a href="./" aria-current="location"><strong>WEB PARTS</strong></a><a href="../build-notes/"><strong>BUILD NOTES</strong></a><a href="../about.html"><strong>ABOUT</strong></a></nav>
+
+    <main id="main" tabindex="-1">
+      <header class="part-detail-header">
+        <p class="section-index reveal">WEB_PARTS / BACKGROUND-EFFECT</p>
+        <h1 class="reveal">BACKGROUND-EFFECT</h1>
+        <p class="part-detail-header__lead reveal">ヒーロー、キャンペーン、季節の特集、テクノロジー系コンテンツの背景へ、世界観と奥行きを加えるVanilla JavaScript対応の動的背景12パターンです。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 12</span><span>TYPE: CSS + JS</span><span>DEPENDENCY: NONE</span></div>
+        <a class="part-detail-header__anchor reveal" href="#background-effect-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
+      </header>
+
+      <section class="part-detail-controls directory-search directory-keywords" aria-label="背景エフェクトを絞り込み">
+        <div class="directory-keywords__group"><p class="directory-keywords__label">KEYWORDS</p><div class="directory-keywords__list">
+          <button type="button" aria-pressed="false" data-pattern-keyword="粒子"># 粒子</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="自然"># 自然</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="空"># 空</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="ポインター"># ポインター</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="光"># 光</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="デジタル"># デジタル</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="祝祭"># 祝祭</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="canvas"># canvas</button>
+        </div></div>
+        <p>DISPLAY: <span data-pattern-count>12</span> / 12</p>
+      </section>
+
+      <div class="part-example-list">
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="粒子 光 パーティクル floating particle dots canvas hero 基本">
+          <header class="part-example__header"><div><span class="part-example__index">PARTICLE / 01</span><h2>浮遊パーティクル</h2></div><small>FLOATING DOTS</small></header>
+          <div class="part-example__preview"><div class="c-background-effect c-background-effect--particles" data-background-effect="particles"><canvas aria-hidden="true"></canvas><div class="c-background-effect__content"><small>HERO SECTION</small><strong>静かな光の粒</strong></div><button class="c-background-effect__toggle" type="button" aria-pressed="false" data-effect-toggle>PAUSE</button></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;section class="c-bg c-bg--particles" data-bg-particles&gt;
+  &lt;canvas aria-hidden="true"&gt;&lt;/canvas&gt;
+  &lt;h2&gt;静かな光の粒&lt;/h2&gt;
+  &lt;button type="button" aria-pressed="false" data-toggle&gt;PAUSE&lt;/button&gt;
+&lt;/section&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-bg { position: relative; isolation: isolate; width: min(100%, 28rem); height: 12rem; overflow: hidden; color: #fff; background: #18243b; }
+.c-bg canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.c-bg h2 { position: relative; z-index: 1; display: grid; height: 100%; margin: 0; place-items: center; }
+.c-bg button { position: absolute; right: .6rem; bottom: .6rem; z-index: 2; color: #fff; background: #18243b; border: 1px solid #fff; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-bg-particles]');
+const canvas = root.querySelector('canvas'); const ctx = canvas.getContext('2d');
+let dots = []; let paused = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const resize = () =&gt; { const r = root.getBoundingClientRect(); canvas.width = r.width; canvas.height = r.height; dots = Array.from({ length: 32 }, () =&gt; ({ x: Math.random() * r.width, y: Math.random() * r.height, r: 1 + Math.random() * 3 })); };
+const draw = (time) =&gt; { ctx.clearRect(0, 0, canvas.width, canvas.height); dots.forEach((dot) =&gt; { dot.y = (dot.y - .2 + canvas.height) % canvas.height; ctx.globalAlpha = .45 + Math.sin(time * .002 + dot.x) * .25; ctx.fillStyle = '#ffff00'; ctx.beginPath(); ctx.arc(dot.x, dot.y, dot.r, 0, Math.PI * 2); ctx.fill(); }); ctx.globalAlpha = 1; if (!paused) requestAnimationFrame(draw); };
+new ResizeObserver(resize).observe(root); resize(); if (!paused) requestAnimationFrame(draw);
+root.querySelector('[data-toggle]').addEventListener('click', (event) =&gt; { paused = !paused; event.currentTarget.textContent = paused ? 'PLAY' : 'PAUSE'; event.currentTarget.setAttribute('aria-pressed', paused); if (!paused) requestAnimationFrame(draw); });</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>サービス紹介やブランドサイトのヒーローで、文字を邪魔せず静かな奥行きを加える場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="粒子 ネットワーク 線 connection technology canvas テクノロジー">
+          <header class="part-example__header"><div><span class="part-example__index">PARTICLE / 02</span><h2>ネットワーク線</h2></div><small>CONNECTED NODES</small></header>
+          <div class="part-example__preview"><div class="c-background-effect c-background-effect--network" data-background-effect="network"><canvas aria-hidden="true"></canvas><div class="c-background-effect__content"><small>CONNECTED DATA</small><strong>情報がつながる背景</strong></div><button class="c-background-effect__toggle" type="button" aria-pressed="false" data-effect-toggle>PAUSE</button></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;section class="c-bg c-bg--network" data-bg-network&gt;
+  &lt;canvas aria-hidden="true"&gt;&lt;/canvas&gt;&lt;h2&gt;情報がつながる背景&lt;/h2&gt;
+  &lt;button type="button" aria-pressed="false" data-toggle&gt;PAUSE&lt;/button&gt;
+&lt;/section&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-bg { position: relative; width: min(100%, 28rem); height: 12rem; overflow: hidden; color: #fff; background: #111a2c; }
+.c-bg canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.c-bg h2 { position: relative; display: grid; height: 100%; margin: 0; place-items: center; }
+.c-bg button { position: absolute; right: .6rem; bottom: .6rem; color: #fff; background: #18243b; border: 1px solid #fff; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-bg-network]'); const canvas = root.querySelector('canvas'); const ctx = canvas.getContext('2d'); let paused = false; let points = [];
+const resize = () =&gt; { const r = root.getBoundingClientRect(); canvas.width = r.width; canvas.height = r.height; points = Array.from({ length: 22 }, () =&gt; ({ x: Math.random() * r.width, y: Math.random() * r.height, vx: Math.random() * .4 - .2, vy: Math.random() * .4 - .2 })); };
+const draw = () =&gt; { ctx.clearRect(0, 0, canvas.width, canvas.height); points.forEach((a, i) =&gt; { a.x += a.vx; a.y += a.vy; if (a.x &lt; 0 || a.x &gt; canvas.width) a.vx *= -1; if (a.y &lt; 0 || a.y &gt; canvas.height) a.vy *= -1; points.slice(i + 1).forEach((b) =&gt; { const d = Math.hypot(a.x - b.x, a.y - b.y); if (d &lt; 85) { ctx.strokeStyle = `rgb(127 180 217 / ${.4 * (1 - d / 85)})`; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); } }); ctx.fillStyle = '#ffff00'; ctx.fillRect(a.x, a.y, 2, 2); }); if (!paused) requestAnimationFrame(draw); };
+new ResizeObserver(resize).observe(root); resize(); draw(); root.querySelector('[data-toggle]').onclick = (event) =&gt; { paused = !paused; event.currentTarget.textContent = paused ? 'PLAY' : 'PAUSE'; event.currentTarget.setAttribute('aria-pressed', paused); if (!paused) draw(); };</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ITサービス、データ基盤、通信、採用サイトなど、接続性や技術感を視覚化したい場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="自然 波 ウェーブ water wave canvas 海 CTA">
+          <header class="part-example__header"><div><span class="part-example__index">NATURE / 01</span><h2>ウェーブ</h2></div><small>LAYERED WAVES</small></header>
+          <div class="part-example__preview"><div class="c-background-effect c-background-effect--wave" data-background-effect="wave"><canvas aria-hidden="true"></canvas><div class="c-background-effect__content"><small>CALM FLOW</small><strong>重なる波のリズム</strong></div><button class="c-background-effect__toggle" type="button" aria-pressed="false" data-effect-toggle>PAUSE</button></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;section class="c-bg c-bg--wave" data-bg-wave&gt;&lt;canvas aria-hidden="true"&gt;&lt;/canvas&gt;&lt;h2&gt;重なる波のリズム&lt;/h2&gt;&lt;button type="button" aria-pressed="false" data-toggle&gt;PAUSE&lt;/button&gt;&lt;/section&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-bg { position: relative; width: min(100%, 28rem); height: 12rem; overflow: hidden; color: #18243b; background: linear-gradient(#edf1f7, #9bb3d1); }
+.c-bg canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.c-bg h2 { position: relative; display: grid; height: 100%; margin: 0; place-items: center; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-bg-wave]'); const canvas = root.querySelector('canvas'); const ctx = canvas.getContext('2d'); let paused = false;
+const resize = () =&gt; { const r = root.getBoundingClientRect(); canvas.width = r.width; canvas.height = r.height; };
+const draw = (time) =&gt; { ctx.clearRect(0, 0, canvas.width, canvas.height); ['#315a9b','#536b8c','#7fb4d9'].forEach((color, i) =&gt; { ctx.beginPath(); for (let x = 0; x &lt;= canvas.width; x += 4) { const y = canvas.height * (.48 + i * .11) + Math.sin(x * .025 + time * .0012 + i) * (10 + i * 3); x ? ctx.lineTo(x, y) : ctx.moveTo(x, y); } ctx.lineTo(canvas.width, canvas.height); ctx.lineTo(0, canvas.height); ctx.globalAlpha = .42; ctx.fillStyle = color; ctx.fill(); }); ctx.globalAlpha = 1; if (!paused) requestAnimationFrame(draw); };
+new ResizeObserver(resize).observe(root); resize(); draw(0); root.querySelector('[data-toggle]').onclick = (event) =&gt; { paused = !paused; event.currentTarget.textContent = paused ? 'PLAY' : 'PAUSE'; event.currentTarget.setAttribute('aria-pressed', paused); if (!paused) requestAnimationFrame(draw); };</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>水、環境、ウェルネス系のセクションや、ページ下部のCTAへ穏やかな流れを加える場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="自然 泡 上昇 bubble water canvas アクア">
+          <header class="part-example__header"><div><span class="part-example__index">NATURE / 02</span><h2>上昇する泡</h2></div><small>RISING BUBBLES</small></header>
+          <div class="part-example__preview"><div class="c-background-effect c-background-effect--bubbles" data-background-effect="bubbles"><canvas aria-hidden="true"></canvas><div class="c-background-effect__content"><small>AQUA SECTION</small><strong>浮かび上がる泡</strong></div><button class="c-background-effect__toggle" type="button" aria-pressed="false" data-effect-toggle>PAUSE</button></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;section class="c-bg c-bg--bubbles" data-bg-bubbles&gt;&lt;canvas aria-hidden="true"&gt;&lt;/canvas&gt;&lt;h2&gt;浮かび上がる泡&lt;/h2&gt;&lt;button type="button" aria-pressed="false" data-toggle&gt;PAUSE&lt;/button&gt;&lt;/section&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-bg { position: relative; width: min(100%, 28rem); height: 12rem; overflow: hidden; color: #fff; background: linear-gradient(#315a9b, #18243b); }
+.c-bg canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.c-bg h2 { position: relative; display: grid; height: 100%; margin: 0; place-items: center; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-bg-bubbles]'); const canvas = root.querySelector('canvas'); const ctx = canvas.getContext('2d'); let paused = false; let bubbles = [];
+const resize = () =&gt; { const r = root.getBoundingClientRect(); canvas.width = r.width; canvas.height = r.height; bubbles = Array.from({ length: 18 }, () =&gt; ({ x: Math.random() * r.width, y: Math.random() * r.height, r: 3 + Math.random() * 9, speed: .2 + Math.random() * .5 })); };
+const draw = () =&gt; { ctx.clearRect(0, 0, canvas.width, canvas.height); ctx.strokeStyle = 'rgb(255 255 255 / 60%)'; bubbles.forEach((bubble) =&gt; { bubble.y -= bubble.speed; if (bubble.y &lt; -12) bubble.y = canvas.height + 12; ctx.beginPath(); ctx.arc(bubble.x, bubble.y, bubble.r, 0, Math.PI * 2); ctx.stroke(); }); if (!paused) requestAnimationFrame(draw); };
+new ResizeObserver(resize).observe(root); resize(); draw(); root.querySelector('[data-toggle]').onclick = (event) =&gt; { paused = !paused; event.currentTarget.textContent = paused ? 'PLAY' : 'PAUSE'; event.currentTarget.setAttribute('aria-pressed', paused); if (!paused) draw(); };</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>飲料、水族館、入浴、清涼感のある商品など、軽さと水中感を伝えるセクション。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="自然 雪 冬 weather snow canvas 季節 セール">
+          <header class="part-example__header"><div><span class="part-example__index">WEATHER / 01</span><h2>降る雪</h2></div><small>SNOW FALL</small></header>
+          <div class="part-example__preview"><div class="c-background-effect c-background-effect--snow" data-background-effect="snow"><canvas aria-hidden="true"></canvas><div class="c-background-effect__content"><small>WINTER SEASON</small><strong>静かに降る雪</strong></div><button class="c-background-effect__toggle" type="button" aria-pressed="false" data-effect-toggle>PAUSE</button></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;section class="c-bg c-bg--snow" data-bg-snow&gt;&lt;canvas aria-hidden="true"&gt;&lt;/canvas&gt;&lt;h2&gt;静かに降る雪&lt;/h2&gt;&lt;button type="button" aria-pressed="false" data-toggle&gt;PAUSE&lt;/button&gt;&lt;/section&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-bg { position: relative; width: min(100%, 28rem); height: 12rem; overflow: hidden; color: #fff; background: linear-gradient(#263a5e, #536b8c); }
+.c-bg canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.c-bg h2 { position: relative; display: grid; height: 100%; margin: 0; place-items: center; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-bg-snow]'); const canvas = root.querySelector('canvas'); const ctx = canvas.getContext('2d'); let paused = false; let flakes = [];
+const resize = () =&gt; { const r = root.getBoundingClientRect(); canvas.width = r.width; canvas.height = r.height; flakes = Array.from({ length: 34 }, () =&gt; ({ x: Math.random() * r.width, y: Math.random() * r.height, r: 1 + Math.random() * 3, speed: .2 + Math.random() * .5 })); };
+const draw = (time) =&gt; { ctx.clearRect(0, 0, canvas.width, canvas.height); ctx.fillStyle = '#fff'; flakes.forEach((flake) =&gt; { flake.y += flake.speed; if (flake.y &gt; canvas.height) flake.y = -4; ctx.beginPath(); ctx.arc(flake.x + Math.sin(time * .001 + flake.x) * 6, flake.y, flake.r, 0, Math.PI * 2); ctx.fill(); }); if (!paused) requestAnimationFrame(draw); };
+new ResizeObserver(resize).observe(root); resize(); draw(0); root.querySelector('[data-toggle]').onclick = (event) =&gt; { paused = !paused; event.currentTarget.textContent = paused ? 'PLAY' : 'PAUSE'; event.currentTarget.setAttribute('aria-pressed', paused); if (!paused) requestAnimationFrame(draw); };</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>冬季キャンペーン、旅行、ギフト、季節限定コンテンツで、控えめに季節感を演出する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="空 星空 星 またたき night star twinkle canvas 光">
+          <header class="part-example__header"><div><span class="part-example__index">SKY / 01</span><h2>星空またたき</h2></div><small>TWINKLING STARS</small></header>
+          <div class="part-example__preview"><div class="c-background-effect c-background-effect--stars" data-background-effect="stars"><canvas aria-hidden="true"></canvas><div class="c-background-effect__content"><small>NIGHT STORY</small><strong>夜空のきらめき</strong></div><button class="c-background-effect__toggle" type="button" aria-pressed="false" data-effect-toggle>PAUSE</button></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;section class="c-bg c-bg--stars" data-bg-stars&gt;&lt;canvas aria-hidden="true"&gt;&lt;/canvas&gt;&lt;h2&gt;夜空のきらめき&lt;/h2&gt;&lt;button type="button" aria-pressed="false" data-toggle&gt;PAUSE&lt;/button&gt;&lt;/section&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-bg { position: relative; width: min(100%, 28rem); height: 12rem; overflow: hidden; color: #fff; background: radial-gradient(circle at 50% 120%, #263a5e, #070d1b 70%); }
+.c-bg canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.c-bg h2 { position: relative; display: grid; height: 100%; margin: 0; place-items: center; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-bg-stars]'); const canvas = root.querySelector('canvas'); const ctx = canvas.getContext('2d'); let paused = false; let stars = [];
+const resize = () =&gt; { const r = root.getBoundingClientRect(); canvas.width = r.width; canvas.height = r.height; stars = Array.from({ length: 52 }, () =&gt; ({ x: Math.random() * r.width, y: Math.random() * r.height, r: .6 + Math.random() * 2, phase: Math.random() * 6 })); };
+const draw = (time) =&gt; { ctx.clearRect(0, 0, canvas.width, canvas.height); ctx.fillStyle = '#fff'; stars.forEach((star) =&gt; { ctx.globalAlpha = .25 + (Math.sin(time * .002 + star.phase) + 1) * .32; ctx.beginPath(); ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2); ctx.fill(); }); ctx.globalAlpha = 1; if (!paused) requestAnimationFrame(draw); };
+new ResizeObserver(resize).observe(root); resize(); draw(0); root.querySelector('[data-toggle]').onclick = (event) =&gt; { paused = !paused; event.currentTarget.textContent = paused ? 'PLAY' : 'PAUSE'; event.currentTarget.setAttribute('aria-pressed', paused); if (!paused) requestAnimationFrame(draw); };</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>天体、夜景、ナイトイベント、物語性のあるヒーローへ、静かな光を添える場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="空 時間 朝 昼 夕 夜 time sky automatic gradient">
+          <header class="part-example__header"><div><span class="part-example__index">SKY / 02</span><h2>時間帯で変わる空</h2></div><small>TIME OF DAY</small></header>
+          <div class="part-example__preview"><div class="c-background-effect c-background-effect--sky" data-background-effect="sky"><span class="c-background-effect__orb" aria-hidden="true"></span><div class="c-background-effect__content"><small data-sky-label>DAY</small><strong>現在時刻の空</strong></div><button class="c-background-effect__cycle" type="button" data-sky-cycle>NEXT TIME</button></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;section class="c-bg c-bg--sky" data-bg-sky&gt;
+  &lt;span class="c-bg__orb" aria-hidden="true"&gt;&lt;/span&gt;&lt;h2&gt;現在時刻の空&lt;/h2&gt;
+  &lt;button type="button" data-cycle&gt;NEXT TIME&lt;/button&gt;
+&lt;/section&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-bg { position: relative; width: min(100%, 28rem); height: 12rem; overflow: hidden; color: #fff; transition: background .5s; }
+.c-bg[data-time="morning"] { color: #18243b; background: linear-gradient(#f3cf9f, #f4a28c); }
+.c-bg[data-time="day"] { color: #18243b; background: linear-gradient(#7fb4d9, #edf1f7); }
+.c-bg[data-time="evening"] { background: linear-gradient(#263a5e, #b85c72 62%, #d9985c); }
+.c-bg[data-time="night"] { background: linear-gradient(#070d1b, #18243b); }
+.c-bg__orb { position: absolute; top: 18%; left: 18%; width: 3rem; height: 3rem; background: #ffff00; border-radius: 50%; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-bg-sky]'); const times = ['morning', 'day', 'evening', 'night']; const hour = new Date().getHours();
+let index = hour &lt; 5 || hour &gt;= 19 ? 3 : hour &lt; 10 ? 0 : hour &lt; 16 ? 1 : 2;
+const apply = () =&gt; { root.dataset.time = times[index]; };
+root.querySelector('[data-cycle]').addEventListener('click', () =&gt; { index = (index + 1) % times.length; apply(); });
+apply();</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>宿泊、交通、天気、店舗案内など、閲覧時刻に合わせて画面の雰囲気を変えたい場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="ポインター 光 マウス追従 gradient glow cursor radial interactive">
+          <header class="part-example__header"><div><span class="part-example__index">POINTER / 01</span><h2>マウス追従グラデーション</h2></div><small>POINTER GLOW</small></header>
+          <div class="part-example__preview"><div class="c-background-effect c-background-effect--pointer" data-background-effect="pointer"><div class="c-background-effect__content"><small>MOVE POINTER</small><strong>光が視線を追う</strong></div><button class="c-background-effect__toggle" type="button" aria-pressed="false" data-effect-toggle>PAUSE</button></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;section class="c-bg c-bg--pointer" data-bg-pointer&gt;&lt;h2&gt;光が視線を追う&lt;/h2&gt;&lt;button type="button" aria-pressed="false" data-toggle&gt;PAUSE&lt;/button&gt;&lt;/section&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-bg { --x: 50%; --y: 50%; position: relative; width: min(100%, 28rem); height: 12rem; color: #fff; background: radial-gradient(circle 8rem at var(--x) var(--y), rgb(255 255 0 / 52%), transparent 72%), radial-gradient(circle 11rem at 82% 18%, #315a9b, transparent 72%), #18243b; }
+.c-bg h2 { display: grid; height: 100%; margin: 0; place-items: center; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-bg-pointer]'); let paused = false;
+root.addEventListener('pointermove', (event) =&gt; { if (paused) return; const rect = root.getBoundingClientRect(); root.style.setProperty('--x', `${event.clientX - rect.left}px`); root.style.setProperty('--y', `${event.clientY - rect.top}px`); });
+root.addEventListener('pointerleave', () =&gt; { root.style.removeProperty('--x'); root.style.removeProperty('--y'); });
+root.querySelector('[data-toggle]').onclick = (event) =&gt; { paused = !paused; event.currentTarget.textContent = paused ? 'PLAY' : 'PAUSE'; event.currentTarget.setAttribute('aria-pressed', paused); };</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>プロダクト紹介やクリエイティブサイトで、ポインターに反応する奥行きと没入感を加える場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="ポインター 光 グリッド spotlight grid cursor canvas technology">
+          <header class="part-example__header"><div><span class="part-example__index">POINTER / 02</span><h2>スポットライトグリッド</h2></div><small>INTERACTIVE GRID</small></header>
+          <div class="part-example__preview"><div class="c-background-effect c-background-effect--grid" data-background-effect="grid"><div class="c-background-effect__content"><small>MOVE POINTER</small><strong>照らされるグリッド</strong></div><button class="c-background-effect__toggle" type="button" aria-pressed="false" data-effect-toggle>PAUSE</button></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;section class="c-bg c-bg--grid" data-bg-grid&gt;&lt;h2&gt;照らされるグリッド&lt;/h2&gt;&lt;button type="button" aria-pressed="false" data-toggle&gt;PAUSE&lt;/button&gt;&lt;/section&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-bg { --x: 50%; --y: 50%; width: min(100%, 28rem); height: 12rem; color: #fff; background: radial-gradient(circle 8rem at var(--x) var(--y), rgb(255 255 255 / 32%), transparent 72%), linear-gradient(rgb(255 255 255 / 10%) 1px, transparent 1px), linear-gradient(90deg, rgb(255 255 255 / 10%) 1px, transparent 1px), #18243b; background-size: auto, 1.5rem 1.5rem, 1.5rem 1.5rem, auto; }
+.c-bg h2 { display: grid; height: 100%; margin: 0; place-items: center; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-bg-grid]'); let paused = false;
+root.addEventListener('pointermove', (event) =&gt; { if (paused) return; const rect = root.getBoundingClientRect(); root.style.setProperty('--x', `${event.clientX - rect.left}px`); root.style.setProperty('--y', `${event.clientY - rect.top}px`); });
+root.addEventListener('pointerleave', () =&gt; { root.style.removeProperty('--x'); root.style.removeProperty('--y'); });
+root.querySelector('[data-toggle]').onclick = (event) =&gt; { paused = !paused; event.currentTarget.textContent = paused ? 'PLAY' : 'PAUSE'; event.currentTarget.setAttribute('aria-pressed', paused); };</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ダッシュボード、開発ツール、AIサービスなど、構造的な面へ局所的な光を加える場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="光 オーロラ ブロブ aurora blob ambient blur gradient hero">
+          <header class="part-example__header"><div><span class="part-example__index">AMBIENT / 01</span><h2>オーロラ・ブロブ</h2></div><small>SOFT COLOR BLOBS</small></header>
+          <div class="part-example__preview"><div class="c-background-effect c-background-effect--aurora" data-background-effect="aurora"><div class="c-background-effect__layer" aria-hidden="true"><span class="c-background-effect__blob"></span><span class="c-background-effect__blob"></span><span class="c-background-effect__blob"></span></div><div class="c-background-effect__content"><small>AMBIENT COLOR</small><strong>溶け合う光</strong></div><button class="c-background-effect__toggle" type="button" aria-pressed="false" data-effect-toggle>PAUSE</button></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;section class="c-bg c-bg--aurora" data-bg-aurora&gt;&lt;div aria-hidden="true"&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/div&gt;&lt;h2&gt;溶け合う光&lt;/h2&gt;&lt;button type="button" aria-pressed="false" data-toggle&gt;PAUSE&lt;/button&gt;&lt;/section&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-bg { position: relative; width: min(100%, 28rem); height: 12rem; overflow: hidden; color: #fff; background: #080d1a; }
+.c-bg i { position: absolute; top: 50%; left: 50%; width: 11rem; height: 8rem; opacity: .7; filter: blur(1.8rem); background: #315a9b; border-radius: 50%; mix-blend-mode: screen; }
+.c-bg i:nth-child(2) { background: #ffff00; } .c-bg i:nth-child(3) { background: #536b8c; }
+.c-bg h2 { position: relative; display: grid; height: 100%; margin: 0; place-items: center; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-bg-aurora]'); const blobs = [...root.querySelectorAll('i')]; let paused = false;
+const draw = (time) =&gt; { blobs.forEach((blob, index) =&gt; { const angle = time * (.00018 + index * .00005) + index * 2; blob.style.transform = `translate(calc(-50% + ${Math.cos(angle) * 55}px), calc(-50% + ${Math.sin(angle) * 32}px))`; }); if (!paused) requestAnimationFrame(draw); };
+draw(0); root.querySelector('[data-toggle]').onclick = (event) =&gt; { paused = !paused; event.currentTarget.textContent = paused ? 'PLAY' : 'PAUSE'; event.currentTarget.setAttribute('aria-pressed', paused); if (!paused) requestAnimationFrame(draw); };</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>SaaS、イベント、ポートフォリオのヒーローで、抽象的な色の動きにより世界観を作る場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="デジタル matrix rain code canvas サイバー 文字 テクノロジー">
+          <header class="part-example__header"><div><span class="part-example__index">DIGITAL / 01</span><h2>デジタルレイン</h2></div><small>CODE RAIN</small></header>
+          <div class="part-example__preview"><div class="c-background-effect c-background-effect--matrix" data-background-effect="matrix"><canvas aria-hidden="true"></canvas><div class="c-background-effect__content"><small>SYSTEM STREAM</small><strong>流れるコード</strong></div><button class="c-background-effect__toggle" type="button" aria-pressed="false" data-effect-toggle>PAUSE</button></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;section class="c-bg c-bg--matrix" data-bg-matrix&gt;&lt;canvas aria-hidden="true"&gt;&lt;/canvas&gt;&lt;h2&gt;流れるコード&lt;/h2&gt;&lt;button type="button" aria-pressed="false" data-toggle&gt;PAUSE&lt;/button&gt;&lt;/section&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-bg { position: relative; width: min(100%, 28rem); height: 12rem; overflow: hidden; color: #fff; background: #07110d; }
+.c-bg canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.c-bg h2 { position: relative; display: grid; height: 100%; margin: 0; place-items: center; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-bg-matrix]'); const canvas = root.querySelector('canvas'); const ctx = canvas.getContext('2d'); let paused = false; let drops = [];
+const resize = () =&gt; { const r = root.getBoundingClientRect(); canvas.width = r.width; canvas.height = r.height; drops = Array(Math.ceil(r.width / 14)).fill(0).map(() =&gt; Math.random() * -10); };
+const draw = () =&gt; { ctx.fillStyle = 'rgb(7 17 13 / 16%)'; ctx.fillRect(0, 0, canvas.width, canvas.height); ctx.fillStyle = '#62b987'; ctx.font = '11px monospace'; drops.forEach((drop, i) =&gt; { ctx.fillText(String.fromCharCode(0x30A0 + Math.random() * 80), i * 14, drop * 14); drops[i] = drop * 14 &gt; canvas.height &amp;&amp; Math.random() &gt; .97 ? 0 : drop + 1; }); if (!paused) requestAnimationFrame(draw); };
+new ResizeObserver(resize).observe(root); resize(); draw(); root.querySelector('[data-toggle]').onclick = (event) =&gt; { paused = !paused; event.currentTarget.textContent = paused ? 'PLAY' : 'PAUSE'; event.currentTarget.setAttribute('aria-pressed', paused); if (!paused) draw(); };</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>セキュリティ、開発、ゲーム、サイバー表現など、強いデジタル感が必要な短いセクション。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="祝祭 紙吹雪 confetti celebration campaign canvas 完了 お祝い">
+          <header class="part-example__header"><div><span class="part-example__index">CELEBRATION / 01</span><h2>舞う紙吹雪</h2></div><small>CONFETTI FALL</small></header>
+          <div class="part-example__preview"><div class="c-background-effect c-background-effect--confetti" data-background-effect="confetti"><canvas aria-hidden="true"></canvas><div class="c-background-effect__content"><small>CELEBRATION</small><strong>達成を祝う背景</strong></div><button class="c-background-effect__toggle" type="button" aria-pressed="false" data-effect-toggle>PAUSE</button></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;section class="c-bg c-bg--confetti" data-bg-confetti&gt;&lt;canvas aria-hidden="true"&gt;&lt;/canvas&gt;&lt;h2&gt;達成を祝う背景&lt;/h2&gt;&lt;button type="button" aria-pressed="false" data-toggle&gt;PAUSE&lt;/button&gt;&lt;/section&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-bg { position: relative; width: min(100%, 28rem); height: 12rem; overflow: hidden; color: #18243b; background: #fff; }
+.c-bg canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.c-bg h2 { position: relative; display: grid; height: 100%; margin: 0; place-items: center; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-bg-confetti]'); const canvas = root.querySelector('canvas'); const ctx = canvas.getContext('2d'); let paused = false; let pieces = []; const colors = ['#ffff00','#315a9b','#b85c72','#18243b'];
+const resize = () =&gt; { const r = root.getBoundingClientRect(); canvas.width = r.width; canvas.height = r.height; pieces = Array.from({ length: 42 }, () =&gt; ({ x: Math.random() * r.width, y: Math.random() * r.height, speed: .3 + Math.random() * .6, color: colors[Math.floor(Math.random() * colors.length)] })); };
+const draw = (time) =&gt; { ctx.clearRect(0, 0, canvas.width, canvas.height); pieces.forEach((piece) =&gt; { piece.y += piece.speed; if (piece.y &gt; canvas.height) piece.y = -8; ctx.save(); ctx.translate(piece.x, piece.y); ctx.rotate(time * .002 + piece.x); ctx.fillStyle = piece.color; ctx.fillRect(-3, -5, 6, 10); ctx.restore(); }); if (!paused) requestAnimationFrame(draw); };
+new ResizeObserver(resize).observe(root); resize(); draw(0); root.querySelector('[data-toggle]').onclick = (event) =&gt; { paused = !paused; event.currentTarget.textContent = paused ? 'PLAY' : 'PAUSE'; event.currentTarget.setAttribute('aria-pressed', paused); if (!paused) requestAnimationFrame(draw); };</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>キャンペーン達成、登録完了、周年、受賞など、明確なお祝いを継続的に見せたい場面。</p></div>
+        </section>
+      </div>
+
+      <div class="part-detail-empty" data-pattern-empty hidden><p>[ NO_PATTERNS_FOUND ]</p><p>別のキーワードを選択してください。</p></div>
+
+      <section class="part-common-styles" id="background-effect-common-styles" aria-labelledby="background-effect-common-title">
+        <header class="part-common-styles__header reveal"><p class="section-index">COMMON STYLE</p><h2 id="background-effect-common-title">共通スタイル</h2><p>背景レイヤー、前景コンテンツ、操作ボタンの重なりと表示領域を揃える基礎スタイルです。</p></header>
+        <div class="part-common-styles__code reveal" data-reveal-threshold="0.01"><div class="part-code"><div class="part-code__header"><span>CSS / COMMON</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-background-effect,
+.c-background-effect * { box-sizing: border-box; }
+
+.c-background-effect {
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 28rem);
+  height: 12rem;
+  overflow: hidden;
+  color: var(--color-text-inverse, #fff);
+  font-family: var(--font-sans, sans-serif);
+  background: var(--color-primary, #18243b);
+}
+
+.c-background-effect canvas,
+.c-background-effect__layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.c-background-effect__content {
+  position: relative;
+  z-index: 1;
+}
+
+.c-background-effect button:focus-visible {
+  outline: 3px solid var(--color-accent-yellow, #ff0);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .c-background-effect,
+  .c-background-effect * {
+    transition-duration: .01ms !important;
+  }
+}</code></pre></div></div>
+      </section>
+
+      <footer class="page-footer" aria-label="ページナビゲーション"><a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO WEB PARTS</span></a><a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a></footer>
+    </main>
+
+    <script src="../js/web-parts-detail.js" defer></script>
+    <script src="../js/web-parts-background-effect.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

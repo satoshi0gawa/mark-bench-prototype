@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="MARK BENCHのカラートークンで設計した、再利用可能なCSSボタン16パターンです。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>BUTTON | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/button.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="BUTTON | MARK BENCH" />
+    <meta property="og:description" content="MARK BENCHのカラートークンで設計した、再利用可能なCSSボタン16パターンです。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/button.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="BUTTON | MARK BENCH" />
+    <meta name="twitter:description" content="MARK BENCHのカラートークンで設計した、再利用可能なCSSボタン16パターンです。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "BUTTON",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/button.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/web-parts.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts-detail" data-parts-detail>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header">
+      <div class="site-header__bar">
+        <nav class="site-breadcrumb-logo" aria-label="パンくずリスト">
+          <a class="site-logo" href="../index.html">MARK BENCH</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <a class="site-breadcrumb-logo__parent" href="./">WEB PARTS</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <span class="site-breadcrumb-logo__current" aria-current="page">BUTTON</span>
+        </nav>
+      </div>
+    </header>
+
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション">
+      <a href="../tools/"><strong>TOOLS</strong></a>
+      <a href="./" aria-current="location"><strong>WEB PARTS</strong></a>
+      <a href="../build-notes/"><strong>BUILD NOTES</strong></a>
+      <a href="../about.html"><strong>ABOUT</strong></a>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <header class="part-detail-header">
+        <p class="section-index reveal">WEB_PARTS / BUTTON</p>
+        <h1 class="reveal">BUTTON</h1>
+        <p class="part-detail-header__lead reveal">フォーム送信や購入・遷移などの主要操作と、キャンセル・状態表示・危険操作に使い分けられるボタン16パターンです。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 16</span><span>TYPE: CSS</span><span>DEPENDENCY: NONE</span></div>
+        <a class="part-detail-header__anchor reveal" href="#button-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
+      </header>
+
+      <section class="part-detail-controls directory-search directory-keywords" aria-label="ボタンパターンを絞り込み">
+        <div class="directory-keywords__group">
+          <p class="directory-keywords__label">KEYWORDS</p>
+          <div class="directory-keywords__list">
+            <button type="button" aria-pressed="false" data-pattern-keyword="主要操作"># 主要操作</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="補助操作"># 補助操作</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="フォーム"># フォーム</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="形状"># 形状</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="アイコン"># アイコン</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="立体"># 立体</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="ホバー演出"># ホバー演出</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="ダーク"># ダーク</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="状態"># 状態</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="複数操作"># 複数操作</button>
+          </div>
+        </div>
+        <p>DISPLAY: <span data-pattern-count>16</span> / 16</p>
+      </section>
+
+      <div class="part-example-list">
+        <section class="part-example reveal" data-pattern data-search="主要操作 フォーム CTA グラデーション gradient 強調 送信">
+          <header class="part-example__header"><div><span class="part-example__index">GRADIENT</span><h2>グラデーション</h2></div><small>PRIMARY CTA</small></header>
+          <div class="part-example__preview"><button class="c-button c-button--gradient" type="button">送信する</button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-button c-button--gradient" type="button"&gt;
+  送信する
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-button--gradient {
+  color: var(--color-text-inverse, #fff);
+  background: linear-gradient(120deg,
+    var(--color-primary, #18243b),
+    var(--color-primary-hover, #263a5e));
+  box-shadow: 0 .6rem 1.3rem rgb(24 36 59 / .25);
+}
+.c-button--gradient:hover {
+  transform: translateY(-.2rem);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>送信や申し込みなど、画面内で最も優先度の高いCTAを明確にする場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="補助操作 outline 枠線 secondary 詳細 優先度">
+          <header class="part-example__header"><div><span class="part-example__index">OUTLINE</span><h2>アウトライン</h2></div><small>SECONDARY</small></header>
+          <div class="part-example__preview"><button class="c-button c-button--outline" type="button">詳しく見る</button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-button c-button--outline" type="button"&gt;
+  詳しく見る
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-button--outline {
+  color: var(--color-primary, #18243b);
+  background: transparent;
+  border-color: var(--color-primary, #18243b);
+}
+.c-button--outline:hover {
+  color: var(--color-text-inverse, #fff);
+  background: var(--color-primary, #18243b);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>塗りボタンと並べ、詳細表示などの補助操作へ明確な優先度差を付ける場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="補助操作 ghost soft 控えめ キャンセル tertiary">
+          <header class="part-example__header"><div><span class="part-example__index">GHOST</span><h2>ゴースト</h2></div><small>TERTIARY</small></header>
+          <div class="part-example__preview"><button class="c-button c-button--ghost" type="button">キャンセル</button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-button c-button--ghost" type="button"&gt;
+  キャンセル
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-button--ghost {
+  color: var(--color-primary, #18243b);
+  background: var(--color-primary-soft, #edf1f7);
+}
+.c-button--ghost:hover {
+  background: var(--color-grid, #d9dfe8);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>キャンセルや戻るなど、存在は必要でも強く主張させたくない補助操作。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="主要操作 フォーム CTA block full width 全幅 送信">
+          <header class="part-example__header"><div><span class="part-example__index">BLOCK</span><h2>ブロック（全幅）</h2></div><small>FORM SUBMIT</small></header>
+          <div class="part-example__preview"><button class="c-button c-button--block" type="button">送信する</button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-button c-button--block" type="button"&gt;
+  送信する
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-button--block {
+  width: min(100%, 24rem);
+  color: var(--color-text-inverse, #fff);
+  background: var(--color-primary, #18243b);
+}
+.c-button--block:hover {
+  background: var(--color-primary-hover, #263a5e);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>フォーム送信やSPの主要CTAなど、利用可能な横幅を大きな押下領域として使う場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="主要操作 形状 CTA pill 丸 ピル フォロー">
+          <header class="part-example__header"><div><span class="part-example__index">PILL</span><h2>ピル</h2></div><small>ROUNDED CTA</small></header>
+          <div class="part-example__preview"><button class="c-button c-button--pill" type="button">フォロー</button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-button c-button--pill" type="button"&gt;
+  フォロー
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-button--pill {
+  padding-inline: 2rem;
+  color: var(--color-text-inverse, #fff);
+  background: var(--color-primary, #18243b);
+  border-radius: 999px;
+  box-shadow: 0 .45rem 1.1rem rgb(24 36 59 / .22);
+}
+.c-button--pill:hover {
+  transform: translateY(-.2rem);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>フォロー、登録、タグ状の操作など、親しみやすい形で短いラベルを示す場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="アイコン 形状 favorite お気に入り icon action ラベル">
+          <header class="part-example__header"><div><span class="part-example__index">ICON</span><h2>アイコン付き</h2></div><small>ICON + LABEL</small></header>
+          <div class="part-example__preview"><button class="c-button c-button--icon" type="button"><svg class="c-button__icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 21s-8-4.8-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.2-8 11-8 11Z" /></svg>お気に入り</button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-button c-button--icon" type="button"&gt;
+  &lt;svg class="c-button__icon" aria-hidden="true" viewBox="0 0 24 24"&gt;
+    &lt;path d="M12 21s-8-4.8-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.2-8 11-8 11Z"&gt;&lt;/path&gt;
+  &lt;/svg&gt;
+  お気に入り
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-button--icon {
+  color: var(--color-text-inverse, #fff);
+  background: var(--color-primary, #18243b);
+}
+.c-button--icon:hover {
+  background: var(--color-primary-hover, #263a5e);
+}
+.c-button__icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>お気に入りや保存など、ラベルを補助する既知のアイコンで操作を素早く認識させる場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="アイコン 形状 ナビゲーション CTA arrow 矢印 次へ 方向">
+          <header class="part-example__header"><div><span class="part-example__index">ARROW</span><h2>矢印スライド</h2></div><small>DIRECTION</small></header>
+          <div class="part-example__preview"><button class="c-button c-button--arrow" type="button">次へ進む<span class="c-button__arrow" aria-hidden="true">→</span></button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-button c-button--arrow" type="button"&gt;
+  次へ進む
+  &lt;span class="c-button__arrow" aria-hidden="true"&gt;→&lt;/span&gt;
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-button--arrow {
+  color: var(--color-text-inverse, #fff);
+  background: var(--color-primary, #18243b);
+}
+.c-button__arrow {
+  display: inline-block;
+  transition: transform 180ms ease;
+}
+.c-button--arrow:hover .c-button__arrow {
+  transform: translateX(.35rem);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>次画面や次工程への移動方向を、ラベルと矢印の動きで直感的に示す場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="状態 独自 危険操作 danger destructive delete 削除 退会 警告">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL / 01</span><h2>破壊的操作</h2></div><small>ORIGINAL</small></header>
+          <div class="part-example__preview"><button class="c-button c-button--danger" type="button">アカウントを削除</button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-button c-button--danger" type="button"&gt;
+  アカウントを削除
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-button--danger {
+  color: var(--color-text-inverse, #fff);
+  background: var(--color-danger, #9f1d2c);
+  border-color: var(--color-danger, #9f1d2c);
+}
+.c-button--danger:hover {
+  background: var(--color-danger-hover, #7f1623);
+  border-color: var(--color-danger-hover, #7f1623);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>削除、退会、初期化など、取り消しにくい操作を通常の主要ボタンと明確に区別する場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="状態 独自 disabled 非活性 利用不可 permission 条件未達">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL / 02</span><h2>非活性状態</h2></div><small>ORIGINAL</small></header>
+          <div class="part-example__preview"><button class="c-button c-button--primary" type="button" disabled>条件を満たすと送信できます</button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-button c-button--primary" type="button" disabled&gt;
+  条件を満たすと送信できます
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-button--primary {
+  color: var(--color-text-inverse, #fff);
+  background: var(--color-primary, #18243b);
+}
+.c-button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+  filter: saturate(.35);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>必須入力、権限、選択条件が未完了で、現時点では実行できないことを操作前に示す場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="状態 独自 loading busy 処理中 送信中 spinner disabled aria">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL / 03</span><h2>処理中状態</h2></div><small>ORIGINAL</small></header>
+          <div class="part-example__preview"><button class="c-button c-button--loading" type="button" aria-busy="true" disabled><span class="c-button__spinner" aria-hidden="true"></span>送信中</button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-button c-button--loading" type="button" aria-busy="true" disabled&gt;
+  &lt;span class="c-button__spinner" aria-hidden="true"&gt;&lt;/span&gt;
+  送信中
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-button--loading {
+  color: var(--color-text-inverse, #fff);
+  background: var(--color-primary, #18243b);
+  cursor: wait;
+}
+.c-button__spinner {
+  width: 1rem; height: 1rem;
+  border: 2px solid rgb(255 255 255 / .35);
+  border-top-color: currentcolor;
+  border-radius: 50%;
+  animation: c-button-spin .75s linear infinite;
+}
+@keyframes c-button-spin { to { transform: rotate(1turn); } }
+@media (prefers-reduced-motion: reduce) {
+  .c-button__spinner { animation: none; }
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>送信、決済、ファイル生成など、処理完了まで再操作を止めながら進行中であることを伝える場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="複数操作 独自 group action primary secondary 保存 キャンセル 並列">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL / 04</span><h2>アクショングループ</h2></div><small>ORIGINAL</small></header>
+          <div class="part-example__preview"><div class="c-button-group" role="group" aria-label="編集操作"><button class="c-button c-button--outline" type="button">キャンセル</button><button class="c-button c-button--primary" type="button">変更を保存</button></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-button-group" role="group" aria-label="編集操作"&gt;
+  &lt;button class="c-button c-button--outline" type="button"&gt;キャンセル&lt;/button&gt;
+  &lt;button class="c-button c-button--primary" type="button"&gt;変更を保存&lt;/button&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-button-group {
+  display: flex;
+  width: min(100%, 24rem);
+  gap: .75rem;
+  flex-wrap: wrap;
+}
+.c-button-group .c-button { flex: 1 1 9rem; }
+.c-button--outline { color: #18243b; background: transparent; border-color: #18243b; }
+.c-button--primary { color: #fff; background: #18243b; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>編集画面や確認ダイアログで、主要操作とキャンセルを同じ領域に並べつつ優先度を示す場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="立体 押下感 CTA push active 押す">
+          <header class="part-example__header"><div><span class="part-example__index">PUSH</span><h2>立体プッシュ</h2></div><small>ACTIVE STATE</small></header>
+          <div class="part-example__preview"><button class="c-button c-button--push" type="button" data-demo-push>ポチッと</button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-button c-button--push" type="button"&gt;
+  ポチッと
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-button--push {
+  color: var(--color-primary, #18243b);
+  background: var(--color-accent-yellow, #ff0);
+  box-shadow: 0 .4rem 0 var(--color-primary, #18243b);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.c-button--push:active {
+  transform: translateY(.4rem);
+  box-shadow: none;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>押した感触を視覚的に返したい、ゲーム性のある操作や単独の強いアクション。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="立体 補助操作 soft shadow 浮き 白 surface">
+          <header class="part-example__header"><div><span class="part-example__index">SOFT LIFT</span><h2>ソフト浮き</h2></div><small>LIGHT SURFACE</small></header>
+          <div class="part-example__preview"><button class="c-button c-button--soft" type="button">詳細を見る</button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-button c-button--soft" type="button"&gt;
+  詳細を見る
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-button--soft {
+  color: var(--color-primary, #18243b);
+  background: var(--color-background, #fff);
+  border-color: var(--color-grid, #d9dfe8);
+  box-shadow: 0 .45rem 1rem rgb(17 24 39 / .12);
+}
+.c-button--soft:hover {
+  transform: translateY(-.2rem);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>淡い背景上のカードやパネルで、白い操作面を影だけで静かに浮かせる場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="立体 特殊背景 neumorphism soft ニューモーフ 面">
+          <header class="part-example__header"><div><span class="part-example__index">NEUMORPHIC</span><h2>ニューモーフィズム</h2></div><small>SURFACE</small></header>
+          <div class="part-example__preview part-example__preview--soft"><button class="c-button c-button--neumorphic" type="button">ニューモーフ</button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-button c-button--neumorphic" type="button"&gt;
+  ニューモーフ
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-button--neumorphic {
+  color: var(--color-primary, #18243b);
+  background: var(--color-background-subtle, #f5f7fa);
+  box-shadow: .45rem .45rem .9rem
+      var(--color-grid-strong, #aeb8c7),
+    -.45rem -.45rem .9rem var(--color-text-inverse, #fff);
+}
+.c-button--neumorphic:active {
+  box-shadow: inset .2rem .2rem .5rem
+      var(--color-grid, #d9dfe8),
+    inset -.2rem -.2rem .5rem
+      var(--color-text-inverse, #fff);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>背景と同じ面から操作が浮き出す、限定的なダッシュボードやコントロール画面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="ホバー演出 shine hover 光 シャイン CTA">
+          <header class="part-example__header"><div><span class="part-example__index">SHINE</span><h2>シャイン</h2></div><small>HOVER EFFECT</small></header>
+          <div class="part-example__preview"><button class="c-button c-button--shine" type="button">ホバーで光る</button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-button c-button--shine" type="button"&gt;
+  ホバーで光る
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-button--shine {
+  position: relative;
+  overflow: hidden;
+  color: var(--color-text-inverse, #fff);
+  background: var(--color-primary, #18243b);
+}
+.c-button--shine::after {
+  position: absolute;
+  inset: 0 auto 0 -70%;
+  width: 45%;
+  background: linear-gradient(110deg, transparent, rgb(255 255 255 / .6), transparent);
+  transform: skewX(-20deg);
+  transition: left .6s ease;
+  content: "";
+  pointer-events: none;
+}
+.c-button--shine:hover {
+  background: var(--color-primary-hover, #263a5e);
+}
+.c-button--shine:hover::after { left: 130%; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>キャンペーンCTAなど、通常の塗りボタンへ短いホバー演出を加えたい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="ダーク ホバー演出 glow neon グロー 光 特殊背景">
+          <header class="part-example__header"><div><span class="part-example__index">GLOW</span><h2>ネオングロー</h2></div><small>DARK SURFACE</small></header>
+          <div class="part-example__preview part-example__preview--dark"><button class="c-button c-button--glow" type="button">グロー</button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-button c-button--glow" type="button"&gt;
+  グロー
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-button--glow {
+  color: var(--color-primary, #18243b);
+  background: var(--color-accent-yellow, #ff0);
+  box-shadow: 0 0 1.4rem rgb(255 255 0 / .55);
+}
+.c-button--glow:hover { box-shadow: 0 0 2.2rem rgb(255 255 0 / .8); }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ダークなヒーローや特設コンテンツで、単独の操作を発光させて見せる場面。</p></div>
+        </section>
+      </div>
+
+      <div class="part-detail-empty" data-pattern-empty hidden><p>[ NO_PATTERN_FOUND ]</p><p>検索語を変更してください。</p></div>
+
+      <section class="part-common-styles" id="button-common-styles" aria-labelledby="button-common-styles-title">
+        <header class="part-common-styles__header reveal">
+          <p class="section-index">BUTTON / COMMON_STYLE</p>
+          <h2 id="button-common-styles-title">共通スタイル</h2>
+          <p>ボタン共通の基礎・フォーカス・モーション設定です。</p>
+        </header>
+        <div class="part-common-styles__code reveal" data-reveal-threshold="0.01">
+          <div class="part-code">
+            <div class="part-code__header"><span>CSS / COMMON</span><button type="button" data-copy-code>COPY</button></div>
+            <pre><code>.c-button {
+  box-sizing: border-box;
+  display: inline-flex;
+  min-height: 3rem;
+  padding: .75rem 1.5rem;
+  gap: .6rem;
+  align-items: center;
+  justify-content: center;
+  appearance: none;
+  color: var(--color-text, #1c2430);
+  font-family: var(--font-sans, sans-serif);
+  font-size: .9rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  background: transparent;
+  border: 2px solid transparent;
+  border-radius: .5rem;
+  cursor: pointer;
+  transition: color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+.c-button:focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: 2px;
+}
+.c-button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+@media (prefers-reduced-motion: reduce) {
+  .c-button,
+  .c-button::after,
+  .c-button__arrow { transition: none; }
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <footer class="page-footer" aria-label="ページナビゲーション">
+        <a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO WEB PARTS</span></a>
+        <a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a>
+      </footer>
+    </main>
+
+    <script src="../js/web-parts-detail.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

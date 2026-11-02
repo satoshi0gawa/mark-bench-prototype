@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="問い合わせ、登録、購入などの入力負荷と送信ミスを減らす、Vanilla JavaScript対応のフォーム補助12パターンです。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>FORM | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/form.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="FORM | MARK BENCH" />
+    <meta property="og:description" content="問い合わせ、登録、購入などの入力負荷と送信ミスを減らす、Vanilla JavaScript対応のフォーム補助12パターンです。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/form.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="FORM | MARK BENCH" />
+    <meta name="twitter:description" content="問い合わせ、登録、購入などの入力負荷と送信ミスを減らす、Vanilla JavaScript対応のフォーム補助12パターンです。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "FORM",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/form.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/web-parts.css" />
+    <link rel="stylesheet" href="../css/web-parts-form.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts-detail" data-parts-detail>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header"><div class="site-header__bar"><nav class="site-breadcrumb-logo" aria-label="パンくずリスト"><a class="site-logo" href="../index.html">MARK BENCH</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><a class="site-breadcrumb-logo__parent" href="./">WEB PARTS</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><span class="site-breadcrumb-logo__current" aria-current="page">FORM</span></nav></div></header>
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション"><a href="../tools/"><strong>TOOLS</strong></a><a href="./" aria-current="location"><strong>WEB PARTS</strong></a><a href="../build-notes/"><strong>BUILD NOTES</strong></a><a href="../about.html"><strong>ABOUT</strong></a></nav>
+
+    <main id="main" tabindex="-1">
+      <header class="part-detail-header">
+        <p class="section-index reveal">WEB_PARTS / FORM</p>
+        <h1 class="reveal">FORM</h1>
+        <p class="part-detail-header__lead reveal">問い合わせ、会員登録、購入手続きなどで、入力の手間や誤送信を減らし、確認・保存までを支えるフォーム補助14パターンです。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 14</span><span>TYPE: CSS + JS</span><span>DEPENDENCY: NONE</span></div>
+        <a class="part-detail-header__anchor reveal" href="#form-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
+      </header>
+
+      <section class="part-detail-controls directory-search directory-keywords" aria-label="フォーム補助パターンを絞り込み">
+        <div class="directory-keywords__group"><p class="directory-keywords__label">KEYWORDS</p><div class="directory-keywords__list">
+          <button type="button" aria-pressed="false" data-pattern-keyword="入力補助"># 入力補助</button><button type="button" aria-pressed="false" data-pattern-keyword="検証"># 検証</button><button type="button" aria-pressed="false" data-pattern-keyword="選択"># 選択</button><button type="button" aria-pressed="false" data-pattern-keyword="送信"># 送信</button><button type="button" aria-pressed="false" data-pattern-keyword="保存"># 保存</button><button type="button" aria-pressed="false" data-pattern-keyword="パスワード"># パスワード</button><button type="button" aria-pressed="false" data-pattern-keyword="整形"># 整形</button><button type="button" aria-pressed="false" data-pattern-keyword="エラー"># エラー</button><button type="button" aria-pressed="false" data-pattern-keyword="同意"># 同意</button>
+        </div></div><p>DISPLAY: <span data-pattern-count>14</span> / 14</p>
+      </section>
+
+      <div class="part-example-list">
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="入力補助 文字数 カウント textarea count counter 制限 エラー">
+          <header class="part-example__header"><div><span class="part-example__index">INPUT_ASSIST / 01</span><h2>文字数カウンター</h2></div><small>LIVE COUNT</small></header>
+          <div class="part-example__preview"><div class="c-form" data-form-count data-max="30"><label for="form-count-demo">コメント</label><textarea class="c-form__textarea" id="form-count-demo" placeholder="30文字を目安に入力"></textarea><p class="c-form__counter" data-form-count-output aria-live="polite"></p></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-form" data-count data-max="30"&gt;
+  &lt;label for="comment"&gt;コメント&lt;/label&gt;
+  &lt;textarea class="c-form__textarea" id="comment"&gt;&lt;/textarea&gt;
+  &lt;p class="c-form__counter" data-output aria-live="polite"&gt;&lt;/p&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-form { width: min(100%, 21rem); font-family: sans-serif; }
+.c-form__textarea { box-sizing: border-box; width: 100%; min-height: 6rem; padding: .7rem; border: 1px solid #aeb8c7; }
+.c-form__textarea:focus-visible { outline: 3px solid #315a9b; }
+.c-form__counter { margin: .4rem 0 0; color: #667085; text-align: right; }
+.c-form__counter.is-error { color: #9f1d2c; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-count]').forEach((root) =&gt; {
+  const field = root.querySelector('textarea');
+  const output = root.querySelector('[data-output]');
+  const max = Number(root.dataset.max) || 100;
+  const update = () =&gt; {
+    const rest = max - field.value.length;
+    output.textContent = rest &gt;= 0 ? `あと${rest}文字` : `${Math.abs(rest)}文字オーバー`;
+    output.classList.toggle('is-error', rest &lt; 0);
+  };
+  field.addEventListener('input', update);
+  update();
+});</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>問い合わせ内容、紹介文、投稿文など、入力目安や上限をその場で伝える場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="入力補助 パスワード 表示 切替 password visibility toggle">
+          <header class="part-example__header"><div><span class="part-example__index">INPUT_ASSIST / 02</span><h2>パスワード表示切替</h2></div><small>VISIBILITY</small></header>
+          <div class="part-example__preview"><div class="c-form"><label for="form-password-demo">パスワード</label><div class="c-form__password" data-form-password><input class="c-form__field" id="form-password-demo" type="password" value="MarkBench2026!" autocomplete="current-password" /><button class="c-form__toggle" type="button" aria-label="パスワードを表示" aria-pressed="false">SHOW</button></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-form__password" data-password&gt;
+  &lt;input class="c-form__field" type="password" autocomplete="current-password"&gt;
+  &lt;button class="c-form__toggle" type="button" aria-label="パスワードを表示" aria-pressed="false"&gt;SHOW&lt;/button&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-form__password { position: relative; width: min(100%, 21rem); }
+.c-form__field { box-sizing: border-box; width: 100%; min-height: 2.65rem; padding: .65rem 3.2rem .65rem .75rem; border: 1px solid #aeb8c7; }
+.c-form__toggle { position: absolute; top: 50%; right: .35rem; padding: .45rem; border: 0; transform: translateY(-50%); }
+.c-form__field:focus-visible, .c-form__toggle:focus-visible { outline: 3px solid #315a9b; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-password]').forEach((root) =&gt; {
+  const field = root.querySelector('input');
+  const button = root.querySelector('button');
+  button.addEventListener('click', () =&gt; {
+    const show = field.type === 'password';
+    field.type = show ? 'text' : 'password';
+    button.textContent = show ? 'HIDE' : 'SHOW';
+    button.setAttribute('aria-pressed', String(show));
+    button.setAttribute('aria-label', show ? 'パスワードを隠す' : 'パスワードを表示');
+  });
+});</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>ログイン、会員登録、パスワード変更で、入力ミスを送信前に確認したい場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="入力補助 整形 郵便番号 ハイフン zip numeric 全角">
+          <header class="part-example__header"><div><span class="part-example__index">INPUT_ASSIST / 03</span><h2>郵便番号の自動整形</h2></div><small>ZIP FORMAT</small></header>
+          <div class="part-example__preview"><div class="c-form"><label for="form-zip-demo">郵便番号</label><input class="c-form__field" id="form-zip-demo" data-form-zip inputmode="numeric" maxlength="8" placeholder="1234567" /><p class="c-form__hint">全角数字の貼り付けにも対応します。</p></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;label for="zip"&gt;郵便番号&lt;/label&gt;
+&lt;input class="c-form__field" id="zip" data-zip inputmode="numeric" maxlength="8" placeholder="1234567"&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-form__field { box-sizing: border-box; width: min(100%, 12rem); min-height: 2.65rem; padding: .65rem .75rem; font: inherit; letter-spacing: .06em; border: 1px solid #aeb8c7; }
+.c-form__field:focus-visible { outline: 3px solid #315a9b; outline-offset: 2px; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-zip]').forEach((field) =&gt; {
+  field.addEventListener('input', () =&gt; {
+    const value = field.value
+      .replace(/[０-９]/g, (char) =&gt; String.fromCharCode(char.charCodeAt(0) - 0xfee0))
+      .replace(/\D/g, '').slice(0, 7);
+    field.value = value.length &gt; 3 ? `${value.slice(0, 3)}-${value.slice(3)}` : value;
+  });
+});</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>住所入力や配送先登録で、数字7桁を読みやすい形式へ即時整形する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="入力補助 整形 全角 半角 normalize 電話番号 blur IME">
+          <header class="part-example__header"><div><span class="part-example__index">INPUT_ASSIST / 04</span><h2>全角から半角へ変換</h2></div><small>ON BLUR</small></header>
+          <div class="part-example__preview"><div class="c-form" data-form-normalize><label for="form-normalize-demo">電話番号</label><input class="c-form__field" id="form-normalize-demo" type="tel" value="０９０－１２３４－５６７８" /><p class="c-form__status" data-form-status aria-live="polite"></p></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-form" data-normalize&gt;
+  &lt;input class="c-form__field" type="tel" value="０９０－１２３４－５６７８"&gt;
+  &lt;p class="c-form__status" data-status aria-live="polite"&gt;&lt;/p&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-form { width: min(100%, 21rem); }
+.c-form__field { box-sizing: border-box; width: 100%; padding: .7rem; border: 1px solid #aeb8c7; }
+.c-form__status { min-height: 1.2rem; margin: .4rem 0 0; color: #667085; font-size: .75rem; }
+.c-form__status.is-success { color: #236b43; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-normalize]').forEach((root) =&gt; {
+  const field = root.querySelector('input');
+  const status = root.querySelector('[data-status]');
+  field.addEventListener('blur', () =&gt; {
+    const before = field.value;
+    const after = before.replace(/[０-９Ａ-Ｚａ-ｚ]/g, (char) =&gt;
+      String.fromCharCode(char.charCodeAt(0) - 0xfee0))
+      .replace(/[ー−―‐－]/g, '-').replace(/\s+/g, '');
+    field.value = after;
+    status.textContent = before !== after ? `半角へ変換しました：${after}` : '';
+    status.classList.toggle('is-success', before !== after);
+  });
+});</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>電話番号や会員番号で、IME入力を妨げずフォーカス離脱時に表記を統一する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="検証 エラー 必須 validation required aria invalid focus">
+          <header class="part-example__header"><div><span class="part-example__index">VALIDATION / 01</span><h2>必須項目チェック</h2></div><small>ERROR GUIDE</small></header>
+          <div class="part-example__preview"><form class="c-form c-form__stack" data-form-required novalidate><label for="form-name-demo">お名前</label><input class="c-form__field" id="form-name-demo" data-required data-label="お名前" /><label for="form-mail-demo">メールアドレス</label><input class="c-form__field" id="form-mail-demo" type="email" data-required data-label="メールアドレス" /><p class="c-form__status" data-form-status aria-live="polite"></p><button class="c-form__button" type="submit">入力内容を確認</button></form></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;form class="c-form" data-required-form novalidate&gt;
+  &lt;input class="c-form__field" data-required data-label="お名前" aria-label="お名前"&gt;
+  &lt;input class="c-form__field" type="email" data-required data-label="メールアドレス" aria-label="メールアドレス"&gt;
+  &lt;p class="c-form__status" data-status aria-live="polite"&gt;&lt;/p&gt;
+  &lt;button class="c-form__button" type="submit"&gt;確認する&lt;/button&gt;
+&lt;/form&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-form { display: grid; width: min(100%, 21rem); gap: .65rem; }
+.c-form__field, .c-form__button { box-sizing: border-box; min-height: 2.65rem; padding: .65rem; }
+.c-form__field { border: 1px solid #aeb8c7; }
+.c-form__field.is-error { border-color: #9f1d2c; background: #fff7f7; }
+.c-form__button { color: #fff; background: #18243b; border: 0; }
+.c-form__status.is-error { color: #9f1d2c; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-required-form]').forEach((form) =&gt; {
+  const status = form.querySelector('[data-status]');
+  form.addEventListener('submit', (event) =&gt; {
+    event.preventDefault();
+    const fields = [...form.querySelectorAll('[data-required]')];
+    const invalid = fields.filter((field) =&gt; !field.value.trim());
+    fields.forEach((field) =&gt; {
+      const bad = invalid.includes(field);
+      field.classList.toggle('is-error', bad);
+      field.setAttribute('aria-invalid', String(bad));
+    });
+    status.textContent = invalid.length ? `${invalid.map((field) =&gt; field.dataset.label).join('・')}を入力してください` : '入力内容を確認できました';
+    status.className = `c-form__status ${invalid.length ? 'is-error' : 'is-success'}`;
+    invalid[0]?.focus();
+  });
+});</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>問い合わせや登録フォームで、不足項目と修正方法を送信直後に明確に伝える場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="検証 パスワード 強度 meter security リアルタイム">
+          <header class="part-example__header"><div><span class="part-example__index">VALIDATION / 02</span><h2>パスワード強度メーター</h2></div><small>LIVE METER</small></header>
+          <div class="part-example__preview"><div class="c-form" data-form-strength><label for="form-strength-demo">新しいパスワード</label><input class="c-form__field" id="form-strength-demo" type="password" autocomplete="new-password" placeholder="8文字以上・大小英字・数字・記号" /><div class="c-form__meter" aria-hidden="true"><span data-strength-bar></span><span data-strength-bar></span><span data-strength-bar></span><span data-strength-bar></span></div><p class="c-form__status" data-form-status aria-live="polite"></p></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-form" data-strength&gt;
+  &lt;input class="c-form__field" type="password" autocomplete="new-password"&gt;
+  &lt;div class="c-form__meter" aria-hidden="true"&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+  &lt;p class="c-form__status" data-status aria-live="polite"&gt;&lt;/p&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-form { width: min(100%, 21rem); --meter: #9f1d2c; }
+.c-form__field { box-sizing: border-box; width: 100%; padding: .7rem; border: 1px solid #aeb8c7; }
+.c-form__meter { display: grid; margin-top: .55rem; grid-template-columns: repeat(4, 1fr); gap: .3rem; }
+.c-form__meter span { height: .35rem; background: #d9dfe8; }
+.c-form__meter span.is-active { background: var(--meter); }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-strength]').forEach((root) =&gt; {
+  const input = root.querySelector('input');
+  const bars = [...root.querySelectorAll('.c-form__meter span')];
+  const output = root.querySelector('[data-status]');
+  const labels = ['', '弱い', '普通', '強い', 'とても強い'];
+  input.addEventListener('input', () =&gt; {
+    const value = input.value;
+    const rules = [value.length &gt;= 8, /[a-z]/.test(value) &amp;&amp; /[A-Z]/.test(value), /\d/.test(value), /[^A-Za-z0-9]/.test(value)];
+    const score = value ? Math.max(1, rules.filter(Boolean).length) : 0;
+    bars.forEach((bar, index) =&gt; bar.classList.toggle('is-active', index &lt; score));
+    output.textContent = score ? `強度：${labels[score]}` : '';
+  });
+});</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>会員登録やパスワード変更で、必要な強度へ入力者をリアルタイムに導く場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="検証 独自 メールアドレス 再入力 一致 match confirm validation エラー リアルタイム">
+          <header class="part-example__header"><div><span class="part-example__index">VALIDATION / 03</span><h2>メールアドレス一致チェック</h2></div><small>ORIGINAL</small></header>
+          <div class="part-example__preview"><div class="c-form c-form__stack" data-form-match><label for="form-match-mail-demo">メールアドレス</label><input class="c-form__field" id="form-match-mail-demo" type="email" value="hello@example.com" autocomplete="email" data-form-match-base /><label for="form-match-confirm-demo">メールアドレス（確認）</label><input class="c-form__field" id="form-match-confirm-demo" type="email" autocomplete="off" data-form-match-confirm aria-describedby="form-match-status-demo" /><p class="c-form__status" id="form-match-status-demo" data-form-status aria-live="polite">確認用メールアドレスを入力してください</p></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-form" data-match&gt;
+  &lt;label for="email"&gt;メールアドレス&lt;/label&gt;
+  &lt;input class="c-form__field" id="email" type="email" data-base&gt;
+  &lt;label for="email-confirm"&gt;メールアドレス（確認）&lt;/label&gt;
+  &lt;input class="c-form__field" id="email-confirm" type="email" data-confirm aria-describedby="match-status"&gt;
+  &lt;p class="c-form__status" id="match-status" data-status aria-live="polite"&gt;&lt;/p&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-form { display: grid; width: min(100%, 21rem); gap: .65rem; }
+.c-form__field { box-sizing: border-box; width: 100%; min-height: 2.65rem; padding: .65rem .75rem; border: 1px solid #aeb8c7; }
+.c-form__field:focus-visible { outline: 3px solid #315a9b; outline-offset: 2px; }
+.c-form__field.is-error { border-color: #9f1d2c; background: #fff7f7; }
+.c-form__status { min-height: 1.25rem; margin: 0; color: #667085; font-size: .75rem; }
+.c-form__status.is-error { color: #9f1d2c; }
+.c-form__status.is-success { color: #236b43; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-match]').forEach((root) =&gt; {
+  const base = root.querySelector('[data-base]');
+  const confirm = root.querySelector('[data-confirm]');
+  const status = root.querySelector('[data-status]');
+  const update = () =&gt; {
+    const hasValue = confirm.value.length &gt; 0;
+    const matched = hasValue &amp;&amp; base.value === confirm.value;
+    confirm.classList.toggle('is-error', hasValue &amp;&amp; !matched);
+    confirm.setAttribute('aria-invalid', String(hasValue &amp;&amp; !matched));
+    status.textContent = !hasValue ? '確認用メールアドレスを入力してください' : matched ? 'メールアドレスが一致しました' : 'メールアドレスが一致しません';
+    status.className = `c-form__status ${hasValue ? (matched ? 'is-success' : 'is-error') : ''}`;
+  };
+  base.addEventListener('input', update);
+  confirm.addEventListener('input', update);
+  update();
+});</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>会員登録、予約、重要通知の申込みで、連絡先メールアドレスの入力間違いを送信前に防ぐ場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="選択 チェックボックス 全選択 indeterminate 一括 table">
+          <header class="part-example__header"><div><span class="part-example__index">SELECTION / 01</span><h2>全選択チェックボックス</h2></div><small>MIXED STATE</small></header>
+          <div class="part-example__preview"><div class="c-form c-form__checklist" data-form-checkall><label><input type="checkbox" data-checkall-parent />すべて選択</label><label><input type="checkbox" data-checkall-child />メール通知</label><label><input type="checkbox" data-checkall-child />SMS通知</label><label><input type="checkbox" data-checkall-child />アプリ通知</label></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-form__checklist" data-checkall&gt;
+  &lt;label&gt;&lt;input type="checkbox" data-parent&gt;すべて選択&lt;/label&gt;
+  &lt;label&gt;&lt;input type="checkbox" data-child&gt;メール通知&lt;/label&gt;
+  &lt;label&gt;&lt;input type="checkbox" data-child&gt;SMS通知&lt;/label&gt;
+  &lt;label&gt;&lt;input type="checkbox" data-child&gt;アプリ通知&lt;/label&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-form__checklist { display: grid; width: min(100%, 21rem); padding: .4rem .8rem; border: 1px solid #aeb8c7; }
+.c-form__checklist label { display: flex; padding: .55rem 0; gap: .55rem; align-items: center; }
+.c-form__checklist label:first-child { border-bottom: 1px dotted #aeb8c7; }
+.c-form__checklist input { width: 1rem; height: 1rem; accent-color: #18243b; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-checkall]').forEach((root) =&gt; {
+  const parent = root.querySelector('[data-parent]');
+  const children = [...root.querySelectorAll('[data-child]')];
+  const sync = () =&gt; {
+    const checked = children.filter((item) =&gt; item.checked).length;
+    parent.checked = checked === children.length;
+    parent.indeterminate = checked &gt; 0 &amp;&amp; checked &lt; children.length;
+  };
+  parent.addEventListener('change', () =&gt; children.forEach((item) =&gt; { item.checked = parent.checked; }));
+  children.forEach((item) =&gt; item.addEventListener('change', sync));
+});</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>通知設定、一覧表、権限設定で、複数項目をまとめて選択・解除する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="選択 条件分岐 conditional select required 動的 表示">
+          <header class="part-example__header"><div><span class="part-example__index">SELECTION / 02</span><h2>条件分岐フォーム</h2></div><small>DYNAMIC FIELD</small></header>
+          <div class="part-example__preview"><div class="c-form c-form__stack" data-form-conditional><label for="form-type-demo">お問い合わせ種別</label><select class="c-form__select" id="form-type-demo"><option value="資料請求">資料請求</option><option value="見積もり">見積もり</option><option value="その他">その他</option></select><div class="c-form__extra" data-show-on="見積もり" hidden><label for="form-budget-demo">ご予算</label><input class="c-form__field" id="form-budget-demo" /></div><div class="c-form__extra" data-show-on="その他" hidden><label for="form-other-demo">お問い合わせ内容</label><textarea class="c-form__textarea" id="form-other-demo"></textarea></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-form" data-conditional&gt;
+  &lt;select class="c-form__select"&gt;&lt;option&gt;資料請求&lt;/option&gt;&lt;option&gt;見積もり&lt;/option&gt;&lt;option&gt;その他&lt;/option&gt;&lt;/select&gt;
+  &lt;div class="c-form__extra" data-show-on="見積もり" hidden&gt;&lt;input class="c-form__field" placeholder="ご予算"&gt;&lt;/div&gt;
+  &lt;div class="c-form__extra" data-show-on="その他" hidden&gt;&lt;textarea class="c-form__textarea"&gt;&lt;/textarea&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-form { display: grid; width: min(100%, 21rem); gap: .65rem; }
+.c-form__select, .c-form__field, .c-form__textarea { box-sizing: border-box; width: 100%; padding: .7rem; border: 1px solid #aeb8c7; }
+.c-form__extra { padding: .75rem; background: #edf1f7; border: 1px dashed #18243b; }
+.c-form__extra[hidden] { display: none; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-conditional]').forEach((root) =&gt; {
+  const source = root.querySelector('select');
+  const update = () =&gt; root.querySelectorAll('[data-show-on]').forEach((extra) =&gt; {
+    const show = extra.dataset.showOn === source.value;
+    extra.hidden = !show;
+    extra.querySelectorAll('input, textarea, select').forEach((field) =&gt; {
+      field.required = show;
+      if (!show) field.value = '';
+    });
+  });
+  source.addEventListener('change', update);
+  update();
+});</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>問い合わせ種別や契約プランに応じて、必要な入力欄だけを提示する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="送信 確認 preview confirm 入力内容 textContent">
+          <header class="part-example__header"><div><span class="part-example__index">SUBMISSION / 01</span><h2>入力内容確認</h2></div><small>INLINE REVIEW</small></header>
+          <div class="part-example__preview"><div class="c-form c-form__stack" data-form-review><label for="form-review-name">お名前</label><input class="c-form__field" id="form-review-name" data-review-label="お名前" value="山田 太郎" /><label for="form-review-mail">メールアドレス</label><input class="c-form__field" id="form-review-mail" type="email" data-review-label="メールアドレス" value="taro@example.com" /><button class="c-form__button" type="button">確認する</button><dl class="c-form__review" data-form-review-output aria-live="polite" hidden></dl></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-form" data-review&gt;
+  &lt;input class="c-form__field" data-label="お名前" placeholder="お名前"&gt;
+  &lt;input class="c-form__field" data-label="メールアドレス" type="email"&gt;
+  &lt;button class="c-form__button" type="button"&gt;確認する&lt;/button&gt;
+  &lt;dl class="c-form__review" data-output aria-live="polite" hidden&gt;&lt;/dl&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-form { display: grid; width: min(100%, 21rem); gap: .65rem; }
+.c-form__field, .c-form__button { box-sizing: border-box; padding: .7rem; }
+.c-form__field { border: 1px solid #aeb8c7; }
+.c-form__button { color: #fff; background: #18243b; border: 0; }
+.c-form__review { margin: 0; padding: .75rem; background: #edf1f7; }
+.c-form__review[hidden] { display: none; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-review]').forEach((root) =&gt; {
+  const output = root.querySelector('[data-output]');
+  root.querySelector('button').addEventListener('click', () =&gt; {
+    output.replaceChildren();
+    root.querySelectorAll('[data-label]').forEach((field) =&gt; {
+      const dt = document.createElement('dt');
+      const dd = document.createElement('dd');
+      dt.textContent = field.dataset.label;
+      dd.textContent = field.value || '（未入力）';
+      output.append(dt, dd);
+    });
+    output.hidden = false;
+  });
+});</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>確認ページを増やさず、問い合わせや申込み内容を同じ画面内で見直す場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="送信 独自 同意 規約 プライバシー checkbox consent disabled 有効化">
+          <header class="part-example__header"><div><span class="part-example__index">SUBMISSION / 02</span><h2>規約同意による送信制御</h2></div><small>ORIGINAL</small></header>
+          <div class="part-example__preview"><form class="c-form c-form__stack" data-form-consent><p class="c-form__summary">入力内容を送信するには、利用規約とプライバシーポリシーへの同意が必要です。</p><label class="c-form__consent"><input type="checkbox" data-form-consent-check aria-describedby="form-consent-status-demo" />規約とプライバシーポリシーに同意する</label><button class="c-form__button" type="submit" disabled>同意して送信</button><p class="c-form__status" id="form-consent-status-demo" data-form-status aria-live="polite">同意すると送信できます</p></form></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;form class="c-form" data-consent&gt;
+  &lt;p&gt;入力内容を送信するには規約への同意が必要です。&lt;/p&gt;
+  &lt;label class="c-form__consent"&gt;&lt;input type="checkbox" data-check aria-describedby="consent-status"&gt;規約に同意する&lt;/label&gt;
+  &lt;button class="c-form__button" type="submit" disabled&gt;同意して送信&lt;/button&gt;
+  &lt;p class="c-form__status" id="consent-status" data-status aria-live="polite"&gt;同意すると送信できます&lt;/p&gt;
+&lt;/form&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-form { display: grid; width: min(100%, 21rem); gap: .75rem; }
+.c-form__consent { display: flex; padding: .75rem; gap: .55rem; align-items: flex-start; background: #edf1f7; border: 1px solid #aeb8c7; }
+.c-form__consent input { width: 1rem; height: 1rem; margin-top: .15rem; accent-color: #18243b; }
+.c-form__button { min-height: 2.65rem; padding: .65rem 1rem; color: #fff; background: #18243b; border: 0; }
+.c-form__button:disabled { opacity: .56; cursor: not-allowed; }
+.c-form__status { min-height: 1.25rem; margin: 0; color: #667085; font-size: .75rem; }
+.c-form__status.is-success { color: #236b43; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-consent]').forEach((form) =&gt; {
+  const check = form.querySelector('[data-check]');
+  const button = form.querySelector('button[type="submit"]');
+  const status = form.querySelector('[data-status]');
+  const update = () =&gt; {
+    button.disabled = !check.checked;
+    status.textContent = check.checked ? '送信できます' : '同意すると送信できます';
+    status.classList.toggle('is-success', check.checked);
+  };
+  check.addEventListener('change', update);
+  form.addEventListener('submit', (event) =&gt; {
+    event.preventDefault();
+    if (!check.checked) return;
+    status.textContent = '同意内容と入力内容を送信しました';
+  });
+  update();
+});</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>会員登録、資料請求、決済前の確認で、必須の同意を明示的に取得してから送信を許可する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="送信 二重送信 防止 disabled loading submit once 完了">
+          <header class="part-example__header"><div><span class="part-example__index">SUBMISSION / 03</span><h2>二重送信防止</h2></div><small>SUBMIT LOCK</small></header>
+          <div class="part-example__preview"><form class="c-form c-form__stack" data-form-once><label for="form-message-demo">お問い合わせ内容</label><input class="c-form__field" id="form-message-demo" value="資料を希望します" /><button class="c-form__button" type="submit">送信する</button><p class="c-form__status" data-form-status aria-live="polite"></p></form></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;form class="c-form" data-submit-once&gt;
+  &lt;input class="c-form__field" aria-label="お問い合わせ内容"&gt;
+  &lt;button class="c-form__button" type="submit"&gt;送信する&lt;/button&gt;
+  &lt;p class="c-form__status" data-status aria-live="polite"&gt;&lt;/p&gt;
+&lt;/form&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-form { display: grid; width: min(100%, 21rem); gap: .65rem; }
+.c-form__field, .c-form__button { box-sizing: border-box; min-height: 2.65rem; padding: .65rem; }
+.c-form__field { border: 1px solid #aeb8c7; }
+.c-form__button { color: #fff; background: #18243b; border: 0; }
+.c-form__button:disabled { opacity: .56; cursor: wait; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-submit-once]').forEach((form) =&gt; {
+  const button = form.querySelector('button[type="submit"]');
+  const status = form.querySelector('[data-status]');
+  const label = button.textContent;
+  form.addEventListener('submit', async (event) =&gt; {
+    event.preventDefault();
+    if (button.disabled) return;
+    button.disabled = true;
+    button.textContent = '送信中…';
+    status.textContent = '送信処理中です';
+    await new Promise((resolve) =&gt; setTimeout(resolve, 1400));
+    button.disabled = false;
+    button.textContent = label;
+    status.textContent = '送信が完了しました';
+  });
+});</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>注文、予約、問い合わせ送信で、通信中の連打による重複登録を防ぐ場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="保存 未保存 離脱 警告 dirty confirm 変更">
+          <header class="part-example__header"><div><span class="part-example__index">PERSISTENCE / 01</span><h2>未保存変更アラート</h2></div><small>LEAVE GUARD</small></header>
+          <div class="part-example__preview"><div class="c-form c-form__stack" data-form-unsaved><label for="form-unsaved-demo">編集メモ</label><input class="c-form__field" id="form-unsaved-demo" placeholder="何か入力してください" /><div class="c-form__row"><span class="c-form__dirty" data-form-dirty hidden>● 未保存の変更あり</span><a class="c-form__link" href="#form-common-styles" data-form-leave>別ページへ移動 →</a></div><p class="c-form__status" data-form-status aria-live="polite"></p></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-form" data-unsaved&gt;
+  &lt;input class="c-form__field" placeholder="何か入力してください"&gt;
+  &lt;span class="c-form__dirty" data-dirty hidden&gt;● 未保存の変更あり&lt;/span&gt;
+  &lt;a class="c-form__link" href="/next" data-leave&gt;別ページへ移動 →&lt;/a&gt;
+  &lt;p class="c-form__status" data-status aria-live="polite"&gt;&lt;/p&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-form { display: grid; width: min(100%, 21rem); gap: .65rem; }
+.c-form__field { box-sizing: border-box; padding: .7rem; border: 1px solid #aeb8c7; }
+.c-form__dirty { color: #805b00; font: 700 .7rem monospace; }
+.c-form__dirty[hidden] { display: none; }
+.c-form__link { color: #18243b; font-weight: 700; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-unsaved]').forEach((root) =&gt; {
+  const field = root.querySelector('input, textarea');
+  const badge = root.querySelector('[data-dirty]');
+  const status = root.querySelector('[data-status]');
+  let dirty = false;
+  field.addEventListener('input', () =&gt; { dirty = true; badge.hidden = false; });
+  root.querySelector('[data-leave]').addEventListener('click', (event) =&gt; {
+    if (dirty &amp;&amp; !window.confirm('変更が保存されていません。移動しますか？')) {
+      event.preventDefault();
+      status.textContent = '移動をキャンセルしました';
+    }
+  });
+});</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>記事編集、設定変更、長文入力で、未保存のまま画面を離れる事故を防ぐ場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="保存 下書き 自動保存 localStorage restore discard debounce">
+          <header class="part-example__header"><div><span class="part-example__index">PERSISTENCE / 02</span><h2>下書き自動保存</h2></div><small>LOCAL STORAGE</small></header>
+          <div class="part-example__preview"><div class="c-form c-form__stack" data-form-draft data-storage-key="mark-bench-form-draft-demo"><div class="c-form__draft-bar" data-form-draft-bar hidden><span>保存済みの下書きがあります</span><span class="c-form__draft-actions"><button type="button" data-draft-restore>復元</button><button type="button" data-draft-discard>破棄</button></span></div><label for="form-draft-demo">お問い合わせ内容</label><textarea class="c-form__textarea" id="form-draft-demo" placeholder="入力停止後に自動保存"></textarea><p class="c-form__status" data-form-status aria-live="polite"></p></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-form" data-draft data-key="contact-draft"&gt;
+  &lt;div class="c-form__draft-bar" data-bar hidden&gt;&lt;span&gt;下書きがあります&lt;/span&gt;&lt;button type="button" data-restore&gt;復元&lt;/button&gt;&lt;button type="button" data-discard&gt;破棄&lt;/button&gt;&lt;/div&gt;
+  &lt;textarea class="c-form__textarea"&gt;&lt;/textarea&gt;
+  &lt;p class="c-form__status" data-status aria-live="polite"&gt;&lt;/p&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-form { display: grid; width: min(100%, 21rem); gap: .65rem; }
+.c-form__textarea { box-sizing: border-box; min-height: 6rem; padding: .7rem; border: 1px solid #aeb8c7; }
+.c-form__draft-bar { display: flex; padding: .6rem; gap: .45rem; background: #fff8dc; border: 1px solid #806a00; }
+.c-form__draft-bar[hidden] { display: none; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-draft]').forEach((root) =&gt; {
+  const field = root.querySelector('textarea');
+  const bar = root.querySelector('[data-bar]');
+  const status = root.querySelector('[data-status]');
+  const key = root.dataset.key || 'form-draft';
+  let saved = '';
+  let timer;
+  try { saved = localStorage.getItem(key) || ''; } catch {}
+  bar.hidden = !saved;
+  root.querySelector('[data-restore]').addEventListener('click', () =&gt; { field.value = saved; bar.hidden = true; });
+  root.querySelector('[data-discard]').addEventListener('click', () =&gt; {
+    saved = ''; field.value = ''; bar.hidden = true;
+    try { localStorage.removeItem(key); } catch {}
+  });
+  field.addEventListener('input', () =&gt; {
+    clearTimeout(timer);
+    timer = setTimeout(() =&gt; {
+      saved = field.value;
+      try { saved ? localStorage.setItem(key, saved) : localStorage.removeItem(key); } catch {}
+      bar.hidden = !saved;
+      status.textContent = saved ? '下書きを自動保存しました' : '';
+    }, 400);
+  });
+});</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>問い合わせ、申請、記事作成など、途中離脱で長文を失いたくない入力画面。</p></div>
+        </section>
+      </div>
+
+      <div class="part-detail-empty" data-pattern-empty hidden><p>[ NO_PATTERN_FOUND ]</p><p>検索語を変更してください。</p></div>
+
+      <section class="part-common-styles" id="form-common-styles" aria-labelledby="form-common-styles-title">
+        <header class="part-common-styles__header reveal"><p class="section-index">FORM / COMMON_STYLE</p><h2 id="form-common-styles-title">共通スタイル</h2><p>入力欄、操作ボタン、状態メッセージの余白・配色・フォーカス設定です。</p></header>
+        <div class="part-common-styles__code reveal" data-reveal-threshold="0.01"><div class="part-code"><div class="part-code__header"><span>CSS / COMMON</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-form,
+.c-form * { box-sizing: border-box; }
+.c-form {
+  width: min(100%, 21rem);
+  color: var(--color-text, #1c2430);
+  font-family: var(--font-sans, sans-serif);
+}
+.c-form__stack { display: grid; gap: .65rem; }
+.c-form__field,
+.c-form__select,
+.c-form__textarea {
+  width: 100%;
+  min-height: 2.65rem;
+  padding: .65rem .75rem;
+  color: var(--color-text, #1c2430);
+  font: inherit;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+}
+.c-form__textarea { min-height: 5.5rem; resize: vertical; }
+.c-form__button {
+  min-height: 2.65rem;
+  padding: .65rem 1rem;
+  color: var(--color-text-inverse, #fff);
+  font: 700 .72rem/1.3 var(--font-mono, monospace);
+  background: var(--color-primary, #18243b);
+  border: 1px solid var(--color-primary, #18243b);
+  cursor: pointer;
+}
+.c-form__button:disabled { opacity: .56; cursor: not-allowed; }
+.c-form__field:focus-visible,
+.c-form__select:focus-visible,
+.c-form__textarea:focus-visible,
+.c-form__button:focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: 2px;
+}
+.c-form__status,
+.c-form__hint,
+.c-form__counter {
+  min-height: 1.25rem;
+  margin: .45rem 0 0;
+  color: var(--color-text-subtle, #667085);
+  font-size: .72rem;
+  line-height: 1.6;
+}</code></pre></div></div>
+      </section>
+
+      <footer class="page-footer" aria-label="ページナビゲーション"><a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO WEB PARTS</span></a><a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a></footer>
+    </main>
+    <script src="../js/web-parts-detail.js" defer></script>
+    <script src="../js/web-parts-form.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

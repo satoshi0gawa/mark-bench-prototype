@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="MARK BENCHのカラートークンで設計した、再利用可能なCSS見出し16パターンです。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>HEADING | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/heading.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="HEADING | MARK BENCH" />
+    <meta property="og:description" content="MARK BENCHのカラートークンで設計した、再利用可能なCSS見出し16パターンです。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/heading.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="HEADING | MARK BENCH" />
+    <meta name="twitter:description" content="MARK BENCHのカラートークンで設計した、再利用可能なCSS見出し16パターンです。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "HEADING",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/heading.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/web-parts.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts-detail" data-parts-detail>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header">
+      <div class="site-header__bar">
+        <nav class="site-breadcrumb-logo" aria-label="パンくずリスト">
+          <a class="site-logo" href="../index.html">MARK BENCH</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <a class="site-breadcrumb-logo__parent" href="./">WEB PARTS</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <span class="site-breadcrumb-logo__current" aria-current="page">HEADING</span>
+        </nav>
+      </div>
+    </header>
+
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション">
+      <a href="../tools/"><strong>TOOLS</strong></a>
+      <a href="./" aria-current="location"><strong>WEB PARTS</strong></a>
+      <a href="../build-notes/"><strong>BUILD NOTES</strong></a>
+      <a href="../about.html"><strong>ABOUT</strong></a>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <header class="part-detail-header">
+        <p class="section-index reveal">WEB_PARTS / HEADING</p>
+        <h1 class="reveal">HEADING</h1>
+        <p class="part-detail-header__lead reveal">ページタイトルや記事・セクションの区切りで情報階層を明確にする、見出し表現16パターンです。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 16</span><span>TYPE: CSS</span><span>DEPENDENCY: NONE</span></div>
+        <a class="part-detail-header__anchor reveal" href="#heading-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
+      </header>
+
+      <section class="part-detail-controls directory-search directory-keywords" aria-label="見出しパターンを絞り込み">
+        <div class="directory-keywords__group">
+          <p class="directory-keywords__label">KEYWORDS</p>
+          <div class="directory-keywords__list">
+            <button type="button" aria-pressed="false" data-pattern-keyword="ライン"># ライン</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="ボーダー"># ボーダー</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="強調"># 強調</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="ラベル"># ラベル</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="囲み"># 囲み</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="情報整理"># 情報整理</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="実務"># 実務</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="中央"># 中央</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="装飾"># 装飾</button>
+          </div>
+        </div>
+        <p>DISPLAY: <span data-pattern-count>16</span> / 16</p>
+      </section>
+
+      <div class="part-example-list">
+        <section class="part-example reveal" data-pattern data-search="ライン ボーダー 基本 下線 underline シンプル 境界">
+          <header class="part-example__header"><div><span class="part-example__index">UNDERLINE</span><h2>下線アクセント</h2></div><small>ONE LINE</small></header>
+          <div class="part-example__preview"><h3 class="c-heading c-heading--underline">見出しサンプル</h3></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;h2 class="c-heading c-heading--underline"&gt;
+  見出しサンプル
+&lt;/h2&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-heading--underline {
+  display: inline-block;
+  padding-bottom: .45rem;
+  border-bottom: 4px solid
+    var(--color-primary, #18243b);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>本文中の小見出しなど、装飾を抑えながら階層を明確にしたい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="ライン ボーダー 基本 二重 下線 double border クラシック">
+          <header class="part-example__header"><div><span class="part-example__index">DOUBLE LINE</span><h2>二重下線</h2></div><small>ONE LINE</small></header>
+          <div class="part-example__preview"><h3 class="c-heading c-heading--double">見出しサンプル</h3></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;h2 class="c-heading c-heading--double"&gt;
+  見出しサンプル
+&lt;/h2&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-heading--double {
+  display: inline-block;
+  padding-bottom: .45rem;
+  border-bottom: 4px double
+    var(--color-primary, #18243b);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>単線より少し強い区切りを作りつつ、背景塗りを使いたくない見出し。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="ライン ボーダー 強調 グラデーション 下線 gradient line 黄色">
+          <header class="part-example__header"><div><span class="part-example__index">GRADIENT LINE</span><h2>グラデーション下線</h2></div><small>ACCENT</small></header>
+          <div class="part-example__preview"><h3 class="c-heading c-heading--gradient-line">見出しサンプル</h3></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;h2 class="c-heading c-heading--gradient-line"&gt;
+  見出しサンプル
+&lt;/h2&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-heading--gradient-line {
+  position: relative;
+  display: inline-block;
+  padding-bottom: .65rem;
+}
+.c-heading--gradient-line::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: 4px;
+  background: linear-gradient(90deg,
+    var(--color-primary, #18243b) 0 72%,
+    var(--color-accent-yellow, #ff0) 72% 100%);
+  content: "";
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>基本色を中心にしつつ、末端だけアクセント色を加えるブランド見出し。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="ライン ボーダー 基本 左 left border セクション">
+          <header class="part-example__header"><div><span class="part-example__index">LEFT BAR</span><h2>左ボーダー</h2></div><small>SECTION</small></header>
+          <div class="part-example__preview"><h3 class="c-heading c-heading--leftbar">見出しサンプル</h3></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;h2 class="c-heading c-heading--leftbar"&gt;
+  見出しサンプル
+&lt;/h2&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-heading--leftbar {
+  padding: .25rem 0 .25rem 1rem;
+  border-left: 6px solid
+    var(--color-primary, #18243b);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>長い記事内でセクションの開始位置をすばやく認識させたい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="強調 マーカー marker 黄色 テキスト">
+          <header class="part-example__header"><div><span class="part-example__index">MARKER</span><h2>マーカー</h2></div><small>MULTI LINE</small></header>
+          <div class="part-example__preview"><h3 class="c-heading c-heading--marker">見出しサンプル</h3></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;h2 class="c-heading c-heading--marker"&gt;
+  見出しサンプル
+&lt;/h2&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-heading--marker {
+  display: inline;
+  padding-inline: .15em;
+  background: linear-gradient(
+    transparent 62%,
+    var(--color-accent-yellow, #ff0) 62%
+  );
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>重要語を明るく示す見出し。複数行でも背景が各行へ自然に適用されます。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="強調 目印 ドット dot 丸 先頭 黄色">
+          <header class="part-example__header"><div><span class="part-example__index">DOT</span><h2>ドット先頭</h2></div><small>MARK</small></header>
+          <div class="part-example__preview"><h3 class="c-heading c-heading--dot">見出しサンプル</h3></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;h2 class="c-heading c-heading--dot"&gt;
+  見出しサンプル
+&lt;/h2&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-heading--dot {
+  display: inline-flex;
+  gap: .75rem;
+  align-items: center;
+}
+.c-heading--dot::before {
+  width: .8rem;
+  height: .8rem;
+  flex: 0 0 auto;
+  background: var(--color-accent-yellow, #ff0);
+  border: 2px solid var(--color-primary, #18243b);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px
+    var(--color-primary-soft, #edf1f7);
+  content: "";
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>箇条書きに近い軽さを残しながら、項目の先頭を明確にしたい見出し。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="ラベル タグ tag 塗り ネイビー">
+          <header class="part-example__header"><div><span class="part-example__index">TAG</span><h2>タグ見出し</h2></div><small>LABEL</small></header>
+          <div class="part-example__preview"><h3 class="c-heading c-heading--tag">見出しサンプル</h3></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;h2 class="c-heading c-heading--tag"&gt;
+  見出しサンプル
+&lt;/h2&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-heading--tag {
+  display: inline-block;
+  padding: .45rem .9rem;
+  color: var(--color-text-inverse, #fff);
+  background: var(--color-primary, #18243b);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>カテゴリ名や補助タイトルなど、短い語句をラベル状に見せたい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="囲み ボーダー 角丸 box soft panel">
+          <header class="part-example__header"><div><span class="part-example__index">SOFT BOX</span><h2>角丸囲み</h2></div><small>CONTAINER</small></header>
+          <div class="part-example__preview"><h3 class="c-heading c-heading--box">見出しサンプル</h3></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;h2 class="c-heading c-heading--box"&gt;
+  見出しサンプル
+&lt;/h2&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-heading--box {
+  display: inline-block;
+  padding: .65rem 1rem;
+  color: var(--color-primary, #18243b);
+  background: var(--color-primary-soft, #edf1f7);
+  border: 2px solid var(--color-primary, #18243b);
+  border-radius: .35rem;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>コラムや補足枠のタイトルなど、見出し自体をひとつの面として扱う場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="情報整理 番号 数字 numbered step 手順">
+          <header class="part-example__header"><div><span class="part-example__index">NUMBERED</span><h2>番号付き</h2></div><small>STEP</small></header>
+          <div class="part-example__preview"><h3 class="c-heading c-heading--numbered"><span class="c-heading__number">01</span>見出しサンプル</h3></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;h2 class="c-heading c-heading--numbered"&gt;
+  &lt;span class="c-heading__number"&gt;01&lt;/span&gt;
+  見出しサンプル
+&lt;/h2&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-heading--numbered {
+  display: inline-flex;
+  gap: .8rem;
+  align-items: center;
+}
+.c-heading__number {
+  display: inline-grid;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  padding: .35rem;
+  place-items: center;
+  color: var(--color-text-inverse, #fff);
+  font-family: var(--font-mono, monospace);
+  font-size: .65em;
+  background: var(--color-primary, #18243b);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>手順、工程、章番号など、順序そのものが情報になる見出し。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="情報整理 ライン 両側 side lines 中央 区切り">
+          <header class="part-example__header"><div><span class="part-example__index">SIDE LINES</span><h2>両側ライン</h2></div><small>CENTER</small></header>
+          <div class="part-example__preview"><h3 class="c-heading c-heading--side-lines">見出しサンプル</h3></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;h2 class="c-heading c-heading--side-lines"&gt;
+  見出しサンプル
+&lt;/h2&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-heading--side-lines {
+  display: flex;
+  width: min(100%, 38rem);
+  gap: 1rem;
+  align-items: center;
+  text-align: center;
+}
+.c-heading--side-lines::before,
+.c-heading--side-lines::after {
+  height: 1px;
+  flex: 1;
+  background: var(--color-grid-strong, #aeb8c7);
+  content: "";
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>中央寄せの見出しや、前後のコンテンツを静かに分ける区切り見出し。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="装飾 囲み ステッチ stitch dashed ネイビー">
+          <header class="part-example__header"><div><span class="part-example__index">STITCH</span><h2>ステッチ囲み</h2></div><small>DECORATIVE</small></header>
+          <div class="part-example__preview"><h3 class="c-heading c-heading--stitch">見出しサンプル</h3></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;h2 class="c-heading c-heading--stitch"&gt;
+  見出しサンプル
+&lt;/h2&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-heading--stitch {
+  display: inline-block;
+  padding: .8rem 1.25rem;
+  color: var(--color-text-inverse, #fff);
+  background: var(--color-primary, #18243b);
+  outline: 1px dashed var(--color-text-inverse, #fff);
+  outline-offset: -.4rem;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>特集やキャンペーンの小見出しなど、少し装飾性を持たせたい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="装飾 ラベル リボン ribbon clip path">
+          <header class="part-example__header"><div><span class="part-example__index">RIBBON</span><h2>リボン</h2></div><small>DECORATIVE</small></header>
+          <div class="part-example__preview"><h3 class="c-heading c-heading--ribbon">見出しサンプル</h3></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;h2 class="c-heading c-heading--ribbon"&gt;
+  見出しサンプル
+&lt;/h2&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-heading--ribbon {
+  display: inline-block;
+  padding: .65rem 2rem .65rem 1rem;
+  color: var(--color-text-inverse, #fff);
+  background: var(--color-primary-hover, #263a5e);
+  clip-path: polygon(0 0, 100% 0,
+    calc(100% - .8rem) 50%, 100% 100%, 0 100%);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ランキングや特集など、通常の本文階層から意図的に目立たせたい短い見出し。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="実務 情報整理 ラベル 英字 カテゴリ eyebrow kicker section label landing page">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL ADDITION / 01</span><h2>ラベル付き見出し</h2></div><small>EYEBROW</small></header>
+          <div class="part-example__preview">
+            <h3 class="c-heading c-heading--eyebrow"><span class="c-heading__eyebrow">OUR SERVICE</span><span>課題に合う支援を選ぶ</span></h3>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;h2 class="c-heading c-heading--eyebrow"&gt;
+  &lt;span class="c-heading__eyebrow"&gt;OUR SERVICE&lt;/span&gt;
+  &lt;span&gt;課題に合う支援を選ぶ&lt;/span&gt;
+&lt;/h2&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-heading {
+  margin: 0;
+  color: var(--color-text, #1c2430);
+  font: 700 clamp(1.35rem, 3vw, 2rem)/1.35 sans-serif;
+}
+.c-heading--eyebrow {
+  display: grid;
+  gap: .35rem;
+}
+.c-heading__eyebrow {
+  color: var(--color-primary, #18243b);
+  font: 700 .62rem/1.4 monospace;
+  letter-spacing: .14em;
+}
+.c-heading__eyebrow::before {
+  display: inline-block;
+  width: 1.75rem;
+  height: 3px;
+  margin-right: .6rem;
+  vertical-align: middle;
+  background: var(--color-accent-yellow, #ff0);
+  content: "";
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>サービス紹介やランディングページで、カテゴリ名と主見出しの関係を短く明示する場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="実務 情報整理 補足 説明 リード subtitle lead description section introduction">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL ADDITION / 02</span><h2>補足文付き見出し</h2></div><small>TITLE + LEAD</small></header>
+          <div class="part-example__preview">
+            <div class="c-heading-group"><h3 class="c-heading">導入までの流れ</h3><p class="c-heading-group__lead">相談から公開後の改善まで、担当者が一貫して伴走します。</p></div>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-heading-group"&gt;
+  &lt;h2 class="c-heading"&gt;導入までの流れ&lt;/h2&gt;
+  &lt;p class="c-heading-group__lead"&gt;
+    相談から公開後の改善まで、担当者が一貫して伴走します。
+  &lt;/p&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-heading-group {
+  display: grid;
+  width: min(100%, 36rem);
+  gap: .6rem;
+}
+.c-heading {
+  margin: 0;
+  color: var(--color-text, #1c2430);
+  font: 700 clamp(1.35rem, 3vw, 2rem)/1.35 sans-serif;
+}
+.c-heading-group__lead {
+  margin: 0;
+  padding-left: 1rem;
+  color: var(--color-text-subtle, #667085);
+  font: .82rem/1.75 sans-serif;
+  border-left: 3px solid var(--color-accent-yellow, #ff0);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ページやセクションの冒頭で、タイトルだけでは伝わりにくい対象範囲や要点を補う場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="実務 情報整理 アイコン icon feature setting menu dashboard 機能 設定">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL ADDITION / 03</span><h2>アイコン付き見出し</h2></div><small>ICON</small></header>
+          <div class="part-example__preview">
+            <h3 class="c-heading c-heading--icon"><span class="c-heading__icon" aria-hidden="true">✓</span><span>公開前チェック</span></h3>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;h2 class="c-heading c-heading--icon"&gt;
+  &lt;span class="c-heading__icon" aria-hidden="true"&gt;✓&lt;/span&gt;
+  &lt;span&gt;公開前チェック&lt;/span&gt;
+&lt;/h2&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-heading {
+  margin: 0;
+  color: var(--color-text, #1c2430);
+  font: 700 clamp(1.35rem, 3vw, 2rem)/1.35 sans-serif;
+}
+.c-heading--icon {
+  display: inline-flex;
+  gap: .8rem;
+  align-items: center;
+}
+.c-heading__icon {
+  display: inline-grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: 0 0 auto;
+  place-items: center;
+  color: var(--color-primary, #18243b);
+  font: 700 1rem/1 monospace;
+  background: var(--color-accent-yellow, #ff0);
+  border: 2px solid var(--color-primary, #18243b);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>管理画面、設定ページ、機能紹介で、見出しの内容を視覚的な手掛かりと一緒に示す場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="実務 情報整理 リンク アクション action link more list section navigation 一覧">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL ADDITION / 04</span><h2>リンク付き見出し</h2></div><small>TITLE + ACTION</small></header>
+          <div class="part-example__preview">
+            <div class="c-heading-row"><h3 class="c-heading">更新情報</h3><a class="c-heading-row__link" href="#heading-common-styles"><span>一覧を見る</span><span aria-hidden="true">→</span></a></div>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-heading-row"&gt;
+  &lt;h2 class="c-heading"&gt;更新情報&lt;/h2&gt;
+  &lt;a class="c-heading-row__link" href="/news/"&gt;
+    &lt;span&gt;一覧を見る&lt;/span&gt;
+    &lt;span aria-hidden="true"&gt;→&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-heading-row {
+  display: flex;
+  width: min(100%, 36rem);
+  padding-bottom: .65rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--color-primary, #18243b);
+}
+.c-heading { margin: 0; color: #1c2430; font: 700 clamp(1.35rem, 3vw, 2rem)/1.35 sans-serif; }
+.c-heading-row__link {
+  display: inline-flex;
+  padding: .4rem .55rem;
+  gap: .45rem;
+  align-items: center;
+  color: var(--color-primary, #18243b);
+  font: 700 .68rem/1.4 monospace;
+  text-decoration: none;
+}
+.c-heading-row__link:focus-visible { background: var(--color-accent-yellow, #ff0); outline: 3px solid var(--color-focus, #315a9b); outline-offset: .2rem; }
+.c-heading-row__link &gt; span[aria-hidden="true"] { transition: transform 180ms ease; }
+@media (hover: hover) {
+  .c-heading-row__link:hover { background: var(--color-accent-yellow, #ff0); }
+  .c-heading-row__link:hover &gt; span[aria-hidden="true"] { transform: translateX(.3rem); }
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>記事一覧、実績、更新情報など、セクション見出しから関連一覧への導線を同じ行に置く場面。</p></div>
+        </section>
+      </div>
+
+      <div class="part-detail-empty" data-pattern-empty hidden><p>[ NO_PATTERN_FOUND ]</p><p>検索語を変更してください。</p></div>
+
+      <section class="part-common-styles" id="heading-common-styles" aria-labelledby="heading-common-styles-title">
+        <header class="part-common-styles__header reveal">
+          <p class="section-index">HEADING / COMMON_STYLE</p>
+          <h2 id="heading-common-styles-title">共通スタイル</h2>
+          <p>見出し共通の余白・文字色・タイポグラフィ設定です。</p>
+        </header>
+        <div class="part-common-styles__code reveal" data-reveal-threshold="0.01">
+          <div class="part-code">
+            <div class="part-code__header"><span>CSS / COMMON</span><button type="button" data-copy-code>COPY</button></div>
+            <pre><code>.c-heading {
+  margin: 0;
+  color: var(--color-text, #1c2430);
+  font-family: var(--font-sans, sans-serif);
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  line-height: 1.35;
+  letter-spacing: -.025em;
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <footer class="page-footer" aria-label="ページナビゲーション">
+        <a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO WEB PARTS</span></a>
+        <a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a>
+      </footer>
+    </main>
+
+    <script src="../js/web-parts-detail.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

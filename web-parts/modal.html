@@ -1,0 +1,919 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="MARK BENCHのトークンで設計した、Vanilla JavaScript対応のモーダル・ドロワー12パターンです。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>MODAL | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/modal.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="MODAL | MARK BENCH" />
+    <meta property="og:description" content="MARK BENCHのトークンで設計した、Vanilla JavaScript対応のモーダル・ドロワー12パターンです。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/modal.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MODAL | MARK BENCH" />
+    <meta name="twitter:description" content="MARK BENCHのトークンで設計した、Vanilla JavaScript対応のモーダル・ドロワー12パターンです。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "MODAL",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/modal.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/web-parts.css" />
+    <link rel="stylesheet" href="../css/web-parts-modal.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts-detail" data-parts-detail>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header">
+      <div class="site-header__bar">
+        <nav class="site-breadcrumb-logo" aria-label="パンくずリスト">
+          <a class="site-logo" href="../index.html">MARK BENCH</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <a class="site-breadcrumb-logo__parent" href="./">WEB PARTS</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <span class="site-breadcrumb-logo__current" aria-current="page">MODAL</span>
+        </nav>
+      </div>
+    </header>
+
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション">
+      <a href="../tools/"><strong>TOOLS</strong></a>
+      <a href="./" aria-current="location"><strong>WEB PARTS</strong></a>
+      <a href="../build-notes/"><strong>BUILD NOTES</strong></a>
+      <a href="../about.html"><strong>ABOUT</strong></a>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <header class="part-detail-header">
+        <p class="section-index reveal">WEB_PARTS / MODAL</p>
+        <h1 class="reveal">MODAL</h1>
+        <p class="part-detail-header__lead reveal">確認、補足情報、フォーム、ナビゲーションを現在の画面に重ねて提示する、Vanilla JavaScript対応のモーダル・ドロワー12パターンです。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 12</span><span>TYPE: CSS + JS</span><span>DEPENDENCY: NONE</span></div>
+        <a class="part-detail-header__anchor reveal" href="#modal-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
+      </header>
+
+      <section class="part-detail-controls directory-search directory-keywords" aria-label="モーダルパターンを絞り込み">
+        <div class="directory-keywords__group">
+          <p class="directory-keywords__label">KEYWORDS</p>
+          <div class="directory-keywords__list">
+            <button type="button" aria-pressed="false" data-pattern-keyword="基本"># 基本</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="確認"># 確認</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="情報"># 情報</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="入力"># 入力</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="ステップ"># ステップ</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="ナビ"># ナビ</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="自動表示"># 自動表示</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="特殊"># 特殊</button>
+          </div>
+        </div>
+        <p>DISPLAY: <span data-pattern-count>12</span> / 12</p>
+      </section>
+
+      <div class="part-example-list">
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="基本 情報 dialog 標準 API ダイアログ native inline 埋め込み">
+          <header class="part-example__header"><div><span class="part-example__index">NATIVE DIALOG</span><h2>dialog要素（標準API）</h2></div><small>INLINE DEMO</small></header>
+          <div class="part-example__preview"><div class="c-modal c-modal--native" data-native-dialog><button class="c-modal__trigger" type="button" data-dialog-open>dialogを開く</button><span class="c-modal__native-backdrop" data-dialog-backdrop aria-hidden="true"></span><dialog class="c-modal__native" aria-labelledby="native-dialog-title"><h3 class="c-modal__title" id="native-dialog-title">ダイアログタイトル</h3><p class="c-modal__text">このデモエリア内へ表示します。</p><button class="c-modal__button" type="button" data-dialog-close>閉じる</button></dialog></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-modal c-modal--native" data-native-dialog&gt;
+  &lt;button class="c-modal__trigger" type="button" data-dialog-open&gt;dialogを開く&lt;/button&gt;
+  &lt;span class="c-modal__native-backdrop" data-dialog-backdrop aria-hidden="true"&gt;&lt;/span&gt;
+  &lt;dialog class="c-modal__native" aria-labelledby="native-title"&gt;
+    &lt;h2 class="c-modal__title" id="native-title"&gt;ダイアログタイトル&lt;/h2&gt;
+    &lt;p class="c-modal__text"&gt;この表示エリア内へ表示します。&lt;/p&gt;
+    &lt;button class="c-modal__button" type="button" data-dialog-close&gt;閉じる&lt;/button&gt;
+  &lt;/dialog&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-modal--native {
+  position: relative;
+  display: grid;
+  width: 100%;
+  min-height: 16rem;
+  overflow: hidden;
+  place-items: center;
+}
+.c-modal__native-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: none;
+  background: rgb(24 36 59 / 72%);
+}
+.c-modal--native.is-open .c-modal__native-backdrop { display: block; }
+.c-modal__native {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: min(calc(100% - 2rem), 20rem);
+  max-height: calc(100% - 2rem);
+  margin: 0;
+  padding: 1.25rem;
+  overflow: auto;
+  color: #1c2430;
+  background: #fff;
+  border: 1px solid #aeb8c7;
+  box-shadow: 0 1rem 3rem rgb(17 24 39 / 30%);
+  transform: translate(-50%, -50%);
+}
+.c-modal__trigger,
+.c-modal__button {
+  min-height: 2.5rem;
+  padding: .65rem 1rem;
+  color: #fff;
+  font: 700 .72rem/1.3 monospace;
+  background: #18243b;
+  border: 1px solid #18243b;
+  cursor: pointer;
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-native-dialog]');
+const dialog = root.querySelector('dialog');
+const opener = root.querySelector('[data-dialog-open]');
+
+const openDialog = () =&gt; {
+  root.classList.add('is-open');
+  dialog.show();
+  dialog.querySelector('[data-dialog-close]').focus();
+};
+const closeDialog = () =&gt; {
+  if (dialog.open) dialog.close();
+};
+
+opener.addEventListener('click', openDialog);
+root.querySelectorAll('[data-dialog-close], [data-dialog-backdrop]').forEach((control) =&gt; {
+  control.addEventListener('click', closeDialog);
+});
+root.addEventListener('keydown', (event) =&gt; {
+  if (event.key === 'Escape') closeDialog();
+});
+dialog.addEventListener('close', () =&gt; {
+  root.classList.remove('is-open');
+  opener.focus();
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>埋め込みプレビューや管理画面の一部で、dialog要素を現在の表示領域内へ提示する場面。ページ全体を遮断する場合はshowModal()を使用します。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="基本 情報 ベーシック modal ダイアログ">
+          <header class="part-example__header"><div><span class="part-example__index">BASIC MODAL</span><h2>ベーシックモーダル</h2></div><small>DIALOG</small></header>
+          <div class="part-example__preview">
+            <div class="c-modal" data-modal-demo>
+              <button class="c-modal__trigger" type="button" data-modal-open>モーダルを開く</button>
+              <div class="c-modal__layer" role="dialog" aria-modal="true" aria-label="お知らせ" data-modal-layer hidden>
+                <div class="c-modal__overlay" data-modal-close></div>
+                <div class="c-modal__panel"><button class="c-modal__close" type="button" data-modal-close data-initial-focus aria-label="閉じる">×</button><h3 class="c-modal__title">モーダルタイトル</h3><p class="c-modal__text">ここに本文を表示します。</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-modal c-modal--basic" data-basic-modal&gt;
+  &lt;button class="c-modal__trigger" type="button" data-modal-open&gt;開く&lt;/button&gt;
+  &lt;dialog class="c-modal__layer" aria-labelledby="basic-modal-title"&gt;
+    &lt;section class="c-modal__panel"&gt;
+      &lt;button class="c-modal__close" type="button" data-modal-close aria-label="閉じる"&gt;×&lt;/button&gt;
+      &lt;h2 class="c-modal__title" id="basic-modal-title"&gt;モーダルタイトル&lt;/h2&gt;
+      &lt;p class="c-modal__text"&gt;ここに本文を表示します。&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/dialog&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-modal--basic .c-modal__panel {
+  width: min(82%, 22rem);
+  border-radius: .5rem;
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-basic-modal]');
+const dialog = root.querySelector('dialog');
+const opener = root.querySelector('[data-modal-open]');
+
+opener.addEventListener('click', () =&gt; dialog.showModal());
+root.querySelector('[data-modal-close]')
+  .addEventListener('click', () =&gt; dialog.close());
+dialog.addEventListener('click', (event) =&gt; {
+  if (event.target === dialog) dialog.close();
+});
+dialog.addEventListener('close', () =&gt; opener.focus());</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>お知らせや補足情報。背景・閉じるボタン・Escの複数経路を用意します。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="確認 confirm ダイアログ 削除 判断">
+          <header class="part-example__header"><div><span class="part-example__index">CONFIRM DIALOG</span><h2>確認ダイアログ</h2></div><small>DECISION</small></header>
+          <div class="part-example__preview">
+            <div class="c-modal" data-modal-demo data-confirm-demo>
+              <button class="c-modal__trigger c-modal__button--danger" type="button" data-modal-open>削除する</button><p class="c-modal__result" data-confirm-output aria-live="polite"></p>
+              <div class="c-modal__layer" role="alertdialog" aria-modal="true" aria-label="削除の確認" data-modal-layer hidden><div class="c-modal__overlay" data-modal-close></div><div class="c-modal__panel"><h3 class="c-modal__title">本当に削除しますか？</h3><p class="c-modal__text">この操作は取り消せません。</p><div class="c-modal__actions"><button class="c-modal__button c-modal__button--secondary" type="button" data-confirm-result="cancel" data-modal-close data-initial-focus>キャンセル</button><button class="c-modal__button c-modal__button--danger" type="button" data-confirm-result="ok" data-modal-close>削除</button></div></div></div>
+            </div>
+          </div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-modal" data-confirm-modal&gt;
+  &lt;button class="c-modal__trigger c-modal__button--danger" type="button" data-modal-open&gt;削除する&lt;/button&gt;
+  &lt;p class="c-modal__result" data-confirm-output aria-live="polite"&gt;&lt;/p&gt;
+  &lt;dialog class="c-modal__layer" aria-labelledby="confirm-title"&gt;
+    &lt;section class="c-modal__panel"&gt;
+      &lt;h2 class="c-modal__title" id="confirm-title"&gt;本当に削除しますか？&lt;/h2&gt;
+      &lt;p class="c-modal__text"&gt;この操作は取り消せません。&lt;/p&gt;
+      &lt;div class="c-modal__actions"&gt;
+        &lt;button class="c-modal__button c-modal__button--secondary" type="button" data-result="cancel"&gt;キャンセル&lt;/button&gt;
+        &lt;button class="c-modal__button c-modal__button--danger" type="button" data-result="ok"&gt;削除&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/dialog&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-modal__actions {
+  display: flex;
+  gap: .5rem;
+  justify-content: flex-end;
+}
+.c-modal__button--secondary {
+  color: var(--color-primary, #18243b);
+  background: var(--color-background, #fff);
+}
+.c-modal__button--danger {
+  color: #fff;
+  background: #9f1d2c;
+  border-color: #9f1d2c;
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-confirm-modal]');
+const dialog = root.querySelector('dialog');
+const opener = root.querySelector('[data-modal-open]');
+const output = root.querySelector('[data-confirm-output]');
+
+opener.addEventListener('click', () =&gt; dialog.showModal());
+root.querySelectorAll('[data-result]').forEach((button) =&gt; {
+  button.addEventListener('click', () =&gt; {
+    output.textContent = button.dataset.result === 'ok'
+      ? '削除しました' : 'キャンセルしました';
+    dialog.close();
+  });
+});
+dialog.addEventListener('close', () =&gt; opener.focus());</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>削除や送信前の確認。初期フォーカスは安全なキャンセル側へ置きます。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="情報 特殊 画像 ライトボックス gallery lightbox">
+          <header class="part-example__header"><div><span class="part-example__index">IMAGE LIGHTBOX</span><h2>画像ライトボックス</h2></div><small>GALLERY</small></header>
+          <div class="part-example__preview"><div class="c-modal c-modal--lightbox" data-modal-demo data-lightbox-demo><div class="c-modal__thumbnails"><button class="c-modal__thumbnail" type="button" data-lightbox-open data-theme="warm" data-caption="IMAGE 01" aria-label="画像1を拡大"></button><button class="c-modal__thumbnail" type="button" data-lightbox-open data-theme="cool" data-caption="IMAGE 02" aria-label="画像2を拡大"></button></div><div class="c-modal__layer" role="dialog" aria-modal="true" aria-label="画像の拡大表示" data-modal-layer hidden><div class="c-modal__overlay" data-modal-close></div><figure class="c-modal__panel"><button class="c-modal__close" type="button" data-modal-close data-initial-focus aria-label="閉じる">×</button><div class="c-modal__image" data-lightbox-image></div><figcaption class="c-modal__caption" data-lightbox-caption></figcaption></figure></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-modal c-modal--lightbox" data-lightbox-modal&gt;
+  &lt;div class="c-modal__thumbnails"&gt;
+    &lt;button class="c-modal__thumbnail" type="button" data-lightbox-open data-theme="warm" data-caption="IMAGE 01" aria-label="画像1を拡大"&gt;&lt;/button&gt;
+    &lt;button class="c-modal__thumbnail" type="button" data-lightbox-open data-theme="cool" data-caption="IMAGE 02" aria-label="画像2を拡大"&gt;&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;dialog class="c-modal__layer" aria-label="画像の拡大表示"&gt;
+    &lt;figure class="c-modal__panel"&gt;
+      &lt;button class="c-modal__close" type="button" data-modal-close aria-label="閉じる"&gt;×&lt;/button&gt;
+      &lt;div class="c-modal__image" data-lightbox-image&gt;&lt;/div&gt;
+      &lt;figcaption class="c-modal__caption" data-lightbox-caption&gt;&lt;/figcaption&gt;
+    &lt;/figure&gt;
+  &lt;/dialog&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-modal__thumbnails {
+  display: flex;
+  gap: .65rem;
+}
+.c-modal__thumbnail,
+.c-modal__image {
+  background: linear-gradient(135deg,
+    var(--color-primary, #18243b),
+    var(--color-accent-yellow, #ff0));
+}
+.c-modal__thumbnail[data-theme="cool"],
+.c-modal__image[data-theme="cool"] {
+  background: linear-gradient(135deg,
+    var(--color-primary-hover, #263a5e),
+    var(--color-grid-strong, #aeb8c7));
+}
+.c-modal__thumbnail { width: 4rem; height: 4rem; padding: 0; }
+.c-modal--lightbox .c-modal__panel {
+  width: min(88%, 40rem);
+  background: var(--color-code-background, #111827);
+  border-color: #374151;
+}
+.c-modal__image { min-height: 12rem; }
+.c-modal__caption {
+  margin-top: .65rem;
+  color: var(--color-code-text, #e5e7eb);
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-lightbox-modal]');
+const dialog = root.querySelector('dialog');
+const image = root.querySelector('[data-lightbox-image]');
+const caption = root.querySelector('[data-lightbox-caption]');
+let returnFocus;
+
+root.querySelectorAll('[data-lightbox-open]').forEach((thumbnail) =&gt; {
+  thumbnail.addEventListener('click', () =&gt; {
+    image.dataset.theme = thumbnail.dataset.theme;
+    caption.textContent = thumbnail.dataset.caption;
+    returnFocus = thumbnail;
+    dialog.showModal();
+  });
+});
+root.querySelector('[data-modal-close]')
+  .addEventListener('click', () =&gt; dialog.close());
+dialog.addEventListener('click', (event) =&gt; {
+  if (event.target === dialog) dialog.close();
+});
+dialog.addEventListener('close', () =&gt; returnFocus?.focus());</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>制作実績や商品画像の拡大。キャプションと高解像度画像のURLをデータ属性で管理します。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="入力 フォーム form modal お問い合わせ ダイアログ">
+          <header class="part-example__header"><div><span class="part-example__index">FORM MODAL</span><h2>フォーム付きモーダル</h2></div><small>FORM FLOW</small></header>
+          <div class="part-example__preview"><div class="c-modal" data-modal-demo data-form-modal><button class="c-modal__trigger" type="button" data-modal-open data-form-open>お問い合わせ</button><div class="c-modal__layer" role="dialog" aria-modal="true" aria-label="お問い合わせフォーム" data-modal-layer hidden><div class="c-modal__overlay" data-modal-close></div><div class="c-modal__panel"><button class="c-modal__close" type="button" data-modal-close aria-label="閉じる">×</button><form><h3 class="c-modal__title">お問い合わせ</h3><label class="c-modal__label">メールアドレス<input class="c-modal__input" type="email" required data-initial-focus /></label><button class="c-modal__button" type="submit">送信する</button></form><div data-form-thanks hidden><h3 class="c-modal__title">送信しました</h3><p class="c-modal__text">ありがとうございます。</p><button class="c-modal__button" type="button" data-modal-close>閉じる</button></div></div></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-modal c-modal--form" data-form-modal-example&gt;
+  &lt;button class="c-modal__trigger" type="button" data-modal-open&gt;お問い合わせ&lt;/button&gt;
+  &lt;dialog class="c-modal__layer" aria-labelledby="form-modal-title"&gt;
+    &lt;section class="c-modal__panel"&gt;
+      &lt;button class="c-modal__close" type="button" data-modal-close aria-label="閉じる"&gt;×&lt;/button&gt;
+      &lt;form data-modal-form&gt;
+        &lt;h2 class="c-modal__title" id="form-modal-title"&gt;お問い合わせ&lt;/h2&gt;
+        &lt;label class="c-modal__label"&gt;メールアドレス
+          &lt;input class="c-modal__input" type="email" required&gt;
+        &lt;/label&gt;
+        &lt;button class="c-modal__button" type="submit"&gt;送信する&lt;/button&gt;
+      &lt;/form&gt;
+      &lt;div data-form-thanks hidden&gt;
+        &lt;h2 class="c-modal__title"&gt;送信しました&lt;/h2&gt;
+        &lt;p class="c-modal__text"&gt;ありがとうございます。&lt;/p&gt;
+        &lt;button class="c-modal__button" type="button" data-modal-close&gt;閉じる&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/dialog&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-modal__label {
+  display: grid;
+  margin-bottom: .9rem;
+  gap: .4rem;
+  color: var(--color-text-subtle, #667085);
+}
+.c-modal__input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 2.5rem;
+  padding: .6rem;
+  color: var(--color-text, #1c2430);
+  font: inherit;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-form-modal-example]');
+const dialog = root.querySelector('dialog');
+const opener = root.querySelector('[data-modal-open]');
+const form = root.querySelector('[data-modal-form]');
+const thanks = root.querySelector('[data-form-thanks]');
+
+opener.addEventListener('click', () =&gt; {
+  form.reset();
+  form.hidden = false;
+  thanks.hidden = true;
+  dialog.showModal();
+});
+form.addEventListener('submit', (event) =&gt; {
+  event.preventDefault();
+  form.hidden = true;
+  thanks.hidden = false;
+  thanks.querySelector('button').focus();
+});
+root.querySelectorAll('[data-modal-close]').forEach((button) =&gt; {
+  button.addEventListener('click', () =&gt; dialog.close());
+});
+dialog.addEventListener('click', (event) =&gt; {
+  if (event.target === dialog) dialog.close();
+});
+dialog.addEventListener('close', () =&gt; opener.focus());</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>問い合わせや資料請求。送信中・成功・失敗を同じダイアログ内で明確に切り替えます。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="入力 ステップ ウィザード wizard onboarding ダイアログ">
+          <header class="part-example__header"><div><span class="part-example__index">STEP WIZARD</span><h2>ステップウィザード</h2></div><small>MULTI STEP</small></header>
+          <div class="part-example__preview"><div class="c-modal" data-modal-demo data-wizard-demo><button class="c-modal__trigger" type="button" data-modal-open data-wizard-open>ウィザードを開く</button><div class="c-modal__layer" role="dialog" aria-modal="true" aria-label="初期設定" data-modal-layer hidden><div class="c-modal__overlay" data-modal-close></div><div class="c-modal__panel"><button class="c-modal__close" type="button" data-modal-close aria-label="閉じる">×</button><div class="c-modal__progress" aria-hidden="true"><i data-wizard-dot></i><i data-wizard-dot></i><i data-wizard-dot></i></div><div class="c-modal__step" data-wizard-step><h3 class="c-modal__title">STEP 1</h3><p class="c-modal__text">ようこそ</p></div><div class="c-modal__step" data-wizard-step hidden><h3 class="c-modal__title">STEP 2</h3><p class="c-modal__text">初期設定</p></div><div class="c-modal__step" data-wizard-step hidden><h3 class="c-modal__title">STEP 3</h3><p class="c-modal__text">設定完了</p></div><div class="c-modal__actions"><button class="c-modal__button c-modal__button--secondary" type="button" data-wizard-back>戻る</button><button class="c-modal__button" type="button" data-wizard-next data-initial-focus>次へ</button></div></div></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-modal c-modal--wizard" data-wizard-modal&gt;
+  &lt;button class="c-modal__trigger" type="button" data-modal-open&gt;ウィザードを開く&lt;/button&gt;
+  &lt;dialog class="c-modal__layer" aria-labelledby="wizard-title"&gt;
+    &lt;section class="c-modal__panel"&gt;
+      &lt;button class="c-modal__close" type="button" data-modal-close aria-label="閉じる"&gt;×&lt;/button&gt;
+      &lt;div class="c-modal__progress" aria-hidden="true"&gt;
+        &lt;i data-wizard-dot&gt;&lt;/i&gt;&lt;i data-wizard-dot&gt;&lt;/i&gt;&lt;i data-wizard-dot&gt;&lt;/i&gt;
+      &lt;/div&gt;
+      &lt;div class="c-modal__step" data-wizard-step&gt;&lt;h2 class="c-modal__title" id="wizard-title"&gt;STEP 1&lt;/h2&gt;&lt;p class="c-modal__text"&gt;ようこそ&lt;/p&gt;&lt;/div&gt;
+      &lt;div class="c-modal__step" data-wizard-step hidden&gt;&lt;h2 class="c-modal__title"&gt;STEP 2&lt;/h2&gt;&lt;p class="c-modal__text"&gt;初期設定&lt;/p&gt;&lt;/div&gt;
+      &lt;div class="c-modal__step" data-wizard-step hidden&gt;&lt;h2 class="c-modal__title"&gt;STEP 3&lt;/h2&gt;&lt;p class="c-modal__text"&gt;設定完了&lt;/p&gt;&lt;/div&gt;
+      &lt;div class="c-modal__actions"&gt;
+        &lt;button class="c-modal__button c-modal__button--secondary" type="button" data-wizard-back&gt;戻る&lt;/button&gt;
+        &lt;button class="c-modal__button" type="button" data-wizard-next&gt;次へ&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/dialog&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-modal__step[hidden] { display: none; }
+.c-modal__progress {
+  display: flex;
+  margin-bottom: 1rem;
+  gap: .4rem;
+}
+.c-modal__progress i {
+  width: .6rem;
+  height: .6rem;
+  background: var(--color-grid, #d9dfe8);
+  border-radius: 50%;
+}
+.c-modal__progress i.is-active {
+  background: var(--color-primary, #18243b);
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-wizard-modal]');
+const dialog = root.querySelector('dialog');
+const opener = root.querySelector('[data-modal-open]');
+const steps = [...root.querySelectorAll('[data-wizard-step]')];
+const dots = [...root.querySelectorAll('[data-wizard-dot]')];
+const back = root.querySelector('[data-wizard-back]');
+const next = root.querySelector('[data-wizard-next]');
+let current = 0;
+
+function render() {
+  steps.forEach((step, index) =&gt; {
+    step.hidden = index !== current;
+    dots[index].classList.toggle('is-active', index === current);
+  });
+  back.disabled = current === 0;
+  next.textContent = current === steps.length - 1 ? '完了' : '次へ';
+}
+opener.addEventListener('click', () =&gt; {
+  current = 0;
+  render();
+  dialog.showModal();
+});
+back.addEventListener('click', () =&gt; {
+  current = Math.max(0, current - 1);
+  render();
+});
+next.addEventListener('click', () =&gt; {
+  if (current === steps.length - 1) dialog.close();
+  else { current += 1; render(); }
+});
+root.querySelector('[data-modal-close]')
+  .addEventListener('click', () =&gt; dialog.close());
+dialog.addEventListener('click', (event) =&gt; {
+  if (event.target === dialog) dialog.close();
+});
+dialog.addEventListener('close', () =&gt; opener.focus());
+render();</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>オンボーディングや初期設定。現在位置を示し、戻る・次へを一貫して配置します。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="ナビ ボトムシート sheet メニュー モバイル 操作">
+          <header class="part-example__header"><div><span class="part-example__index">BOTTOM SHEET</span><h2>ボトムシート</h2></div><small>MOBILE MENU</small></header>
+          <div class="part-example__preview">
+            <div class="c-modal c-modal--sheet" data-modal-demo><button class="c-modal__trigger" type="button" data-modal-open>シートを開く</button><div class="c-modal__layer" role="dialog" aria-modal="true" aria-label="操作メニュー" data-modal-layer hidden><div class="c-modal__overlay" data-modal-close></div><div class="c-modal__panel"><span class="c-modal__handle" aria-hidden="true"></span><button class="c-modal__menu-item" type="button" data-modal-close data-initial-focus>プロフィールを見る</button><button class="c-modal__menu-item" type="button" data-modal-close>リンクを共有する</button><button class="c-modal__menu-item" type="button" data-modal-close>削除する</button></div></div></div>
+          </div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-modal c-modal--sheet" data-sheet-modal&gt;
+  &lt;button class="c-modal__trigger" type="button" data-modal-open&gt;シートを開く&lt;/button&gt;
+  &lt;dialog class="c-modal__layer" aria-label="操作メニュー"&gt;
+    &lt;section class="c-modal__panel"&gt;
+      &lt;span class="c-modal__handle" aria-hidden="true"&gt;&lt;/span&gt;
+      &lt;button class="c-modal__menu-item" type="button" data-modal-close&gt;プロフィールを見る&lt;/button&gt;
+      &lt;button class="c-modal__menu-item" type="button" data-modal-close&gt;リンクを共有する&lt;/button&gt;
+      &lt;button class="c-modal__menu-item" type="button" data-modal-close&gt;削除する&lt;/button&gt;
+    &lt;/section&gt;
+  &lt;/dialog&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-modal--sheet .c-modal__layer[open] {
+  align-items: flex-end;
+}
+.c-modal--sheet .c-modal__panel {
+  width: 100%;
+  max-height: 82dvh;
+  padding-top: 1.6rem;
+  border-radius: .75rem .75rem 0 0;
+}
+.c-modal__handle {
+  position: absolute;
+  top: .55rem;
+  left: 50%;
+  width: 2.5rem;
+  height: .25rem;
+  background: var(--color-grid-strong, #aeb8c7);
+  transform: translateX(-50%);
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-sheet-modal]');
+const dialog = root.querySelector('dialog');
+const opener = root.querySelector('[data-modal-open]');
+
+opener.addEventListener('click', () =&gt; dialog.showModal());
+root.querySelectorAll('[data-modal-close]').forEach((button) =&gt; {
+  button.addEventListener('click', () =&gt; dialog.close());
+});
+dialog.addEventListener('click', (event) =&gt; {
+  if (event.target === dialog) dialog.close();
+});
+dialog.addEventListener('close', () =&gt; opener.focus());</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>SPの共有メニューや補助操作。項目が多い場合はパネル内を縦スクロールさせます。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="ナビ 右 ドロワー drawer メニュー ナビゲーション">
+          <header class="part-example__header"><div><span class="part-example__index">RIGHT DRAWER</span><h2>右ドロワー</h2></div><small>NAVIGATION</small></header>
+          <div class="part-example__preview"><div class="c-modal c-modal--drawer" data-modal-demo><button class="c-modal__trigger" type="button" data-modal-open>右メニュー</button><div class="c-modal__layer" role="dialog" aria-modal="true" aria-label="右ナビゲーション" data-modal-layer hidden><div class="c-modal__overlay" data-modal-close></div><div class="c-modal__panel"><button class="c-modal__close" type="button" data-modal-close data-initial-focus aria-label="閉じる">×</button><span class="c-modal__eyebrow">MENU</span><button class="c-modal__menu-item" type="button" data-modal-close>ホーム</button><button class="c-modal__menu-item" type="button" data-modal-close>サービス</button><button class="c-modal__menu-item" type="button" data-modal-close>お問い合わせ</button></div></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-modal c-modal--drawer" data-right-drawer&gt;
+  &lt;button class="c-modal__trigger" type="button" data-modal-open&gt;右メニュー&lt;/button&gt;
+  &lt;dialog class="c-modal__layer" aria-label="右ナビゲーション"&gt;
+    &lt;nav class="c-modal__panel"&gt;
+      &lt;button class="c-modal__close" type="button" data-modal-close aria-label="閉じる"&gt;×&lt;/button&gt;
+      &lt;button class="c-modal__menu-item" type="button" data-modal-close&gt;ホーム&lt;/button&gt;
+      &lt;button class="c-modal__menu-item" type="button" data-modal-close&gt;サービス&lt;/button&gt;
+      &lt;button class="c-modal__menu-item" type="button" data-modal-close&gt;お問い合わせ&lt;/button&gt;
+    &lt;/nav&gt;
+  &lt;/dialog&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-modal--drawer .c-modal__layer[open] {
+  justify-content: flex-end;
+}
+.c-modal--drawer .c-modal__panel {
+  width: min(78%, 18rem);
+  height: 100dvh;
+  max-height: none;
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-right-drawer]');
+const dialog = root.querySelector('dialog');
+const opener = root.querySelector('[data-modal-open]');
+
+opener.addEventListener('click', () =&gt; dialog.showModal());
+root.querySelectorAll('[data-modal-close]').forEach((button) =&gt; {
+  button.addEventListener('click', () =&gt; dialog.close());
+});
+dialog.addEventListener('click', (event) =&gt; {
+  if (event.target === dialog) dialog.close();
+});
+dialog.addEventListener('close', () =&gt; opener.focus());</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>SPのグローバルナビゲーション。閉じた後は開いたボタンへフォーカスを戻します。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="ナビ 左 ドロワー drawer メニュー 管理画面">
+          <header class="part-example__header"><div><span class="part-example__index">LEFT DRAWER</span><h2>左ドロワー</h2></div><small>SIDE MENU</small></header>
+          <div class="part-example__preview"><div class="c-modal c-modal--drawer c-modal--drawer-left" data-modal-demo><button class="c-modal__trigger" type="button" data-modal-open>左メニュー</button><div class="c-modal__layer" role="dialog" aria-modal="true" aria-label="左ナビゲーション" data-modal-layer hidden><div class="c-modal__overlay" data-modal-close></div><div class="c-modal__panel"><button class="c-modal__close" type="button" data-modal-close data-initial-focus aria-label="閉じる">×</button><span class="c-modal__eyebrow">NAVIGATION</span><button class="c-modal__menu-item" type="button" data-modal-close>ダッシュボード</button><button class="c-modal__menu-item" type="button" data-modal-close>プロジェクト</button><button class="c-modal__menu-item" type="button" data-modal-close>設定</button></div></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-modal c-modal--drawer c-modal--drawer-left" data-left-drawer&gt;
+  &lt;button class="c-modal__trigger" type="button" data-modal-open&gt;左メニュー&lt;/button&gt;
+  &lt;dialog class="c-modal__layer" aria-label="左ナビゲーション"&gt;
+    &lt;nav class="c-modal__panel"&gt;
+      &lt;button class="c-modal__close" type="button" data-modal-close aria-label="閉じる"&gt;×&lt;/button&gt;
+      &lt;button class="c-modal__menu-item" type="button" data-modal-close&gt;ダッシュボード&lt;/button&gt;
+      &lt;button class="c-modal__menu-item" type="button" data-modal-close&gt;プロジェクト&lt;/button&gt;
+      &lt;button class="c-modal__menu-item" type="button" data-modal-close&gt;設定&lt;/button&gt;
+    &lt;/nav&gt;
+  &lt;/dialog&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-modal--drawer-left .c-modal__layer[open] {
+  justify-content: flex-start;
+}
+.c-modal--drawer-left .c-modal__panel {
+  width: min(78%, 18rem);
+  height: 100dvh;
+  max-height: none;
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-left-drawer]');
+const dialog = root.querySelector('dialog');
+const opener = root.querySelector('[data-modal-open]');
+
+opener.addEventListener('click', () =&gt; dialog.showModal());
+root.querySelectorAll('[data-modal-close]').forEach((button) =&gt; {
+  button.addEventListener('click', () =&gt; dialog.close());
+});
+dialog.addEventListener('click', (event) =&gt; {
+  if (event.target === dialog) dialog.close();
+});
+dialog.addEventListener('close', () =&gt; opener.focus());</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>管理画面やロゴ起点のサイドナビゲーション。右ドロワーと開閉処理を共有します。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="ナビ 特殊 フルスクリーン 全画面 メニュー navigation">
+          <header class="part-example__header"><div><span class="part-example__index">FULLSCREEN MENU</span><h2>フルスクリーンメニュー</h2></div><small>FULL VIEW</small></header>
+          <div class="part-example__preview"><div class="c-modal c-modal--fullscreen" data-modal-demo><button class="c-modal__trigger" type="button" data-modal-open>全画面メニュー</button><div class="c-modal__layer" role="dialog" aria-modal="true" aria-label="全画面メニュー" data-modal-layer hidden><div class="c-modal__panel"><button class="c-modal__close" type="button" data-modal-close data-initial-focus aria-label="閉じる">×</button><button class="c-modal__menu-item" type="button" data-modal-close>ABOUT</button><button class="c-modal__menu-item" type="button" data-modal-close>WORKS</button><button class="c-modal__menu-item" type="button" data-modal-close>CONTACT</button></div></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-modal c-modal--fullscreen" data-fullscreen-modal&gt;
+  &lt;button class="c-modal__trigger" type="button" data-modal-open&gt;全画面メニュー&lt;/button&gt;
+  &lt;dialog class="c-modal__layer" aria-label="全画面メニュー"&gt;
+    &lt;nav class="c-modal__panel"&gt;
+      &lt;button class="c-modal__close" type="button" data-modal-close aria-label="閉じる"&gt;×&lt;/button&gt;
+      &lt;button class="c-modal__menu-item" type="button" data-modal-close&gt;ABOUT&lt;/button&gt;
+      &lt;button class="c-modal__menu-item" type="button" data-modal-close&gt;WORKS&lt;/button&gt;
+      &lt;button class="c-modal__menu-item" type="button" data-modal-close&gt;CONTACT&lt;/button&gt;
+    &lt;/nav&gt;
+  &lt;/dialog&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-modal--fullscreen .c-modal__panel {
+  display: grid;
+  width: 100%;
+  height: 100dvh;
+  max-height: none;
+  place-content: center;
+  color: var(--color-text-inverse, #fff);
+  background: var(--color-primary, #18243b);
+  border: 0;
+}
+.c-modal--fullscreen .c-modal__menu-item {
+  min-width: 12rem;
+  color: inherit;
+  text-align: center;
+  border-color: rgb(255 255 255 / 30%);
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-fullscreen-modal]');
+const dialog = root.querySelector('dialog');
+const opener = root.querySelector('[data-modal-open]');
+
+opener.addEventListener('click', () =&gt; dialog.showModal());
+root.querySelectorAll('[data-modal-close]').forEach((button) =&gt; {
+  button.addEventListener('click', () =&gt; dialog.close());
+});
+dialog.addEventListener('close', () =&gt; opener.focus());</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ポートフォリオやブランドサイトの主要メニュー。選択肢を少数に絞る用途に向きます。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="自動表示 情報 特殊 時間差 popup キャンペーン delay">
+          <header class="part-example__header"><div><span class="part-example__index">DELAYED POPUP</span><h2>時間差ポップアップ</h2></div><small>AUTO DISPLAY</small></header>
+          <div class="part-example__preview"><div class="c-modal" data-modal-demo data-delayed-demo><button class="c-modal__trigger" type="button" data-delay-open>時間差表示を試す</button><p class="c-modal__status" data-delay-status aria-live="polite"></p><div class="c-modal__layer" role="dialog" aria-modal="true" aria-label="キャンペーン" data-modal-layer hidden><div class="c-modal__overlay" data-modal-close></div><div class="c-modal__panel"><button class="c-modal__close" type="button" data-modal-close data-initial-focus aria-label="閉じる">×</button><span class="c-modal__eyebrow">CAMPAIGN</span><h3 class="c-modal__title">期間限定のお知らせ</h3><p class="c-modal__text">自動表示は閲覧を妨げない頻度にします。</p><button class="c-modal__button" type="button" data-modal-close>詳しく見る</button></div></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-modal c-modal--delayed" data-delayed-modal data-delay="2000"&gt;
+  &lt;button class="c-modal__trigger" type="button" data-delay-open&gt;時間差表示を試す&lt;/button&gt;
+  &lt;p class="c-modal__status" data-delay-status aria-live="polite"&gt;&lt;/p&gt;
+  &lt;dialog class="c-modal__layer" aria-labelledby="delayed-title"&gt;
+    &lt;section class="c-modal__panel"&gt;
+      &lt;button class="c-modal__close" type="button" data-modal-close aria-label="閉じる"&gt;×&lt;/button&gt;
+      &lt;h2 class="c-modal__title" id="delayed-title"&gt;期間限定のお知らせ&lt;/h2&gt;
+      &lt;p class="c-modal__text"&gt;自動表示は閲覧を妨げない頻度にします。&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/dialog&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>@media (prefers-reduced-motion: no-preference) {
+  .c-modal--delayed .c-modal__panel {
+    animation: delayed-modal-enter 180ms ease both;
+  }
+}
+@keyframes delayed-modal-enter {
+  from { opacity: 0; transform: translateY(.75rem); }
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-delayed-modal]');
+const dialog = root.querySelector('dialog');
+const trigger = root.querySelector('[data-delay-open]');
+const status = root.querySelector('[data-delay-status]');
+const closeButton = root.querySelector('[data-modal-close]');
+const key = 'campaign-modal-closed';
+let timer;
+
+function openLater() {
+  window.clearTimeout(timer);
+  status.textContent = '表示を予約しました';
+  timer = window.setTimeout(() =&gt; {
+    if (!sessionStorage.getItem(key)) dialog.showModal();
+    status.textContent = '';
+  }, Number(root.dataset.delay));
+}
+trigger.addEventListener('click', () =&gt; {
+  sessionStorage.removeItem(key);
+  openLater();
+});
+closeButton.addEventListener('click', () =&gt; {
+  sessionStorage.setItem(key, '1');
+  dialog.close();
+});
+dialog.addEventListener('click', (event) =&gt; {
+  if (event.target === dialog) closeButton.click();
+});
+dialog.addEventListener('close', () =&gt; trigger.focus());
+openLater();</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>キャンペーンや登録案内。同一セッションでは再表示しない制御を組み合わせます。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="自動表示 確認 特殊 離脱防止 exit intent popup">
+          <header class="part-example__header"><div><span class="part-example__index">EXIT INTENT</span><h2>離脱防止ポップアップ</h2></div><small>DESKTOP SIGNAL</small></header>
+          <div class="part-example__preview"><div class="c-modal" data-modal-demo data-exit-demo><button class="c-modal__trigger" type="button" data-exit-open>離脱表示を再現</button><div class="c-modal__layer" role="dialog" aria-modal="true" aria-label="離脱前のお知らせ" data-modal-layer hidden><div class="c-modal__overlay" data-modal-close></div><div class="c-modal__panel"><button class="c-modal__close" type="button" data-modal-close data-initial-focus aria-label="閉じる">×</button><span class="c-modal__eyebrow">WAIT</span><h3 class="c-modal__title">ページを離れる前に</h3><p class="c-modal__text">保存していない内容がないか確認してください。</p></div></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-modal c-modal--exit" data-exit-modal&gt;
+  &lt;button class="c-modal__trigger" type="button" data-exit-open&gt;離脱表示を再現&lt;/button&gt;
+  &lt;dialog class="c-modal__layer" aria-labelledby="exit-title"&gt;
+    &lt;section class="c-modal__panel"&gt;
+      &lt;button class="c-modal__close" type="button" data-modal-close aria-label="閉じる"&gt;×&lt;/button&gt;
+      &lt;h2 class="c-modal__title" id="exit-title"&gt;ページを離れる前に&lt;/h2&gt;
+      &lt;p class="c-modal__text"&gt;保存していない内容がないか確認してください。&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/dialog&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-modal--exit .c-modal__panel {
+  width: min(82%, 20rem);
+  border-radius: .5rem;
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-exit-modal]');
+const dialog = root.querySelector('dialog');
+const testButton = root.querySelector('[data-exit-open]');
+const closeButton = root.querySelector('[data-modal-close]');
+
+function openDialog() {
+  if (!dialog.open) dialog.showModal();
+}
+function onMouseOut(event) {
+  if (!event.relatedTarget &amp;&amp; event.clientY &lt;= 0) {
+    openDialog();
+    document.removeEventListener('mouseout', onMouseOut);
+  }
+}
+testButton.addEventListener('click', openDialog);
+closeButton.addEventListener('click', () =&gt; dialog.close());
+dialog.addEventListener('click', (event) =&gt; {
+  if (event.target === dialog) dialog.close();
+});
+dialog.addEventListener('close', () =&gt; testButton.focus());
+document.addEventListener('mouseout', onMouseOut);</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>PCの離脱兆候に反応する補助施策。タッチ端末では時間差表示など別条件を用意します。</p></div>
+        </section>
+      </div>
+
+      <div class="part-detail-empty" data-pattern-empty hidden><p>[ NO_PATTERN_FOUND ]</p><p>キーワードを変更してください。</p></div>
+
+      <section class="part-common-styles" id="modal-common-styles" aria-labelledby="modal-common-styles-title">
+        <header class="part-common-styles__header reveal">
+          <p class="section-index">MODAL / COMMON_STYLE</p>
+          <h2 id="modal-common-styles-title">共通スタイル</h2>
+          <p>dialog要素・パネル・操作ボタンの共通設定です。</p>
+        </header>
+        <div class="part-common-styles__code reveal" data-reveal-threshold="0.01">
+          <div class="part-code">
+            <div class="part-code__header"><span>CSS / COMMON</span><button type="button" data-copy-code>COPY</button></div>
+            <pre><code>.c-modal,
+.c-modal * { box-sizing: border-box; }
+.c-modal {
+  display: grid;
+  place-items: center;
+  color: var(--color-text, #1c2430);
+  font-family: var(--font-sans, sans-serif);
+}
+.c-modal__trigger,
+.c-modal__button,
+.c-modal__menu-item,
+.c-modal__thumbnail {
+  min-height: 2.5rem;
+  padding: .65rem 1rem;
+  color: var(--color-text-inverse, #fff);
+  font: 700 .72rem/1.3 var(--font-mono, monospace);
+  background: var(--color-primary, #18243b);
+  border: 1px solid var(--color-primary, #18243b);
+  cursor: pointer;
+}
+.c-modal__trigger:focus-visible,
+.c-modal__button:focus-visible,
+.c-modal__menu-item:focus-visible,
+.c-modal__thumbnail:focus-visible,
+.c-modal__close:focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: 3px;
+}
+.c-modal__layer {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+}
+.c-modal__layer[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.c-modal__layer::backdrop { background: rgb(24 36 59 / 72%); }
+.c-modal__panel {
+  position: relative;
+  width: min(82%, 22rem);
+  max-height: calc(100dvh - 2rem);
+  margin: 0;
+  overflow: auto;
+  padding: 1.25rem;
+  color: var(--color-text, #1c2430);
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+  box-shadow: 0 1rem 2.5rem rgb(17 24 39 / 24%);
+}
+.c-modal__close {
+  position: absolute;
+  top: .6rem;
+  right: .6rem;
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  place-items: center;
+  color: var(--color-text, #1c2430);
+  background: var(--color-primary-soft, #edf1f7);
+  border: 0;
+  cursor: pointer;
+}
+.c-modal__title { margin: 0 2rem .65rem 0; font-size: 1rem; }
+.c-modal__text {
+  margin: 0 0 1rem;
+  color: var(--color-text-subtle, #667085);
+  font-size: .78rem;
+  line-height: 1.7;
+}
+.c-modal__actions {
+  display: flex;
+  gap: .5rem;
+  justify-content: flex-end;
+}
+.c-modal__button--secondary {
+  color: var(--color-primary, #18243b);
+  background: var(--color-background, #fff);
+}
+.c-modal__button--danger { background: #9f1d2c; border-color: #9f1d2c; }
+.c-modal__menu-item {
+  display: block;
+  width: 100%;
+  color: var(--color-text, #1c2430);
+  text-align: left;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--color-grid, #d9dfe8);
+}
+.c-modal__handle {
+  position: absolute;
+  top: .55rem;
+  left: 50%;
+  width: 2.5rem;
+  height: .25rem;
+  background: var(--color-grid-strong, #aeb8c7);
+  transform: translateX(-50%);
+}
+.c-modal__result,
+.c-modal__status {
+  min-height: 1.25rem;
+  margin: .75rem 0 0;
+  color: var(--color-text-subtle, #667085);
+  font-size: .72rem;
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <footer class="page-footer" aria-label="ページナビゲーション">
+        <a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO WEB PARTS</span></a>
+        <a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a>
+      </footer>
+    </main>
+
+    <script src="../js/web-parts-detail.js" defer></script>
+    <script src="../js/web-parts-modal.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

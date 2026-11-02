@@ -68,13 +68,19 @@ assert.match(page, /data-tool-id="bem-class-builder"/u);
 assert.match(page, /js\/bem-class-builder\.js/u);
 assert.match(page, /data-tool-workspace/u);
 
+const toolScript = await readFile(new URL('../js/tool.js', import.meta.url), 'utf8');
+assert.match(toolScript, /bem-builder__structure-value/u);
+
+const styles = await readFile(new URL('../css/pages.css', import.meta.url), 'utf8');
+assert.match(styles, /\.bem-builder__structure-value \{ max-width: 100%; overflow-wrap: anywhere; \}/u);
+
 const directory = await readFile(new URL('../tools/index.html', import.meta.url), 'utf8');
-assert.match(directory, /AVAILABLE: 16/u);
-assert.match(directory, /data-filter="all">ALL <span>16<\/span>/u);
-assert.match(directory, /data-filter="css">CSS <span>04<\/span>/u);
+assert.match(directory, /TOOLS: 25/u);
+assert.match(directory, /data-filter="all">ALL <span>25<\/span>/u);
+assert.match(directory, /data-filter="css">CSS <span>06<\/span>/u);
 assert.match(directory, /href="\.\/bem-class-builder\.html"/u);
 
 const home = await readFile(new URL('../index.html', import.meta.url), 'utf8');
-assert.match(home, /16 TOOLS/u);
+assert.match(home, /25 TOOLS/u);
 
 console.log('BEM Class Builder checks passed.');

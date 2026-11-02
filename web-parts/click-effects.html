@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="クリック、長押し、連打、ポインター移動へ即時フィードバックを返すVanilla JavaScript対応のクリック演出18パターンです。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>CLICK EFFECTS | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/click-effects.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="CLICK EFFECTS | MARK BENCH" />
+    <meta property="og:description" content="クリック、長押し、連打、ポインター移動へ即時フィードバックを返すVanilla JavaScript対応のクリック演出18パターンです。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/click-effects.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CLICK EFFECTS | MARK BENCH" />
+    <meta name="twitter:description" content="クリック、長押し、連打、ポインター移動へ即時フィードバックを返すVanilla JavaScript対応のクリック演出18パターンです。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "CLICK EFFECTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/click-effects.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/web-parts.css" />
+    <link rel="stylesheet" href="../css/web-parts-click-effects.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts-detail" data-parts-detail>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header"><div class="site-header__bar"><nav class="site-breadcrumb-logo" aria-label="パンくずリスト"><a class="site-logo" href="../index.html">MARK BENCH</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><a class="site-breadcrumb-logo__parent" href="./">WEB PARTS</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><span class="site-breadcrumb-logo__current" aria-current="page">CLICK EFFECTS</span></nav></div></header>
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション"><a href="../tools/"><strong>TOOLS</strong></a><a href="./" aria-current="location"><strong>WEB PARTS</strong></a><a href="../build-notes/"><strong>BUILD NOTES</strong></a><a href="../about.html"><strong>ABOUT</strong></a></nav>
+
+    <main id="main" tabindex="-1">
+      <header class="part-detail-header">
+        <p class="section-index reveal">WEB_PARTS / CLICK_EFFECTS</p>
+        <h1 class="reveal">CLICK EFFECTS</h1>
+        <p class="part-detail-header__lead reveal">ボタン操作の手応え、処理の成否、祝福表現、長押しや連打の進行、ポインターとの距離感を視覚的に伝えるクリック演出18パターンです。CTA、評価、フォーム、削除確認、キャンペーン画面などで操作結果を迷わせずに返します。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 18</span><span>TYPE: CSS + JS</span><span>DEPENDENCY: NONE</span></div>
+        <a class="part-detail-header__anchor reveal" href="#click-effects-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
+      </header>
+
+      <section class="part-detail-controls directory-search directory-keywords" aria-label="クリック演出パターンを絞り込み">
+        <div class="directory-keywords__group"><p class="directory-keywords__label">KEYWORDS</p><div class="directory-keywords__list">
+          <button type="button" aria-pressed="false" data-pattern-keyword="基本"># 基本</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="状態"># 状態</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="エラー"># エラー</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="祝福"># 祝福</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="長押し"># 長押し</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="連打"># 連打</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="ポインター"># ポインター</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="実務追加"># 実務追加</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="コピー"># コピー</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="確認"># 確認</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="取り消し"># 取り消し</button>
+        </div></div>
+        <p>DISPLAY: <span data-pattern-count>18</span> / 18</p>
+      </section>
+
+      <div class="part-example-list">
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="基本 クリック 波紋 ripple feedback button pointer keyboard CTA">
+          <header class="part-example__header"><div><span class="part-example__index">CLICK FEEDBACK / 01</span><h2>リップル（波紋）</h2></div><small>RIPPLE</small></header>
+          <div class="part-example__preview"><div class="c-click-effect"><button class="c-click-effect__button" type="button" data-click-ripple>CLICK ME</button></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-ripple" type="button" data-ripple&gt;CLICK ME&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-ripple { position: relative; overflow: hidden; padding: .8rem 1.2rem; color: #fff; background: #18243b; border: 0; }
+.c-ripple__wave { position: absolute; width: 1rem; height: 1rem; background: rgb(255 255 255 / 50%); border-radius: 50%; transform: translate(-50%, -50%); animation: ripple .65s ease-out forwards; pointer-events: none; }
+@keyframes ripple { to { opacity: 0; transform: translate(-50%, -50%) scale(18); } }
+@media (prefers-reduced-motion: reduce) { .c-ripple__wave { display: none; } }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-ripple]').forEach((button) =&gt; {
+  button.addEventListener('click', (event) =&gt; {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const rect = button.getBoundingClientRect();
+    const keyboard = event.detail === 0;
+    const wave = document.createElement('span');
+    wave.className = 'c-ripple__wave';
+    wave.style.left = `${keyboard ? rect.width / 2 : event.clientX - rect.left}px`;
+    wave.style.top = `${keyboard ? rect.height / 2 : event.clientY - rect.top}px`;
+    wave.setAttribute('aria-hidden', 'true');
+    button.append(wave);
+    wave.addEventListener('animationend', () =&gt; wave.remove(), { once: true });
+  });
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>主要ボタンやCTAで、マウス・タッチ・キーボードによる押下をその場で明確に返す場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="基本 状態 いいね ハート like favorite toggle count aria pressed 評価 お気に入り">
+          <header class="part-example__header"><div><span class="part-example__index">CLICK FEEDBACK / 02</span><h2>いいねハート</h2></div><small>LIKE TOGGLE</small></header>
+          <div class="part-example__preview"><div class="c-click-effect"><button class="c-click-effect__button c-click-effect__like" type="button" data-click-like aria-pressed="false"><span class="c-click-effect__like-icon" aria-hidden="true">♥</span><span>LIKE</span><span data-like-count>24</span></button></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-like" type="button" data-like aria-pressed="false"&gt;
+  &lt;span aria-hidden="true"&gt;♥&lt;/span&gt; LIKE &lt;b data-count&gt;24&lt;/b&gt;
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-like { position: relative; padding: .8rem 1rem; color: #1c2430; background: #fff; border: 1px solid #aeb8c7; }
+.c-like span { color: #667085; font-size: 1.2rem; }
+.c-like[aria-pressed="true"] span { color: #b42318; transform: scale(1.15); }
+.c-like:focus-visible { outline: 3px solid #315a9b; outline-offset: 3px; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-like]').forEach((button) =&gt; {
+  const count = button.querySelector('[data-count]');
+  const initial = Number(count.textContent);
+  button.addEventListener('click', () =&gt; {
+    const active = button.getAttribute('aria-pressed') !== 'true';
+    button.setAttribute('aria-pressed', active);
+    count.textContent = initial + (active ? 1 : 0);
+  });
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>記事、商品、投稿への評価やお気に入り登録で、選択状態と件数を同時に更新する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="基本 状態 バッジ count badge pop notification cart increment カート 通知 件数">
+          <header class="part-example__header"><div><span class="part-example__index">CLICK FEEDBACK / 03</span><h2>カウントバッジポップ</h2></div><small>BADGE POP</small></header>
+          <div class="part-example__preview"><div class="c-click-effect"><button class="c-click-effect__button c-click-effect__badge-button" type="button" data-click-badge>ADD TO CART <span class="c-click-effect__badge" data-badge-count aria-live="polite">0</span></button></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-badge-button" type="button" data-badge-button&gt;
+  ADD TO CART &lt;span data-count aria-live="polite"&gt;0&lt;/span&gt;
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-badge-button { padding: .8rem 1rem; color: #fff; background: #18243b; border: 0; }
+.c-badge-button span { display: inline-grid; min-width: 1.6rem; height: 1.6rem; place-items: center; color: #18243b; background: #ff0; border-radius: 99px; }
+.c-badge-button span.is-pop { animation: pop .3s ease-out; }
+@keyframes pop { 50% { transform: scale(1.35); } }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-badge-button]').forEach((button) =&gt; {
+  const count = button.querySelector('[data-count]');
+  button.addEventListener('click', () =&gt; {
+    count.textContent = Number(count.textContent) + 1;
+    count.classList.remove('is-pop');
+    void count.offsetWidth;
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) count.classList.add('is-pop');
+  });
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>カート追加、通知、比較リストなど、クリックで増えた件数を小さな領域でも見逃させたくない場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="状態 完了 成功 loading spinner check success submit 送信 処理中 disabled">
+          <header class="part-example__header"><div><span class="part-example__index">STATE CHANGE / 01</span><h2>成功チェック変化</h2></div><small>LOADING TO DONE</small></header>
+          <div class="part-example__preview"><div class="c-click-effect"><button class="c-click-effect__button c-click-effect__success-button" type="button" data-click-success><span data-success-label aria-live="polite">送信する</span></button></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-success" type="button" data-success&gt;
+  &lt;span data-label aria-live="polite"&gt;送信する&lt;/span&gt;
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-success { min-width: 10rem; padding: .8rem; color: #fff; background: #18243b; border: 0; }
+.c-success.is-loading::before { display: inline-block; width: .8rem; height: .8rem; margin-right: .5rem; border: 2px solid #ffffff66; border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; content: ""; }
+.c-success.is-complete { background: #1f7a4c; }
+.c-success.is-complete::before { margin-right: .5rem; content: "✓"; }
+@keyframes spin { to { transform: rotate(360deg); } }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-success]').forEach((button) =&gt; {
+  const label = button.querySelector('[data-label]');
+  button.addEventListener('click', () =&gt; {
+    if (button.disabled) return;
+    button.disabled = true; button.classList.add('is-loading'); label.textContent = '送信中';
+    setTimeout(() =&gt; {
+      button.classList.replace('is-loading', 'is-complete'); label.textContent = '送信完了';
+      setTimeout(() =&gt; { button.disabled = false; button.classList.remove('is-complete'); label.textContent = '送信する'; }, 1600);
+    }, matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 650);
+  });
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>フォーム送信や保存処理で、多重実行を防ぎながら処理中と完了を同じボタン内で伝える場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="状態 エラー shake invalid validation form input warning シェイク 入力 検証 focus">
+          <header class="part-example__header"><div><span class="part-example__index">STATE CHANGE / 02</span><h2>シェイクエラー</h2></div><small>VALIDATION ERROR</small></header>
+          <div class="part-example__preview"><div class="c-click-effect c-click-effect__form" data-click-shake><label for="click-effect-email">EMAIL</label><div class="c-click-effect__form-row"><input id="click-effect-email" type="email" aria-invalid="false" aria-describedby="click-effect-error" placeholder="name@example.com" /><button class="c-click-effect__button" type="button" data-shake-trigger>CHECK</button></div><p class="c-click-effect__form-message" id="click-effect-error" data-shake-message hidden>メールアドレスを確認してください。</p></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-shake" data-shake&gt;
+  &lt;input type="email" aria-invalid="false" aria-describedby="email-error"&gt;
+  &lt;button type="button" data-trigger&gt;CHECK&lt;/button&gt;
+  &lt;p id="email-error" data-message hidden&gt;メールアドレスを確認してください。&lt;/p&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-shake { display: grid; gap: .5rem; }
+.c-shake input { padding: .7rem; border: 1px solid #aeb8c7; }
+.c-shake input[aria-invalid="true"] { border-color: #b42318; }
+.c-shake p { margin: 0; color: #b42318; }
+.c-shake.is-error { animation: shake .4s ease; }
+@keyframes shake { 25%, 75% { transform: translateX(-.4rem); } 50% { transform: translateX(.4rem); } }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-shake]').forEach((root) =&gt; {
+  const input = root.querySelector('input');
+  const message = root.querySelector('[data-message]');
+  root.querySelector('[data-trigger]').addEventListener('click', () =&gt; {
+    root.classList.remove('is-error'); void root.offsetWidth;
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) root.classList.add('is-error');
+    input.setAttribute('aria-invalid', 'true'); message.hidden = false; input.focus();
+  });
+  input.addEventListener('input', () =&gt; { input.setAttribute('aria-invalid', 'false'); message.hidden = true; });
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ログインや入力フォームで、修正が必要な項目へフォーカスを移し、視覚とテキストの両方でエラーを伝える場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="祝福 紙吹雪 confetti celebration complete campaign achievement 成功 達成">
+          <header class="part-example__header"><div><span class="part-example__index">CELEBRATION / 01</span><h2>紙吹雪</h2></div><small>CONFETTI</small></header>
+          <div class="part-example__preview"><div class="c-click-effect c-click-effect--celebrate" data-click-confetti><button class="c-click-effect__button" type="button">CELEBRATE</button></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-confetti" data-confetti&gt;&lt;button type="button"&gt;CELEBRATE&lt;/button&gt;&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-confetti { position: relative; min-height: 8rem; display: grid; place-items: center; }
+.c-confetti__piece { position: absolute; top: 50%; left: 50%; width: .45rem; height: .75rem; background: var(--color); animation: confetti .9s ease-out forwards; pointer-events: none; }
+@keyframes confetti { 55% { transform: translate(var(--x), -4rem) rotate(var(--r)); } 100% { opacity: 0; transform: translate(var(--x), 4rem) rotate(var(--r)); } }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-confetti]').forEach((root) =&gt; {
+  root.querySelector('button').addEventListener('click', () =&gt; {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    for (let i = 0; i &lt; 18; i += 1) {
+      const piece = document.createElement('span'); piece.className = 'c-confetti__piece';
+      piece.style.setProperty('--x', `${(Math.random() - .5) * 220}px`);
+      piece.style.setProperty('--r', `${Math.random() * 480}deg`);
+      piece.style.setProperty('--color', ['#18243b','#315a9b','#ff0','#d9485f'][i % 4]);
+      root.append(piece); piece.addEventListener('animationend', () =&gt; piece.remove(), { once: true });
+    }
+  });
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>申込完了、目標達成、キャンペーン当選など、頻度を限定した大きな成功体験を祝う場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="祝福 スターバースト star burst sparkle click position reward キラキラ 星">
+          <header class="part-example__header"><div><span class="part-example__index">CELEBRATION / 02</span><h2>スターバースト</h2></div><small>STAR BURST</small></header>
+          <div class="part-example__preview"><div class="c-click-effect c-click-effect--celebrate"><button class="c-click-effect__button c-click-effect__burst" type="button" data-click-burst>GET REWARD</button></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-burst" type="button" data-burst&gt;GET REWARD&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-burst { position: relative; padding: .8rem 1rem; overflow: visible; color: #fff; background: #18243b; border: 0; }
+.c-burst__star { position: absolute; color: #ff0; transform: translate(-50%, -50%); animation: burst .65s ease-out forwards; pointer-events: none; }
+@keyframes burst { to { opacity: 0; transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) rotate(120deg); } }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-burst]').forEach((button) =&gt; button.addEventListener('click', () =&gt; {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  for (let i = 0; i &lt; 8; i += 1) {
+    const angle = Math.PI * 2 * i / 8; const star = document.createElement('span');
+    star.className = 'c-burst__star'; star.textContent = '✦'; star.style.left = '50%'; star.style.top = '50%';
+    star.style.setProperty('--x', `${Math.cos(angle) * 64}px`); star.style.setProperty('--y', `${Math.sin(angle) * 64}px`);
+    star.setAttribute('aria-hidden', 'true'); button.append(star);
+    star.addEventListener('animationend', () =&gt; star.remove(), { once: true });
+  }
+}));</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ポイント獲得、クーポン適用、ゲーム内報酬など、クリック地点を中心に小さく祝福する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="長押し press hold progress destructive confirm cancel keyboard pointer 削除 確認 ゲージ">
+          <header class="part-example__header"><div><span class="part-example__index">PRESS FLOW / 01</span><h2>長押しゲージ</h2></div><small>PRESS AND HOLD</small></header>
+          <div class="part-example__preview"><div class="c-click-effect"><button class="c-click-effect__button c-click-effect__hold" type="button" data-click-hold><span data-hold-label aria-live="polite">長押しで削除</span></button></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-hold" type="button" data-hold&gt;&lt;span aria-live="polite"&gt;長押しで削除&lt;/span&gt;&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-hold { position: relative; padding: .8rem 1rem; overflow: hidden; color: #fff; background: #18243b; border: 0; }
+.c-hold::after { position: absolute; inset: auto 0 0; height: .3rem; background: #ff0; transform: scaleX(0); transform-origin: left; content: ""; }
+.c-hold.is-holding::after { animation: hold 1s linear forwards; }
+.c-hold.is-complete { background: #1f7a4c; }
+@keyframes hold { to { transform: scaleX(1); } }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-hold]').forEach((button) =&gt; {
+  const label = button.querySelector('span'); let timer = 0;
+  const start = () =&gt; { button.classList.add('is-holding'); timer = setTimeout(() =&gt; { button.classList.remove('is-holding'); button.classList.add('is-complete'); label.textContent = '削除を確定しました'; }, 1000); };
+  const cancel = () =&gt; { clearTimeout(timer); button.classList.remove('is-holding'); };
+  button.addEventListener('pointerdown', start); ['pointerup','pointerleave','pointercancel'].forEach((name) =&gt; button.addEventListener(name, cancel));
+  button.addEventListener('keydown', (event) =&gt; { if ((event.key === ' ' || event.key === 'Enter') &amp;&amp; !event.repeat) { event.preventDefault(); start(); } });
+  button.addEventListener('keyup', cancel);
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>削除、初期化、公開など、誤操作の影響が大きい処理を押下時間でもう一段確認する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="連打 combo counter repeated click timeout game campaign tap コンボ カウンター リセット">
+          <header class="part-example__header"><div><span class="part-example__index">PRESS FLOW / 02</span><h2>連打コンボカウンター</h2></div><small>COMBO COUNT</small></header>
+          <div class="part-example__preview"><div class="c-click-effect c-click-effect__combo" data-click-combo data-wait="1200"><output class="c-click-effect__combo-output" data-combo-output aria-live="polite">READY</output><button class="c-click-effect__button" type="button">TAP!</button></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-combo" data-combo data-wait="1200"&gt;
+  &lt;output data-output aria-live="polite"&gt;READY&lt;/output&gt;
+  &lt;button type="button"&gt;TAP!&lt;/button&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-combo { display: grid; gap: .7rem; place-items: center; }
+.c-combo output { color: #18243b; font: 700 1.4rem monospace; }
+.c-combo output.is-pop { animation: pop .24s ease-out; }
+@keyframes pop { 50% { transform: scale(1.3); } }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-combo]').forEach((root) =&gt; {
+  const output = root.querySelector('[data-output]'); let count = 0, timer = 0;
+  root.querySelector('button').addEventListener('click', () =&gt; {
+    count += 1; output.textContent = `${count} COMBO`; output.classList.remove('is-pop'); void output.offsetWidth;
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) output.classList.add('is-pop');
+    clearTimeout(timer); timer = setTimeout(() =&gt; { count = 0; output.textContent = 'READY'; }, Number(root.dataset.wait));
+  });
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ゲーム、投票、期間限定キャンペーンで、一定時間内の連続操作を数えて盛り上げる場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="ポインター mouse stalker follower cursor hover fine pointer link マウスストーカー 追従">
+          <header class="part-example__header"><div><span class="part-example__index">POINTER RESPONSE / 01</span><h2>マウスストーカー</h2></div><small>CURSOR FOLLOWER</small></header>
+          <div class="part-example__preview"><div class="c-click-effect c-click-effect__pointer-area" data-click-stalker><p>MOVE POINTER</p><a class="c-click-effect__pointer-link" href="#click-effects-common-styles" data-stalker-target>VIEW COMMON STYLE</a><span class="c-click-effect__follower" data-stalker-follower aria-hidden="true"></span></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-stalker" data-stalker&gt;
+  &lt;a href="#detail" data-target&gt;VIEW DETAIL&lt;/a&gt;
+  &lt;span data-follower aria-hidden="true"&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-stalker { position: relative; min-height: 10rem; display: grid; place-items: center; overflow: hidden; }
+.c-stalker [data-follower] { position: absolute; top: -.75rem; left: -.75rem; width: 1.5rem; height: 1.5rem; opacity: 0; background: #ffff00b8; border-radius: 50%; pointer-events: none; }
+.c-stalker [data-follower].is-visible { opacity: 1; }
+@media (hover: none), (prefers-reduced-motion: reduce) { .c-stalker [data-follower] { display: none; } }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>if (matchMedia('(hover: hover) and (pointer: fine)').matches &amp;&amp; !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('[data-stalker]').forEach((root) =&gt; {
+    const follower = root.querySelector('[data-follower]');
+    root.addEventListener('pointermove', (event) =&gt; {
+      const rect = root.getBoundingClientRect();
+      follower.style.transform = `translate(${event.clientX - rect.left}px, ${event.clientY - rect.top}px)`;
+      follower.classList.add('is-visible');
+    });
+    root.addEventListener('pointerleave', () =&gt; follower.classList.remove('is-visible'));
+  });
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ポートフォリオや特設サイトで、リンク領域との関係を示しながらポインター体験を演出する場面。タッチ端末では通常表示を維持します。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="ポインター 3D tilt card mouse perspective hover fine pointer 傾き カード 奥行き">
+          <header class="part-example__header"><div><span class="part-example__index">POINTER RESPONSE / 02</span><h2>3Dチルトカード</h2></div><small>TILT CARD</small></header>
+          <div class="part-example__preview"><div class="c-click-effect"><article class="c-click-effect__tilt" data-click-tilt tabindex="0"><small>FEATURED PROJECT</small><strong>MARK BENCH</strong></article></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;article class="c-tilt" data-tilt tabindex="0"&gt;&lt;small&gt;FEATURED PROJECT&lt;/small&gt;&lt;strong&gt;MARK BENCH&lt;/strong&gt;&lt;/article&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tilt { min-height: 10rem; padding: 1.5rem; color: #fff; background: linear-gradient(135deg, #18243b, #263a5e); transition: transform .16s ease; transform-style: preserve-3d; }
+.c-tilt strong { display: block; margin-top: .5rem; transform: translateZ(1.2rem); }
+.c-tilt:focus-visible { outline: 3px solid #315a9b; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .c-tilt { transition: none; } }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>if (matchMedia('(hover: hover) and (pointer: fine)').matches &amp;&amp; !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('[data-tilt]').forEach((card) =&gt; {
+    card.addEventListener('pointermove', (event) =&gt; {
+      const rect = card.getBoundingClientRect(); const x = (event.clientX - rect.left) / rect.width - .5; const y = (event.clientY - rect.top) / rect.height - .5;
+      card.style.transform = `perspective(700px) rotateX(${-y * 12}deg) rotateY(${x * 12}deg)`;
+    });
+    card.addEventListener('pointerleave', () =&gt; { card.style.transform = ''; });
+  });
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>制作実績や商品カードで、ポインター位置に応じた奥行きを加え、注目領域を印象づける場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="ポインター magnet magnetic button CTA hover fine pointer 吸着 マグネット ボタン">
+          <header class="part-example__header"><div><span class="part-example__index">POINTER RESPONSE / 03</span><h2>マグネットボタン</h2></div><small>MAGNETIC CTA</small></header>
+          <div class="part-example__preview"><div class="c-click-effect c-click-effect__magnet" data-click-magnet><button class="c-click-effect__button" type="button">CONTACT US</button></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-magnet" data-magnet&gt;&lt;button type="button"&gt;CONTACT US&lt;/button&gt;&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-magnet { min-height: 10rem; display: grid; place-items: center; }
+.c-magnet button { padding: .8rem 1.2rem; color: #fff; background: #18243b; border: 0; transition: transform .13s ease-out; }
+.c-magnet button:focus-visible { outline: 3px solid #315a9b; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .c-magnet button { transition: none; } }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>if (matchMedia('(hover: hover) and (pointer: fine)').matches &amp;&amp; !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('[data-magnet]').forEach((root) =&gt; {
+    const button = root.querySelector('button');
+    root.addEventListener('pointermove', (event) =&gt; {
+      const rect = button.getBoundingClientRect();
+      button.style.transform = `translate(${(event.clientX - rect.left - rect.width / 2) * .22}px, ${(event.clientY - rect.top - rect.height / 2) * .22}px)`;
+    });
+    root.addEventListener('pointerleave', () =&gt; { button.style.transform = ''; });
+  });
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>問い合わせや購入などの重要CTAで、広めの反応領域からボタンへ視線とポインターを自然に誘導する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="実務追加 コピー copy clipboard complete feedback URL 共有 フォールバック">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL ADDITION / 01</span><h2>コピー完了フィードバック</h2></div><small>ORIGINAL / COPY</small></header>
+          <div class="part-example__preview"><div class="c-click-effect"><button class="c-click-effect__button c-click-effect__copy" type="button" data-click-copy data-copy-value="https://markbench.example/work"><span data-copy-label aria-live="polite">URLをコピー</span></button></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-copy" type="button" data-copy data-value="https://example.com/work"&gt;
+  &lt;span data-label aria-live="polite"&gt;URLをコピー&lt;/span&gt;
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-copy { padding: .8rem 1rem; color: #fff; background: #18243b; border: 1px solid #18243b; }
+.c-copy.is-complete { background: #1f7a4c; border-color: #1f7a4c; }
+.c-copy.is-complete::before { margin-right: .45rem; content: "✓"; }
+.c-copy:focus-visible { outline: 3px solid #315a9b; outline-offset: 3px; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-copy]').forEach((button) =&gt; {
+  const label = button.querySelector('[data-label]');
+  const fallback = () =&gt; {
+    const area = document.createElement('textarea'); area.value = button.dataset.value;
+    area.style.position = 'fixed'; area.style.opacity = '0'; document.body.append(area); area.select();
+    const copied = document.execCommand('copy');
+    area.remove();
+    if (!copied) throw new Error('copy failed');
+  };
+  button.addEventListener('click', async () =&gt; {
+    try { navigator.clipboard?.writeText ? await navigator.clipboard.writeText(button.dataset.value) : fallback(); }
+    catch {
+      try { fallback(); }
+      catch { label.textContent = 'コピーできませんでした'; return; }
+    }
+    button.classList.add('is-complete'); label.textContent = 'コピーしました';
+    setTimeout(() =&gt; { button.classList.remove('is-complete'); label.textContent = 'URLをコピー'; }, 1600);
+  });
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>URL、招待コード、注文番号などをコピーした直後に、処理が完了したことをボタン内で明確に伝える場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="実務追加 確認 削除 confirm double click destructive safety timeout 二段階 危険操作">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL ADDITION / 02</span><h2>二段階削除確認</h2></div><small>ORIGINAL / CONFIRM</small></header>
+          <div class="part-example__preview"><div class="c-click-effect"><button class="c-click-effect__button c-click-effect__confirm" type="button" data-click-confirm><span data-confirm-label aria-live="polite">削除する</span></button></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-confirm" type="button" data-confirm&gt;
+  &lt;span data-label aria-live="polite"&gt;削除する&lt;/span&gt;
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-confirm { padding: .8rem 1rem; color: #fff; background: #b42318; border: 1px solid #b42318; }
+.c-confirm.is-armed { color: #18243b; background: #ff0; border-color: #18243b; }
+.c-confirm.is-complete { background: #1f7a4c; border-color: #1f7a4c; }
+.c-confirm:focus-visible { outline: 3px solid #315a9b; outline-offset: 3px; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-confirm]').forEach((button) =&gt; {
+  const label = button.querySelector('[data-label]'); let armed = false, timer = 0;
+  button.addEventListener('click', () =&gt; {
+    clearTimeout(timer);
+    if (!armed) {
+      armed = true; button.classList.add('is-armed'); label.textContent = 'もう一度押して削除';
+      timer = setTimeout(() =&gt; { armed = false; button.classList.remove('is-armed'); label.textContent = '削除する'; }, 3000);
+      return;
+    }
+    armed = false; button.classList.remove('is-armed'); button.classList.add('is-complete'); button.disabled = true; label.textContent = '削除しました';
+    setTimeout(() =&gt; { button.disabled = false; button.classList.remove('is-complete'); label.textContent = '削除する'; }, 1600);
+  });
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>一覧上の削除や初期化など、モーダルを開くほどではない危険操作を同じ場所でもう一度確認する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="実務追加 連打防止 cooldown disabled resend OTP submit 二重送信 認証コード カウントダウン">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL ADDITION / 03</span><h2>再送クールダウン</h2></div><small>ORIGINAL / COOLDOWN</small></header>
+          <div class="part-example__preview"><div class="c-click-effect"><button class="c-click-effect__button c-click-effect__cooldown" type="button" data-click-cooldown data-seconds="3"><span data-cooldown-label aria-live="polite">認証コードを送信</span></button></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-cooldown" type="button" data-cooldown data-seconds="3"&gt;
+  &lt;span data-label aria-live="polite"&gt;認証コードを送信&lt;/span&gt;
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-cooldown { padding: .8rem 1rem; color: #fff; background: #18243b; border: 1px solid #18243b; }
+.c-cooldown:disabled { color: #667085; background: #f5f7fa; border-color: #aeb8c7; cursor: wait; }
+.c-cooldown.is-cooling::before { display: inline-block; width: .7rem; height: .7rem; margin-right: .5rem; border: 2px solid #aeb8c7; border-top-color: #18243b; border-radius: 50%; animation: spin .7s linear infinite; content: ""; }
+@keyframes spin { to { transform: rotate(360deg); } }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-cooldown]').forEach((button) =&gt; {
+  const label = button.querySelector('[data-label]');
+  button.addEventListener('click', () =&gt; {
+    let remaining = Number(button.dataset.seconds || 3);
+    button.disabled = true; button.classList.add('is-cooling'); label.textContent = `再送まで ${remaining}秒`;
+    const timer = setInterval(() =&gt; {
+      remaining -= 1;
+      if (remaining &gt; 0) { label.textContent = `再送まで ${remaining}秒`; return; }
+      clearInterval(timer); button.disabled = false; button.classList.remove('is-cooling'); label.textContent = '認証コードを送信';
+    }, 1000);
+  });
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>認証コード送信、メール再送、重いAPI処理などで、実行済みの状態と再操作可能になるまでの時間を伝える場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="実務追加 保存 save status async form settings autosave dirty complete 設定 未保存">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL ADDITION / 04</span><h2>保存ステータス</h2></div><small>ORIGINAL / SAVE STATUS</small></header>
+          <div class="part-example__preview"><div class="c-click-effect c-click-effect__save" data-click-save><label for="click-save-name">表示名</label><div class="c-click-effect__save-row"><input id="click-save-name" type="text" value="MARK BENCH" /><button class="c-click-effect__button" type="button">保存</button></div><p class="c-click-effect__save-status" data-save-status role="status">変更はありません</p></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-save" data-save&gt;
+  &lt;input type="text" value="MARK BENCH" aria-label="表示名"&gt;
+  &lt;button type="button"&gt;保存&lt;/button&gt;
+  &lt;p data-status role="status"&gt;変更はありません&lt;/p&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-save { display: grid; grid-template-columns: 1fr auto; gap: .5rem; font-family: sans-serif; }
+.c-save input { min-width: 0; padding: .7rem; border: 1px solid #aeb8c7; }
+.c-save button { padding: .7rem .9rem; color: #fff; background: #18243b; border: 0; }
+.c-save p { grid-column: 1 / -1; margin: 0; color: #667085; font-size: .72rem; }
+.c-save.is-complete p { color: #1f7a4c; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-save]').forEach((root) =&gt; {
+  const button = root.querySelector('button'); const status = root.querySelector('[data-status]');
+  root.querySelector('input').addEventListener('input', () =&gt; { root.classList.remove('is-complete'); status.textContent = '未保存の変更'; });
+  button.addEventListener('click', () =&gt; {
+    button.disabled = true; status.textContent = '保存中…';
+    setTimeout(() =&gt; { button.disabled = false; root.classList.add('is-complete'); status.textContent = '保存しました'; }, 700);
+  });
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>設定画面や編集フォームで、未保存・保存中・保存済みを入力欄の近くへ継続的に表示する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="実務追加 カート cart ecommerce fly add count product purchase animation 商品 購入">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL ADDITION / 05</span><h2>カート追加フライ</h2></div><small>ORIGINAL / ADD TO CART</small></header>
+          <div class="part-example__preview"><div class="c-click-effect c-click-effect__cart" data-click-cart><span class="c-click-effect__cart-indicator" aria-label="カート内の商品数"><span aria-hidden="true">CART</span><span class="c-click-effect__cart-count" data-cart-count aria-live="polite">0</span></span><button class="c-click-effect__button" type="button">カートへ追加</button></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-cart" data-cart&gt;
+  &lt;span class="c-cart__count" data-count aria-live="polite"&gt;0&lt;/span&gt;
+  &lt;button type="button"&gt;カートへ追加&lt;/button&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-cart { position: relative; min-height: 9rem; display: grid; overflow: hidden; place-items: center; border: 1px solid #aeb8c7; }
+.c-cart__count { position: absolute; top: .7rem; right: .7rem; display: grid; width: 1.6rem; height: 1.6rem; place-items: center; background: #ff0; border-radius: 50%; }
+.c-cart__fly { position: absolute; top: 54%; left: 50%; display: grid; width: 1.6rem; height: 1.6rem; place-items: center; color: #fff; background: #18243b; border-radius: 50%; animation: fly .65s ease-in forwards; }
+@keyframes fly { to { opacity: .2; transform: translate(7rem, -4rem) scale(.4); } }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-cart]').forEach((root) =&gt; {
+  const count = root.querySelector('[data-count]');
+  root.querySelector('button').addEventListener('click', () =&gt; {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { count.textContent = Number(count.textContent) + 1; return; }
+    const item = document.createElement('span'); item.className = 'c-cart__fly'; item.textContent = '＋'; item.setAttribute('aria-hidden', 'true'); root.append(item);
+    item.addEventListener('animationend', () =&gt; { item.remove(); count.textContent = Number(count.textContent) + 1; }, { once: true });
+  });
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ECサイトで、商品がカートへ追加されたことと現在の商品数を同じ操作の流れで伝える場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="実務追加 取り消し undo delete recover snackbar list item restoration 削除 復元">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL ADDITION / 06</span><h2>取り消し可能な削除</h2></div><small>ORIGINAL / UNDO</small></header>
+          <div class="part-example__preview"><div class="c-click-effect c-click-effect__undo" data-click-undo><div class="c-click-effect__undo-item" data-undo-item><span><strong>下書きページ</strong><small>最終更新 10:24</small></span><button type="button" data-undo-delete>削除</button></div><div class="c-click-effect__undo-bar" data-undo-bar hidden><span>削除しました</span><button type="button" data-undo-restore>取り消す</button></div><p class="c-click-effect__undo-status" data-undo-status role="status"></p></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-undo" data-undo&gt;
+  &lt;div data-item&gt;&lt;span&gt;下書きページ&lt;/span&gt;&lt;button type="button" data-delete&gt;削除&lt;/button&gt;&lt;/div&gt;
+  &lt;div data-bar hidden&gt;&lt;span&gt;削除しました&lt;/span&gt;&lt;button type="button" data-restore&gt;取り消す&lt;/button&gt;&lt;/div&gt;
+  &lt;p data-status role="status"&gt;&lt;/p&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-undo { display: grid; gap: .6rem; font-family: sans-serif; }
+.c-undo [data-item], .c-undo [data-bar] { display: flex; min-height: 3.5rem; padding: .7rem; align-items: center; justify-content: space-between; border: 1px solid #aeb8c7; }
+.c-undo [hidden] { display: none; }
+.c-undo [data-bar] { color: #fff; background: #18243b; }
+.c-undo button { padding: .45rem .65rem; color: #18243b; background: #ff0; border: 1px solid #18243b; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-undo]').forEach((root) =&gt; {
+  const item = root.querySelector('[data-item]'); const bar = root.querySelector('[data-bar]'); const status = root.querySelector('[data-status]'); let timer = 0;
+  root.querySelector('[data-delete]').addEventListener('click', () =&gt; {
+    item.hidden = true; bar.hidden = false; status.textContent = '項目を削除しました。取り消せます';
+    timer = setTimeout(() =&gt; { bar.hidden = true; status.textContent = '削除を確定しました'; }, 4000);
+  });
+  root.querySelector('[data-restore]').addEventListener('click', () =&gt; {
+    clearTimeout(timer); item.hidden = false; bar.hidden = true; status.textContent = '項目を元に戻しました';
+  });
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>メール、下書き、一覧項目などの削除直後に短時間だけ復元手段を提示し、誤操作から回復できるようにする場面。</p></div>
+        </section>
+      </div>
+
+      <div class="part-detail-empty" data-pattern-empty hidden><p>[ NO_PATTERNS_FOUND ]</p><p>別のキーワードを選択してください。</p></div>
+
+      <section class="part-common-styles" id="click-effects-common-styles" aria-labelledby="click-effects-common-title">
+        <header class="part-common-styles__header reveal"><p class="section-index">COMMON STYLE</p><h2 id="click-effects-common-title">共通スタイル</h2><p>ボタンの操作領域、フォーカス表示、生成する装飾要素の配置を揃える基礎スタイルです。</p></header>
+        <div class="part-common-styles__code reveal" data-reveal-threshold="0.01"><div class="part-code"><div class="part-code__header"><span>CSS / COMMON</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-click-effect,
+.c-click-effect * { box-sizing: border-box; }
+
+.c-click-effect {
+  position: relative;
+  width: min(100%, 21rem);
+  color: var(--color-text, #1c2430);
+  font-family: var(--font-sans, sans-serif);
+  text-align: center;
+}
+
+.c-click-effect button {
+  min-height: 2.75rem;
+  font: 700 .72rem/1.3 var(--font-mono, monospace);
+  cursor: pointer;
+}
+
+.c-click-effect button:focus-visible,
+.c-click-effect input:focus-visible,
+.c-click-effect [tabindex]:focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .c-click-effect *,
+  .c-click-effect *::before,
+  .c-click-effect *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}</code></pre></div></div>
+      </section>
+
+      <footer class="page-footer" aria-label="ページナビゲーション"><a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO WEB PARTS</span></a><a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a></footer>
+    </main>
+
+    <script src="../js/web-parts-detail.js" defer></script>
+    <script src="../js/web-parts-click-effects.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

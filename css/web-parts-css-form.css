@@ -1,0 +1,304 @@
+@charset "UTF-8";
+
+/* CSS FORM: portable controls shared by every demo on css-form.html. */
+.css-form-demo {
+  display: grid;
+  width: min(100%, 22rem);
+  gap: 0.55rem;
+}
+
+.css-form-demo--compact { width: min(100%, 18rem); }
+
+.c-css-form,
+.c-css-form * { box-sizing: border-box; }
+
+.c-css-form {
+  width: min(100%, 22rem);
+  color: var(--color-text, #1c2430);
+  font-family: var(--font-sans, sans-serif);
+}
+
+.c-css-form__label,
+.c-css-form__legend {
+  display: block;
+  margin: 0 0 0.45rem;
+  padding: 0;
+  color: var(--color-text, #1c2430);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.c-css-form__label--visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.c-css-form__input,
+.c-css-form__select,
+.c-css-form__textarea {
+  display: block;
+  width: 100%;
+  min-height: 2.85rem;
+  padding: 0.72rem 0.82rem;
+  color: var(--color-text, #1c2430);
+  font: inherit;
+  line-height: 1.5;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+  border-radius: 0.25rem;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+
+.c-css-form__input::placeholder,
+.c-css-form__textarea::placeholder { color: var(--color-text-subtle, #667085); opacity: 1; }
+
+.c-css-form__input:focus-visible,
+.c-css-form__select:focus-visible,
+.c-css-form__textarea:focus-visible,
+.c-css-form__range:focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: 2px;
+  border-color: var(--color-primary, #18243b);
+}
+
+.c-css-form__input:disabled,
+.c-css-form__select:disabled,
+.c-css-form__textarea:disabled {
+  color: var(--color-text-subtle, #667085);
+  background: var(--color-background-subtle, #f4f6f8);
+  cursor: not-allowed;
+  opacity: 0.75;
+}
+
+.c-css-form--glow .c-css-form__input:focus-visible {
+  outline: 0;
+  border-color: var(--color-primary, #18243b);
+  box-shadow: 0 0 0 3px var(--color-primary-soft, #edf1f7), 0 0 0 5px var(--color-primary, #18243b);
+}
+
+.c-css-form--underline .c-css-form__input {
+  padding-inline: 0.15rem;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid var(--color-grid-strong, #aeb8c7);
+  border-radius: 0;
+}
+
+.c-css-form--underline .c-css-form__input:focus-visible {
+  outline: 0;
+  border-color: var(--color-primary, #18243b);
+  box-shadow: 0 3px 0 var(--color-accent-yellow, #ff0);
+}
+
+.c-css-form--floating { position: relative; padding-top: 0.35rem; }
+.c-css-form--floating .c-css-form__input { padding: 1.15rem 0.82rem 0.35rem; }
+.c-css-form--floating .c-css-form__label {
+  position: absolute;
+  top: 1.14rem;
+  left: 0.82rem;
+  margin: 0;
+  color: var(--color-text-subtle, #667085);
+  font-size: 0.78rem;
+  pointer-events: none;
+  transform-origin: left top;
+  transition: color 160ms ease, transform 160ms ease;
+}
+
+.c-css-form--floating .c-css-form__input:focus + .c-css-form__label,
+.c-css-form--floating .c-css-form__input:not(:placeholder-shown) + .c-css-form__label {
+  color: var(--color-primary, #18243b);
+  transform: translateY(-0.52rem) scale(0.78);
+}
+
+.c-css-form--search { position: relative; }
+.c-css-form--search .c-css-form__input { padding-right: 3rem; }
+.c-css-form__search-icon {
+  position: absolute;
+  top: 50%;
+  right: 0.85rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  color: var(--color-primary, #18243b);
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.c-css-form__options {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  gap: 0.35rem;
+  border: 0;
+}
+
+.c-css-form__choice {
+  position: relative;
+  display: inline-flex;
+  min-height: 2.75rem;
+  width: fit-content;
+  gap: 0.65rem;
+  align-items: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.c-css-form__choice-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.c-css-form__choice-mark {
+  display: grid;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: 0 0 auto;
+  place-items: center;
+  color: var(--color-text-inverse, #fff);
+  background: var(--color-background, #fff);
+  border: 2px solid var(--color-grid-strong, #aeb8c7);
+  border-radius: 0.2rem;
+  transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.c-css-form__choice-mark::after { content: "✓"; font-size: 0.85rem; opacity: 0; transform: scale(0.5); transition: opacity 160ms ease, transform 160ms ease; }
+.c-css-form__choice-input:checked + .c-css-form__choice-mark { background: var(--color-primary, #18243b); border-color: var(--color-primary, #18243b); }
+.c-css-form__choice-input:checked + .c-css-form__choice-mark::after { opacity: 1; transform: scale(1); }
+.c-css-form__choice-input:focus-visible + .c-css-form__choice-mark { outline: 3px solid var(--color-focus, #315a9b); outline-offset: 3px; }
+.c-css-form__choice-input:disabled + .c-css-form__choice-mark,
+.c-css-form__choice:has(.c-css-form__choice-input:disabled) { cursor: not-allowed; opacity: 0.55; }
+
+.c-css-form--radio .c-css-form__choice-mark { border-radius: 50%; }
+.c-css-form--radio .c-css-form__choice-mark::after { width: 0.62rem; height: 0.62rem; background: currentColor; border-radius: 50%; content: ""; }
+
+.c-css-form__toggle {
+  position: relative;
+  display: inline-flex;
+  min-height: 2.75rem;
+  width: fit-content;
+  gap: 0.7rem;
+  align-items: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.c-css-form__toggle-input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.c-css-form__toggle-track { position: relative; width: 3.25rem; height: 1.75rem; flex: 0 0 auto; background: var(--color-grid-strong, #aeb8c7); border: 2px solid var(--color-grid-strong, #aeb8c7); border-radius: 999px; transition: background-color 180ms ease, border-color 180ms ease; }
+.c-css-form__toggle-track::after { position: absolute; top: 0.13rem; left: 0.14rem; width: 1.22rem; height: 1.22rem; background: var(--color-background, #fff); border-radius: 50%; box-shadow: 0 1px 3px rgb(0 0 0 / 0.24); content: ""; transition: transform 180ms ease; }
+.c-css-form__toggle-input:checked + .c-css-form__toggle-track { background: var(--color-primary, #18243b); border-color: var(--color-primary, #18243b); }
+.c-css-form__toggle-input:checked + .c-css-form__toggle-track::after { transform: translateX(1.48rem); }
+.c-css-form__toggle-input:focus-visible + .c-css-form__toggle-track { outline: 3px solid var(--color-focus, #315a9b); outline-offset: 3px; }
+
+.c-css-form__segments { display: inline-grid; margin: 0; padding: 0.2rem; grid-template-columns: repeat(2, minmax(0, 1fr)); background: var(--color-background-subtle, #f4f6f8); border: 1px solid var(--color-grid-strong, #aeb8c7); border-radius: 999px; }
+.c-css-form__segment { position: relative; min-width: 6rem; cursor: pointer; }
+.c-css-form__segment input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.c-css-form__segment span { display: grid; min-height: 2.35rem; padding: 0.45rem 0.8rem; place-items: center; font-size: 0.72rem; font-weight: 700; border-radius: 999px; transition: color 160ms ease, background-color 160ms ease; }
+.c-css-form__segment input:checked + span { color: var(--color-text-inverse, #fff); background: var(--color-primary, #18243b); }
+.c-css-form__segment input:focus-visible + span { outline: 3px solid var(--color-focus, #315a9b); outline-offset: 2px; }
+
+.c-css-form__select-wrap { position: relative; }
+.c-css-form__select { padding-right: 3rem; appearance: none; cursor: pointer; }
+.c-css-form__select-wrap::after { position: absolute; top: 50%; right: 1rem; width: 0.55rem; height: 0.55rem; border-right: 2px solid var(--color-primary, #18243b); border-bottom: 2px solid var(--color-primary, #18243b); content: ""; pointer-events: none; transform: translateY(-70%) rotate(45deg); }
+
+.c-css-form__range { width: 100%; height: 0.45rem; margin: 1rem 0; appearance: none; background: var(--color-grid-strong, #aeb8c7); border-radius: 999px; cursor: pointer; }
+.c-css-form__range::-webkit-slider-thumb { width: 1.45rem; height: 1.45rem; appearance: none; background: var(--color-primary, #18243b); border: 3px solid var(--color-background, #fff); border-radius: 50%; box-shadow: 0 0 0 1px var(--color-primary, #18243b); }
+.c-css-form__range::-moz-range-thumb { width: 1.1rem; height: 1.1rem; background: var(--color-primary, #18243b); border: 3px solid var(--color-background, #fff); border-radius: 50%; box-shadow: 0 0 0 1px var(--color-primary, #18243b); }
+.c-css-form__range-scale { display: flex; justify-content: space-between; color: var(--color-text-subtle, #667085); font-family: var(--font-mono, monospace); font-size: 0.58rem; }
+
+.c-css-form__textarea { min-height: 6.5rem; resize: vertical; }
+.c-css-form__counter-wrap { position: relative; }
+.c-css-form__counter-wrap .c-css-form__textarea { padding-bottom: 2rem; resize: none; }
+.c-css-form__counter { position: absolute; right: 0.72rem; bottom: 0.58rem; margin: 0; color: var(--color-text-subtle, #667085); font-family: var(--font-mono, monospace); font-size: 0.62rem; pointer-events: none; }
+.c-css-form__hint { margin: 0.45rem 0 0; color: var(--color-text-subtle, #667085); font-size: 0.7rem; line-height: 1.6; }
+
+.c-css-form__affix {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  overflow: hidden;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+  border-radius: 0.25rem;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.c-css-form__affix:focus-within {
+  border-color: var(--color-primary, #18243b);
+  box-shadow: 0 0 0 3px var(--color-primary-soft, #edf1f7), 0 0 0 5px var(--color-focus, #315a9b);
+}
+
+.c-css-form__affix-text {
+  display: grid;
+  min-width: 2.75rem;
+  padding: 0.65rem 0.75rem;
+  place-items: center;
+  color: var(--color-text-subtle, #667085);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  background: var(--color-background-subtle, #f4f6f8);
+}
+
+.c-css-form__affix .c-css-form__input {
+  min-width: 0;
+  border: 0;
+  border-inline: 1px solid var(--color-grid-strong, #aeb8c7);
+  border-radius: 0;
+}
+
+.c-css-form__affix .c-css-form__input:focus-visible { outline: 0; }
+
+.c-css-form__date { color-scheme: light; }
+.c-css-form__date::-webkit-calendar-picker-indicator { padding: 0.3rem; cursor: pointer; opacity: 0.75; }
+
+.c-css-form__field-group { display: grid; gap: 0.3rem; }
+.c-css-form__field-group + .c-css-form__field-group { margin-top: 0.65rem; }
+.c-css-form--state-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem; }
+.c-css-form--state-grid .c-css-form__field-group + .c-css-form__field-group { margin-top: 0; }
+.c-css-form__field-group .c-css-form__label { margin-bottom: 0.1rem; }
+.c-css-form__message { min-height: 1.05rem; margin: 0; font-size: 0.65rem; line-height: 1.45; }
+.c-css-form__field-group.is-error .c-css-form__input { border-color: #9f1d2c; background: #fff7f7; }
+.c-css-form__field-group.is-error .c-css-form__message { color: #9f1d2c; }
+.c-css-form__field-group.is-success .c-css-form__input { border-color: #236b43; background: #f4fbf6; }
+.c-css-form__field-group.is-success .c-css-form__message { color: #236b43; }
+.c-css-form__field-group.is-error .c-css-form__input:focus-visible { outline-color: #9f1d2c; }
+.c-css-form__field-group.is-success .c-css-form__input:focus-visible { outline-color: #236b43; }
+
+.c-css-form__file {
+  position: relative;
+  display: grid;
+  min-height: 7rem;
+  padding: 1rem;
+  gap: 0.35rem;
+  place-content: center;
+  place-items: center;
+  color: var(--color-text, #1c2430);
+  text-align: center;
+  background: var(--color-background, #fff);
+  border: 2px dashed var(--color-grid-strong, #aeb8c7);
+  border-radius: 0.35rem;
+  cursor: pointer;
+  transition: border-color 160ms ease, background-color 160ms ease;
+}
+
+.c-css-form__file-input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.c-css-form__file-icon { font-family: var(--font-mono, monospace); font-size: 1.35rem; line-height: 1; }
+.c-css-form__file strong { font-size: 0.78rem; }
+.c-css-form__file small { color: var(--color-text-subtle, #667085); font-size: 0.65rem; }
+.c-css-form__file:has(.c-css-form__file-input:focus-visible) { outline: 3px solid var(--color-focus, #315a9b); outline-offset: 3px; border-color: var(--color-primary, #18243b); }
+
+@media (hover: hover) and (pointer: fine) {
+  .c-css-form__file:hover { background: var(--color-primary-soft, #edf1f7); border-color: var(--color-primary, #18243b); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .c-css-form *,
+  .c-css-form *::before,
+  .c-css-form *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}

@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Web制作で使い回すことを目的としたUIパーツ事例集、MARK BENCH WEB PARTSのカテゴリ一覧です。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>WEB PARTS | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="WEB PARTS | MARK BENCH" />
+    <meta property="og:description" content="Web制作で使い回すことを目的としたUIパーツ事例集、MARK BENCH WEB PARTSのカテゴリ一覧です。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="WEB PARTS | MARK BENCH" />
+    <meta name="twitter:description" content="Web制作で使い回すことを目的としたUIパーツ事例集、MARK BENCH WEB PARTSのカテゴリ一覧です。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts">
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header">
+      <div class="site-header__bar">
+        <nav class="site-breadcrumb-logo" aria-label="パンくずリスト">
+          <a class="site-logo" href="../index.html">MARK BENCH</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <span class="site-breadcrumb-logo__current" aria-current="page">WEB PARTS</span>
+        </nav>
+      </div>
+    </header>
+
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション">
+      <a href="../tools/"><strong>TOOLS</strong></a>
+      <a href="./" aria-current="location"><strong>WEB PARTS</strong></a>
+      <a href="../build-notes/"><strong>BUILD NOTES</strong></a>
+      <a href="../about.html"><strong>ABOUT</strong></a>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <header class="page-heading">
+        <p class="section-index reveal">PARTS_DIRECTORY</p>
+        <div class="page-heading__main reveal">
+          <h1>WEB PARTS</h1>
+          <p class="visually-hidden">Webサイトや業務画面の見出し、操作、情報表示、通知などに繰り返し使えるUIパーツ集です。</p>
+        </div>
+        <div class="page-heading__meta reveal"><span>CATEGORIES: 33</span><span>PARTS: 394</span><span>STATUS: 30 READY / 03 PLANNED</span></div>
+      </header>
+
+      <section class="web-parts-directory" aria-labelledby="parts-directory-title" data-parts-directory>
+        <h2 class="visually-hidden" id="parts-directory-title">WEB PARTSカテゴリ一覧</h2>
+        <div class="parts-controls directory-keywords reveal" aria-label="WEB PARTSを絞り込み">
+          <div class="directory-keywords__group">
+            <p class="directory-keywords__label">CATEGORY</p>
+            <div class="directory-keywords__list" aria-label="カテゴリで絞り込み">
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="heading">HEADING</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="button">BUTTON</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="card">CARD</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="list">LIST</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="table">TABLE</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="divider">DIVIDER</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="css-form">CSS-FORM</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="form">FORM</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="dropdown">DROPDOWN</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="tab">TAB</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="accordion">ACCORDION</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="modal">MODAL</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="slider">SLIDER</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="tool-tip">TOOL-TIP</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="alert">ALERT</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="toast">TOAST</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="badge">BADGE</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="loading">LOADING</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="counter">COUNTER</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="clipboard">CLIPBOARD</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="hover">HOVER</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="click-effects">CLICK-EFFECTS</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="scroll-reveal">SCROLL-REVEAL</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="css-text-effect">CSS-TEXT-EFFECT</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="text-effect">TEXT-EFFECT</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="box shadow">BOX-SHADOW</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="glass">GLASS</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="background pattern">BACKGROUND-PATTERN</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="background-effect">BACKGROUND-EFFECT</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="utility script">UTILITY SCRIPT</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="navigation">NAVIGATION</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="feedback">FEEDBACK</button>
+              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="motion">MOTION</button>
+            </div>
+          </div>
+          <label class="parts-search">
+            <span>SEARCH</span>
+            <span class="parts-search__field">
+              <input type="search" placeholder="button / BUTTON / ボタン..." autocomplete="off" aria-controls="parts-grid" data-parts-search />
+              <svg class="parts-search__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="10.5" cy="10.5" r="6.5" />
+                <path d="m15.5 15.5 5 5" />
+              </svg>
+            </span>
+          </label>
+        </div>
+
+        <div class="parts-grid reveal" id="parts-grid" data-parts-grid data-reveal-threshold="0.01">
+          <!-- Core content and layout -->
+          <a class="parts-card parts-card--link" href="./heading.html" data-part-category data-type="css" data-search="heading 見出し 装飾 ラベル セクションタイトル eyebrow kicker subtitle lead icon action link 実務 補足 アイコン リンク">
+            <div class="parts-card__meta"><span>CSS</span></div>
+            <div class="parts-card__preview parts-card__preview--heading" aria-hidden="true"><strong>Aa</strong><i></i></div>
+            <h3>HEADING</h3>
+            <p>ページタイトルや記事・セクションの区切りで、情報階層を明確にする見出し表現です。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <a class="parts-card parts-card--link" href="./button.html" data-part-category data-type="css" data-search="button ボタン cta link action hover focus gradient outline ghost icon block danger disabled loading group 危険 非活性 処理中 複数操作">
+            <div class="parts-card__meta"><span>CSS</span></div>
+            <div class="parts-card__preview parts-card__preview--button" aria-hidden="true"><strong>BUTTON</strong><span>→</span></div>
+            <h3>BUTTON</h3>
+            <p>フォーム送信、購入、遷移などの主要操作と補助操作に使うボタンです。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <a class="parts-card parts-card--link" href="./card.html" data-part-category data-type="css" data-search="card カード tile panel box list grid shadow border memo ticket callout">
+            <div class="parts-card__meta"><span>CSS</span></div>
+            <div class="parts-card__preview parts-card__preview--card" aria-hidden="true"><strong>CARD</strong><span>01</span></div>
+            <h3>CARD</h3>
+            <p>記事一覧、関連記事、商品情報、補足事項をひとまとまりで提示するカードです。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <a class="parts-card parts-card--link" href="./list.html" data-part-category data-type="css" data-search="list リスト 箇条書き marker マーカー dot dash arrow ring check square tick star number step timeline zebra divided link description status ドット ダッシュ 矢印 円 チェック 星 番号 手順 タイムライン ゼブラ 区切り線 リンク 説明 ステータス 実務追加">
+            <div class="parts-card__meta"><span>CSS</span></div>
+            <div class="parts-card__preview parts-card__preview--list" aria-hidden="true"><span>●</span><i></i><span>●</span><i></i><span>●</span><i></i></div>
+            <h3>LIST</h3>
+            <p>記事の要点、機能、手順、ランキングを、意味と順序が伝わる形で整理するリスト表現です。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <a class="parts-card parts-card--link" href="./table.html" data-part-category data-type="css" data-search="table テーブル 表 comparison data scroll responsive grid stripe minimal header card hover compact dark gradient pricing total tfoot 枠線 ストライプ ミニマル 見出し 角丸 ホバー コンパクト ダーク 比較 料金 集計 横スクロール">
+            <div class="parts-card__meta"><span>CSS</span></div>
+            <div class="parts-card__preview parts-card__preview--table" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <h3>TABLE</h3>
+            <p>料金比較、仕様、集計データを見出しと行・列で比較する表組みです。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <a class="parts-card parts-card--link" href="./divider.html" data-part-category data-type="css" data-search="divider 区切り線 hr separator line solid dashed dotted double gradient label diamond zigzag wave slant hand drawn">
+            <div class="parts-card__meta"><span>CSS</span></div>
+            <div class="parts-card__preview parts-card__preview--divider" aria-hidden="true"><i></i><strong>◇</strong><i></i></div>
+            <h3>DIVIDER</h3>
+            <p>記事内の話題転換やセクション境界を、線・装飾・余白で視覚的に伝える区切りです。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <!-- Forms and input -->
+          <a class="parts-card parts-card--link" href="./css-form.html" data-part-category data-type="css" data-search="css form css-form フォーム input text focus glow underline floating label search checkbox radio toggle switch segment select range slider textarea counter affix date validation error success file upload 入力欄 フォーカス 検索 選択 切替 範囲 複数行 カウンタ 単位 日付 状態 エラー 成功 ファイル 添付">
+            <div class="parts-card__meta"><span>CSS</span></div>
+            <div class="parts-card__preview parts-card__preview--form" aria-hidden="true"><strong>FIELD</strong><span>●</span></div>
+            <h3>CSS-FORM</h3>
+            <p>問い合わせ、検索、設定画面で、入力位置と選択状態を分かりやすく示すCSSフォーム部品です。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <a class="parts-card parts-card--link" href="./form.html" data-part-category data-type="js" data-search="form フォーム input textarea select checkbox validation count password zip normalize conditional confirm match consent submit draft localstorage 入力 検証 選択 同意 送信 保存">
+            <div class="parts-card__meta"><span>CSS / JS</span></div>
+            <div class="parts-card__preview parts-card__preview--form" aria-hidden="true"><strong>INPUT</strong><span>✓</span></div>
+            <h3>FORM</h3>
+            <p>問い合わせ、登録、購入手続きで、入力補助・検証・確認・保存を担うフォームUIです。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <!-- Navigation and disclosure -->
+          <a class="parts-card parts-card--link" href="./dropdown.html" data-part-category data-type="js" data-search="dropdown ドロップダウン menu select hover kebab search mega context notification chip">
+            <div class="parts-card__meta"><span>CSS / JS</span></div>
+            <div class="parts-card__preview parts-card__preview--dropdown" aria-hidden="true"><strong>SELECT</strong><span>⌄</span></div>
+            <h3>DROPDOWN</h3>
+            <p>ナビゲーション、選択、検索、アカウント操作を省スペースで展開するUIです。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <a class="parts-card parts-card--link" href="./tab.html" data-part-category data-type="js" data-search="tab タブ switch panel aria selected keyboard swipe hash memory overflow">
+            <div class="parts-card__meta"><span>CSS / JS</span></div>
+            <div class="parts-card__preview parts-card__preview--tabs" aria-hidden="true"><strong>TAB 1</strong><span>TAB 2</span></div>
+            <h3>TAB</h3>
+            <p>設定画面や商品詳細で、関連コンテンツを同じ領域に切り替えて表示するUIです。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <a class="parts-card parts-card--link" href="./accordion.html" data-part-category data-type="js" data-search="accordion アコーディオン faq details summary collapse exclusive filter nested hash open close all">
+            <div class="parts-card__meta"><span>CSS / JS</span></div>
+            <div class="parts-card__preview parts-card__preview--accordion" aria-hidden="true"><strong>QUESTION</strong><span>＋</span></div>
+            <h3>ACCORDION</h3>
+            <p>FAQや補足情報を必要なときだけ開閉し、ページを短く保つUIです。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <a class="parts-card parts-card--link" href="./modal.html" data-part-category data-type="js" data-search="modal モーダル dialog drawer confirm overlay">
+            <div class="parts-card__meta"><span>CSS / JS</span></div>
+            <div class="parts-card__preview parts-card__preview--window" aria-hidden="true"><span>×</span><strong>MODAL</strong></div>
+            <h3>MODAL</h3>
+            <p>確認、補足情報、フォーム、メニューを現在の画面に重ねて提示するUIです。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <a class="parts-card parts-card--link" href="./slider.html" data-part-category data-type="js" data-search="slider スライダー carousel カルーセル gallery ギャラリー autoplay 自動再生 drag swipe ドラッグ スワイプ thumbnail サムネイル fade フェード before after 比較 loop infinite 無限 progress 進捗 zoom lens 拡大 vertical 縦 center 中央 story ストーリー">
+            <div class="parts-card__meta"><span>CSS / JS</span></div>
+            <div class="parts-card__preview parts-card__preview--slider" aria-hidden="true"><button type="button" tabindex="-1">←</button><strong>02 / 03</strong><button type="button" tabindex="-1">→</button></div>
+            <h3>SLIDER</h3>
+            <p>商品画像、事例、比較ビジュアルを、前後操作や自動再生で順番に閲覧するスライダーUIです。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <a class="parts-card parts-card--link" href="./tool-tip.html" data-part-category data-type="css" data-search="tool tip tool-tip tooltip speech bubble 吹き出し ツールチップ tail しっぽ direction 方向 pill outline thought cloud chat conversation hover focus hint toast notification 会話 思考 雲 ヒント 通知 help icon ヘルプ アイコン form error validation フォーム 入力 エラー disabled reason 無効 理由 truncate ellipsis 省略 preview link プレビュー リンク hotspot annotation ホットスポット 注釈">
+            <div class="parts-card__meta"><span>CSS</span></div>
+            <div class="parts-card__preview parts-card__preview--tool-tip" aria-hidden="true"><strong>HINT</strong><span>▲</span></div>
+            <h3>TOOL-TIP</h3>
+            <p>会話、操作ヒント、完了通知を、対象との位置関係が分かる短い吹き出しで伝えるUIです。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <!-- Feedback and system status -->
+          <a class="parts-card parts-card--link" href="./alert.html" data-part-category data-type="css" data-search="alert アラート notice info success warning error semantic soft border filled outline icon title dismiss toast banner memo gradient action link error summary form validation 情報 成功 注意 エラー 意味色 罫線 塗り アイコン タイトル 閉じる 通知 バナー メモ グラデーション アクション リンク フォーム 検証">
+            <div class="parts-card__meta"><span>CSS</span></div>
+            <div class="parts-card__preview parts-card__preview--alert" aria-hidden="true"><strong>!</strong><span>NOTICE</span></div>
+            <h3>ALERT</h3>
+            <p>入力結果、注意事項、エラー、更新情報を、意味と重要度が伝わる形で示す通知表示です。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <a class="parts-card parts-card--link" href="./toast.html" data-part-category data-type="js" data-search="toast トースト notification 通知 status progress stack undo consent network achievement">
+            <div class="parts-card__meta"><span>CSS / JS</span></div>
+            <div class="parts-card__preview parts-card__preview--toast" aria-hidden="true"><strong>✓</strong><span>SAVED</span></div>
+            <h3>TOAST</h3>
+            <p>保存・送信結果、エラー、通信状態を作業の流れを止めずに伝える通知UIです。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <a class="parts-card parts-card--link" href="./badge.html" data-part-category data-type="css" data-search="badge バッジ label tag status notification count ribbon solid soft outline ghost gradient pulse live">
+            <div class="parts-card__meta"><span>CSS</span></div>
+            <div class="parts-card__preview parts-card__preview--badge" aria-hidden="true"><strong>NEW</strong><span>3</span></div>
+            <h3>BADGE</h3>
+            <p>状態、件数、カテゴリ、商品情報を小さなラベルで補足するバッジ表現です。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <a class="parts-card parts-card--link" href="./loading.html" data-part-category data-type="css" data-search="loading ローディング spinner スピナー dots pulse progress bar skeleton bounce equalizer stripe flip button overlay ボタン オーバーレイ animation reduced motion">
+            <div class="parts-card__meta"><span>CSS</span></div>
+            <div class="parts-card__preview parts-card__preview--loading" aria-hidden="true"><i></i><strong>LOAD</strong></div>
+            <h3>LOADING</h3>
+            <p>送信、通信、画面更新などの待ち時間に、処理中であることを伝えるCSSアニメーションです。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <a class="parts-card parts-card--link" href="./counter.html" data-part-category data-type="js" data-search="counter カウンター count up countdown timer stopwatch clock progress ring odometer typewriter read time visits business hours 数値 カウントアップ カウントダウン タイマー ストップウォッチ 時計 進捗 読了時間 訪問回数 営業時間">
+            <div class="parts-card__meta"><span>CSS / JS</span></div>
+            <div class="parts-card__preview parts-card__preview--counter" aria-hidden="true"><strong>1,280</strong><span>↑</span></div>
+            <h3>COUNTER</h3>
+            <p>実績数値、達成率、残り時間、現在時刻などを目的に合わせて計算・更新する表示UIです。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <a class="parts-card parts-card--link" href="./clipboard.html" data-part-category data-type="js" data-search="clipboard クリップボード copy コピー url input code color template table image json bulk selection select share sns markdown quote 引用 選択 一括 共有">
+            <div class="parts-card__meta"><span>CSS / JS</span></div>
+            <div class="parts-card__preview parts-card__preview--clipboard" aria-hidden="true"><strong>COPY</strong><span>✓</span></div>
+            <h3>CLIPBOARD</h3>
+            <p>文章、URL、コード、表、画像をコピー・共有し、別の作業へ受け渡す操作UIです。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <!-- Motion and visual treatments -->
+          <a class="parts-card parts-card--link" href="./hover.html" data-part-category data-type="css" data-search="hover ホバー animation transition link card image button underline lift zoom overlay swipe scale tilt fill border spin gradient brightness">
+            <div class="parts-card__meta"><span>CSS</span></div>
+            <div class="parts-card__preview parts-card__preview--hover" aria-hidden="true"><strong>HOVER</strong><span>↗</span></div>
+            <h3>HOVER</h3>
+            <p>リンク、カード、画像、ボタンへ触れたとき、操作可能性と状態変化を伝える表現です。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <a class="parts-card parts-card--link" href="./click-effects.html" data-part-category data-type="js" data-search="click effects クリック エフェクト ripple like badge success error shake confetti star burst hold combo cursor stalker tilt magnet copy confirm cooldown save cart undo 波紋 いいね バッジ 完了 エラー 紙吹雪 長押し 連打 ポインター コピー 確認 連打防止 保存 カート 取り消し">
+            <div class="parts-card__meta"><span>CSS / JS</span></div>
+            <div class="parts-card__preview parts-card__preview--click-effects" aria-hidden="true"><strong>CLICK</strong><span>✦</span></div>
+            <h3>CLICK-EFFECTS</h3>
+            <p>クリック、長押し、連打、ポインター移動へ視覚的な手応えと操作結果を返す演出UIです。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <a class="parts-card parts-card--link" href="./scroll-reveal.html" data-part-category data-type="js" data-search="scroll reveal スクロール リビール animation intersection observer fade slide zoom stagger blur parallax lazy curtain timeline">
+            <div class="parts-card__meta"><span>CSS / JS</span></div>
+            <div class="parts-card__preview parts-card__preview--reveal" aria-hidden="true"><strong>REVEAL</strong><span>↓</span></div>
+            <h3>SCROLL-REVEAL</h3>
+            <p>記事や特集で、要素が表示領域へ入るタイミングに合わせて情報を段階的に提示する演出です。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <a class="parts-card parts-card--link" href="./css-text-effect.html" data-part-category data-type="css" data-search="css text effect css-text-effect テキスト エフェクト neon shimmer typing depth outline marker bounce wave focus tracking retro glitch animation 発光 グラデーション タイピング 立体 強調">
+            <div class="parts-card__meta"><span>CSS</span></div>
+            <div class="parts-card__preview parts-card__preview--text-effect" aria-hidden="true"><strong>CSS</strong><span>FX</span></div>
+            <h3>CSS-TEXT-EFFECT</h3>
+            <p>キービジュアルや見出しで、光・色・奥行き・動きをCSSだけで加える文字表現です。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <a class="parts-card parts-card--link" href="./text-effect.html" data-part-category data-type="js" data-search="text effect テキスト エフェクト javascript js scramble reveal sweep rotate wave marquee hover shuffle proximity spotlight glitch assemble neon flicker typewriter line clip スクランブル 分割 ハイライト 切替 波 マーキー ホバー 近接 スポットライト グリッチ 集合 ネオン タイピング 行表示">
+            <div class="parts-card__meta"><span>CSS / JS</span></div>
+            <div class="parts-card__preview parts-card__preview--text-effect" aria-hidden="true"><strong>JS</strong><span>FX</span></div>
+            <h3>TEXT-EFFECT</h3>
+            <p>文字分割、置換、幅計測、タイピング、行表示を使い、見出しやティッカーへ動的な反応を加える演出です。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <a class="parts-card parts-card--link" href="./box-shadow.html" data-part-category data-type="css" data-search="box shadow ボックスシャドウ 影 soft float layered color ring neon glow offset long inset depth elevation outline">
+            <div class="parts-card__meta"><span>CSS</span></div>
+            <div class="parts-card__preview parts-card__preview--shadow" aria-hidden="true"><strong>BOX</strong><span>SHADOW</span></div>
+            <h3>BOX SHADOW</h3>
+            <p>カードや操作面へ、高さ・方向・輪郭・凹みを加えるCSSの影表現です。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <a class="parts-card parts-card--link" href="./glass.html" data-part-category data-type="css" data-search="glass グラス glassmorphism グラスモーフィズム frost blur backdrop filter translucent light dark navigation panel search form 検索 フォーム">
+            <div class="parts-card__meta"><span>CSS</span></div>
+            <div class="parts-card__preview parts-card__preview--glass" aria-hidden="true"><strong>GLASS</strong><span>BLUR</span></div>
+            <h3>GLASS</h3>
+            <p>写真やグラデーション背景の上で、透過とぼかしによる情報面を作るグラス表現です。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <a class="parts-card parts-card--link" href="./background-pattern.html" data-part-category data-type="css" data-search="background pattern 背景 パターン dots dot stripe line grid square checker triangle paper noise graph paper halftone isometric cube mosaic mesh gradient ドット 水玉 ストライプ ライン 格子 方眼 市松 三角 紙 ノイズ グラフ用紙 ハーフトーン アイソメトリック キューブ モザイク メッシュ グラデーション">
+            <div class="parts-card__meta"><span>CSS</span></div>
+            <div class="parts-card__preview parts-card__preview--background-pattern" aria-hidden="true"><strong>PATTERN</strong><span>16</span></div>
+            <h3>BACKGROUND PATTERN</h3>
+            <p>ヒーローやセクション、カード背景へ、CSSだけで軽い質感や領域の違いを加えるパターンです。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <a class="parts-card parts-card--link" href="./background-effect.html" data-part-category data-type="js" data-search="background effect 背景 エフェクト animation canvas particle network wave bubble snow star sky pointer gradient grid aurora matrix confetti パーティクル ネットワーク 波 泡 雪 星空 空 マウス追従 グラデーション グリッド オーロラ デジタルレイン 紙吹雪">
+            <div class="parts-card__meta"><span>CSS / JS</span></div>
+            <div class="parts-card__preview parts-card__preview--background-effect" aria-hidden="true"><i></i><i></i><i></i><strong>EFFECT</strong></div>
+            <h3>BACKGROUND-EFFECT</h3>
+            <p>ヒーローや特集セクションへ、粒子・自然現象・光の動きによる世界観と奥行きを加える背景演出です。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <!-- Site utilities -->
+          <a class="parts-card parts-card--link" href="./utility-script.html" data-part-category data-type="js" data-search="utility-script utility script ユーティリティ 実用スクリプト dark mode more filter sort highlight table external link year smooth scroll print font size table card">
+            <div class="parts-card__meta"><span>CSS / JS</span></div>
+            <div class="parts-card__preview parts-card__preview--utility-script" aria-hidden="true"><strong>{ JS }</strong><span>↕</span></div>
+            <h3>UTILITY SCRIPT</h3>
+            <p>表示設定、絞り込み、並び替え、リンク・年表記・印刷など、サイト運用を補助する実用スクリプトです。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <!-- Planned categories -->
+          <article class="parts-card" data-part-category data-type="js" data-search="navigation ナビゲーション menu breadcrumb pagination drawer">
+            <div class="parts-card__meta"><span>CSS / JS</span></div>
+            <div class="parts-card__preview" aria-hidden="true"><strong>≡</strong><span>MENU</span></div>
+            <h3>NAVIGATION</h3>
+            <p>サイト内の主要導線、現在地、前後ページへの移動を支えるナビゲーションです。</p>
+            <small>PLANNED</small>
+          </article>
+          <article class="parts-card" data-part-category data-type="css" data-search="feedback alert toast badge status notice error success">
+            <div class="parts-card__meta"><span>CSS</span></div>
+            <div class="parts-card__preview" aria-hidden="true"><strong>!</strong><span>STATUS</span></div>
+            <h3>FEEDBACK</h3>
+            <p>成功、注意、エラー、処理中など、操作やシステムの状態を伝える表示です。</p>
+            <small>PLANNED</small>
+          </article>
+          <article class="parts-card" data-part-category data-type="js" data-search="motion animation transition scroll reveal loading reduced motion">
+            <div class="parts-card__meta"><span>CSS / JS</span></div>
+            <div class="parts-card__preview" aria-hidden="true"><strong>●</strong><span>→</span></div>
+            <h3>MOTION</h3>
+            <p>状態変化、読み込み、スクロールに合わせて視線や操作を導く動きです。</p>
+            <small>PLANNED</small>
+          </article>
+        </div>
+
+        <div class="parts-empty" data-parts-empty hidden>
+          <p>[ NO_PARTS_FOUND ]</p>
+          <p>カテゴリまたは検索語を変更してください。</p>
+        </div>
+        <div class="directory-status" aria-live="polite"><p><span data-parts-count>33</span> CATEGORIES FOUND</p><p>PARTS: 394 / READY</p></div>
+      </section>
+
+      <section class="foundations parts-common-styles" aria-labelledby="common-styles-title">
+        <header class="section-heading foundations__heading reveal">
+          <div>
+            <p class="section-index">STYLE GUIDE</p>
+            <h2 id="common-styles-title">共通スタイル</h2>
+          </div>
+        </header>
+        <div class="foundations__content">
+          <section class="foundation-block foundation-block--palette reveal" aria-labelledby="common-colors-title">
+            <header class="foundation-subheading">
+              <h3 id="common-colors-title">COLOR_TOKENS</h3>
+              <span>06 TOKENS</span>
+            </header>
+            <ul class="foundation-palette">
+              <li class="foundation-swatch"><span class="foundation-swatch__sample" style="--foundation-swatch: var(--color-primary)" aria-hidden="true"></span><div><strong>PRIMARY</strong><code>--color-primary</code></div></li>
+              <li class="foundation-swatch"><span class="foundation-swatch__sample" style="--foundation-swatch: var(--color-primary-hover)" aria-hidden="true"></span><div><strong>PRIMARY HOVER</strong><code>--color-primary-hover</code></div></li>
+              <li class="foundation-swatch"><span class="foundation-swatch__sample" style="--foundation-swatch: var(--color-primary-soft)" aria-hidden="true"></span><div><strong>PRIMARY SOFT</strong><code>--color-primary-soft</code></div></li>
+              <li class="foundation-swatch"><span class="foundation-swatch__sample" style="--foundation-swatch: var(--color-grid-strong)" aria-hidden="true"></span><div><strong>GRID STRONG</strong><code>--color-grid-strong</code></div></li>
+              <li class="foundation-swatch"><span class="foundation-swatch__sample" style="--foundation-swatch: var(--color-text-inverse)" aria-hidden="true"></span><div><strong>TEXT INVERSE</strong><code>--color-text-inverse</code></div></li>
+              <li class="foundation-swatch"><span class="foundation-swatch__sample" style="--foundation-swatch: var(--color-accent-yellow)" aria-hidden="true"></span><div><strong>ACCENT</strong><code>--color-accent-yellow</code></div></li>
+            </ul>
+          </section>
+
+          <div class="foundations__duo">
+            <section class="foundation-block reveal" aria-labelledby="common-prefix-title">
+              <header class="foundation-subheading">
+                <h3 id="common-prefix-title">CLASS_PREFIX</h3>
+                <span>ROLE BASED</span>
+              </header>
+              <div class="foundation-type-list">
+                <div class="foundation-type-row foundation-type-row--label"><span>COMPONENT</span><strong><code>c-</code></strong><code>.c-button / .c-card</code></div>
+                <div class="foundation-type-row foundation-type-row--label"><span>LAYOUT</span><strong><code>l-</code></strong><code>.l-stack / .l-grid</code></div>
+                <div class="foundation-type-row foundation-type-row--label"><span>UTILITY</span><strong><code>u-</code></strong><code>.u-visually-hidden</code></div>
+                <div class="foundation-type-row foundation-type-row--label"><span>STATE</span><strong><code>is- / has-</code></strong><code>.is-active / .has-error</code></div>
+                <div class="foundation-type-row foundation-type-row--label"><span>JAVASCRIPT</span><strong><code>js-</code></strong><code>.js-trigger / [data-*]</code></div>
+              </div>
+            </section>
+
+            <section class="foundation-block reveal" aria-labelledby="common-pattern-title">
+              <header class="foundation-subheading">
+                <h3 id="common-pattern-title">COMPONENT_PATTERN</h3>
+                <span>BEM STYLE</span>
+              </header>
+              <div class="foundation-type-list">
+                <div class="foundation-type-row foundation-type-row--label"><span>BASE</span><strong><code>.c-heading</code></strong><code>コンポーネント本体</code></div>
+                <div class="foundation-type-row foundation-type-row--label"><span>ELEMENT</span><strong><code>.c-heading__number</code></strong><code>構成要素</code></div>
+                <div class="foundation-type-row foundation-type-row--label"><span>MODIFIER</span><strong><code>.c-heading--underline</code></strong><code>見た目・種類の差分</code></div>
+                <div class="foundation-type-row foundation-type-row--label"><span>STATE</span><strong><code>.is-active</code></strong><code>一時的な状態</code></div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+      <footer class="page-footer" aria-label="ページナビゲーション">
+        <a class="page-footer__back" href="../index.html"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO HOME</span></a>
+        <a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a>
+      </footer>
+    </main>
+
+    <script src="../js/web-parts.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

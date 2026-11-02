@@ -1,0 +1,153 @@
+@charset "UTF-8";
+
+.part-example--with-js { grid-template-rows: 5.5rem 15rem 36rem 6.5rem; }
+.part-example__code-grid--with-js {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+.part-example__code-grid--with-js > .part-code { border-right: 0; }
+.part-example__code-grid--with-js > .part-code:first-child { border-right: 0.5px dotted #9ca3af; }
+.part-example__code-grid--with-js .part-code--js {
+  grid-column: 1 / -1;
+  border-top: 1px solid #374151;
+}
+
+.c-background-effect,
+.c-background-effect * { box-sizing: border-box; }
+
+.c-background-effect {
+  --effect-x: 50%;
+  --effect-y: 50%;
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 28rem);
+  height: 12rem;
+  overflow: hidden;
+  color: var(--color-text-inverse, #fff);
+  font-family: var(--font-sans, sans-serif);
+  background: var(--color-primary, #18243b);
+  border: 1px solid var(--color-primary, #18243b);
+}
+
+.c-background-effect canvas,
+.c-background-effect__layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.c-background-effect canvas { display: block; }
+.c-background-effect__layer { pointer-events: none; }
+.c-background-effect__content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  padding: 1rem;
+  align-content: center;
+  justify-items: center;
+  text-align: center;
+  pointer-events: none;
+}
+.c-background-effect__content small {
+  margin-bottom: 0.35rem;
+  font: 700 0.56rem/1.4 var(--font-mono, monospace);
+  letter-spacing: 0.1em;
+  opacity: 0.72;
+}
+.c-background-effect__content strong { font-size: 1.05rem; text-shadow: 0 1px 8px rgb(0 0 0 / 36%); }
+.c-background-effect__toggle,
+.c-background-effect__cycle {
+  position: absolute;
+  right: 0.65rem;
+  bottom: 0.65rem;
+  z-index: 3;
+  min-height: 2rem;
+  padding: 0.4rem 0.6rem;
+  color: var(--color-text-inverse, #fff);
+  font: 700 0.56rem/1 var(--font-mono, monospace);
+  background: rgb(24 36 59 / 78%);
+  border: 1px solid rgb(255 255 255 / 58%);
+  cursor: pointer;
+}
+.c-background-effect__toggle:focus-visible,
+.c-background-effect__cycle:focus-visible { outline: 3px solid var(--color-accent-yellow, #ff0); outline-offset: 2px; }
+.c-background-effect__toggle:disabled { cursor: not-allowed; opacity: 0.65; }
+
+.c-background-effect--particles { background: linear-gradient(145deg, #18243b, #263a5e); }
+.c-background-effect--network { background: #111a2c; }
+.c-background-effect--wave { background: linear-gradient(180deg, #edf1f7, #9bb3d1); color: var(--color-primary, #18243b); }
+.c-background-effect--bubbles { background: linear-gradient(180deg, #315a9b, #18243b); }
+.c-background-effect--snow { background: linear-gradient(180deg, #263a5e, #536b8c); }
+.c-background-effect--stars { background: radial-gradient(circle at 50% 120%, #263a5e, #070d1b 70%); }
+
+.c-background-effect--pointer {
+  background:
+    radial-gradient(circle 8rem at var(--effect-x) var(--effect-y), rgb(255 255 0 / 52%), transparent 72%),
+    radial-gradient(circle 11rem at 82% 18%, rgb(49 90 155 / 82%), transparent 72%),
+    var(--color-primary, #18243b);
+}
+.c-background-effect--grid {
+  background:
+    radial-gradient(circle 8rem at var(--effect-x) var(--effect-y), rgb(255 255 255 / 32%), transparent 72%),
+    linear-gradient(rgb(255 255 255 / 10%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 10%) 1px, transparent 1px),
+    var(--color-primary, #18243b);
+  background-size: auto, 1.5rem 1.5rem, 1.5rem 1.5rem, auto;
+}
+
+.c-background-effect--aurora { background: #080d1a; }
+.c-background-effect--aurora .c-background-effect__blob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 11rem;
+  height: 8rem;
+  opacity: 0.7;
+  filter: blur(1.8rem);
+  background: #315a9b;
+  border-radius: 48% 52% 60% 40%;
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+.c-background-effect--aurora .c-background-effect__blob:nth-child(2) { width: 9rem; height: 10rem; background: #ff0; }
+.c-background-effect--aurora .c-background-effect__blob:nth-child(3) { width: 12rem; height: 7rem; background: #536b8c; }
+
+.c-background-effect--matrix { background: #07110d; }
+.c-background-effect--confetti { color: var(--color-primary, #18243b); background: var(--color-background, #fff); }
+.c-background-effect--confetti .c-background-effect__content strong { text-shadow: none; }
+.c-background-effect--sky { transition: background 500ms ease; }
+.c-background-effect--sky[data-time="morning"] { color: #18243b; background: linear-gradient(180deg, #f3cf9f, #f4a28c); }
+.c-background-effect--sky[data-time="day"] { color: #18243b; background: linear-gradient(180deg, #7fb4d9, #edf1f7); }
+.c-background-effect--sky[data-time="evening"] { background: linear-gradient(180deg, #263a5e, #b85c72 62%, #d9985c); }
+.c-background-effect--sky[data-time="night"] { background: linear-gradient(180deg, #070d1b, #18243b); }
+.c-background-effect__orb {
+  position: absolute;
+  top: 18%;
+  left: 18%;
+  width: 3rem;
+  height: 3rem;
+  background: var(--color-accent-yellow, #ff0);
+  border-radius: 50%;
+  box-shadow: 0 0 1.5rem rgb(255 255 0 / 45%);
+}
+.c-background-effect--sky[data-time="evening"] .c-background-effect__orb { top: 52%; left: 72%; background: #f5c27a; }
+.c-background-effect--sky[data-time="night"] .c-background-effect__orb { left: 74%; background: #edf1f7; box-shadow: 0 0 1.2rem rgb(255 255 255 / 28%); }
+
+@media (hover: hover) and (pointer: fine) {
+  .c-background-effect__toggle:hover,
+  .c-background-effect__cycle:hover { color: var(--color-primary, #18243b); background: var(--color-accent-yellow, #ff0); border-color: var(--color-accent-yellow, #ff0); }
+}
+
+@media (max-width: 40rem) {
+  .part-example--with-js { grid-template-rows: 7rem 15rem 32rem 7.25rem; }
+  .part-example__code-grid--with-js { grid-template-columns: 1fr; grid-template-rows: repeat(3, minmax(0, 1fr)); }
+  .part-example__code-grid--with-js > .part-code:first-child { border-right: 0; }
+  .part-example__code-grid--with-js .part-code--js { grid-column: auto; }
+  .c-background-effect { width: min(100%, 22rem); height: 11rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .c-background-effect,
+  .c-background-effect * { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}

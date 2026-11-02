@@ -1,0 +1,1302 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="問い合わせ、検索、設定画面で使える、入力欄・選択UI・複数行入力のCSSフォーム16パターンです。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>CSS FORM | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/css-form.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="CSS FORM | MARK BENCH" />
+    <meta property="og:description" content="問い合わせ、検索、設定画面で使える、入力欄・選択UI・複数行入力のCSSフォーム16パターンです。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/css-form.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CSS FORM | MARK BENCH" />
+    <meta name="twitter:description" content="問い合わせ、検索、設定画面で使える、入力欄・選択UI・複数行入力のCSSフォーム16パターンです。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "CSS FORM",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/css-form.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>
+      document.documentElement.classList.replace("no-js", "js");
+    </script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/web-parts.css" />
+    <link rel="stylesheet" href="../css/web-parts-css-form.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts-detail" data-parts-detail>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header">
+      <div class="site-header__bar">
+        <nav class="site-breadcrumb-logo" aria-label="パンくずリスト">
+          <a class="site-logo" href="../index.html">MARK BENCH</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true"
+            >/</span
+          >
+          <a class="site-breadcrumb-logo__parent" href="./">WEB PARTS</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true"
+            >/</span
+          >
+          <span class="site-breadcrumb-logo__current" aria-current="page"
+            >CSS FORM</span
+          >
+        </nav>
+      </div>
+    </header>
+
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション">
+      <a href="../tools/"><strong>TOOLS</strong></a>
+      <a href="./" aria-current="location"><strong>WEB PARTS</strong></a>
+      <a href="../build-notes/"><strong>BUILD NOTES</strong></a>
+      <a href="../about.html"><strong>ABOUT</strong></a>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <header class="part-detail-header">
+        <p class="section-index reveal">WEB_PARTS / CSS FORM</p>
+        <h1 class="reveal">CSS FORM</h1>
+        <p class="part-detail-header__lead reveal">
+          問い合わせや検索、設定画面で入力位置と選択状態を明確にし、マウス・タッチ・キーボードのどれでも扱いやすくするフォーム部品16パターンです。
+        </p>
+        <div class="part-detail-header__meta reveal">
+          <span>PATTERNS: 16</span><span>TYPE: CSS</span
+          ><span>DEPENDENCY: NONE</span>
+        </div>
+        <a
+          class="part-detail-header__anchor reveal"
+          href="#css-form-common-styles"
+          ><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a
+        >
+      </header>
+
+      <section
+        class="part-detail-controls directory-search directory-keywords"
+        aria-label="CSSフォームパターンを絞り込み">
+        <div class="directory-keywords__group">
+          <p class="directory-keywords__label">KEYWORDS</p>
+          <div class="directory-keywords__list">
+            <button
+              type="button"
+              aria-pressed="false"
+              data-pattern-keyword="入力欄">
+              # 入力欄
+            </button>
+            <button
+              type="button"
+              aria-pressed="false"
+              data-pattern-keyword="フォーカス">
+              # フォーカス
+            </button>
+            <button
+              type="button"
+              aria-pressed="false"
+              data-pattern-keyword="検索">
+              # 検索
+            </button>
+            <button
+              type="button"
+              aria-pressed="false"
+              data-pattern-keyword="選択">
+              # 選択
+            </button>
+            <button
+              type="button"
+              aria-pressed="false"
+              data-pattern-keyword="切替">
+              # 切替
+            </button>
+            <button
+              type="button"
+              aria-pressed="false"
+              data-pattern-keyword="範囲">
+              # 範囲
+            </button>
+            <button
+              type="button"
+              aria-pressed="false"
+              data-pattern-keyword="複数行">
+              # 複数行
+            </button>
+            <button
+              type="button"
+              aria-pressed="false"
+              data-pattern-keyword="カウンタ">
+              # カウンタ
+            </button>
+            <button
+              type="button"
+              aria-pressed="false"
+              data-pattern-keyword="実務追加">
+              # 実務追加
+            </button>
+            <button
+              type="button"
+              aria-pressed="false"
+              data-pattern-keyword="状態">
+              # 状態
+            </button>
+            <button
+              type="button"
+              aria-pressed="false"
+              data-pattern-keyword="ファイル">
+              # ファイル
+            </button>
+          </div>
+        </div>
+        <p>DISPLAY: <span data-pattern-count>16</span> / 16</p>
+      </section>
+
+      <div class="part-example-list">
+        <section
+          class="part-example reveal"
+          data-pattern
+          data-search="入力欄 フォーカス グロー focus glow input text 基本 入力">
+          <header class="part-example__header">
+            <div>
+              <span class="part-example__index">TEXT INPUT / 01</span>
+              <h2>フォーカスグロー入力欄</h2>
+            </div>
+            <small>FOCUS RING</small>
+          </header>
+          <div class="part-example__preview">
+            <div class="c-css-form c-css-form--glow">
+              <label class="c-css-form__label" for="css-form-glow">お名前</label
+              ><input
+                class="c-css-form__input"
+                id="css-form-glow"
+                type="text"
+                placeholder="山田 太郎"
+                autocomplete="name" />
+            </div>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>HTML</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>&lt;div class="c-css-form c-css-form--glow"&gt;
+  &lt;label class="c-css-form__label" for="name"&gt;お名前&lt;/label&gt;
+  &lt;input class="c-css-form__input" id="name" type="text"
+    placeholder="山田 太郎" autocomplete="name"&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>CSS</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>.c-css-form { width: min(100%, 22rem); font-family: sans-serif; }
+.c-css-form__label { display: block; margin-bottom: .45rem; font-weight: 700; }
+.c-css-form__input { box-sizing: border-box; width: 100%; padding: .72rem .82rem; font: inherit; background: #fff; border: 1px solid #aeb8c7; border-radius: .25rem; }
+.c-css-form--glow .c-css-form__input:focus-visible { outline: 0; border-color: #18243b; box-shadow: 0 0 0 3px #edf1f7, 0 0 0 5px #18243b; }</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note">
+            <strong>USE FOR</strong>
+            <p>
+              氏名やメールアドレスなど、入力中の項目を強いフォーカスリングで見失わせたくないフォーム。
+            </p>
+          </div>
+        </section>
+
+        <section
+          class="part-example reveal"
+          data-pattern
+          data-search="入力欄 フォーカス 下線 underline minimal シンプル text input">
+          <header class="part-example__header">
+            <div>
+              <span class="part-example__index">TEXT INPUT / 02</span>
+              <h2>下線インプット</h2>
+            </div>
+            <small>MINIMAL LINE</small>
+          </header>
+          <div class="part-example__preview">
+            <div class="c-css-form c-css-form--underline">
+              <label class="c-css-form__label" for="css-form-under"
+                >会社名</label
+              ><input
+                class="c-css-form__input"
+                id="css-form-under"
+                type="text"
+                placeholder="MARK BENCH"
+                autocomplete="organization" />
+            </div>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>HTML</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>&lt;div class="c-css-form c-css-form--underline"&gt;
+  &lt;label class="c-css-form__label" for="company"&gt;会社名&lt;/label&gt;
+  &lt;input class="c-css-form__input" id="company" type="text"
+    placeholder="MARK BENCH" autocomplete="organization"&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>CSS</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>.c-css-form { width: min(100%, 22rem); font-family: sans-serif; }
+.c-css-form__label { display: block; margin-bottom: .45rem; font-weight: 700; }
+.c-css-form--underline .c-css-form__input { box-sizing: border-box; width: 100%; padding: .72rem .15rem; font: inherit; background: transparent; border: 0; border-bottom: 2px solid #aeb8c7; border-radius: 0; }
+.c-css-form--underline .c-css-form__input:focus-visible { outline: 0; border-color: #18243b; box-shadow: 0 3px 0 #ff0; }</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note">
+            <strong>USE FOR</strong>
+            <p>
+              プロフィール編集や資料請求など、項目数が少なく余白を広く見せたい入力画面。
+            </p>
+          </div>
+        </section>
+
+        <section
+          class="part-example reveal"
+          data-pattern
+          data-search="入力欄 フォーカス フローティング ラベル floating label placeholder text input">
+          <header class="part-example__header">
+            <div>
+              <span class="part-example__index">TEXT INPUT / 03</span>
+              <h2>フローティングラベル</h2>
+            </div>
+            <small>FLOAT LABEL</small>
+          </header>
+          <div class="part-example__preview">
+            <div class="c-css-form c-css-form--floating">
+              <input
+                class="c-css-form__input"
+                id="css-form-float"
+                type="email"
+                placeholder=" "
+                autocomplete="email" /><label
+                class="c-css-form__label"
+                for="css-form-float"
+                >メールアドレス</label
+              >
+            </div>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>HTML</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>&lt;div class="c-css-form c-css-form--floating"&gt;
+  &lt;input class="c-css-form__input" id="email" type="email"
+    placeholder=" " autocomplete="email"&gt;
+  &lt;label class="c-css-form__label" for="email"&gt;メールアドレス&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>CSS</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>.c-css-form--floating { position: relative; width: min(100%, 22rem); padding-top: .35rem; font-family: sans-serif; }
+.c-css-form__input { box-sizing: border-box; width: 100%; padding: 1.15rem .82rem .35rem; font: inherit; background: #fff; border: 1px solid #aeb8c7; }
+.c-css-form--floating .c-css-form__label { position: absolute; top: 1.14rem; left: .82rem; color: #667085; pointer-events: none; transform-origin: left top; transition: transform .16s; }
+.c-css-form__input:focus + .c-css-form__label,
+.c-css-form__input:not(:placeholder-shown) + .c-css-form__label { color: #18243b; transform: translateY(-.52rem) scale(.78); }
+.c-css-form__input:focus-visible { outline: 3px solid #315a9b; outline-offset: 2px; }</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note">
+            <strong>USE FOR</strong>
+            <p>
+              限られた縦幅でも項目名を保持し、入力後もフィールドの意味を確認できる登録画面。
+            </p>
+          </div>
+        </section>
+
+        <section
+          class="part-example reveal"
+          data-pattern
+          data-search="入力欄 検索 search box icon query keyword フォーカス">
+          <header class="part-example__header">
+            <div>
+              <span class="part-example__index">TEXT INPUT / 04</span>
+              <h2>検索ボックス</h2>
+            </div>
+            <small>SEARCH FIELD</small>
+          </header>
+          <div class="part-example__preview">
+            <div class="c-css-form c-css-form--search">
+              <label
+                class="c-css-form__label c-css-form__label--visually-hidden"
+                for="css-form-search"
+                >サイト内検索</label
+              ><input
+                class="c-css-form__input"
+                id="css-form-search"
+                type="search"
+                placeholder="キーワードを入力" /><svg
+                class="c-css-form__search-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true">
+                <circle cx="10.5" cy="10.5" r="6.5" />
+                <path d="m15.5 15.5 5 5" />
+              </svg>
+            </div>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>HTML</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>&lt;div class="c-css-form c-css-form--search"&gt;
+  &lt;label class="c-css-form__label c-css-form__label--visually-hidden" for="search"&gt;サイト内検索&lt;/label&gt;
+  &lt;input class="c-css-form__input" id="search" type="search" placeholder="キーワードを入力"&gt;
+  &lt;svg class="c-css-form__search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"&gt;&lt;circle cx="10.5" cy="10.5" r="6.5"/&gt;&lt;path d="m15.5 15.5 5 5"/&gt;&lt;/svg&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>CSS</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>.c-css-form--search { position: relative; width: min(100%, 22rem); }
+.c-css-form__input { box-sizing: border-box; width: 100%; padding: .72rem 3rem .72rem .82rem; font: inherit; background: #fff; border: 1px solid #aeb8c7; }
+.c-css-form__input:focus-visible { outline: 3px solid #315a9b; outline-offset: 2px; }
+.c-css-form__search-icon { position: absolute; top: 50%; right: .85rem; width: 1.1rem; pointer-events: none; transform: translateY(-50%); }
+.c-css-form__label--visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note">
+            <strong>USE FOR</strong>
+            <p>
+              サイト内検索、商品検索、一覧フィルターなど、検索用途をアイコンでも即座に伝えたい場面。
+            </p>
+          </div>
+        </section>
+
+        <section
+          class="part-example reveal"
+          data-pattern
+          data-search="選択 チェックボックス checkbox 複数 consent 同意 focus disabled">
+          <header class="part-example__header">
+            <div>
+              <span class="part-example__index">CHOICE / 01</span>
+              <h2>チェックボックス</h2>
+            </div>
+            <small>MULTIPLE CHOICE</small>
+          </header>
+          <div class="part-example__preview">
+            <fieldset class="c-css-form c-css-form__options">
+              <legend class="c-css-form__legend">受け取る情報</legend>
+              <label class="c-css-form__choice"
+                ><input
+                  class="c-css-form__choice-input"
+                  type="checkbox"
+                  checked /><span
+                  class="c-css-form__choice-mark"
+                  aria-hidden="true"></span
+                >更新情報</label
+              ><label class="c-css-form__choice"
+                ><input class="c-css-form__choice-input" type="checkbox" /><span
+                  class="c-css-form__choice-mark"
+                  aria-hidden="true"></span
+                >イベント案内</label
+              ><label class="c-css-form__choice"
+                ><input
+                  class="c-css-form__choice-input"
+                  type="checkbox"
+                  disabled /><span
+                  class="c-css-form__choice-mark"
+                  aria-hidden="true"></span
+                >配信停止中</label
+              >
+            </fieldset>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>HTML</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>&lt;fieldset class="c-css-form c-css-form__options"&gt;
+  &lt;legend class="c-css-form__legend"&gt;受け取る情報&lt;/legend&gt;
+  &lt;label class="c-css-form__choice"&gt;
+    &lt;input class="c-css-form__choice-input" type="checkbox" checked&gt;
+    &lt;span class="c-css-form__choice-mark" aria-hidden="true"&gt;&lt;/span&gt;更新情報
+  &lt;/label&gt;
+  &lt;label class="c-css-form__choice"&gt;
+    &lt;input class="c-css-form__choice-input" type="checkbox" disabled&gt;
+    &lt;span class="c-css-form__choice-mark" aria-hidden="true"&gt;&lt;/span&gt;配信停止中
+  &lt;/label&gt;
+&lt;/fieldset&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>CSS</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>.c-css-form__choice { position: relative; display: inline-flex; min-height: 2.75rem; gap: .65rem; align-items: center; font: 700 .82rem sans-serif; cursor: pointer; }
+.c-css-form__choice-input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.c-css-form__choice-mark { display: grid; width: 1.5rem; height: 1.5rem; place-items: center; color: #fff; border: 2px solid #aeb8c7; border-radius: .2rem; }
+.c-css-form__choice-mark::after { content: "✓"; opacity: 0; }
+.c-css-form__choice-input:checked + .c-css-form__choice-mark { background: #18243b; border-color: #18243b; }
+.c-css-form__choice-input:checked + .c-css-form__choice-mark::after { opacity: 1; }
+.c-css-form__choice-input:focus-visible + .c-css-form__choice-mark { outline: 3px solid #315a9b; outline-offset: 3px; }
+.c-css-form__choice:has(input:disabled) { cursor: not-allowed; opacity: .55; }</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note">
+            <strong>USE FOR</strong>
+            <p>
+              メール配信設定や同意事項など、複数項目を独立してオン・オフできる選択肢。
+            </p>
+          </div>
+        </section>
+
+        <section
+          class="part-example reveal"
+          data-pattern
+          data-search="選択 ラジオボタン radio 単一 one choice plan payment">
+          <header class="part-example__header">
+            <div>
+              <span class="part-example__index">CHOICE / 02</span>
+              <h2>ラジオボタン</h2>
+            </div>
+            <small>SINGLE CHOICE</small>
+          </header>
+          <div class="part-example__preview">
+            <fieldset class="c-css-form c-css-form__options c-css-form--radio">
+              <legend class="c-css-form__legend">お支払い方法</legend>
+              <label class="c-css-form__choice"
+                ><input
+                  class="c-css-form__choice-input"
+                  type="radio"
+                  name="css-form-payment"
+                  checked /><span
+                  class="c-css-form__choice-mark"
+                  aria-hidden="true"></span
+                >クレジットカード</label
+              ><label class="c-css-form__choice"
+                ><input
+                  class="c-css-form__choice-input"
+                  type="radio"
+                  name="css-form-payment" /><span
+                  class="c-css-form__choice-mark"
+                  aria-hidden="true"></span
+                >銀行振込</label
+              >
+            </fieldset>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>HTML</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>&lt;fieldset class="c-css-form c-css-form__options c-css-form--radio"&gt;
+  &lt;legend class="c-css-form__legend"&gt;お支払い方法&lt;/legend&gt;
+  &lt;label class="c-css-form__choice"&gt;
+    &lt;input class="c-css-form__choice-input" type="radio" name="payment" checked&gt;
+    &lt;span class="c-css-form__choice-mark" aria-hidden="true"&gt;&lt;/span&gt;クレジットカード
+  &lt;/label&gt;
+&lt;/fieldset&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>CSS</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>.c-css-form__choice { position: relative; display: inline-flex; min-height: 2.75rem; gap: .65rem; align-items: center; font: 700 .82rem sans-serif; cursor: pointer; }
+.c-css-form__choice-input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.c-css-form--radio .c-css-form__choice-mark { display: grid; width: 1.5rem; height: 1.5rem; place-items: center; border: 2px solid #aeb8c7; border-radius: 50%; }
+.c-css-form--radio .c-css-form__choice-mark::after { width: .62rem; height: .62rem; background: #fff; border-radius: 50%; content: ""; transform: scale(0); }
+.c-css-form__choice-input:checked + .c-css-form__choice-mark { background: #18243b; border-color: #18243b; }
+.c-css-form__choice-input:checked + .c-css-form__choice-mark::after { transform: scale(1); }</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note">
+            <strong>USE FOR</strong>
+            <p>支払い方法やプランなど、同じグループから必ず1つだけ選ぶ設定。</p>
+          </div>
+        </section>
+
+        <section
+          class="part-example reveal"
+          data-pattern
+          data-search="選択 切替 トグル switch toggle on off settings boolean checkbox">
+          <header class="part-example__header">
+            <div>
+              <span class="part-example__index">CHOICE / 03</span>
+              <h2>トグルスイッチ</h2>
+            </div>
+            <small>ON / OFF</small>
+          </header>
+          <div class="part-example__preview">
+            <div class="c-css-form">
+              <label class="c-css-form__toggle"
+                ><input
+                  class="c-css-form__toggle-input"
+                  type="checkbox"
+                  checked /><span
+                  class="c-css-form__toggle-track"
+                  aria-hidden="true"></span
+                >メール通知を受け取る</label
+              >
+            </div>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>HTML</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>&lt;label class="c-css-form__toggle"&gt;
+  &lt;input class="c-css-form__toggle-input" type="checkbox" checked&gt;
+  &lt;span class="c-css-form__toggle-track" aria-hidden="true"&gt;&lt;/span&gt;
+  メール通知を受け取る
+&lt;/label&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>CSS</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>.c-css-form__toggle { position: relative; display: inline-flex; min-height: 2.75rem; gap: .7rem; align-items: center; font: 700 .82rem sans-serif; cursor: pointer; }
+.c-css-form__toggle-input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.c-css-form__toggle-track { position: relative; width: 3.25rem; height: 1.75rem; background: #aeb8c7; border-radius: 999px; }
+.c-css-form__toggle-track::after { position: absolute; top: .25rem; left: .25rem; width: 1.25rem; height: 1.25rem; background: #fff; border-radius: 50%; content: ""; transition: transform .18s; }
+.c-css-form__toggle-input:checked + .c-css-form__toggle-track { background: #18243b; }
+.c-css-form__toggle-input:checked + .c-css-form__toggle-track::after { transform: translateX(1.5rem); }
+.c-css-form__toggle-input:focus-visible + .c-css-form__toggle-track { outline: 3px solid #315a9b; outline-offset: 3px; }</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note">
+            <strong>USE FOR</strong>
+            <p>
+              通知や公開設定など、変更直後に反映される二値設定を状態とラベルで示す場面。
+            </p>
+          </div>
+        </section>
+
+        <section
+          class="part-example reveal"
+          data-pattern
+          data-search="選択 切替 セグメント segment segmented radio view mode list grid">
+          <header class="part-example__header">
+            <div>
+              <span class="part-example__index">CHOICE / 04</span>
+              <h2>セグメント切替</h2>
+            </div>
+            <small>VIEW MODE</small>
+          </header>
+          <div class="part-example__preview">
+            <fieldset class="c-css-form c-css-form__options">
+              <legend class="c-css-form__legend">表示形式</legend>
+              <div class="c-css-form__segments">
+                <label class="c-css-form__segment"
+                  ><input type="radio" name="css-form-view" checked /><span
+                    >リスト</span
+                  ></label
+                ><label class="c-css-form__segment"
+                  ><input type="radio" name="css-form-view" /><span
+                    >グリッド</span
+                  ></label
+                >
+              </div>
+            </fieldset>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>HTML</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>&lt;fieldset class="c-css-form__options"&gt;
+  &lt;legend class="c-css-form__legend"&gt;表示形式&lt;/legend&gt;
+  &lt;div class="c-css-form__segments"&gt;
+    &lt;label class="c-css-form__segment"&gt;&lt;input type="radio" name="view" checked&gt;&lt;span&gt;リスト&lt;/span&gt;&lt;/label&gt;
+    &lt;label class="c-css-form__segment"&gt;&lt;input type="radio" name="view"&gt;&lt;span&gt;グリッド&lt;/span&gt;&lt;/label&gt;
+  &lt;/div&gt;
+&lt;/fieldset&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>CSS</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>.c-css-form__segments { display: inline-grid; padding: .2rem; grid-template-columns: repeat(2, 1fr); background: #f4f6f8; border: 1px solid #aeb8c7; border-radius: 999px; }
+.c-css-form__segment { position: relative; min-width: 6rem; cursor: pointer; }
+.c-css-form__segment input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.c-css-form__segment span { display: grid; min-height: 2.35rem; padding: .45rem .8rem; place-items: center; font: 700 .72rem sans-serif; border-radius: 999px; }
+.c-css-form__segment input:checked + span { color: #fff; background: #18243b; }
+.c-css-form__segment input:focus-visible + span { outline: 3px solid #315a9b; outline-offset: 2px; }</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note">
+            <strong>USE FOR</strong>
+            <p>
+              一覧の表示形式や期間など、少数の相互排他的な選択肢を横並びで比較する場面。
+            </p>
+          </div>
+        </section>
+
+        <section
+          class="part-example reveal"
+          data-pattern
+          data-search="選択 セレクト select dropdown option native pull down フォーム">
+          <header class="part-example__header">
+            <div>
+              <span class="part-example__index">CHOICE / 05</span>
+              <h2>セレクトボックス</h2>
+            </div>
+            <small>NATIVE SELECT</small>
+          </header>
+          <div class="part-example__preview">
+            <div class="c-css-form">
+              <label class="c-css-form__label" for="css-form-select"
+                >お問い合わせ種別</label
+              >
+              <div class="c-css-form__select-wrap">
+                <select class="c-css-form__select" id="css-form-select">
+                  <option>選択してください</option>
+                  <option>資料請求</option>
+                  <option>お見積もり</option>
+                  <option>その他</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>HTML</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>&lt;div class="c-css-form"&gt;
+  &lt;label class="c-css-form__label" for="subject"&gt;お問い合わせ種別&lt;/label&gt;
+  &lt;div class="c-css-form__select-wrap"&gt;
+    &lt;select class="c-css-form__select" id="subject"&gt;
+      &lt;option&gt;選択してください&lt;/option&gt;&lt;option&gt;資料請求&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>CSS</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>.c-css-form { width: min(100%, 22rem); font-family: sans-serif; }
+.c-css-form__label { display: block; margin-bottom: .45rem; font-weight: 700; }
+.c-css-form__select-wrap { position: relative; }
+.c-css-form__select { box-sizing: border-box; width: 100%; padding: .72rem 3rem .72rem .82rem; font: inherit; appearance: none; background: #fff; border: 1px solid #aeb8c7; }
+.c-css-form__select-wrap::after { position: absolute; top: 50%; right: 1rem; width: .55rem; height: .55rem; border-right: 2px solid #18243b; border-bottom: 2px solid #18243b; content: ""; pointer-events: none; transform: translateY(-70%) rotate(45deg); }
+.c-css-form__select:focus-visible { outline: 3px solid #315a9b; outline-offset: 2px; }</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note">
+            <strong>USE FOR</strong>
+            <p>
+              都道府県や問い合わせ種別など、多数の候補から1つを省スペースで選ぶ場面。
+            </p>
+          </div>
+        </section>
+
+        <section
+          class="part-example reveal"
+          data-pattern
+          data-search="範囲 レンジ スライダー range slider volume price setting drag keyboard">
+          <header class="part-example__header">
+            <div>
+              <span class="part-example__index">RANGE / 01</span>
+              <h2>レンジスライダー</h2>
+            </div>
+            <small>CONTINUOUS VALUE</small>
+          </header>
+          <div class="part-example__preview">
+            <div class="c-css-form">
+              <label class="c-css-form__label" for="css-form-range"
+                >表示倍率</label
+              ><input
+                class="c-css-form__range"
+                id="css-form-range"
+                type="range"
+                min="50"
+                max="150"
+                value="100"
+                step="10" />
+              <div class="c-css-form__range-scale" aria-hidden="true">
+                <span>50%</span><span>100%</span><span>150%</span>
+              </div>
+            </div>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>HTML</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>&lt;div class="c-css-form"&gt;
+  &lt;label class="c-css-form__label" for="zoom"&gt;表示倍率&lt;/label&gt;
+  &lt;input class="c-css-form__range" id="zoom" type="range"
+    min="50" max="150" value="100" step="10"&gt;
+  &lt;div class="c-css-form__range-scale" aria-hidden="true"&gt;&lt;span&gt;50%&lt;/span&gt;&lt;span&gt;100%&lt;/span&gt;&lt;span&gt;150%&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>CSS</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>.c-css-form { width: min(100%, 22rem); font-family: sans-serif; }
+.c-css-form__range { width: 100%; height: .45rem; margin: 1rem 0; appearance: none; background: #aeb8c7; border-radius: 999px; cursor: pointer; }
+.c-css-form__range::-webkit-slider-thumb { width: 1.45rem; height: 1.45rem; appearance: none; background: #18243b; border: 3px solid #fff; border-radius: 50%; box-shadow: 0 0 0 1px #18243b; }
+.c-css-form__range::-moz-range-thumb { width: 1.1rem; height: 1.1rem; background: #18243b; border: 3px solid #fff; border-radius: 50%; }
+.c-css-form__range:focus-visible { outline: 3px solid #315a9b; outline-offset: 4px; }
+.c-css-form__range-scale { display: flex; justify-content: space-between; color: #667085; font: .65rem monospace; }</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note">
+            <strong>USE FOR</strong>
+            <p>
+              倍率、音量、価格帯など、連続した範囲からおおよその値を直感的に選ぶ設定。
+            </p>
+          </div>
+        </section>
+
+        <section
+          class="part-example reveal"
+          data-pattern
+          data-search="複数行 テキストエリア textarea message inquiry resize コメント 入力欄">
+          <header class="part-example__header">
+            <div>
+              <span class="part-example__index">MULTILINE / 01</span>
+              <h2>テキストエリア</h2>
+            </div>
+            <small>RESIZABLE</small>
+          </header>
+          <div class="part-example__preview">
+            <div class="c-css-form">
+              <label class="c-css-form__label" for="css-form-area"
+                >お問い合わせ内容</label
+              ><textarea
+                class="c-css-form__textarea"
+                id="css-form-area"
+                placeholder="ご質問やご要望を入力してください"></textarea>
+              <p class="c-css-form__hint">個人情報は入力しないでください。</p>
+            </div>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>HTML</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>&lt;div class="c-css-form"&gt;
+  &lt;label class="c-css-form__label" for="message"&gt;お問い合わせ内容&lt;/label&gt;
+  &lt;textarea class="c-css-form__textarea" id="message"
+    placeholder="ご質問やご要望を入力してください"&gt;&lt;/textarea&gt;
+  &lt;p class="c-css-form__hint"&gt;個人情報は入力しないでください。&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>CSS</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>.c-css-form { width: min(100%, 22rem); font-family: sans-serif; }
+.c-css-form__label { display: block; margin-bottom: .45rem; font-weight: 700; }
+.c-css-form__textarea { box-sizing: border-box; display: block; width: 100%; min-height: 6.5rem; padding: .72rem .82rem; font: inherit; line-height: 1.5; background: #fff; border: 1px solid #aeb8c7; border-radius: .25rem; resize: vertical; }
+.c-css-form__textarea:focus-visible { outline: 3px solid #315a9b; outline-offset: 2px; border-color: #18243b; }
+.c-css-form__hint { margin: .45rem 0 0; color: #667085; font-size: .7rem; }</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note">
+            <strong>USE FOR</strong>
+            <p>
+              問い合わせ、備考、コメントなど、複数行の自由記述と入力上の注意を一緒に示す場面。
+            </p>
+          </div>
+        </section>
+
+        <section
+          class="part-example reveal"
+          data-pattern
+          data-search="複数行 カウンタ counter count textarea 文字数 上限 sns コメント 静的">
+          <header class="part-example__header">
+            <div>
+              <span class="part-example__index">MULTILINE / 02</span>
+              <h2>カウンタ付きテキストエリア</h2>
+            </div>
+            <small>COUNT SLOT</small>
+          </header>
+          <div class="part-example__preview">
+            <div class="c-css-form">
+              <label class="c-css-form__label" for="css-form-counter"
+                >投稿文</label
+              >
+              <div class="c-css-form__counter-wrap">
+                <textarea
+                  class="c-css-form__textarea"
+                  id="css-form-counter"
+                  maxlength="140"
+                  placeholder="140文字以内で入力"
+                  aria-describedby="css-form-counter-note"></textarea>
+                <p class="c-css-form__counter" aria-hidden="true">0 / 140</p>
+              </div>
+              <p class="c-css-form__hint" id="css-form-counter-note">
+                CSS版ではカウンタ表示枠のみを提供します。
+              </p>
+            </div>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>HTML</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>&lt;div class="c-css-form"&gt;
+  &lt;label class="c-css-form__label" for="post"&gt;投稿文&lt;/label&gt;
+  &lt;div class="c-css-form__counter-wrap"&gt;
+    &lt;textarea class="c-css-form__textarea" id="post" maxlength="140"
+      placeholder="140文字以内で入力" aria-describedby="post-note"&gt;&lt;/textarea&gt;
+    &lt;p class="c-css-form__counter" aria-hidden="true"&gt;0 / 140&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;p class="c-css-form__hint" id="post-note"&gt;カウンタ値は送信処理側で更新してください。&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>CSS</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>.c-css-form { width: min(100%, 22rem); font-family: sans-serif; }
+.c-css-form__counter-wrap { position: relative; }
+.c-css-form__textarea { box-sizing: border-box; width: 100%; min-height: 6.5rem; padding: .72rem .82rem 2rem; font: inherit; background: #fff; border: 1px solid #aeb8c7; resize: none; }
+.c-css-form__textarea:focus-visible { outline: 3px solid #315a9b; outline-offset: 2px; }
+.c-css-form__counter { position: absolute; right: .72rem; bottom: .58rem; margin: 0; color: #667085; font: .62rem monospace; pointer-events: none; }
+.c-css-form__hint { margin: .45rem 0 0; color: #667085; font-size: .7rem; }</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note">
+            <strong>USE FOR</strong>
+            <p>
+              SNS投稿や紹介文など、文字数表示の置き場所を確保するCSSレイアウト。動的な数値更新は含みません。
+            </p>
+          </div>
+        </section>
+
+        <section
+          class="part-example reveal"
+          data-pattern
+          data-search="実務追加 入力欄 単位 prefix suffix affix currency price number 金額 円 予算">
+          <header class="part-example__header">
+            <div>
+              <span class="part-example__index">PRACTICAL ADDITION / 01</span>
+              <h2>単位付き入力</h2>
+            </div>
+            <small>PREFIX / SUFFIX</small>
+          </header>
+          <div class="part-example__preview">
+            <div class="c-css-form">
+              <label class="c-css-form__label" for="css-form-budget"
+                >予算上限</label
+              >
+              <div class="c-css-form__affix">
+                <span class="c-css-form__affix-text" aria-hidden="true">¥</span
+                ><input
+                  class="c-css-form__input"
+                  id="css-form-budget"
+                  type="number"
+                  value="50000"
+                  min="0"
+                  step="1000"
+                  inputmode="numeric" /><span
+                  class="c-css-form__affix-text"
+                  aria-hidden="true"
+                  >税込</span
+                >
+              </div>
+              <p class="c-css-form__hint">1,000円単位で入力してください。</p>
+            </div>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>HTML</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>&lt;div class="c-css-form"&gt;
+  &lt;label class="c-css-form__label" for="budget"&gt;予算上限&lt;/label&gt;
+  &lt;div class="c-css-form__affix"&gt;
+    &lt;span class="c-css-form__affix-text" aria-hidden="true"&gt;¥&lt;/span&gt;
+    &lt;input class="c-css-form__input" id="budget" type="number"
+      value="50000" min="0" step="1000" inputmode="numeric"&gt;
+    &lt;span class="c-css-form__affix-text" aria-hidden="true"&gt;税込&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>CSS</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>.c-css-form { width: min(100%, 22rem); font-family: sans-serif; }
+.c-css-form__affix { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; overflow: hidden; background: #fff; border: 1px solid #aeb8c7; border-radius: .25rem; }
+.c-css-form__affix:focus-within { border-color: #18243b; box-shadow: 0 0 0 3px #edf1f7, 0 0 0 5px #315a9b; }
+.c-css-form__affix-text { display: grid; min-width: 2.75rem; padding: .65rem .75rem; place-items: center; color: #667085; font: .68rem monospace; background: #f4f6f8; }
+.c-css-form__affix .c-css-form__input { box-sizing: border-box; min-width: 0; width: 100%; padding: .72rem .82rem; font: inherit; border: 0; border-inline: 1px solid #aeb8c7; }
+.c-css-form__affix .c-css-form__input:focus-visible { outline: 0; }</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note">
+            <strong>USE FOR</strong>
+            <p>
+              価格、税率、重量、URLなど、入力値の前後に通貨記号・単位・固定文字列を添える業務フォーム。
+            </p>
+          </div>
+        </section>
+
+        <section
+          class="part-example reveal"
+          data-pattern
+          data-search="実務追加 入力欄 日付 date calendar native picker 予約 期限 スケジュール">
+          <header class="part-example__header">
+            <div>
+              <span class="part-example__index">PRACTICAL ADDITION / 02</span>
+              <h2>日付入力</h2>
+            </div>
+            <small>NATIVE PICKER</small>
+          </header>
+          <div class="part-example__preview">
+            <div class="c-css-form">
+              <label class="c-css-form__label" for="css-form-date">希望日</label
+              ><input
+                class="c-css-form__input c-css-form__date"
+                id="css-form-date"
+                type="date"
+                value="2026-11-15"
+                min="2026-11-01" />
+              <p class="c-css-form__hint">
+                ブラウザ標準の日付選択を利用します。
+              </p>
+            </div>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>HTML</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>&lt;div class="c-css-form"&gt;
+  &lt;label class="c-css-form__label" for="preferred-date"&gt;希望日&lt;/label&gt;
+  &lt;input class="c-css-form__input c-css-form__date"
+    id="preferred-date" type="date"
+    value="2026-11-15" min="2026-11-01"&gt;
+  &lt;p class="c-css-form__hint"&gt;ブラウザ標準の日付選択を利用します。&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>CSS</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>.c-css-form { width: min(100%, 22rem); font-family: sans-serif; }
+.c-css-form__label { display: block; margin-bottom: .45rem; font-weight: 700; }
+.c-css-form__input { box-sizing: border-box; display: block; width: 100%; min-height: 2.85rem; padding: .72rem .82rem; color: #1c2430; font: inherit; background: #fff; border: 1px solid #aeb8c7; border-radius: .25rem; }
+.c-css-form__date { color-scheme: light; }
+.c-css-form__date::-webkit-calendar-picker-indicator { padding: .3rem; cursor: pointer; opacity: .75; }
+.c-css-form__input:focus-visible { outline: 3px solid #315a9b; outline-offset: 2px; border-color: #18243b; }
+.c-css-form__hint { margin: .45rem 0 0; color: #667085; font-size: .7rem; }</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note">
+            <strong>USE FOR</strong>
+            <p>
+              予約、納期、公開日など、端末ごとのネイティブピッカーとキーボード入力を両立したい場面。
+            </p>
+          </div>
+        </section>
+
+        <section
+          class="part-example reveal"
+          data-pattern
+          data-search="実務追加 状態 validation error success invalid valid エラー 成功 完了 検証 aria invalid">
+          <header class="part-example__header">
+            <div>
+              <span class="part-example__index">PRACTICAL ADDITION / 03</span>
+              <h2>成功・エラー状態</h2>
+            </div>
+            <small>VALIDATION STATE</small>
+          </header>
+          <div class="part-example__preview">
+            <div class="c-css-form c-css-form--state-grid">
+              <div class="c-css-form__field-group is-error">
+                <label class="c-css-form__label" for="css-form-error"
+                  >メールアドレス</label
+                ><input
+                  class="c-css-form__input"
+                  id="css-form-error"
+                  type="email"
+                  value="markbench"
+                  aria-invalid="true"
+                  aria-describedby="css-form-error-message" />
+                <p class="c-css-form__message" id="css-form-error-message">
+                  @以降を含めて入力してください。
+                </p>
+              </div>
+              <div class="c-css-form__field-group is-success">
+                <label class="c-css-form__label" for="css-form-success"
+                  >招待コード</label
+                ><input
+                  class="c-css-form__input"
+                  id="css-form-success"
+                  type="text"
+                  value="MB-2026"
+                  aria-describedby="css-form-success-message" />
+                <p class="c-css-form__message" id="css-form-success-message">
+                  利用できるコードです。
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>HTML</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>&lt;div class="c-css-form c-css-form--state-grid"&gt;
+&lt;div class="c-css-form__field-group is-error"&gt;
+  &lt;label class="c-css-form__label" for="validation-email"&gt;メールアドレス&lt;/label&gt;
+  &lt;input class="c-css-form__input" id="validation-email" type="email"
+    value="markbench" aria-invalid="true" aria-describedby="validation-email-error"&gt;
+  &lt;p class="c-css-form__message" id="validation-email-error"&gt;@以降を含めて入力してください。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="c-css-form__field-group is-success"&gt;
+  &lt;label class="c-css-form__label" for="code"&gt;招待コード&lt;/label&gt;
+  &lt;input class="c-css-form__input" id="code" value="MB-2026" aria-describedby="code-status"&gt;
+  &lt;p class="c-css-form__message" id="code-status"&gt;利用できるコードです。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>CSS</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>.c-css-form { width: min(100%, 22rem); font-family: sans-serif; }
+.c-css-form--state-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; }
+.c-css-form__field-group { display: grid; gap: .3rem; }
+.c-css-form__input { box-sizing: border-box; width: 100%; padding: .72rem .82rem; font: inherit; background: #fff; border: 1px solid #aeb8c7; }
+.c-css-form__message { min-height: 1.05rem; margin: 0; font-size: .65rem; }
+.c-css-form__field-group.is-error .c-css-form__input { border-color: #9f1d2c; background: #fff7f7; }
+.c-css-form__field-group.is-error .c-css-form__message { color: #9f1d2c; }
+.c-css-form__field-group.is-success .c-css-form__input { border-color: #236b43; background: #f4fbf6; }
+.c-css-form__field-group.is-success .c-css-form__message { color: #236b43; }
+.c-css-form__input:focus-visible { outline: 3px solid #315a9b; outline-offset: 2px; }</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note">
+            <strong>USE FOR</strong>
+            <p>
+              会員登録や決済情報で、検証結果を色だけに頼らずメッセージとARIA属性でも伝える場面。
+            </p>
+          </div>
+        </section>
+
+        <section
+          class="part-example reveal"
+          data-pattern
+          data-search="実務追加 ファイル file upload attachment 添付 選択 画像 pdf focus hover">
+          <header class="part-example__header">
+            <div>
+              <span class="part-example__index">PRACTICAL ADDITION / 04</span>
+              <h2>ファイル選択</h2>
+            </div>
+            <small>NATIVE FILE</small>
+          </header>
+          <div class="part-example__preview">
+            <div class="c-css-form">
+              <span class="c-css-form__label">資料を添付</span
+              ><label class="c-css-form__file"
+                ><input
+                  class="c-css-form__file-input"
+                  type="file"
+                  accept=".pdf,image/*" /><span
+                  class="c-css-form__file-icon"
+                  aria-hidden="true"
+                  >＋</span
+                ><strong>ファイルを選択</strong
+                ><small>PDF / JPG / PNG</small></label
+              >
+            </div>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>HTML</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>&lt;div class="c-css-form"&gt;
+  &lt;span class="c-css-form__label"&gt;資料を添付&lt;/span&gt;
+  &lt;label class="c-css-form__file"&gt;
+    &lt;input class="c-css-form__file-input" type="file" accept=".pdf,image/*"&gt;
+    &lt;span class="c-css-form__file-icon" aria-hidden="true"&gt;＋&lt;/span&gt;
+    &lt;strong&gt;ファイルを選択&lt;/strong&gt;
+    &lt;small&gt;PDF / JPG / PNG&lt;/small&gt;
+  &lt;/label&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header">
+                <span>CSS</span
+                ><button type="button" data-copy-code>COPY</button>
+              </div>
+              <pre><code>.c-css-form { width: min(100%, 22rem); font-family: sans-serif; }
+.c-css-form__file { position: relative; display: grid; min-height: 7rem; padding: 1rem; gap: .35rem; place-content: center; place-items: center; text-align: center; background: #fff; border: 2px dashed #aeb8c7; border-radius: .35rem; cursor: pointer; }
+.c-css-form__file-input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.c-css-form__file-icon { font: 1.35rem monospace; }
+.c-css-form__file strong { font-size: .78rem; }
+.c-css-form__file small { color: #667085; font-size: .65rem; }
+.c-css-form__file:has(input:focus-visible) { outline: 3px solid #315a9b; outline-offset: 3px; border-color: #18243b; }
+@media (hover: hover) { .c-css-form__file:hover { background: #edf1f7; border-color: #18243b; } }</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note">
+            <strong>USE FOR</strong>
+            <p>
+              問い合わせ資料、本人確認書類、商品画像などを、ネイティブのファイル選択へ安全に接続する場面。
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <div class="part-detail-empty" data-pattern-empty hidden>
+        <p>[ NO_PATTERNS_FOUND ]</p>
+        <p>別のキーワードを選択してください。</p>
+      </div>
+
+      <section
+        class="part-common-styles"
+        id="css-form-common-styles"
+        aria-labelledby="css-form-common-title">
+        <header class="part-common-styles__header reveal">
+          <p class="section-index">COMMON STYLE</p>
+          <h2 id="css-form-common-title">共通スタイル</h2>
+          <p>
+            フォーム部品の幅、ラベル、入力面、フォーカス表示を揃える基礎スタイルです。
+          </p>
+        </header>
+        <div
+          class="part-common-styles__code reveal"
+          data-reveal-threshold="0.01">
+          <div class="part-code">
+            <div class="part-code__header">
+              <span>CSS / COMMON</span
+              ><button type="button" data-copy-code>COPY</button>
+            </div>
+            <pre><code>.c-css-form,
+.c-css-form * { box-sizing: border-box; }
+
+.c-css-form {
+  width: min(100%, 22rem);
+  color: var(--color-text, #1c2430);
+  font-family: var(--font-sans, sans-serif);
+}
+
+.c-css-form__label,
+.c-css-form__legend {
+  display: block;
+  margin: 0 0 .45rem;
+  color: var(--color-text, #1c2430);
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+.c-css-form__input,
+.c-css-form__select,
+.c-css-form__textarea {
+  display: block;
+  width: 100%;
+  min-height: 2.85rem;
+  padding: .72rem .82rem;
+  color: var(--color-text, #1c2430);
+  font: inherit;
+  line-height: 1.5;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+  border-radius: .25rem;
+}
+
+.c-css-form__input:focus-visible,
+.c-css-form__select:focus-visible,
+.c-css-form__textarea:focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: 2px;
+  border-color: var(--color-primary, #18243b);
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <footer class="page-footer" aria-label="ページナビゲーション">
+        <a class="page-footer__back" href="./"
+          ><span class="page-footer__icon" aria-hidden="true">←</span
+          ><span>BACK TO WEB PARTS</span></a
+        >
+        <a class="page-footer__top" href="#main"
+          ><span>PAGE TOP</span
+          ><span class="page-footer__icon" aria-hidden="true">↑</span></a
+        >
+      </footer>
+    </main>
+
+    <script src="../js/web-parts-detail.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

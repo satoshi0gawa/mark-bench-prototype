@@ -1,0 +1,185 @@
+@charset "UTF-8";
+
+/* JavaScript detail layout: HTML/CSS above, JavaScript full width below. */
+.part-example--with-js { grid-template-rows: 5.5rem 16rem 33rem 6.5rem; }
+.part-example--with-js .part-example__preview { position: relative; isolation: isolate; }
+.part-example__code-grid--with-js {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+.part-example__code-grid--with-js > .part-code { border-right: 0; }
+.part-example__code-grid--with-js > .part-code:first-child { border-right: 0.5px dotted #9ca3af; }
+.part-example__code-grid--with-js .part-code--js {
+  grid-column: 1 / -1;
+  border-top: 1px solid #374151;
+  border-right: 0;
+}
+
+/* Portable tab family. */
+.c-tab {
+  --tab-count: 3;
+  --tab-index: 0;
+  --tab-duration: 180ms;
+  width: min(100%, 30rem);
+  min-width: 0;
+  color: var(--color-text, #1c2430);
+  font-family: var(--font-sans, sans-serif);
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+}
+
+.c-tab__list {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  border-bottom: 1px solid var(--color-grid, #d9dfe8);
+}
+
+.c-tab__tab,
+.c-tab__more,
+.c-tab__menu-item {
+  min-width: 0;
+  min-height: 2.75rem;
+  padding: 0.65rem 0.75rem;
+  color: var(--color-text-subtle, #667085);
+  font: 700 0.68rem/1.25 var(--font-mono, monospace);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.c-tab__tab { flex: 1; border-bottom: 3px solid transparent; }
+.c-tab__tab.is-active { color: var(--color-primary, #18243b); border-bottom-color: var(--color-primary, #18243b); }
+.c-tab__tab:focus-visible,
+.c-tab__more:focus-visible,
+.c-tab__menu-item:focus-visible {
+  position: relative;
+  z-index: 3;
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: -3px;
+}
+
+.c-tab__panels { min-width: 0; }
+.c-tab__panel {
+  min-height: 5.75rem;
+  padding: 1rem;
+  color: var(--color-text-subtle, #667085);
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+.c-tab__panel[hidden] { display: none; }
+.c-tab__panel strong { display: block; margin-bottom: 0.3rem; color: var(--color-text, #1c2430); }
+
+.c-tab__indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  width: calc(100% / var(--tab-count));
+  height: 3px;
+  background: var(--color-accent-yellow, #ff0);
+  transform: translateX(calc(var(--tab-index) * 100%));
+  pointer-events: none;
+}
+.c-tab--line .c-tab__tab.is-active { border-bottom-color: transparent; }
+
+.c-tab--pill { background: transparent; border: 0; }
+.c-tab--pill .c-tab__list {
+  padding: 4px;
+  background: var(--color-primary-soft, #edf1f7);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+  border-radius: 999px;
+}
+.c-tab--pill .c-tab__indicator {
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc((100% - 8px) / var(--tab-count));
+  height: auto;
+  background: var(--color-primary, #18243b);
+  border-radius: 999px;
+}
+.c-tab--pill .c-tab__tab { position: relative; z-index: 2; min-height: 2.25rem; padding-block: 0.4rem; border: 0; }
+.c-tab--pill .c-tab__tab.is-active { color: var(--color-text-inverse, #fff); }
+.c-tab--pill .c-tab__panel { padding-inline: 0.5rem; }
+
+.c-tab--fade .c-tab__tab { margin: 0.5rem 0.25rem 0; background: var(--color-primary-soft, #edf1f7); border: 0; }
+.c-tab--fade .c-tab__tab:first-child { margin-left: 0.5rem; }
+.c-tab--fade .c-tab__tab:last-child { margin-right: 0.5rem; }
+.c-tab--fade .c-tab__tab.is-active { color: var(--color-text-inverse, #fff); background: var(--color-primary, #18243b); }
+.c-tab--fade .c-tab__panels { position: relative; min-height: 5.75rem; }
+.c-tab--fade .c-tab__panel.is-closing { position: absolute; inset: 0; }
+
+.c-tab--icons .c-tab__tab { display: flex; gap: 0.3rem; align-items: center; flex-direction: column; }
+.c-tab__icon { width: 1rem; height: 1rem; fill: none; stroke: currentcolor; stroke-width: 2; }
+
+.c-tab--vertical { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: 0.75rem; background: transparent; border: 0; }
+.c-tab--vertical .c-tab__list { flex-direction: column; gap: 0.35rem; border: 0; }
+.c-tab--vertical .c-tab__tab { flex: 0 0 auto; text-align: left; background: var(--color-background, #fff); border: 1px solid var(--color-grid, #d9dfe8); }
+.c-tab--vertical .c-tab__tab.is-active { color: var(--color-text-inverse, #fff); background: var(--color-primary, #18243b); border-color: var(--color-primary, #18243b); }
+.c-tab--vertical .c-tab__panels { background: var(--color-background, #fff); border: 1px solid var(--color-grid-strong, #aeb8c7); }
+
+.c-tab--hash { background: transparent; border: 0; }
+.c-tab--hash .c-tab__list { padding-inline: 0.5rem; border: 0; }
+.c-tab--hash .c-tab__tab { margin-inline: 0.15rem; background: var(--color-primary-soft, #edf1f7); border: 0; border-radius: 0.45rem 0.45rem 0 0; }
+.c-tab--hash .c-tab__tab.is-active { color: var(--color-text-inverse, #fff); background: var(--color-primary, #18243b); }
+.c-tab--hash .c-tab__panels { background: var(--color-background, #fff); border: 1px solid var(--color-grid-strong, #aeb8c7); }
+
+.c-tab--swipe { overflow: hidden; }
+.c-tab__viewport { overflow: hidden; touch-action: pan-y; cursor: grab; }
+.c-tab__viewport:active { cursor: grabbing; }
+.c-tab__track { display: flex; transform: translateX(calc(var(--tab-index) * -100%)); }
+.c-tab__track.is-dragging { transition: none; }
+.c-tab--swipe .c-tab__panel { display: block; flex: 0 0 100%; user-select: none; }
+
+.c-tab--auto .c-tab__panel.is-active { border-left: 4px solid var(--color-accent-yellow, #ff0); }
+.c-tab--memory .c-tab__tab.is-active { color: var(--color-primary, #18243b); background: var(--color-accent-yellow, #ff0); border-bottom-color: var(--color-primary, #18243b); }
+
+.c-tab--overflow { overflow: visible; }
+.c-tab--overflow .c-tab__list { flex-wrap: nowrap; }
+.c-tab--overflow .c-tab__tab { min-width: 5.25rem; flex: 0 0 auto; white-space: nowrap; }
+.c-tab--overflow .c-tab__tab[hidden] { display: none; }
+.c-tab__more-wrap { position: relative; margin-left: auto; flex: 0 0 auto; }
+.c-tab__more-wrap[hidden] { display: none; }
+.c-tab__more { height: 100%; color: var(--color-primary, #18243b); white-space: nowrap; }
+.c-tab__menu {
+  position: absolute;
+  top: calc(100% + 0.25rem);
+  right: 0;
+  z-index: 10;
+  width: max-content;
+  min-width: 9rem;
+  padding: 0.3rem;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+  box-shadow: 0 0.8rem 1.8rem rgb(17 24 39 / 18%);
+}
+.c-tab__menu[hidden] { display: none; }
+.c-tab__menu-item { display: block; width: 100%; min-height: 2.25rem; text-align: left; }
+.c-tab__menu-item.is-active { color: var(--color-text-inverse, #fff); background: var(--color-primary, #18243b); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .c-tab__tab,
+  .c-tab__indicator,
+  .c-tab__track { transition: color var(--tab-duration), background-color var(--tab-duration), border-color var(--tab-duration), transform var(--tab-duration) ease; }
+  .c-tab--fade .c-tab__panel.is-active { animation: c-tab-fade-in var(--tab-duration) ease both; }
+  .c-tab--fade .c-tab__panel.is-closing { display: block; animation: c-tab-fade-out var(--tab-duration) ease both; }
+}
+
+@keyframes c-tab-fade-in { from { opacity: 0; transform: translateY(0.4rem); } }
+@keyframes c-tab-fade-out { to { opacity: 0; transform: translateY(0.4rem); } }
+
+@media (min-width: 1280px) {
+  .part-example--with-js { grid-template-rows: 5.5rem 16rem 33rem 6.5rem; }
+}
+
+@media (max-width: 640px) {
+  .part-example--with-js { grid-template-rows: 7rem 14rem 36rem 7.25rem; }
+  .part-example__code-grid--with-js { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .part-example__code-grid--with-js .part-code { border-bottom: 0; }
+  .part-example__code-grid--with-js .part-code--js { border-top: 1px solid #374151; border-right: 0; }
+  .c-tab__tab { padding-inline: 0.45rem; font-size: 0.6rem; }
+  .c-tab--vertical { grid-template-columns: 1fr; }
+  .c-tab--vertical .c-tab__list { flex-direction: row; }
+  .c-tab--vertical .c-tab__tab { flex: 1; text-align: center; }
+}

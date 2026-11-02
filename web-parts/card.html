@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="MARK BENCHのカラートークンで設計した、再利用可能なCSSカード・囲み枠12パターンです。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>CARD | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/card.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="CARD | MARK BENCH" />
+    <meta property="og:description" content="MARK BENCHのカラートークンで設計した、再利用可能なCSSカード・囲み枠12パターンです。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/card.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CARD | MARK BENCH" />
+    <meta name="twitter:description" content="MARK BENCHのカラートークンで設計した、再利用可能なCSSカード・囲み枠12パターンです。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "CARD",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/card.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/web-parts.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts-detail" data-parts-detail>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header"><div class="site-header__bar"><nav class="site-breadcrumb-logo" aria-label="パンくずリスト">
+      <a class="site-logo" href="../index.html">MARK BENCH</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><a class="site-breadcrumb-logo__parent" href="./">WEB PARTS</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><span class="site-breadcrumb-logo__current" aria-current="page">CARD</span>
+    </nav></div></header>
+
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション">
+      <a href="../tools/"><strong>TOOLS</strong></a><a href="./" aria-current="location"><strong>WEB PARTS</strong></a><a href="../build-notes/"><strong>BUILD NOTES</strong></a><a href="../about.html"><strong>ABOUT</strong></a>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <header class="part-detail-header">
+        <p class="section-index reveal">WEB_PARTS / CARD</p>
+        <h1 class="reveal">CARD</h1>
+        <p class="part-detail-header__lead reveal">記事一覧、商品情報、補足・注意事項など、関連情報をひとまとまりで提示するカード12パターンです。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 12</span><span>TYPE: CSS</span><span>DEPENDENCY: NONE</span></div>
+        <a class="part-detail-header__anchor reveal" href="#card-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
+      </header>
+
+      <section class="part-detail-controls directory-search directory-keywords" aria-label="カードパターンを絞り込み">
+        <div class="directory-keywords__group"><p class="directory-keywords__label">KEYWORDS</p><div class="directory-keywords__list">
+          <button type="button" aria-pressed="false" data-pattern-keyword="基本"># 基本</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="区切り"># 区切り</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="見出し"># 見出し</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="補足"># 補足</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="メモ"># メモ</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="選択"># 選択</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="強調"># 強調</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="特殊"># 特殊</button>
+        </div></div>
+        <p>DISPLAY: <span data-pattern-count>12</span> / 12</p>
+      </section>
+
+      <div class="part-example-list">
+        <section class="part-example reveal" data-pattern data-search="基本 影 soft shadow ソフト 浮き 面">
+          <header class="part-example__header"><div><span class="part-example__index">SOFT SHADOW</span><h2>ソフトシャドウ</h2></div><small>SURFACE</small></header>
+          <div class="part-example__preview"><article class="c-card c-card--soft"><h3 class="c-card__title">ソフトカード</h3><p class="c-card__text">柔らかな影で、背景から静かに情報を浮かせます。</p></article></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;article class="c-card c-card--soft"&gt;
+  &lt;h3 class="c-card__title"&gt;ソフトカード&lt;/h3&gt;
+  &lt;p class="c-card__text"&gt;カード本文&lt;/p&gt;
+&lt;/article&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-card--soft {
+  background: var(--color-background, #fff);
+  border-radius: .75rem;
+  box-shadow: 0 .75rem 1.8rem
+    rgb(17 24 39 / 12%);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>薄いグレー背景上の一覧や関連記事など、輪郭を強く描かず面を分けたい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="基本 区切り ボーダー outline 枠線 囲み 軽量">
+          <header class="part-example__header"><div><span class="part-example__index">OUTLINE</span><h2>アウトライン</h2></div><small>LIGHTWEIGHT</small></header>
+          <div class="part-example__preview"><article class="c-card c-card--outline"><h3 class="c-card__title">アウトラインカード</h3><p class="c-card__text">影を使わず、明確な枠線だけで情報を区切ります。</p></article></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;article class="c-card c-card--outline"&gt;
+  &lt;h3 class="c-card__title"&gt;アウトラインカード&lt;/h3&gt;
+  &lt;p class="c-card__text"&gt;カード本文&lt;/p&gt;
+&lt;/article&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-card--outline {
+  background: var(--color-background, #fff);
+  border: 3px solid
+    var(--color-primary, #18243b);
+  border-radius: .75rem;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>テキスト主体の記事や資料で、影を使わず情報ブロックを明確に区切りたい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="区切り 見出し ボーダー top accent トップ 上線 カテゴリ">
+          <header class="part-example__header"><div><span class="part-example__index">TOP ACCENT</span><h2>トップアクセント</h2></div><small>CATEGORY</small></header>
+          <div class="part-example__preview"><article class="c-card c-card--top-accent"><h3 class="c-card__title">トップアクセント</h3><p class="c-card__text">上辺の色でカードの分類や状態を伝えます。</p></article></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;article class="c-card c-card--top-accent"&gt;
+  &lt;h3 class="c-card__title"&gt;カテゴリ名&lt;/h3&gt;
+  &lt;p class="c-card__text"&gt;カード本文&lt;/p&gt;
+&lt;/article&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-card--top-accent {
+  border-top: 5px solid
+    var(--color-primary, #18243b);
+  border-radius: .65rem;
+  box-shadow: 0 .45rem 1.2rem
+    rgb(17 24 39 / 10%);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>カード一覧をカテゴリやステータス別に色分けし、内容をひと目で区別したい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="見出し 区切り header band 帯 タイトル 2段">
+          <header class="part-example__header"><div><span class="part-example__index">HEADER BAND</span><h2>ヘッダー帯</h2></div><small>TITLE + BODY</small></header>
+          <div class="part-example__preview"><article class="c-card c-card--band"><header class="c-card__header">お知らせ</header><div class="c-card__body"><h3 class="c-card__title">メンテナンス予定</h3><p class="c-card__text">実施日時と影響範囲を案内します。</p></div></article></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;article class="c-card c-card--band"&gt;
+  &lt;header class="c-card__header"&gt;お知らせ&lt;/header&gt;
+  &lt;div class="c-card__body"&gt;
+    &lt;h3 class="c-card__title"&gt;タイトル&lt;/h3&gt;
+    &lt;p class="c-card__text"&gt;本文&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-card--band {
+  padding: 0;
+  overflow: hidden;
+  border-radius: .75rem;
+  box-shadow: 0 .65rem 1.5rem rgb(17 24 39 / 12%);
+}
+.c-card__header {
+  padding: .7rem 1.25rem;
+  color: var(--color-text-inverse, #fff);
+  font: 700 .72rem/1.4 var(--font-mono, monospace);
+  background: var(--color-primary, #18243b);
+}
+.c-card__body { padding: 1.1rem 1.25rem; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>料金表、お知らせ、手順など、見出しと本文の階層を明確に分けたい囲み。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="補足 区切り callout 左 ボーダー aside ポイント">
+          <header class="part-example__header"><div><span class="part-example__index">CALLOUT</span><h2>コールアウト（左アクセント）</h2></div><small>SUPPLEMENT</small></header>
+          <div class="part-example__preview"><aside class="c-card c-card--callout"><h3 class="c-card__title">POINT</h3><p class="c-card__text">本文を補足する要点や注意事項をまとめます。</p></aside></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;aside class="c-card c-card--callout"&gt;
+  &lt;h3 class="c-card__title"&gt;POINT&lt;/h3&gt;
+  &lt;p class="c-card__text"&gt;補足内容&lt;/p&gt;
+&lt;/aside&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-card--callout {
+  background: var(--color-primary-soft, #edf1f7);
+  border-left: 5px solid
+    var(--color-primary, #18243b);
+  border-radius: .5rem;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ブログやドキュメントの補足、要点、注意事項。本文との意味的な関係にはasideも使えます。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="メモ 補足 区切り ボーダー dashed dotted 点線">
+          <header class="part-example__header"><div><span class="part-example__index">DASHED MEMO</span><h2>点線メモ枠</h2></div><small>CASUAL NOTE</small></header>
+          <div class="part-example__preview"><aside class="c-card c-card--memo"><h3 class="c-card__title">MEMO</h3><p class="c-card__text">本文の流れを止めずに、短い余談や補足を添えます。</p></aside></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;aside class="c-card c-card--memo"&gt;
+  &lt;h3 class="c-card__title"&gt;MEMO&lt;/h3&gt;
+  &lt;p class="c-card__text"&gt;補足内容&lt;/p&gt;
+&lt;/aside&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-card--memo {
+  background: var(--color-background, #fff);
+  border: 2px dashed
+    var(--color-primary, #18243b);
+  border-radius: .55rem;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>余談や補足など、実線より軽い囲みで本文へ一言添えたい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="補足 見出し title label 食い込み ポイント チェック">
+          <header class="part-example__header"><div><span class="part-example__index">INSET TITLE</span><h2>タイトル食い込みボックス</h2></div><small>LABELED BOX</small></header>
+          <div class="part-example__preview"><aside class="c-card c-card--titled"><span class="c-card__label">POINT</span><h3 class="c-card__title">実装のポイント</h3><p class="c-card__text">ラベルを枠線へ重ね、情報の役割を先に伝えます。</p></aside></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;aside class="c-card c-card--titled"&gt;
+  &lt;span class="c-card__label"&gt;POINT&lt;/span&gt;
+  &lt;h3 class="c-card__title"&gt;実装のポイント&lt;/h3&gt;
+  &lt;p class="c-card__text"&gt;補足内容&lt;/p&gt;
+&lt;/aside&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-card--titled {
+  position: relative;
+  margin-top: .75rem;
+  padding-top: 1.65rem;
+  border: 2px solid var(--color-primary, #18243b);
+  border-radius: .65rem;
+}
+.c-card__label {
+  position: absolute;
+  top: -.8rem;
+  left: 1rem;
+  padding: .3rem .85rem;
+  color: var(--color-primary, #18243b);
+  font: 700 .62rem/1.25 var(--font-mono, monospace);
+  background: var(--color-accent-yellow, #ff0);
+  border-radius: 999px;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>POINT、CHECK、注意など、囲みの役割を短いラベルで先に示したい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="メモ 補足 特殊 sticky 付箋 テープ note 装飾">
+          <header class="part-example__header"><div><span class="part-example__index">STICKY NOTE</span><h2>付箋風（テープ付き）</h2></div><small>MEMO</small></header>
+          <div class="part-example__preview"><aside class="c-card c-card--sticky"><h3 class="c-card__title">付箋メモ</h3><p class="c-card__text">忘れたくない補足を、本文から軽く浮かせて表示します。</p></aside></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;aside class="c-card c-card--sticky"&gt;
+  &lt;h3 class="c-card__title"&gt;付箋メモ&lt;/h3&gt;
+  &lt;p class="c-card__text"&gt;補足内容&lt;/p&gt;
+&lt;/aside&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-card--sticky {
+  position: relative;
+  background: color-mix(in srgb,
+    var(--color-accent-yellow, #ff0) 22%,
+    var(--color-background, #fff));
+  border-radius: .25rem;
+  box-shadow: 0 .5rem 1.15rem rgb(17 24 39 / 16%);
+  transform: rotate(-1.5deg);
+}
+.c-card--sticky::before {
+  position: absolute;
+  top: -.7rem;
+  left: 50%;
+  width: 5.5rem;
+  height: 1.35rem;
+  background: rgb(255 255 255 / 68%);
+  box-shadow: 0 .15rem .3rem rgb(17 24 39 / 10%);
+  transform: translateX(-50%) rotate(2deg);
+  content: "";
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ブログの追記や小さなメモ。複数並べる場合は傾きを控えめに変えると自然です。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="選択 操作 focus ring フォーカス リング link インタラクティブ">
+          <header class="part-example__header"><div><span class="part-example__index">FOCUS RING</span><h2>フォーカスリング</h2></div><small>SELECTABLE</small></header>
+          <div class="part-example__preview"><a class="c-card c-card--focus" id="card-focus-example" href="#card-focus-example"><h3 class="c-card__title">選択中のプラン</h3><p class="c-card__text">Tabキーでフォーカスし、リングと操作状態を確認できます。</p></a></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;a class="c-card c-card--focus" href="/plan/"&gt;
+  &lt;h3 class="c-card__title"&gt;選択中のプラン&lt;/h3&gt;
+  &lt;p class="c-card__text"&gt;カード本文&lt;/p&gt;
+&lt;/a&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-card--focus {
+  border-radius: .75rem;
+  box-shadow:
+    0 0 0 4px rgb(49 90 155 / 22%),
+    0 .5rem 1.2rem rgb(17 24 39 / 10%);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.c-card--focus:focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: 2px;
+}
+.c-card--focus:hover {
+  box-shadow: 0 0 0 4px rgb(49 90 155 / 32%),
+    0 .8rem 1.5rem rgb(17 24 39 / 14%);
+  transform: translateY(-.2rem);
+}
+@media (prefers-reduced-motion: reduce) {
+  .c-card--focus { transition: none; }
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>料金プランや選択候補など、現在の選択状態とキーボードフォーカスを明確にしたい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="強調 選択 グラデーション gradient background CTA おすすめ">
+          <header class="part-example__header"><div><span class="part-example__index">GRADIENT SURFACE</span><h2>グラデ地</h2></div><small>FEATURED</small></header>
+          <div class="part-example__preview"><article class="c-card c-card--gradient"><h3 class="c-card__title">おすすめプラン</h3><p class="c-card__text">ブランドカラーの面で重要な情報を強調します。</p></article></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;article class="c-card c-card--gradient"&gt;
+  &lt;h3 class="c-card__title"&gt;おすすめプラン&lt;/h3&gt;
+  &lt;p class="c-card__text"&gt;カード本文&lt;/p&gt;
+&lt;/article&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-card--gradient {
+  color: var(--color-text-inverse, #fff);
+  background: linear-gradient(135deg,
+    var(--color-primary, #18243b),
+    var(--color-primary-hover, #263a5e));
+  border-radius: .75rem;
+  box-shadow: 0 .8rem 1.8rem
+    rgb(24 36 59 / 28%);
+}
+.c-card--gradient .c-card__text {
+  color: rgb(255 255 255 / 82%);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>おすすめプランやCTA周辺など、カード一覧の中で一つだけ強く目立たせたい情報。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="強調 特殊 グラデーション ボーダー edge 縁 枠 カラフル">
+          <header class="part-example__header"><div><span class="part-example__index">GRADIENT EDGE</span><h2>グラデ縁</h2></div><small>DECORATIVE BORDER</small></header>
+          <div class="part-example__preview"><article class="c-card c-card--gradient-edge"><h3 class="c-card__title">グラデーション枠</h3><p class="c-card__text">二枚の背景を重ね、枠線だけに色の変化を付けます。</p></article></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;article class="c-card c-card--gradient-edge"&gt;
+  &lt;h3 class="c-card__title"&gt;グラデーション枠&lt;/h3&gt;
+  &lt;p class="c-card__text"&gt;カード本文&lt;/p&gt;
+&lt;/article&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-card--gradient-edge {
+  border: 3px solid transparent;
+  background-image:
+    linear-gradient(
+      var(--color-background, #fff),
+      var(--color-background, #fff)),
+    linear-gradient(135deg,
+      var(--color-primary, #18243b),
+      var(--color-accent-yellow, #ff0));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border-radius: .75rem;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>おすすめ情報や特集など、背景は白いまま枠だけにブランド感を加えたい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="特殊 クーポン ticket チケット 切り欠き coupon イベント">
+          <header class="part-example__header"><div><span class="part-example__index">TICKET</span><h2>チケット風</h2></div><small>COUPON</small></header>
+          <div class="part-example__preview"><article class="c-card c-card--ticket"><h3 class="c-card__title">10% OFF TICKET</h3><p class="c-card__text">クーポンコード：MARK2026</p></article></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;article class="c-card c-card--ticket"&gt;
+  &lt;h3 class="c-card__title"&gt;10% OFF TICKET&lt;/h3&gt;
+  &lt;p class="c-card__text"&gt;コード：MARK2026&lt;/p&gt;
+&lt;/article&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-card--ticket {
+  --ticket-color: color-mix(in srgb,
+    var(--color-accent-yellow, #ff0) 22%,
+    var(--color-background, #fff));
+  padding-inline: 1.75rem;
+  background:
+    radial-gradient(circle .65rem at 0 50%,
+      transparent 97%, var(--ticket-color) 100%) left / 51% 100% no-repeat,
+    radial-gradient(circle .65rem at 100% 50%,
+      transparent 97%, var(--ticket-color) 100%) right / 51% 100% no-repeat;
+  border-radius: .6rem;
+  filter: drop-shadow(0 .4rem .75rem rgb(17 24 39 / 18%));
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>クーポン、イベント、特典告知。切り欠きに沿う影にはdrop-shadowを使います。</p></div>
+        </section>
+      </div>
+
+      <div class="part-detail-empty" data-pattern-empty hidden><p>[ NO_PATTERN_FOUND ]</p><p>検索語を変更してください。</p></div>
+
+      <section class="part-common-styles" id="card-common-styles" aria-labelledby="card-common-styles-title">
+        <header class="part-common-styles__header reveal">
+          <p class="section-index">CARD / COMMON_STYLE</p>
+          <h2 id="card-common-styles-title">共通スタイル</h2>
+          <p>カード本体・タイトル・本文の共通設定です。</p>
+        </header>
+        <div class="part-common-styles__code reveal" data-reveal-threshold="0.01">
+          <div class="part-code">
+            <div class="part-code__header"><span>CSS / COMMON</span><button type="button" data-copy-code>COPY</button></div>
+            <pre><code>.c-card {
+  box-sizing: border-box;
+  display: block;
+  width: min(100%, 22rem);
+  min-height: 8.5rem;
+  padding: 1.25rem;
+  color: var(--color-text, #1c2430);
+  font-family: var(--font-sans, sans-serif);
+  text-decoration: none;
+  background: var(--color-background, #fff);
+}
+.c-card__title {
+  margin: 0 0 .55rem;
+  color: inherit;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+.c-card__text {
+  margin: 0;
+  color: var(--color-text-subtle, #667085);
+  font-size: .78rem;
+  line-height: 1.7;
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <footer class="page-footer" aria-label="ページナビゲーション"><a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO WEB PARTS</span></a><a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a></footer>
+    </main>
+
+    <script src="../js/web-parts-detail.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

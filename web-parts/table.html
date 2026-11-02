@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="料金、仕様、管理データを読み比べやすく整理する、JavaScript不要のCSSテーブル12パターンです。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>TABLE | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/table.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="TABLE | MARK BENCH" />
+    <meta property="og:description" content="料金、仕様、管理データを読み比べやすく整理する、JavaScript不要のCSSテーブル12パターンです。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/table.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="TABLE | MARK BENCH" />
+    <meta name="twitter:description" content="料金、仕様、管理データを読み比べやすく整理する、JavaScript不要のCSSテーブル12パターンです。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "TABLE",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/table.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/web-parts.css" />
+    <link rel="stylesheet" href="../css/web-parts-table.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts-detail" data-parts-detail>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header"><div class="site-header__bar"><nav class="site-breadcrumb-logo" aria-label="パンくずリスト"><a class="site-logo" href="../index.html">MARK BENCH</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><a class="site-breadcrumb-logo__parent" href="./">WEB PARTS</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><span class="site-breadcrumb-logo__current" aria-current="page">TABLE</span></nav></div></header>
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション"><a href="../tools/"><strong>TOOLS</strong></a><a href="./" aria-current="location"><strong>WEB PARTS</strong></a><a href="../build-notes/"><strong>BUILD NOTES</strong></a><a href="../about.html"><strong>ABOUT</strong></a></nav>
+
+    <main id="main" tabindex="-1">
+      <header class="part-detail-header">
+        <p class="section-index reveal">WEB_PARTS / TABLE</p>
+        <h1 class="reveal">TABLE</h1>
+        <p class="part-detail-header__lead reveal">料金プラン、製品仕様、管理画面の一覧、売上集計など、行と列の関係を保ちながら情報を比較するCSSテーブル12パターンです。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 12</span><span>TYPE: CSS</span><span>DEPENDENCY: NONE</span></div>
+        <a class="part-detail-header__anchor reveal" href="#table-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
+      </header>
+
+      <section class="part-detail-controls directory-search directory-keywords" aria-label="テーブルパターンを絞り込み">
+        <div class="directory-keywords__group"><p class="directory-keywords__label">KEYWORDS</p><div class="directory-keywords__list">
+          <button type="button" aria-pressed="false" data-pattern-keyword="基本"># 基本</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="罫線"># 罫線</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="見出し"># 見出し</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="行"># 行</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="比較"># 比較</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="料金"># 料金</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="集計"># 集計</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="レスポンシブ"># レスポンシブ</button>
+        </div></div>
+        <p>DISPLAY: <span data-pattern-count>12</span> / 12</p>
+      </section>
+
+      <div class="part-example-list">
+        <section class="part-example reveal" data-pattern data-search="基本 罫線 枠線 グリッド grid border table レスポンシブ">
+          <header class="part-example__header"><div><span class="part-example__index">BASE / 01</span><h2>枠線グリッド</h2></div><small>FULL GRID</small></header>
+          <div class="part-example__preview part-example__preview--table-demo"><div class="c-table-wrap" tabindex="0" aria-label="プラン比較表を横にスクロール"><table class="c-table c-table--grid"><caption>プラン別機能</caption><thead><tr><th scope="col">項目</th><th scope="col">Standard</th><th scope="col">Pro</th></tr></thead><tbody><tr><th scope="row">容量</th><td>20GB</td><td>100GB</td></tr><tr><th scope="row">メンバー</th><td>5人</td><td>無制限</td></tr><tr><th scope="row">サポート</th><td>メール</td><td>優先対応</td></tr></tbody></table></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-table-wrap" tabindex="0" aria-label="プラン比較表を横にスクロール"&gt;
+  &lt;table class="c-table c-table--grid"&gt;
+    &lt;caption&gt;プラン別機能&lt;/caption&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th scope="col"&gt;項目&lt;/th&gt;
+        &lt;th scope="col"&gt;Standard&lt;/th&gt;
+        &lt;th scope="col"&gt;Pro&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;th scope="row"&gt;容量&lt;/th&gt;
+        &lt;td&gt;20GB&lt;/td&gt;
+        &lt;td&gt;100GB&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th scope="row"&gt;メンバー&lt;/th&gt;
+        &lt;td&gt;5人&lt;/td&gt;
+        &lt;td&gt;無制限&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-table-wrap { width: 100%; overflow-x: auto; overscroll-behavior-x: contain; }
+.c-table-wrap:focus-visible { outline: 3px solid #315a9b; outline-offset: 3px; }
+.c-table { width: 100%; min-width: 30rem; color: #1c2430; font: .8rem/1.5 sans-serif; border-collapse: collapse; }
+.c-table th, .c-table td { padding: .55rem .7rem; text-align: left; border: 1px solid #aeb8c7; }
+.c-table thead th { color: #fff; background: #18243b; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>仕様表や管理データなど、すべてのセル境界を明確にして正確に読み比べる場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="基本 行 ストライプ ゼブラ stripe zebra alternate レスポンシブ">
+          <header class="part-example__header"><div><span class="part-example__index">BASE / 02</span><h2>ストライプ</h2></div><small>ZEBRA ROWS</small></header>
+          <div class="part-example__preview part-example__preview--table-demo"><div class="c-table-wrap" tabindex="0" aria-label="プラン比較表を横にスクロール"><table class="c-table c-table--stripe"><caption>プラン別機能</caption><thead><tr><th scope="col">項目</th><th scope="col">Standard</th><th scope="col">Pro</th></tr></thead><tbody><tr><th scope="row">容量</th><td>20GB</td><td>100GB</td></tr><tr><th scope="row">メンバー</th><td>5人</td><td>無制限</td></tr><tr><th scope="row">サポート</th><td>メール</td><td>優先対応</td></tr></tbody></table></div></div>
+          <div class="part-example__code-grid"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-table-wrap" tabindex="0" aria-label="表を横にスクロール"&gt;
+  &lt;table class="c-table c-table--stripe"&gt;
+    &lt;caption&gt;プラン別機能&lt;/caption&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th scope="col"&gt;項目&lt;/th&gt;
+        &lt;th scope="col"&gt;Standard&lt;/th&gt;
+        &lt;th scope="col"&gt;Pro&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;th scope="row"&gt;容量&lt;/th&gt;
+        &lt;td&gt;20GB&lt;/td&gt;
+        &lt;td&gt;100GB&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th scope="row"&gt;メンバー&lt;/th&gt;
+        &lt;td&gt;5人&lt;/td&gt;
+        &lt;td&gt;無制限&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-table-wrap { width: 100%; overflow-x: auto; }
+.c-table { width: 100%; min-width: 30rem; color: #1c2430; font: .8rem/1.5 sans-serif; border-collapse: collapse; }
+.c-table th, .c-table td { padding: .55rem .7rem; text-align: left; }
+.c-table thead th { color: #fff; background: #18243b; }
+.c-table tbody tr { border-bottom: 1px solid #d9dfe8; }
+.c-table tbody tr:nth-child(even) { background: #edf1f7; }</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>行数の多いデータで、視線が隣の行へ移ることを防ぎながら横方向に読む場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="基本 ミニマル 下線 minimal underline simple レスポンシブ">
+          <header class="part-example__header"><div><span class="part-example__index">BASE / 03</span><h2>ミニマル下線</h2></div><small>MINIMAL RULES</small></header>
+          <div class="part-example__preview part-example__preview--table-demo"><div class="c-table-wrap" tabindex="0" aria-label="プラン比較表を横にスクロール"><table class="c-table c-table--minimal"><caption>プラン別機能</caption><thead><tr><th scope="col">項目</th><th scope="col">Standard</th><th scope="col">Pro</th></tr></thead><tbody><tr><th scope="row">容量</th><td>20GB</td><td>100GB</td></tr><tr><th scope="row">メンバー</th><td>5人</td><td>無制限</td></tr><tr><th scope="row">サポート</th><td>メール</td><td>優先対応</td></tr></tbody></table></div></div>
+          <div class="part-example__code-grid"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-table-wrap" tabindex="0" aria-label="表を横にスクロール"&gt;
+  &lt;table class="c-table c-table--minimal"&gt;
+    &lt;caption&gt;プラン別機能&lt;/caption&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th scope="col"&gt;項目&lt;/th&gt;
+        &lt;th scope="col"&gt;Standard&lt;/th&gt;
+        &lt;th scope="col"&gt;Pro&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;th scope="row"&gt;容量&lt;/th&gt;
+        &lt;td&gt;20GB&lt;/td&gt;
+        &lt;td&gt;100GB&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th scope="row"&gt;メンバー&lt;/th&gt;
+        &lt;td&gt;5人&lt;/td&gt;
+        &lt;td&gt;無制限&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-table-wrap { width: 100%; overflow-x: auto; }
+.c-table { width: 100%; min-width: 30rem; color: #1c2430; font: .8rem/1.5 sans-serif; border-collapse: collapse; }
+.c-table th, .c-table td { padding: .55rem .7rem; text-align: left; }
+.c-table thead th { color: #18243b; border-bottom: 2px solid currentColor; }
+.c-table tbody tr { border-bottom: 1px solid #d9dfe8; }</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>記事内の小さな比較表など、周囲の文章となじませながら最低限の境界だけを示す場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="見出し ヘッダー 強調 header solid column label レスポンシブ">
+          <header class="part-example__header"><div><span class="part-example__index">HEADER / 01</span><h2>ヘッダー強調</h2></div><small>SOLID HEADER</small></header>
+          <div class="part-example__preview part-example__preview--table-demo"><div class="c-table-wrap" tabindex="0" aria-label="プラン比較表を横にスクロール"><table class="c-table c-table--header"><caption>プラン別機能</caption><thead><tr><th scope="col">項目</th><th scope="col">Standard</th><th scope="col">Pro</th></tr></thead><tbody><tr><th scope="row">容量</th><td>20GB</td><td>100GB</td></tr><tr><th scope="row">メンバー</th><td>5人</td><td>無制限</td></tr><tr><th scope="row">サポート</th><td>メール</td><td>優先対応</td></tr></tbody></table></div></div>
+          <div class="part-example__code-grid"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-table-wrap" tabindex="0" aria-label="表を横にスクロール"&gt;
+  &lt;table class="c-table c-table--header"&gt;
+    &lt;caption&gt;プラン別機能&lt;/caption&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th scope="col"&gt;項目&lt;/th&gt;
+        &lt;th scope="col"&gt;Standard&lt;/th&gt;
+        &lt;th scope="col"&gt;Pro&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;th scope="row"&gt;容量&lt;/th&gt;
+        &lt;td&gt;20GB&lt;/td&gt;
+        &lt;td&gt;100GB&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-table-wrap { width: 100%; overflow-x: auto; }
+.c-table { width: 100%; min-width: 30rem; color: #1c2430; font: .8rem/1.5 sans-serif; border-collapse: collapse; }
+.c-table th, .c-table td { padding: .55rem .7rem; text-align: left; }
+.c-table thead th { color: #fff; font-weight: 800; background: #18243b; }
+.c-table tbody tr { border-bottom: 1px solid #d9dfe8; }</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>列見出しとデータ領域を強く分け、表を読み始める位置を明確にしたい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="見出し ダーク dark header contrast モノトーン レスポンシブ">
+          <header class="part-example__header"><div><span class="part-example__index">HEADER / 02</span><h2>ダークヘッダー</h2></div><small>HIGH CONTRAST</small></header>
+          <div class="part-example__preview part-example__preview--table-demo"><div class="c-table-wrap" tabindex="0" aria-label="プラン比較表を横にスクロール"><table class="c-table c-table--dark"><caption>プラン別機能</caption><thead><tr><th scope="col">項目</th><th scope="col">Standard</th><th scope="col">Pro</th></tr></thead><tbody><tr><th scope="row">容量</th><td>20GB</td><td>100GB</td></tr><tr><th scope="row">メンバー</th><td>5人</td><td>無制限</td></tr><tr><th scope="row">サポート</th><td>メール</td><td>優先対応</td></tr></tbody></table></div></div>
+          <div class="part-example__code-grid"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-table-wrap" tabindex="0" aria-label="表を横にスクロール"&gt;
+  &lt;table class="c-table c-table--dark"&gt;
+    &lt;caption&gt;プラン別機能&lt;/caption&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th scope="col"&gt;項目&lt;/th&gt;
+        &lt;th scope="col"&gt;Standard&lt;/th&gt;
+        &lt;th scope="col"&gt;Pro&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;th scope="row"&gt;容量&lt;/th&gt;
+        &lt;td&gt;20GB&lt;/td&gt;
+        &lt;td&gt;100GB&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-table-wrap { width: 100%; overflow-x: auto; }
+.c-table { width: 100%; min-width: 30rem; color: #1c2430; font: .8rem/1.5 sans-serif; border-collapse: collapse; }
+.c-table th, .c-table td { padding: .55rem .7rem; text-align: left; }
+.c-table thead th { color: #fff; background: #0d1422; }
+.c-table tbody tr { border-bottom: 1px solid #d9dfe8; }</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>管理画面やモノトーンのサイトで、見出し行へ高いコントラストを持たせる場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="見出し グラデーション gradient header accent レスポンシブ">
+          <header class="part-example__header"><div><span class="part-example__index">HEADER / 03</span><h2>グラデヘッダー</h2></div><small>GRADIENT HEADER</small></header>
+          <div class="part-example__preview part-example__preview--table-demo"><div class="c-table-wrap" tabindex="0" aria-label="プラン比較表を横にスクロール"><table class="c-table c-table--gradient"><caption>プラン別機能</caption><thead><tr><th scope="col">項目</th><th scope="col">Standard</th><th scope="col">Pro</th></tr></thead><tbody><tr><th scope="row">容量</th><td>20GB</td><td>100GB</td></tr><tr><th scope="row">メンバー</th><td>5人</td><td>無制限</td></tr><tr><th scope="row">サポート</th><td>メール</td><td>優先対応</td></tr></tbody></table></div></div>
+          <div class="part-example__code-grid"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-table-wrap" tabindex="0" aria-label="表を横にスクロール"&gt;
+  &lt;table class="c-table c-table--gradient"&gt;
+    &lt;caption&gt;プラン別機能&lt;/caption&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th scope="col"&gt;項目&lt;/th&gt;
+        &lt;th scope="col"&gt;Standard&lt;/th&gt;
+        &lt;th scope="col"&gt;Pro&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;th scope="row"&gt;容量&lt;/th&gt;
+        &lt;td&gt;20GB&lt;/td&gt;
+        &lt;td&gt;100GB&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-table-wrap { width: 100%; overflow-x: auto; }
+.c-table { width: 100%; min-width: 30rem; color: #1c2430; font: .8rem/1.5 sans-serif; border-collapse: collapse; }
+.c-table th, .c-table td { padding: .55rem .7rem; text-align: left; }
+.c-table thead th { color: #fff; background: linear-gradient(110deg, #18243b, #315a9b); }
+.c-table tbody tr { border-bottom: 1px solid #d9dfe8; }</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ブランドカラーを反映した比較表や資料ページで、表の入口を視覚的に強調する場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="表面 角丸 カード card rounded separated row レスポンシブ">
+          <header class="part-example__header"><div><span class="part-example__index">SURFACE / 01</span><h2>角丸カード型</h2></div><small>ROUNDED ROWS</small></header>
+          <div class="part-example__preview part-example__preview--table-demo"><div class="c-table-wrap" tabindex="0" aria-label="プラン比較表を横にスクロール"><table class="c-table c-table--card"><caption>プラン別機能</caption><thead><tr><th scope="col">項目</th><th scope="col">Standard</th><th scope="col">Pro</th></tr></thead><tbody><tr><th scope="row">容量</th><td>20GB</td><td>100GB</td></tr><tr><th scope="row">メンバー</th><td>5人</td><td>無制限</td></tr><tr><th scope="row">サポート</th><td>メール</td><td>優先対応</td></tr></tbody></table></div></div>
+          <div class="part-example__code-grid"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-table-wrap" tabindex="0" aria-label="表を横にスクロール"&gt;
+  &lt;table class="c-table c-table--card"&gt;
+    &lt;caption&gt;プラン別機能&lt;/caption&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th scope="col"&gt;項目&lt;/th&gt;
+        &lt;th scope="col"&gt;Standard&lt;/th&gt;
+        &lt;th scope="col"&gt;Pro&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;th scope="row"&gt;容量&lt;/th&gt;
+        &lt;td&gt;20GB&lt;/td&gt;
+        &lt;td&gt;100GB&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-table-wrap { width: 100%; overflow-x: auto; }
+.c-table { width: 100%; min-width: 30rem; color: #1c2430; font: .8rem/1.5 sans-serif; border-collapse: separate; border-spacing: 0 .35rem; }
+.c-table th, .c-table td { padding: .55rem .7rem; text-align: left; background: #fff; border-block: 1px solid #d9dfe8; }
+.c-table thead th { color: #fff; background: #18243b; }
+.c-table tbody th { border-left: 1px solid #d9dfe8; border-radius: .35rem 0 0 .35rem; }
+.c-table tbody td:last-child { border-right: 1px solid #d9dfe8; border-radius: 0 .35rem .35rem 0; }</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>行を独立した情報単位として見せ、カードUIと一緒に使いたいサービス紹介や管理画面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="行 ホバー focus keyboard interaction highlight 操作 レスポンシブ">
+          <header class="part-example__header"><div><span class="part-example__index">INTERACTION / 01</span><h2>行ホバー</h2></div><small>HOVER + FOCUS</small></header>
+          <div class="part-example__preview part-example__preview--table-demo"><div class="c-table-wrap" tabindex="0" aria-label="プラン比較表を横にスクロール"><table class="c-table c-table--hover"><caption>行へマウスまたはTabキーを合わせてください</caption><thead><tr><th scope="col">項目</th><th scope="col">Standard</th><th scope="col">Pro</th></tr></thead><tbody><tr tabindex="0"><th scope="row">容量</th><td>20GB</td><td>100GB</td></tr><tr tabindex="0"><th scope="row">メンバー</th><td>5人</td><td>無制限</td></tr><tr tabindex="0"><th scope="row">サポート</th><td>メール</td><td>優先対応</td></tr></tbody></table></div></div>
+          <div class="part-example__code-grid"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-table-wrap" tabindex="0" aria-label="表を横にスクロール"&gt;
+  &lt;table class="c-table c-table--hover"&gt;
+    &lt;caption&gt;項目一覧&lt;/caption&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th scope="col"&gt;項目&lt;/th&gt;
+        &lt;th scope="col"&gt;Standard&lt;/th&gt;
+        &lt;th scope="col"&gt;Pro&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr tabindex="0"&gt;
+        &lt;th scope="row"&gt;容量&lt;/th&gt;
+        &lt;td&gt;20GB&lt;/td&gt;
+        &lt;td&gt;100GB&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr tabindex="0"&gt;
+        &lt;th scope="row"&gt;メンバー&lt;/th&gt;
+        &lt;td&gt;5人&lt;/td&gt;
+        &lt;td&gt;無制限&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-table-wrap { width: 100%; overflow-x: auto; }
+.c-table { width: 100%; min-width: 30rem; color: #1c2430; font: .8rem/1.5 sans-serif; border-collapse: collapse; }
+.c-table th, .c-table td { padding: .55rem .7rem; text-align: left; }
+.c-table thead th { color: #fff; background: #18243b; }
+.c-table tbody tr { border-bottom: 1px solid #d9dfe8; }
+.c-table tbody tr:is(:hover, :focus-visible) { background: #edf1f7; }
+.c-table tbody tr:focus-visible { outline: 3px solid #315a9b; outline-offset: -3px; }</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>横に長い一覧で、現在読んでいる行をマウスとキーボードの両方で追いやすくする場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="密度 コンパクト compact dense admin 管理画面 レスポンシブ">
+          <header class="part-example__header"><div><span class="part-example__index">DENSITY / 01</span><h2>コンパクト</h2></div><small>DENSE DATA</small></header>
+          <div class="part-example__preview part-example__preview--table-demo"><div class="c-table-wrap" tabindex="0" aria-label="注文一覧を横にスクロール"><table class="c-table c-table--compact"><caption>直近の注文</caption><thead><tr><th scope="col">ID</th><th scope="col">顧客</th><th scope="col">金額</th><th scope="col">状態</th></tr></thead><tbody><tr><th scope="row">#1048</th><td>佐藤</td><td>¥8,800</td><td>発送済</td></tr><tr><th scope="row">#1047</th><td>鈴木</td><td>¥12,400</td><td>準備中</td></tr><tr><th scope="row">#1046</th><td>高橋</td><td>¥4,200</td><td>確認中</td></tr></tbody></table></div></div>
+          <div class="part-example__code-grid"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-table-wrap" tabindex="0" aria-label="注文一覧を横にスクロール"&gt;
+  &lt;table class="c-table c-table--compact"&gt;
+    &lt;caption&gt;直近の注文&lt;/caption&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th scope="col"&gt;ID&lt;/th&gt;
+        &lt;th scope="col"&gt;顧客&lt;/th&gt;
+        &lt;th scope="col"&gt;金額&lt;/th&gt;
+        &lt;th scope="col"&gt;状態&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;th scope="row"&gt;#1048&lt;/th&gt;
+        &lt;td&gt;佐藤&lt;/td&gt;
+        &lt;td&gt;¥8,800&lt;/td&gt;
+        &lt;td&gt;発送済&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-table-wrap { width: 100%; overflow-x: auto; }
+.c-table { width: 100%; min-width: 30rem; color: #1c2430; font: .66rem/1.45 sans-serif; border-collapse: collapse; }
+.c-table th, .c-table td { padding: .32rem .5rem; text-align: left; border: 1px solid #d9dfe8; }
+.c-table thead th { color: #fff; background: #18243b; }</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>管理画面やログ一覧など、一画面で多くの行を確認する必要がある高密度なデータ表示。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="比較 先頭列 見出し列 first column feature comparison レスポンシブ">
+          <header class="part-example__header"><div><span class="part-example__index">COMPARISON / 01</span><h2>先頭列強調（比較表）</h2></div><small>ROW HEADERS</small></header>
+          <div class="part-example__preview part-example__preview--table-demo"><div class="c-table-wrap" tabindex="0" aria-label="プラン比較表を横にスクロール"><table class="c-table c-table--first-column"><caption>プラン比較</caption><thead><tr><th scope="col">機能</th><th scope="col">Free</th><th scope="col">Standard</th><th scope="col">Pro</th></tr></thead><tbody><tr><th scope="row">プロジェクト</th><td>1件</td><td>10件</td><td>無制限</td></tr><tr><th scope="row">履歴</th><td>7日</td><td>90日</td><td>無制限</td></tr><tr><th scope="row">権限管理</th><td>—</td><td>✓</td><td>✓</td></tr></tbody></table></div></div>
+          <div class="part-example__code-grid"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-table-wrap" tabindex="0" aria-label="比較表を横にスクロール"&gt;
+  &lt;table class="c-table c-table--first-column"&gt;
+    &lt;caption&gt;プラン比較&lt;/caption&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th scope="col"&gt;機能&lt;/th&gt;
+        &lt;th scope="col"&gt;Free&lt;/th&gt;
+        &lt;th scope="col"&gt;Standard&lt;/th&gt;
+        &lt;th scope="col"&gt;Pro&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;th scope="row"&gt;プロジェクト&lt;/th&gt;
+        &lt;td&gt;1件&lt;/td&gt;
+        &lt;td&gt;10件&lt;/td&gt;
+        &lt;td&gt;無制限&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-table-wrap { width: 100%; overflow-x: auto; }
+.c-table { width: 100%; min-width: 30rem; color: #1c2430; font: .8rem/1.5 sans-serif; border-collapse: collapse; }
+.c-table th, .c-table td { padding: .55rem .7rem; text-align: left; border-bottom: 1px solid #d9dfe8; }
+.c-table thead th { color: #fff; background: #18243b; }
+.c-table tbody th { color: #18243b; background: #edf1f7; border-right: 2px solid #18243b; }</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>機能名を基準に複数プランや製品を横方向へ比較し、行の意味を見失わせたくない場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="比較 料金 価格 pricing recommended おすすめ plan レスポンシブ">
+          <header class="part-example__header"><div><span class="part-example__index">COMPARISON / 02</span><h2>料金表（おすすめ列）</h2></div><small>PRICING TABLE</small></header>
+          <div class="part-example__preview part-example__preview--table-demo"><div class="c-table-wrap" tabindex="0" aria-label="料金表を横にスクロール"><table class="c-table c-table--pricing"><caption>月額プラン</caption><thead><tr><th scope="col">機能</th><th scope="col">Free</th><th class="is-recommended" scope="col">Standard<span class="c-table__badge">BEST</span></th><th scope="col">Pro</th></tr></thead><tbody><tr><th scope="row">月額</th><td>¥0</td><td class="is-recommended">¥1,980</td><td>¥4,980</td></tr><tr><th scope="row">容量</th><td>2GB</td><td class="is-recommended">20GB</td><td>100GB</td></tr><tr><th scope="row">サポート</th><td>—</td><td class="is-recommended">メール</td><td>優先対応</td></tr></tbody></table></div></div>
+          <div class="part-example__code-grid"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-table-wrap" tabindex="0" aria-label="料金表を横にスクロール"&gt;
+  &lt;table class="c-table c-table--pricing"&gt;
+    &lt;caption&gt;月額プラン&lt;/caption&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th scope="col"&gt;機能&lt;/th&gt;
+        &lt;th scope="col"&gt;Free&lt;/th&gt;
+        &lt;th class="is-recommended" scope="col"&gt;
+          Standard &lt;span&gt;BEST&lt;/span&gt;
+        &lt;/th&gt;
+        &lt;th scope="col"&gt;Pro&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;th scope="row"&gt;月額&lt;/th&gt;
+        &lt;td&gt;¥0&lt;/td&gt;
+        &lt;td class="is-recommended"&gt;¥1,980&lt;/td&gt;
+        &lt;td&gt;¥4,980&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-table-wrap { width: 100%; overflow-x: auto; }
+.c-table { width: 100%; min-width: 34rem; color: #1c2430; font: .8rem/1.5 sans-serif; border-collapse: collapse; }
+.c-table th, .c-table td { padding: .55rem .7rem; text-align: center; border: 1px solid #d9dfe8; }
+.c-table thead th { color: #fff; background: #18243b; }
+.c-table tbody th { text-align: left; }
+.c-table .is-recommended { background: #fffdd6; border-inline: 2px solid #18243b; }
+.c-table thead th.is-recommended { color: #18243b; background: #ffff00; }
+.c-table .is-recommended span { padding: .15rem .3rem; color: #fff; background: #18243b; }</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>料金プランの差と推奨プランを同じ表内で示し、選択肢を比較しながら判断してもらう場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="集計 合計 tfoot total summary sales レスポンシブ">
+          <header class="part-example__header"><div><span class="part-example__index">SUMMARY / 01</span><h2>集計行（tfoot）</h2></div><small>TOTAL ROW</small></header>
+          <div class="part-example__preview part-example__preview--table-demo"><div class="c-table-wrap" tabindex="0" aria-label="売上集計表を横にスクロール"><table class="c-table c-table--summary"><caption>月次売上</caption><thead><tr><th scope="col">項目</th><th scope="col">件数</th><th scope="col">金額</th></tr></thead><tbody><tr><th scope="row">新規</th><td>18件</td><td>¥186,000</td></tr><tr><th scope="row">更新</th><td>32件</td><td>¥244,000</td></tr><tr><th scope="row">追加購入</th><td>7件</td><td>¥68,000</td></tr></tbody><tfoot><tr><th scope="row">合計</th><td>57件</td><td>¥498,000</td></tr></tfoot></table></div></div>
+          <div class="part-example__code-grid"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-table-wrap" tabindex="0" aria-label="集計表を横にスクロール"&gt;
+  &lt;table class="c-table c-table--summary"&gt;
+    &lt;caption&gt;月次売上&lt;/caption&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th scope="col"&gt;項目&lt;/th&gt;
+        &lt;th scope="col"&gt;件数&lt;/th&gt;
+        &lt;th scope="col"&gt;金額&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;th scope="row"&gt;新規&lt;/th&gt;
+        &lt;td&gt;18件&lt;/td&gt;
+        &lt;td&gt;¥186,000&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;tfoot&gt;
+      &lt;tr&gt;
+        &lt;th scope="row"&gt;合計&lt;/th&gt;
+        &lt;td&gt;57件&lt;/td&gt;
+        &lt;td&gt;¥498,000&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tfoot&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-table-wrap { width: 100%; overflow-x: auto; }
+.c-table { width: 100%; min-width: 30rem; color: #1c2430; font: .8rem/1.5 sans-serif; border-collapse: collapse; }
+.c-table th, .c-table td { padding: .55rem .7rem; text-align: left; }
+.c-table thead th { color: #fff; background: #18243b; }
+.c-table tbody tr { border-bottom: 1px solid #d9dfe8; }
+.c-table tfoot th, .c-table tfoot td { color: #fff; font-weight: 800; background: #18243b; border-top: 3px double #fff; }
+.c-table tfoot td { text-align: right; }</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>売上、数量、工数などの明細末尾へ合計値を置き、表の結論を明確に伝える場面。</p></div>
+        </section>
+      </div>
+
+      <div class="part-detail-empty" data-pattern-empty hidden><p>[ NO_PATTERNS_FOUND ]</p><p>別のキーワードを選択してください。</p></div>
+
+      <section class="part-common-styles" id="table-common-styles" aria-labelledby="table-common-title">
+        <header class="part-common-styles__header reveal"><p class="section-index">COMMON STYLE</p><h2 id="table-common-title">共通スタイル</h2><p>テーブルの文字組み、セル余白、横スクロール領域、フォーカス表示を揃える基礎スタイルです。</p></header>
+        <div class="part-common-styles__code reveal" data-reveal-threshold="0.01"><div class="part-code"><div class="part-code__header"><span>CSS / COMMON</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-table-wrap,
+.c-table-wrap * { box-sizing: border-box; }
+
+.c-table-wrap {
+  width: 100%;
+  overflow: auto;
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: auto;
+  touch-action: pan-x pan-y;
+  -webkit-overflow-scrolling: touch;
+}
+
+.c-table-wrap:focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: 3px;
+}
+
+.c-table {
+  width: 100%;
+  min-width: 30rem;
+  color: var(--color-text, #1c2430);
+  font-family: var(--font-sans, sans-serif);
+  font-size: .8rem;
+  line-height: 1.5;
+  background: var(--color-background, #fff);
+  border-collapse: collapse;
+}
+
+.c-table caption {
+  padding-bottom: .45rem;
+  color: var(--color-text-subtle, #667085);
+  font: 700 .58rem/1.4 var(--font-mono, monospace);
+  text-align: left;
+}
+
+.c-table th,
+.c-table td {
+  padding: .55rem .7rem;
+  text-align: left;
+  vertical-align: middle;
+}</code></pre></div></div>
+      </section>
+
+      <footer class="page-footer" aria-label="ページナビゲーション"><a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO WEB PARTS</span></a><a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a></footer>
+    </main>
+    <script src="../js/web-parts-detail.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

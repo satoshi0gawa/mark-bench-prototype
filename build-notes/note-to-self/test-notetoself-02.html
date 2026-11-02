@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="GitHub Pagesが公開されないときに、サービス状態、公開元、入口ファイル、パス、ドメインを順番に確認するNOTE to SELFのテスト記事である。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>GitHub Pagesが公開されないときの確認項目 | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <meta name="robots" content="noindex,follow" />
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/build-notes/note-to-self/test-notetoself-02.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="GitHub Pagesが公開されないときの確認項目 | MARK BENCH" />
+    <meta property="og:description" content="GitHub Pagesが公開されないときに、サービス状態、公開元、入口ファイル、パス、ドメインを順番に確認するNOTE to SELFのテスト記事である。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/build-notes/note-to-self/test-notetoself-02.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="GitHub Pagesが公開されないときの確認項目 | MARK BENCH" />
+    <meta name="twitter:description" content="GitHub Pagesが公開されないときに、サービス状態、公開元、入口ファイル、パス、ドメインを順番に確認するNOTE to SELFのテスト記事である。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "BUILD NOTES",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/build-notes/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "NOTE to SELF",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/build-notes/note-to-self/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "GitHub Pagesが公開されないときの確認項目",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/build-notes/note-to-self/test-notetoself-02.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../../css/foundation.css" />
+    <link rel="stylesheet" href="../../css/components.css" />
+    <link rel="stylesheet" href="../../css/pages.css" />
+  </head>
+  <body data-site="coding-note" data-page="blog">
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header">
+      <div class="site-header__bar">
+        <nav class="site-breadcrumb-logo" aria-label="パンくずリスト">
+          <a class="site-logo" href="../../index.html">MARK BENCH</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <a class="site-breadcrumb-logo__parent" href="../">BUILD NOTES</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <a class="site-breadcrumb-logo__parent" href="./">NOTE to SELF</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <span class="site-breadcrumb-logo__current" aria-current="page">GitHub Pagesが公開されないときの確認項目</span>
+        </nav>
+      </div>
+    </header>
+
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション">
+      <a href="../../tools/"><strong>TOOLS</strong></a>
+      <a href="../../web-parts/"><strong>WEB PARTS</strong></a>
+      <a href="../" aria-current="location"><strong>BUILD NOTES</strong></a>
+      <a href="../../about.html"><strong>ABOUT</strong></a>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <article class="article-layout" aria-labelledby="article-title">
+        <header class="article-header reveal" data-reveal-order="0">
+          <p class="section-index">GITHUB PAGES</p>
+          <h1 id="article-title">GitHub Pagesが公開されないときの確認項目</h1>
+          <p class="article-header__lead">公開URLが404になる、変更が反映されない、CSSや画像だけ読み込まれない場合に、原因を混ぜずに切り分けられるよう確認順を整理する。</p>
+          <div class="note-meta"><span>2026.11.01</span></div>
+        </header>
+
+        <aside class="article-toc reveal" data-reveal-order="1" aria-label="目次">
+          <p>CONTENTS</p>
+          <ol>
+            <li><a href="#section-1">確認する順番を決める</a></li>
+            <li><a href="#section-2">GitHub側の状態を確認する</a></li>
+            <li><a href="#section-3">公開元と成果物を確認する</a></li>
+            <li><a href="#section-4">入口ファイルを確認する</a></li>
+            <li><a href="#section-5">リンクとアセットパスを確認する</a></li>
+            <li><a href="#section-6">ドメインとキャッシュを確認する</a></li>
+          </ol>
+          <div class="article-toc__references">
+            <p>REFERENCES</p>
+            <ul>
+              <li><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/troubleshooting-404-errors-for-github-pages-sites">Troubleshooting 404 errors for GitHub Pages sites</a></li>
+              <li><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">Configuring a publishing source for your GitHub Pages site</a></li>
+              <li><a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages">About custom domains and GitHub Pages</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <div class="article-body">
+          <section class="article-section reveal" id="section-1" aria-labelledby="section-1-title" data-reveal-threshold="0.01">
+            <p class="section-index">01 / OVERVIEW</p>
+            <h2 id="section-1-title">確認する順番を決める</h2>
+            <p>GitHub Pagesが表示されないときは、設定を同時に変更せず、公開処理、公開物、URL、ブラウザ表示の順に確認する。原因を切り分ける前に複数箇所を直すと、どの変更で解消したか分からなくなる。</p>
+            <div class="article-table-wrap">
+              <table>
+                <caption class="visually-hidden">GitHub Pagesの症状と最初に確認する場所</caption>
+                <thead><tr><th>症状</th><th>最初に確認する場所</th><th>次の確認</th></tr></thead>
+                <tbody>
+                  <tr><td>公開URL全体が404</td><td>Pages設定とActions</td><td>公開元と入口ファイル</td></tr>
+                  <tr><td>古い内容が表示される</td><td>最新コミットとデプロイ時刻</td><td>ブラウザキャッシュ</td></tr>
+                  <tr><td>CSSや画像だけ404</td><td>生成物内のファイル配置</td><td>ベースパスと大文字小文字</td></tr>
+                  <tr><td>独自ドメインだけ表示されない</td><td>Custom domain設定</td><td>DNSレコード</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="article-callout"><strong>CHECK ORDER</strong><p>Status → Actions → Source → Entry file → Paths → Domain and cache</p></div>
+          </section>
+
+          <section class="article-section reveal" id="section-2" aria-labelledby="section-2-title" data-reveal-threshold="0.01">
+            <p class="section-index">02 / STATUS</p>
+            <h2 id="section-2-title">GitHub側の状態を確認する</h2>
+            <p>最初にGitHub StatusでPagesやActionsに障害が発生していないかを確認する。サービス側の問題であれば、リポジトリ設定を変更しても解消しない。</p>
+            <p>次にリポジトリのActionsを開き、最新のデプロイが成功しているかを見る。失敗している場合は、失敗したジョブとステップを特定し、最初に表示されたエラーから確認する。</p>
+            <ol>
+              <li>最新コミットがGitHubへプッシュされているか確認する。</li>
+              <li>そのコミットを起点とするワークフローがあるか確認する。</li>
+              <li>ビルドとデプロイの両方が成功しているか確認する。</li>
+              <li>Pages設定に表示される公開URLを開く。</li>
+            </ol>
+          </section>
+
+          <section class="article-section reveal" id="section-3" aria-labelledby="section-3-title" data-reveal-threshold="0.01">
+            <p class="section-index">03 / SOURCE</p>
+            <h2 id="section-3-title">公開元と成果物を確認する</h2>
+            <p>ブランチから公開している場合は、SettingsのPagesで選択したブランチとフォルダーを確認する。<code>/docs</code>を指定しているのにフォルダーが存在しない場合や、別ブランチへだけ変更を反映した場合は公開されない。</p>
+            <p>GitHub Actionsから公開している場合は、デプロイ対象のartifactへ必要なファイルが含まれているかを確認する。ソース側に<code>index.html</code>があっても、生成処理がartifactへ含めていなければ公開サイトからは参照できない。</p>
+            <pre><code>source/
+  index.html
+  css/
+
+dist/            &lt;- deploy target
+  index.html      &lt;- required
+  css/</code></pre>
+            <div class="article-callout"><strong>BUILD OUTPUT</strong><p>ソースディレクトリではなく、実際にデプロイされるフォルダーの中身を確認する。</p></div>
+          </section>
+
+          <section class="article-section reveal" id="section-4" aria-labelledby="section-4-title" data-reveal-threshold="0.01">
+            <p class="section-index">04 / ENTRY FILE</p>
+            <h2 id="section-4-title">入口ファイルを確認する</h2>
+            <p>HTMLを入口にする場合、GitHub Pagesは公開元の最上位にある<code>index.html</code>を探す。ファイルが下位フォルダーだけにある場合や、公開元と異なる場所にある場合はトップページを表示できない。</p>
+            <p>ファイル名の大文字小文字も区別される。ローカル環境で表示できても、<code>Index.html</code>、<code>index.HTML</code>、参照先の文字ケース違いが公開環境で問題になる場合がある。</p>
+            <div class="article-table-wrap">
+              <table>
+                <caption class="visually-hidden">入口ファイルの確認例</caption>
+                <thead><tr><th>確認項目</th><th>正常例</th><th>問題例</th></tr></thead>
+                <tbody>
+                  <tr><td>配置</td><td><code>dist/index.html</code></td><td><code>dist/src/index.html</code></td></tr>
+                  <tr><td>ファイル名</td><td><code>index.html</code></td><td><code>Index.html</code></td></tr>
+                  <tr><td>公開対象</td><td><code>dist/</code>全体</td><td>CSSだけを含むartifact</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="article-section reveal" id="section-5" aria-labelledby="section-5-title" data-reveal-threshold="0.01">
+            <p class="section-index">05 / PATHS</p>
+            <h2 id="section-5-title">リンクとアセットパスを確認する</h2>
+            <p>トップページは表示できるのにCSS、画像、下層リンクが404になる場合は、パスの基準を確認する。プロジェクトサイトの既定URLにはリポジトリ名が含まれるため、ドメイン直下を指すルート相対パスがリポジトリ配下を飛び越える場合がある。</p>
+            <pre><code>root-relative path:     /css/style.css
+document-relative path: ./css/style.css
+
+project URL: https://&lt;owner&gt;.github.io/&lt;repository&gt;/</code></pre>
+            <p>生成処理を使う場合は、開発サーバーだけでなく、GitHub Pagesと同じベースパスを想定した静的成果物でもリンクを確認する。ファイル名とHTML側の参照文字列は大文字小文字まで一致させる。</p>
+          </section>
+
+          <section class="article-section reveal" id="section-6" aria-labelledby="section-6-title" data-reveal-threshold="0.01">
+            <p class="section-index">06 / DOMAIN</p>
+            <h2 id="section-6-title">ドメインとキャッシュを確認する</h2>
+            <p>独自ドメインを使用している場合は、まずPages設定に表示された既定の<code>github.io</code> URLで公開できているかを確認する。既定URLでも表示できなければ、DNSより前の公開設定や成果物に原因がある。</p>
+            <ol>
+              <li>Pages設定のCustom domainが意図した値か確認する。</li>
+              <li>ドメイン事業者側のDNSレコードを確認する。</li>
+              <li>リポジトリや成果物内の<code>CNAME</code>を確認する。</li>
+              <li>DNS反映を待ってからHTTPSの状態を確認する。</li>
+              <li>シークレットウィンドウやキャッシュ削除後の表示を確認する。</li>
+            </ol>
+            <p>問題が解消したら、一度に変更した設定を記録する。次回は同じ確認順を使い、サービス、公開処理、成果物、パス、ドメインのどこで止まっているかを先に特定する。</p>
+          </section>
+        </div>
+      </article>
+      <footer class="page-footer" aria-label="ページナビゲーション">
+        <a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO NOTE to SELF</span></a>
+        <a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a>
+      </footer>
+    </main>
+
+    <script src="../../js/main.js" defer></script>
+  </body>
+</html>

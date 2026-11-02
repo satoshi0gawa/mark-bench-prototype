@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="カルーセル、ギャラリー、比較表示をVanilla JavaScriptで操作するスライダー12パターンです。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>SLIDER | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/slider.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="SLIDER | MARK BENCH" />
+    <meta property="og:description" content="カルーセル、ギャラリー、比較表示をVanilla JavaScriptで操作するスライダー12パターンです。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/slider.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SLIDER | MARK BENCH" />
+    <meta name="twitter:description" content="カルーセル、ギャラリー、比較表示をVanilla JavaScriptで操作するスライダー12パターンです。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "SLIDER",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/slider.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/web-parts.css" />
+    <link rel="stylesheet" href="../css/web-parts-slider.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts-detail" data-parts-detail>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header"><div class="site-header__bar"><nav class="site-breadcrumb-logo" aria-label="パンくずリスト"><a class="site-logo" href="../index.html">MARK BENCH</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><a class="site-breadcrumb-logo__parent" href="./">WEB PARTS</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><span class="site-breadcrumb-logo__current" aria-current="page">SLIDER</span></nav></div></header>
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション"><a href="../tools/"><strong>TOOLS</strong></a><a href="./" aria-current="location"><strong>WEB PARTS</strong></a><a href="../build-notes/"><strong>BUILD NOTES</strong></a><a href="../about.html"><strong>ABOUT</strong></a></nav>
+
+    <main id="main" tabindex="-1">
+      <header class="part-detail-header">
+        <p class="section-index reveal">WEB_PARTS / SLIDER</p>
+        <h1 class="reveal">SLIDER</h1>
+        <p class="part-detail-header__lead reveal">商品画像、実績紹介、ビジュアル比較、短いストーリーなど、限られた表示領域で複数の内容を順番に閲覧するスライダー・ギャラリー12パターンです。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 12</span><span>TYPE: CSS + JS</span><span>DEPENDENCY: NONE</span></div>
+        <a class="part-detail-header__anchor reveal" href="#slider-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
+      </header>
+
+      <section class="part-detail-controls directory-search directory-keywords" aria-label="スライダーパターンを絞り込み">
+        <div class="directory-keywords__group"><p class="directory-keywords__label">KEYWORDS</p><div class="directory-keywords__list">
+          <button type="button" aria-pressed="false" data-pattern-keyword="基本"># 基本</button><button type="button" aria-pressed="false" data-pattern-keyword="自動再生"># 自動再生</button><button type="button" aria-pressed="false" data-pattern-keyword="ドラッグ"># ドラッグ</button><button type="button" aria-pressed="false" data-pattern-keyword="ギャラリー"># ギャラリー</button><button type="button" aria-pressed="false" data-pattern-keyword="比較"># 比較</button><button type="button" aria-pressed="false" data-pattern-keyword="進捗"># 進捗</button><button type="button" aria-pressed="false" data-pattern-keyword="拡大"># 拡大</button><button type="button" aria-pressed="false" data-pattern-keyword="方向"># 方向</button>
+        </div></div><p>DISPLAY: <span data-pattern-count>12</span> / 12</p>
+      </section>
+
+      <div class="part-example-list">
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="基本 カルーセル 前後ボタン ドット keyboard carousel navigation dots">
+          <header class="part-example__header"><div><span class="part-example__index">CONTROL / 01</span><h2>ベーシックカルーセル</h2></div><small>ARROW + DOTS</small></header>
+          <div class="part-example__preview part-example__preview--slider"><div class="c-slider" data-track-slider role="region" aria-roledescription="カルーセル" aria-label="おすすめ機能"><div class="c-slider__viewport" tabindex="0"><div class="c-slider__track" data-slider-track><article class="c-slider__slide" role="group" aria-label="1 / 3">設計</article><article class="c-slider__slide" role="group" aria-label="2 / 3">実装</article><article class="c-slider__slide" role="group" aria-label="3 / 3">検証</article></div></div><button class="c-slider__nav c-slider__nav--prev" type="button" data-slider-prev aria-label="前のスライド">←</button><button class="c-slider__nav c-slider__nav--next" type="button" data-slider-next aria-label="次のスライド">→</button><div class="c-slider__dots"><button class="c-slider__dot" type="button" data-slider-dot aria-label="1枚目を表示"></button><button class="c-slider__dot" type="button" data-slider-dot aria-label="2枚目を表示"></button><button class="c-slider__dot" type="button" data-slider-dot aria-label="3枚目を表示"></button></div><p class="c-slider__status" data-slider-status aria-live="polite"></p></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-slider" data-slider role="region" aria-roledescription="カルーセル" aria-label="おすすめ機能"&gt;
+  &lt;div class="c-slider__viewport" tabindex="0"&gt;&lt;div class="c-slider__track"&gt;
+    &lt;article class="c-slider__slide"&gt;設計&lt;/article&gt;&lt;article class="c-slider__slide"&gt;実装&lt;/article&gt;&lt;article class="c-slider__slide"&gt;検証&lt;/article&gt;
+  &lt;/div&gt;&lt;/div&gt;
+  &lt;button type="button" data-prev aria-label="前のスライド"&gt;←&lt;/button&gt;&lt;button type="button" data-next aria-label="次のスライド"&gt;→&lt;/button&gt;
+  &lt;p data-status aria-live="polite"&gt;&lt;/p&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-slider { position: relative; width: min(100%, 20rem); }
+.c-slider__viewport { overflow: hidden; border: 1px solid #18243b; }
+.c-slider__track { display: flex; transition: transform .4s ease; }
+.c-slider__slide { display: grid; min-width: 100%; min-height: 10rem; place-items: center; color: #fff; background: #18243b; }
+.c-slider button:focus-visible, .c-slider__viewport:focus-visible { outline: 3px solid #315a9b; outline-offset: 3px; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-slider]');
+const track = root.querySelector('.c-slider__track');
+const slides = [...track.children];
+const status = root.querySelector('[data-status]');
+let index = 0;
+const show = (next) =&gt; {
+  index = (next + slides.length) % slides.length;
+  track.style.transform = `translateX(${-index * 100}%)`;
+  status.textContent = `${index + 1} / ${slides.length}`;
+};
+root.querySelector('[data-prev]').addEventListener('click', () =&gt; show(index - 1));
+root.querySelector('[data-next]').addEventListener('click', () =&gt; show(index + 1));
+root.addEventListener('keydown', (event) =&gt; { if (event.key === 'ArrowLeft') show(index - 1); if (event.key === 'ArrowRight') show(index + 1); });
+show(0);</code></pre></div>
+          </div><div class="part-example__note"><strong>USE FOR</strong><p>特集、商品、導入事例などを前後ボタン・ドット・左右キーで順番に閲覧する基本形。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="自動再生 autoplay pause stop hero banner 時間 停止">
+          <header class="part-example__header"><div><span class="part-example__index">AUTOPLAY / 01</span><h2>自動再生スライダー</h2></div><small>PLAY / PAUSE</small></header>
+          <div class="part-example__preview part-example__preview--slider"><div class="c-slider" data-track-slider data-autoplay="3200" role="region" aria-roledescription="カルーセル" aria-label="新着情報"><div class="c-slider__viewport"><div class="c-slider__track" data-slider-track><article class="c-slider__slide">新着 01</article><article class="c-slider__slide">新着 02</article><article class="c-slider__slide">新着 03</article></div></div><button class="c-slider__nav c-slider__nav--prev" type="button" data-slider-prev aria-label="前のスライド">←</button><button class="c-slider__nav c-slider__nav--next" type="button" data-slider-next aria-label="次のスライド">→</button><button class="c-slider__toggle" type="button" data-slider-toggle>一時停止</button><p class="c-slider__status" data-slider-status aria-live="polite"></p></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-slider" data-auto data-interval="3200"&gt;&lt;div class="c-slider__viewport"&gt;&lt;div class="c-slider__track"&gt;&lt;div class="c-slider__slide"&gt;新着 01&lt;/div&gt;&lt;div class="c-slider__slide"&gt;新着 02&lt;/div&gt;&lt;div class="c-slider__slide"&gt;新着 03&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;button type="button" data-toggle&gt;一時停止&lt;/button&gt;&lt;p data-status aria-live="polite"&gt;&lt;/p&gt;&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-slider { width: min(100%, 20rem); }
+.c-slider__viewport { overflow: hidden; border: 1px solid #18243b; }
+.c-slider__track { display: flex; transition: transform .4s ease; }
+.c-slider__slide { display: grid; min-width: 100%; min-height: 10rem; place-items: center; color: #fff; background: #18243b; }
+@media (prefers-reduced-motion: reduce) { .c-slider__track { transition: none; } }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-auto]');
+const track = root.querySelector('.c-slider__track');
+const total = track.children.length;
+const toggle = root.querySelector('[data-toggle]');
+let index = 0, timer = 0, playing = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+const show = () =&gt; { track.style.transform = `translateX(${-index * 100}%)`; root.querySelector('[data-status]').textContent = `${index + 1} / ${total}`; };
+const start = () =&gt; { clearInterval(timer); if (playing) timer = setInterval(() =&gt; { index = (index + 1) % total; show(); }, Number(root.dataset.interval)); };
+toggle.addEventListener('click', () =&gt; { playing = !playing; toggle.textContent = playing ? '一時停止' : '再生'; start(); });
+show(); start();</code></pre></div></div><div class="part-example__note"><strong>USE FOR</strong><p>ヒーローやキャンペーンの告知を一定間隔で切り替え、閲覧者が必要に応じて停止できる場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="ドラッグ スワイプ pointer touch swipe mobile 操作">
+          <header class="part-example__header"><div><span class="part-example__index">POINTER / 01</span><h2>ドラッグ・スワイプスライダー</h2></div><small>POINTER EVENTS</small></header>
+          <div class="part-example__preview part-example__preview--slider"><div class="c-slider c-slider--drag" data-track-slider data-drag-slider role="region" aria-label="スワイプできる事例"><div class="c-slider__viewport" tabindex="0"><div class="c-slider__track" data-slider-track><article class="c-slider__slide">CASE 01</article><article class="c-slider__slide">CASE 02</article><article class="c-slider__slide">CASE 03</article></div></div><button class="c-slider__nav c-slider__nav--prev" type="button" data-slider-prev aria-label="前のスライド">←</button><button class="c-slider__nav c-slider__nav--next" type="button" data-slider-next aria-label="次のスライド">→</button><p class="c-slider__status" data-slider-status aria-live="polite"></p></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-slider" data-drag&gt;&lt;div class="c-slider__viewport" tabindex="0"&gt;&lt;div class="c-slider__track"&gt;&lt;div class="c-slider__slide"&gt;CASE 01&lt;/div&gt;&lt;div class="c-slider__slide"&gt;CASE 02&lt;/div&gt;&lt;div class="c-slider__slide"&gt;CASE 03&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;p data-status aria-live="polite"&gt;&lt;/p&gt;&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-slider__viewport { overflow: hidden; touch-action: pan-y; cursor: grab; }
+.c-slider__track { display: flex; transition: transform .35s ease; }
+.c-slider__slide { display: grid; min-width: 100%; min-height: 10rem; place-items: center; color: #fff; background: #18243b; user-select: none; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-drag]');
+const view = root.querySelector('.c-slider__viewport');
+const track = root.querySelector('.c-slider__track');
+let index = 0, startX = 0, deltaX = 0;
+const show = () =&gt; { track.style.transform = `translateX(${-index * 100}%)`; root.querySelector('[data-status]').textContent = `${index + 1} / ${track.children.length}`; };
+view.addEventListener('pointerdown', (event) =&gt; { startX = event.clientX; view.setPointerCapture(event.pointerId); });
+view.addEventListener('pointermove', (event) =&gt; { if (view.hasPointerCapture(event.pointerId)) deltaX = event.clientX - startX; });
+view.addEventListener('pointerup', () =&gt; { if (Math.abs(deltaX) &gt; view.clientWidth * .2) index = Math.max(0, Math.min(track.children.length - 1, index + (deltaX &lt; 0 ? 1 : -1))); deltaX = 0; show(); });
+show();</code></pre></div></div><div class="part-example__note"><strong>USE FOR</strong><p>スマートフォンの商品写真や事例カードを、縦スクロールを妨げず横方向へ直接送る場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="ギャラリー サムネイル 商品画像 thumbnail gallery ecommerce 選択">
+          <header class="part-example__header"><div><span class="part-example__index">GALLERY / 01</span><h2>サムネイル連動ギャラリー</h2></div><small>THUMBNAILS</small></header>
+          <div class="part-example__preview part-example__preview--slider"><div class="c-slider c-slider--thumb" data-thumb-slider role="region" aria-label="商品カラーバリエーション"><div class="c-slider__stage"><article class="c-slider__slide">NAVY</article><article class="c-slider__slide">GRAY</article><article class="c-slider__slide">YELLOW</article><article class="c-slider__slide">BLUE</article></div><div class="c-slider__thumbs"><button class="c-slider__thumb" type="button" data-slider-thumb>N</button><button class="c-slider__thumb" type="button" data-slider-thumb>G</button><button class="c-slider__thumb" type="button" data-slider-thumb>Y</button><button class="c-slider__thumb" type="button" data-slider-thumb>B</button></div><p class="c-slider__status" data-slider-status aria-live="polite"></p></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-gallery" data-gallery&gt;&lt;div class="c-gallery__stage"&gt;&lt;div class="c-gallery__item"&gt;NAVY&lt;/div&gt;&lt;div class="c-gallery__item"&gt;GRAY&lt;/div&gt;&lt;div class="c-gallery__item"&gt;YELLOW&lt;/div&gt;&lt;/div&gt;&lt;div class="c-gallery__thumbs"&gt;&lt;button type="button"&gt;N&lt;/button&gt;&lt;button type="button"&gt;G&lt;/button&gt;&lt;button type="button"&gt;Y&lt;/button&gt;&lt;/div&gt;&lt;p data-status aria-live="polite"&gt;&lt;/p&gt;&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-gallery { width: min(100%, 20rem); }
+.c-gallery__stage { position: relative; min-height: 10rem; overflow: hidden; }
+.c-gallery__item { position: absolute; inset: 0; display: grid; place-items: center; color: #fff; background: #18243b; opacity: 0; transition: opacity .35s; }
+.c-gallery__item.is-active { opacity: 1; }
+.c-gallery__thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: .4rem; margin-top: .5rem; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-gallery]');
+const items = [...root.querySelectorAll('.c-gallery__item')];
+const thumbs = [...root.querySelectorAll('button')];
+const show = (index) =&gt; {
+  items.forEach((item, itemIndex) =&gt; item.classList.toggle('is-active', itemIndex === index));
+  thumbs.forEach((thumb, thumbIndex) =&gt; thumb.setAttribute('aria-pressed', String(thumbIndex === index)));
+  root.querySelector('[data-status]').textContent = `${index + 1} / ${items.length}`;
+};
+thumbs.forEach((thumb, index) =&gt; thumb.addEventListener('click', () =&gt; show(index)));
+show(0);</code></pre></div></div><div class="part-example__note"><strong>USE FOR</strong><p>ECの商品画像、色違い、設備写真など、一覧から目的の画像を直接選びたい場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="自動再生 フェード fade crossfade hero visual 落ち着き">
+          <header class="part-example__header"><div><span class="part-example__index">AUTOPLAY / 02</span><h2>フェード切替スライダー</h2></div><small>CROSS FADE</small></header>
+          <div class="part-example__preview part-example__preview--slider"><div class="c-slider c-slider--fade" data-fade-slider data-interval="3600" role="region" aria-label="ブランドビジュアル"><div class="c-slider__viewport"><article class="c-slider__slide">FOCUS</article><article class="c-slider__slide">CRAFT</article><article class="c-slider__slide">SHIP</article></div><div class="c-slider__dots"><button class="c-slider__dot" type="button" data-slider-dot aria-label="1枚目を表示"></button><button class="c-slider__dot" type="button" data-slider-dot aria-label="2枚目を表示"></button><button class="c-slider__dot" type="button" data-slider-dot aria-label="3枚目を表示"></button></div><button class="c-slider__toggle" type="button" data-slider-toggle>一時停止</button><p class="c-slider__status" data-slider-status aria-live="polite"></p></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-fade" data-fade data-interval="3600"&gt;&lt;div class="c-fade__stage"&gt;&lt;div class="c-fade__slide"&gt;FOCUS&lt;/div&gt;&lt;div class="c-fade__slide"&gt;CRAFT&lt;/div&gt;&lt;div class="c-fade__slide"&gt;SHIP&lt;/div&gt;&lt;/div&gt;&lt;button type="button" data-toggle&gt;一時停止&lt;/button&gt;&lt;p data-status aria-live="polite"&gt;&lt;/p&gt;&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-fade { width: min(100%, 20rem); }
+.c-fade__stage { position: relative; min-height: 10rem; }
+.c-fade__slide { position: absolute; inset: 0; display: grid; place-items: center; color: #fff; background: #18243b; opacity: 0; transition: opacity .7s; }
+.c-fade__slide.is-active { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .c-fade__slide { transition: none; } }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-fade]');
+const slides = [...root.querySelectorAll('.c-fade__slide')];
+let index = 0, timer = 0, playing = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+const show = () =&gt; { slides.forEach((slide, i) =&gt; slide.classList.toggle('is-active', i === index)); root.querySelector('[data-status]').textContent = `${index + 1} / ${slides.length}`; };
+const start = () =&gt; { clearInterval(timer); if (playing) timer = setInterval(() =&gt; { index = (index + 1) % slides.length; show(); }, Number(root.dataset.interval)); };
+root.querySelector('[data-toggle]').addEventListener('click', (event) =&gt; { playing = !playing; event.currentTarget.textContent = playing ? '一時停止' : '再生'; start(); });
+show(); start();</code></pre></div></div><div class="part-example__note"><strong>USE FOR</strong><p>ヒーロー画像やブランドビジュアルを、横移動より静かな印象で切り替える場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="比較 before after range リフォーム 写真 レタッチ keyboard">
+          <header class="part-example__header"><div><span class="part-example__index">COMPARE / 01</span><h2>Before / After比較スライダー</h2></div><small>RANGE CONTROL</small></header>
+          <div class="part-example__preview part-example__preview--slider"><div class="c-slider c-slider--compare" data-compare-slider><div class="c-slider__compare"><div class="c-slider__compare-layer c-slider__compare-layer--after">AFTER</div><div class="c-slider__compare-layer c-slider__compare-layer--before">BEFORE</div><span class="c-slider__compare-line" aria-hidden="true"></span><input class="c-slider__range" type="range" min="0" max="100" value="50" aria-label="Before画像の表示範囲" /></div><p class="c-slider__status">境界位置: <output data-compare-output>50%</output></p></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-compare" data-compare&gt;&lt;div class="c-compare__after"&gt;AFTER&lt;/div&gt;&lt;div class="c-compare__before"&gt;BEFORE&lt;/div&gt;&lt;span class="c-compare__line" aria-hidden="true"&gt;&lt;/span&gt;&lt;input type="range" min="0" max="100" value="50" aria-label="Before画像の表示範囲"&gt;&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-compare { --position: 50%; position: relative; min-height: 10rem; overflow: hidden; }
+.c-compare__after, .c-compare__before { position: absolute; inset: 0; display: flex; padding: 1rem; align-items: center; color: #fff; background: #315a9b; }
+.c-compare__before { background: #18243b; clip-path: inset(0 calc(100% - var(--position)) 0 0); }
+.c-compare__line { position: absolute; top: 0; bottom: 0; left: var(--position); width: 2px; background: #ffff00; }
+.c-compare input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-compare]');
+const range = root.querySelector('input[type="range"]');
+const update = () =&gt; root.style.setProperty('--position', `${range.value}%`);
+range.addEventListener('input', update);
+update();</code></pre></div></div><div class="part-example__note"><strong>USE FOR</strong><p>施工前後、画像補正、デザイン更新など、同じ構図の変化をキーボードでも比較する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="基本 無限 ループ carousel clone seamless 継続">
+          <header class="part-example__header"><div><span class="part-example__index">LOOP / 01</span><h2>無限ループカルーセル</h2></div><small>SEAMLESS LOOP</small></header>
+          <div class="part-example__preview part-example__preview--slider"><div class="c-slider" data-infinite-slider role="region" aria-label="循環する特集"><div class="c-slider__viewport"><div class="c-slider__track" data-slider-track><article class="c-slider__slide">ONE</article><article class="c-slider__slide">TWO</article><article class="c-slider__slide">THREE</article></div></div><button class="c-slider__nav c-slider__nav--prev" type="button" data-slider-prev aria-label="前のスライド">←</button><button class="c-slider__nav c-slider__nav--next" type="button" data-slider-next aria-label="次のスライド">→</button><p class="c-slider__status" data-slider-status aria-live="polite"></p></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-loop" data-loop&gt;&lt;div class="c-loop__viewport"&gt;&lt;div class="c-loop__track"&gt;&lt;div class="c-loop__slide"&gt;ONE&lt;/div&gt;&lt;div class="c-loop__slide"&gt;TWO&lt;/div&gt;&lt;div class="c-loop__slide"&gt;THREE&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;button type="button" data-prev&gt;←&lt;/button&gt;&lt;button type="button" data-next&gt;→&lt;/button&gt;&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-loop { position: relative; width: min(100%, 20rem); }
+.c-loop__viewport { overflow: hidden; }
+.c-loop__track { display: flex; transition: transform .4s ease; }
+.c-loop__slide { display: grid; min-width: 100%; min-height: 10rem; place-items: center; color: #fff; background: #18243b; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-loop]');
+const track = root.querySelector('.c-loop__track');
+const original = [...track.children];
+track.prepend(original.at(-1).cloneNode(true));
+track.append(original[0].cloneNode(true));
+let index = 1, busy = false;
+const apply = (animate = true) =&gt; { track.style.transition = animate ? '' : 'none'; track.style.transform = `translateX(${-index * 100}%)`; };
+const move = (step) =&gt; { if (!busy) { busy = true; index += step; apply(); } };
+root.querySelector('[data-prev]').addEventListener('click', () =&gt; move(-1));
+root.querySelector('[data-next]').addEventListener('click', () =&gt; move(1));
+track.addEventListener('transitionend', () =&gt; { if (index === 0) index = original.length; if (index === original.length + 1) index = 1; apply(false); requestAnimationFrame(() =&gt; { track.style.transition = ''; busy = false; }); });
+apply(false);</code></pre></div></div><div class="part-example__note"><strong>USE FOR</strong><p>ブランドロゴや連続写真など、端を感じさせず同じ方向へ繰り返し閲覧する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="自動再生 進捗 プログレス progress time remaining 状態">
+          <header class="part-example__header"><div><span class="part-example__index">AUTOPLAY / 03</span><h2>プログレスバー付きスライダー</h2></div><small>TIME PROGRESS</small></header>
+          <div class="part-example__preview part-example__preview--slider"><div class="c-slider c-slider--progress" data-progress-slider data-interval="4000" role="region" aria-label="進行状況付き紹介"><div class="c-slider__viewport"><div class="c-slider__track" data-slider-track><article class="c-slider__slide">STEP 01</article><article class="c-slider__slide">STEP 02</article><article class="c-slider__slide">STEP 03</article></div></div><div class="c-slider__progress" aria-hidden="true"><span data-progress-bar></span></div><p class="c-slider__status" data-slider-status aria-live="polite"></p></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-progress" data-progress data-interval="4000"&gt;&lt;div class="c-progress__viewport"&gt;&lt;div class="c-progress__track"&gt;&lt;div class="c-progress__slide"&gt;STEP 01&lt;/div&gt;&lt;div class="c-progress__slide"&gt;STEP 02&lt;/div&gt;&lt;div class="c-progress__slide"&gt;STEP 03&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="c-progress__bar"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-progress__viewport { overflow: hidden; }
+.c-progress__track { display: flex; transition: transform .4s ease; }
+.c-progress__slide { display: grid; min-width: 100%; min-height: 10rem; place-items: center; color: #fff; background: #18243b; }
+.c-progress__bar { height: .35rem; margin-top: .6rem; overflow: hidden; background: #d9dfe8; }
+.c-progress__bar span { display: block; width: 100%; height: 100%; background: #18243b; transform: scaleX(0); transform-origin: left; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-progress]');
+const track = root.querySelector('.c-progress__track');
+const bar = root.querySelector('.c-progress__bar span');
+const duration = Number(root.dataset.interval);
+let index = 0, start = 0;
+const frame = (time) =&gt; { if (!start) start = time; let progress = Math.min((time - start) / duration, 1); bar.style.transform = `scaleX(${progress})`; if (progress === 1) { index = (index + 1) % track.children.length; track.style.transform = `translateX(${-index * 100}%)`; start = time; } requestAnimationFrame(frame); };
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) requestAnimationFrame(frame);</code></pre></div></div><div class="part-example__note"><strong>USE FOR</strong><p>自動切替までの残り時間を見せ、閲覧者が次の変化を予測できるキャンペーンや手順紹介。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="拡大 ホバー ルーペ zoom lens product detail pointer 商品">
+          <header class="part-example__header"><div><span class="part-example__index">DETAIL / 01</span><h2>ホバールーペ（部分拡大）</h2></div><small>ZOOM LENS</small></header>
+          <div class="part-example__preview part-example__preview--slider"><div class="c-slider c-slider--zoom" data-zoom-slider><div class="c-slider__zoom-source" data-zoom-source tabindex="0">DETAIL<div class="c-slider__lens" data-zoom-lens aria-hidden="true">DETAIL</div></div><p class="c-slider__status">ポインターまたはTabキーで拡大します</p></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-zoom" data-zoom&gt;&lt;div class="c-zoom__source" tabindex="0"&gt;DETAIL&lt;div class="c-zoom__lens" aria-hidden="true"&gt;DETAIL&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-zoom__source { position: relative; display: grid; min-height: 10rem; overflow: hidden; place-items: center; color: #fff; background: #18243b; cursor: crosshair; }
+.c-zoom__lens { position: absolute; display: grid; width: 6rem; height: 6rem; place-items: center; color: #fff; background: #315a9b; border: 3px solid #ffff00; border-radius: 50%; opacity: 0; transform: translate(-50%, -50%); pointer-events: none; }
+.c-zoom__lens.is-visible { opacity: 1; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-zoom]');
+const source = root.querySelector('.c-zoom__source');
+const lens = root.querySelector('.c-zoom__lens');
+source.addEventListener('pointermove', (event) =&gt; { const rect = source.getBoundingClientRect(); lens.style.left = `${event.clientX - rect.left}px`; lens.style.top = `${event.clientY - rect.top}px`; });
+source.addEventListener('pointerenter', () =&gt; lens.classList.add('is-visible'));
+source.addEventListener('pointerleave', () =&gt; lens.classList.remove('is-visible'));
+source.addEventListener('focus', () =&gt; lens.classList.add('is-visible'));
+source.addEventListener('blur', () =&gt; lens.classList.remove('is-visible'));</code></pre></div></div><div class="part-example__note"><strong>USE FOR</strong><p>商品写真の素材感や細部を、元画像の位置関係を保ったまま部分的に確認する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="方向 縦 vertical up down news timeline 上下">
+          <header class="part-example__header"><div><span class="part-example__index">DIRECTION / 01</span><h2>縦スライダー</h2></div><small>VERTICAL AXIS</small></header>
+          <div class="part-example__preview part-example__preview--slider"><div class="c-slider c-slider--vertical" data-track-slider role="region" aria-label="縦方向のお知らせ"><div class="c-slider__viewport"><div class="c-slider__track" data-slider-track><article class="c-slider__slide">NOTICE 01</article><article class="c-slider__slide">NOTICE 02</article><article class="c-slider__slide">NOTICE 03</article></div></div><button class="c-slider__nav c-slider__nav--prev" type="button" data-slider-prev aria-label="前のお知らせ">↑</button><button class="c-slider__nav c-slider__nav--next" type="button" data-slider-next aria-label="次のお知らせ">↓</button><p class="c-slider__status" data-slider-status aria-live="polite"></p></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-vertical" data-vertical&gt;&lt;div class="c-vertical__viewport"&gt;&lt;div class="c-vertical__track"&gt;&lt;div class="c-vertical__slide"&gt;NOTICE 01&lt;/div&gt;&lt;div class="c-vertical__slide"&gt;NOTICE 02&lt;/div&gt;&lt;div class="c-vertical__slide"&gt;NOTICE 03&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;button type="button" data-prev&gt;↑&lt;/button&gt;&lt;button type="button" data-next&gt;↓&lt;/button&gt;&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-vertical__viewport { height: 10rem; overflow: hidden; }
+.c-vertical__track { display: flex; flex-direction: column; transition: transform .4s ease; }
+.c-vertical__slide { display: grid; min-height: 10rem; place-items: center; color: #fff; background: #18243b; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-vertical]');
+const track = root.querySelector('.c-vertical__track');
+let index = 0;
+const show = (next) =&gt; { index = (next + track.children.length) % track.children.length; track.style.transform = `translateY(${-index * 10}rem)`; };
+root.querySelector('[data-prev]').addEventListener('click', () =&gt; show(index - 1));
+root.querySelector('[data-next]').addEventListener('click', () =&gt; show(index + 1));
+show(0);</code></pre></div></div><div class="part-example__note"><strong>USE FOR</strong><p>更新情報、時系列の出来事、縦長カードなど、上下の流れと内容の順序を合わせたい場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="方向 中央 拡大 center mode active focus carousel preview">
+          <header class="part-example__header"><div><span class="part-example__index">FOCUS / 01</span><h2>中央拡大カルーセル</h2></div><small>CENTER MODE</small></header>
+          <div class="part-example__preview part-example__preview--slider"><div class="c-slider c-slider--center" data-center-slider role="region" aria-label="中央を強調する事例"><div class="c-slider__viewport"><div class="c-slider__track" data-slider-track><button class="c-slider__slide" type="button">01</button><button class="c-slider__slide" type="button">02</button><button class="c-slider__slide" type="button">03</button><button class="c-slider__slide" type="button">04</button></div></div><button class="c-slider__nav c-slider__nav--prev" type="button" data-slider-prev aria-label="前のスライド">←</button><button class="c-slider__nav c-slider__nav--next" type="button" data-slider-next aria-label="次のスライド">→</button><p class="c-slider__status" data-slider-status aria-live="polite"></p></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-center" data-center&gt;&lt;div class="c-center__viewport"&gt;&lt;div class="c-center__track"&gt;&lt;button class="c-center__slide" type="button"&gt;01&lt;/button&gt;&lt;button class="c-center__slide" type="button"&gt;02&lt;/button&gt;&lt;button class="c-center__slide" type="button"&gt;03&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;button type="button" data-prev&gt;←&lt;/button&gt;&lt;button type="button" data-next&gt;→&lt;/button&gt;&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-center__viewport { overflow: hidden; padding: .75rem 0; }
+.c-center__track { display: flex; gap: .5rem; align-items: center; transition: transform .4s ease; }
+.c-center__slide { min-width: 68%; min-height: 8rem; color: #fff; background: #18243b; opacity: .45; transform: scale(.84); transition: .35s; }
+.c-center__slide.is-active { opacity: 1; transform: scale(1); }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-center]');
+const view = root.querySelector('.c-center__viewport');
+const track = root.querySelector('.c-center__track');
+const slides = [...track.children];
+let index = 0;
+const show = (next) =&gt; { index = (next + slides.length) % slides.length; slides.forEach((slide, i) =&gt; slide.classList.toggle('is-active', i === index)); const current = slides[index]; track.style.transform = `translateX(${view.clientWidth / 2 - current.offsetLeft - current.offsetWidth / 2}px)`; };
+root.querySelector('[data-prev]').addEventListener('click', () =&gt; show(index - 1));
+root.querySelector('[data-next]').addEventListener('click', () =&gt; show(index + 1));
+slides.forEach((slide, i) =&gt; slide.addEventListener('click', () =&gt; show(i)));
+show(0);</code></pre></div></div><div class="part-example__note"><strong>USE FOR</strong><p>現在選択している商品や事例を中央で大きく示し、前後の候補も同時に予告する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="自動再生 進捗 ストーリー story campaign tap click segmented bars">
+          <header class="part-example__header"><div><span class="part-example__index">STORY / 01</span><h2>ストーリー風スライダー</h2></div><small>SEGMENTED TIME</small></header>
+          <div class="part-example__preview part-example__preview--slider"><div class="c-slider c-slider--story" data-story-slider role="region" aria-label="キャンペーン手順"><div class="c-slider__viewport" role="button" tabindex="0" aria-label="次のスライドへ"><div class="c-slider__story-bars" aria-hidden="true"><span class="c-slider__story-bar"><span></span></span><span class="c-slider__story-bar"><span></span></span><span class="c-slider__story-bar"><span></span></span></div><article class="c-slider__slide">DISCOVER</article><article class="c-slider__slide">CHOOSE</article><article class="c-slider__slide">START</article></div><p class="c-slider__status" data-slider-status aria-live="polite"></p></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-story" data-story&gt;&lt;div class="c-story__view" role="button" tabindex="0" aria-label="次のスライドへ"&gt;&lt;div class="c-story__bars" aria-hidden="true"&gt;&lt;span&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;span&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;span&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class="c-story__slide"&gt;DISCOVER&lt;/div&gt;&lt;div class="c-story__slide"&gt;CHOOSE&lt;/div&gt;&lt;div class="c-story__slide"&gt;START&lt;/div&gt;&lt;/div&gt;&lt;p data-status aria-live="polite"&gt;&lt;/p&gt;&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-story__view { position: relative; min-height: 10rem; overflow: hidden; }
+.c-story__slide { position: absolute; inset: 0; display: grid; place-items: center; color: #fff; background: #18243b; opacity: 0; }
+.c-story__slide.is-active { opacity: 1; }
+.c-story__bars { position: absolute; top: .6rem; right: .6rem; left: .6rem; z-index: 2; display: flex; gap: .3rem; }
+.c-story__bars span { flex: 1; height: .2rem; background: rgb(255 255 255 / 45%); }
+.c-story__bars i { display: block; width: 100%; height: 100%; background: #ffff00; transform: scaleX(0); transform-origin: left; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-story]');
+const view = root.querySelector('.c-story__view');
+const slides = [...root.querySelectorAll('.c-story__slide')];
+const bars = [...root.querySelectorAll('.c-story__bars span')];
+let index = 0;
+const show = (next) =&gt; { index = (next + slides.length) % slides.length; slides.forEach((slide, i) =&gt; slide.classList.toggle('is-active', i === index)); bars.forEach((bar, i) =&gt; { bar.firstElementChild.style.transform = i &lt; index ? 'scaleX(1)' : 'scaleX(0)'; }); root.querySelector('[data-status]').textContent = `${index + 1} / ${slides.length}`; };
+view.addEventListener('click', () =&gt; show(index + 1));
+view.addEventListener('keydown', (event) =&gt; { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); show(index + 1); } });
+show(0);</code></pre></div></div><div class="part-example__note"><strong>USE FOR</strong><p>キャンペーンの手順や短い告知を、分割された時間バーとタップ操作で順番に見せる場面。</p></div>
+        </section>
+      </div>
+
+      <div class="part-detail-empty" data-pattern-empty hidden><p>[ NO_PATTERNS_FOUND ]</p><p>別のキーワードを選択してください。</p></div>
+
+      <section class="part-common-styles" id="slider-common-styles" aria-labelledby="slider-common-title">
+        <header class="part-common-styles__header reveal"><p class="section-index">COMMON STYLE</p><h2 id="slider-common-title">共通スタイル</h2><p>表示領域、スライド、操作ボタン、フォーカス表示を揃える基礎スタイルです。</p></header>
+        <div class="part-common-styles__code reveal" data-reveal-threshold="0.01"><div class="part-code"><div class="part-code__header"><span>CSS / COMMON</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-slider,
+.c-slider * { box-sizing: border-box; }
+
+.c-slider {
+  position: relative;
+  width: min(100%, 20rem);
+  color: var(--color-text, #1c2430);
+  font-family: var(--font-sans, sans-serif);
+}
+
+.c-slider__viewport {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-primary, #18243b);
+  border-radius: .35rem;
+  touch-action: pan-y;
+}
+
+.c-slider__track { display: flex; transition: transform .42s cubic-bezier(.25, .8, .3, 1); }
+.c-slider__slide { display: grid; min-width: 100%; min-height: 10rem; padding: 1.25rem; place-items: center; }
+.c-slider button:focus-visible,
+.c-slider input:focus-visible,
+.c-slider__viewport:focus-visible { outline: 3px solid var(--color-focus, #315a9b); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .c-slider__track,
+  .c-slider__slide { transition-duration: .01ms; }
+}</code></pre></div></div>
+      </section>
+
+      <footer class="page-footer" aria-label="ページナビゲーション"><a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO WEB PARTS</span></a><a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a></footer>
+    </main>
+    <script src="../js/web-parts-detail.js" defer></script>
+    <script src="../js/web-parts-slider.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

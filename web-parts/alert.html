@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="情報、成功、注意、エラー、通知などを状況に応じて伝えるCSSアラート12パターンです。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>ALERT | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/alert.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="ALERT | MARK BENCH" />
+    <meta property="og:description" content="情報、成功、注意、エラー、通知などを状況に応じて伝えるCSSアラート12パターンです。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/alert.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ALERT | MARK BENCH" />
+    <meta name="twitter:description" content="情報、成功、注意、エラー、通知などを状況に応じて伝えるCSSアラート12パターンです。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "ALERT",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/alert.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/web-parts.css" />
+    <link rel="stylesheet" href="../css/web-parts-alert.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts-detail" data-parts-detail>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header">
+      <div class="site-header__bar">
+        <nav class="site-breadcrumb-logo" aria-label="パンくずリスト">
+          <a class="site-logo" href="../index.html">MARK BENCH</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <a class="site-breadcrumb-logo__parent" href="./">WEB PARTS</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <span class="site-breadcrumb-logo__current" aria-current="page">ALERT</span>
+        </nav>
+      </div>
+    </header>
+
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション">
+      <a href="../tools/"><strong>TOOLS</strong></a>
+      <a href="./" aria-current="location"><strong>WEB PARTS</strong></a>
+      <a href="../build-notes/"><strong>BUILD NOTES</strong></a>
+      <a href="../about.html"><strong>ABOUT</strong></a>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <header class="part-detail-header">
+        <p class="section-index reveal">WEB_PARTS / ALERT</p>
+        <h1 class="reveal">ALERT</h1>
+        <p class="part-detail-header__lead reveal">入力結果、保存完了、注意事項、エラー、更新情報などを、意味・重要度・表示位置に応じた視覚表現で伝えるCSSアラート14パターンです。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 14</span><span>TYPE: CSS</span><span>DEPENDENCY: NONE</span></div>
+        <a class="part-detail-header__anchor reveal" href="#alert-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
+      </header>
+
+      <section class="part-detail-controls directory-search directory-keywords" aria-label="アラートパターンを絞り込み">
+        <div class="directory-keywords__group">
+          <p class="directory-keywords__label">KEYWORDS</p>
+          <div class="directory-keywords__list">
+            <button type="button" aria-pressed="false" data-pattern-keyword="意味色"># 意味色</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="情報"># 情報</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="成功"># 成功</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="注意"># 注意</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="エラー"># エラー</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="罫線"># 罫線</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="アイコン"># アイコン</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="タイトル"># タイトル</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="通知"># 通知</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="操作"># 操作</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="アクション"># アクション</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="フォーム"># フォーム</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="装飾"># 装飾</button>
+          </div>
+        </div>
+        <p>DISPLAY: <span data-pattern-count>14</span> / 14</p>
+      </section>
+
+      <div class="part-example-list">
+        <section class="part-example reveal" data-pattern data-search="意味色 情報 成功 注意 エラー semantic info success warning error status 4色 セット">
+          <header class="part-example__header"><div><span class="part-example__index">SEMANTIC / 01</span><h2>4色セット（意味色）</h2></div><small>STATUS SET</small></header>
+          <div class="part-example__preview part-example__preview--alert-set"><div class="c-alert-set" aria-label="状態別アラート例"><p class="c-alert" role="note"><span class="c-alert__icon" aria-hidden="true">i</span>更新情報があります。</p><p class="c-alert c-alert--success" role="note"><span class="c-alert__icon" aria-hidden="true">✓</span>保存が完了しました。</p><p class="c-alert c-alert--warning" role="note"><span class="c-alert__icon" aria-hidden="true">!</span>入力内容を確認してください。</p><p class="c-alert c-alert--error" role="note"><span class="c-alert__icon" aria-hidden="true">×</span>送信できませんでした。</p></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-alert-set" aria-label="状態別アラート例"&gt;
+  &lt;p class="c-alert" role="note"&gt;&lt;span class="c-alert__icon" aria-hidden="true"&gt;i&lt;/span&gt;更新情報があります。&lt;/p&gt;
+  &lt;p class="c-alert c-alert--success" role="note"&gt;&lt;span class="c-alert__icon" aria-hidden="true"&gt;✓&lt;/span&gt;保存が完了しました。&lt;/p&gt;
+  &lt;p class="c-alert c-alert--warning" role="note"&gt;&lt;span class="c-alert__icon" aria-hidden="true"&gt;!&lt;/span&gt;入力内容を確認してください。&lt;/p&gt;
+  &lt;p class="c-alert c-alert--error" role="note"&gt;&lt;span class="c-alert__icon" aria-hidden="true"&gt;×&lt;/span&gt;送信できませんでした。&lt;/p&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-alert-set { display: grid; width: min(100%, 24rem); gap: .4rem; }
+.c-alert { --alert-color: var(--color-primary, #18243b); display: flex; margin: 0; padding: .48rem .7rem; gap: .55rem; align-items: center; color: var(--alert-color); font: 700 .72rem/1.5 sans-serif; background: var(--color-primary-soft, #edf1f7); border-left: 4px solid var(--alert-color); border-radius: .3rem; }
+.c-alert__icon { display: inline-grid; width: 1.2rem; height: 1.2rem; flex: none; place-items: center; color: #fff; font: .6rem monospace; background: var(--alert-color); border-radius: 50%; }
+.c-alert--success { --alert-color: var(--color-success, #1f7a4c); background: #e9f6ef; }
+.c-alert--warning { --alert-color: var(--color-warning, #8a5a00); background: #fff9cc; }
+.c-alert--error { --alert-color: var(--color-danger, #b42318); background: #fce8e6; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>情報・成功・注意・エラーを、画面全体で一貫した意味色として使い分ける場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="情報 罫線 ソフト 薄背景 left border soft info note 基本">
+          <header class="part-example__header"><div><span class="part-example__index">SURFACE / 01</span><h2>ソフト（薄背景＋左罫線）</h2></div><small>SOFT INFO</small></header>
+          <div class="part-example__preview"><p class="c-alert" role="note"><span class="c-alert__icon" aria-hidden="true">i</span>設定はあとから変更できます。</p></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;p class="c-alert" role="note"&gt;
+  &lt;span class="c-alert__icon" aria-hidden="true"&gt;i&lt;/span&gt;
+  設定はあとから変更できます。
+&lt;/p&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-alert { --alert-color: var(--color-primary, #18243b); display: flex; width: min(100%, 24rem); margin: 0; padding: .8rem 1rem; gap: .75rem; align-items: center; color: var(--alert-color); font: 700 .8rem/1.5 sans-serif; background: var(--color-primary-soft, #edf1f7); border-left: 4px solid var(--alert-color); border-radius: .3rem; }
+.c-alert__icon { display: inline-grid; width: 1.5rem; height: 1.5rem; flex: none; place-items: center; color: #fff; font: .7rem monospace; background: var(--alert-color); border-radius: 50%; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>補足情報、仕様、入力ルールなど、作業を妨げずに読んでほしい案内。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="成功 罫線 左ボーダー 白 カード success complete shadow card 完了">
+          <header class="part-example__header"><div><span class="part-example__index">SURFACE / 02</span><h2>左ボーダー（白カード）</h2></div><small>SUCCESS CARD</small></header>
+          <div class="part-example__preview"><p class="c-alert c-alert--success c-alert--card" role="note"><span class="c-alert__icon" aria-hidden="true">✓</span>プロフィールを更新しました。</p></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;p class="c-alert c-alert--success c-alert--card" role="note"&gt;
+  &lt;span class="c-alert__icon" aria-hidden="true"&gt;✓&lt;/span&gt;
+  プロフィールを更新しました。
+&lt;/p&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-alert { --alert-color: var(--color-success, #1f7a4c); display: flex; width: min(100%, 24rem); margin: 0; padding: .8rem 1rem; gap: .75rem; align-items: center; color: var(--alert-color); font: 700 .8rem/1.5 sans-serif; background: #fff; border-left: 5px solid var(--alert-color); border-radius: .3rem; box-shadow: 0 .4rem 1.2rem rgb(24 36 59 / 10%); }
+.c-alert__icon { display: inline-grid; width: 1.5rem; height: 1.5rem; flex: none; place-items: center; color: #fff; font-size: .7rem; background: var(--alert-color); border-radius: 50%; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>保存や更新の完了を、周囲の背景から軽く浮かせて明確に伝える場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="注意 罫線 アウトライン outline warning border confirm 確認">
+          <header class="part-example__header"><div><span class="part-example__index">SURFACE / 03</span><h2>アウトライン</h2></div><small>WARNING OUTLINE</small></header>
+          <div class="part-example__preview"><p class="c-alert c-alert--warning c-alert--outline" role="note"><span class="c-alert__icon" aria-hidden="true">!</span>公開前に内容を確認してください。</p></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;p class="c-alert c-alert--warning c-alert--outline" role="note"&gt;
+  &lt;span class="c-alert__icon" aria-hidden="true"&gt;!&lt;/span&gt;
+  公開前に内容を確認してください。
+&lt;/p&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-alert { --alert-color: var(--color-warning, #8a5a00); display: flex; width: min(100%, 24rem); margin: 0; padding: .8rem 1rem; gap: .75rem; align-items: center; color: var(--alert-color); font: 700 .8rem/1.5 sans-serif; background: #fff; border: 2px solid var(--alert-color); border-radius: .3rem; }
+.c-alert__icon { display: inline-grid; width: 1.5rem; height: 1.5rem; flex: none; place-items: center; color: #fff; font-size: .7rem; background: var(--alert-color); border-radius: 50%; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>確認不足や軽度の注意など、強い塗りを避けつつ輪郭で重要度を示す場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="エラー 塗りつぶし filled solid danger error critical 強調 失敗">
+          <header class="part-example__header"><div><span class="part-example__index">SURFACE / 04</span><h2>塗りつぶし</h2></div><small>ERROR FILLED</small></header>
+          <div class="part-example__preview"><p class="c-alert c-alert--error c-alert--filled" role="note"><span class="c-alert__icon" aria-hidden="true">×</span>入力内容を送信できませんでした。</p></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;p class="c-alert c-alert--error c-alert--filled" role="note"&gt;
+  &lt;span class="c-alert__icon" aria-hidden="true"&gt;×&lt;/span&gt;
+  入力内容を送信できませんでした。
+&lt;/p&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-alert { --alert-color: var(--color-danger, #b42318); display: flex; width: min(100%, 24rem); margin: 0; padding: .8rem 1rem; gap: .75rem; align-items: center; color: #fff; font: 700 .8rem/1.5 sans-serif; background: var(--alert-color); border-radius: .3rem; }
+.c-alert__icon { display: inline-grid; width: 1.5rem; height: 1.5rem; flex: none; place-items: center; color: var(--alert-color); font-size: .7rem; background: #fff; border-radius: 50%; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>送信失敗や処理停止など、利用者が見落とすと作業を継続できないエラー。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="成功 アイコン 丸 round icon success complete visual 完了">
+          <header class="part-example__header"><div><span class="part-example__index">ICON / 01</span><h2>アイコン丸</h2></div><small>ROUND ICON</small></header>
+          <div class="part-example__preview"><p class="c-alert c-alert--success c-alert--round-icon" role="note"><span class="c-alert__icon" aria-hidden="true">✓</span>アカウントの準備が整いました。</p></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;p class="c-alert c-alert--success c-alert--round-icon" role="note"&gt;
+  &lt;span class="c-alert__icon" aria-hidden="true"&gt;✓&lt;/span&gt;
+  アカウントの準備が整いました。
+&lt;/p&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-alert { --alert-color: var(--color-success, #1f7a4c); display: flex; width: min(100%, 24rem); margin: 0; padding: .75rem .9rem; gap: .75rem; align-items: center; color: var(--alert-color); font: 700 .8rem/1.5 sans-serif; background: #e9f6ef; border-radius: .3rem; }
+.c-alert__icon { display: inline-grid; width: 2.1rem; height: 2.1rem; flex: none; place-items: center; color: #fff; font-size: .85rem; background: var(--alert-color); border-radius: 50%; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>登録完了や準備完了など、結果をアイコンと一緒に素早く認識させる場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="情報 タイトル 見出し 本文 titled heading content announcement お知らせ 詳細">
+          <header class="part-example__header"><div><span class="part-example__index">CONTENT / 01</span><h2>タイトル付き</h2></div><small>TITLE + BODY</small></header>
+          <div class="part-example__preview"><div class="c-alert c-alert--titled" role="note"><strong class="c-alert__title"><span class="c-alert__icon" aria-hidden="true">i</span>メンテナンスのお知らせ</strong><p class="c-alert__text">11月3日 2:00〜4:00は一部機能を停止します。</p></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-alert c-alert--titled" role="note"&gt;
+  &lt;strong class="c-alert__title"&gt;&lt;span class="c-alert__icon" aria-hidden="true"&gt;i&lt;/span&gt;メンテナンスのお知らせ&lt;/strong&gt;
+  &lt;p class="c-alert__text"&gt;11月3日 2:00〜4:00は一部機能を停止します。&lt;/p&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-alert { --alert-color: var(--color-primary, #18243b); display: grid; width: min(100%, 24rem); margin: 0; padding: .8rem 1rem; gap: .3rem; color: var(--alert-color); font-family: sans-serif; background: var(--color-primary-soft, #edf1f7); border-left: 4px solid var(--alert-color); border-radius: .3rem; }
+.c-alert__title { display: flex; gap: .5rem; align-items: center; font-size: .82rem; }
+.c-alert__icon { display: inline-grid; width: 1.5rem; height: 1.5rem; flex: none; place-items: center; color: #fff; font: .7rem monospace; background: var(--alert-color); border-radius: 50%; }
+.c-alert__text { margin: 0; font-size: .74rem; line-height: 1.6; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>停止時間や対応方法など、短い見出しと具体的な説明をセットで伝える場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="情報 罫線 破線 点線 メモ 補足 ヒント dashed memo note tip">
+          <header class="part-example__header"><div><span class="part-example__index">CONTENT / 02</span><h2>破線メモ</h2></div><small>DASHED NOTE</small></header>
+          <div class="part-example__preview"><p class="c-alert c-alert--memo" role="note"><span class="c-alert__icon" aria-hidden="true">i</span>画像は2MB以内のPNGまたはJPEGを選択してください。</p></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;p class="c-alert c-alert--memo" role="note"&gt;
+  &lt;span class="c-alert__icon" aria-hidden="true"&gt;i&lt;/span&gt;
+  画像は2MB以内のPNGまたはJPEGを選択してください。
+&lt;/p&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-alert { --alert-color: var(--color-primary, #18243b); display: flex; width: min(100%, 24rem); margin: 0; padding: .8rem 1rem; gap: .75rem; align-items: center; color: var(--alert-color); font: 700 .8rem/1.5 sans-serif; background: #fff; border: 2px dashed var(--alert-color); border-radius: .3rem; }
+.c-alert__icon { display: inline-grid; width: 1.5rem; height: 1.5rem; flex: none; place-items: center; color: #fff; font-size: .7rem; background: var(--alert-color); border-radius: 50%; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>フォームの入力条件や補足メモなど、本文と区別しつつ柔らかく案内する場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="情報 通知 トップバー バナー 上罫線 top bar banner announcement placement お知らせ">
+          <header class="part-example__header"><div><span class="part-example__index">PLACEMENT / 01</span><h2>トップバー（バナー）</h2></div><small>TOP BANNER</small></header>
+          <div class="part-example__preview"><p class="c-alert c-alert--top-bar" role="note"><span class="c-alert__icon" aria-hidden="true">i</span>新しい利用ガイドを公開しました。</p></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;p class="c-alert c-alert--top-bar" role="note"&gt;
+  &lt;span class="c-alert__icon" aria-hidden="true"&gt;i&lt;/span&gt;
+  新しい利用ガイドを公開しました。
+&lt;/p&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-alert { --alert-color: var(--color-primary, #18243b); display: flex; width: min(100%, 24rem); margin: 0; padding: .75rem 1rem; gap: .75rem; align-items: center; color: var(--alert-color); font: 700 .8rem/1.5 sans-serif; background: var(--color-primary-soft, #edf1f7); border-top: 4px solid var(--alert-color); border-radius: 0 0 .3rem .3rem; }
+.c-alert__icon { display: inline-grid; width: 1.5rem; height: 1.5rem; flex: none; place-items: center; color: #fff; font-size: .7rem; background: var(--alert-color); border-radius: 50%; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ページ上部やセクション先頭で、新着情報や全体向けのお知らせを帯状に示す場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="成功 通知 トースト toast notification shadow floating placement 保存 完了">
+          <header class="part-example__header"><div><span class="part-example__index">PLACEMENT / 02</span><h2>トースト風</h2></div><small>FLOATING NOTICE</small></header>
+          <div class="part-example__preview"><p class="c-alert c-alert--success c-alert--toast" role="status" aria-live="polite"><span class="c-alert__icon" aria-hidden="true">✓</span>下書きを保存しました。</p></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;p class="c-alert c-alert--success c-alert--toast"
+  role="status" aria-live="polite"&gt;
+  &lt;span class="c-alert__icon" aria-hidden="true"&gt;✓&lt;/span&gt;
+  下書きを保存しました。
+&lt;/p&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-alert { --alert-color: var(--color-success, #1f7a4c); display: inline-flex; max-width: min(100%, 24rem); margin: 0; padding: .8rem 1rem; gap: .75rem; align-items: center; color: var(--color-text, #1c2430); font: 700 .8rem/1.5 sans-serif; background: #fff; border-radius: .3rem; box-shadow: 0 .85rem 2rem rgb(24 36 59 / 18%); }
+.c-alert__icon { display: inline-grid; width: 1.5rem; height: 1.5rem; flex: none; place-items: center; color: var(--alert-color); font-size: .7rem; border: 2px solid currentColor; border-radius: 50%; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>保存や送信の結果を、現在の作業を遮らず画面端へ一時的に表示する場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="情報 通知 操作 閉じる dismiss close button css toggle checkbox キーボード focus">
+          <header class="part-example__header"><div><span class="part-example__index">INTERACTION / 01</span><h2>閉じるボタン付き</h2></div><small>CSS DISMISS</small></header>
+          <div class="part-example__preview"><div class="c-alert-dismiss"><input class="c-alert-dismiss__control" id="alert-dismiss-toggle" type="checkbox" aria-label="通知を閉じる" /><div class="c-alert" role="note"><span class="c-alert__icon" aria-hidden="true">i</span>確認後、この通知を閉じられます。<label class="c-alert__close" for="alert-dismiss-toggle" aria-hidden="true">×</label></div></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-alert-dismiss"&gt;
+  &lt;input class="c-alert-dismiss__control" id="dismiss-toggle"
+    type="checkbox" aria-label="通知を閉じる"&gt;
+  &lt;div class="c-alert" role="note"&gt;
+    &lt;span class="c-alert__icon" aria-hidden="true"&gt;i&lt;/span&gt;
+    確認後、この通知を閉じられます。
+    &lt;label class="c-alert__close" for="dismiss-toggle" aria-hidden="true"&gt;×&lt;/label&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-alert-dismiss { position: relative; width: min(100%, 24rem); }
+.c-alert-dismiss__control { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.c-alert { display: flex; width: 100%; margin: 0; padding: .8rem 1rem; gap: .75rem; align-items: center; color: var(--color-primary, #18243b); font: 700 .8rem/1.5 sans-serif; background: var(--color-primary-soft, #edf1f7); border-left: 4px solid var(--color-primary, #18243b); }
+.c-alert__close { display: inline-grid; width: 2rem; height: 2rem; margin-left: auto; flex: none; place-items: center; color: var(--color-primary, #18243b); border: 1px solid currentColor; border-radius: 50%; cursor: pointer; }
+.c-alert-dismiss__control:focus-visible + .c-alert .c-alert__close { outline: 3px solid var(--color-focus, #315a9b); outline-offset: 2px; }
+.c-alert-dismiss__control:checked + .c-alert { display: none; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>確認後に利用者が消せる補足通知。CSSだけでクリックとキーボードの切り替えに対応します。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="情報 通知 操作 アクション リンク action link notice guide detail 誘導 確認 実務 追加" id="alert-action-demo">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL ADDITION / 01</span><h2>アクションリンク付き通知</h2></div><small>ORIGINAL / ACTION LINK</small></header>
+          <div class="part-example__preview"><div class="c-alert c-alert--action" role="note"><span class="c-alert__icon" aria-hidden="true">i</span><div class="c-alert__body"><strong class="c-alert__title">このサイトの使い方</strong><p class="c-alert__text">収録内容と利用方法を案内しています。</p></div><a class="c-alert__action" href="../about.html"><span>詳細を見る</span><span aria-hidden="true">→</span></a></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-alert c-alert--action" role="note"&gt;
+  &lt;span class="c-alert__icon" aria-hidden="true"&gt;i&lt;/span&gt;
+  &lt;div class="c-alert__body"&gt;
+    &lt;strong class="c-alert__title"&gt;このサイトの使い方&lt;/strong&gt;
+    &lt;p class="c-alert__text"&gt;収録内容と利用方法を案内しています。&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;a class="c-alert__action" href="../about.html"&gt;
+    &lt;span&gt;詳細を見る&lt;/span&gt;&lt;span aria-hidden="true"&gt;→&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-alert { --alert-color: var(--color-primary, #18243b); display: flex; width: min(100%, 28rem); margin: 0; padding: .8rem 1rem; gap: .75rem; align-items: center; color: var(--alert-color); font: 700 .8rem/1.5 sans-serif; background: var(--color-primary-soft, #edf1f7); border-left: 4px solid var(--alert-color); border-radius: .3rem; }
+.c-alert__icon { display: inline-grid; width: 1.5rem; height: 1.5rem; flex: none; place-items: center; color: #fff; font: .7rem monospace; background: var(--alert-color); border-radius: 50%; }
+.c-alert__body { min-width: 0; }
+.c-alert__title { display: block; margin: 0 0 .15rem; font-size: .82rem; }
+.c-alert__text { margin: 0; font-size: .74rem; font-weight: 400; }
+.c-alert__action { display: inline-flex; margin-left: auto; padding: .45rem .65rem; gap: .45rem; flex: none; align-items: center; color: #fff; font-size: .72rem; text-decoration: none; background: var(--alert-color); border-radius: .2rem; }
+.c-alert__action:focus-visible { outline: 3px solid var(--color-focus, #315a9b); outline-offset: 3px; }
+@media (hover: hover) and (pointer: fine) { .c-alert__action:hover { background: var(--color-primary-hover, #263a5e); } }
+@media (max-width: 40rem) { .c-alert--action { width: min(100%, 20rem); padding: .7rem .8rem; display: grid; grid-template-columns: auto minmax(0, 1fr); } .c-alert__action { margin-left: 0; grid-column: 2; justify-self: start; } }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>本人確認、支払い設定、権限更新など、案内を読んだ直後に関連ページへ進んでほしい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="エラー フォーム 入力 検証 複数項目 error summary validation form list alert 実務 追加">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL ADDITION / 02</span><h2>複数項目のエラー概要</h2></div><small>ORIGINAL / ERROR SUMMARY</small></header>
+          <div class="part-example__preview"><div class="c-alert c-alert--error c-alert--summary" role="alert" aria-labelledby="alert-error-summary-title"><span class="c-alert__icon" aria-hidden="true">×</span><div class="c-alert__body"><strong class="c-alert__title" id="alert-error-summary-title">入力内容を確認してください</strong><ul class="c-alert__list"><li>メールアドレスを入力してください。</li><li>利用規約への同意が必要です。</li></ul></div></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-alert c-alert--error c-alert--summary"
+  role="alert" aria-labelledby="error-summary-title"&gt;
+  &lt;span class="c-alert__icon" aria-hidden="true"&gt;×&lt;/span&gt;
+  &lt;div class="c-alert__body"&gt;
+    &lt;strong class="c-alert__title" id="error-summary-title"&gt;
+      入力内容を確認してください
+    &lt;/strong&gt;
+    &lt;ul class="c-alert__list"&gt;
+      &lt;li&gt;メールアドレスを入力してください。&lt;/li&gt;
+      &lt;li&gt;利用規約への同意が必要です。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-alert { --alert-color: var(--color-danger, #b42318); display: flex; width: min(100%, 28rem); margin: 0; padding: .85rem 1rem; gap: .75rem; align-items: flex-start; color: var(--alert-color); font: 700 .8rem/1.5 sans-serif; background: #fce8e6; border-left: 4px solid var(--alert-color); border-radius: .3rem; }
+.c-alert__icon { display: inline-grid; width: 1.5rem; height: 1.5rem; margin-top: .1rem; flex: none; place-items: center; color: #fff; font: .7rem monospace; background: var(--alert-color); border-radius: 50%; }
+.c-alert__body { min-width: 0; }
+.c-alert__title { display: block; margin: 0 0 .3rem; font-size: .82rem; }
+.c-alert__list { margin: 0; padding-left: 1.2rem; font-size: .74rem; font-weight: 400; }
+.c-alert__list li + li { margin-top: .15rem; }
+@media (max-width: 40rem) { .c-alert { width: min(100%, 20rem); padding: .7rem .8rem; } }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>フォーム送信後、修正が必要な項目をひとまとまりで提示し、見落としを防ぎたい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="情報 装飾 グラデーション gradient new feature campaign colorful 新着 強調">
+          <header class="part-example__header"><div><span class="part-example__index">DECORATIVE / 01</span><h2>グラデーション</h2></div><small>FEATURE NOTICE</small></header>
+          <div class="part-example__preview"><p class="c-alert c-alert--gradient" role="note"><span class="c-alert__icon" aria-hidden="true">NEW</span>新しいダッシュボードを利用できます。</p></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;p class="c-alert c-alert--gradient" role="note"&gt;
+  &lt;span class="c-alert__icon" aria-hidden="true"&gt;NEW&lt;/span&gt;
+  新しいダッシュボードを利用できます。
+&lt;/p&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-alert { display: flex; width: min(100%, 24rem); margin: 0; padding: .8rem 1rem; gap: .75rem; align-items: center; color: #fff; font: 700 .8rem/1.5 sans-serif; background: linear-gradient(120deg, var(--color-primary, #18243b), var(--color-primary-hover, #263a5e)); border-radius: .3rem; }
+.c-alert__icon { display: inline-grid; min-width: 2rem; height: 1.5rem; padding-inline: .35rem; flex: none; place-items: center; color: var(--color-primary, #18243b); font: 700 .55rem monospace; background: var(--color-accent-yellow, #ff0); border-radius: 999px; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>新機能、キャンペーン、期間限定のお知らせなど、通常の通知より強く注目させる場面。</p></div>
+        </section>
+      </div>
+
+      <div class="part-detail-empty" data-pattern-empty hidden><p>[ NO_PATTERNS_FOUND ]</p><p>別のキーワードを選択してください。</p></div>
+
+      <section class="part-common-styles" id="alert-common-styles" aria-labelledby="alert-common-title">
+        <header class="part-common-styles__header reveal">
+          <p class="section-index">COMMON STYLE</p>
+          <h2 id="alert-common-title">共通スタイル</h2>
+          <p>アラートの横幅、余白、文字組み、アイコン配置を揃える基礎スタイルです。</p>
+        </header>
+        <div class="part-common-styles__code reveal" data-reveal-threshold="0.01">
+          <div class="part-code">
+            <div class="part-code__header"><span>CSS / COMMON</span><button type="button" data-copy-code>COPY</button></div>
+            <pre><code>.c-alert,
+.c-alert * {
+  box-sizing: border-box;
+}
+
+.c-alert {
+  --alert-color: var(--color-primary, #18243b);
+  --alert-background: var(--color-primary-soft, #edf1f7);
+  display: flex;
+  width: min(100%, 24rem);
+  min-height: 3.25rem;
+  margin: 0;
+  padding: .8rem 1rem;
+  gap: .75rem;
+  align-items: center;
+  color: var(--alert-color);
+  font-family: var(--font-sans, sans-serif);
+  font-size: .8rem;
+  font-weight: 700;
+  line-height: 1.5;
+  background: var(--alert-background);
+  border-left: 4px solid var(--alert-color);
+  border-radius: .3rem;
+}
+
+.c-alert__icon {
+  display: inline-grid;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: 0 0 auto;
+  place-items: center;
+  color: var(--color-text-inverse, #fff);
+  font-family: var(--font-mono, monospace);
+  font-size: .7rem;
+  background: var(--alert-color);
+  border-radius: 50%;
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <footer class="page-footer" aria-label="ページナビゲーション">
+        <a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO WEB PARTS</span></a>
+        <a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a>
+      </footer>
+    </main>
+
+    <script src="../js/web-parts-detail.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

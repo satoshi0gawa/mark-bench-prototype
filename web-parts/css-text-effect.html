@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="キービジュアルや見出しで使える、JavaScript不要のCSSテキストエフェクト12パターンです。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>CSS-TEXT-EFFECT | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/css-text-effect.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="CSS-TEXT-EFFECT | MARK BENCH" />
+    <meta property="og:description" content="キービジュアルや見出しで使える、JavaScript不要のCSSテキストエフェクト12パターンです。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/css-text-effect.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CSS-TEXT-EFFECT | MARK BENCH" />
+    <meta name="twitter:description" content="キービジュアルや見出しで使える、JavaScript不要のCSSテキストエフェクト12パターンです。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "CSS-TEXT-EFFECT",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/css-text-effect.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/web-parts.css" />
+    <link rel="stylesheet" href="../css/web-parts-css-text-effect.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts-detail" data-parts-detail>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header">
+      <div class="site-header__bar">
+        <nav class="site-breadcrumb-logo" aria-label="パンくずリスト">
+          <a class="site-logo" href="../index.html">MARK BENCH</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <a class="site-breadcrumb-logo__parent" href="./">WEB PARTS</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <span class="site-breadcrumb-logo__current" aria-current="page">CSS-TEXT-EFFECT</span>
+        </nav>
+      </div>
+    </header>
+
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション">
+      <a href="../tools/"><strong>TOOLS</strong></a>
+      <a href="./" aria-current="location"><strong>WEB PARTS</strong></a>
+      <a href="../build-notes/"><strong>BUILD NOTES</strong></a>
+      <a href="../about.html"><strong>ABOUT</strong></a>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <header class="part-detail-header">
+        <p class="section-index reveal">WEB_PARTS / CSS-TEXT-EFFECT</p>
+        <h1 class="reveal">CSS-TEXT-EFFECT</h1>
+        <p class="part-detail-header__lead reveal">キービジュアルやキャンペーン見出しで、光・色・奥行き・動きを使って文字へ視線を集めるCSSテキストエフェクト12パターンです。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 12</span><span>TYPE: CSS</span><span>DEPENDENCY: NONE</span></div>
+        <a class="part-detail-header__anchor reveal" href="#css-text-effect-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
+      </header>
+
+      <section class="part-detail-controls directory-search directory-keywords" aria-label="テキストエフェクトを絞り込み">
+        <div class="directory-keywords__group">
+          <p class="directory-keywords__label">KEYWORDS</p>
+          <div class="directory-keywords__list">
+            <button type="button" aria-pressed="false" data-pattern-keyword="発光"># 発光</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="グラデーション"># グラデーション</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="タイピング"># タイピング</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="立体"># 立体</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="強調"># 強調</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="動き"># 動き</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="文字間"># 文字間</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="レトロ"># レトロ</button>
+          </div>
+        </div>
+        <p>DISPLAY: <span data-pattern-count>12</span> / 12</p>
+      </section>
+
+      <div class="part-example-list">
+        <section class="part-example reveal" data-pattern data-search="ネオン neon 発光 光る グロー 暗い背景 動き">
+          <header class="part-example__header"><div><span class="part-example__index">NEON</span><h2>ネオン発光</h2></div><small>GLOW LOOP</small></header>
+          <div class="part-example__preview part-example__preview--effect-dark"><span class="c-text-effect c-text-effect--neon">NEON SIGNAL</span></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;span class="c-text-effect c-text-effect--neon"&gt;
+  NEON SIGNAL
+&lt;/span&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-text-effect--neon {
+  color: var(--color-text-inverse, #fff);
+  text-shadow:
+    0 0 .3rem var(--color-focus, #315a9b),
+    0 0 .8rem var(--color-focus, #315a9b),
+    0 0 1.5rem var(--color-focus, #315a9b);
+  animation: c-text-effect-neon 1.8s ease-in-out infinite alternate;
+}
+@keyframes c-text-effect-neon {
+  from { text-shadow: 0 0 .2rem var(--color-focus, #315a9b),
+    0 0 .55rem var(--color-focus, #315a9b); }
+  to { text-shadow: 0 0 .45rem var(--color-focus, #315a9b),
+    0 0 1rem var(--color-focus, #315a9b),
+    0 0 1.8rem var(--color-accent-yellow, #ff0); }
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>夜間イベントや配信画面など、暗い面の上で短いメッセージを強く見せる場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="シマー shimmer 流れる グラデーション 色 キラキラ 動き">
+          <header class="part-example__header"><div><span class="part-example__index">SHIMMER</span><h2>流れるグラデーション</h2></div><small>COLOR FLOW</small></header>
+          <div class="part-example__preview"><span class="c-text-effect c-text-effect--shimmer">COLOR FLOW</span></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;span class="c-text-effect c-text-effect--shimmer"&gt;
+  COLOR FLOW
+&lt;/span&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-text-effect--shimmer {
+  color: transparent;
+  background: linear-gradient(90deg,
+    var(--color-primary, #18243b) 0%,
+    var(--color-focus, #315a9b) 25%,
+    var(--color-accent-yellow, #ff0) 50%,
+    var(--color-focus, #315a9b) 75%,
+    var(--color-primary, #18243b) 100%);
+  background-position: 0 50%;
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: c-text-effect-shimmer 2.8s linear infinite;
+}
+@keyframes c-text-effect-shimmer {
+  from { background-position: 0 50%; }
+  to { background-position: 200% 50%; }
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>キービジュアルやキャンペーン名など、ブランドカラーを動きとして見せたい短いコピー。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="タイピング typing カーソル コンソール ターミナル 動き">
+          <header class="part-example__header"><div><span class="part-example__index">TYPING</span><h2>タイピング風</h2></div><small>STEP REVEAL</small></header>
+          <div class="part-example__preview"><span class="c-text-effect c-text-effect--typing">BUILDING</span></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;span class="c-text-effect c-text-effect--typing"&gt;
+  BUILDING
+&lt;/span&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-text-effect--typing {
+  box-sizing: content-box;
+  width: 8ch;
+  overflow: hidden;
+  color: var(--color-primary, #18243b);
+  font-family: var(--font-mono, monospace);
+  letter-spacing: 0;
+  white-space: nowrap;
+  border-right: .12em solid var(--color-focus, #315a9b);
+  animation: c-text-effect-typing 2.8s steps(8) infinite,
+    c-text-effect-caret .7s step-end infinite;
+}
+@keyframes c-text-effect-typing {
+  0%, 18% { width: 0; }
+  62%, 100% { width: 8ch; }
+}
+@keyframes c-text-effect-caret { 50% { border-color: transparent; } }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>開発実績やターミナル風UIなど、文字が生成される過程を演出したい場面。文字数に合わせてchとstepsを揃えます。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="3d 立体 奥行き ポップ 影 static">
+          <header class="part-example__header"><div><span class="part-example__index">DEPTH</span><h2>立体ポップ</h2></div><small>LAYERED SHADOW</small></header>
+          <div class="part-example__preview"><span class="c-text-effect c-text-effect--depth">POP DEPTH</span></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;span class="c-text-effect c-text-effect--depth"&gt;
+  POP DEPTH
+&lt;/span&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-text-effect--depth {
+  color: var(--color-accent-yellow, #ff0);
+  -webkit-text-stroke: 1px var(--color-primary, #18243b);
+  text-shadow:
+    .12em .12em 0 var(--color-primary-hover, #263a5e),
+    .22em .22em 0 var(--color-primary, #18243b);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>セール名やイベントタイトルなど、静止したまま強い量感を持たせたい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="アウトライン outline 中抜き 袋文字 縁取り 立体">
+          <header class="part-example__header"><div><span class="part-example__index">OUTLINE</span><h2>中抜き文字</h2></div><small>STROKE</small></header>
+          <div class="part-example__preview"><span class="c-text-effect c-text-effect--outline">OUTLINE</span></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;span class="c-text-effect c-text-effect--outline"&gt;
+  OUTLINE
+&lt;/span&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-text-effect--outline {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--color-primary, #18243b);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>写真や淡い背景の上で、面積を抑えながら文字の輪郭をはっきり残したい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="マーカー marker ハイライト 強調 下線 アニメーション 動き">
+          <header class="part-example__header"><div><span class="part-example__index">MARKER</span><h2>マーカーアニメ</h2></div><small>HIGHLIGHT</small></header>
+          <div class="part-example__preview"><span class="c-text-effect c-text-effect--marker">ここが重要</span></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;span class="c-text-effect c-text-effect--marker"&gt;
+  ここが重要
+&lt;/span&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-text-effect--marker {
+  padding-inline: .12em;
+  background-image: linear-gradient(
+    var(--color-accent-yellow, #ff0),
+    var(--color-accent-yellow, #ff0));
+  background-position: 0 82%;
+  background-repeat: no-repeat;
+  background-size: 0 38%;
+  animation: c-text-effect-marker 2.6s ease-in-out infinite;
+}
+@keyframes c-text-effect-marker {
+  0%, 20% { background-size: 0 38%; }
+  62%, 100% { background-size: 100% 38%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .c-text-effect--marker { background-size: 100% 38%; }
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>記事見出しや注意点など、文章の流れを保ちながら注目箇所を一度強く示す場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="バウンス bounce 跳ねる 弾む 動き">
+          <header class="part-example__header"><div><span class="part-example__index">BOUNCE</span><h2>バウンス</h2></div><small>VERTICAL LOOP</small></header>
+          <div class="part-example__preview"><span class="c-text-effect c-text-effect--bounce">BOUNCE</span></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;span class="c-text-effect c-text-effect--bounce"&gt;
+  BOUNCE
+&lt;/span&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-text-effect--bounce {
+  color: var(--color-primary, #18243b);
+  animation: c-text-effect-bounce 1.5s ease-in-out infinite;
+}
+@keyframes c-text-effect-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-.35em); }
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>短い掛け声や誘導コピーなど、軽快さや楽しさを補助したい小さな面積の演出。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="ウェーブ wave 波打ち 1文字ずつ 動き">
+          <header class="part-example__header"><div><span class="part-example__index">WAVE</span><h2>波打ち文字</h2></div><small>STAGGER</small></header>
+          <div class="part-example__preview"><span class="c-text-effect c-text-effect--wave" aria-label="WAVE!!"><span aria-hidden="true">W</span><span aria-hidden="true">A</span><span aria-hidden="true">V</span><span aria-hidden="true">E</span><span aria-hidden="true">!</span><span aria-hidden="true">!</span></span></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;span class="c-text-effect c-text-effect--wave" aria-label="WAVE!!"&gt;
+  &lt;span aria-hidden="true"&gt;W&lt;/span&gt;&lt;span aria-hidden="true"&gt;A&lt;/span&gt;
+  &lt;span aria-hidden="true"&gt;V&lt;/span&gt;&lt;span aria-hidden="true"&gt;E&lt;/span&gt;
+  &lt;span aria-hidden="true"&gt;!&lt;/span&gt;&lt;span aria-hidden="true"&gt;!&lt;/span&gt;
+&lt;/span&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-text-effect--wave { color: var(--color-primary, #18243b); white-space: nowrap; }
+.c-text-effect--wave &gt; span {
+  display: inline-block;
+  animation: c-text-effect-wave 1.6s ease-in-out infinite;
+}
+.c-text-effect--wave &gt; span:nth-child(2) { animation-delay: .1s; }
+.c-text-effect--wave &gt; span:nth-child(3) { animation-delay: .2s; }
+.c-text-effect--wave &gt; span:nth-child(4) { animation-delay: .3s; }
+.c-text-effect--wave &gt; span:nth-child(5) { animation-delay: .4s; }
+.c-text-effect--wave &gt; span:nth-child(6) { animation-delay: .5s; }
+@keyframes c-text-effect-wave {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-.28em); }
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>音楽、イベント、子ども向けコンテンツなど、文字単位のリズムを見せたい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="フォーカス focus ぼかし blur ピント 動き">
+          <header class="part-example__header"><div><span class="part-example__index">FOCUS</span><h2>ぼかしフォーカス</h2></div><small>BLUR LOOP</small></header>
+          <div class="part-example__preview"><span class="c-text-effect c-text-effect--focus">IN FOCUS</span></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;span class="c-text-effect c-text-effect--focus"&gt;
+  IN FOCUS
+&lt;/span&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-text-effect--focus {
+  color: var(--color-focus, #315a9b);
+  animation: c-text-effect-focus 2.5s ease-in-out infinite;
+}
+@keyframes c-text-effect-focus {
+  0%, 100% { filter: blur(0); opacity: 1; }
+  48% { filter: blur(.22em); opacity: .35; }
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>映像的な導入や場面転換など、ピントが移る印象を短いコピーへ加えたい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="トラッキング tracking 文字間 広がる 登場 動き">
+          <header class="part-example__header"><div><span class="part-example__index">TRACKING</span><h2>文字間ふわっと</h2></div><small>LETTER SPACE</small></header>
+          <div class="part-example__preview"><span class="c-text-effect c-text-effect--tracking">OPEN SPACE</span></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;span class="c-text-effect c-text-effect--tracking"&gt;
+  OPEN SPACE
+&lt;/span&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-text-effect--tracking {
+  color: var(--color-primary, #18243b);
+  white-space: nowrap;
+  animation: c-text-effect-tracking 3s ease-out infinite;
+}
+@keyframes c-text-effect-tracking {
+  0%, 15% { letter-spacing: -.3em; opacity: 0; }
+  55%, 100% { letter-spacing: .12em; opacity: 1; }
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ヒーローエリアや章タイトルなど、静かな広がりを伴ってコピーを登場させたい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="レトロ retro 影 ポップ アメコミ 立体">
+          <header class="part-example__header"><div><span class="part-example__index">RETRO</span><h2>レトロ影</h2></div><small>YELLOW SHADOW</small></header>
+          <div class="part-example__preview part-example__preview--effect-warm"><span class="c-text-effect c-text-effect--retro">RETRO TYPE</span></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;span class="c-text-effect c-text-effect--retro"&gt;
+  RETRO TYPE
+&lt;/span&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-text-effect--retro {
+  color: color-mix(
+    in srgb,
+    var(--color-accent-yellow, #ff0) 38%,
+    var(--color-code-background, #111827)
+  );
+  text-shadow: .16em .16em 0 var(--color-accent-yellow, #ff0);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>音楽、フード、カルチャー系の企画など、懐かしさとポップさを同時に伝えるタイトル。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="グリッチ glitch ノイズ サイバー デジタル 動き">
+          <header class="part-example__header"><div><span class="part-example__index">GLITCH</span><h2>グリッチ</h2></div><small>DIGITAL NOISE</small></header>
+          <div class="part-example__preview"><span class="c-text-effect c-text-effect--glitch">GLITCH</span></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;span class="c-text-effect c-text-effect--glitch"&gt;
+  GLITCH
+&lt;/span&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-text-effect--glitch {
+  color: var(--color-primary, #18243b);
+  animation: c-text-effect-glitch 1.1s steps(2, jump-none) infinite;
+}
+@keyframes c-text-effect-glitch {
+  0%, 100% {
+    text-shadow: .08em 0 var(--color-focus, #315a9b),
+      -.08em 0 var(--color-accent-yellow, #ff0);
+    transform: translateX(0);
+  }
+  35% {
+    text-shadow: -.08em 0 var(--color-focus, #315a9b),
+      .08em 0 var(--color-accent-yellow, #ff0);
+    transform: translateX(.025em);
+  }
+  70% {
+    text-shadow: .06em .06em var(--color-focus, #315a9b),
+      -.06em -.06em var(--color-accent-yellow, #ff0);
+    transform: translateX(-.025em);
+  }
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>デジタル、ゲーム、セキュリティなど、意図的なノイズを世界観として使う短いタイトル。</p></div>
+        </section>
+      </div>
+
+      <div class="part-detail-empty" data-pattern-empty hidden><p>[ NO_PATTERN_FOUND ]</p><p>キーワードを変更してください。</p></div>
+
+      <section class="part-common-styles" id="css-text-effect-common-styles" aria-labelledby="css-text-effect-common-styles-title">
+        <header class="part-common-styles__header reveal">
+          <p class="section-index">CSS-TEXT-EFFECT / COMMON_STYLE</p>
+          <h2 id="css-text-effect-common-styles-title">共通スタイル</h2>
+          <p>文字サイズ・ウェイト・行間と低モーション設定です。</p>
+        </header>
+        <div class="part-common-styles__code reveal" data-reveal-threshold="0.01">
+          <div class="part-code">
+            <div class="part-code__header"><span>CSS / COMMON</span><button type="button" data-copy-code>COPY</button></div>
+            <pre><code>.c-text-effect {
+  display: inline-block;
+  max-width: 100%;
+  color: var(--color-text, #1c2430);
+  font-family: var(--font-sans, sans-serif);
+  font-size: clamp(1.55rem, 5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: .02em;
+  text-align: center;
+  text-wrap: balance;
+}
+@media (prefers-reduced-motion: reduce) {
+  .c-text-effect,
+  .c-text-effect * {
+    animation: none !important;
+  }
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <footer class="page-footer" aria-label="ページナビゲーション">
+        <a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO WEB PARTS</span></a>
+        <a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a>
+      </footer>
+    </main>
+
+    <script src="../js/web-parts-detail.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

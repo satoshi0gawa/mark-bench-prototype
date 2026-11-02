@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="リンク、カード、画像、ボタンの操作可能性を動きで伝える、CSSホバー表現12パターンです。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>HOVER | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/hover.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="HOVER | MARK BENCH" />
+    <meta property="og:description" content="リンク、カード、画像、ボタンの操作可能性を動きで伝える、CSSホバー表現12パターンです。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/hover.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="HOVER | MARK BENCH" />
+    <meta name="twitter:description" content="リンク、カード、画像、ボタンの操作可能性を動きで伝える、CSSホバー表現12パターンです。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "HOVER",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/hover.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/web-parts.css" />
+    <link rel="stylesheet" href="../css/web-parts-hover.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts-detail" data-parts-detail>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header">
+      <div class="site-header__bar">
+        <nav class="site-breadcrumb-logo" aria-label="パンくずリスト">
+          <a class="site-logo" href="../index.html">MARK BENCH</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <a class="site-breadcrumb-logo__parent" href="./">WEB PARTS</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <span class="site-breadcrumb-logo__current" aria-current="page">HOVER</span>
+        </nav>
+      </div>
+    </header>
+
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション">
+      <a href="../tools/"><strong>TOOLS</strong></a>
+      <a href="./" aria-current="location"><strong>WEB PARTS</strong></a>
+      <a href="../build-notes/"><strong>BUILD NOTES</strong></a>
+      <a href="../about.html"><strong>ABOUT</strong></a>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <header class="part-detail-header">
+        <p class="section-index reveal">WEB_PARTS / HOVER</p>
+        <h1 class="reveal">HOVER</h1>
+        <p class="part-detail-header__lead reveal">リンク、カード、画像、ボタンへカーソルやキーボードで触れたとき、操作可能性と状態変化を伝えるCSSホバー表現12パターンです。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 12</span><span>TYPE: CSS</span><span>DEPENDENCY: NONE</span></div>
+        <a class="part-detail-header__anchor reveal" href="#hover-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
+      </header>
+
+      <section class="part-detail-controls directory-search directory-keywords" aria-label="ホバー表現を絞り込み">
+        <div class="directory-keywords__group">
+          <p class="directory-keywords__label">KEYWORDS</p>
+          <div class="directory-keywords__list">
+            <button type="button" aria-pressed="false" data-pattern-keyword="リンク"># リンク</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="カード"># カード</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="メディア"># メディア</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="ボタン"># ボタン</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="変形"># 変形</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="色変化"># 色変化</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="枠線"># 枠線</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="アイコン"># アイコン</button>
+          </div>
+        </div>
+        <p>DISPLAY: <span data-pattern-count>12</span> / 12</p>
+      </section>
+
+      <div class="part-example-list">
+        <section class="part-example reveal" data-pattern data-search="リンク 下線 underline スライド 線 色変化">
+          <header class="part-example__header"><div><span class="part-example__index">UNDERLINE</span><h2>下線スライド</h2></div><small>LINK CUE</small></header>
+          <div class="part-example__preview"><a class="c-hover c-hover--underline" href="#hover-common-styles">詳しく見る</a></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;a class="c-hover c-hover--underline" href="#"&gt;
+  詳しく見る
+&lt;/a&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-hover--underline {
+  position: relative;
+  padding: .25rem .1rem;
+  color: var(--color-primary, #18243b);
+  background: transparent;
+}
+.c-hover--underline::after {
+  position: absolute;
+  right: 0; bottom: 0; left: 0;
+  height: 3px;
+  background: var(--color-accent-yellow, #ff0);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .28s ease;
+}
+.c-hover--underline:is(:hover, :focus-visible, :active)::after {
+  transform: scaleX(1);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>本文リンクやナビゲーションで、遷移できる要素を控えめな動きで示す場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="カード 浮き上がり lift shadow 影 変形">
+          <header class="part-example__header"><div><span class="part-example__index">LIFT</span><h2>カード浮き上がり</h2></div><small>DEPTH FEEDBACK</small></header>
+          <div class="part-example__preview"><button class="c-hover c-hover--lift" type="button">記事カード</button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-hover c-hover--lift" type="button"&gt;
+  記事カード
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-hover--lift {
+  min-width: min(100%, 14rem);
+  min-height: 6rem;
+  border: 1px solid var(--color-grid, #d9dfe8);
+  box-shadow: 0 .45rem 1rem rgb(17 24 39 / 10%);
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+.c-hover--lift:is(:hover, :focus-visible, :active) {
+  box-shadow: 0 1.2rem 2rem rgb(24 36 59 / 24%);
+  transform: translateY(-.45rem);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>記事一覧や商品一覧で、カード全体が選択できることを奥行きで伝える場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="メディア 画像 ズーム zoom 拡大 変形">
+          <header class="part-example__header"><div><span class="part-example__index">MEDIA ZOOM</span><h2>メディアズーム</h2></div><small>FOCUS IMAGE</small></header>
+          <div class="part-example__preview"><button class="c-hover c-hover--zoom" type="button" aria-label="特集を見る"><span class="c-hover__media" aria-hidden="true">FEATURE</span></button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-hover c-hover--zoom"
+  type="button" aria-label="特集を見る"&gt;
+  &lt;span class="c-hover__media" aria-hidden="true"&gt;
+    FEATURE
+  &lt;/span&gt;
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-hover--zoom {
+  position: relative;
+  width: min(100%, 18rem);
+  height: 8rem;
+  padding: 0;
+  overflow: hidden;
+}
+.c-hover--zoom .c-hover__media {
+  transition: transform .45s cubic-bezier(.2, .7, .3, 1);
+}
+.c-hover--zoom:is(:hover, :focus-visible, :active)
+  .c-hover__media {
+  transform: scale(1.16);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>記事サムネイルやギャラリーで、選択対象の画像へ視線を集める場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="メディア 画像 overlay オーバーレイ キャプション 色変化">
+          <header class="part-example__header"><div><span class="part-example__index">OVERLAY</span><h2>オーバーレイ表示</h2></div><small>CAPTION REVEAL</small></header>
+          <div class="part-example__preview"><button class="c-hover c-hover--overlay" type="button"><span class="c-hover__media" aria-hidden="true">WORK 01</span><span class="c-hover__overlay">事例を見る</span></button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-hover c-hover--overlay" type="button"&gt;
+  &lt;span class="c-hover__media" aria-hidden="true"&gt;WORK 01&lt;/span&gt;
+  &lt;span class="c-hover__overlay"&gt;事例を見る&lt;/span&gt;
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-hover--overlay {
+  position: relative;
+  width: min(100%, 18rem);
+  height: 8rem;
+  padding: 0;
+  overflow: hidden;
+}
+.c-hover__overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: rgb(24 36 59 / 88%);
+  opacity: 0;
+  transition: opacity .28s ease;
+}
+.c-hover--overlay:is(:hover, :focus-visible, :active)
+  .c-hover__overlay { opacity: 1; }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>制作実績や商品画像で、補助ラベルや遷移先を必要なときだけ重ねる場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="ボタン 横 スワイプ swipe 塗り 色変化">
+          <header class="part-example__header"><div><span class="part-example__index">SWIPE</span><h2>横スワイプ</h2></div><small>COLOR FILL</small></header>
+          <div class="part-example__preview"><button class="c-hover c-hover--swipe" type="button">送信する</button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-hover c-hover--swipe" type="button"&gt;
+  送信する
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-hover--swipe {
+  color: var(--color-primary, #18243b);
+  background-color: transparent;
+  background-image: linear-gradient(
+    var(--color-primary, #18243b),
+    var(--color-primary, #18243b));
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: 0 100%;
+  border: 2px solid var(--color-primary, #18243b);
+  transition: color .28s ease, background-size .28s ease;
+}
+.c-hover--swipe:is(:hover, :focus-visible, :active) {
+  color: var(--color-text-inverse, #fff);
+  background-size: 100% 100%;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>主要操作のボタンで、選択中の状態を面の広がりとして強く返す場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="ボタン 拡大 scale 変形 強調">
+          <header class="part-example__header"><div><span class="part-example__index">SCALE</span><h2>スケールアップ</h2></div><small>DIRECT FEEDBACK</small></header>
+          <div class="part-example__preview"><button class="c-hover c-hover--scale" type="button">選択する</button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-hover c-hover--scale" type="button"&gt;
+  選択する
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-hover--scale {
+  color: var(--color-text-inverse, #fff);
+  background: var(--color-primary, #18243b);
+  transition: background-color .28s ease, transform .28s ease;
+}
+.c-hover--scale:is(:hover, :focus-visible, :active) {
+  background: var(--color-primary-hover, #263a5e);
+  transform: scale(1.08);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>選択肢や短いCTAなど、限られた領域で明快な反応を返したい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="カード 傾き tilt rotate 回転 変形">
+          <header class="part-example__header"><div><span class="part-example__index">TILT</span><h2>チルトカード</h2></div><small>PLAYFUL MOTION</small></header>
+          <div class="part-example__preview"><button class="c-hover c-hover--tilt" type="button">PICK UP</button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-hover c-hover--tilt" type="button"&gt;
+  PICK UP
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-hover--tilt {
+  min-width: 12rem;
+  min-height: 5rem;
+  border: 1px solid var(--color-grid, #d9dfe8);
+  box-shadow: 0 .4rem 1rem rgb(17 24 39 / 10%);
+  transition: transform .28s ease;
+}
+.c-hover--tilt:is(:hover, :focus-visible, :active) {
+  transform: rotate(-3deg) scale(1.04);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>特集カードやイベント導線で、少し軽快で親しみやすい反応を加える場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="ボタン 縦 フィル fill 塗り 色変化">
+          <header class="part-example__header"><div><span class="part-example__index">VERTICAL FILL</span><h2>縦フィル</h2></div><small>BOTTOM UP</small></header>
+          <div class="part-example__preview"><button class="c-hover c-hover--fill" type="button">登録する</button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-hover c-hover--fill" type="button"&gt;
+  登録する
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-hover--fill {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  color: var(--color-primary, #18243b);
+  background: transparent;
+  border: 2px solid var(--color-primary, #18243b);
+  transition: color .28s ease;
+}
+.c-hover--fill::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: var(--color-primary, #18243b);
+  content: "";
+  transform: translateY(102%);
+  transition: transform .28s ease;
+}
+.c-hover--fill:is(:hover, :focus-visible, :active) {
+  color: var(--color-text-inverse, #fff);
+}
+.c-hover--fill:is(:hover, :focus-visible, :active)::before {
+  transform: translateY(0);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>申込みや登録など、確定操作の直前に明確なフィードバックを返す場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="ボタン 枠線 border draw 角 描画">
+          <header class="part-example__header"><div><span class="part-example__index">BORDER DRAW</span><h2>枠線ドロー</h2></div><small>CORNER TRACE</small></header>
+          <div class="part-example__preview"><button class="c-hover c-hover--border" type="button">MORE INFO</button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-hover c-hover--border" type="button"&gt;
+  MORE INFO
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-hover--border { position: relative; background: transparent; }
+.c-hover--border::before,
+.c-hover--border::after {
+  position: absolute;
+  width: 0; height: 0;
+  box-sizing: border-box;
+  content: "";
+  opacity: 0;
+  transition:
+    width .28s ease,
+    height .28s ease,
+    opacity 0s linear .28s;
+}
+.c-hover--border::before {
+  top: 0; left: 0;
+  border-top: 3px solid var(--color-focus, #315a9b);
+  border-left: 3px solid var(--color-focus, #315a9b);
+}
+.c-hover--border::after {
+  right: 0; bottom: 0;
+  border-right: 3px solid var(--color-accent-yellow, #ff0);
+  border-bottom: 3px solid var(--color-accent-yellow, #ff0);
+}
+.c-hover--border:is(:hover, :focus-visible, :active)::before,
+.c-hover--border:is(:hover, :focus-visible, :active)::after {
+  width: 100%; height: 100%;
+  opacity: 1;
+  transition-delay: 0s;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>テキストボタンやバナーで、面を塗らずに選択状態を装飾的に示す場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="リンク アイコン 回転 spin rotate star 変形">
+          <header class="part-example__header"><div><span class="part-example__index">ICON SPIN</span><h2>アイコン回転</h2></div><small>MICRO MOTION</small></header>
+          <div class="part-example__preview"><a class="c-hover c-hover--spin" href="#hover-common-styles"><span class="c-hover__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8-6.2-3.2L5.8 21 7 14.2 2 9.3l6.9-1z" /></svg></span><span>もっと見る</span></a></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;a class="c-hover c-hover--spin" href="#"&gt;
+  &lt;span class="c-hover__icon" aria-hidden="true"&gt;
+    &lt;svg viewBox="0 0 24 24"&gt;
+      &lt;path d="m12 2 3.1 6.3 6.9 1-5 4.9
+        1.2 6.8-6.2-3.2L5.8 21 7 14.2
+        2 9.3l6.9-1z"&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+  &lt;/span&gt;
+  &lt;span&gt;もっと見る&lt;/span&gt;
+&lt;/a&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-hover--spin { gap: .65rem; background: transparent; }
+.c-hover__icon {
+  display: inline-grid;
+  width: 1.5rem;
+  height: 1.5rem;
+  place-items: center;
+  color: var(--color-focus, #315a9b);
+  transition: transform .5s ease;
+}
+.c-hover__icon svg {
+  display: block;
+  width: 100%; height: 100%;
+  fill: currentcolor;
+}
+.c-hover--spin:is(:hover, :focus-visible, :active)
+  .c-hover__icon { transform: rotate(360deg); }</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>詳細リンクや補助導線で、文字を動かしすぎずアイコンだけに反応を持たせる場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="リンク 文字 グラデーション gradient text 色変化">
+          <header class="part-example__header"><div><span class="part-example__index">GRADIENT TEXT</span><h2>文字グラデーション</h2></div><small>COLOR SWEEP</small></header>
+          <div class="part-example__preview"><button class="c-hover c-hover--gradient-text" type="button">HOVER COLOR</button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-hover c-hover--gradient-text" type="button"&gt;
+  HOVER COLOR
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-hover--gradient-text {
+  color: transparent;
+  background: linear-gradient(90deg,
+    var(--color-focus, #315a9b),
+    var(--color-accent-yellow, #ff0) 50%,
+    var(--color-text, #1c2430) 50%);
+  background-position: 100% 0;
+  background-size: 200% 100%;
+  background-clip: text;
+  transition: background-position .42s ease;
+  -webkit-background-clip: text;
+}
+.c-hover--gradient-text:is(:hover, :focus-visible, :active) {
+  background-position: 0 0;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>キービジュアル内のリンクや短い見出しで、配色の変化だけを使って注目を促す場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="メディア 画像 brightness 明るさ filter 色変化">
+          <header class="part-example__header"><div><span class="part-example__index">BRIGHTNESS</span><h2>明度アップ</h2></div><small>MEDIA RESPONSE</small></header>
+          <div class="part-example__preview"><button class="c-hover c-hover--brightness" type="button" aria-label="ギャラリーを開く"><span class="c-hover__media" aria-hidden="true">GALLERY</span></button></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-hover c-hover--brightness"
+  type="button" aria-label="ギャラリーを開く"&gt;
+  &lt;span class="c-hover__media" aria-hidden="true"&gt;
+    GALLERY
+  &lt;/span&gt;
+&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-hover--brightness .c-hover__media {
+  filter: brightness(.78) saturate(.9);
+  transition: filter .28s ease;
+}
+.c-hover--brightness:is(:hover, :focus-visible, :active)
+  .c-hover__media {
+  filter: brightness(1.18) saturate(1.12);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>写真一覧やバナーで、レイアウトを動かさず選択対象だけを明るく見せる場面。</p></div>
+        </section>
+      </div>
+
+      <div class="part-detail-empty" data-pattern-empty hidden><p>[ NO_PATTERN_FOUND ]</p><p>検索語を変更してください。</p></div>
+
+      <section class="part-common-styles" id="hover-common-styles" aria-labelledby="hover-common-styles-title">
+        <header class="part-common-styles__header reveal">
+          <p class="section-index">HOVER / COMMON_STYLE</p>
+          <h2 id="hover-common-styles-title">共通スタイル</h2>
+          <p>ホバー表現共通の文字・配置・フォーカス表示と、メディア・オーバーレイ・アイコン要素の設定です。</p>
+        </header>
+        <div class="part-common-styles__code reveal" data-reveal-threshold="0.01">
+          <div class="part-code">
+            <div class="part-code__header"><span>CSS / COMMON</span><button type="button" data-copy-code>COPY</button></div>
+            <pre><code>.c-hover {
+  --c-hover-duration: .28s;
+  display: inline-flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-height: 3rem;
+  padding: .8rem 1.4rem;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text, #1c2430);
+  font: 700 .9rem/1.3 var(--font-sans, sans-serif);
+  text-align: center;
+  text-decoration: none;
+  background: var(--color-background, #fff);
+  border: 0;
+  border-radius: .5rem;
+  cursor: pointer;
+}
+.c-hover:focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: 4px;
+}
+.c-hover__media {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--color-text-inverse, #fff);
+  font: 800 1rem/1.2 var(--font-mono, monospace);
+  background:
+    radial-gradient(circle at 28% 34%,
+      var(--color-accent-yellow, #ff0) 0 .8rem,
+      transparent .85rem),
+    linear-gradient(135deg,
+      var(--color-focus, #315a9b),
+      var(--color-primary, #18243b));
+  transition: transform .45s cubic-bezier(.2, .7, .3, 1),
+    filter var(--c-hover-duration) ease;
+}
+.c-hover__overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+.c-hover__icon { display: inline-grid; place-items: center; }
+@media (prefers-reduced-motion: reduce) {
+  .c-hover,
+  .c-hover::before,
+  .c-hover::after,
+  .c-hover__media,
+  .c-hover__overlay,
+  .c-hover__icon {
+    transition-duration: .01ms !important;
+  }
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <footer class="page-footer" aria-label="ページナビゲーション">
+        <a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO WEB PARTS</span></a>
+        <a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a>
+      </footer>
+    </main>
+
+    <script src="../js/web-parts-detail.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,1029 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Vanilla JavaScriptで操作できるドロップダウンメニュー12パターンです。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>DROPDOWN | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/dropdown.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="DROPDOWN | MARK BENCH" />
+    <meta property="og:description" content="Vanilla JavaScriptで操作できるドロップダウンメニュー12パターンです。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/dropdown.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DROPDOWN | MARK BENCH" />
+    <meta name="twitter:description" content="Vanilla JavaScriptで操作できるドロップダウンメニュー12パターンです。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "DROPDOWN",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/dropdown.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/web-parts.css" />
+    <link rel="stylesheet" href="../css/web-parts-dropdown.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts-detail" data-parts-detail>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header">
+      <div class="site-header__bar">
+        <nav class="site-breadcrumb-logo" aria-label="パンくずリスト">
+          <a class="site-logo" href="../index.html">MARK BENCH</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><a class="site-breadcrumb-logo__parent" href="./">WEB PARTS</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><span class="site-breadcrumb-logo__current" aria-current="page">DROPDOWN</span>
+        </nav>
+      </div>
+    </header>
+
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション">
+      <a href="../tools/"><strong>TOOLS</strong></a><a href="./" aria-current="location"><strong>WEB PARTS</strong></a><a href="../build-notes/"><strong>BUILD NOTES</strong></a><a href="../about.html"><strong>ABOUT</strong></a>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <header class="part-detail-header">
+        <p class="section-index reveal">WEB_PARTS / DROPDOWN</p>
+        <h1 class="reveal">DROPDOWN</h1>
+        <p class="part-detail-header__lead reveal">ナビゲーション、選択、検索、アカウント操作などを省スペースで展開する、Vanilla JavaScript対応のドロップダウン12パターンです。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 12</span><span>TYPE: CSS + JS</span><span>DEPENDENCY: NONE</span></div>
+        <a class="part-detail-header__anchor reveal" href="#dropdown-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
+      </header>
+
+      <section class="part-detail-controls directory-search directory-keywords" aria-label="ドロップダウンパターンを絞り込み">
+        <div class="directory-keywords__group"><p class="directory-keywords__label">KEYWORDS</p><div class="directory-keywords__list">
+          <button type="button" aria-pressed="false" data-pattern-keyword="開閉"># 開閉</button><button type="button" aria-pressed="false" data-pattern-keyword="選択"># 選択</button><button type="button" aria-pressed="false" data-pattern-keyword="メニュー"># メニュー</button><button type="button" aria-pressed="false" data-pattern-keyword="複数選択"># 複数選択</button><button type="button" aria-pressed="false" data-pattern-keyword="検索"># 検索</button><button type="button" aria-pressed="false" data-pattern-keyword="ナビゲーション"># ナビゲーション</button><button type="button" aria-pressed="false" data-pattern-keyword="通知"># 通知</button><button type="button" aria-pressed="false" data-pattern-keyword="右クリック"># 右クリック</button>
+        </div></div>
+        <p>DISPLAY: <span data-pattern-count>12</span> / 12</p>
+      </section>
+
+      <div class="part-example-list">
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="ベーシック basic 開閉 メニュー 外側クリック esc">
+          <header class="part-example__header"><div><span class="part-example__index">BASIC</span><h2>ベーシック</h2></div><small>CLICK MENU</small></header>
+          <div class="part-example__preview"><div class="c-dropdown" data-dropdown><button class="c-dropdown__trigger" type="button" aria-controls="dropdown-basic-menu" data-dropdown-trigger>メニュー<span class="c-dropdown__chevron" aria-hidden="true">⌄</span></button><div class="c-dropdown__menu" id="dropdown-basic-menu" role="menu" data-dropdown-menu hidden><button type="button" role="menuitem" data-dropdown-close>サービス紹介</button><button type="button" role="menuitem" data-dropdown-close>料金プラン</button><button type="button" role="menuitem" data-dropdown-close>お問い合わせ</button></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-dropdown" data-basic-dropdown&gt;
+  &lt;button class="c-dropdown__trigger" type="button" aria-haspopup="menu"
+    aria-expanded="false" aria-controls="basic-menu" data-dropdown-trigger&gt;
+    メニュー&lt;span class="c-dropdown__chevron" aria-hidden="true"&gt;⌄&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;div class="c-dropdown__menu" id="basic-menu" role="menu" data-dropdown-menu hidden&gt;
+    &lt;button type="button" role="menuitem" data-dropdown-close&gt;サービス紹介&lt;/button&gt;
+    &lt;button type="button" role="menuitem" data-dropdown-close&gt;料金プラン&lt;/button&gt;
+    &lt;button type="button" role="menuitem" data-dropdown-close&gt;お問い合わせ&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-dropdown { position: relative; display: inline-block; }
+.c-dropdown__menu { position: absolute; top: calc(100% + .5rem); left: 0; }
+.c-dropdown__menu[hidden] { display: none; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-basic-dropdown]');
+const trigger = root.querySelector('[data-dropdown-trigger]');
+const menu = root.querySelector('[data-dropdown-menu]');
+
+function setOpen(open, restoreFocus = false) {
+  menu.hidden = !open;
+  root.classList.toggle('is-open', open);
+  trigger.setAttribute('aria-expanded', String(open));
+  if (restoreFocus) trigger.focus();
+}
+
+trigger.addEventListener('click', () =&gt; setOpen(menu.hidden));
+root.querySelectorAll('[data-dropdown-close]').forEach((item) =&gt; {
+  item.addEventListener('click', () =&gt; setOpen(false, true));
+});
+document.addEventListener('click', (event) =&gt; {
+  if (!root.contains(event.target)) setOpen(false);
+});
+document.addEventListener('keydown', (event) =&gt; {
+  if (event.key === 'Escape') setOpen(false, true);
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>補助リンクや小規模な操作一覧。外側クリックとEscで確実に閉じます。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="ホバー hover タップ 開閉 メニュー">
+          <header class="part-example__header"><div><span class="part-example__index">HOVER + TAP</span><h2>ホバー展開</h2></div><small>POINTER ADAPTIVE</small></header>
+          <div class="part-example__preview"><div class="c-dropdown" data-dropdown data-dropdown-hover><button class="c-dropdown__trigger c-dropdown__trigger--accent" type="button" aria-controls="dropdown-hover-menu" data-dropdown-trigger>ホバーで開く<span class="c-dropdown__chevron" aria-hidden="true">⌄</span></button><div class="c-dropdown__menu" id="dropdown-hover-menu" role="menu" data-dropdown-menu hidden><button type="button" role="menuitem" data-dropdown-close>会社概要</button><button type="button" role="menuitem" data-dropdown-close>アクセス</button><button type="button" role="menuitem" data-dropdown-close>採用情報</button></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-dropdown" data-hover-dropdown&gt;
+  &lt;button class="c-dropdown__trigger c-dropdown__trigger--accent" type="button"
+    aria-haspopup="menu" aria-expanded="false" aria-controls="hover-menu"
+    data-dropdown-trigger&gt;
+    ホバーで開く&lt;span class="c-dropdown__chevron" aria-hidden="true"&gt;⌄&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;div class="c-dropdown__menu" id="hover-menu" role="menu" data-dropdown-menu hidden&gt;
+    &lt;button type="button" role="menuitem" data-dropdown-close&gt;会社概要&lt;/button&gt;
+    &lt;button type="button" role="menuitem" data-dropdown-close&gt;アクセス&lt;/button&gt;
+    &lt;button type="button" role="menuitem" data-dropdown-close&gt;採用情報&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-dropdown__menu::before {
+  position: absolute; inset: -.6rem 0 auto; height: .6rem; content: "";
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-hover-dropdown]');
+const trigger = root.querySelector('[data-dropdown-trigger]');
+const menu = root.querySelector('[data-dropdown-menu]');
+const canHover = matchMedia('(hover: hover)').matches;
+
+function setOpen(open, restoreFocus = false) {
+  menu.hidden = !open;
+  root.classList.toggle('is-open', open);
+  trigger.setAttribute('aria-expanded', String(open));
+  if (restoreFocus) trigger.focus();
+}
+
+if (canHover) {
+  trigger.addEventListener('click', () =&gt; setOpen(true));
+  root.addEventListener('focusin', () =&gt; setOpen(true));
+  root.addEventListener('pointerenter', () =&gt; setOpen(true));
+  root.addEventListener('pointerleave', () =&gt; setOpen(false));
+} else {
+  trigger.addEventListener('click', () =&gt; setOpen(menu.hidden));
+}
+root.querySelectorAll('[data-dropdown-close]').forEach((item) =&gt; {
+  item.addEventListener('click', () =&gt; setOpen(false, true));
+});
+document.addEventListener('click', (event) =&gt; {
+  if (!root.contains(event.target)) setOpen(false);
+});
+document.addEventListener('keydown', (event) =&gt; {
+  if (event.key === 'Escape') setOpen(false, true);
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>PCではホバー、タッチ端末ではタップで操作するナビゲーション。フォーカス移動でも開きます。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="カスタム セレクト select 選択 フォーム hidden">
+          <header class="part-example__header"><div><span class="part-example__index">CUSTOM SELECT</span><h2>カスタムセレクト風</h2></div><small>SINGLE VALUE</small></header>
+          <div class="part-example__preview"><div class="c-dropdown c-dropdown--select" data-dropdown data-dropdown-select><button class="c-dropdown__trigger" type="button" aria-haspopup="listbox" aria-controls="dropdown-select-menu" data-dropdown-trigger><span data-select-label>サイズを選択</span><span class="c-dropdown__chevron" aria-hidden="true">⌄</span></button><div class="c-dropdown__menu" id="dropdown-select-menu" role="listbox" aria-label="サイズ" data-dropdown-menu hidden><button type="button" role="option" aria-selected="false" data-select-option="s">S サイズ</button><button type="button" role="option" aria-selected="false" data-select-option="m">M サイズ</button><button type="button" role="option" aria-selected="false" data-select-option="l">L サイズ</button></div><input type="hidden" name="size" data-select-input /></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-dropdown c-dropdown--select" data-select-dropdown&gt;
+  &lt;button class="c-dropdown__trigger" type="button" aria-haspopup="listbox"
+    aria-expanded="false" aria-controls="size-list" data-dropdown-trigger&gt;
+    &lt;span data-select-label&gt;サイズを選択&lt;/span&gt;
+    &lt;span class="c-dropdown__chevron" aria-hidden="true"&gt;⌄&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;div class="c-dropdown__menu" id="size-list" role="listbox"
+    aria-label="サイズ" data-dropdown-menu hidden&gt;
+    &lt;button type="button" role="option" aria-selected="false" data-select-option="s"&gt;S サイズ&lt;/button&gt;
+    &lt;button type="button" role="option" aria-selected="false" data-select-option="m"&gt;M サイズ&lt;/button&gt;
+    &lt;button type="button" role="option" aria-selected="false" data-select-option="l"&gt;L サイズ&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;input type="hidden" name="size" data-select-input&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-dropdown--select .c-dropdown__trigger { min-width: 13rem; justify-content: space-between; }
+.c-dropdown__menu [aria-selected="true"] {
+  color: var(--color-text-inverse, #fff);
+  background: var(--color-primary, #18243b);
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-select-dropdown]');
+const trigger = root.querySelector('[data-dropdown-trigger]');
+const menu = root.querySelector('[data-dropdown-menu]');
+const label = root.querySelector('[data-select-label]');
+const input = root.querySelector('[data-select-input]');
+const options = [...root.querySelectorAll('[data-select-option]')];
+
+function setOpen(open, restoreFocus = false) {
+  menu.hidden = !open;
+  root.classList.toggle('is-open', open);
+  trigger.setAttribute('aria-expanded', String(open));
+  if (restoreFocus) trigger.focus();
+}
+
+trigger.addEventListener('click', () =&gt; setOpen(menu.hidden));
+options.forEach((option) =&gt; {
+  option.addEventListener('click', () =&gt; {
+    label.textContent = option.textContent.trim();
+    input.value = option.dataset.selectOption;
+    options.forEach((item) =&gt; {
+      item.setAttribute('aria-selected', String(item === option));
+    });
+    setOpen(false, true);
+  });
+});
+document.addEventListener('click', (event) =&gt; {
+  if (!root.contains(event.target)) setOpen(false);
+});
+document.addEventListener('keydown', (event) =&gt; {
+  if (event.key === 'Escape') setOpen(false, true);
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>デザインされた単一選択。標準selectを置き換える場合は読み上げとキーボード操作も検証します。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="ケバブ 三点 メニュー 操作 編集 削除">
+          <header class="part-example__header"><div><span class="part-example__index">KEBAB</span><h2>ケバブメニュー</h2></div><small>ROW ACTIONS</small></header>
+          <div class="part-example__preview"><div class="c-dropdown c-dropdown--right c-dropdown--icon" data-dropdown data-action-menu><button class="c-dropdown__trigger" type="button" aria-label="その他の操作" aria-controls="dropdown-kebab-menu" data-dropdown-trigger><span aria-hidden="true">•••</span></button><div class="c-dropdown__menu" id="dropdown-kebab-menu" role="menu" data-dropdown-menu hidden><button type="button" role="menuitem" data-action="編集">編集</button><button type="button" role="menuitem" data-action="複製">複製</button><button class="c-dropdown__danger" type="button" role="menuitem" data-action="削除">削除</button></div><p class="c-dropdown__status" data-action-output aria-live="polite"></p></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-dropdown c-dropdown--right" data-action-dropdown&gt;
+  &lt;button class="c-dropdown__trigger" type="button" aria-label="その他の操作"
+    aria-haspopup="menu" aria-expanded="false" aria-controls="action-menu"
+    data-dropdown-trigger&gt;•••&lt;/button&gt;
+  &lt;div class="c-dropdown__menu" id="action-menu" role="menu" data-dropdown-menu hidden&gt;
+    &lt;button type="button" role="menuitem" data-action="編集"&gt;編集&lt;/button&gt;
+    &lt;button type="button" role="menuitem" data-action="複製"&gt;複製&lt;/button&gt;
+    &lt;button class="c-dropdown__danger" type="button" role="menuitem" data-action="削除"&gt;削除&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;p class="c-dropdown__status" data-action-output aria-live="polite"&gt;&lt;/p&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-dropdown--right .c-dropdown__menu { right: 0; left: auto; }
+.c-dropdown__danger { color: #9f1d2c; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-action-dropdown]');
+const trigger = root.querySelector('[data-dropdown-trigger]');
+const menu = root.querySelector('[data-dropdown-menu]');
+const output = root.querySelector('[data-action-output]');
+
+function setOpen(open, restoreFocus = false) {
+  menu.hidden = !open;
+  root.classList.toggle('is-open', open);
+  trigger.setAttribute('aria-expanded', String(open));
+  if (restoreFocus) trigger.focus();
+}
+
+trigger.addEventListener('click', () =&gt; setOpen(menu.hidden));
+root.querySelectorAll('[data-action]').forEach((item) =&gt; {
+  item.addEventListener('click', () =&gt; {
+    output.textContent = `${item.dataset.action}を選択しました`;
+    setOpen(false, true);
+  });
+});
+document.addEventListener('click', (event) =&gt; {
+  if (!root.contains(event.target)) setOpen(false);
+});
+document.addEventListener('keydown', (event) =&gt; {
+  if (event.key === 'Escape') setOpen(false, true);
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>カードや表の行に付随する編集操作。破壊的操作は色だけでなく確認手順でも区別します。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="ユーザー アカウント プロフィール メニュー ログアウト">
+          <header class="part-example__header"><div><span class="part-example__index">USER MENU</span><h2>ユーザーメニュー</h2></div><small>ACCOUNT</small></header>
+          <div class="part-example__preview"><div class="c-dropdown c-dropdown--right c-dropdown--user" data-dropdown data-action-menu data-user-menu><button class="c-dropdown__trigger" type="button" aria-label="ユーザーメニュー" aria-controls="dropdown-user-menu" data-dropdown-trigger><svg class="c-dropdown__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4.5 21a7.5 7.5 0 0 1 15 0"></path></svg></button><div class="c-dropdown__menu" id="dropdown-user-menu" role="menu" data-dropdown-menu hidden><div class="c-dropdown__profile"><strong>山田 太郎</strong><span>taro@example.com</span></div><button type="button" role="menuitem" data-action="プロフィール">プロフィール</button><button type="button" role="menuitem" data-action="設定">設定</button><hr /><button class="c-dropdown__danger" type="button" role="menuitem" data-action="ログアウト">ログアウト</button></div><p class="c-dropdown__status" data-action-output aria-live="polite"></p></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-dropdown c-dropdown--user" data-user-menu&gt;
+  &lt;button class="c-dropdown__trigger" type="button"
+    aria-label="ユーザーメニュー" aria-haspopup="menu"
+    aria-expanded="false" aria-controls="user-menu-panel"
+    data-user-menu-trigger&gt;
+    &lt;svg class="c-dropdown__icon" viewBox="0 0 24 24" aria-hidden="true"&gt;
+      &lt;circle cx="12" cy="8" r="4"&gt;&lt;/circle&gt;
+      &lt;path d="M4.5 21a7.5 7.5 0 0 1 15 0"&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+  &lt;/button&gt;
+  &lt;div class="c-dropdown__menu" id="user-menu-panel"
+    role="menu" data-user-menu-panel hidden&gt;
+    &lt;div class="c-dropdown__profile"&gt;
+      &lt;strong&gt;山田 太郎&lt;/strong&gt;
+      &lt;span&gt;taro@example.com&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;button type="button" role="menuitem" data-user-menu-item&gt;プロフィール&lt;/button&gt;
+    &lt;button type="button" role="menuitem" data-user-menu-item&gt;設定&lt;/button&gt;
+    &lt;hr&gt;
+    &lt;button class="c-dropdown__danger" type="button"
+      role="menuitem" data-user-menu-item&gt;ログアウト&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-dropdown {
+  position: relative;
+  display: inline-block;
+  color: var(--color-text, #1c2430);
+  font-family: var(--font-sans, sans-serif);
+}
+.c-dropdown__trigger {
+  display: grid;
+  width: 3rem;
+  min-height: 3rem;
+  padding: 0;
+  place-items: center;
+  color: var(--color-text-inverse, #fff);
+  background: var(--color-primary, #18243b);
+  border: 3px solid var(--color-background, #fff);
+  border-radius: 50%;
+  box-shadow: 0 .45rem 1rem rgb(17 24 39 / 18%);
+  cursor: pointer;
+}
+.c-dropdown__icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.c-dropdown__menu {
+  position: absolute;
+  top: calc(100% + .5rem);
+  right: 0;
+  z-index: 10;
+  min-width: 13rem;
+  padding: .4rem;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+  border-radius: .55rem;
+  box-shadow: 0 .85rem 1.8rem rgb(17 24 39 / 18%);
+}
+.c-dropdown__menu[hidden] { display: none; }
+.c-dropdown__menu button {
+  display: block;
+  width: 100%;
+  min-height: 2.25rem;
+  padding: .5rem .65rem;
+  color: inherit;
+  font: 700 .68rem/1.35 var(--font-mono, monospace);
+  text-align: left;
+  background: transparent;
+  border: 0;
+  border-radius: .35rem;
+  cursor: pointer;
+}
+.c-dropdown__menu button:hover { background: var(--color-primary-soft, #edf1f7); }
+.c-dropdown__profile {
+  display: grid;
+  padding: .55rem .65rem .65rem;
+  border-bottom: 1px solid var(--color-grid, #d9dfe8);
+}
+.c-dropdown__profile span { color: var(--color-text-subtle, #667085); font-size: .58rem; }
+.c-dropdown__menu hr { margin: .25rem 0; border: 0; border-top: 1px solid var(--color-grid, #d9dfe8); }
+.c-dropdown__menu .c-dropdown__danger { color: #9f1d2c; }
+.c-dropdown__trigger:focus-visible,
+.c-dropdown__menu button:focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: 2px;
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>(() =&gt; {
+  const roots = [...document.querySelectorAll('[data-user-menu]')];
+
+  const close = (root, restoreFocus = false) =&gt; {
+    const trigger = root.querySelector('[data-user-menu-trigger]');
+    const panel = root.querySelector('[data-user-menu-panel]');
+    root.classList.remove('is-open');
+    panel.hidden = true;
+    trigger.setAttribute('aria-expanded', 'false');
+    if (restoreFocus) trigger.focus();
+  };
+
+  const closeAll = (except) =&gt; {
+    roots.forEach((root) =&gt; {
+      if (root !== except) close(root);
+    });
+  };
+
+  roots.forEach((root) =&gt; {
+    const trigger = root.querySelector('[data-user-menu-trigger]');
+    const panel = root.querySelector('[data-user-menu-panel]');
+
+    const open = () =&gt; {
+      closeAll(root);
+      panel.hidden = false;
+      root.classList.add('is-open');
+      trigger.setAttribute('aria-expanded', 'true');
+    };
+
+    trigger.addEventListener('click', () =&gt; {
+      panel.hidden ? open() : close(root);
+    });
+    trigger.addEventListener('keydown', (event) =&gt; {
+      if (event.key !== 'ArrowDown') return;
+      event.preventDefault();
+      open();
+      panel.querySelector('[role="menuitem"]')?.focus();
+    });
+    root.querySelectorAll('[data-user-menu-item]').forEach((item) =&gt; {
+      item.addEventListener('click', () =&gt; close(root, true));
+    });
+  });
+
+  document.addEventListener('click', (event) =&gt; {
+    const current = event.target.closest('[data-user-menu]');
+    closeAll(current);
+  });
+  document.addEventListener('keydown', (event) =&gt; {
+    if (event.key !== 'Escape') return;
+    roots.filter((root) =&gt; root.classList.contains('is-open'))
+      .forEach((root) =&gt; close(root, true));
+  });
+})();</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ヘッダー右端のアカウント操作。ユーザー情報と移動先を一つのまとまりで示します。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="チェックボックス 複数選択 フィルター 選択 バッジ">
+          <header class="part-example__header"><div><span class="part-example__index">CHECK FILTER</span><h2>チェックボックス複数選択</h2></div><small>MULTI SELECT</small></header>
+          <div class="part-example__preview"><div class="c-dropdown c-dropdown--check" data-dropdown data-check-menu><button class="c-dropdown__trigger" type="button" aria-controls="dropdown-check-menu" data-dropdown-trigger>タグで絞り込み<span class="c-dropdown__badge" data-check-count></span><span class="c-dropdown__chevron" aria-hidden="true">⌄</span></button><div class="c-dropdown__menu" id="dropdown-check-menu" data-dropdown-menu hidden><label><input type="checkbox" value="HTML" />HTML</label><label><input type="checkbox" value="CSS" />CSS</label><label><input type="checkbox" value="JavaScript" />JavaScript</label><label><input type="checkbox" value="デザイン" />デザイン</label></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-dropdown c-dropdown--check" data-check-dropdown&gt;
+  &lt;button class="c-dropdown__trigger" type="button" aria-haspopup="true"
+    aria-expanded="false" aria-controls="check-menu" data-dropdown-trigger&gt;
+    タグで絞り込み &lt;span class="c-dropdown__badge" data-check-count&gt;&lt;/span&gt;
+    &lt;span class="c-dropdown__chevron" aria-hidden="true"&gt;⌄&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;div class="c-dropdown__menu" id="check-menu" data-dropdown-menu hidden&gt;
+    &lt;label&gt;&lt;input type="checkbox" value="HTML"&gt;HTML&lt;/label&gt;
+    &lt;label&gt;&lt;input type="checkbox" value="CSS"&gt;CSS&lt;/label&gt;
+    &lt;label&gt;&lt;input type="checkbox" value="JavaScript"&gt;JavaScript&lt;/label&gt;
+    &lt;label&gt;&lt;input type="checkbox" value="デザイン"&gt;デザイン&lt;/label&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-dropdown--check label { display: flex; gap: .6rem; align-items: center; }
+.c-dropdown__badge:empty { display: none; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-check-dropdown]');
+const trigger = root.querySelector('[data-dropdown-trigger]');
+const menu = root.querySelector('[data-dropdown-menu]');
+const badge = root.querySelector('[data-check-count]');
+
+function setOpen(open, restoreFocus = false) {
+  menu.hidden = !open;
+  root.classList.toggle('is-open', open);
+  trigger.setAttribute('aria-expanded', String(open));
+  if (restoreFocus) trigger.focus();
+}
+
+trigger.addEventListener('click', () =&gt; setOpen(menu.hidden));
+root.addEventListener('change', () =&gt; {
+  const count = root.querySelectorAll('input:checked').length;
+  badge.textContent = count || '';
+});
+document.addEventListener('click', (event) =&gt; {
+  if (!root.contains(event.target)) setOpen(false);
+});
+document.addEventListener('keydown', (event) =&gt; {
+  if (event.key === 'Escape') setOpen(false, true);
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>一覧のタグやカテゴリ絞り込み。開いたまま複数選択でき、選択数をバッジで返します。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="2階層 サブメニュー ナビゲーション メニュー カテゴリ">
+          <header class="part-example__header"><div><span class="part-example__index">NESTED</span><h2>2階層メニュー</h2></div><small>SUB MENU</small></header>
+          <div class="part-example__preview"><div class="c-dropdown c-dropdown--nested" data-dropdown data-nested-menu><button class="c-dropdown__trigger c-dropdown__trigger--accent" type="button" aria-controls="dropdown-nested-menu" data-dropdown-trigger>製品情報<span class="c-dropdown__chevron" aria-hidden="true">⌄</span></button><div class="c-dropdown__menu" id="dropdown-nested-menu" role="menu" data-dropdown-menu hidden><button type="button" role="menuitem" data-dropdown-close>新着アイテム</button><div class="c-dropdown__submenu-wrap"><button type="button" aria-controls="dropdown-submenu" aria-expanded="false" data-submenu-trigger>カテゴリ<span aria-hidden="true">›</span></button><div class="c-dropdown__submenu" id="dropdown-submenu" role="menu" data-submenu hidden><button type="button" role="menuitem" data-dropdown-close>トップス</button><button type="button" role="menuitem" data-dropdown-close>ボトムス</button><button type="button" role="menuitem" data-dropdown-close>小物</button></div></div><button type="button" role="menuitem" data-dropdown-close>ランキング</button></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-dropdown c-dropdown--nested" data-nested-dropdown&gt;
+  &lt;button class="c-dropdown__trigger" type="button" aria-haspopup="menu"
+    aria-expanded="false" aria-controls="nested-menu" data-dropdown-trigger&gt;
+    製品情報&lt;span class="c-dropdown__chevron" aria-hidden="true"&gt;⌄&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;div class="c-dropdown__menu" id="nested-menu" role="menu" data-dropdown-menu hidden&gt;
+    &lt;button type="button" role="menuitem" data-dropdown-close&gt;新着アイテム&lt;/button&gt;
+    &lt;div class="c-dropdown__submenu-wrap"&gt;
+      &lt;button type="button" aria-haspopup="menu" aria-expanded="false"
+        aria-controls="category-menu" data-submenu-trigger&gt;カテゴリ ›&lt;/button&gt;
+      &lt;div class="c-dropdown__submenu" id="category-menu" role="menu" data-submenu hidden&gt;
+        &lt;button type="button" role="menuitem" data-dropdown-close&gt;トップス&lt;/button&gt;
+        &lt;button type="button" role="menuitem" data-dropdown-close&gt;ボトムス&lt;/button&gt;
+        &lt;button type="button" role="menuitem" data-dropdown-close&gt;小物&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button type="button" role="menuitem" data-dropdown-close&gt;ランキング&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-dropdown__submenu { position: absolute; top: -.4rem; left: calc(100% + .3rem); }
+@media (max-width: 640px) {
+  .c-dropdown__submenu { position: static; margin: .25rem; }
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-nested-dropdown]');
+const trigger = root.querySelector('[data-dropdown-trigger]');
+const menu = root.querySelector('[data-dropdown-menu]');
+const subTrigger = root.querySelector('[data-submenu-trigger]');
+const subMenu = root.querySelector('[data-submenu]');
+
+function setSubmenu(open) {
+  subMenu.hidden = !open;
+  subTrigger.setAttribute('aria-expanded', String(open));
+}
+function setOpen(open, restoreFocus = false) {
+  menu.hidden = !open;
+  root.classList.toggle('is-open', open);
+  trigger.setAttribute('aria-expanded', String(open));
+  if (!open) setSubmenu(false);
+  if (restoreFocus) trigger.focus();
+}
+
+trigger.addEventListener('click', () =&gt; setOpen(menu.hidden));
+subTrigger.addEventListener('click', () =&gt; setSubmenu(subMenu.hidden));
+root.querySelectorAll('[data-dropdown-close]').forEach((item) =&gt; {
+  item.addEventListener('click', () =&gt; setOpen(false, true));
+});
+document.addEventListener('click', (event) =&gt; {
+  if (!root.contains(event.target)) setOpen(false);
+});
+document.addEventListener('keydown', (event) =&gt; {
+  if (event.key === 'Escape') setOpen(false, true);
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>商品カテゴリなど二段階までのナビゲーション。SPではサブメニューを縦方向へ展開します。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="検索 search 選択 フィルター 都道府県">
+          <header class="part-example__header"><div><span class="part-example__index">SEARCHABLE</span><h2>検索付きドロップダウン</h2></div><small>LONG LIST</small></header>
+          <div class="part-example__preview"><div class="c-dropdown c-dropdown--select c-dropdown--search" data-dropdown data-search-menu><button class="c-dropdown__trigger" type="button" aria-controls="dropdown-search-menu" data-dropdown-trigger><span data-search-label>都道府県を選択</span><span class="c-dropdown__chevron" aria-hidden="true">⌄</span></button><div class="c-dropdown__menu" id="dropdown-search-menu" data-dropdown-menu hidden><input class="c-dropdown__search" type="search" placeholder="入力して絞り込み…" aria-label="都道府県を検索" data-dropdown-search /><div class="c-dropdown__options"><button type="button" data-search-option>北海道</button><button type="button" data-search-option>東京都</button><button type="button" data-search-option>京都府</button><button type="button" data-search-option>大阪府</button><button type="button" data-search-option>福岡県</button></div><p class="c-dropdown__empty" data-search-empty hidden>該当なし</p></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-dropdown c-dropdown--search" data-search-dropdown&gt;
+  &lt;button class="c-dropdown__trigger" type="button" aria-haspopup="listbox"
+    aria-expanded="false" aria-controls="prefecture-menu" data-dropdown-trigger&gt;
+    &lt;span data-search-label&gt;都道府県を選択&lt;/span&gt;
+    &lt;span class="c-dropdown__chevron" aria-hidden="true"&gt;⌄&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;div class="c-dropdown__menu" id="prefecture-menu" data-dropdown-menu hidden&gt;
+    &lt;input class="c-dropdown__search" type="search" placeholder="入力して絞り込み…"
+      aria-label="都道府県を検索" data-dropdown-search&gt;
+    &lt;div class="c-dropdown__options" role="listbox" aria-label="都道府県"&gt;
+      &lt;button type="button" role="option" data-search-option&gt;北海道&lt;/button&gt;
+      &lt;button type="button" role="option" data-search-option&gt;東京都&lt;/button&gt;
+      &lt;button type="button" role="option" data-search-option&gt;京都府&lt;/button&gt;
+      &lt;button type="button" role="option" data-search-option&gt;大阪府&lt;/button&gt;
+      &lt;button type="button" role="option" data-search-option&gt;福岡県&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;p class="c-dropdown__empty" data-search-empty hidden&gt;該当なし&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-dropdown__search { width: 100%; min-height: 2.4rem; }
+.c-dropdown__options { max-height: 8rem; overflow-y: auto; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-search-dropdown]');
+const trigger = root.querySelector('[data-dropdown-trigger]');
+const menu = root.querySelector('[data-dropdown-menu]');
+const input = root.querySelector('[data-dropdown-search]');
+const label = root.querySelector('[data-search-label]');
+const empty = root.querySelector('[data-search-empty]');
+const options = [...root.querySelectorAll('[data-search-option]')];
+
+function filterOptions() {
+  const query = input.value.toLocaleLowerCase('ja');
+  options.forEach((option) =&gt; {
+    option.hidden = !option.textContent.toLocaleLowerCase('ja').includes(query);
+  });
+  empty.hidden = options.some((option) =&gt; !option.hidden);
+}
+function setOpen(open, restoreFocus = false) {
+  menu.hidden = !open;
+  root.classList.toggle('is-open', open);
+  trigger.setAttribute('aria-expanded', String(open));
+  if (open) requestAnimationFrame(() =&gt; input.focus());
+  if (!open) {
+    input.value = '';
+    filterOptions();
+  }
+  if (restoreFocus) trigger.focus();
+}
+
+trigger.addEventListener('click', () =&gt; setOpen(menu.hidden));
+input.addEventListener('input', filterOptions);
+options.forEach((option) =&gt; {
+  option.addEventListener('click', () =&gt; {
+    label.textContent = option.textContent.trim();
+    setOpen(false, true);
+  });
+});
+document.addEventListener('click', (event) =&gt; {
+  if (!root.contains(event.target)) setOpen(false);
+});
+document.addEventListener('keydown', (event) =&gt; {
+  if (event.key === 'Escape') setOpen(false, true);
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>国名やタグなど選択肢が多い一覧。開いた直後に検索欄へフォーカスします。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="メガメニュー mega ナビゲーション 複数列 メニュー">
+          <header class="part-example__header"><div><span class="part-example__index">MEGA MENU</span><h2>メガメニュー</h2></div><small>GLOBAL NAV</small></header>
+          <div class="part-example__preview"><nav class="c-dropdown c-dropdown--mega" aria-label="製品ナビゲーション" data-dropdown><strong class="c-dropdown__brand">MARK</strong><button class="c-dropdown__trigger" type="button" aria-controls="dropdown-mega-menu" data-dropdown-trigger>製品<span class="c-dropdown__chevron" aria-hidden="true">⌄</span></button><div class="c-dropdown__menu" id="dropdown-mega-menu" data-dropdown-menu hidden><div><strong>サービス</strong><button type="button" data-dropdown-close>Web制作</button><button type="button" data-dropdown-close>グラフィック</button></div><div><strong>サポート</strong><button type="button" data-dropdown-close>ヘルプ</button><button type="button" data-dropdown-close>お問い合わせ</button></div></div></nav></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;nav class="c-dropdown c-dropdown--mega" aria-label="製品ナビゲーション"
+  data-mega-dropdown&gt;
+  &lt;strong class="c-dropdown__brand"&gt;MARK&lt;/strong&gt;
+  &lt;button class="c-dropdown__trigger" type="button" aria-haspopup="true"
+    aria-expanded="false" aria-controls="mega-menu" data-dropdown-trigger&gt;
+    製品&lt;span class="c-dropdown__chevron" aria-hidden="true"&gt;⌄&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;div class="c-dropdown__menu" id="mega-menu" data-dropdown-menu hidden&gt;
+    &lt;div&gt;
+      &lt;strong&gt;サービス&lt;/strong&gt;
+      &lt;button type="button" data-dropdown-close&gt;Web制作&lt;/button&gt;
+      &lt;button type="button" data-dropdown-close&gt;グラフィック&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;strong&gt;サポート&lt;/strong&gt;
+      &lt;button type="button" data-dropdown-close&gt;ヘルプ&lt;/button&gt;
+      &lt;button type="button" data-dropdown-close&gt;お問い合わせ&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-dropdown--mega { display: flex; width: min(100%, 30rem); }
+.c-dropdown--mega .c-dropdown__menu { right: 0; }
+.c-dropdown--mega .c-dropdown__menu:not([hidden]) {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-mega-dropdown]');
+const trigger = root.querySelector('[data-dropdown-trigger]');
+const menu = root.querySelector('[data-dropdown-menu]');
+
+function setOpen(open, restoreFocus = false) {
+  menu.hidden = !open;
+  root.classList.toggle('is-open', open);
+  trigger.setAttribute('aria-expanded', String(open));
+  if (restoreFocus) trigger.focus();
+}
+
+trigger.addEventListener('click', () =&gt; setOpen(menu.hidden));
+root.querySelectorAll('[data-dropdown-close]').forEach((item) =&gt; {
+  item.addEventListener('click', () =&gt; setOpen(false, true));
+});
+document.addEventListener('click', (event) =&gt; {
+  if (!root.contains(event.target)) setOpen(false);
+});
+document.addEventListener('keydown', (event) =&gt; {
+  if (event.key === 'Escape') setOpen(false, true);
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>項目数が多いグローバルナビゲーション。列見出しでリンク群を明確に分類します。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="右クリック context menu コンテキスト メニュー 編集">
+          <header class="part-example__header"><div><span class="part-example__index">CONTEXT MENU</span><h2>右クリックコンテキストメニュー</h2></div><small>POINTER POSITION</small></header>
+          <div class="part-example__preview"><div class="c-context-menu" data-context-menu-demo><button class="c-context-menu__area" type="button" aria-haspopup="menu" aria-controls="dropdown-context-menu" data-context-target>この枠内で右クリック<br /><small>またはEnterキー</small></button><div class="c-dropdown__menu c-context-menu__menu" id="dropdown-context-menu" role="menu" data-context-menu hidden><button type="button" role="menuitem" data-context-action="コピー">コピー</button><button type="button" role="menuitem" data-context-action="名前を変更">名前を変更</button><button class="c-dropdown__danger" type="button" role="menuitem" data-context-action="削除">削除</button></div><p class="c-dropdown__status" data-context-output aria-live="polite"></p></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-context-menu" data-context-dropdown&gt;
+  &lt;button class="c-context-menu__area" type="button" aria-haspopup="menu"
+    aria-expanded="false" aria-controls="context-menu" data-context-target&gt;
+    この枠内で右クリック&lt;br&gt;&lt;small&gt;またはEnterキー&lt;/small&gt;
+  &lt;/button&gt;
+  &lt;div class="c-dropdown__menu c-context-menu__menu" id="context-menu"
+    role="menu" data-context-menu hidden&gt;
+    &lt;button type="button" role="menuitem" data-context-action="コピー"&gt;コピー&lt;/button&gt;
+    &lt;button type="button" role="menuitem" data-context-action="名前を変更"&gt;名前を変更&lt;/button&gt;
+    &lt;button class="c-dropdown__danger" type="button" role="menuitem"
+      data-context-action="削除"&gt;削除&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;p class="c-dropdown__status" data-context-output aria-live="polite"&gt;&lt;/p&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-context-menu { position: relative; }
+.c-context-menu__menu { position: absolute; top: var(--menu-y); left: var(--menu-x); }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-context-dropdown]');
+const area = root.querySelector('[data-context-target]');
+const menu = root.querySelector('[data-context-menu]');
+const output = root.querySelector('[data-context-output]');
+
+function close(restoreFocus = false) {
+  menu.hidden = true;
+  area.setAttribute('aria-expanded', 'false');
+  if (restoreFocus) area.focus();
+}
+function openAt(clientX, clientY) {
+  const bounds = root.getBoundingClientRect();
+  root.style.setProperty('--menu-x', `${clientX - bounds.left}px`);
+  root.style.setProperty('--menu-y', `${clientY - bounds.top}px`);
+  menu.hidden = false;
+  area.setAttribute('aria-expanded', 'true');
+  menu.querySelector('[role="menuitem"]').focus();
+}
+function openAtCenter() {
+  const bounds = area.getBoundingClientRect();
+  openAt(bounds.left + bounds.width / 2, bounds.top + bounds.height / 2);
+}
+
+area.addEventListener('contextmenu', (event) =&gt; {
+  event.preventDefault();
+  openAt(event.clientX, event.clientY);
+});
+area.addEventListener('keydown', (event) =&gt; {
+  if (event.key === 'Enter' || event.key === 'ContextMenu') {
+    event.preventDefault();
+    openAtCenter();
+  }
+});
+root.querySelectorAll('[data-context-action]').forEach((item) =&gt; {
+  item.addEventListener('click', () =&gt; {
+    output.textContent = `${item.dataset.contextAction}を選択しました`;
+    close(true);
+  });
+});
+document.addEventListener('click', (event) =&gt; {
+  if (!root.contains(event.target)) close();
+});
+document.addEventListener('keydown', (event) =&gt; {
+  if (event.key === 'Escape') close(true);
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ファイルやキャンバスの編集操作。タッチ・キーボードでも到達できる代替操作を用意します。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="通知 ベル badge 未読 メニュー 開閉">
+          <header class="part-example__header"><div><span class="part-example__index">NOTIFICATION</span><h2>通知ベル</h2></div><small>UNREAD STATE</small></header>
+          <div class="part-example__preview"><div class="c-dropdown c-dropdown--right c-dropdown--bell" data-dropdown data-notification-menu><button class="c-dropdown__trigger" type="button" aria-label="通知を開く" aria-controls="dropdown-notification-menu" data-dropdown-trigger><span aria-hidden="true">♢</span><span class="c-dropdown__badge" data-notification-badge></span></button><div class="c-dropdown__menu" id="dropdown-notification-menu" data-dropdown-menu hidden><div class="c-dropdown__notification-head"><strong>通知</strong><button type="button" data-read-all>すべて既読</button></div><div class="c-dropdown__notification is-unread" data-notification><strong>新しいコメントが届きました</strong><span>5分前</span></div><div class="c-dropdown__notification is-unread" data-notification><strong>資料が共有されました</strong><span>1時間前</span></div><div class="c-dropdown__notification" data-notification><strong>メンテナンスは終了しました</strong><span>昨日</span></div></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-dropdown c-dropdown--right" data-notification-dropdown&gt;
+  &lt;button class="c-dropdown__trigger" type="button" aria-label="通知を開く"
+    aria-haspopup="true" aria-expanded="false" aria-controls="notification-menu"
+    data-dropdown-trigger&gt;
+    &lt;span aria-hidden="true"&gt;♢&lt;/span&gt;
+    &lt;span class="c-dropdown__badge" data-notification-badge&gt;&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;div class="c-dropdown__menu" id="notification-menu" data-dropdown-menu hidden&gt;
+    &lt;div class="c-dropdown__notification-head"&gt;
+      &lt;strong&gt;通知&lt;/strong&gt;&lt;button type="button" data-read-all&gt;すべて既読&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="c-dropdown__notification is-unread" data-notification&gt;
+      &lt;strong&gt;新しいコメントが届きました&lt;/strong&gt;&lt;span&gt;5分前&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="c-dropdown__notification is-unread" data-notification&gt;
+      &lt;strong&gt;資料が共有されました&lt;/strong&gt;&lt;span&gt;1時間前&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="c-dropdown__notification" data-notification&gt;
+      &lt;strong&gt;メンテナンスは終了しました&lt;/strong&gt;&lt;span&gt;昨日&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-dropdown--right .c-dropdown__menu { right: 0; left: auto; }
+.c-dropdown__notification-head { display: flex; gap: 1rem; justify-content: space-between; }
+.c-dropdown__notification-head button { width: auto; }
+.c-dropdown__notification { display: grid; gap: .15rem; padding: .65rem; }
+.c-dropdown__notification.is-unread { background: var(--color-primary-soft, #edf1f7); }
+.c-dropdown__notification.is-unread::before { background: var(--color-focus, #315a9b); }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-notification-dropdown]');
+const trigger = root.querySelector('[data-dropdown-trigger]');
+const menu = root.querySelector('[data-dropdown-menu]');
+const badge = root.querySelector('[data-notification-badge]');
+const readAll = root.querySelector('[data-read-all]');
+const notifications = [...root.querySelectorAll('[data-notification]')];
+
+function setOpen(open, restoreFocus = false) {
+  menu.hidden = !open;
+  root.classList.toggle('is-open', open);
+  trigger.setAttribute('aria-expanded', String(open));
+  if (restoreFocus) trigger.focus();
+}
+function updateBadge() {
+  const count = root.querySelectorAll('.is-unread').length;
+  badge.textContent = count || '';
+}
+trigger.addEventListener('click', () =&gt; setOpen(menu.hidden));
+readAll.addEventListener('click', () =&gt; {
+  notifications.forEach((item) =&gt; item.classList.remove('is-unread'));
+  updateBadge();
+});
+document.addEventListener('click', (event) =&gt; {
+  if (!root.contains(event.target)) setOpen(false);
+});
+document.addEventListener('keydown', (event) =&gt; {
+  if (event.key === 'Escape') setOpen(false, true);
+});
+updateBadge();</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ヘッダーの通知一覧。未読件数を自動計算し、まとめて既読へ変更できます。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="チップ 複数選択 選択 タグ スキル">
+          <header class="part-example__header"><div><span class="part-example__index">CHIP SELECT</span><h2>複数選択チップ</h2></div><small>REMOVABLE VALUES</small></header>
+          <div class="part-example__preview"><div class="c-dropdown c-dropdown--chips" data-dropdown data-chip-menu><div class="c-dropdown__chips" aria-live="polite" data-chip-row></div><button class="c-dropdown__trigger" type="button" aria-controls="dropdown-chip-menu" data-dropdown-trigger>スキルを選択<span class="c-dropdown__chevron" aria-hidden="true">⌄</span></button><div class="c-dropdown__menu" id="dropdown-chip-menu" data-dropdown-menu hidden><button type="button" aria-pressed="false" data-chip-option>HTML</button><button type="button" aria-pressed="false" data-chip-option>CSS</button><button type="button" aria-pressed="false" data-chip-option>JavaScript</button><button type="button" aria-pressed="false" data-chip-option>デザイン</button></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-dropdown c-dropdown--chips" data-chip-dropdown&gt;
+  &lt;div class="c-dropdown__chips" aria-live="polite" data-chip-row&gt;&lt;/div&gt;
+  &lt;button class="c-dropdown__trigger" type="button" aria-haspopup="true"
+    aria-expanded="false" aria-controls="chip-menu" data-dropdown-trigger&gt;
+    スキルを選択&lt;span class="c-dropdown__chevron" aria-hidden="true"&gt;⌄&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;div class="c-dropdown__menu" id="chip-menu" data-dropdown-menu hidden&gt;
+    &lt;button type="button" aria-pressed="false" data-chip-option&gt;HTML&lt;/button&gt;
+    &lt;button type="button" aria-pressed="false" data-chip-option&gt;CSS&lt;/button&gt;
+    &lt;button type="button" aria-pressed="false" data-chip-option&gt;JavaScript&lt;/button&gt;
+    &lt;button type="button" aria-pressed="false" data-chip-option&gt;デザイン&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-dropdown__chip {
+  display: inline-flex;
+  padding: .3rem .55rem;
+  gap: .4rem;
+  align-items: center;
+  background: var(--color-primary-soft, #edf1f7);
+  border-radius: 999px;
+}
+.c-dropdown__chip button { padding: 0; background: transparent; border: 0; cursor: pointer; }
+.c-dropdown__chips:empty { display: none; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-chip-dropdown]');
+const trigger = root.querySelector('[data-dropdown-trigger]');
+const menu = root.querySelector('[data-dropdown-menu]');
+const row = root.querySelector('[data-chip-row]');
+const options = [...root.querySelectorAll('[data-chip-option]')];
+const selected = new Set();
+
+function setOpen(open, restoreFocus = false) {
+  menu.hidden = !open;
+  root.classList.toggle('is-open', open);
+  trigger.setAttribute('aria-expanded', String(open));
+  if (restoreFocus) trigger.focus();
+}
+function renderChips() {
+  row.replaceChildren();
+  selected.forEach((value) =&gt; {
+    const chip = document.createElement('span');
+    chip.className = 'c-dropdown__chip';
+    chip.append(value);
+    const remove = document.createElement('button');
+    remove.type = 'button';
+    remove.setAttribute('aria-label', `${value}を解除`);
+    remove.textContent = '×';
+    remove.addEventListener('click', () =&gt; {
+      selected.delete(value);
+      renderChips();
+    });
+    chip.append(remove);
+    row.append(chip);
+  });
+  options.forEach((option) =&gt; {
+    option.setAttribute('aria-pressed', String(selected.has(option.textContent.trim())));
+  });
+}
+
+trigger.addEventListener('click', () =&gt; setOpen(menu.hidden));
+options.forEach((option) =&gt; {
+  option.addEventListener('click', () =&gt; {
+    const value = option.textContent.trim();
+    selected.has(value) ? selected.delete(value) : selected.add(value);
+    renderChips();
+  });
+});
+document.addEventListener('click', (event) =&gt; {
+  if (!root.contains(event.target)) setOpen(false);
+});
+document.addEventListener('keydown', (event) =&gt; {
+  if (event.key === 'Escape') setOpen(false, true);
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>スキルや宛先など複数値の選択。選択結果を常時見せ、個別に解除できるようにします。</p></div>
+        </section>
+      </div>
+
+      <div class="part-detail-empty" data-pattern-empty hidden><p>[ NO_PATTERN_FOUND ]</p><p>キーワードを変更してください。</p></div>
+
+      <section class="part-common-styles" id="dropdown-common-styles" aria-labelledby="dropdown-common-styles-title">
+        <header class="part-common-styles__header reveal">
+          <p class="section-index">DROPDOWN / COMMON_STYLE</p>
+          <h2 id="dropdown-common-styles-title">共通スタイル</h2>
+          <p>トリガー・メニュー・開閉状態・フォーカス表示の共通設定です。</p>
+        </header>
+        <div class="part-common-styles__code reveal" data-reveal-threshold="0.01">
+          <div class="part-code">
+            <div class="part-code__header"><span>CSS / COMMON</span><button type="button" data-copy-code>COPY</button></div>
+            <pre><code>.c-dropdown,
+.c-dropdown * { box-sizing: border-box; }
+.c-dropdown {
+  position: relative;
+  display: inline-block;
+  color: var(--color-text, #1c2430);
+  font-family: var(--font-sans, sans-serif);
+}
+.c-dropdown__trigger {
+  display: inline-flex;
+  min-height: 2.75rem;
+  padding: .65rem .85rem;
+  gap: .6rem;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text, #1c2430);
+  font: 700 .68rem/1.25 var(--font-mono, monospace);
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+  border-radius: .5rem;
+  cursor: pointer;
+}
+.c-dropdown__trigger--accent {
+  color: var(--color-text-inverse, #fff);
+  background: var(--color-primary, #18243b);
+  border-color: var(--color-primary, #18243b);
+}
+.c-dropdown__chevron {
+  margin-left: auto;
+  line-height: 1;
+}
+.c-dropdown.is-open &gt; .c-dropdown__trigger .c-dropdown__chevron {
+  transform: rotate(180deg);
+}
+.c-dropdown__menu,
+.c-dropdown__submenu {
+  position: absolute;
+  z-index: 30;
+  min-width: 12rem;
+  padding: .4rem;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+  border-radius: .55rem;
+  box-shadow: 0 .85rem 1.8rem rgb(17 24 39 / 18%);
+}
+.c-dropdown__menu {
+  top: calc(100% + .5rem);
+  left: 0;
+}
+.c-dropdown__menu[hidden],
+.c-dropdown__submenu[hidden],
+.c-dropdown__menu [hidden] { display: none; }
+.c-dropdown__menu button,
+.c-dropdown__menu label,
+.c-dropdown__submenu button {
+  min-height: 2.25rem;
+  padding: .5rem .65rem;
+  color: inherit;
+  font: 700 .68rem/1.35 var(--font-mono, monospace);
+  background: transparent;
+  border: 0;
+  border-radius: .35rem;
+}
+.c-dropdown__menu button,
+.c-dropdown__submenu button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+.c-dropdown__menu button:hover,
+.c-dropdown__menu label:hover,
+.c-dropdown__submenu button:hover {
+  background: var(--color-primary-soft, #edf1f7);
+}
+.c-dropdown__trigger:focus-visible,
+.c-dropdown__menu button:focus-visible,
+.c-dropdown__menu input:focus-visible,
+.c-dropdown__submenu button:focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: 2px;
+}
+.c-dropdown__badge {
+  display: inline-grid;
+  min-width: 1.1rem;
+  height: 1.1rem;
+  padding: 0 .25rem;
+  place-items: center;
+  color: var(--color-text-inverse, #fff);
+  font-size: .58rem;
+  background: var(--color-focus, #315a9b);
+  border-radius: 999px;
+}
+.c-dropdown__badge:empty { display: none; }
+.c-dropdown__danger { color: #9f1d2c; }
+.c-dropdown__status {
+  position: absolute;
+  top: calc(100% + .3rem);
+  left: 50%;
+  width: max-content;
+  margin: 0;
+  color: var(--color-text-subtle, #667085);
+  font-size: .62rem;
+  transform: translateX(-50%);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .c-dropdown__trigger,
+  .c-dropdown__chevron,
+  .c-dropdown__menu,
+  .c-dropdown__submenu {
+    transition: color 180ms ease,
+      background-color 180ms ease,
+      border-color 180ms ease,
+      opacity 180ms ease,
+      transform 180ms ease;
+  }
+}</code></pre>
+          </div>
+        </div>
+      </section>
+      <footer class="page-footer" aria-label="ページナビゲーション"><a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO WEB PARTS</span></a><a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a></footer>
+    </main>
+
+    <script src="../js/web-parts-detail.js" defer></script>
+    <script src="../js/web-parts-dropdown.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

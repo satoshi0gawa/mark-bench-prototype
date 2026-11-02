@@ -5,7 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="MARK BENCHに掲載しているWeb制作向けツールの一覧です。" />
     <meta name="theme-color" content="#18243b" />
-    <title>ツール一覧 | MARK BENCH</title>
+    <title>TOOLS | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/tools/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="TOOLS | MARK BENCH" />
+    <meta property="og:description" content="MARK BENCHに掲載しているWeb制作向けツールの一覧です。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/tools/" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="TOOLS | MARK BENCH" />
+    <meta name="twitter:description" content="MARK BENCHに掲載しているWeb制作向けツールの一覧です。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "TOOLS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/tools/"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
     <script>document.documentElement.classList.replace('no-js', 'js');</script>
     <link rel="stylesheet" href="../css/foundation.css" />
     <link rel="stylesheet" href="../css/components.css" />
@@ -25,15 +67,19 @@
 
     <nav class="site-rail-navigation" aria-label="主要ナビゲーション">
       <a href="./" aria-current="location"><strong>TOOLS</strong></a>
-      <a href="../build-logs/"><strong>BUILD LOGS</strong></a>
+      <a href="../web-parts/"><strong>WEB PARTS</strong></a>
+      <a href="../build-notes/"><strong>BUILD NOTES</strong></a>
       <a href="../about.html"><strong>ABOUT</strong></a>
     </nav>
 
     <main id="main" tabindex="-1">
       <header class="page-heading">
         <p class="section-index reveal">TOOL_INDEX</p>
-        <div class="page-heading__main reveal"><h1>TOOLS</h1></div>
-        <div class="page-heading__meta reveal"><span>AVAILABLE: 16</span><span>TESTING: 00</span><span>PLANNED: 00</span></div>
+        <div class="page-heading__main reveal">
+          <h1>TOOLS</h1>
+          <p class="visually-hidden">Web制作で繰り返し使える、テキスト・コード・CSS・画像関連のブラウザツール集です。</p>
+        </div>
+        <div class="page-heading__meta reveal"><span>CATEGORIES: 04</span><span>TOOLS: 26</span><span>STATUS: 26 READY / 00 PLANNED</span></div>
       </header>
 
       <section class="tool-directory" aria-labelledby="directory-title" data-tool-directory>
@@ -43,6 +89,15 @@
             <p class="directory-keywords__label">KEYWORDS</p>
             <div class="directory-keywords__list">
               <button type="button" aria-pressed="false" data-keyword="命名規則"># 命名規則</button>
+              <button type="button" aria-pressed="false" data-keyword="差分"># 差分比較</button>
+              <button type="button" aria-pressed="false" data-keyword="正規表現"># 正規表現</button>
+              <button type="button" aria-pressed="false" data-keyword="URL"># URL / Query</button>
+              <button type="button" aria-pressed="false" data-keyword="OGP"># Meta / OGP</button>
+              <button type="button" aria-pressed="false" data-keyword="詳細度"># CSS詳細度</button>
+              <button type="button" aria-pressed="false" data-keyword="画像変換"># 画像変換</button>
+              <button type="button" aria-pressed="false" data-keyword="レスポンシブ画像"># レスポンシブ画像</button>
+              <button type="button" aria-pressed="false" data-keyword="Base64"># Base64 / Data URL</button>
+              <button type="button" aria-pressed="false" data-keyword="CSS変数"># CSS変数</button>
               <button type="button" aria-pressed="false" data-keyword="整形"># テキスト整形</button>
               <button type="button" aria-pressed="false" data-keyword="全角半角"># 全角半角</button>
               <button type="button" aria-pressed="false" data-keyword="文字数"># 文字数</button>
@@ -50,6 +105,7 @@
               <button type="button" aria-pressed="false" data-keyword="スラッグ"># スラッグ</button>
               <button type="button" aria-pressed="false" data-keyword="Markdown"># Markdown</button>
               <button type="button" aria-pressed="false" data-keyword="HTML"># HTML</button>
+              <button type="button" aria-pressed="false" data-keyword="コードブロック"># コードブロック</button>
               <button type="button" aria-pressed="false" data-keyword="文字参照"># 文字参照</button>
               <button type="button" aria-pressed="false" data-keyword="JSON"># JSON</button>
               <button type="button" aria-pressed="false" data-keyword="テーブル"># テーブル</button>
@@ -63,100 +119,155 @@
           <div class="directory-keywords__group">
             <p class="directory-keywords__label">カテゴリで絞り込み</p>
             <div class="filter-bar" aria-label="カテゴリで絞り込み">
-              <button type="button" aria-pressed="true" data-filter="all">ALL <span>16</span></button>
-              <button type="button" aria-pressed="false" data-filter="text">TEXT <span>07</span></button>
-              <button type="button" aria-pressed="false" data-filter="code">CODE <span>05</span></button>
-              <button type="button" aria-pressed="false" data-filter="css">CSS <span>04</span></button>
+              <button type="button" aria-pressed="true" data-filter="all">ALL <span>26</span></button>
+              <button type="button" aria-pressed="false" data-filter="text">TEXT <span>09</span></button>
+              <button type="button" aria-pressed="false" data-filter="code">CODE <span>09</span></button>
+              <button type="button" aria-pressed="false" data-filter="css">CSS <span>06</span></button>
+              <button type="button" aria-pressed="false" data-filter="image">IMAGE <span>02</span></button>
             </div>
           </div>
         </div>
         <div class="tool-grid tool-grid--directory reveal" data-tool-grid data-reveal-threshold="0.01">
           <article class="tool-card" data-tool-card data-id="text-case-converter" data-category="text" data-status="ready" data-name="Text Case Converter" data-search="文字列 camel snake kebab pascal constant 命名規則">
-            <div class="tool-card__meta"><span>TOOL_001</span><span class="badge">READY</span></div>
-            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">Aa</p><p class="tool-card__category">TEXT TOOLS</p><h3>Text Case Converter</h3><p>入力した文字列を複数の命名規則へまとめて変換します。</p></div>
+            <div class="tool-card__meta"><span>TEXT_TOOLS</span><span class="badge">READY</span></div>
+            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">Aa</p><h3>Text Case Converter</h3><p>入力した文字列を複数の命名規則へまとめて変換します。</p></div>
             <a href="./text-case-converter.html"><span>OPEN TOOL</span><span>→</span></a>
           </article>
           <article class="tool-card" data-tool-card data-id="directory-tree-generator" data-category="code" data-status="ready" data-name="Directory Tree Generator" data-search="ディレクトリ ツリー 構成 README 仕様書 インデント tree directory">
-            <div class="tool-card__meta"><span>TOOL_009</span><span class="badge">READY</span></div>
-            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">├─</p><p class="tool-card__category">CODE TOOLS</p><h3>Directory Tree Generator</h3><p>インデント付きの一覧から共有用のディレクトリツリーを生成します。</p></div>
+            <div class="tool-card__meta"><span>CODE_TOOLS</span><span class="badge">READY</span></div>
+            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">├─</p><h3>Directory Tree Generator</h3><p>インデント付きの一覧から共有用のディレクトリツリーを生成します。</p></div>
             <a href="./directory-tree-generator.html"><span>OPEN TOOL</span><span>→</span></a>
           </article>
           <article class="tool-card" data-tool-card data-id="markdown-preview-editor" data-category="text" data-status="ready" data-name="Markdown Preview Editor" data-search="Markdown マークダウン エディター プレビュー HTML CMS README 見出し リンク テーブル Web制作">
-            <div class="tool-card__meta"><span>TOOL_010</span><span class="badge">READY</span></div>
-            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">MD</p><p class="tool-card__category">TEXT TOOLS</p><h3>Markdown Preview Editor</h3><p>Markdownを編集しながら、安全なHTMLプレビューと文書構造を確認します。</p></div>
+            <div class="tool-card__meta"><span>TEXT_TOOLS</span><span class="badge">READY</span></div>
+            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">MD</p><h3>Markdown Preview Editor</h3><p>Markdownを編集しながら、安全なHTMLプレビューと文書構造を確認します。</p></div>
             <a href="./markdown-preview-editor.html"><span>OPEN TOOL</span><span>→</span></a>
           </article>
+          <article class="tool-card" data-tool-card data-id="code-block-generator" data-category="code" data-status="ready" data-name="Code Block Generator" data-search="コードブロック code block pre code HTML CSS SCSS JavaScript PHP エスケープ シンタックスハイライト Web制作">
+            <div class="tool-card__meta"><span>CODE_TOOLS</span><span class="badge">READY</span></div>
+            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">&lt;/&gt;</p><h3>Code Block Generator</h3><p>コードを安全にエスケープし、掲載用のコードブロックHTMLを生成します。</p></div>
+            <a href="./code-block-generator.html"><span>OPEN TOOL</span><span>→</span></a>
+          </article>
           <article class="tool-card" data-tool-card data-id="bem-class-builder" data-category="css" data-status="ready" data-name="BEM Class Builder" data-search="BEM CSS class naming block element modifier クラス 命名 規則 コンポーネント セレクター リファクタリング">
-            <div class="tool-card__meta"><span>TOOL_012</span><span class="badge">READY</span></div>
-            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">.__--</p><p class="tool-card__category">CSS TOOLS</p><h3>BEM Class Builder</h3><p>サイトパーツの候補から、構造が伝わるBEMクラス名を構築・検証します。</p></div>
+            <div class="tool-card__meta"><span>CSS_TOOLS</span><span class="badge">READY</span></div>
+            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">.__--</p><h3>BEM Class Builder</h3><p>サイトパーツの候補から、構造が伝わるBEMクラス名を構築・検証します。</p></div>
             <a href="./bem-class-builder.html"><span>OPEN TOOL</span><span>→</span></a>
           </article>
-          <article class="tool-card" data-tool-card data-id="fluid-scale-generator" data-category="css" data-status="ready" data-name="Fluid Scale Generator" data-search="CSS clamp fluid scale 流体 スケール タイポグラフィ 余白 サイズ トークン カスタムプロパティ vi cqi rem">
-            <div class="tool-card__meta"><span>TOOL_015</span><span class="badge">READY</span></div>
-            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">ƒx</p><p class="tool-card__category">CSS TOOLS</p><h3>Fluid Scale Generator</h3><p>文字・余白・UIサイズの流体トークンを共通ルールから生成します。</p></div>
-            <a href="./fluid-scale-generator.html"><span>OPEN TOOL</span><span>→</span></a>
+          <article class="tool-card" data-tool-card data-id="image-format-converter-resizer" data-category="image" data-status="ready" data-name="Image Format Converter Resizer" data-search="画像変換 image format converter resize リサイズ PNG JPEG JPG WebP quality 品質 圧縮 サイズ 容量 Canvas">
+            <div class="tool-card__meta"><span>IMAGE_TOOLS</span><span class="badge">READY</span></div>
+            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">IMG↔</p><h3>Image Format Converter &amp; Resizer</h3><p>PNG・JPEG・WebP画像の形式、寸法、品質をブラウザ内で変換します。</p></div>
+            <a href="./image-format-converter-resizer.html"><span>OPEN TOOL</span><span>→</span></a>
           </article>
-          <article class="tool-card" data-tool-card data-id="html-table-builder" data-category="code" data-status="ready" data-name="HTML Table Builder" data-search="HTML テーブル 表 table CMS 商品仕様 サイズ表 料金比較 アクセシビリティ scope caption TSV Excel Google Sheets">
-            <div class="tool-card__meta"><span>TOOL_011</span><span class="badge">READY</span></div>
-            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">▦</p><p class="tool-card__category">CODE TOOLS</p><h3>HTML Table Builder</h3><p>編集グリッドから見出し構造を備えたHTMLテーブルを生成します。</p></div>
-            <a href="./html-table-builder.html"><span>OPEN TOOL</span><span>→</span></a>
+          <article class="tool-card" data-tool-card data-id="text-diff-viewer" data-category="text" data-status="ready" data-name="Text Diff Viewer" data-search="差分 比較 diff text code 変更 追加 削除 単語 行 空白 原稿 Markdown HTML CSS">
+            <div class="tool-card__meta"><span>TEXT_TOOLS</span><span class="badge">READY</span></div>
+            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">±</p><h3>Text Diff Viewer</h3><p>2つのテキストを比較し、追加・削除・変更された行と単語を確認します。</p></div>
+            <a href="./text-diff-viewer.html"><span>OPEN TOOL</span><span>→</span></a>
           </article>
-          <article class="tool-card" data-tool-card data-id="color-format-converter" data-category="css" data-status="ready" data-name="Color Format Converter" data-search="カラー 色 color HEX RGB RGBA HSL HSLA HSV HSB alpha 透明度 コントラスト contrast WCAG CSS 変換">
-            <div class="tool-card__meta"><span>TOOL_013</span><span class="badge">READY</span></div>
-            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">#</p><p class="tool-card__category">CSS TOOLS</p><h3>Color Format Converter</h3><p>HEX・RGB・HSL・HSVを相互変換し、透明度とテキストコントラストを確認します。</p></div>
-            <a href="./color-format-converter.html"><span>OPEN TOOL</span><span>→</span></a>
-          </article>
-          <article class="tool-card" data-tool-card data-id="px-rem-converter" data-category="css" data-status="ready" data-name="PX REM Converter" data-search="CSS px rem 単位 変換 root font size">
-            <div class="tool-card__meta"><span>TOOL_006</span><span class="badge">READY</span></div>
-            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">↔</p><p class="tool-card__category">CSS TOOLS</p><h3>PX / REM Converter</h3><p>ルートフォントサイズを基準に、pxとremを双方向変換します。</p></div>
-            <a href="./px-rem-converter.html"><span>OPEN TOOL</span><span>→</span></a>
+          <article class="tool-card" data-tool-card data-id="regex-tester-replacer" data-category="text" data-status="ready" data-name="Regex Tester Replacer" data-search="正規表現 regex regexp テスト 置換 replace match capture group キャプチャ グループ JavaScript パターン フラグ">
+            <div class="tool-card__meta"><span>TEXT_TOOLS</span><span class="badge">READY</span></div>
+            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">/.*/</p><h3>Regex Tester &amp; Replacer</h3><p>正規表現の一致箇所とキャプチャを確認し、置換結果をリアルタイムで生成します。</p></div>
+            <a href="./regex-tester-replacer.html"><span>OPEN TOOL</span><span>→</span></a>
           </article>
           <article class="tool-card" data-tool-card data-id="width-converter" data-category="text" data-status="ready" data-name="Width Converter" data-search="全角半角 全角 半角 変換 カタカナ 英数字 記号 スペース 表記揺れ 検出 CMS EC 校正 width convert">
-            <div class="tool-card__meta"><span>TOOL_016</span><span class="badge">READY</span></div>
-            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">Ａa</p><p class="tool-card__category">TEXT TOOLS</p><h3>Width Converter</h3><p>文字種別ごとのルールで全角・半角を変換し、表記の混在を検出します。</p></div>
+            <div class="tool-card__meta"><span>TEXT_TOOLS</span><span class="badge">READY</span></div>
+            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">Ａa</p><h3>Width Converter</h3><p>文字種別ごとのルールで全角・半角を変換し、表記の混在を検出します。</p></div>
             <a href="./width-converter.html"><span>OPEN TOOL</span><span>→</span></a>
           </article>
           <article class="tool-card" data-tool-card data-id="text-formatter" data-category="text" data-status="ready" data-name="Text Formatter" data-search="テキスト 整形 重複行 空行 並べ替え スペース 全角 半角 行番号 undo CMS 商品情報 リスト">
-            <div class="tool-card__meta"><span>TOOL_007</span><span class="badge">READY</span></div>
-            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">≡</p><p class="tool-card__category">TEXT TOOLS</p><h3>Text Formatter</h3><p>行・空白・文字種を目的に合わせて段階的に整形します。</p></div>
+            <div class="tool-card__meta"><span>TEXT_TOOLS</span><span class="badge">READY</span></div>
+            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">≡</p><h3>Text Formatter</h3><p>行・空白・文字種を目的に合わせて段階的に整形します。</p></div>
             <a href="./text-formatter.html"><span>OPEN TOOL</span><span>→</span></a>
           </article>
           <article class="tool-card" data-tool-card data-id="character-counter" data-category="text" data-status="ready" data-name="Character Counter" data-search="文字数 単語数 行数 バイト数 count text">
-            <div class="tool-card__meta"><span>TOOL_002</span><span class="badge">READY</span></div>
-            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">#</p><p class="tool-card__category">TEXT TOOLS</p><h3>Character Counter</h3><p>文字数・単語数・行数・UTF-8バイト数をリアルタイムで確認します。</p></div>
+            <div class="tool-card__meta"><span>TEXT_TOOLS</span><span class="badge">READY</span></div>
+            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">#</p><h3>Character Counter</h3><p>文字数・単語数・行数・UTF-8バイト数をリアルタイムで確認します。</p></div>
             <a href="./character-counter.html"><span>OPEN TOOL</span><span>→</span></a>
           </article>
           <article class="tool-card" data-tool-card data-id="unicode-inspector" data-category="text" data-status="ready" data-name="Unicode Inspector" data-search="Unicode コードポイント UTF-8 UTF-16 エスケープ 不可視文字 ゼロ幅スペース 文字化け 特殊文字">
-            <div class="tool-card__meta"><span>TOOL_008</span><span class="badge">READY</span></div>
-            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">U+</p><p class="tool-card__category">TEXT TOOLS</p><h3>Unicode Inspector</h3><p>文字コードと不可視文字をコードポイント単位で確認します。</p></div>
+            <div class="tool-card__meta"><span>TEXT_TOOLS</span><span class="badge">READY</span></div>
+            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">U+</p><h3>Unicode Inspector</h3><p>文字コードと不可視文字をコードポイント単位で確認します。</p></div>
             <a href="./unicode-inspector.html"><span>OPEN TOOL</span><span>→</span></a>
           </article>
           <article class="tool-card" data-tool-card data-id="slug-generator" data-category="text" data-status="ready" data-name="Slug Generator" data-search="slug URL スラッグ タイトル 文字列">
-            <div class="tool-card__meta"><span>TOOL_003</span><span class="badge">READY</span></div>
-            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">/</p><p class="tool-card__category">TEXT TOOLS</p><h3>Slug Generator</h3><p>タイトルや文字列からURLに使用しやすいスラッグを生成します。</p></div>
+            <div class="tool-card__meta"><span>TEXT_TOOLS</span><span class="badge">READY</span></div>
+            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">/</p><h3>Slug Generator</h3><p>タイトルや文字列からURLに使用しやすいスラッグを生成します。</p></div>
             <a href="./slug-generator.html"><span>OPEN TOOL</span><span>→</span></a>
           </article>
+          <article class="tool-card" data-tool-card data-id="url-query-string-builder" data-category="code" data-status="ready" data-name="URL Query String Builder" data-search="URL query string クエリ パラメータ GET encode decode エンコード デコード UTM fragment hash フラグメント 重複キー">
+            <div class="tool-card__meta"><span>CODE_TOOLS</span><span class="badge">READY</span></div>
+            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">?a=1</p><h3>URL / Query String Builder</h3><p>URLを解析し、クエリパラメータとフラグメントを安全に組み立てます。</p></div>
+            <a href="./url-query-string-builder.html"><span>OPEN TOOL</span><span>→</span></a>
+          </article>
+          <article class="tool-card" data-tool-card data-id="meta-tags-ogp-builder" data-category="code" data-status="ready" data-name="Meta Tags OGP Builder" data-search="meta tags OGP Open Graph Twitter Card SEO title description canonical robots image alt SNS シェア メタタグ">
+            <div class="tool-card__meta"><span>CODE_TOOLS</span><span class="badge">READY</span></div>
+            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">&lt;meta&gt;</p><h3>Meta Tags &amp; OGP Builder</h3><p>SEO基本タグ・OGP・Twitter Cardをまとめて生成し、表示内容を確認します。</p></div>
+            <a href="./meta-tags-ogp-builder.html"><span>OPEN TOOL</span><span>→</span></a>
+          </article>
+          <article class="tool-card" data-tool-card data-id="base64-data-url-converter" data-category="code" data-status="ready" data-name="Base64 Data URL Converter" data-search="Base64 Data URL Base64URL encode decode エンコード デコード file ファイル MIME UTF-8 binary バイナリ image preview">
+            <div class="tool-card__meta"><span>CODE_TOOLS</span><span class="badge">READY</span></div>
+            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">64</p><h3>Base64 / Data URL Converter</h3><p>テキスト・Base64・ファイル・Data URLをブラウザ内で相互変換します。</p></div>
+            <a href="./base64-data-url-converter.html"><span>OPEN TOOL</span><span>→</span></a>
+          </article>
+          <article class="tool-card" data-tool-card data-id="html-table-builder" data-category="code" data-status="ready" data-name="HTML Table Builder" data-search="HTML テーブル 表 table CMS 商品仕様 サイズ表 料金比較 アクセシビリティ scope caption TSV Excel Google Sheets">
+            <div class="tool-card__meta"><span>CODE_TOOLS</span><span class="badge">READY</span></div>
+            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">▦</p><h3>HTML Table Builder</h3><p>編集グリッドから見出し構造を備えたHTMLテーブルを生成します。</p></div>
+            <a href="./html-table-builder.html"><span>OPEN TOOL</span><span>→</span></a>
+          </article>
           <article class="tool-card" data-tool-card data-id="html-escape-converter" data-category="code" data-status="ready" data-name="HTML Escape Converter" data-search="HTML escape unescape entity エスケープ 変換 code">
-            <div class="tool-card__meta"><span>TOOL_005</span><span class="badge">READY</span></div>
-            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">&lt;&gt;</p><p class="tool-card__category">CODE TOOLS</p><h3>HTML Escape Converter</h3><p>HTMLで構文上の意味を持つ文字を用途に合わせてエスケープし、元の文字列へ戻します。</p></div>
+            <div class="tool-card__meta"><span>CODE_TOOLS</span><span class="badge">READY</span></div>
+            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">&lt;&gt;</p><h3>HTML Escape Converter</h3><p>HTMLで構文上の意味を持つ文字を用途に合わせてエスケープし、元の文字列へ戻します。</p></div>
             <a href="./html-escape-converter.html"><span>OPEN TOOL</span><span>→</span></a>
           </article>
           <article class="tool-card" data-tool-card data-id="numeric-character-reference-converter" data-category="code" data-status="ready" data-name="Numeric Character Reference Converter" data-search="数値文字参照 文字参照 Unicode decimal hexadecimal 10進 16進 エンコード デコード HTML CMS 絵文字 特殊文字">
-            <div class="tool-card__meta"><span>TOOL_014</span><span class="badge">READY</span></div>
-            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">&amp;#;</p><p class="tool-card__category">CODE TOOLS</p><h3>Numeric Character Reference Converter</h3><p>Unicode文字を10進・16進の数値文字参照へ変換し、元の文字列へ復元します。</p></div>
+            <div class="tool-card__meta"><span>CODE_TOOLS</span><span class="badge">READY</span></div>
+            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">&amp;#;</p><h3>Numeric Character Reference Converter</h3><p>Unicode文字を10進・16進の数値文字参照へ変換し、元の文字列へ復元します。</p></div>
             <a href="./numeric-character-reference-converter.html"><span>OPEN TOOL</span><span>→</span></a>
           </article>
           <article class="tool-card" data-tool-card data-id="json-formatter" data-category="code" data-status="ready" data-name="JSON Formatter" data-search="JSON 整形 フォーマット 構文 エラー code">
-            <div class="tool-card__meta"><span>TOOL_004</span><span class="badge">READY</span></div>
-            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">{ }</p><p class="tool-card__category">CODE TOOLS</p><h3>JSON Formatter</h3><p>JSONデータを整形し、構文エラーを確認するためのツールです。</p></div>
+            <div class="tool-card__meta"><span>CODE_TOOLS</span><span class="badge">READY</span></div>
+            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">{ }</p><h3>JSON Formatter</h3><p>JSONデータを整形し、構文エラーを確認するためのツールです。</p></div>
             <a href="./json-formatter.html"><span>OPEN TOOL</span><span>→</span></a>
+          </article>
+          <article class="tool-card" data-tool-card data-id="fluid-scale-generator" data-category="css" data-status="ready" data-name="Fluid Scale Generator" data-search="CSS clamp fluid scale 流体 スケール タイポグラフィ 余白 サイズ トークン カスタムプロパティ vi cqi rem">
+            <div class="tool-card__meta"><span>CSS_TOOLS</span><span class="badge">READY</span></div>
+            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">ƒx</p><h3>Fluid Scale Generator</h3><p>文字・余白・UIサイズの流体トークンを共通ルールから生成します。</p></div>
+            <a href="./fluid-scale-generator.html"><span>OPEN TOOL</span><span>→</span></a>
+          </article>
+          <article class="tool-card" data-tool-card data-id="css-specificity-calculator" data-category="css" data-status="ready" data-name="CSS Specificity Calculator" data-search="CSS specificity 詳細度 優先順位 selector セレクター ID class 属性 疑似クラス pseudo where is not has nth-child">
+            <div class="tool-card__meta"><span>CSS_TOOLS</span><span class="badge">READY</span></div>
+            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">A-B-C</p><h3>CSS Specificity Calculator</h3><p>CSSセレクターの詳細度を計算し、構成要素と優先順位を比較します。</p></div>
+            <a href="./css-specificity-calculator.html"><span>OPEN TOOL</span><span>→</span></a>
+          </article>
+          <article class="tool-card" data-tool-card data-id="css-custom-property-builder" data-category="css" data-status="ready" data-name="CSS Custom Property Builder" data-search="CSS custom property properties variable variables CSS変数 カスタムプロパティ design token デザイントークン theme dark mode var fallback root">
+            <div class="tool-card__meta"><span>CSS_TOOLS</span><span class="badge">READY</span></div>
+            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">--*</p><h3>CSS Custom Property Builder</h3><p>CSS変数、テーマ上書き、var()フォールバック、JSONトークンをまとめて生成します。</p></div>
+            <a href="./css-custom-property-builder.html"><span>OPEN TOOL</span><span>→</span></a>
+          </article>
+          <article class="tool-card" data-tool-card data-id="color-format-converter" data-category="css" data-status="ready" data-name="Color Format Converter" data-search="カラー 色 color HEX RGB RGBA HSL HSLA HSV HSB alpha 透明度 コントラスト contrast WCAG CSS 変換">
+            <div class="tool-card__meta"><span>CSS_TOOLS</span><span class="badge">READY</span></div>
+            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">#</p><h3>Color Format Converter</h3><p>HEX・RGB・HSL・HSVを相互変換し、透明度とテキストコントラストを確認します。</p></div>
+            <a href="./color-format-converter.html"><span>OPEN TOOL</span><span>→</span></a>
+          </article>
+          <article class="tool-card" data-tool-card data-id="px-rem-converter" data-category="css" data-status="ready" data-name="PX REM Converter" data-search="CSS px rem 単位 変換 root font size">
+            <div class="tool-card__meta"><span>CSS_TOOLS</span><span class="badge">READY</span></div>
+            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">↔</p><h3>PX / REM Converter</h3><p>ルートフォントサイズを基準に、pxとremを双方向変換します。</p></div>
+            <a href="./px-rem-converter.html"><span>OPEN TOOL</span><span>→</span></a>
+          </article>
+          <article class="tool-card" data-tool-card data-id="responsive-image-markup-builder" data-category="image" data-status="ready" data-name="Responsive Image Markup Builder" data-search="レスポンシブ画像 responsive image markup picture source srcset sizes AVIF WebP art direction アートディレクション loading lazy fetchpriority">
+            <div class="tool-card__meta"><span>IMAGE_TOOLS</span><span class="badge">READY</span></div>
+            <div class="tool-card__body"><p class="tool-card__symbol" aria-hidden="true">&lt;PIC&gt;</p><h3>Responsive Image Markup Builder</h3><p>picture・source・srcset・sizesを組み合わせたレスポンシブ画像HTMLを生成します。</p></div>
+            <a href="./responsive-image-markup-builder.html"><span>OPEN TOOL</span><span>→</span></a>
           </article>
         </div>
 
         <div class="empty-state" data-empty-state hidden><p>[ NO_RESULTS ]</p><h3>条件に一致するツールがありません。</h3><p>検索語またはカテゴリーを変更してください。</p><button class="button button--secondary" type="button" data-reset-filters>条件をリセット</button></div>
 
-        <div class="directory-status" aria-live="polite"><p><span data-result-count>16</span> TOOLS FOUND</p><p>STATIC DATA / BUILD 0.1.0</p></div>
+        <div class="directory-status" aria-live="polite"><p><span data-result-count>26</span> TOOLS FOUND</p><p>STATIC DATA / BUILD 0.1.0</p></div>
       </section>
+      <footer class="page-footer" aria-label="ページナビゲーション">
+        <a class="page-footer__back" href="../index.html"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO HOME</span></a>
+        <a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a>
+      </footer>
     </main>
 
     <script src="../js/main.js" defer></script>

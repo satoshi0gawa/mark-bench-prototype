@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="セクション、ヒーロー、カード背景に使えるCSS背景パターン16種類です。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>BACKGROUND PATTERN | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/background-pattern.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="BACKGROUND PATTERN | MARK BENCH" />
+    <meta property="og:description" content="セクション、ヒーロー、カード背景に使えるCSS背景パターン16種類です。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/background-pattern.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="BACKGROUND PATTERN | MARK BENCH" />
+    <meta name="twitter:description" content="セクション、ヒーロー、カード背景に使えるCSS背景パターン16種類です。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "BACKGROUND PATTERN",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/background-pattern.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/web-parts.css" />
+    <link rel="stylesheet" href="../css/web-parts-background-pattern.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts-detail" data-parts-detail>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header">
+      <div class="site-header__bar">
+        <nav class="site-breadcrumb-logo" aria-label="パンくずリスト">
+          <a class="site-logo" href="../index.html">MARK BENCH</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <a class="site-breadcrumb-logo__parent" href="./">WEB PARTS</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <span class="site-breadcrumb-logo__current" aria-current="page">BACKGROUND PATTERN</span>
+        </nav>
+      </div>
+    </header>
+
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション">
+      <a href="../tools/"><strong>TOOLS</strong></a>
+      <a href="./" aria-current="location"><strong>WEB PARTS</strong></a>
+      <a href="../build-notes/"><strong>BUILD NOTES</strong></a>
+      <a href="../about.html"><strong>ABOUT</strong></a>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <header class="part-detail-header">
+        <p class="section-index reveal">WEB_PARTS / BACKGROUND_PATTERN</p>
+        <h1 class="reveal">BACKGROUND PATTERN</h1>
+        <p class="part-detail-header__lead reveal">ヒーロー、セクション、カードの背景へ軽い質感や領域の違いを加える、画像を使わないCSS背景パターン16種類です。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 16</span><span>TYPE: CSS</span><span>DEPENDENCY: NONE</span></div>
+        <a class="part-detail-header__anchor reveal" href="#background-pattern-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
+      </header>
+
+      <section class="part-detail-controls directory-search directory-keywords" aria-label="背景パターンを絞り込み">
+        <div class="directory-keywords__group">
+          <p class="directory-keywords__label">KEYWORDS</p>
+          <div class="directory-keywords__list">
+            <button type="button" aria-pressed="false" data-pattern-keyword="基本"># 基本</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="ストライプ"># ストライプ</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="ライン"># ライン</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="格子"># 格子</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="幾何学"># 幾何学</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="紙"># 紙</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="設計"># 設計</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="装飾"># 装飾</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="応用"># 応用</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="グラデーション"># グラデーション</button>
+          </div>
+        </div>
+        <p>DISPLAY: <span data-pattern-count>16</span> / 16</p>
+      </section>
+
+      <div class="part-example-list">
+        <section class="part-example reveal" data-pattern data-search="基本 ドット 水玉 dots polka circle 背景">
+          <header class="part-example__header"><div><span class="part-example__index">PRIMITIVE / 01</span><h2>ドット</h2></div><small>RADIAL GRID</small></header>
+          <div class="part-example__preview"><div class="c-background-pattern c-background-pattern--dots"><span class="c-background-pattern__label">CONTENT AREA</span></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-background-pattern c-background-pattern--dots"&gt;
+  ここにコンテンツ
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-background-pattern {
+  min-height: 8rem;
+  background-color: var(--color-background, #fff);
+}
+.c-background-pattern--dots {
+  background-image: radial-gradient(
+    var(--pattern-color, rgb(24 36 59 / 24%)) 2px,
+    transparent 2px
+  );
+  background-size: 18px 18px;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>キャンペーンや案内セクションで、本文を邪魔せずに軽いリズムを加える背景。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="基本 ストライプ 斜め stripe diagonal 帯 装飾">
+          <header class="part-example__header"><div><span class="part-example__index">PRIMITIVE / 02</span><h2>斜めストライプ</h2></div><small>REPEATING BAND</small></header>
+          <div class="part-example__preview"><div class="c-background-pattern c-background-pattern--diagonal-stripe"><span class="c-background-pattern__label">CONTENT AREA</span></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-background-pattern c-background-pattern--diagonal-stripe"&gt;
+  ここにコンテンツ
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-background-pattern {
+  min-height: 8rem;
+  background-color: var(--color-background, #fff);
+}
+.c-background-pattern--diagonal-stripe {
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--pattern-color, rgb(24 36 59 / 18%)) 0 9px,
+    transparent 9px 22px
+  );
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>告知帯やキャンペーン面など、方向性のある背景で視線を誘導したい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="ストライプ ライン 縦 vertical pinstripe 規則">
+          <header class="part-example__header"><div><span class="part-example__index">DIRECTION / 03</span><h2>縦ストライプ</h2></div><small>PIN STRIPE</small></header>
+          <div class="part-example__preview"><div class="c-background-pattern c-background-pattern--vertical-stripe"><span class="c-background-pattern__label">CONTENT AREA</span></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-background-pattern c-background-pattern--vertical-stripe"&gt;
+  ここにコンテンツ
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-background-pattern {
+  min-height: 8rem;
+  background-color: var(--color-background, #fff);
+}
+.c-background-pattern--vertical-stripe {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--pattern-color, rgb(38 58 94 / 18%)) 0 3px,
+    transparent 3px 16px
+  );
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>サービス紹介や商品情報で、端正で規則的な印象を与えたい背景。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="ストライプ ライン 横 horizontal border ボーダー 帯">
+          <header class="part-example__header"><div><span class="part-example__index">DIRECTION / 04</span><h2>横ストライプ</h2></div><small>HORIZONTAL BAND</small></header>
+          <div class="part-example__preview"><div class="c-background-pattern c-background-pattern--horizontal-stripe"><span class="c-background-pattern__label">CONTENT AREA</span></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-background-pattern c-background-pattern--horizontal-stripe"&gt;
+  ここにコンテンツ
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-background-pattern {
+  min-height: 8rem;
+  background-color: var(--color-background, #fff);
+}
+.c-background-pattern--horizontal-stripe {
+  background-image: repeating-linear-gradient(
+    0deg,
+    var(--pattern-color, rgb(49 90 155 / 14%)) 0 10px,
+    transparent 10px 24px
+  );
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>見出し帯や商品カテゴリなど、横方向のまとまりを明確にしたい背景。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="ライン 斜め ヘアライン diagonal hairline hatch 非活性">
+          <header class="part-example__header"><div><span class="part-example__index">LINEWORK / 05</span><h2>斜めヘアライン</h2></div><small>FINE HATCH</small></header>
+          <div class="part-example__preview"><div class="c-background-pattern c-background-pattern--hairline"><span class="c-background-pattern__label">CONTENT AREA</span></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-background-pattern c-background-pattern--hairline"&gt;
+  ここにコンテンツ
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-background-pattern {
+  min-height: 8rem;
+  background-color: var(--color-background, #fff);
+}
+.c-background-pattern--hairline {
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--pattern-color, rgb(24 36 59 / 20%)) 0 1px,
+    transparent 1px 10px
+  );
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>準備中・非活性エリアや図表の網掛けなど、状態を静かに区別する背景。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="ライン クロスハッチ crosshatch 網目 斜め 格子">
+          <header class="part-example__header"><div><span class="part-example__index">LINEWORK / 06</span><h2>クロスハッチ</h2></div><small>CROSSED LINES</small></header>
+          <div class="part-example__preview"><div class="c-background-pattern c-background-pattern--crosshatch"><span class="c-background-pattern__label">CONTENT AREA</span></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-background-pattern c-background-pattern--crosshatch"&gt;
+  ここにコンテンツ
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-background-pattern {
+  min-height: 8rem;
+  background-color: var(--color-background, #fff);
+}
+.c-background-pattern--crosshatch {
+  background-image:
+    repeating-linear-gradient(45deg,
+      var(--pattern-color, rgb(24 36 59 / 14%)) 0 1px,
+      transparent 1px 12px),
+    repeating-linear-gradient(-45deg,
+      var(--pattern-color, rgb(24 36 59 / 14%)) 0 1px,
+      transparent 1px 12px);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>図面、比較表、カテゴリ面など、単線より密度のある区別を付けたい背景。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="格子 グリッド grid 設計 テック マス目">
+          <header class="part-example__header"><div><span class="part-example__index">GRID / 07</span><h2>グリッド線</h2></div><small>STANDARD GRID</small></header>
+          <div class="part-example__preview"><div class="c-background-pattern c-background-pattern--grid"><span class="c-background-pattern__label">CONTENT AREA</span></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-background-pattern c-background-pattern--grid"&gt;
+  ここにコンテンツ
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-background-pattern {
+  min-height: 8rem;
+  background-color: var(--color-background, #fff);
+}
+.c-background-pattern--grid {
+  background-image:
+    linear-gradient(var(--pattern-color, rgb(49 90 155 / 18%)) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, var(--pattern-color, rgb(49 90 155 / 18%)) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>技術資料、設計サービス、ダッシュボードのヒーローなど、構造感を示す背景。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="格子 方眼紙 graph square grid ノート 紙">
+          <header class="part-example__header"><div><span class="part-example__index">GRID / 08</span><h2>方眼紙</h2></div><small>SMALL GRID</small></header>
+          <div class="part-example__preview"><div class="c-background-pattern c-background-pattern--square-grid"><span class="c-background-pattern__label">CONTENT AREA</span></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-background-pattern c-background-pattern--square-grid"&gt;
+  ここにコンテンツ
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-background-pattern {
+  min-height: 8rem;
+  background-color: var(--color-background, #fff);
+}
+.c-background-pattern--square-grid {
+  background-image:
+    linear-gradient(var(--pattern-color, rgb(24 36 59 / 14%)) 1px, transparent 1px),
+    linear-gradient(90deg, var(--pattern-color, rgb(24 36 59 / 14%)) 1px, transparent 1px);
+  background-size: 12px 12px;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ノート、学習、制作工程など、手書きや記録の雰囲気を持たせたい背景。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="幾何学 市松 チェック checker check pattern タイル">
+          <header class="part-example__header"><div><span class="part-example__index">GEOMETRY / 09</span><h2>市松</h2></div><small>CONIC TILE</small></header>
+          <div class="part-example__preview"><div class="c-background-pattern c-background-pattern--checker"><span class="c-background-pattern__label">CONTENT AREA</span></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-background-pattern c-background-pattern--checker"&gt;
+  ここにコンテンツ
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-background-pattern {
+  min-height: 8rem;
+  background-color: var(--color-background, #fff);
+}
+.c-background-pattern--checker {
+  background-image: conic-gradient(
+    var(--pattern-color, rgb(38 58 94 / 18%)) 25%,
+    transparent 25% 50%,
+    var(--pattern-color, rgb(38 58 94 / 18%)) 50% 75%,
+    transparent 75%
+  );
+  background-size: 32px 32px;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>カテゴリ分けやブランド背景など、規則的なタイル模様を明確に見せたい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="幾何学 三角 モザイク triangle mosaic 鱗 装飾">
+          <header class="part-example__header"><div><span class="part-example__index">GEOMETRY / 10</span><h2>三角モザイク</h2></div><small>LAYERED ANGLE</small></header>
+          <div class="part-example__preview"><div class="c-background-pattern c-background-pattern--triangle"><span class="c-background-pattern__label">CONTENT AREA</span></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-background-pattern c-background-pattern--triangle"&gt;
+  ここにコンテンツ
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-background-pattern {
+  min-height: 8rem;
+  background-color: var(--color-background, #fff);
+}
+.c-background-pattern--triangle {
+  background-image:
+    linear-gradient(135deg, var(--pattern-color, rgb(49 90 155 / 18%)) 25%, transparent 25%),
+    linear-gradient(225deg, var(--pattern-accent, rgb(255 255 0 / 16%)) 25%, transparent 25%);
+  background-size: 20px 20px;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>キービジュアルやイベント面で、色数を抑えながら幾何学的な動きを加える背景。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="紙 テクスチャ ノイズ paper noise texture 質感 装飾">
+          <header class="part-example__header"><div><span class="part-example__index">TEXTURE / 11</span><h2>紙ノイズ風</h2></div><small>OFFSET DOTS</small></header>
+          <div class="part-example__preview"><div class="c-background-pattern c-background-pattern--paper"><span class="c-background-pattern__label">CONTENT AREA</span></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-background-pattern c-background-pattern--paper"&gt;
+  ここにコンテンツ
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-background-pattern { min-height: 8rem; }
+.c-background-pattern--paper {
+  background-color: #f8f6ef;
+  background-image:
+    radial-gradient(rgb(24 36 59 / 12%) 1px, transparent 1px),
+    radial-gradient(rgb(49 90 155 / 10%) 1px, transparent 1px);
+  background-position: 0 0, 6px 8px;
+  background-size: 11px 11px, 17px 17px;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>読み物、プロフィール、制作ノートなど、均一な白面へ控えめな素材感を加える背景。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="設計 格子 グラフ用紙 graph paper 二重 grid major minor">
+          <header class="part-example__header"><div><span class="part-example__index">LAYERED GRID / 12</span><h2>グラフ用紙</h2></div><small>MAJOR + MINOR</small></header>
+          <div class="part-example__preview"><div class="c-background-pattern c-background-pattern--graph-paper"><span class="c-background-pattern__label">CONTENT AREA</span></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-background-pattern c-background-pattern--graph-paper"&gt;
+  ここにコンテンツ
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-background-pattern {
+  min-height: 8rem;
+  background-color: var(--color-background, #fff);
+}
+.c-background-pattern--graph-paper {
+  background-image:
+    linear-gradient(rgb(24 36 59 / 28%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(24 36 59 / 28%) 1px, transparent 1px),
+    linear-gradient(rgb(49 90 155 / 10%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(49 90 155 / 10%) 1px, transparent 1px);
+  background-size: 48px 48px, 48px 48px, 12px 12px, 12px 12px;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>図表、データ、設計工程など、大小の単位を同時に示す必要がある背景。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="応用 装飾 ハーフトーン halftone dots ドット 印刷 キャンペーン 独自追加">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL ADDITION / 13</span><h2>ハーフトーン</h2></div><small>PROMOTION DOTS</small></header>
+          <div class="part-example__preview"><div class="c-background-pattern c-background-pattern--halftone"><span class="c-background-pattern__label">CONTENT AREA</span></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-background-pattern c-background-pattern--halftone"&gt;
+  ここにコンテンツ
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-background-pattern {
+  min-height: 8rem;
+  background-color: var(--color-background, #fff);
+}
+.c-background-pattern--halftone {
+  background-image:
+    radial-gradient(circle, var(--pattern-color, rgb(24 36 59 / 30%)) 0 2.5px, transparent 3px),
+    radial-gradient(circle, var(--pattern-accent, rgb(49 90 155 / 16%)) 0 1.5px, transparent 2px);
+  background-position: 0 0, 8px 8px;
+  background-size: 16px 16px;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>セール、特集、イベント告知など、印刷物のような勢いを背景へ加えたい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="応用 設計 格子 アイソメトリック isometric spatial grid 立体 テック 独自追加">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL ADDITION / 14</span><h2>アイソメトリックグリッド</h2></div><small>SPATIAL GRID</small></header>
+          <div class="part-example__preview"><div class="c-background-pattern c-background-pattern--isometric"><span class="c-background-pattern__label">CONTENT AREA</span></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-background-pattern c-background-pattern--isometric"&gt;
+  ここにコンテンツ
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-background-pattern {
+  min-height: 8rem;
+  background-color: var(--color-background, #fff);
+}
+.c-background-pattern--isometric {
+  background-image:
+    repeating-linear-gradient(30deg, var(--pattern-color, rgb(49 90 155 / 18%)) 0 1px, transparent 1px 32px),
+    repeating-linear-gradient(-30deg, var(--pattern-color, rgb(49 90 155 / 18%)) 0 1px, transparent 1px 32px),
+    repeating-linear-gradient(90deg, var(--pattern-color, rgb(49 90 155 / 18%)) 0 1px, transparent 1px 32px);
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>プロダクト、建築、インフラ、技術サービスなど、立体構造を連想させたい背景。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="応用 幾何学 キューブ cube mosaic 立方体 タイル 工業 テック 独自追加">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL ADDITION / 15</span><h2>キューブモザイク</h2></div><small>CUBE TILE</small></header>
+          <div class="part-example__preview"><div class="c-background-pattern c-background-pattern--cube"><span class="c-background-pattern__label">CONTENT AREA</span></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-background-pattern c-background-pattern--cube"&gt;
+  ここにコンテンツ
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-background-pattern {
+  min-height: 8rem;
+  background-color: var(--color-background, #fff);
+}
+.c-background-pattern--cube {
+  --tile-color: var(--pattern-color, rgb(49 90 155 / 16%));
+  background-image:
+    linear-gradient(30deg, var(--tile-color) 12%, transparent 12.5% 87%, var(--tile-color) 87.5%),
+    linear-gradient(150deg, var(--tile-color) 12%, transparent 12.5% 87%, var(--tile-color) 87.5%),
+    linear-gradient(30deg, var(--tile-color) 12%, transparent 12.5% 87%, var(--tile-color) 87.5%),
+    linear-gradient(150deg, var(--tile-color) 12%, transparent 12.5% 87%, var(--tile-color) 87.5%),
+    linear-gradient(60deg, var(--tile-color) 25%, transparent 25.5% 75%, var(--tile-color) 75%);
+  background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0;
+  background-size: 40px 70px;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>製造、研究、プロダクト紹介など、面の連続で立体感と構造を示したい背景。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="応用 装飾 グラデーション mesh gradient soft color hero CTA 淡色 独自追加">
+          <header class="part-example__header"><div><span class="part-example__index">PRACTICAL ADDITION / 16</span><h2>メッシュグラデーション</h2></div><small>SOFT COLOR MESH</small></header>
+          <div class="part-example__preview"><div class="c-background-pattern c-background-pattern--mesh"><span class="c-background-pattern__label">CONTENT AREA</span></div></div>
+          <div class="part-example__code-grid">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-background-pattern c-background-pattern--mesh"&gt;
+  ここにコンテンツ
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-background-pattern { min-height: 8rem; }
+.c-background-pattern--mesh {
+  background-color: var(--color-background-subtle, #f5f7fa);
+  background-image:
+    radial-gradient(circle at 14% 18%, var(--mesh-blue, rgb(49 90 155 / 32%)) 0, transparent 34%),
+    radial-gradient(circle at 82% 24%, var(--mesh-yellow, rgb(255 255 0 / 26%)) 0, transparent 30%),
+    radial-gradient(circle at 62% 88%, var(--mesh-navy, rgb(38 58 94 / 22%)) 0, transparent 38%);
+  background-blend-mode: multiply;
+}</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ヒーロー、CTA、オンボーディングなど、内容を邪魔せず淡い色面を加えたい背景。</p></div>
+        </section>
+      </div>
+
+      <div class="part-detail-empty" data-pattern-empty hidden><p>[ NO_PATTERN_FOUND ]</p><p>検索語を変更してください。</p></div>
+
+      <section class="part-common-styles" id="background-pattern-common-styles" aria-labelledby="background-pattern-common-styles-title">
+        <header class="part-common-styles__header reveal">
+          <p class="section-index">BACKGROUND_PATTERN / COMMON_STYLE</p>
+          <h2 id="background-pattern-common-styles-title">共通スタイル</h2>
+          <p>背景パターン共通の表示領域・境界線・プレビューラベル設定です。</p>
+        </header>
+        <div class="part-common-styles__code reveal" data-reveal-threshold="0.01">
+          <div class="part-code">
+            <div class="part-code__header"><span>CSS / COMMON</span><button type="button" data-copy-code>COPY</button></div>
+            <pre><code>.c-background-pattern {
+  display: grid;
+  width: min(100%, 34rem);
+  min-height: 8rem;
+  padding: 1rem;
+  overflow: hidden;
+  place-items: center;
+  color: var(--color-text, #1c2430);
+  background-color: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+}
+.c-background-pattern__label {
+  padding: .45rem .7rem;
+  color: var(--color-text, #1c2430);
+  font: 700 .6rem/1.3 var(--font-mono, monospace);
+  letter-spacing: .04em;
+  background: rgb(255 255 255 / 88%);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <footer class="page-footer" aria-label="ページナビゲーション">
+        <a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO WEB PARTS</span></a>
+        <a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a>
+      </footer>
+    </main>
+
+    <script src="../js/web-parts-detail.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

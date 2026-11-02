@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="MARK BENCHのトークンで設計した、Vanilla JavaScript対応のタブUI 12パターンです。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>TAB | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/tab.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="TAB | MARK BENCH" />
+    <meta property="og:description" content="MARK BENCHのトークンで設計した、Vanilla JavaScript対応のタブUI 12パターンです。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/tab.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="TAB | MARK BENCH" />
+    <meta name="twitter:description" content="MARK BENCHのトークンで設計した、Vanilla JavaScript対応のタブUI 12パターンです。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "TAB",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/tab.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/web-parts.css" />
+    <link rel="stylesheet" href="../css/web-parts-tab.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts-detail" data-parts-detail>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header"><div class="site-header__bar"><nav class="site-breadcrumb-logo" aria-label="パンくずリスト">
+      <a class="site-logo" href="../index.html">MARK BENCH</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><a class="site-breadcrumb-logo__parent" href="./">WEB PARTS</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><span class="site-breadcrumb-logo__current" aria-current="page">TAB</span>
+    </nav></div></header>
+
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション">
+      <a href="../tools/"><strong>TOOLS</strong></a><a href="./" aria-current="location"><strong>WEB PARTS</strong></a><a href="../build-notes/"><strong>BUILD NOTES</strong></a><a href="../about.html"><strong>ABOUT</strong></a>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <header class="part-detail-header">
+        <p class="section-index reveal">WEB_PARTS / TAB</p>
+        <h1 class="reveal">TAB</h1>
+        <p class="part-detail-header__lead reveal">設定画面や商品詳細など、関連コンテンツを同じ領域で切り替えて表示する、Vanilla JavaScript対応のタブ12パターンです。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 12</span><span>TYPE: CSS + JS</span><span>DEPENDENCY: NONE</span></div>
+        <a class="part-detail-header__anchor reveal" href="#tab-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
+      </header>
+
+      <section class="part-detail-controls directory-search directory-keywords" aria-label="タブパターンを絞り込み">
+        <div class="directory-keywords__group"><p class="directory-keywords__label">KEYWORDS</p><div class="directory-keywords__list">
+          <button type="button" aria-pressed="false" data-pattern-keyword="基本"># 基本</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="外観"># 外観</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="配置"># 配置</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="多数項目"># 多数項目</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="キーボード"># キーボード</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="状態連携"># 状態連携</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="タッチ"># タッチ</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="自動"># 自動</button>
+        </div></div>
+        <p>DISPLAY: <span data-pattern-count>12</span> / 12</p>
+      </section>
+
+      <div class="part-example-list">
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="基本 キーボード basic 標準 クリック">
+          <header class="part-example__header"><div><span class="part-example__index">BASIC</span><h2>ベーシック</h2></div><small>STANDARD</small></header>
+          <div class="part-example__preview"><div class="c-tab" data-tab-demo><div class="c-tab__list" role="tablist" aria-label="基本情報"><button class="c-tab__tab is-active" type="button" role="tab" aria-selected="true">概要</button><button class="c-tab__tab" type="button" role="tab" aria-selected="false">仕様</button><button class="c-tab__tab" type="button" role="tab" aria-selected="false">価格</button></div><div class="c-tab__panels"><div class="c-tab__panel" role="tabpanel"><strong>概要</strong>もっとも基本的なタブ切り替えです。</div><div class="c-tab__panel" role="tabpanel" hidden><strong>仕様</strong>ライブラリなしで複数設置できます。</div><div class="c-tab__panel" role="tabpanel" hidden><strong>価格</strong>用途に合わせて内容を配置します。</div></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-tab" data-basic-tabs&gt;
+  &lt;div class="c-tab__list" role="tablist" aria-label="基本情報"&gt;
+    &lt;button class="c-tab__tab is-active" type="button" role="tab" aria-selected="true"&gt;概要&lt;/button&gt;
+    &lt;button class="c-tab__tab" type="button" role="tab" aria-selected="false"&gt;仕様&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="c-tab__panels"&gt;
+    &lt;div class="c-tab__panel" role="tabpanel"&gt;概要の内容&lt;/div&gt;
+    &lt;div class="c-tab__panel" role="tabpanel" hidden&gt;仕様の内容&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tab__list { display: flex; }
+.c-tab__tab { flex: 1; border-bottom: 3px solid transparent; }
+.c-tab__tab.is-active {
+  color: var(--color-primary, #18243b);
+  border-bottom-color: var(--color-primary, #18243b);
+}
+.c-tab__panel[hidden] { display: none; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-basic-tabs]');
+const tabs = [...root.querySelectorAll('[role="tab"]')];
+const panels = [...root.querySelectorAll('[role="tabpanel"]')];
+
+function select(index, focus = false) {
+  tabs.forEach((tab, i) =&gt; {
+    const active = i === index;
+    tab.classList.toggle('is-active', active);
+    tab.setAttribute('aria-selected', String(active));
+    tab.tabIndex = active ? 0 : -1;
+    panels[i].hidden = !active;
+  });
+  if (focus) tabs[index].focus();
+}
+tabs.forEach((tab, index) =&gt; {
+  tab.addEventListener('click', () =&gt; select(index));
+  tab.addEventListener('keydown', (event) =&gt; {
+    let next = null;
+    if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+    if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+    if (event.key === 'Home') next = 0;
+    if (event.key === 'End') next = tabs.length - 1;
+    if (next === null) return;
+    event.preventDefault();
+    select(next, true);
+  });
+});
+select(0);</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>概要・仕様・価格など、同じ階層の少量な情報をクリックで切り替える基本形。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="基本 キーボード WAI-ARIA arrow Home End roving tabindex アクセシビリティ">
+          <header class="part-example__header"><div><span class="part-example__index">KEYBOARD</span><h2>キーボード対応</h2></div><small>WAI-ARIA</small></header>
+          <div class="part-example__preview"><div class="c-tab" data-tab-demo data-tab-keyboard><div class="c-tab__list" role="tablist" aria-label="操作ガイド"><button class="c-tab__tab is-active" type="button" role="tab" aria-selected="true">概要</button><button class="c-tab__tab" type="button" role="tab" aria-selected="false">操作</button><button class="c-tab__tab" type="button" role="tab" aria-selected="false">補足</button></div><div class="c-tab__panels"><div class="c-tab__panel" role="tabpanel"><strong>概要</strong>左右キー、Home、Endで移動できます。</div><div class="c-tab__panel" role="tabpanel" hidden><strong>操作</strong>選択タブだけをTabキーの停止位置にします。</div><div class="c-tab__panel" role="tabpanel" hidden><strong>補足</strong>タブとパネルをARIA属性で関連付けます。</div></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-tab" data-keyboard-tabs&gt;
+  &lt;div class="c-tab__list" role="tablist" aria-label="操作ガイド"&gt;
+    &lt;button class="c-tab__tab is-active" type="button" role="tab" aria-selected="true"&gt;概要&lt;/button&gt;
+    &lt;button class="c-tab__tab" type="button" role="tab" aria-selected="false"&gt;操作&lt;/button&gt;
+    &lt;button class="c-tab__tab" type="button" role="tab" aria-selected="false"&gt;補足&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="c-tab__panels"&gt;
+    &lt;div class="c-tab__panel" role="tabpanel"&gt;概要を表示します。&lt;/div&gt;
+    &lt;div class="c-tab__panel" role="tabpanel" hidden&gt;操作方法を表示します。&lt;/div&gt;
+    &lt;div class="c-tab__panel" role="tabpanel" hidden&gt;補足情報を表示します。&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tab__tab:focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: -3px;
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-keyboard-tabs]');
+const tabs = [...root.querySelectorAll('[role="tab"]')];
+const panels = [...root.querySelectorAll('[role="tabpanel"]')];
+
+function select(index, focus = false) {
+  tabs.forEach((tab, i) =&gt; {
+    const active = i === index;
+    tab.classList.toggle('is-active', active);
+    tab.setAttribute('aria-selected', String(active));
+    tab.tabIndex = active ? 0 : -1;
+    panels[i].hidden = !active;
+  });
+  if (focus) tabs[index].focus();
+}
+tabs.forEach((tab, index) =&gt; {
+  tab.addEventListener('click', () =&gt; select(index));
+  tab.addEventListener('keydown', (event) =&gt; {
+    let next = null;
+    if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+    if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+    if (event.key === 'Home') next = 0;
+    if (event.key === 'End') next = tabs.length - 1;
+    if (next === null) return;
+    event.preventDefault();
+    select(next, true);
+  });
+});
+select(0);</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>アクセシビリティ要件のある画面。全パターンでロービングtabindexと矢印キーを共通利用します。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="外観 アニメーション 下線 slide indicator 移動">
+          <header class="part-example__header"><div><span class="part-example__index">SLIDING LINE</span><h2>下線スライド</h2></div><small>INDICATOR</small></header>
+          <div class="part-example__preview"><div class="c-tab c-tab--line" data-tab-demo><div class="c-tab__list" role="tablist" aria-label="企業情報"><span class="c-tab__indicator" aria-hidden="true"></span><button class="c-tab__tab is-active" type="button" role="tab" aria-selected="true">ホーム</button><button class="c-tab__tab" type="button" role="tab" aria-selected="false">実績</button><button class="c-tab__tab" type="button" role="tab" aria-selected="false">会社概要</button></div><div class="c-tab__panels"><div class="c-tab__panel" role="tabpanel"><strong>ホーム</strong>最新情報をまとめて表示します。</div><div class="c-tab__panel" role="tabpanel" hidden><strong>実績</strong>制作事例を紹介します。</div><div class="c-tab__panel" role="tabpanel" hidden><strong>会社概要</strong>組織情報を表示します。</div></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-tab c-tab--line" data-line-tabs&gt;
+  &lt;div class="c-tab__list" role="tablist" aria-label="企業情報"&gt;
+    &lt;span class="c-tab__indicator" aria-hidden="true"&gt;&lt;/span&gt;
+    &lt;button class="c-tab__tab is-active" type="button" role="tab" aria-selected="true"&gt;ホーム&lt;/button&gt;
+    &lt;button class="c-tab__tab" type="button" role="tab" aria-selected="false"&gt;実績&lt;/button&gt;
+    &lt;button class="c-tab__tab" type="button" role="tab" aria-selected="false"&gt;会社概要&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="c-tab__panels"&gt;
+    &lt;div class="c-tab__panel" role="tabpanel"&gt;最新情報を表示します。&lt;/div&gt;
+    &lt;div class="c-tab__panel" role="tabpanel" hidden&gt;制作実績を表示します。&lt;/div&gt;
+    &lt;div class="c-tab__panel" role="tabpanel" hidden&gt;会社情報を表示します。&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tab__indicator {
+  width: calc(100% / var(--tab-count));
+  transform: translateX(calc(var(--tab-index) * 100%));
+  background: var(--color-accent-yellow, #ff0);
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-line-tabs]');
+const tabs = [...root.querySelectorAll('[role="tab"]')];
+const panels = [...root.querySelectorAll('[role="tabpanel"]')];
+
+function select(index) {
+  root.style.setProperty('--tab-count', tabs.length);
+  root.style.setProperty('--tab-index', index);
+  tabs.forEach((tab, i) =&gt; {
+    const active = i === index;
+    tab.classList.toggle('is-active', active);
+    tab.setAttribute('aria-selected', String(active));
+    tab.tabIndex = active ? 0 : -1;
+    panels[i].hidden = !active;
+  });
+}
+tabs.forEach((tab, index) =&gt; {
+  tab.addEventListener('click', () =&gt; select(index));
+});
+select(0);</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>選択位置の変化を明確に見せたいナビゲーション。reduced motionでは即時切り替えます。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="外観 アニメーション ピル segment 期間 表示モード">
+          <header class="part-example__header"><div><span class="part-example__index">PILL SEGMENT</span><h2>ピル型（セグメント）</h2></div><small>VIEW MODE</small></header>
+          <div class="part-example__preview"><div class="c-tab c-tab--pill" data-tab-demo><div class="c-tab__list" role="tablist" aria-label="集計期間"><span class="c-tab__indicator" aria-hidden="true"></span><button class="c-tab__tab is-active" type="button" role="tab" aria-selected="true">日</button><button class="c-tab__tab" type="button" role="tab" aria-selected="false">週</button><button class="c-tab__tab" type="button" role="tab" aria-selected="false">月</button></div><div class="c-tab__panels"><div class="c-tab__panel" role="tabpanel"><strong>日次</strong>今日の集計結果です。</div><div class="c-tab__panel" role="tabpanel" hidden><strong>週次</strong>今週の集計結果です。</div><div class="c-tab__panel" role="tabpanel" hidden><strong>月次</strong>今月の集計結果です。</div></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-tab c-tab--pill" data-pill-tabs&gt;
+  &lt;div class="c-tab__list" role="tablist" aria-label="集計期間"&gt;
+    &lt;span class="c-tab__indicator" aria-hidden="true"&gt;&lt;/span&gt;
+    &lt;button class="c-tab__tab is-active" type="button" role="tab" aria-selected="true"&gt;日&lt;/button&gt;
+    &lt;button class="c-tab__tab" type="button" role="tab" aria-selected="false"&gt;週&lt;/button&gt;
+    &lt;button class="c-tab__tab" type="button" role="tab" aria-selected="false"&gt;月&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="c-tab__panels"&gt;
+    &lt;div class="c-tab__panel" role="tabpanel"&gt;今日の集計結果です。&lt;/div&gt;
+    &lt;div class="c-tab__panel" role="tabpanel" hidden&gt;今週の集計結果です。&lt;/div&gt;
+    &lt;div class="c-tab__panel" role="tabpanel" hidden&gt;今月の集計結果です。&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tab--pill { background: transparent; border: 0; }
+.c-tab--pill .c-tab__list {
+  padding: 4px;
+  background: var(--color-primary-soft, #edf1f7);
+  border-radius: 999px;
+}
+.c-tab--pill .c-tab__indicator {
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc((100% - 8px) / var(--tab-count));
+  height: auto;
+  background: var(--color-primary, #18243b);
+  border-radius: 999px;
+}
+.c-tab--pill .c-tab__tab { position: relative; z-index: 2; border: 0; }
+.c-tab--pill .c-tab__tab.is-active {
+  color: var(--color-text-inverse, #fff);
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-pill-tabs]');
+const tabs = [...root.querySelectorAll('[role="tab"]')];
+const panels = [...root.querySelectorAll('[role="tabpanel"]')];
+
+function select(index) {
+  root.style.setProperty('--tab-count', tabs.length);
+  root.style.setProperty('--tab-index', index);
+  tabs.forEach((tab, i) =&gt; {
+    const active = i === index;
+    tab.classList.toggle('is-active', active);
+    tab.setAttribute('aria-selected', String(active));
+    tab.tabIndex = active ? 0 : -1;
+    panels[i].hidden = !active;
+  });
+}
+tabs.forEach((tab, index) =&gt; {
+  tab.addEventListener('click', () =&gt; select(index));
+});
+select(0);</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>日・週・月や表示モードなど、同一データの表示条件をコンパクトに切り替える場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="外観 アニメーション フェード fade is-closing 対称">
+          <header class="part-example__header"><div><span class="part-example__index">FADE</span><h2>フェード切り替え</h2></div><small>SYMMETRIC MOTION</small></header>
+          <div class="part-example__preview"><div class="c-tab c-tab--fade" data-tab-demo data-tab-fade><div class="c-tab__list" role="tablist" aria-label="商品情報"><button class="c-tab__tab is-active" type="button" role="tab" aria-selected="true">説明</button><button class="c-tab__tab" type="button" role="tab" aria-selected="false">レビュー</button><button class="c-tab__tab" type="button" role="tab" aria-selected="false">Q&amp;A</button></div><div class="c-tab__panels"><div class="c-tab__panel" role="tabpanel"><strong>説明</strong>商品の特徴を紹介します。</div><div class="c-tab__panel" role="tabpanel" hidden><strong>レビュー</strong>利用者の評価を表示します。</div><div class="c-tab__panel" role="tabpanel" hidden><strong>Q&amp;A</strong>よくある質問を表示します。</div></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-tab c-tab--fade" data-fade-tabs&gt;
+  &lt;div class="c-tab__list" role="tablist" aria-label="商品情報"&gt;
+    &lt;button class="c-tab__tab is-active" type="button" role="tab" aria-selected="true"&gt;説明&lt;/button&gt;
+    &lt;button class="c-tab__tab" type="button" role="tab" aria-selected="false"&gt;レビュー&lt;/button&gt;
+    &lt;button class="c-tab__tab" type="button" role="tab" aria-selected="false"&gt;Q&amp;A&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="c-tab__panels"&gt;
+    &lt;div class="c-tab__panel" role="tabpanel"&gt;商品の特徴を紹介します。&lt;/div&gt;
+    &lt;div class="c-tab__panel" role="tabpanel" hidden&gt;利用者の評価を表示します。&lt;/div&gt;
+    &lt;div class="c-tab__panel" role="tabpanel" hidden&gt;よくある質問を表示します。&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tab--fade .c-tab__panels {
+  position: relative;
+  min-height: 5.75rem;
+}
+.c-tab--fade .c-tab__panel.is-closing {
+  position: absolute;
+  inset: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .c-tab--fade .c-tab__panel.is-active {
+    animation: tab-fade-in 180ms ease both;
+  }
+  .c-tab--fade .c-tab__panel.is-closing {
+    display: block;
+    animation: tab-fade-out 180ms ease both;
+  }
+}
+@keyframes tab-fade-in {
+  from { opacity: 0; transform: translateY(.4rem); }
+}
+@keyframes tab-fade-out {
+  to { opacity: 0; transform: translateY(.4rem); }
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-fade-tabs]');
+const tabs = [...root.querySelectorAll('[role="tab"]')];
+const panels = [...root.querySelectorAll('[role="tabpanel"]')];
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let closeTimer = 0;
+
+function select(index) {
+  const previous = panels.findIndex((panel) =&gt; !panel.hidden);
+  clearTimeout(closeTimer);
+  tabs.forEach((tab, i) =&gt; {
+    const active = i === index;
+    tab.classList.toggle('is-active', active);
+    tab.setAttribute('aria-selected', String(active));
+    tab.tabIndex = active ? 0 : -1;
+    panels[i].hidden = !active;
+    panels[i].classList.toggle('is-active', active);
+    panels[i].classList.remove('is-closing');
+  });
+  if (previous &gt;= 0 &amp;&amp; previous !== index &amp;&amp; !reduceMotion) {
+    const leaving = panels[previous];
+    leaving.hidden = false;
+    leaving.classList.remove('is-active');
+    leaving.classList.add('is-closing');
+    closeTimer = setTimeout(() =&gt; {
+      leaving.classList.remove('is-closing');
+      leaving.hidden = true;
+    }, 200);
+  }
+}
+tabs.forEach((tab, index) =&gt; {
+  tab.addEventListener('click', () =&gt; select(index));
+});
+select(0);</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>内容の切り替わりを柔らかく伝える場面。表示・非表示を対称にし、終了後にhiddenへ戻します。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="外観 アイコン icon モバイル ナビゲーション">
+          <header class="part-example__header"><div><span class="part-example__index">ICON TABS</span><h2>アイコン付き</h2></div><small>ICON + LABEL</small></header>
+          <div class="part-example__preview"><div class="c-tab c-tab--icons" data-tab-demo><div class="c-tab__list" role="tablist" aria-label="アプリメニュー"><button class="c-tab__tab is-active" type="button" role="tab" aria-selected="true"><svg class="c-tab__icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M3 11 12 3l9 8v9H3Z" /></svg>ホーム</button><button class="c-tab__tab" type="button" role="tab" aria-selected="false"><svg class="c-tab__icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 21s-8-4.8-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.2-8 11-8 11Z" /></svg>いいね</button><button class="c-tab__tab" type="button" role="tab" aria-selected="false"><svg class="c-tab__icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" /><path d="M4 21a8 8 0 0 1 16 0" /></svg>会員</button></div><div class="c-tab__panels"><div class="c-tab__panel" role="tabpanel"><strong>ホーム</strong>ホーム画面の内容です。</div><div class="c-tab__panel" role="tabpanel" hidden><strong>いいね</strong>保存した項目を表示します。</div><div class="c-tab__panel" role="tabpanel" hidden><strong>会員</strong>アカウント情報を表示します。</div></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-tab c-tab--icons" data-icon-tabs&gt;
+  &lt;div class="c-tab__list" role="tablist" aria-label="アプリメニュー"&gt;
+    &lt;button class="c-tab__tab is-active" type="button" role="tab" aria-selected="true"&gt;
+      &lt;svg class="c-tab__icon" aria-hidden="true" viewBox="0 0 24 24"&gt;&lt;path d="M3 11 12 3l9 8v9H3Z"/&gt;&lt;/svg&gt;ホーム
+    &lt;/button&gt;
+    &lt;button class="c-tab__tab" type="button" role="tab" aria-selected="false"&gt;
+      &lt;svg class="c-tab__icon" aria-hidden="true" viewBox="0 0 24 24"&gt;&lt;path d="M12 21s-8-4.8-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.2-8 11-8 11Z"/&gt;&lt;/svg&gt;いいね
+    &lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="c-tab__panels"&gt;
+    &lt;div class="c-tab__panel" role="tabpanel"&gt;ホーム画面の内容です。&lt;/div&gt;
+    &lt;div class="c-tab__panel" role="tabpanel" hidden&gt;保存した項目を表示します。&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tab--icons .c-tab__tab {
+  display: flex;
+  gap: .3rem;
+  align-items: center;
+  flex-direction: column;
+}
+.c-tab__icon {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 2;
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-icon-tabs]');
+const tabs = [...root.querySelectorAll('[role="tab"]')];
+const panels = [...root.querySelectorAll('[role="tabpanel"]')];
+
+function select(index) {
+  tabs.forEach((tab, i) =&gt; {
+    const active = i === index;
+    tab.classList.toggle('is-active', active);
+    tab.setAttribute('aria-selected', String(active));
+    tab.tabIndex = active ? 0 : -1;
+    panels[i].hidden = !active;
+  });
+}
+tabs.forEach((tab, index) =&gt; {
+  tab.addEventListener('click', () =&gt; select(index));
+});
+select(0);</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>モバイルナビゲーションなど、短いラベルをアイコンで補助して素早く認識させる場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="配置 レスポンシブ 縦 vertical 長いラベル 設定">
+          <header class="part-example__header"><div><span class="part-example__index">VERTICAL</span><h2>縦タブ</h2></div><small>RESPONSIVE</small></header>
+          <div class="part-example__preview"><div class="c-tab c-tab--vertical" data-tab-demo><div class="c-tab__list" role="tablist" aria-label="プラン選択" aria-orientation="vertical"><button class="c-tab__tab is-active" type="button" role="tab" aria-selected="true">プランA</button><button class="c-tab__tab" type="button" role="tab" aria-selected="false">プランB</button><button class="c-tab__tab" type="button" role="tab" aria-selected="false">プランC</button></div><div class="c-tab__panels"><div class="c-tab__panel" role="tabpanel"><strong>プランA</strong>個人向けの基本プランです。</div><div class="c-tab__panel" role="tabpanel" hidden><strong>プランB</strong>チーム向けの標準プランです。</div><div class="c-tab__panel" role="tabpanel" hidden><strong>プランC</strong>組織向けの拡張プランです。</div></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-tab c-tab--vertical" data-vertical-tabs&gt;
+  &lt;div class="c-tab__list" role="tablist" aria-label="プラン選択" aria-orientation="vertical"&gt;
+    &lt;button class="c-tab__tab is-active" type="button" role="tab" aria-selected="true"&gt;プランA&lt;/button&gt;
+    &lt;button class="c-tab__tab" type="button" role="tab" aria-selected="false"&gt;プランB&lt;/button&gt;
+    &lt;button class="c-tab__tab" type="button" role="tab" aria-selected="false"&gt;プランC&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="c-tab__panels"&gt;
+    &lt;div class="c-tab__panel" role="tabpanel"&gt;個人向けの基本プランです。&lt;/div&gt;
+    &lt;div class="c-tab__panel" role="tabpanel" hidden&gt;チーム向けの標準プランです。&lt;/div&gt;
+    &lt;div class="c-tab__panel" role="tabpanel" hidden&gt;組織向けの拡張プランです。&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tab--vertical { display: grid; grid-template-columns: 7rem 1fr; }
+.c-tab--vertical .c-tab__list { flex-direction: column; }
+@media (max-width: 640px) {
+  .c-tab--vertical { grid-template-columns: 1fr; }
+  .c-tab--vertical .c-tab__list { flex-direction: row; }
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-vertical-tabs]');
+const tabs = [...root.querySelectorAll('[role="tab"]')];
+const panels = [...root.querySelectorAll('[role="tabpanel"]')];
+
+function select(index, focus = false) {
+  tabs.forEach((tab, i) =&gt; {
+    const active = i === index;
+    tab.classList.toggle('is-active', active);
+    tab.setAttribute('aria-selected', String(active));
+    tab.tabIndex = active ? 0 : -1;
+    panels[i].hidden = !active;
+  });
+  if (focus) tabs[index].focus();
+}
+tabs.forEach((tab, index) =&gt; {
+  tab.addEventListener('click', () =&gt; select(index));
+  tab.addEventListener('keydown', (event) =&gt; {
+    let next = null;
+    if (event.key === 'ArrowDown') next = (index + 1) % tabs.length;
+    if (event.key === 'ArrowUp') next = (index - 1 + tabs.length) % tabs.length;
+    if (next === null) return;
+    event.preventDefault();
+    select(next, true);
+  });
+});
+select(0);</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>設定画面や長いラベルの分類。SPではタブ列を横向きへ切り替えます。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="配置 多数項目 レスポンシブ overflow more その他 溢れ ResizeObserver メニュー">
+          <header class="part-example__header"><div><span class="part-example__index">OVERFLOW</span><h2>溢れタブを「その他」へ格納</h2></div><small>ADAPTIVE MENU</small></header>
+          <div class="part-example__preview"><div class="c-tab c-tab--overflow" data-tab-demo data-tab-overflow><div class="c-tab__list" role="tablist" aria-label="サイトカテゴリ"><button class="c-tab__tab is-active" type="button" role="tab" aria-selected="true">ホーム</button><button class="c-tab__tab" type="button" role="tab" aria-selected="false">ニュース</button><button class="c-tab__tab" type="button" role="tab" aria-selected="false">製品情報</button><button class="c-tab__tab" type="button" role="tab" aria-selected="false">採用情報</button><button class="c-tab__tab" type="button" role="tab" aria-selected="false">会社概要</button><div class="c-tab__more-wrap" data-tab-more-wrap hidden><button class="c-tab__more" type="button" aria-haspopup="menu" aria-expanded="false" data-tab-more>その他 ▾</button><div class="c-tab__menu" role="menu" data-tab-menu hidden></div></div></div><div class="c-tab__panels"><div class="c-tab__panel" role="tabpanel"><strong>ホーム</strong>主要コンテンツを表示します。</div><div class="c-tab__panel" role="tabpanel" hidden><strong>ニュース</strong>更新情報を表示します。</div><div class="c-tab__panel" role="tabpanel" hidden><strong>製品情報</strong>製品一覧を表示します。</div><div class="c-tab__panel" role="tabpanel" hidden><strong>採用情報</strong>採用情報を表示します。</div><div class="c-tab__panel" role="tabpanel" hidden><strong>会社概要</strong>企業情報を表示します。</div></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-tab c-tab--overflow" data-overflow-tabs&gt;
+  &lt;div class="c-tab__list" role="tablist" aria-label="サイトカテゴリ"&gt;
+    &lt;button class="c-tab__tab is-active" type="button" role="tab" aria-selected="true"&gt;ホーム&lt;/button&gt;
+    &lt;button class="c-tab__tab" type="button" role="tab" aria-selected="false"&gt;ニュース&lt;/button&gt;
+    &lt;button class="c-tab__tab" type="button" role="tab" aria-selected="false"&gt;製品情報&lt;/button&gt;
+    &lt;button class="c-tab__tab" type="button" role="tab" aria-selected="false"&gt;採用情報&lt;/button&gt;
+    &lt;button class="c-tab__tab" type="button" role="tab" aria-selected="false"&gt;会社概要&lt;/button&gt;
+    &lt;div class="c-tab__more-wrap" data-tab-more-wrap hidden&gt;
+      &lt;button class="c-tab__more" type="button" aria-haspopup="menu" aria-expanded="false" data-tab-more&gt;その他 ▾&lt;/button&gt;
+      &lt;div class="c-tab__menu" role="menu" data-tab-menu hidden&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="c-tab__panels"&gt;
+    &lt;div class="c-tab__panel" role="tabpanel"&gt;主要コンテンツです。&lt;/div&gt;
+    &lt;div class="c-tab__panel" role="tabpanel" hidden&gt;更新情報です。&lt;/div&gt;
+    &lt;div class="c-tab__panel" role="tabpanel" hidden&gt;製品一覧です。&lt;/div&gt;
+    &lt;div class="c-tab__panel" role="tabpanel" hidden&gt;採用情報です。&lt;/div&gt;
+    &lt;div class="c-tab__panel" role="tabpanel" hidden&gt;会社情報です。&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tab--overflow .c-tab__list { flex-wrap: nowrap; }
+.c-tab--overflow .c-tab__tab {
+  min-width: 5.25rem;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+.c-tab__more-wrap { position: relative; margin-left: auto; }
+.c-tab__menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 10;
+  background: var(--color-background, #fff);
+}
+.c-tab__tab[hidden], .c-tab__menu[hidden] { display: none; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-overflow-tabs]');
+const list = root.querySelector('[role="tablist"]');
+const tabs = [...root.querySelectorAll('[role="tab"]')];
+const panels = [...root.querySelectorAll('[role="tabpanel"]')];
+const moreWrap = root.querySelector('[data-tab-more-wrap]');
+const more = root.querySelector('[data-tab-more]');
+const menu = root.querySelector('[data-tab-menu]');
+
+function select(index) {
+  tabs.forEach((tab, i) =&gt; {
+    const active = i === index;
+    tab.classList.toggle('is-active', active);
+    tab.setAttribute('aria-selected', String(active));
+    panels[i].hidden = !active;
+  });
+}
+function closeMenu() {
+  menu.hidden = true;
+  more.setAttribute('aria-expanded', 'false');
+}
+function layout() {
+  tabs.forEach((tab) =&gt; { tab.hidden = false; });
+  menu.replaceChildren();
+  moreWrap.hidden = true;
+  const total = tabs.reduce((sum, tab) =&gt; sum + tab.offsetWidth, 0);
+  if (total &lt;= list.clientWidth) return;
+  moreWrap.hidden = false;
+  const available = list.clientWidth - moreWrap.offsetWidth;
+  let used = 0;
+  tabs.forEach((tab, index) =&gt; {
+    used += tab.offsetWidth;
+    if (used &lt;= available) return;
+    tab.hidden = true;
+    const item = document.createElement('button');
+    item.type = 'button';
+    item.className = 'c-tab__menu-item';
+    item.textContent = tab.textContent;
+    item.addEventListener('click', () =&gt; { select(index); closeMenu(); });
+    menu.append(item);
+  });
+}
+tabs.forEach((tab, index) =&gt; tab.addEventListener('click', () =&gt; select(index)));
+more.addEventListener('click', () =&gt; {
+  menu.hidden = !menu.hidden;
+  more.setAttribute('aria-expanded', String(!menu.hidden));
+});
+document.addEventListener('click', (event) =&gt; {
+  if (!moreWrap.contains(event.target)) closeMenu();
+});
+new ResizeObserver(layout).observe(list);
+select(0);
+layout();</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>幅に対して項目が多いカテゴリ切り替え。隠れた項目も「その他」メニューから選択できます。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="状態連携 URL hash deep link 直リンク 状態">
+          <header class="part-example__header"><div><span class="part-example__index">URL HASH</span><h2>URLハッシュ連動</h2></div><small>DEEP LINK</small></header>
+          <div class="part-example__preview"><div class="c-tab c-tab--hash" data-tab-demo data-tab-hash><div class="c-tab__list" role="tablist" aria-label="サービス情報"><button class="c-tab__tab is-active" type="button" role="tab" aria-selected="true" aria-controls="tab-hash-basic">基本</button><button class="c-tab__tab" type="button" role="tab" aria-selected="false" aria-controls="tab-hash-advanced">応用</button><button class="c-tab__tab" type="button" role="tab" aria-selected="false" aria-controls="tab-hash-faq">FAQ</button></div><div class="c-tab__panels"><div class="c-tab__panel" id="tab-hash-basic" role="tabpanel"><strong>基本</strong>URL末尾は #tab-hash-basic です。</div><div class="c-tab__panel" id="tab-hash-advanced" role="tabpanel" hidden><strong>応用</strong>この状態へ直接リンクできます。</div><div class="c-tab__panel" id="tab-hash-faq" role="tabpanel" hidden><strong>FAQ</strong>履歴を増やさずURLを同期します。</div></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-tab c-tab--hash" data-hash-tabs&gt;
+  &lt;div class="c-tab__list" role="tablist" aria-label="サービス情報"&gt;
+    &lt;button class="c-tab__tab is-active" type="button" role="tab" aria-selected="true" aria-controls="service-basic"&gt;基本&lt;/button&gt;
+    &lt;button class="c-tab__tab" type="button" role="tab" aria-selected="false" aria-controls="service-advanced"&gt;応用&lt;/button&gt;
+    &lt;button class="c-tab__tab" type="button" role="tab" aria-selected="false" aria-controls="service-faq"&gt;FAQ&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="c-tab__panels"&gt;
+    &lt;div class="c-tab__panel" id="service-basic" role="tabpanel"&gt;基本情報です。&lt;/div&gt;
+    &lt;div class="c-tab__panel" id="service-advanced" role="tabpanel" hidden&gt;応用情報です。&lt;/div&gt;
+    &lt;div class="c-tab__panel" id="service-faq" role="tabpanel" hidden&gt;よくある質問です。&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tab--hash .c-tab__tab { border-radius: .45rem .45rem 0 0; }
+.c-tab--hash .c-tab__tab.is-active {
+  color: var(--color-text-inverse, #fff);
+  background: var(--color-primary, #18243b);
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-hash-tabs]');
+const tabs = [...root.querySelectorAll('[role="tab"]')];
+const panels = [...root.querySelectorAll('[role="tabpanel"]')];
+
+function select(index, updateHash = false) {
+  tabs.forEach((tab, i) =&gt; {
+    const active = i === index;
+    tab.classList.toggle('is-active', active);
+    tab.setAttribute('aria-selected', String(active));
+    tab.tabIndex = active ? 0 : -1;
+    panels[i].hidden = !active;
+  });
+  if (updateHash) history.replaceState(null, '', `#${panels[index].id}`);
+}
+tabs.forEach((tab, index) =&gt; {
+  tab.addEventListener('click', () =&gt; select(index, true));
+});
+function selectFromHash() {
+  const index = panels.findIndex((panel) =&gt; panel.id === location.hash.slice(1));
+  select(index &gt;= 0 ? index : 0);
+}
+window.addEventListener('hashchange', selectFromHash);
+selectFromHash();</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>料金やFAQなど、特定タブを開いた状態のURLを共有したい場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="状態連携 状態保存 memory localStorage 選択 復元">
+          <header class="part-example__header"><div><span class="part-example__index">MEMORY</span><h2>選択を記憶する</h2></div><small>LOCAL STORAGE</small></header>
+          <div class="part-example__preview"><div class="c-tab c-tab--memory" data-tab-demo data-tab-memory="mark-bench-tab-memory"><div class="c-tab__list" role="tablist" aria-label="サポート情報"><button class="c-tab__tab is-active" type="button" role="tab" aria-selected="true">概要</button><button class="c-tab__tab" type="button" role="tab" aria-selected="false">料金</button><button class="c-tab__tab" type="button" role="tab" aria-selected="false">サポート</button></div><div class="c-tab__panels"><div class="c-tab__panel" role="tabpanel"><strong>概要</strong>選択状態をブラウザへ保存します。</div><div class="c-tab__panel" role="tabpanel" hidden><strong>料金</strong>再読み込み後もこのタブを復元します。</div><div class="c-tab__panel" role="tabpanel" hidden><strong>サポート</strong>保存キーは設置ごとに変更できます。</div></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-tab c-tab--memory" data-memory-tabs data-storage-key="account-tabs"&gt;
+  &lt;div class="c-tab__list" role="tablist" aria-label="サポート情報"&gt;
+    &lt;button class="c-tab__tab is-active" type="button" role="tab" aria-selected="true"&gt;概要&lt;/button&gt;
+    &lt;button class="c-tab__tab" type="button" role="tab" aria-selected="false"&gt;料金&lt;/button&gt;
+    &lt;button class="c-tab__tab" type="button" role="tab" aria-selected="false"&gt;サポート&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="c-tab__panels"&gt;
+    &lt;div class="c-tab__panel" role="tabpanel"&gt;サービス概要です。&lt;/div&gt;
+    &lt;div class="c-tab__panel" role="tabpanel" hidden&gt;料金情報です。&lt;/div&gt;
+    &lt;div class="c-tab__panel" role="tabpanel" hidden&gt;サポート情報です。&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tab--memory .c-tab__tab.is-active {
+  color: var(--color-primary, #18243b);
+  background: var(--color-accent-yellow, #ff0);
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-memory-tabs]');
+const tabs = [...root.querySelectorAll('[role="tab"]')];
+const panels = [...root.querySelectorAll('[role="tabpanel"]')];
+const key = root.dataset.storageKey;
+
+function select(index, save = false) {
+  tabs.forEach((tab, i) =&gt; {
+    const active = i === index;
+    tab.classList.toggle('is-active', active);
+    tab.setAttribute('aria-selected', String(active));
+    tab.tabIndex = active ? 0 : -1;
+    panels[i].hidden = !active;
+  });
+  if (save) {
+    try { localStorage.setItem(key, String(index)); } catch {}
+  }
+}
+tabs.forEach((tab, index) =&gt; {
+  tab.addEventListener('click', () =&gt; select(index, true));
+});
+let saved = 0;
+try { saved = Number.parseInt(localStorage.getItem(key), 10) || 0; } catch {}
+select(tabs[saved] ? saved : 0);</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>設定や管理画面など、再訪時に前回選んだ分類から続きを見せたい場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="タッチ 操作 swipe pointer drag スワイプ レスポンシブ">
+          <header class="part-example__header"><div><span class="part-example__index">SWIPE</span><h2>スワイプ対応</h2></div><small>POINTER EVENTS</small></header>
+          <div class="part-example__preview"><div class="c-tab c-tab--swipe" data-tab-demo data-tab-swipe><div class="c-tab__list" role="tablist" aria-label="紹介情報"><button class="c-tab__tab is-active" type="button" role="tab" aria-selected="true">紹介</button><button class="c-tab__tab" type="button" role="tab" aria-selected="false">特徴</button><button class="c-tab__tab" type="button" role="tab" aria-selected="false">口コミ</button></div><div class="c-tab__viewport" data-tab-viewport><div class="c-tab__track" data-tab-track><div class="c-tab__panel" role="tabpanel"><strong>紹介</strong>左右へ40px以上ドラッグしてください。</div><div class="c-tab__panel" role="tabpanel"><strong>特徴</strong>タッチとマウスを同じ処理で扱います。</div><div class="c-tab__panel" role="tabpanel"><strong>口コミ</strong>縦スクロールは妨げません。</div></div></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-tab c-tab--swipe" data-swipe-tabs&gt;
+  &lt;div class="c-tab__list" role="tablist" aria-label="紹介情報"&gt;
+    &lt;button class="c-tab__tab is-active" type="button" role="tab" aria-selected="true"&gt;紹介&lt;/button&gt;
+    &lt;button class="c-tab__tab" type="button" role="tab" aria-selected="false"&gt;特徴&lt;/button&gt;
+    &lt;button class="c-tab__tab" type="button" role="tab" aria-selected="false"&gt;口コミ&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="c-tab__viewport" data-tab-viewport&gt;
+    &lt;div class="c-tab__track" data-tab-track&gt;
+      &lt;div class="c-tab__panel" role="tabpanel"&gt;紹介内容です。&lt;/div&gt;
+      &lt;div class="c-tab__panel" role="tabpanel"&gt;特徴を表示します。&lt;/div&gt;
+      &lt;div class="c-tab__panel" role="tabpanel"&gt;口コミを表示します。&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tab__viewport { overflow: hidden; touch-action: pan-y; }
+.c-tab__track { display: flex; transform: translateX(calc(var(--tab-index) * -100%)); }
+.c-tab--swipe .c-tab__panel { flex: 0 0 100%; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-swipe-tabs]');
+const tabs = [...root.querySelectorAll('[role="tab"]')];
+const viewport = root.querySelector('[data-tab-viewport]');
+let current = 0;
+let startX = null;
+
+function select(index) {
+  current = Math.max(0, Math.min(tabs.length - 1, index));
+  root.style.setProperty('--tab-index', current);
+  tabs.forEach((tab, i) =&gt; {
+    const active = i === current;
+    tab.classList.toggle('is-active', active);
+    tab.setAttribute('aria-selected', String(active));
+    tab.tabIndex = active ? 0 : -1;
+  });
+}
+tabs.forEach((tab, index) =&gt; {
+  tab.addEventListener('click', () =&gt; select(index));
+});
+viewport.addEventListener('pointerdown', (event) =&gt; {
+  startX = event.clientX;
+  viewport.setPointerCapture(event.pointerId);
+});
+viewport.addEventListener('pointerup', (event) =&gt; {
+  if (startX === null) return;
+  const distance = event.clientX - startX;
+  startX = null;
+  if (distance &lt;= -40) select(current + 1);
+  if (distance &gt;= 40) select(current - 1);
+});
+select(0);</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>スマートフォン中心のコンテンツ。クリックとスワイプを併用し、端では範囲内へ戻します。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="自動 操作 rotation pause hover focus reduced motion ローテーション">
+          <header class="part-example__header"><div><span class="part-example__index">AUTO ROTATION</span><h2>自動ローテーション</h2></div><small>PAUSABLE</small></header>
+          <div class="part-example__preview"><div class="c-tab c-tab--auto" data-tab-demo data-tab-auto data-interval="3000"><div class="c-tab__list" role="tablist" aria-label="記事一覧"><button class="c-tab__tab is-active" type="button" role="tab" aria-selected="true">新着</button><button class="c-tab__tab" type="button" role="tab" aria-selected="false">人気</button><button class="c-tab__tab" type="button" role="tab" aria-selected="false">特集</button></div><div class="c-tab__panels"><div class="c-tab__panel" role="tabpanel"><strong>新着</strong>最新の記事を表示しています。</div><div class="c-tab__panel" role="tabpanel" hidden><strong>人気</strong>人気の記事を表示しています。</div><div class="c-tab__panel" role="tabpanel" hidden><strong>特集</strong>特集記事を表示しています。</div></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-tab c-tab--auto" data-auto-tabs data-interval="3000"&gt;
+  &lt;div class="c-tab__list" role="tablist" aria-label="記事一覧"&gt;
+    &lt;button class="c-tab__tab is-active" type="button" role="tab" aria-selected="true"&gt;新着&lt;/button&gt;
+    &lt;button class="c-tab__tab" type="button" role="tab" aria-selected="false"&gt;人気&lt;/button&gt;
+    &lt;button class="c-tab__tab" type="button" role="tab" aria-selected="false"&gt;特集&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="c-tab__panels"&gt;
+    &lt;div class="c-tab__panel" role="tabpanel"&gt;最新の記事です。&lt;/div&gt;
+    &lt;div class="c-tab__panel" role="tabpanel" hidden&gt;人気の記事です。&lt;/div&gt;
+    &lt;div class="c-tab__panel" role="tabpanel" hidden&gt;特集記事です。&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tab--auto .c-tab__panel.is-active {
+  border-left: 4px solid var(--color-accent-yellow, #ff0);
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-auto-tabs]');
+const tabs = [...root.querySelectorAll('[role="tab"]')];
+const panels = [...root.querySelectorAll('[role="tabpanel"]')];
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const interval = Number(root.dataset.interval) || 3000;
+let current = 0;
+let timer = 0;
+
+function select(index) {
+  current = index;
+  tabs.forEach((tab, i) =&gt; {
+    const active = i === current;
+    tab.classList.toggle('is-active', active);
+    tab.setAttribute('aria-selected', String(active));
+    tab.tabIndex = active ? 0 : -1;
+    panels[i].hidden = !active;
+    panels[i].classList.toggle('is-active', active);
+  });
+}
+const stop = () =&gt; { clearInterval(timer); timer = 0; };
+const start = () =&gt; {
+  if (!reduceMotion &amp;&amp; !timer) {
+    timer = setInterval(() =&gt; select((current + 1) % tabs.length), interval);
+  }
+};
+tabs.forEach((tab, index) =&gt; {
+  tab.addEventListener('click', () =&gt; select(index));
+});
+root.addEventListener('mouseenter', stop);
+root.addEventListener('focusin', stop);
+root.addEventListener('mouseleave', start);
+root.addEventListener('focusout', start);
+select(0);
+start();</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>新着やランキング。ホバー・フォーカス中は停止し、reduced motionでは自動再生しません。</p></div>
+        </section>
+      </div>
+
+      <div class="part-detail-empty" data-pattern-empty hidden><p>[ NO_PATTERN_FOUND ]</p><p>検索語を変更してください。</p></div>
+
+      <section class="part-common-styles" id="tab-common-styles" aria-labelledby="tab-common-styles-title">
+        <header class="part-common-styles__header reveal">
+          <p class="section-index">TAB / COMMON_STYLE</p>
+          <h2 id="tab-common-styles-title">共通スタイル</h2>
+          <p>タブリスト・選択状態・パネル・フォーカス表示の共通設定です。</p>
+        </header>
+        <div class="part-common-styles__code reveal" data-reveal-threshold="0.01">
+          <div class="part-code">
+            <div class="part-code__header"><span>CSS / COMMON</span><button type="button" data-copy-code>COPY</button></div>
+            <pre><code>.c-tab,
+.c-tab * { box-sizing: border-box; }
+.c-tab {
+  --tab-count: 3;
+  --tab-index: 0;
+  width: min(100%, 30rem);
+  min-width: 0;
+  color: var(--color-text, #1c2430);
+  font-family: var(--font-sans, sans-serif);
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+}
+.c-tab__list {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  border-bottom: 1px solid var(--color-grid, #d9dfe8);
+}
+.c-tab__tab,
+.c-tab__more,
+.c-tab__menu-item {
+  min-width: 0;
+  min-height: 2.75rem;
+  padding: .65rem .75rem;
+  color: var(--color-text-subtle, #667085);
+  font: 700 .68rem/1.25 var(--font-mono, monospace);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.c-tab__tab {
+  flex: 1;
+  border-bottom: 3px solid transparent;
+}
+.c-tab__tab.is-active {
+  color: var(--color-primary, #18243b);
+  border-bottom-color: var(--color-primary, #18243b);
+}
+.c-tab__tab:focus-visible,
+.c-tab__more:focus-visible,
+.c-tab__menu-item:focus-visible {
+  position: relative;
+  z-index: 3;
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: -3px;
+}
+.c-tab__panels { min-width: 0; }
+.c-tab__panel {
+  min-height: 5.75rem;
+  padding: 1rem;
+  color: var(--color-text-subtle, #667085);
+  font-size: .78rem;
+  line-height: 1.7;
+}
+.c-tab__panel[hidden],
+.c-tab__tab[hidden],
+.c-tab__menu[hidden],
+.c-tab__more-wrap[hidden] { display: none; }
+.c-tab__panel strong {
+  display: block;
+  margin-bottom: .3rem;
+  color: var(--color-text, #1c2430);
+}
+.c-tab__indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  height: 3px;
+  pointer-events: none;
+}
+.c-tab__more-wrap {
+  position: relative;
+  margin-left: auto;
+  flex: 0 0 auto;
+}
+.c-tab__more {
+  height: 100%;
+  color: var(--color-primary, #18243b);
+  white-space: nowrap;
+}
+.c-tab__menu {
+  position: absolute;
+  top: calc(100% + .25rem);
+  right: 0;
+  z-index: 10;
+  width: max-content;
+  min-width: 9rem;
+  padding: .3rem;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+  box-shadow: 0 .8rem 1.8rem rgb(17 24 39 / 18%);
+}
+.c-tab__menu-item {
+  display: block;
+  width: 100%;
+  min-height: 2.25rem;
+  text-align: left;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .c-tab__tab,
+  .c-tab__indicator,
+  .c-tab__track {
+    transition: color 180ms ease,
+      background-color 180ms ease,
+      border-color 180ms ease,
+      transform 180ms ease;
+  }
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <footer class="page-footer" aria-label="ページナビゲーション"><a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO WEB PARTS</span></a><a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a></footer>
+    </main>
+
+    <script src="../js/web-parts-detail.js" defer></script>
+    <script src="../js/web-parts-tab.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

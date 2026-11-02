@@ -6,6 +6,48 @@
     <meta name="description" content="MARK BENCHの目的、制作方針、技術構成について。" />
     <meta name="theme-color" content="#18243b" />
     <title>ABOUT | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/about.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="ABOUT | MARK BENCH" />
+    <meta property="og:description" content="MARK BENCHの目的、制作方針、技術構成について。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/about.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ABOUT | MARK BENCH" />
+    <meta name="twitter:description" content="MARK BENCHの目的、制作方針、技術構成について。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="./assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "ABOUT",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/about.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
     <script>document.documentElement.classList.replace("no-js", "js");</script>
     <link rel="stylesheet" href="./css/foundation.css" />
     <link rel="stylesheet" href="./css/components.css" />
@@ -26,7 +68,8 @@
 
     <nav class="site-rail-navigation" aria-label="主要ナビゲーション">
       <a href="./tools/"><strong>TOOLS</strong></a>
-      <a href="./build-logs/"><strong>BUILD LOGS</strong></a>
+      <a href="./web-parts/"><strong>WEB PARTS</strong></a>
+      <a href="./build-notes/"><strong>BUILD NOTES</strong></a>
       <a href="./about.html" aria-current="location"><strong>ABOUT</strong></a>
     </nav>
 
@@ -45,8 +88,8 @@
           <h2 id="manifesto-title">このサイトについて</h2>
         </div>
         <div class="manifesto__body">
-          <p>MARK BENCHは、Web制作の作業を少し便利にするツールの制作と、その設計・実装・検証の過程を記録するサイトです。</p>
-          <p>テキスト変換やディレクトリ構成の整理、Markdown編集など、日々の制作で役立つ機能をひとつずつ形にしています。完成したツールだけでなく、試行錯誤や改善の記録も残しながら、継続的に更新していきます。</p>
+          <p>MARK BENCHは、Web制作の作業を少し便利にするツール、繰り返し使うUIパーツ、その設計・実装・検証の過程を記録するサイトです。</p>
+          <p>テキスト変換やディレクトリ構成の整理、Markdown編集、見出しやボタンなど、日々の制作で役立つ機能と部品をひとつずつ形にしています。完成したものだけでなく、試行錯誤や改善の記録も残しながら、継続的に更新していきます。</p>
         </div>
       </section>
 
@@ -58,10 +101,10 @@
           </div>
         </header>
         <ol class="site-design-list about-info-list reveal">
-          <li><span>01 / HOME</span><strong>TREE ROOT</strong><p>HOMEをルートとし、TOOLS、BUILD LOGS、ABOUTをファイルパス付きのツリーで案内する。</p><small>ENTRY</small></li>
+          <li><span>01 / HOME</span><strong>TREE ROOT</strong><p>HOMEをルートとし、TOOLS、WEB PARTS、BUILD NOTES、ABOUTをファイルパス付きのツリーで案内する。</p><small>ENTRY</small></li>
           <li><span>02 / RESPONSIVE SHELL</span><strong>70 / 15 / 15</strong><p>PCはメイン約70％、左右レール約15％ずつ。1024px以下では上部配置へ切り替える。</p><small>LAYOUT</small></li>
           <li><span>03 / WAYFINDING</span><strong>PAGE CONTEXT</strong><p>左レールは現在のページタイトルまでをツリー型パンくずで示し、右レールに主要ナビゲーションを固定する。</p><small>NAVIGATION</small></li>
-          <li><span>04 / DIRECTORY</span><strong>STATIC ROUTES</strong><p>TOOLSとBUILD LOGSは、各ディレクトリのindex.htmlと内容を表すファイル名の詳細ページで管理する。</p><small>FILES</small></li>
+          <li><span>04 / DIRECTORY</span><strong>STATIC ROUTES</strong><p>TOOLSは機能別、WEB PARTSはUIカテゴリ別、BUILD NOTESはCODING NOTEとNOTE to SELFに分け、各index.htmlから詳細ページへ案内する。</p><small>FILES</small></li>
         </ol>
       </section>
 
@@ -130,13 +173,17 @@
         </header>
         <ul class="spec-list about-info-list">
           <li><span>FRONTEND</span><strong>HTML / CSS / VANILLA JAVASCRIPT</strong></li>
-          <li><span>PAGE STRUCTURE</span><strong>HOME / TOOLS / BUILD LOGS / ABOUT</strong></li>
+          <li><span>PAGE STRUCTURE</span><strong>HOME / TOOLS / WEB PARTS / BUILD NOTES / ABOUT</strong></li>
           <li><span>ROUTING</span><strong>DIRECTORY INDEX / NAMED DETAIL PAGES</strong></li>
           <li><span>LAYOUT</span><strong>70% MAIN / 15% SITE RAILS</strong></li>
           <li><span>FILTER</span><strong>KEYWORDS / CATEGORY</strong></li>
           <li><span>PROCESSING</span><strong>LOCAL BROWSER / STATIC BUILD</strong></li>
         </ul>
       </section>
+      <footer class="page-footer" aria-label="ページナビゲーション">
+        <a class="page-footer__back" href="./index.html"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO HOME</span></a>
+        <a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a>
+      </footer>
     </main>
 
     <script src="./js/main.js" defer></script>

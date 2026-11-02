@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="FAQ、補足情報、階層メニューをVanilla JavaScriptで開閉するアコーディオン12パターンです。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>ACCORDION | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/accordion.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="ACCORDION | MARK BENCH" />
+    <meta property="og:description" content="FAQ、補足情報、階層メニューをVanilla JavaScriptで開閉するアコーディオン12パターンです。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/accordion.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ACCORDION | MARK BENCH" />
+    <meta name="twitter:description" content="FAQ、補足情報、階層メニューをVanilla JavaScriptで開閉するアコーディオン12パターンです。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "ACCORDION",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/accordion.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/web-parts.css" />
+    <link rel="stylesheet" href="../css/web-parts-accordion.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts-detail" data-parts-detail>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header"><div class="site-header__bar"><nav class="site-breadcrumb-logo" aria-label="パンくずリスト"><a class="site-logo" href="../index.html">MARK BENCH</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><a class="site-breadcrumb-logo__parent" href="./">WEB PARTS</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><span class="site-breadcrumb-logo__current" aria-current="page">ACCORDION</span></nav></div></header>
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション"><a href="../tools/"><strong>TOOLS</strong></a><a href="./" aria-current="location"><strong>WEB PARTS</strong></a><a href="../build-notes/"><strong>BUILD NOTES</strong></a><a href="../about.html"><strong>ABOUT</strong></a></nav>
+
+    <main id="main" tabindex="-1">
+      <header class="part-detail-header">
+        <p class="section-index reveal">WEB_PARTS / ACCORDION</p>
+        <h1 class="reveal">ACCORDION</h1>
+        <p class="part-detail-header__lead reveal">FAQ、仕様の補足、設定項目、階層メニューなど、必要な内容だけを開いて確認できるVanilla JavaScript対応のアコーディオン12パターンです。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 12</span><span>TYPE: CSS + JS</span><span>DEPENDENCY: NONE</span></div>
+        <a class="part-detail-header__anchor reveal" href="#accordion-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
+      </header>
+
+      <section class="part-detail-controls directory-search directory-keywords" aria-label="アコーディオンパターンを絞り込み">
+        <div class="directory-keywords__group"><p class="directory-keywords__label">KEYWORDS</p><div class="directory-keywords__list">
+          <button type="button" aria-pressed="false" data-pattern-keyword="基本"># 基本</button><button type="button" aria-pressed="false" data-pattern-keyword="排他"># 排他</button><button type="button" aria-pressed="false" data-pattern-keyword="FAQ"># FAQ</button><button type="button" aria-pressed="false" data-pattern-keyword="状態"># 状態</button><button type="button" aria-pressed="false" data-pattern-keyword="装飾"># 装飾</button><button type="button" aria-pressed="false" data-pattern-keyword="一括"># 一括</button><button type="button" aria-pressed="false" data-pattern-keyword="検索"># 検索</button><button type="button" aria-pressed="false" data-pattern-keyword="階層"># 階層</button><button type="button" aria-pressed="false" data-pattern-keyword="リンク"># リンク</button>
+        </div></div><p>DISPLAY: <span data-pattern-count>12</span> / 12</p>
+      </section>
+
+      <div class="part-example-list">
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="基本 ベーシック 開閉 collapse toggle disclosure standard">
+          <header class="part-example__header"><div><span class="part-example__index">FOUNDATION / 01</span><h2>ベーシック</h2></div><small>INDEPENDENT</small></header>
+          <div class="part-example__preview part-example__preview--accordion"><div class="c-accordion" data-accordion><section class="c-accordion__item"><button class="c-accordion__button" type="button" aria-expanded="false" aria-controls="basic-panel-1">利用条件<span class="c-accordion__icon" aria-hidden="true"></span></button><div class="c-accordion__panel" id="basic-panel-1" role="region" aria-hidden="true"><div><p class="c-accordion__content">ご利用前に対象範囲と注意事項をご確認ください。</p></div></div></section><section class="c-accordion__item"><button class="c-accordion__button" type="button" aria-expanded="false" aria-controls="basic-panel-2">対応環境<span class="c-accordion__icon" aria-hidden="true"></span></button><div class="c-accordion__panel" id="basic-panel-2" role="region" aria-hidden="true"><div><p class="c-accordion__content">最新の主要ブラウザとキーボード操作に対応します。</p></div></div></section></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-accordion" data-accordion&gt;
+  &lt;section class="c-accordion__item"&gt;
+    &lt;button class="c-accordion__button" type="button" aria-expanded="false" aria-controls="panel-1"&gt;利用条件&lt;span class="c-accordion__icon" aria-hidden="true"&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;div class="c-accordion__panel" id="panel-1" role="region" aria-hidden="true"&gt;&lt;div&gt;&lt;p class="c-accordion__content"&gt;対象範囲と注意事項をご確認ください。&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;/section&gt;
+&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-accordion { width: min(100%, 24rem); color: #1c2430; font-family: sans-serif; }
+.c-accordion__item { overflow: hidden; background: #fff; border: 1px solid #aeb8c7; }
+.c-accordion__button { display: flex; width: 100%; padding: .7rem .8rem; justify-content: space-between; color: #18243b; font-weight: 800; background: transparent; border: 0; cursor: pointer; }
+.c-accordion__panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .25s; }
+.c-accordion__panel &gt; div { min-height: 0; overflow: hidden; }
+.c-accordion__item.is-open &gt; .c-accordion__panel { grid-template-rows: 1fr; }
+.c-accordion__content { margin: 0; padding: 0 .8rem .75rem; color: #667085; }
+.c-accordion__button:focus-visible { outline: 3px solid #315a9b; outline-offset: -3px; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-accordion] .c-accordion__item').forEach((item) =&gt; {
+  const button = item.querySelector('.c-accordion__button');
+  const panel = item.querySelector('.c-accordion__panel');
+  button.addEventListener('click', () =&gt; {
+    const open = button.getAttribute('aria-expanded') !== 'true';
+    item.classList.toggle('is-open', open);
+    button.setAttribute('aria-expanded', String(open));
+    panel.setAttribute('aria-hidden', String(!open));
+  });
+});</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>複数の補足情報を、それぞれ独立して開閉できる標準的な案内や設定画面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="基本 details summary native 標準 要素 排他">
+          <header class="part-example__header"><div><span class="part-example__index">FOUNDATION / 02</span><h2>details / summary</h2></div><small>NATIVE ELEMENT</small></header>
+          <div class="part-example__preview part-example__preview--accordion"><div class="c-accordion c-accordion--native" data-native-details><details name="native-guide"><summary class="c-accordion__summary">配送について</summary><p class="c-accordion__content">通常は2〜3営業日で発送します。</p></details><details name="native-guide"><summary class="c-accordion__summary">返品について</summary><p class="c-accordion__content">到着後7日以内にご連絡ください。</p></details><p class="c-accordion__count" data-details-status aria-live="polite">すべて閉じています</p></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-accordion c-accordion--native" data-details&gt;
+  &lt;details name="guide"&gt;&lt;summary class="c-accordion__summary"&gt;配送について&lt;/summary&gt;&lt;p class="c-accordion__content"&gt;通常は2〜3営業日で発送します。&lt;/p&gt;&lt;/details&gt;
+  &lt;details name="guide"&gt;&lt;summary class="c-accordion__summary"&gt;返品について&lt;/summary&gt;&lt;p class="c-accordion__content"&gt;到着後7日以内にご連絡ください。&lt;/p&gt;&lt;/details&gt;
+  &lt;p data-status aria-live="polite"&gt;&lt;/p&gt;
+&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-accordion--native { width: min(100%, 24rem); font-family: sans-serif; }
+.c-accordion--native details { background: #fff; border: 1px solid #aeb8c7; }
+.c-accordion--native details + details { margin-top: -1px; }
+.c-accordion__summary { display: flex; padding: .7rem .8rem; justify-content: space-between; color: #18243b; font-weight: 800; list-style: none; cursor: pointer; }
+.c-accordion__summary::-webkit-details-marker { display: none; }
+.c-accordion__summary::after { content: "+"; }
+details[open] .c-accordion__summary::after { content: "−"; }
+.c-accordion__content { margin: 0; padding: 0 .8rem .75rem; color: #667085; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-details]');
+const status = root.querySelector('[data-status]');
+root.querySelectorAll('details').forEach((detail) =&gt; {
+  detail.addEventListener('toggle', () =&gt; {
+    const current = root.querySelector('details[open] summary');
+    status.textContent = current ? `${current.textContent}を表示中` : 'すべて閉じています';
+  });
+});</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>JavaScriptなしでも開閉できる、軽量なFAQや文章内の補足。name属性で同時展開を1件に制限します。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="排他 一つだけ single exclusive navigation 設定">
+          <header class="part-example__header"><div><span class="part-example__index">FLOW / 01</span><h2>排他式（1つだけ開く）</h2></div><small>SINGLE OPEN</small></header>
+          <div class="part-example__preview part-example__preview--accordion"><div class="c-accordion c-accordion--solo" data-accordion-solo><section class="c-accordion__item"><button class="c-accordion__button" type="button" aria-expanded="true" aria-controls="solo-1">基本設定<span class="c-accordion__icon" aria-hidden="true"></span></button><div class="c-accordion__panel" id="solo-1" role="region"><div><p class="c-accordion__content">名称と公開範囲を設定します。</p></div></div></section><section class="c-accordion__item"><button class="c-accordion__button" type="button" aria-expanded="false" aria-controls="solo-2">通知設定<span class="c-accordion__icon" aria-hidden="true"></span></button><div class="c-accordion__panel" id="solo-2" role="region"><div><p class="c-accordion__content">更新時の通知先を選択します。</p></div></div></section><section class="c-accordion__item"><button class="c-accordion__button" type="button" aria-expanded="false" aria-controls="solo-3">権限設定<span class="c-accordion__icon" aria-hidden="true"></span></button><div class="c-accordion__panel" id="solo-3" role="region"><div><p class="c-accordion__content">編集できる担当者を指定します。</p></div></div></section></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-accordion c-accordion--solo" data-solo&gt;
+  &lt;section class="c-accordion__item"&gt;&lt;button class="c-accordion__button" type="button" aria-expanded="false"&gt;基本設定&lt;/button&gt;&lt;div class="c-accordion__panel"&gt;&lt;div&gt;&lt;p class="c-accordion__content"&gt;名称と公開範囲を設定します。&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;
+  &lt;section class="c-accordion__item"&gt;&lt;button class="c-accordion__button" type="button" aria-expanded="false"&gt;通知設定&lt;/button&gt;&lt;div class="c-accordion__panel"&gt;&lt;div&gt;&lt;p class="c-accordion__content"&gt;通知先を選択します。&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;
+&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-accordion--solo { display: grid; width: min(100%, 24rem); gap: .45rem; font-family: sans-serif; }
+.c-accordion__item { overflow: hidden; background: #fff; border: 1px solid #18243b; }
+.c-accordion__button { width: 100%; padding: .7rem .8rem; color: #18243b; font-weight: 800; text-align: left; background: transparent; border: 0; cursor: pointer; }
+.c-accordion__panel { display: grid; grid-template-rows: 0fr; transition: .25s; }
+.c-accordion__panel &gt; div { min-height: 0; overflow: hidden; }
+.c-accordion__item.is-open &gt; .c-accordion__panel { grid-template-rows: 1fr; }
+.c-accordion__content { margin: 0; padding: 0 .8rem .75rem; color: #667085; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const items = [...document.querySelectorAll('[data-solo] .c-accordion__item')];
+items.forEach((item) =&gt; item.querySelector('button').addEventListener('click', () =&gt; {
+  const next = !item.classList.contains('is-open');
+  items.forEach((candidate) =&gt; {
+    const open = candidate === item &amp;&amp; next;
+    candidate.classList.toggle('is-open', open);
+    candidate.querySelector('button').setAttribute('aria-expanded', String(open));
+  });
+}));</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>設定や手順を1区画ずつ確認し、縦方向の占有を一定に保ちたい場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="FAQ よくある質問 question answer support 独立 開閉">
+          <header class="part-example__header"><div><span class="part-example__index">CONTENT / 01</span><h2>FAQ（よくある質問）</h2></div><small>QUESTION + ANSWER</small></header>
+          <div class="part-example__preview part-example__preview--accordion"><div class="c-accordion c-accordion--faq" data-accordion><section class="c-accordion__item"><button class="c-accordion__button" type="button" aria-expanded="false" aria-controls="faq-1">送料はかかりますか？<span class="c-accordion__icon" aria-hidden="true"></span></button><div class="c-accordion__panel" id="faq-1" role="region"><div><p class="c-accordion__content">合計5,000円以上のご注文は送料無料です。</p></div></div></section><section class="c-accordion__item"><button class="c-accordion__button" type="button" aria-expanded="false" aria-controls="faq-2">支払い方法は？<span class="c-accordion__icon" aria-hidden="true"></span></button><div class="c-accordion__panel" id="faq-2" role="region"><div><p class="c-accordion__content">カード、振込、代金引換をご利用いただけます。</p></div></div></section></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-accordion c-accordion--faq" data-faq&gt;
+  &lt;section class="c-accordion__item"&gt;&lt;button class="c-accordion__button" type="button" aria-expanded="false"&gt;送料はかかりますか？&lt;/button&gt;&lt;div class="c-accordion__panel"&gt;&lt;div&gt;&lt;p class="c-accordion__content"&gt;5,000円以上は送料無料です。&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;
+&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-accordion--faq { width: min(100%, 24rem); font-family: sans-serif; }
+.c-accordion__item { overflow: hidden; background: #fff; border: 1px solid #aeb8c7; }
+.c-accordion__button { display: flex; width: 100%; padding: .7rem .8rem; gap: .7rem; align-items: center; color: #18243b; font-weight: 800; text-align: left; background: transparent; border: 0; cursor: pointer; }
+.c-accordion__button::before { display: grid; width: 1.35rem; height: 1.35rem; flex: none; place-items: center; color: #fff; content: "Q"; background: #18243b; }
+.c-accordion__panel { display: grid; grid-template-rows: 0fr; }
+.c-accordion__panel &gt; div { min-height: 0; overflow: hidden; }
+.is-open &gt; .c-accordion__panel { grid-template-rows: 1fr; }
+.c-accordion__content { margin: 0; padding: 0 .8rem .75rem 2.85rem; color: #667085; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-faq] .c-accordion__item').forEach((item) =&gt; {
+  const button = item.querySelector('button');
+  button.addEventListener('click', () =&gt; {
+    const open = button.getAttribute('aria-expanded') !== 'true';
+    item.classList.toggle('is-open', open);
+    button.setAttribute('aria-expanded', String(open));
+  });
+});</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>購入前の疑問やサポート情報を、質問と回答の関係が分かる形で提示する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="状態 プラス バツ plus x icon motion open close">
+          <header class="part-example__header"><div><span class="part-example__index">STATE / 01</span><h2>プラス → バツ</h2></div><small>ICON ROTATION</small></header>
+          <div class="part-example__preview part-example__preview--accordion"><div class="c-accordion c-accordion--plus" data-accordion><section class="c-accordion__item"><button class="c-accordion__button" type="button" aria-expanded="false" aria-controls="plus-1">サービス内容<span class="c-accordion__icon" aria-hidden="true"></span></button><div class="c-accordion__panel" id="plus-1" role="region"><div><p class="c-accordion__content">設計から検証まで一貫して支援します。</p></div></div></section><section class="c-accordion__item"><button class="c-accordion__button" type="button" aria-expanded="false" aria-controls="plus-2">お問い合わせ<span class="c-accordion__icon" aria-hidden="true"></span></button><div class="c-accordion__panel" id="plus-2" role="region"><div><p class="c-accordion__content">目的と公開時期を添えてご相談ください。</p></div></div></section></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-accordion" data-plus&gt;&lt;section class="c-accordion__item"&gt;&lt;button class="c-accordion__button" type="button" aria-expanded="false"&gt;サービス内容&lt;span class="c-accordion__icon" aria-hidden="true"&gt;&lt;/span&gt;&lt;/button&gt;&lt;div class="c-accordion__panel"&gt;&lt;div&gt;&lt;p class="c-accordion__content"&gt;設計から検証まで支援します。&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-accordion__item { overflow: hidden; background: #fff; border: 1px solid #aeb8c7; }
+.c-accordion__button { display: flex; width: 100%; padding: .8rem; justify-content: space-between; color: #18243b; font-weight: 800; background: transparent; border: 0; cursor: pointer; }
+.c-accordion__icon { position: relative; width: 1rem; height: 1rem; }
+.c-accordion__icon::before, .c-accordion__icon::after { position: absolute; inset: 50% auto auto 50%; width: .8rem; height: 2px; content: ""; background: currentColor; transition: transform .2s; transform: translate(-50%, -50%); }
+.c-accordion__icon::after { transform: translate(-50%, -50%) rotate(90deg); }
+[aria-expanded="true"] .c-accordion__icon { transform: rotate(45deg); }
+.c-accordion__panel { display: grid; grid-template-rows: 0fr; }.c-accordion__panel &gt; div { min-height: 0; overflow: hidden; }.is-open &gt; .c-accordion__panel { grid-template-rows: 1fr; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-plus] .c-accordion__item').forEach((item) =&gt; {
+  const button = item.querySelector('button');
+  button.addEventListener('click', () =&gt; {
+    const open = !item.classList.contains('is-open');
+    item.classList.toggle('is-open', open);
+    button.setAttribute('aria-expanded', String(open));
+  });
+});</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>開閉状態を、短いラベルと明快なアイコン変化で即座に伝えたい場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="状態 塗りつぶし header filled active color 強調">
+          <header class="part-example__header"><div><span class="part-example__index">STATE / 02</span><h2>塗りつぶしヘッダー</h2></div><small>ACTIVE FILL</small></header>
+          <div class="part-example__preview part-example__preview--accordion"><div class="c-accordion c-accordion--filled" data-accordion><section class="c-accordion__item"><button class="c-accordion__button" type="button" aria-expanded="true" aria-controls="filled-1">デザイン<span class="c-accordion__icon" aria-hidden="true"></span></button><div class="c-accordion__panel" id="filled-1" role="region"><div><p class="c-accordion__content">要件を整理し、画面構成と見た目を設計します。</p></div></div></section><section class="c-accordion__item"><button class="c-accordion__button" type="button" aria-expanded="false" aria-controls="filled-2">実装<span class="c-accordion__icon" aria-hidden="true"></span></button><div class="c-accordion__panel" id="filled-2" role="region"><div><p class="c-accordion__content">操作と表示を再利用可能な構造へ落とし込みます。</p></div></div></section></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-accordion c-accordion--filled" data-filled&gt;&lt;section class="c-accordion__item"&gt;&lt;button class="c-accordion__button" type="button" aria-expanded="false"&gt;デザイン&lt;/button&gt;&lt;div class="c-accordion__panel"&gt;&lt;div&gt;&lt;p class="c-accordion__content"&gt;画面構成を設計します。&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-accordion--filled { width: min(100%, 24rem); font-family: sans-serif; }
+.c-accordion__item { overflow: hidden; background: #fff; border: 1px solid #aeb8c7; }
+.c-accordion__button { width: 100%; padding: .75rem .8rem; color: #18243b; font-weight: 800; text-align: left; background: transparent; border: 0; cursor: pointer; }
+.is-open &gt; .c-accordion__button { color: #fff; background: #18243b; }
+.c-accordion__panel { display: grid; grid-template-rows: 0fr; }.c-accordion__panel &gt; div { min-height: 0; overflow: hidden; }.is-open &gt; .c-accordion__panel { grid-template-rows: 1fr; }
+.c-accordion__content { margin: 0; padding: .75rem .8rem; color: #667085; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-filled] .c-accordion__item').forEach((item) =&gt; {
+  const button = item.querySelector('button');
+  button.addEventListener('click', () =&gt; {
+    const open = !item.classList.contains('is-open');
+    item.classList.toggle('is-open', open);
+    button.setAttribute('aria-expanded', String(open));
+  });
+});</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>現在開いている章や設定区分を、広い色面で明確に示したい場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="装飾 カード 分離 shadow surface elevated panel">
+          <header class="part-example__header"><div><span class="part-example__index">SURFACE / 01</span><h2>カード分離型</h2></div><small>SEPARATED CARDS</small></header>
+          <div class="part-example__preview part-example__preview--accordion"><div class="c-accordion c-accordion--cards" data-accordion><section class="c-accordion__item"><button class="c-accordion__button" type="button" aria-expanded="false" aria-controls="card-1">企画<span class="c-accordion__icon" aria-hidden="true"></span></button><div class="c-accordion__panel" id="card-1" role="region"><div><p class="c-accordion__content">課題と成果指標を定義します。</p></div></div></section><section class="c-accordion__item"><button class="c-accordion__button" type="button" aria-expanded="false" aria-controls="card-2">制作<span class="c-accordion__icon" aria-hidden="true"></span></button><div class="c-accordion__panel" id="card-2" role="region"><div><p class="c-accordion__content">優先順位に沿って設計・実装します。</p></div></div></section></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-accordion c-accordion--cards" data-cards&gt;&lt;section class="c-accordion__item"&gt;&lt;button class="c-accordion__button" type="button" aria-expanded="false"&gt;企画&lt;/button&gt;&lt;div class="c-accordion__panel"&gt;&lt;div&gt;&lt;p class="c-accordion__content"&gt;課題と成果指標を定義します。&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-accordion--cards { display: grid; width: min(100%, 24rem); gap: .55rem; padding: .25rem; font-family: sans-serif; }
+.c-accordion__item { overflow: hidden; background: #fff; border: 1px solid #aeb8c7; transition: .2s; }
+.c-accordion__item.is-open { box-shadow: .25rem .25rem 0 #ffff00; transform: translate(-.1rem, -.1rem); }
+.c-accordion__button { width: 100%; padding: .75rem; color: #18243b; font-weight: 800; text-align: left; background: transparent; border: 0; cursor: pointer; }
+.c-accordion__panel { display: grid; grid-template-rows: 0fr; }.c-accordion__panel &gt; div { min-height: 0; overflow: hidden; }.is-open &gt; .c-accordion__panel { grid-template-rows: 1fr; }
+.c-accordion__content { margin: 0; padding: 0 .75rem .75rem; color: #667085; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-cards] .c-accordion__item').forEach((item) =&gt; {
+  const button = item.querySelector('button');
+  button.addEventListener('click', () =&gt; {
+    item.classList.toggle('is-open');
+    button.setAttribute('aria-expanded', String(item.classList.contains('is-open')));
+  });
+});</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>各項目を独立したコンテンツカードとして扱い、開いた項目を面で浮かせたい場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="状態 左ライン 点灯 active line indicator navigation">
+          <header class="part-example__header"><div><span class="part-example__index">STATE / 03</span><h2>左ライン点灯</h2></div><small>ACTIVE LINE</small></header>
+          <div class="part-example__preview part-example__preview--accordion"><div class="c-accordion c-accordion--line" data-accordion><section class="c-accordion__item"><button class="c-accordion__button" type="button" aria-expanded="false" aria-controls="line-1">概要<span class="c-accordion__icon" aria-hidden="true"></span></button><div class="c-accordion__panel" id="line-1" role="region"><div><p class="c-accordion__content">プロジェクトの目的と対象を確認します。</p></div></div></section><section class="c-accordion__item"><button class="c-accordion__button" type="button" aria-expanded="false" aria-controls="line-2">進行状況<span class="c-accordion__icon" aria-hidden="true"></span></button><div class="c-accordion__panel" id="line-2" role="region"><div><p class="c-accordion__content">現在の工程と次の作業を表示します。</p></div></div></section></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-accordion c-accordion--line" data-line&gt;&lt;section class="c-accordion__item"&gt;&lt;button class="c-accordion__button" type="button" aria-expanded="false"&gt;概要&lt;/button&gt;&lt;div class="c-accordion__panel"&gt;&lt;div&gt;&lt;p class="c-accordion__content"&gt;目的と対象を確認します。&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-accordion--line { width: min(100%, 24rem); font-family: sans-serif; }
+.c-accordion__item { overflow: hidden; background: #fff; border-left: .25rem solid #aeb8c7; }
+.c-accordion__item.is-open { background: #edf1f7; border-color: #18243b; }
+.c-accordion__button { width: 100%; padding: .75rem; color: #18243b; font-weight: 800; text-align: left; background: transparent; border: 0; cursor: pointer; }
+.c-accordion__panel { display: grid; grid-template-rows: 0fr; }.c-accordion__panel &gt; div { min-height: 0; overflow: hidden; }.is-open &gt; .c-accordion__panel { grid-template-rows: 1fr; }
+.c-accordion__content { margin: 0; padding: 0 .75rem .75rem; color: #667085; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-line] .c-accordion__item').forEach((item) =&gt; {
+  const button = item.querySelector('button');
+  button.addEventListener('click', () =&gt; {
+    const open = !item.classList.contains('is-open');
+    item.classList.toggle('is-open', open);
+    button.setAttribute('aria-expanded', String(open));
+  });
+});</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>管理画面やサイドパネルで、選択中の項目を細いガイドだけで示したい場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="一括 全開 全閉 open all close all control document">
+          <header class="part-example__header"><div><span class="part-example__index">CONTROL / 01</span><h2>一括開閉ボタン付き</h2></div><small>OPEN / CLOSE ALL</small></header>
+          <div class="part-example__preview part-example__preview--accordion"><div class="c-accordion" data-accordion-all><div class="c-accordion__controls"><button class="c-accordion__control" type="button" data-open-all>すべて開く</button><button class="c-accordion__control" type="button" data-close-all>すべて閉じる</button></div><div data-accordion-group><section class="c-accordion__item"><button class="c-accordion__button" type="button" aria-expanded="false" aria-controls="all-1">準備<span class="c-accordion__icon" aria-hidden="true"></span></button><div class="c-accordion__panel" id="all-1" role="region"><div><p class="c-accordion__content">必要な情報を揃えます。</p></div></div></section><section class="c-accordion__item"><button class="c-accordion__button" type="button" aria-expanded="false" aria-controls="all-2">作業<span class="c-accordion__icon" aria-hidden="true"></span></button><div class="c-accordion__panel" id="all-2" role="region"><div><p class="c-accordion__content">手順に沿って進めます。</p></div></div></section><section class="c-accordion__item"><button class="c-accordion__button" type="button" aria-expanded="false" aria-controls="all-3">確認<span class="c-accordion__icon" aria-hidden="true"></span></button><div class="c-accordion__panel" id="all-3" role="region"><div><p class="c-accordion__content">結果と差分を確認します。</p></div></div></section></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-accordion" data-all&gt;
+  &lt;div class="c-accordion__controls"&gt;&lt;button type="button" data-open-all&gt;すべて開く&lt;/button&gt;&lt;button type="button" data-close-all&gt;すべて閉じる&lt;/button&gt;&lt;/div&gt;
+  &lt;section class="c-accordion__item"&gt;&lt;button class="c-accordion__button" type="button" aria-expanded="false"&gt;準備&lt;/button&gt;&lt;div class="c-accordion__panel"&gt;&lt;div&gt;&lt;p class="c-accordion__content"&gt;必要な情報を揃えます。&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;
+&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-accordion { width: min(100%, 24rem); font-family: sans-serif; }
+.c-accordion__controls { display: flex; gap: .45rem; margin-bottom: .6rem; }
+.c-accordion__controls button { padding: .45rem .65rem; color: #18243b; background: #fff; border: 1px solid #18243b; cursor: pointer; }
+.c-accordion__item { overflow: hidden; border: 1px solid #aeb8c7; }
+.c-accordion__button { width: 100%; padding: .7rem; color: #18243b; font-weight: 800; text-align: left; background: #fff; border: 0; cursor: pointer; }
+.c-accordion__panel { display: grid; grid-template-rows: 0fr; }.c-accordion__panel &gt; div { min-height: 0; overflow: hidden; }.is-open &gt; .c-accordion__panel { grid-template-rows: 1fr; }
+.c-accordion__content { margin: 0; padding: 0 .7rem .7rem; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-all]');
+const items = [...root.querySelectorAll('.c-accordion__item')];
+const set = (item, open) =&gt; { item.classList.toggle('is-open', open); item.querySelector('button').setAttribute('aria-expanded', String(open)); };
+items.forEach((item) =&gt; item.querySelector('button').addEventListener('click', () =&gt; set(item, !item.classList.contains('is-open'))));
+root.querySelector('[data-open-all]').addEventListener('click', () =&gt; items.forEach((item) =&gt; set(item, true)));
+root.querySelector('[data-close-all]').addEventListener('click', () =&gt; items.forEach((item) =&gt; set(item, false)));</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>規約や長い手順書で、拾い読みと全文確認の両方を選べるようにする場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="検索 FAQ filter query 絞り込み 0件 hit count">
+          <header class="part-example__header"><div><span class="part-example__index">FIND / 01</span><h2>検索で絞り込めるFAQ</h2></div><small>LIVE FILTER</small></header>
+          <div class="part-example__preview part-example__preview--accordion"><div class="c-accordion" data-accordion-filter><div class="c-accordion__search-wrap"><label><span class="visually-hidden">FAQを検索</span><input class="c-accordion__search" type="search" placeholder="例：送料" data-faq-search /></label><p class="c-accordion__count" data-faq-count aria-live="polite">3件</p></div><div data-accordion-group><section class="c-accordion__item"><button class="c-accordion__button" type="button" aria-expanded="false" aria-controls="filter-1">送料と配送<span class="c-accordion__icon" aria-hidden="true"></span></button><div class="c-accordion__panel" id="filter-1" role="region"><div><p class="c-accordion__content">5,000円以上は送料無料です。</p></div></div></section><section class="c-accordion__item"><button class="c-accordion__button" type="button" aria-expanded="false" aria-controls="filter-2">支払い方法<span class="c-accordion__icon" aria-hidden="true"></span></button><div class="c-accordion__panel" id="filter-2" role="region"><div><p class="c-accordion__content">カードと銀行振込に対応します。</p></div></div></section><section class="c-accordion__item"><button class="c-accordion__button" type="button" aria-expanded="false" aria-controls="filter-3">返品期限<span class="c-accordion__icon" aria-hidden="true"></span></button><div class="c-accordion__panel" id="filter-3" role="region"><div><p class="c-accordion__content">到着後7日以内にご連絡ください。</p></div></div></section></div><p class="c-accordion__empty" data-faq-empty hidden>該当する質問はありません。</p></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-accordion" data-filter&gt;
+  &lt;input class="c-accordion__search" type="search" placeholder="FAQを検索" data-search&gt;&lt;p data-count aria-live="polite"&gt;&lt;/p&gt;
+  &lt;section class="c-accordion__item"&gt;&lt;button class="c-accordion__button" type="button"&gt;送料と配送&lt;/button&gt;&lt;div class="c-accordion__panel"&gt;&lt;div&gt;&lt;p class="c-accordion__content"&gt;5,000円以上は送料無料です。&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;
+  &lt;p data-empty hidden&gt;該当する質問はありません。&lt;/p&gt;
+&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-accordion { width: min(100%, 24rem); font-family: sans-serif; }
+.c-accordion__search { width: 100%; padding: .6rem .7rem; color: #1c2430; background: #fff; border: 1px solid #18243b; }
+.c-accordion__item { overflow: hidden; background: #fff; border: 1px solid #aeb8c7; }
+.c-accordion__button { width: 100%; padding: .7rem; color: #18243b; font-weight: 800; text-align: left; background: transparent; border: 0; cursor: pointer; }
+.c-accordion__panel { display: grid; grid-template-rows: 0fr; }.c-accordion__panel &gt; div { min-height: 0; overflow: hidden; }.is-open &gt; .c-accordion__panel { grid-template-rows: 1fr; }
+.c-accordion__content { margin: 0; padding: 0 .7rem .7rem; color: #667085; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-filter]');
+const input = root.querySelector('[data-search]');
+const items = [...root.querySelectorAll('.c-accordion__item')];
+items.forEach((item) =&gt; item.querySelector('button').addEventListener('click', () =&gt; {
+  const open = !item.classList.contains('is-open');
+  item.classList.toggle('is-open', open);
+  item.querySelector('button').setAttribute('aria-expanded', String(open));
+}));
+input.addEventListener('input', () =&gt; {
+  const word = input.value.trim().toLowerCase();
+  let hits = 0;
+  items.forEach((item) =&gt; { const match = item.textContent.toLowerCase().includes(word); item.hidden = !match; if (match) hits += 1; });
+  root.querySelector('[data-count]').textContent = `${hits}件`;
+  root.querySelector('[data-empty]').hidden = hits !== 0;
+});</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>質問数が多いヘルプセンターで、語句から候補を減らし0件状態も伝える場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="階層 入れ子 nested parent child menu settings cascade">
+          <header class="part-example__header"><div><span class="part-example__index">HIERARCHY / 01</span><h2>入れ子アコーディオン</h2></div><small>NESTED LEVEL</small></header>
+          <div class="part-example__preview part-example__preview--accordion"><div class="c-accordion" data-accordion-nested><section class="c-accordion__item"><button class="c-accordion__button" type="button" aria-expanded="false" aria-controls="nested-parent">アカウント設定<span class="c-accordion__icon" aria-hidden="true"></span></button><div class="c-accordion__panel" id="nested-parent" role="region"><div><div class="c-accordion c-accordion__nested"><section class="c-accordion__item"><button class="c-accordion__button" type="button" aria-expanded="false" aria-controls="nested-child-1">プロフィール<span class="c-accordion__icon" aria-hidden="true"></span></button><div class="c-accordion__panel" id="nested-child-1" role="region"><div><p class="c-accordion__content">名前と画像を変更します。</p></div></div></section><section class="c-accordion__item"><button class="c-accordion__button" type="button" aria-expanded="false" aria-controls="nested-child-2">セキュリティ<span class="c-accordion__icon" aria-hidden="true"></span></button><div class="c-accordion__panel" id="nested-child-2" role="region"><div><p class="c-accordion__content">パスワードを更新します。</p></div></div></section></div></div></div></section><section class="c-accordion__item"><button class="c-accordion__button" type="button" aria-expanded="false" aria-controls="nested-other">通知設定<span class="c-accordion__icon" aria-hidden="true"></span></button><div class="c-accordion__panel" id="nested-other" role="region"><div><p class="c-accordion__content">受信する通知を選びます。</p></div></div></section></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-accordion" data-nested&gt;
+  &lt;section class="c-accordion__item"&gt;&lt;button class="c-accordion__button" type="button" aria-expanded="false"&gt;アカウント設定&lt;/button&gt;&lt;div class="c-accordion__panel"&gt;&lt;div&gt;
+    &lt;div class="c-accordion c-accordion__nested"&gt;&lt;section class="c-accordion__item"&gt;&lt;button class="c-accordion__button" type="button" aria-expanded="false"&gt;プロフィール&lt;/button&gt;&lt;div class="c-accordion__panel"&gt;&lt;div&gt;&lt;p class="c-accordion__content"&gt;名前を変更します。&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/div&gt;&lt;/section&gt;
+&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-accordion { width: min(100%, 24rem); font-family: sans-serif; }
+.c-accordion__item { overflow: hidden; background: #fff; border: 1px solid #aeb8c7; }
+.c-accordion__button { width: 100%; padding: .7rem; color: #18243b; font-weight: 800; text-align: left; background: transparent; border: 0; cursor: pointer; }
+.c-accordion__panel { display: grid; grid-template-rows: 0fr; }.c-accordion__panel &gt; div { min-height: 0; overflow: hidden; }.is-open &gt; .c-accordion__panel { grid-template-rows: 1fr; }
+.c-accordion__nested { width: calc(100% - 1rem); margin: 0 .5rem .7rem; }
+.c-accordion__content { margin: 0; padding: 0 .7rem .7rem; color: #667085; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-nested]');
+root.querySelectorAll('.c-accordion__item').forEach((item) =&gt; {
+  const button = [...item.children].find((child) =&gt; child.matches('.c-accordion__button'));
+  button.addEventListener('click', () =&gt; {
+    const open = !item.classList.contains('is-open');
+    item.classList.toggle('is-open', open);
+    button.setAttribute('aria-expanded', String(open));
+    if (!open) item.querySelectorAll('.c-accordion__item').forEach((child) =&gt; { child.classList.remove('is-open'); child.querySelector('button').setAttribute('aria-expanded', 'false'); });
+  });
+});</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>設定カテゴリやサイト構造など、親子関係を保ったまま段階的に内容を開く場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="リンク ハッシュ hash deep link url anchor target share">
+          <header class="part-example__header"><div><span class="part-example__index">LINK / 01</span><h2>ハッシュ連動アコーディオン</h2></div><small>DEEP LINK</small></header>
+          <div class="part-example__preview part-example__preview--accordion"><div class="c-accordion" data-accordion-hash><nav class="c-accordion__jumps" aria-label="項目へ移動"><a class="c-accordion__jump" href="#accordion-install" data-accordion-target="accordion-install">導入</a><a class="c-accordion__jump" href="#accordion-operate" data-accordion-target="accordion-operate">操作</a></nav><div data-accordion-group><section class="c-accordion__item" id="accordion-install"><button class="c-accordion__button" type="button" aria-expanded="false" aria-controls="hash-1">導入手順<span class="c-accordion__icon" aria-hidden="true"></span></button><div class="c-accordion__panel" id="hash-1" role="region"><div><p class="c-accordion__content">必要なファイルを読み込みます。</p></div></div></section><section class="c-accordion__item" id="accordion-operate"><button class="c-accordion__button" type="button" aria-expanded="false" aria-controls="hash-2">操作方法<span class="c-accordion__icon" aria-hidden="true"></span></button><div class="c-accordion__panel" id="hash-2" role="region"><div><p class="c-accordion__content">見出しを選択して内容を開きます。</p></div></div></section></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-accordion" data-hash&gt;
+  &lt;nav&gt;&lt;a href="#install" data-target="install"&gt;導入&lt;/a&gt;&lt;a href="#operate" data-target="operate"&gt;操作&lt;/a&gt;&lt;/nav&gt;
+  &lt;section class="c-accordion__item" id="install"&gt;&lt;button class="c-accordion__button" type="button" aria-expanded="false"&gt;導入手順&lt;/button&gt;&lt;div class="c-accordion__panel"&gt;&lt;div&gt;&lt;p class="c-accordion__content"&gt;ファイルを読み込みます。&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;
+  &lt;section class="c-accordion__item" id="operate"&gt;&lt;button class="c-accordion__button" type="button" aria-expanded="false"&gt;操作方法&lt;/button&gt;&lt;div class="c-accordion__panel"&gt;&lt;div&gt;&lt;p class="c-accordion__content"&gt;見出しを選択します。&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;
+&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-accordion { width: min(100%, 24rem); font-family: sans-serif; }
+.c-accordion nav { display: flex; gap: .4rem; margin-bottom: .6rem; }
+.c-accordion nav a { padding: .4rem .6rem; color: #18243b; border: 1px solid #18243b; }
+.c-accordion__item { overflow: hidden; background: #fff; border: 1px solid #aeb8c7; }
+.c-accordion__button { width: 100%; padding: .7rem; color: #18243b; font-weight: 800; text-align: left; background: transparent; border: 0; cursor: pointer; }
+.c-accordion__panel { display: grid; grid-template-rows: 0fr; }.c-accordion__panel &gt; div { min-height: 0; overflow: hidden; }.is-open &gt; .c-accordion__panel { grid-template-rows: 1fr; }
+.c-accordion__item:target { outline: 3px solid #ffff00; outline-offset: -3px; }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-hash]');
+const items = [...root.querySelectorAll('.c-accordion__item')];
+const open = (id) =&gt; {
+  items.forEach((item) =&gt; { const active = item.id === id; item.classList.toggle('is-open', active); item.querySelector('button').setAttribute('aria-expanded', String(active)); });
+  history.replaceState(null, '', `#${id}`);
+};
+root.querySelectorAll('[data-target]').forEach((link) =&gt; link.addEventListener('click', (event) =&gt; { event.preventDefault(); open(link.dataset.target); }));
+if (location.hash) open(location.hash.slice(1));</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ヘルプや仕様書の特定項目をURLで共有し、到着時に対象を開いて示す場面。</p></div>
+        </section>
+      </div>
+
+      <div class="part-detail-empty" data-pattern-empty hidden><p>[ NO_PATTERNS_FOUND ]</p><p>別のキーワードを選択してください。</p></div>
+
+      <section class="part-common-styles" id="accordion-common-styles" aria-labelledby="accordion-common-title">
+        <header class="part-common-styles__header reveal"><p class="section-index">COMMON STYLE</p><h2 id="accordion-common-title">共通スタイル</h2><p>開閉領域、操作見出し、フォーカス表示を揃える基礎スタイルです。</p></header>
+        <div class="part-common-styles__code reveal" data-reveal-threshold="0.01"><div class="part-code"><div class="part-code__header"><span>CSS / COMMON</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-accordion,
+.c-accordion * { box-sizing: border-box; }
+
+.c-accordion {
+  width: min(100%, 24rem);
+  color: var(--color-text, #1c2430);
+  font-family: var(--font-sans, sans-serif);
+}
+
+.c-accordion__item {
+  overflow: hidden;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+}
+
+.c-accordion__button {
+  display: flex;
+  width: 100%;
+  min-height: 2.8rem;
+  padding: .65rem .8rem;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--color-primary, #18243b);
+  font-weight: 800;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.c-accordion__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .25s ease;
+}
+.c-accordion__panel &gt; div { min-height: 0; overflow: hidden; }
+.c-accordion__item.is-open &gt; .c-accordion__panel { grid-template-rows: 1fr; }
+.c-accordion__content { margin: 0; padding: 0 .8rem .75rem; color: var(--color-text-subtle, #667085); }
+.c-accordion__button:focus-visible { outline: 3px solid var(--color-focus, #315a9b); outline-offset: -3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .c-accordion__panel { transition-duration: .01ms; }
+}</code></pre></div></div>
+      </section>
+
+      <footer class="page-footer" aria-label="ページナビゲーション"><a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO WEB PARTS</span></a><a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a></footer>
+    </main>
+    <script src="../js/web-parts-detail.js" defer></script>
+    <script src="../js/web-parts-accordion.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

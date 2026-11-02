@@ -74,15 +74,14 @@ assert.match(page, /js\/width-converter-ui\.js/u);
 assert.match(page, /全角・半角を変換・検査/u);
 
 const directory = await readFile(new URL('../tools/index.html', import.meta.url), 'utf8');
-assert.match(directory, /AVAILABLE: 16/u);
-assert.match(directory, /data-filter="all">ALL <span>16<\/span>/u);
-assert.match(directory, /data-filter="text">TEXT <span>07<\/span>/u);
+assert.match(directory, /TOOLS: 25/u);
+assert.match(directory, /data-filter="all">ALL <span>25<\/span>/u);
+assert.match(directory, /data-filter="text">TEXT <span>09<\/span>/u);
 assert.match(directory, /data-id="width-converter"/u);
 assert.match(directory, /href="\.\/width-converter\.html"/u);
-assert.match(directory, /TOOL_016/u);
 
 const home = await readFile(new URL('../index.html', import.meta.url), 'utf8');
-assert.match(home, /16 TOOLS/u);
+assert.match(home, /25 TOOLS/u);
 
 const controller = await readFile(new URL('../js/tool.js', import.meta.url), 'utf8');
 assert.match(controller, /kind: 'width'/u);
@@ -99,5 +98,12 @@ const styles = await readFile(new URL('../css/pages.css', import.meta.url), 'utf
 assert.match(styles, /\.width-converter__mode-tabs/u);
 assert.match(styles, /\.workspace-grid--width-converter/u);
 assert.match(styles, /\.width-converter__match-list/u);
+assert.match(styles, /\.width-converter__metrics \{[^}]*border-top: 1px solid #374151; border-bottom: 1px solid #374151; \}/u);
+assert.match(styles, /\.width-converter__actions \{[^}]*grid-template-columns: repeat\(2, minmax\(0, 1fr\)\); \}/u);
+assert.match(styles, /\.width-converter__actions \[data-width-copy\] \{ grid-column: 1 \/ -1; \}/u);
+assert.match(styles, /@media \(max-width: 640px\)[\s\S]*?\.width-converter__actions \{ grid-template-columns: 1fr; \}[\s\S]*?\.width-converter__actions \[data-width-copy\] \{ grid-column: auto; \}/u);
+assert.match(styles, /data-tool-id="width-converter"[^}]*button\[data-width-copy\] \{\s*font-size: 0\.75rem;\s*font-weight: 700;\s*border: 0;/u);
+assert.match(styles, /data-tool-id="width-converter"[^}]*\.width-converter__actions :is\(button\[data-width-apply\], button\[data-width-reset\]\) \{\s*color: #e5e7eb;/u);
+assert.match(styles, /:is\(button\[data-width-apply\], button\[data-width-reset\]\):not\(:disabled\):hover \{\s*color: var\(--color-primary\);\s*background: #e5e7eb;/u);
 
 console.log('Width Converter checks passed.');

@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
 
 await import('../js/html-table-builder.js');
 
@@ -186,5 +187,9 @@ const preview = builder.createPreviewDocument(generated);
 assert.match(preview, /Content-Security-Policy/u);
 assert.match(preview, /default-src 'none'/u);
 assert.match(preview, /<body><div class="mb-table-scroll"/u);
+
+const styles = await readFile(new URL('../css/pages.css', import.meta.url), 'utf8');
+assert.match(styles, /\.table-builder__output-tabs \{ display: grid; align-self: stretch; grid-template-columns: repeat\(3, minmax\(0, 1fr\)\);/u);
+assert.match(styles, /\.table-builder__output-tabs button \{ min-width: 0; min-height: 100%; \}/u);
 
 console.log('HTML Table Builder checks passed.');

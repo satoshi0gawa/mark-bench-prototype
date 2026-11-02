@@ -1,9 +1,8 @@
 import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
-import { extname, join, normalize, resolve } from 'node:path';
+import { extname, join, normalize } from 'node:path';
 
-const rootArgument = process.argv.find((argument) => argument.startsWith('--root='));
-const root = resolve(process.cwd(), rootArgument?.split('=')[1] || '.');
+const root = process.cwd();
 const port = Number(process.env.PORT || 4173);
 const mimeTypes = {
   '.html': 'text/html; charset=utf-8',
@@ -40,5 +39,5 @@ const server = createServer(async (request, response) => {
 });
 
 server.listen(port, '127.0.0.1', () => {
-  console.log(`MARK BENCH is running at http://localhost:${port} from ${root}`);
+  console.log(`MARK BENCH is running at http://localhost:${port}`);
 });

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="HTML・CSS・SCSS・JavaScript・PHPのコードから、Webページへ掲載できるセマンティックなコードブロックHTMLを生成します。" /><meta name="theme-color" content="#18243b" />
+    <title>Code Block Generator | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/tools/code-block-generator.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="Code Block Generator | MARK BENCH" />
+    <meta property="og:description" content="HTML・CSS・SCSS・JavaScript・PHPのコードから、Webページへ掲載できるセマンティックなコードブロックHTMLを生成します。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/tools/code-block-generator.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Code Block Generator | MARK BENCH" />
+    <meta name="twitter:description" content="HTML・CSS・SCSS・JavaScript・PHPのコードから、Webページへ掲載できるセマンティックなコードブロックHTMLを生成します。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "TOOLS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/tools/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Code Block Generator",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/tools/code-block-generator.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" /><link rel="stylesheet" href="../css/components.css" /><link rel="stylesheet" href="../css/pages.css" />
+  </head>
+  <body data-site="coding-note" data-page="tools" data-tool-id="code-block-generator">
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header"><div class="site-header__bar"><nav class="site-breadcrumb-logo" aria-label="パンくずリスト"><a class="site-logo" href="../index.html">MARK BENCH</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><a class="site-breadcrumb-logo__parent" href="./">TOOLS</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><span class="site-breadcrumb-logo__current" aria-current="page" data-site-breadcrumb-current>Code Block Generator</span></nav></div></header>
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション"><a href="./" aria-current="location"><strong>TOOLS</strong></a><a href="../web-parts/"><strong>WEB PARTS</strong></a><a href="../build-notes/"><strong>BUILD NOTES</strong></a><a href="../about.html"><strong>ABOUT</strong></a></nav>
+    <main id="main" tabindex="-1">
+      <header class="tool-header"><div class="tool-header__main reveal"><p class="section-index" data-tool-number>CODE_TOOLS</p><h1 data-tool-title>Code Block Generator</h1><p data-tool-summary>コードを安全にエスケープし、Webページへ掲載できるセマンティックなコードブロックHTMLを生成します。</p></div><dl class="tool-header__meta reveal"><div><dt>STATUS</dt><dd><span class="badge" data-tool-status>READY</span></dd></div><div><dt>PROCESS</dt><dd>LOCAL BROWSER</dd></div><div><dt>VERSION</dt><dd data-tool-version>0.1.1</dd></div><div><dt>LAST UPDATED</dt><dd data-tool-updated>2026.11.01</dd></div></dl></header>
+      <section class="workspace-section" aria-labelledby="workspace-title"><div class="workspace-section__label reveal"><p class="section-index">TOOL_WORKSPACE</p><h2 id="workspace-title">ツールを実行</h2></div><div class="tool-workspace reveal" data-tool-workspace><div class="tool-workspace__loading"><p>&gt; loading tool module<span class="terminal-cursor">_</span></p></div></div><p class="privacy-note reveal"><span aria-hidden="true">●</span><strong>LOCAL PROCESSING</strong><span class="privacy-note__body">入力したコードはブラウザ上で処理され、外部サーバーには送信されません。</span></p></section>
+      <div class="code-block-pattern-modal" id="code-block-pattern-modal" role="dialog" aria-modal="true" aria-labelledby="code-block-patterns-title" hidden data-code-block-pattern-modal>
+        <div class="code-block-pattern-modal__backdrop" aria-hidden="true" data-code-block-patterns-close></div>
+        <section class="code-block-pattern-modal__panel" aria-describedby="code-block-patterns-description">
+          <header class="code-block-patterns__heading">
+            <div>
+              <p class="section-index">OUTPUT_PATTERNS</p>
+              <h2 id="code-block-patterns-title">選択パターン別の出力例</h2>
+              <p id="code-block-patterns-description">コード例の説明、シンタックスハイライト連携、横スクロールの必要性に合わせて選択します。迷った場合は、3項目すべてをONにした標準パターンを使用してください。</p>
+            </div>
+            <button class="code-block-pattern-modal__close" type="button" aria-label="選択パターン別の出力例を閉じる" data-code-block-patterns-close>×</button>
+          </header>
+          <div class="code-block-patterns__grid">
+          <div class="code-block-patterns__row">
+          <article class="code-block-pattern">
+            <header class="code-block-pattern__header"><span>PATTERN 01</span><h3>標準のコード例</h3></header>
+            <dl class="code-block-pattern__options" aria-label="選択状態"><div><dt>CAPTION</dt><dd>ON</dd></div><div><dt>LANGUAGE CLASS</dt><dd>ON</dd></div><div><dt>KEYBOARD SCROLL</dt><dd>ON</dd></div></dl>
+            <p>タイトルを空欄にすると、選択した言語名がキャプションになります。説明付きのコード例を掲載する基本形です。</p>
+            <pre tabindex="0" aria-label="標準パターンの出力HTML"><code>&lt;figure class="code-block"&gt;
+  &lt;figcaption class="code-block__caption"&gt;HTML&lt;/figcaption&gt;
+  &lt;pre class="code-block__pre" tabindex="0"&gt;&lt;code class="language-html"&gt;&amp;lt;h2&amp;gt;タイトル&amp;lt;/h2&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;</code></pre>
+          </article>
+
+          <article class="code-block-pattern">
+            <header class="code-block-pattern__header"><span>PATTERN 02</span><h3>ファイル名・用途付き</h3></header>
+            <dl class="code-block-pattern__options" aria-label="選択状態"><div><dt>CAPTION</dt><dd>ON</dd></div><div><dt>LANGUAGE CLASS</dt><dd>ON</dd></div><div><dt>KEYBOARD SCROLL</dt><dd>ON</dd></div></dl>
+            <p>CAPTION TITLEへファイル名や用途を入力します。複数のコード例を区別したい解説記事や手順書に適しています。</p>
+            <pre tabindex="0" aria-label="ファイル名付きパターンの出力HTML"><code>&lt;figure class="code-block"&gt;
+  &lt;figcaption class="code-block__caption"&gt;card.scss&lt;/figcaption&gt;
+  &lt;pre class="code-block__pre" tabindex="0"&gt;&lt;code class="language-scss"&gt;.card {
+  display: grid;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;</code></pre>
+          </article>
+          </div>
+
+          <div class="code-block-patterns__row">
+          <article class="code-block-pattern">
+            <header class="code-block-pattern__header"><span>PATTERN 03</span><h3>キャプションなし</h3></header>
+            <dl class="code-block-pattern__options" aria-label="選択状態"><div><dt>CAPTION</dt><dd data-state="off">OFF</dd></div><div><dt>LANGUAGE CLASS</dt><dd>ON</dd></div><div><dt>KEYBOARD SCROLL</dt><dd>ON</dd></div></dl>
+            <p>本文ですでにコードの内容を説明している場合に使用します。シンタックスハイライトとの連携とキーボード操作は維持します。</p>
+            <pre tabindex="0" aria-label="キャプションなしパターンの出力HTML"><code>&lt;pre class="code-block" tabindex="0"&gt;&lt;code class="language-javascript"&gt;const ready = true;&lt;/code&gt;&lt;/pre&gt;</code></pre>
+          </article>
+
+          <article class="code-block-pattern">
+            <header class="code-block-pattern__header"><span>PATTERN 04</span><h3>最小構成</h3></header>
+            <dl class="code-block-pattern__options" aria-label="選択状態"><div><dt>CAPTION</dt><dd data-state="off">OFF</dd></div><div><dt>LANGUAGE CLASS</dt><dd data-state="off">OFF</dd></div><div><dt>KEYBOARD SCROLL</dt><dd data-state="off">OFF</dd></div></dl>
+            <p>短いコードを装飾や外部ハイライターなしで掲載する構成です。横スクロールが発生する可能性がある場合は、KEYBOARD SCROLLをONにします。</p>
+            <pre tabindex="0" aria-label="最小構成パターンの出力HTML"><code>&lt;pre class="code-block"&gt;&lt;code&gt;color: inherit;&lt;/code&gt;&lt;/pre&gt;</code></pre>
+          </article>
+          </div>
+          </div>
+        </section>
+      </div>
+      <section class="tool-documentation" aria-labelledby="how-to-use-title"><div class="tool-documentation__main reveal"><p class="section-index">HOW_TO_USE</p><h2 id="how-to-use-title">使い方</h2><ol data-tool-steps><li>掲載したいコードを入力または貼り付けます。</li><li>HTML・CSS・SCSS・JavaScript・PHPから言語を選択します。</li><li>キャプション、言語クラス、キーボードスクロールの設定とプレビューを確認します。</li><li>COPY OUTPUTで生成されたHTMLをコピーします。</li></ol></div><aside class="tool-documentation__aside reveal"><p class="section-index">SPECIFICATION</p><dl data-tool-specs><div><dt>INPUT</dt><dd>HTML / CSS / SCSS / JS / PHP</dd></div><div><dt>OUTPUT</dt><dd>figure / figcaption / pre / code</dd></div><div><dt>ESCAPE</dt><dd>&amp; &lt; &gt;</dd></div><div><dt>CLASS</dt><dd>language-*</dd></div><div><dt>LIMIT</dt><dd>100,000 Input Units</dd></div><div><dt>STORAGE</dt><dd>None</dd></div></dl></aside></section>
+      <footer class="page-footer" aria-label="ページナビゲーション">
+        <a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO TOOLS</span></a>
+        <a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a>
+      </footer>
+    </main>
+    <div class="toast" role="status" aria-live="polite" data-toast hidden>コピーが完了しました。</div>
+    <script src="../js/code-block-generator.js" defer></script><script src="../js/tool.js" defer></script><script src="../js/main.js" defer></script>
+  </body>
+</html>

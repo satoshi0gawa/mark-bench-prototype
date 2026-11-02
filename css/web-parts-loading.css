@@ -1,0 +1,279 @@
+.c-loading,
+.c-loading * {
+  box-sizing: border-box;
+}
+
+.c-loading {
+  --loading-color: var(--color-primary, #18243b);
+  --loading-accent: var(--color-accent-yellow, #ffff00);
+  --loading-soft: var(--color-primary-soft, #edf1f7);
+  display: grid;
+  min-width: 8rem;
+  min-height: 6rem;
+  place-items: center;
+  color: var(--loading-color);
+  font-family: var(--font-mono, monospace);
+}
+
+.c-loading--spinner::before,
+.c-loading--ring::before {
+  width: 3rem;
+  height: 3rem;
+  border: 0.3rem solid var(--loading-soft);
+  border-top-color: var(--loading-color);
+  border-radius: 50%;
+  content: "";
+  animation: c-loading-spin 0.85s linear infinite;
+}
+
+.c-loading--ring::before {
+  border-color: var(--loading-color) transparent;
+  box-shadow: inset 0 0 0 0.16rem rgb(24 36 59 / 12%);
+  animation-duration: 1.15s;
+}
+
+.c-loading--dots,
+.c-loading--bounce,
+.c-loading--equalizer {
+  display: flex;
+  min-height: 6rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.c-loading--dots span,
+.c-loading--bounce span {
+  width: 0.75rem;
+  height: 0.75rem;
+  margin: 0 0.28rem;
+  background: var(--loading-color);
+  border-radius: 50%;
+  animation: c-loading-dot 1.15s ease-in-out infinite;
+}
+
+.c-loading--dots span:nth-child(2),
+.c-loading--bounce span:nth-child(2) { animation-delay: 0.14s; }
+.c-loading--dots span:nth-child(3),
+.c-loading--bounce span:nth-child(3) { animation-delay: 0.28s; }
+
+.c-loading--pulse::before {
+  width: 1.6rem;
+  height: 1.6rem;
+  background: var(--loading-color);
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgb(24 36 59 / 25%);
+  content: "";
+  animation: c-loading-pulse 1.35s ease-out infinite;
+}
+
+.c-loading--bar,
+.c-loading--stripes {
+  position: relative;
+  width: min(100%, 19rem);
+  height: 0.75rem;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--loading-soft);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+}
+
+.c-loading--bar span {
+  position: absolute;
+  inset-block: 0;
+  width: 42%;
+  background: var(--loading-color);
+  animation: c-loading-slide 1.35s ease-in-out infinite;
+}
+
+.c-loading--conic::before {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: conic-gradient(var(--loading-color) 0 75%, var(--loading-soft) 75% 100%);
+  border-radius: 50%;
+  content: "";
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 0.42rem), #000 0);
+  mask: radial-gradient(farthest-side, transparent calc(100% - 0.42rem), #000 0);
+  animation: c-loading-spin 1.25s linear infinite;
+}
+
+.c-loading--stripes::before {
+  position: absolute;
+  inset: 0 -2rem;
+  background: repeating-linear-gradient(135deg, var(--loading-color) 0 0.7rem, var(--color-primary-hover, #263a5e) 0.7rem 1.4rem);
+  content: "";
+  animation: c-loading-stripes 0.8s linear infinite;
+}
+
+.c-loading--text {
+  display: flex;
+  min-height: 6rem;
+  gap: 0.25rem;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.c-loading--text span {
+  display: inline-block;
+  animation: c-loading-blink 1.2s ease-in-out infinite;
+}
+.c-loading--text span:nth-child(2) { animation-delay: 0.16s; }
+.c-loading--text span:nth-child(3) { animation-delay: 0.32s; }
+
+.c-loading--skeleton {
+  width: min(100%, 21rem);
+  min-height: 7.5rem;
+  padding: 1rem;
+  grid-template-columns: 3.25rem 1fr;
+  gap: 0.85rem;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+}
+
+.c-loading__skeleton-avatar,
+.c-loading__skeleton-line {
+  position: relative;
+  overflow: hidden;
+  background: var(--loading-soft);
+}
+
+.c-loading__skeleton-avatar {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+}
+
+.c-loading__skeleton-lines { display: grid; width: 100%; gap: 0.55rem; }
+.c-loading__skeleton-line { height: 0.72rem; }
+.c-loading__skeleton-line:nth-child(2) { width: 82%; }
+.c-loading__skeleton-line:nth-child(3) { width: 58%; }
+.c-loading__skeleton-avatar::after,
+.c-loading__skeleton-line::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 80%), transparent);
+  content: "";
+  transform: translateX(-100%);
+  animation: c-loading-shimmer 1.4s ease-in-out infinite;
+}
+
+.c-loading--bounce span { animation-name: c-loading-bounce; }
+
+.c-loading--equalizer {
+  height: 4rem;
+  gap: 0.28rem;
+  align-items: end;
+}
+
+.c-loading--equalizer span {
+  width: 0.48rem;
+  height: 2.8rem;
+  background: var(--loading-color);
+  transform-origin: bottom;
+  animation: c-loading-equalizer 0.75s ease-in-out infinite alternate;
+}
+.c-loading--equalizer span:nth-child(2) { animation-delay: 0.12s; }
+.c-loading--equalizer span:nth-child(3) { animation-delay: 0.24s; }
+.c-loading--equalizer span:nth-child(4) { animation-delay: 0.36s; }
+
+.c-loading-button {
+  display: inline-flex;
+  min-height: 2.75rem;
+  padding: 0.7rem 1rem;
+  gap: 0.65rem;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-inverse, #fff);
+  font: 700 0.72rem/1.2 var(--font-mono, monospace);
+  background: var(--color-primary, #18243b);
+  border: 1px solid var(--color-primary, #18243b);
+  cursor: wait;
+}
+
+.c-loading-button__spinner {
+  width: 1rem;
+  height: 1rem;
+  border: 0.16rem solid rgb(255 255 255 / 38%);
+  border-top-color: currentcolor;
+  border-radius: 50%;
+  animation: c-loading-spin 0.8s linear infinite;
+}
+
+.c-loading-overlay {
+  position: relative;
+  width: min(100%, 21rem);
+  min-height: 8.5rem;
+  overflow: hidden;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+}
+
+.c-loading-overlay__content {
+  display: grid;
+  padding: 1rem;
+  gap: 0.65rem;
+}
+
+.c-loading-overlay__content strong {
+  font: 700 0.72rem/1.2 var(--font-mono, monospace);
+}
+
+.c-loading-overlay__line {
+  width: 100%;
+  height: 0.6rem;
+  background: var(--color-primary-soft, #edf1f7);
+}
+.c-loading-overlay__line:last-child { width: 68%; }
+
+.c-loading-overlay__layer {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  gap: 0.55rem;
+  place-content: center;
+  justify-items: center;
+  color: var(--color-text-inverse, #fff);
+  font: 700 0.65rem/1.2 var(--font-mono, monospace);
+  background: rgb(24 36 59 / 88%);
+}
+
+.c-loading-overlay__spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 0.22rem solid rgb(255 255 255 / 32%);
+  border-top-color: var(--color-accent-yellow, #ffff00);
+  border-radius: 50%;
+  animation: c-loading-spin 0.9s linear infinite;
+}
+
+.c-loading--flip::before {
+  width: 2.75rem;
+  height: 2.75rem;
+  background: var(--loading-color);
+  border: 0.28rem solid var(--loading-accent);
+  content: "";
+  animation: c-loading-flip 1.25s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes c-loading-spin { to { transform: rotate(360deg); } }
+@keyframes c-loading-dot { 0%, 80%, 100% { opacity: 0.28; transform: scale(0.72); } 40% { opacity: 1; transform: scale(1); } }
+@keyframes c-loading-pulse { 70% { box-shadow: 0 0 0 1.15rem rgb(24 36 59 / 0%); transform: scale(1.08); } 100% { box-shadow: 0 0 0 0 rgb(24 36 59 / 0%); } }
+@keyframes c-loading-slide { 0% { transform: translateX(-110%); } 50%, 100% { transform: translateX(250%); } }
+@keyframes c-loading-stripes { to { transform: translateX(1.98rem); } }
+@keyframes c-loading-blink { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
+@keyframes c-loading-shimmer { to { transform: translateX(100%); } }
+@keyframes c-loading-bounce { 0%, 70%, 100% { transform: translateY(0); } 35% { transform: translateY(-0.85rem); } }
+@keyframes c-loading-equalizer { from { transform: scaleY(0.25); } to { transform: scaleY(1); } }
+@keyframes c-loading-flip { 0% { transform: perspective(5rem) rotateX(0) rotateY(0); } 50% { transform: perspective(5rem) rotateX(180deg) rotateY(0); } 100% { transform: perspective(5rem) rotateX(180deg) rotateY(180deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .c-loading,
+  .c-loading *,
+  .c-loading::before,
+  .c-loading::after,
+  .c-loading *::before,
+  .c-loading *::after {
+    animation: none !important;
+  }
+}

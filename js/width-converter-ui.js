@@ -259,7 +259,6 @@
       originalSource = '';
       render();
       input.focus();
-      showToast('表示内容をリセットしました。');
     });
     copyButton.addEventListener('click', () => copyText(mode === 'check' ? converter.formatInspectionReport(currentResult) : currentResult.output));
     applyButton.addEventListener('click', () => {
@@ -272,7 +271,6 @@
       input.value = originalSource;
       render();
       input.focus();
-      showToast('変換前のテキストへ戻しました。');
     });
 
     render();

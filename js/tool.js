@@ -9,17 +9,129 @@
       title: 'Text Case Converter',
       summary: '入力した文字列を複数の命名規則へまとめて変換します。',
       status: 'READY',
-      version: '0.2.0',
+      version: '0.2.1',
+      updated: '2026.11.01',
       kind: 'case',
       steps: ['入力欄へ変換したい文字列を入力します。', '入力内容に合わせて変換結果が自動的に更新されます。', '必要な形式のコピーボタンを押して使用します。'],
       specs: [['INPUT', 'Plain Text'], ['OUTPUT', '9 Styles'], ['DEPENDENCY', 'None'], ['STORAGE', 'None']],
+    },
+    'text-diff-viewer': {
+      number: 'TEXT_TOOLS',
+      title: 'Text Diff Viewer',
+      summary: '2つのテキストを比較し、追加・削除・変更された行と単語を確認します。',
+      status: 'READY',
+      version: '0.1.1',
+      updated: '2026.11.01',
+      kind: 'diff',
+      steps: ['ORIGINALとMODIFIEDへ比較するテキストを入力します。', '行単位または単語単位を選び、必要に応じて空白差分を除外します。', '追加・削除・変更箇所と行番号、集計結果を確認します。', 'COPY DIFFを押して統合差分をコピーします。'],
+      specs: [['INPUT', '2 Plain Texts'], ['OUTPUT', 'Unified Diff'], ['MODES', 'Line / Word'], ['OPTION', 'Ignore Whitespace'], ['DISPLAY', 'First 1,000 Rows'], ['LIMIT', '100,000 Characters / Side'], ['STORAGE', 'None']],
+    },
+    'regex-tester-replacer': {
+      number: 'TEXT_TOOLS',
+      title: 'Regex Tester & Replacer',
+      summary: '正規表現の一致箇所とキャプチャを確認し、置換結果をリアルタイムで生成します。',
+      status: 'READY',
+      version: '0.1.1',
+      updated: '2026.11.01',
+      kind: 'regex',
+      steps: ['正規表現パターンとテスト対象のテキストを入力します。', 'g・i・m・s・uから必要なフラグを選択します。', '一致箇所・位置・キャプチャグループを確認します。', '置換文字列を指定し、COPY OUTPUTで結果を使用します。'],
+      specs: [['INPUT', 'JavaScript RegExp'], ['FLAGS', 'g / i / m / s / u'], ['REPLACE', '$& / $1 / $<name> / $$'], ['DISPLAY', 'First 1,000 Matches'], ['LIMIT', '100,000 Input Characters'], ['ENGINE', 'Native RegExp'], ['STORAGE', 'None']],
+    },
+    'url-query-string-builder': {
+      number: 'CODE_TOOLS',
+      title: 'URL / Query String Builder',
+      summary: 'URLを解析し、重複キーを含むクエリパラメータとフラグメントを安全に組み立てます。',
+      status: 'READY',
+      version: '0.1.1',
+      updated: '2026.11.01',
+      kind: 'url-builder',
+      steps: ['ベースURLを入力するか、既存URLをPARSE URLでパラメータへ展開します。', 'キーと値を追加し、使用するパラメータを選択します。', '空白と空値のエンコード方法、フラグメントを設定します。', '生成されたURLまたはクエリ文字列をコピーします。'],
+      specs: [['INPUT', 'Absolute / Relative URL'], ['PARAMS', 'Up to 100 / Duplicate Keys'], ['SPACE', '+ / %20'], ['EMPTY VALUE', 'key= / key'], ['OUTPUT', 'URL + Query String'], ['LIMIT', '10,000 URL Characters'], ['STORAGE', 'None']],
+    },
+    'meta-tags-ogp-builder': {
+      number: 'CODE_TOOLS',
+      title: 'Meta Tags & OGP Builder',
+      summary: 'SEO基本タグ・OGP・Twitter Cardを入力内容から一括生成し、表示内容を確認します。',
+      status: 'READY',
+      version: '0.1.1',
+      updated: '2026.11.01',
+      kind: 'meta-builder',
+      steps: ['ページタイトル・説明・canonical URLなどのSEO情報を入力します。', 'Open Graphのサイト情報・画像とTwitter Cardを設定します。', '検索結果・SNSカードのプレビューと検証結果を確認します。', 'COPY TAGSで生成されたheadタグをコピーします。'],
+      specs: [['OUTPUT', 'SEO + OGP + Twitter'], ['PREVIEW', 'Search + Social'], ['ROBOTS', 'Index / Follow / Noarchive'], ['OG TYPE', '4 Types'], ['VALIDATION', 'Length / URL / Image ALT'], ['LIMIT', '2,000 URL Characters'], ['STORAGE', 'None']],
+    },
+    'css-specificity-calculator': {
+      number: 'CSS_TOOLS',
+      title: 'CSS Specificity Calculator',
+      summary: 'CSSセレクターの詳細度を計算し、構成要素と優先順位を比較します。',
+      status: 'READY',
+      version: '0.1.1',
+      updated: '2026.11.01',
+      kind: 'specificity',
+      steps: ['1行ごと、またはカンマ区切りでCSSセレクターを入力します。', '各セレクターのA・B・C詳細度と構成要素を確認します。', '必要に応じて詳細度の高い順へ並べ替えて比較します。', 'COPY REPORTで計算結果をまとめてコピーします。'],
+      specs: [['INPUT', 'CSS Selector List'], ['OUTPUT', 'A-B-C Specificity'], ['PSEUDOS', ':where / :is / :not / :has'], ['NTH', 'of Selector Support'], ['DISPLAY', 'First 200 Selectors'], ['LIMIT', '100,000 Input Characters'], ['STORAGE', 'None']],
+    },
+    'image-format-converter-resizer': {
+      number: 'IMAGE_TOOLS',
+      title: 'Image Format Converter & Resizer',
+      summary: 'PNG・JPEG・WebP画像をブラウザ内で変換し、寸法・品質・容量を調整します。',
+      status: 'READY',
+      version: '0.1.1',
+      updated: '2026.11.01',
+      kind: 'image-converter',
+      steps: ['PNG・JPEG・WebP画像をドロップするかファイル選択します。', '出力形式・幅・高さ・品質・JPEG背景色を設定します。', 'CONVERT IMAGEを押して変換後の画像と容量を確認します。', 'DOWNLOADから変換済み画像を保存します。'],
+      specs: [['INPUT', 'PNG / JPEG / WebP'], ['OUTPUT', 'PNG / JPEG / WebP'], ['RESIZE', '1–8,192px / Aspect Lock'], ['QUALITY', '10–100%'], ['FILE LIMIT', '25 MB'], ['PIXEL LIMIT', '50 Megapixels'], ['PROCESS', 'Canvas / Local'], ['STORAGE', 'None']],
+    },
+    'responsive-image-markup-builder': {
+      number: 'IMAGE_TOOLS',
+      title: 'Responsive Image Markup Builder',
+      summary: 'picture・source・srcset・sizesを組み合わせ、用途に合うレスポンシブ画像HTMLを生成します。',
+      status: 'READY',
+      version: '0.1.1',
+      updated: '2026.11.01',
+      kind: 'responsive-image-builder',
+      steps: ['フォールバック画像のsrc・srcset・sizes・altと寸法を入力します。', '必要に応じてAVIF・WebP・画面幅別のsourceを優先順に追加します。', '読み込み属性と検証結果、現在の画面幅で選択されるsourceを確認します。', 'COPY MARKUPから生成されたpicture／img要素をコピーします。'],
+      specs: [['OUTPUT', 'picture / source / img'], ['DESCRIPTORS', 'Width / Density'], ['SOURCES', 'Up to 8'], ['FORMATS', 'AVIF / WebP / JPEG / PNG'], ['ATTRIBUTES', 'Loading / Decoding / Priority'], ['VALIDATION', 'srcset / ALT / Dimensions'], ['PROCESS', 'Local Browser'], ['STORAGE', 'None']],
+    },
+    'base64-data-url-converter': {
+      number: 'CODE_TOOLS',
+      title: 'Base64 / Data URL Converter',
+      summary: 'テキスト・Base64・Base64URL・ファイル・Data URLをブラウザ内で相互変換します。',
+      status: 'READY',
+      version: '0.1.1',
+      updated: '2026.11.01',
+      kind: 'base64-converter',
+      steps: ['テキスト変換・デコード・ファイル変換からモードを選択します。', '文字列を入力するか、変換するファイルを選択します。', 'Base64・Base64URL・Data URLの形式と解析結果を確認します。', '結果をコピーするか、復元したデータをダウンロードします。'],
+      specs: [['MODES', 'Text / Decode / File'], ['ENCODING', 'Base64 / Base64URL'], ['DATA URL', 'Encode / Parse'], ['CHARSET', 'UTF-8'], ['FILE LIMIT', '10 MB'], ['PREVIEW', 'Image / Text / Binary'], ['PROCESS', 'Local Browser'], ['STORAGE', 'None']],
+    },
+    'code-block-generator': {
+      number: 'CODE_TOOLS',
+      title: 'Code Block Generator',
+      summary: 'コードを安全にエスケープし、Webページへ掲載できるセマンティックなコードブロックHTMLを生成します。',
+      status: 'READY',
+      version: '0.1.1',
+      updated: '2026.11.01',
+      kind: 'code-block',
+      steps: ['掲載したいコードを入力または貼り付けます。', 'HTML・CSS・SCSS・JavaScript・PHPから言語を選択します。', 'キャプション、言語クラス、キーボードスクロールの設定とプレビューを確認します。', 'COPY OUTPUTで生成されたHTMLをコピーします。'],
+      specs: [['INPUT', 'HTML / CSS / SCSS / JS / PHP'], ['OUTPUT', 'figure / figcaption / pre / code'], ['ESCAPE', '& < >'], ['CLASS', 'language-*'], ['LIMIT', '100,000 Input Units'], ['STORAGE', 'None']],
+    },
+    'css-custom-property-builder': {
+      number: 'CSS_TOOLS',
+      title: 'CSS Custom Property Builder',
+      summary: 'CSSカスタムプロパティを整理し、テーマ上書き・var()参照・JSONトークンを生成します。',
+      status: 'READY',
+      version: '0.1.1',
+      updated: '2026.11.01',
+      kind: 'custom-property-builder',
+      steps: ['デフォルトとテーマ上書きのスコープを設定します。', 'カスタムプロパティ名・値・フォールバック・説明を追加します。', '必要な変数へテーマ上書き値を設定し、プレビューと検証結果を確認します。', '生成したCSS・var()使用例・JSONトークンをコピーします。'],
+      specs: [['PROPERTIES', 'Up to 100'], ['SCOPES', 'Default / Theme'], ['OUTPUT', 'CSS / var() / JSON'], ['FALLBACK', 'var(--name, value)'], ['CATEGORIES', '8 Types'], ['VALIDATION', 'Name / Duplicate / Value'], ['PROCESS', 'Local Browser'], ['STORAGE', 'None']],
     },
     'character-counter': {
       number: 'TEXT_TOOLS',
       title: 'Character Counter',
       summary: '文字数・単語数・行数・UTF-8バイト数をリアルタイムで確認します。',
       status: 'READY',
-      version: '0.2.0',
+      version: '0.2.1',
+      updated: '2026.11.01',
       kind: 'counter',
       steps: ['入力欄へ確認したい文章を入力します。', '6種類の集計結果がリアルタイムで更新されます。', 'COPY SUMMARYで集計結果をまとめてコピーできます。', 'CLEARで入力内容と集計結果をリセットできます。'],
       specs: [['INPUT', 'Plain Text'], ['OUTPUT', '6 Metrics'], ['LIMIT', '100,000 Input Units'], ['DEPENDENCY', 'None'], ['STORAGE', 'None']],
@@ -29,7 +141,8 @@
       title: 'Text Formatter',
       summary: '行・空白・文字種を目的に合わせて段階的に整形します。',
       status: 'READY',
-      version: '0.1.0',
+      version: '0.1.1',
+      updated: '2026.11.01',
       kind: 'formatter',
       steps: ['CMS原稿や商品情報など、整理したいテキストを入力します。', '行・空白・文字変換から必要な処理を順番に実行します。', '結果を確認し、必要に応じてUNDOまたはRESET TO SOURCEで戻します。', 'COPY OUTPUTを押して整形済みテキストを使用します。'],
       specs: [['INPUT', 'Plain Text'], ['ACTIONS', '16 Operations'], ['HISTORY', '50 Steps'], ['SORT', 'Japanese Locale'], ['LIMIT', '100,000 Input Units'], ['STORAGE', 'None']],
@@ -39,7 +152,8 @@
       title: 'Width Converter',
       summary: '文字種別ごとのルールで全角・半角を変換し、表記の混在を検出します。',
       status: 'READY',
-      version: '0.1.0',
+      version: '0.1.1',
+      updated: '2026.11.01',
       kind: 'width',
       steps: ['一括変換・個別変換・文字チェックから目的に合うモードを選択します。', '変換または検出する文字種とルールを設定します。', '入力と結果、変更箇所または検出位置を確認します。', '結果をコピーするか、出力を次の入力として反映します。'],
       specs: [['MODES', 'Batch / Custom / Check'], ['TYPES', '6 Character Groups'], ['KANA', 'Dakuten Composition'], ['CHECK', 'Line + Column'], ['LIMIT', '100,000 Input Units'], ['STORAGE', 'None']],
@@ -49,7 +163,8 @@
       title: 'Unicode Inspector',
       summary: '文字コードと不可視文字をコードポイント単位で確認します。',
       status: 'READY',
-      version: '0.1.0',
+      version: '0.1.1',
+      updated: '2026.11.01',
       kind: 'unicode',
       steps: ['調査したいテキストを入力または貼り付けます。', '全体の文字数と不可視・特殊文字の検出結果を確認します。', '各文字のコードポイント、符号化結果、エスケープ表記を確認します。', '必要に応じてコードポイントまたは解析レポートをコピーします。'],
       specs: [['UNIT', 'Code Point'], ['ENCODING', 'UTF-8 / UTF-16'], ['ESCAPE', 'HTML / CSS / JS'], ['DISPLAY', 'First 300'], ['LIMIT', '100,000 Input Units'], ['STORAGE', 'None']],
@@ -59,7 +174,8 @@
       title: 'Directory Tree Generator',
       summary: 'インデント付きの一覧から共有用のディレクトリツリーを生成します。',
       status: 'READY',
-      version: '0.1.0',
+      version: '0.1.1',
+      updated: '2026.11.01',
       kind: 'tree',
       steps: ['ディレクトリとファイルを1行ずつ入力します。', '半角スペースまたはタブで階層を表します。', '入力形式と出力オプションを調整し、警告があれば対象行を確認します。', 'COPY OUTPUTを押してREADMEや仕様書へ貼り付けます。'],
       specs: [['INPUT', 'Indented Lines'], ['OUTPUT', 'Unicode Tree'], ['INDENT', 'Auto / 2 / 4 / Tab'], ['LIMIT', '100,000 Input Units'], ['NODES', 'First 10,000'], ['STORAGE', 'None']],
@@ -69,7 +185,8 @@
       title: 'Markdown Preview Editor',
       summary: 'Markdownを編集しながら、安全なHTMLプレビューと文書構造を確認します。',
       status: 'READY',
-      version: '0.1.0',
+      version: '0.1.1',
+      updated: '2026.11.01',
       kind: 'markdown',
       steps: ['左側の入力欄へMarkdownを入力します。', '右側でレンダリング結果または生成HTMLを確認します。', '見出し構造やリンクなどの警告を確認します。', 'MarkdownまたはHTMLをコピーして制作環境で使用します。'],
       specs: [['INPUT', 'Markdown'], ['OUTPUT', 'Preview + HTML'], ['CHECK', 'Structure + Safe URL'], ['LIMIT', '100,000 Input Units'], ['HTML', 'Escaped'], ['STORAGE', 'None']],
@@ -79,7 +196,8 @@
       title: 'HTML Table Builder',
       summary: 'セルを編集し、見出し構造と表示設定を反映したアクセシブルなHTMLテーブルを生成します。',
       status: 'READY',
-      version: '0.1.0',
+      version: '0.1.1',
+      updated: '2026.11.01',
       kind: 'table',
       steps: ['テンプレートまたは行数・列数を選び、セル内容を入力します。', '表計算ソフトの複数セルは、そのままセルへ貼り付けられます。', '見出し・キャプション・整列と、色・罫線・余白・交互行を設定します。', 'プレビューと警告を確認し、HTMLまたはCSSをコピーします。'],
       specs: [['INPUT', 'Editable Grid / TSV'], ['OUTPUT', 'HTML + CSS'], ['STRUCTURE', 'Caption / Scope'], ['STYLE', 'Header / Border / Stripe'], ['LIMIT', '20 Rows × 12 Columns'], ['MODES', 'Class / Inline'], ['STORAGE', 'None']],
@@ -89,7 +207,8 @@
       title: 'BEM Class Builder',
       summary: 'サイトパーツの候補から、構造が伝わるBEMクラス名を構築・検証します。',
       status: 'READY',
-      version: '0.1.0',
+      version: '0.1.1',
+      updated: '2026.11.01',
       kind: 'bem',
       steps: ['対象パーツに近いカテゴリーを選び、候補を検索します。', 'BLOCK・ELEMENT・MODIFIERへ名前を入力するか、候補を選択します。', '正規化された構造と命名上の警告を確認します。', 'クラス一覧・セレクター・class属性・CSS雛形から必要な形式をコピーします。'],
       specs: [['INPUT', 'Block / Element / Modifier'], ['OUTPUT', 'Class / Selector / HTML / CSS'], ['RULE', 'block__element--modifier'], ['CATEGORIES', '11 Site Parts'], ['CHECK', 'Structure + Semantics'], ['LIMIT', '80 Characters / Part'], ['STORAGE', 'None']],
@@ -99,7 +218,8 @@
       title: 'Color Format Converter',
       summary: 'HEX・RGB・HSL・HSVを相互変換し、透明度とテキストコントラストを確認します。',
       status: 'READY',
-      version: '0.1.0',
+      version: '0.1.1',
+      updated: '2026.11.01',
       kind: 'color',
       steps: ['カラーピッカーまたはいずれかの形式へ色を入力します。', '有効な入力は他形式とプレビューへリアルタイム反映されます。', '黒・白文字のコントラストとAA判定を確認します。', '必要なカラー形式またはCSS変数をコピーします。'],
       specs: [['INPUT', 'HEX / RGB / HSL / HSV'], ['OUTPUT', 'CSS Color + Token'], ['ALPHA', '0–1 / 0–100%'], ['CONTRAST', 'WCAG AA / White Canvas'], ['HISTORY', '8 Colors / Session'], ['COLOR SPACE', 'sRGB'], ['STORAGE', 'None']],
@@ -109,7 +229,8 @@
       title: 'Slug Generator',
       summary: 'タイトルや文字列からURLに使用しやすいスラッグを生成します。',
       status: 'READY',
-      version: '0.1.0',
+      version: '0.1.1',
+      updated: '2026.11.01',
       kind: 'slug',
       steps: ['入力欄へタイトルや文字列を入力します。', '区切り文字と英字の小文字化を選択します。', 'スラッグとURLエンコード結果を確認します。', '必要な結果のCOPYを押して使用します。'],
       specs: [['INPUT', 'Title Text'], ['OUTPUT', 'Slug + Encoded'], ['LIMIT', '200 Input / 80 Output'], ['NORMALIZE', 'Unicode NFKD'], ['STORAGE', 'None']],
@@ -119,7 +240,8 @@
       title: 'JSON Formatter',
       summary: 'JSONデータを整形し、構文エラーを確認するためのツールです。',
       status: 'READY',
-      version: '0.1.0',
+      version: '0.1.1',
+      updated: '2026.11.01',
       kind: 'json',
       steps: ['入力欄へJSONデータを入力します。', '整形または圧縮の出力モードとインデントを選択します。', '構文チェックの結果と、エラー時は位置情報を確認します。', '有効な結果のCOPY OUTPUTを押して使用します。'],
       specs: [['INPUT', 'JSON'], ['OUTPUT', 'Pretty + Minified'], ['INDENT', '2 / 4 / Tab'], ['LIMIT', '100,000 Input Units'], ['PARSER', 'JSON.parse'], ['STORAGE', 'None']],
@@ -129,7 +251,8 @@
       title: 'HTML Escape Converter',
       summary: 'HTMLで構文上の意味を持つ文字を用途に合わせてエスケープし、元の文字列へ戻します。',
       status: 'READY',
-      version: '0.2.0',
+      version: '0.2.1',
+      updated: '2026.11.01',
       kind: 'html',
       steps: ['入力欄へHTMLまたは文字参照を入力します。', '変換方向とHTML内で使用するコンテキストを選択します。', '変換結果・置換数・警告を確認します。', 'COPY OUTPUTを押して結果を使用します。'],
       specs: [['INPUT', 'HTML + Entity Text'], ['OUTPUT', 'Escaped + Unescaped'], ['CONTEXT', 'Text + Attribute'], ['ENTITIES', '& < > " \' NBSP'], ['LIMIT', '100,000 Input Units'], ['STORAGE', 'None']],
@@ -139,7 +262,8 @@
       title: 'Numeric Character Reference Converter',
       summary: 'Unicode文字を10進・16進の数値文字参照へ変換し、元の文字列へ復元します。',
       status: 'READY',
-      version: '0.1.0',
+      version: '0.1.1',
+      updated: '2026.11.01',
       kind: 'numeric-reference',
       steps: ['変換する文字列または数値文字参照を入力します。', '変換方向・数値表記・変換範囲を選択します。', '変換数と警告を確認し、必要に応じて入力と出力を入れ替えます。', 'COPY OUTPUTを押して結果を使用します。'],
       specs: [['INPUT', 'Unicode + Numeric Reference'], ['OUTPUT', 'Decimal + Hex'], ['UNIT', 'Unicode Code Point'], ['SCOPE', 'Non-ASCII + All'], ['LIMIT', '100,000 Input Units'], ['STORAGE', 'None']],
@@ -149,7 +273,8 @@
       title: 'PX / REM Converter',
       summary: 'ルートフォントサイズを基準に、pxとremを双方向変換します。',
       status: 'READY',
-      version: '0.1.0',
+      version: '0.1.1',
+      updated: '2026.11.01',
       kind: 'unit',
       steps: ['変換する数値とルートフォントサイズを入力します。', 'PX → REMまたはREM → PXの変換方向を選択します。', '必要に応じて小数点以下の丸め精度を選択します。', '計算式を確認し、COPY OUTPUTを押して結果を使用します。'],
       specs: [['INPUT', 'px / rem'], ['OUTPUT', 'rem / px'], ['ROOT SIZE', '1–256px'], ['PRECISION', 'Auto / 2 / 4'], ['RANGE', '±1,000,000'], ['STORAGE', 'None']],
@@ -159,7 +284,8 @@
       title: 'Fluid Scale Generator',
       summary: 'モバイル・デスクトップの基準値から、タイポグラフィ・余白・UIサイズの流体トークンを一括生成します。',
       status: 'READY',
-      version: '0.1.0',
+      version: '0.1.1',
+      updated: '2026.11.01',
       kind: 'fluid-scale',
       steps: ['共通の最小・最大ビューポートと出力単位を指定します。', 'SCALE SYSTEMで文字・余白・UIサイズの基準値と比率を設定します。', '任意の画面幅で各トークンの現在値と視覚的な変化を確認します。', 'CSSトークンまたは使用例をコピーし、必要に応じてCSSファイルを保存します。'],
       specs: [['MODES', 'Scale System / Single'], ['OUTPUT', 'CSS Custom Properties'], ['UNITS', 'rem + vi / px + vi / cqi'], ['TYPE', '5 / 8 / 10 Steps'], ['SIZE TOKENS', 'Up to 12'], ['VIEWPORT', '240–3840px'], ['STORAGE', 'None']],
@@ -182,6 +308,7 @@
   setText('[data-tool-summary]', tool.summary);
   setText('[data-tool-status]', tool.status);
   setText('[data-tool-version]', tool.version);
+  setText('[data-tool-updated]', tool.updated);
 
   const statusElement = document.querySelector('[data-tool-status]');
   if (statusElement) {
@@ -194,14 +321,37 @@
   if (specs && tool.specs) specs.innerHTML = tool.specs.map(([term, value]) => `<div><dt>${term}</dt><dd>${value}</dd></div>`).join('');
 
   const toast = document.querySelector('[data-toast]');
-  const RESET_TOAST_MESSAGE = '表示内容をリセットしました。';
+  const RESET_TOAST_MESSAGE = '表示をリセットしました。';
+  const CLEAR_TOAST_MESSAGE = '表示をクリアしました。';
+  const DOWNLOAD_TOAST_MESSAGE = 'ダウンロードを実行しました。';
+  const DOWNLOAD_ACTION_SELECTOR = '[data-download-markdown], [data-image-download], [data-fluid-download], [data-base64-download]';
+  const TOAST_VISIBLE_DURATION = 1800;
+  const TOAST_FADE_DURATION = 200;
   let toastTimer;
-  const showToast = (message) => {
-    if (!toast) return;
-    toast.textContent = message;
-    toast.hidden = false;
+  let toastHideTimer;
+  const showToast = (message, tone = 'default') => {
+    const isStateToast = message === RESET_TOAST_MESSAGE || message === CLEAR_TOAST_MESSAGE;
+    const isActionToast = tone === 'copy' || tone === 'download';
+    if (!toast || (!isStateToast && !isActionToast)) return;
     window.clearTimeout(toastTimer);
-    toastTimer = window.setTimeout(() => { toast.hidden = true; }, 1800);
+    window.clearTimeout(toastHideTimer);
+    toast.textContent = message;
+    toast.dataset.toastTone = isStateToast ? 'default' : tone;
+
+    const isVisible = !toast.hidden && toast.classList.contains('is-visible');
+    toast.hidden = false;
+    if (!isVisible) {
+      toast.classList.remove('is-visible');
+      void toast.offsetWidth;
+      toast.classList.add('is-visible');
+    }
+
+    toastTimer = window.setTimeout(() => {
+      toast.classList.remove('is-visible');
+      toastHideTimer = window.setTimeout(() => {
+        if (!toast.classList.contains('is-visible')) toast.hidden = true;
+      }, TOAST_FADE_DURATION);
+    }, TOAST_VISIBLE_DURATION);
   };
 
   const copyText = async (value) => {
@@ -223,7 +373,7 @@
         copied = false;
       }
     }
-    showToast(copied ? 'コピーが完了しました。' : 'コピーに失敗しました。');
+    showToast(copied ? 'コピーが完了しました。' : 'コピーに失敗しました。', 'copy');
     return copied;
   };
 
@@ -257,12 +407,185 @@
     };
     input.addEventListener('input', renderResults);
     workspace.querySelector('[data-sample]').addEventListener('click', () => { input.value = 'Mark Bench Web Tool'; renderResults(); input.focus(); });
-    workspace.querySelector('[data-clear]').addEventListener('click', () => { input.value = ''; renderResults(); input.focus(); showToast(RESET_TOAST_MESSAGE); });
+    workspace.querySelector('[data-clear]').addEventListener('click', () => { input.value = ''; renderResults(); input.focus(); });
     results.addEventListener('click', (event) => {
       const button = event.target.closest('[data-copy-value]');
       if (button) copyText(decodeURIComponent(button.dataset.copyValue));
     });
     renderResults();
+  };
+
+  const renderTextDiffViewer = () => {
+    const diffViewer = window.MarkBenchTextDiffViewer;
+    if (!diffViewer) {
+      workspace.innerHTML = '<div class="tool-workspace__loading"><p>&gt; text diff viewer module unavailable<span class="terminal-cursor">_</span></p></div>';
+      return;
+    }
+
+    workspace.innerHTML = `
+      <div class="text-diff-viewer">
+        <div class="workspace-grid workspace-grid--text-diff">
+          <section class="workspace-panel diff-viewer__input-pane diff-viewer__input-pane--original" aria-label="比較元テキスト">
+            <div class="workspace-panel__header"><span>ORIGINAL / BEFORE</span><div class="workspace-actions"><button class="workspace-action" type="button" data-diff-sample>SAMPLE</button><button class="workspace-action" type="button" data-diff-clear disabled>CLEAR</button></div></div>
+            <label class="visually-hidden" for="diff-original">比較元のテキスト</label>
+            <textarea id="diff-original" maxlength="${diffViewer.MAX_INPUT_LENGTH}" aria-describedby="diff-original-status" placeholder="変更前のテキストを入力してください。" spellcheck="false" data-diff-original></textarea>
+            <div class="workspace-panel__footer" id="diff-original-status"><span data-diff-original-state data-state="empty">ORIGINAL EMPTY</span><span data-diff-original-metrics>0 LINES / 0 CHARS</span></div>
+          </section>
+          <section class="workspace-panel diff-viewer__input-pane diff-viewer__input-pane--modified" aria-label="比較後テキスト">
+            <div class="workspace-panel__header"><span>MODIFIED / AFTER</span><button class="workspace-action" type="button" data-diff-swap disabled>SWAP</button></div>
+            <label class="visually-hidden" for="diff-modified">比較後のテキスト</label>
+            <textarea id="diff-modified" maxlength="${diffViewer.MAX_INPUT_LENGTH}" aria-describedby="diff-modified-status" placeholder="変更後のテキストを入力してください。" spellcheck="false" data-diff-modified></textarea>
+            <div class="workspace-panel__footer" id="diff-modified-status"><span data-diff-modified-state data-state="empty">MODIFIED EMPTY</span><span data-diff-modified-metrics>0 LINES / 0 CHARS</span></div>
+          </section>
+          <div class="diff-viewer__controls" aria-label="差分表示設定">
+            <fieldset class="diff-viewer__option-group">
+              <legend>COMPARE UNIT</legend>
+              <label><input type="radio" name="diff-mode" value="line" data-diff-mode checked><span>LINE</span></label>
+              <label><input type="radio" name="diff-mode" value="word" data-diff-mode><span>WORD</span></label>
+            </fieldset>
+            <label class="diff-viewer__toggle"><input type="checkbox" data-diff-ignore-whitespace><span>IGNORE WHITESPACE</span></label>
+          </div>
+          <section class="diff-viewer__result-panel" aria-labelledby="diff-result-title">
+            <div class="workspace-panel__header"><span id="diff-result-title">DIFF RESULT / UNIFIED</span><button class="workspace-action" type="button" data-copy-diff disabled>COPY DIFF</button></div>
+            <div class="diff-viewer__legend" aria-label="差分表示の凡例"><span data-diff-legend="delete">− DELETED</span><span data-diff-legend="insert">＋ ADDED</span><span data-diff-legend="change">± CHANGED</span></div>
+            <div class="diff-viewer__table" role="table" aria-label="テキスト差分" data-diff-results></div>
+            <div class="workspace-panel__footer"><span data-diff-output-state data-state="empty" aria-live="polite">ADD BOTH TEXTS</span><span data-diff-output-summary>0 DIFFERENCES</span></div>
+          </section>
+          <dl class="diff-viewer__metrics" aria-label="差分の集計結果">
+            <div><dt>ORIGINAL</dt><dd data-diff-metric="originalLines">0 LINES</dd></div>
+            <div><dt>MODIFIED</dt><dd data-diff-metric="modifiedLines">0 LINES</dd></div>
+            <div><dt>ADDED</dt><dd data-diff-metric="additions">0</dd></div>
+            <div><dt>DELETED</dt><dd data-diff-metric="deletions">0</dd></div>
+            <div><dt>CHANGED</dt><dd data-diff-metric="changes">0</dd></div>
+            <div><dt>UNCHANGED</dt><dd data-diff-metric="unchanged">0</dd></div>
+          </dl>
+        </div>
+      </div>`;
+
+    const originalInput = workspace.querySelector('[data-diff-original]');
+    const modifiedInput = workspace.querySelector('[data-diff-modified]');
+    const originalState = workspace.querySelector('[data-diff-original-state]');
+    const modifiedState = workspace.querySelector('[data-diff-modified-state]');
+    const originalMetrics = workspace.querySelector('[data-diff-original-metrics]');
+    const modifiedMetrics = workspace.querySelector('[data-diff-modified-metrics]');
+    const results = workspace.querySelector('[data-diff-results]');
+    const outputState = workspace.querySelector('[data-diff-output-state]');
+    const outputSummary = workspace.querySelector('[data-diff-output-summary]');
+    const clearButton = workspace.querySelector('[data-diff-clear]');
+    const swapButton = workspace.querySelector('[data-diff-swap]');
+    const copyButton = workspace.querySelector('[data-copy-diff]');
+    let currentResult = diffViewer.compare('', '');
+    let renderFrame = 0;
+
+    const getOptions = () => ({
+      mode: workspace.querySelector('[data-diff-mode]:checked')?.value || 'line',
+      ignoreWhitespace: workspace.querySelector('[data-diff-ignore-whitespace]').checked,
+    });
+    const formatInputMetrics = (lines, characters) => `${lines.toLocaleString('en-US')} LINES / ${characters.toLocaleString('en-US')} CHARS`;
+    const renderFragments = (row) => {
+      if (!row.value) return '<span class="diff-viewer__empty-line" aria-label="空行">↵</span>';
+      return row.fragments.map((fragment) => `<span class="diff-viewer__fragment diff-viewer__fragment--${fragment.type}">${escapeMarkup(fragment.value)}</span>`).join('');
+    };
+    const renderRows = () => {
+      if (currentResult.isEmpty) {
+        results.innerHTML = '<div class="diff-viewer__empty"><span>[ WAITING_FOR_INPUT ]</span><p>左右へテキストを入力すると差分を表示します。</p></div>';
+        return;
+      }
+      if (currentResult.isEqual) {
+        results.innerHTML = '<div class="diff-viewer__empty diff-viewer__empty--equal"><span>[ NO_DIFFERENCE ]</span><p>比較対象に差分はありません。</p></div>';
+        return;
+      }
+
+      const visibleRows = currentResult.rows.slice(0, diffViewer.MAX_RENDER_ROWS);
+      const rowMarkup = visibleRows.map((row) => `
+        <div class="diff-viewer__row diff-viewer__row--${row.type}${row.isChange ? ' is-change' : ''}" role="row">
+          <span class="diff-viewer__line-number" role="cell" aria-label="変更前の行番号">${row.oldLine ?? ''}</span>
+          <span class="diff-viewer__line-number" role="cell" aria-label="変更後の行番号">${row.newLine ?? ''}</span>
+          <span class="diff-viewer__mark" role="cell" aria-hidden="true">${row.type === 'delete' ? '−' : row.type === 'insert' ? '+' : ' '}</span>
+          <code role="cell">${renderFragments(row)}</code>
+        </div>`).join('');
+      const omitted = currentResult.rows.length - visibleRows.length;
+      results.innerHTML = `
+        <div class="diff-viewer__row diff-viewer__row--heading" role="row">
+          <span role="columnheader">OLD</span><span role="columnheader">NEW</span><span role="columnheader" aria-label="変更種別">±</span><span role="columnheader">CONTENT</span>
+        </div>
+        ${rowMarkup}
+        ${omitted > 0 ? `<div class="diff-viewer__truncated" role="note">${omitted.toLocaleString('en-US')} ROWS NOT DISPLAYED / COPY DIFF INCLUDES ALL ROWS</div>` : ''}`;
+    };
+
+    const renderResult = () => {
+      currentResult = diffViewer.compare(originalInput.value, modifiedInput.value, getOptions());
+      const { metrics } = currentResult;
+      const originalAtLimit = originalInput.value.length >= diffViewer.MAX_INPUT_LENGTH;
+      const modifiedAtLimit = modifiedInput.value.length >= diffViewer.MAX_INPUT_LENGTH;
+      const hasInput = Boolean(originalInput.value || modifiedInput.value);
+      const status = currentResult.isEmpty
+        ? 'ADD BOTH TEXTS'
+        : currentResult.isEqual
+          ? 'NO DIFFERENCE'
+          : currentResult.approximate
+            ? 'LARGE DIFF / APPROXIMATE'
+            : 'DIFFERENCE FOUND';
+
+      originalState.textContent = originalAtLimit ? 'ORIGINAL LIMIT' : originalInput.value ? 'ORIGINAL READY' : 'ORIGINAL EMPTY';
+      originalState.dataset.state = originalAtLimit ? 'limit' : originalInput.value ? 'ready' : 'empty';
+      modifiedState.textContent = modifiedAtLimit ? 'MODIFIED LIMIT' : modifiedInput.value ? 'MODIFIED READY' : 'MODIFIED EMPTY';
+      modifiedState.dataset.state = modifiedAtLimit ? 'limit' : modifiedInput.value ? 'ready' : 'empty';
+      originalMetrics.textContent = formatInputMetrics(metrics.originalLines, metrics.originalCharacters);
+      modifiedMetrics.textContent = formatInputMetrics(metrics.modifiedLines, metrics.modifiedCharacters);
+      outputState.textContent = status;
+      outputState.dataset.state = currentResult.isEmpty ? 'empty' : currentResult.isEqual ? 'ready' : currentResult.approximate ? 'truncated' : 'changed';
+      outputSummary.textContent = `${metrics.differenceCount.toLocaleString('en-US')} DIFFERENCES / ${currentResult.rows.length.toLocaleString('en-US')} ROWS`;
+      clearButton.disabled = !hasInput;
+      swapButton.disabled = !hasInput;
+      copyButton.disabled = currentResult.isEmpty || currentResult.isEqual;
+
+      const metricValues = {
+        originalLines: `${metrics.originalLines.toLocaleString('en-US')} LINES`,
+        modifiedLines: `${metrics.modifiedLines.toLocaleString('en-US')} LINES`,
+        additions: metrics.additions,
+        deletions: metrics.deletions,
+        changes: metrics.changes,
+        unchanged: metrics.unchanged,
+      };
+      Object.entries(metricValues).forEach(([name, value]) => {
+        const element = workspace.querySelector(`[data-diff-metric="${name}"]`);
+        if (element) element.textContent = String(value);
+      });
+      renderRows();
+    };
+    const scheduleRender = () => {
+      window.cancelAnimationFrame(renderFrame);
+      renderFrame = window.requestAnimationFrame(renderResult);
+    };
+
+    originalInput.addEventListener('input', scheduleRender);
+    modifiedInput.addEventListener('input', scheduleRender);
+    workspace.querySelectorAll('[data-diff-mode], [data-diff-ignore-whitespace]').forEach((control) => control.addEventListener('change', renderResult));
+    workspace.querySelector('[data-diff-sample]').addEventListener('click', () => {
+      originalInput.value = 'MARK BENCH\nWeb production tools\nBuilt with HTML, CSS and JavaScript.\nLocal processing only.';
+      modifiedInput.value = 'MARK BENCH\nWeb production toolkit\nBuilt with semantic HTML, CSS and JavaScript.\nResponsive and local processing only.\nReady to publish.';
+      renderResult();
+      originalInput.focus();
+    });
+    clearButton.addEventListener('click', () => {
+      originalInput.value = '';
+      modifiedInput.value = '';
+      renderResult();
+      originalInput.focus();
+    });
+    swapButton.addEventListener('click', () => {
+      const original = originalInput.value;
+      originalInput.value = modifiedInput.value;
+      modifiedInput.value = original;
+      renderResult();
+      originalInput.focus();
+      showToast('ORIGINAL / MODIFIEDを入れ替えました。');
+    });
+    copyButton.addEventListener('click', () => copyText(currentResult.plainText));
+
+    renderResult();
+    window.addEventListener('pageshow', renderResult, { once: true });
   };
 
   const renderCounter = () => {
@@ -317,7 +640,7 @@
       renderResults();
       input.focus();
     });
-    clearButton.addEventListener('click', () => { input.value = ''; renderResults(); input.focus(); showToast(RESET_TOAST_MESSAGE); });
+    clearButton.addEventListener('click', () => { input.value = ''; renderResults(); input.focus(); });
     copyButton.addEventListener('click', () => copyText(counter.formatSummary(currentMetrics)));
     renderResults();
   };
@@ -399,7 +722,6 @@
       input.value = '';
       renderResults();
       input.focus();
-      showToast(RESET_TOAST_MESSAGE);
     });
     results.addEventListener('click', (event) => {
       const button = event.target.closest('[data-copy-slug]');
@@ -510,7 +832,6 @@
       input.value = '';
       renderResult();
       input.focus();
-      showToast(RESET_TOAST_MESSAGE);
     });
     copyButton.addEventListener('click', () => copyText(currentResult.output));
     renderResult();
@@ -613,7 +934,6 @@
       input.value = '';
       renderResult();
       input.focus();
-      showToast(RESET_TOAST_MESSAGE);
     });
     copyButton.addEventListener('click', () => copyText(currentResult.output));
     renderResult();
@@ -751,7 +1071,6 @@
       input.value = '';
       renderResult();
       input.focus();
-      showToast(RESET_TOAST_MESSAGE);
     });
     swapButton.addEventListener('click', () => {
       input.value = currentResult.output;
@@ -885,7 +1204,6 @@
       lastActionState = 'changed';
       renderState();
       input.focus();
-      showToast(RESET_TOAST_MESSAGE);
     });
 
     workspace.querySelector('.formatter-actions__groups').addEventListener('click', (event) => {
@@ -1078,7 +1396,6 @@
       activeFilter = 'all';
       render();
       input.focus();
-      showToast(RESET_TOAST_MESSAGE);
     });
     copyReportButton.addEventListener('click', () => copyText(inspector.formatReport(currentAnalysis)));
     filterButtons.forEach((button) => button.addEventListener('click', () => {
@@ -1290,7 +1607,6 @@
       input.value = '';
       renderResult();
       input.focus();
-      showToast(RESET_TOAST_MESSAGE);
     });
     copyButton.addEventListener('click', () => copyText(currentResult.output));
     renderResult();
@@ -1640,7 +1956,6 @@
       captureHistory();
       renderResult();
       input.focus();
-      showToast(RESET_TOAST_MESSAGE);
     });
     copyMarkdownButton.addEventListener('click', () => copyText(input.value));
     copyHtmlButton.addEventListener('click', () => copyText(currentResult.html));
@@ -2034,7 +2349,7 @@
       const template = builder.getTemplate('size');
       applyState(template.state, template.settings, 'SAMPLE LOADED');
     });
-    workspace.querySelector('[data-table-clear]').addEventListener('click', () => applyState(builder.clearState(tableState), settings, RESET_TOAST_MESSAGE));
+    workspace.querySelector('[data-table-clear]').addEventListener('click', () => applyState(builder.clearState(tableState), settings));
     workspace.querySelectorAll('[data-table-template]').forEach((button) => button.addEventListener('click', () => {
       const template = builder.getTemplate(button.dataset.tableTemplate);
       applyState(template.state, template.settings, `${template.label} LOADED`);
@@ -2101,7 +2416,6 @@
       syncSettings();
       captureHistory();
       renderOutput();
-      showToast('スタイルを初期化しました。');
     });
     workspace.querySelectorAll('[data-table-preview-width]').forEach((control) => control.addEventListener('change', () => {
       previewStage.dataset.previewWidth = workspace.querySelector('[data-table-preview-width]:checked')?.value || 'auto';
@@ -2238,9 +2552,9 @@
       });
 
       structure.innerHTML = currentResult.parts.block ? `
-        <span class="bem-builder__structure-part"><small>BLOCK</small>${escapeMarkup(currentResult.parts.block)}</span>
-        ${currentResult.parts.element ? `<span class="bem-builder__delimiter" aria-hidden="true">__</span><span class="bem-builder__structure-part"><small>ELEMENT</small>${escapeMarkup(currentResult.parts.element)}</span>` : ''}
-        ${currentResult.parts.modifier ? `<span class="bem-builder__delimiter" aria-hidden="true">--</span><span class="bem-builder__structure-part"><small>MODIFIER</small>${escapeMarkup(currentResult.parts.modifier)}</span>` : ''}` : '<span class="bem-builder__structure-empty">BLOCKを入力してください。</span>';
+        <span class="bem-builder__structure-part"><small>BLOCK</small><span class="bem-builder__structure-value">${escapeMarkup(currentResult.parts.block)}</span></span>
+        ${currentResult.parts.element ? `<span class="bem-builder__delimiter" aria-hidden="true">__</span><span class="bem-builder__structure-part"><small>ELEMENT</small><span class="bem-builder__structure-value">${escapeMarkup(currentResult.parts.element)}</span></span>` : ''}
+        ${currentResult.parts.modifier ? `<span class="bem-builder__delimiter" aria-hidden="true">--</span><span class="bem-builder__structure-part"><small>MODIFIER</small><span class="bem-builder__structure-value">${escapeMarkup(currentResult.parts.modifier)}</span></span>` : ''}` : '<span class="bem-builder__structure-empty">BLOCKを入力してください。</span>';
 
       const displayStatus = currentResult.errorCount ? 'INVALID' : currentResult.warningCount ? `${currentResult.warningCount} WARNING${currentResult.warningCount === 1 ? '' : 'S'}` : currentResult.status;
       const state = currentResult.errorCount ? 'invalid' : currentResult.className ? 'ready' : 'empty';
@@ -2305,7 +2619,6 @@
       searchInput.value = '';
       renderAll();
       inputs.block.focus();
-      showToast(RESET_TOAST_MESSAGE);
     });
     copyButtons.forEach((button) => button.addEventListener('click', () => copyText(currentResult[button.dataset.copyBem])));
 
@@ -2637,7 +2950,6 @@
     clearButton.addEventListener('click', () => {
       renderEmpty();
       fieldGroups.hex.hex.focus();
-      showToast(RESET_TOAST_MESSAGE);
     });
     historyRoot.addEventListener('click', (event) => {
       const button = event.target.closest('[data-color-history-value]');
@@ -2772,7 +3084,6 @@
       rootInput.value = String(converter.DEFAULT_ROOT_SIZE);
       renderResult();
       valueInput.focus();
-      showToast(RESET_TOAST_MESSAGE);
     });
     copyButton.addEventListener('click', () => copyText(currentResult.output));
     renderResult();
@@ -2783,6 +3094,87 @@
     const ui = window.MarkBenchFluidScaleGeneratorUI;
     if (!ui) {
       workspace.innerHTML = '<div class="tool-workspace__loading"><p>&gt; fluid scale generator module unavailable<span class="terminal-cursor">_</span></p></div>';
+      return;
+    }
+    ui.mount({ workspace, copyText, showToast, escapeMarkup });
+  };
+
+  const renderRegexTesterReplacer = () => {
+    const ui = window.MarkBenchRegexTesterReplacer;
+    if (!ui) {
+      workspace.innerHTML = '<div class="tool-workspace__loading"><p>&gt; regex tester module unavailable<span class="terminal-cursor">_</span></p></div>';
+      return;
+    }
+    ui.mount({ workspace, copyText, showToast, escapeMarkup });
+  };
+
+  const renderUrlQueryStringBuilder = () => {
+    const ui = window.MarkBenchUrlQueryStringBuilder;
+    if (!ui) {
+      workspace.innerHTML = '<div class="tool-workspace__loading"><p>&gt; url builder module unavailable<span class="terminal-cursor">_</span></p></div>';
+      return;
+    }
+    ui.mount({ workspace, copyText, showToast, escapeMarkup });
+  };
+
+  const renderMetaTagsOgpBuilder = () => {
+    const ui = window.MarkBenchMetaTagsOgpBuilder;
+    if (!ui) {
+      workspace.innerHTML = '<div class="tool-workspace__loading"><p>&gt; meta tags builder module unavailable<span class="terminal-cursor">_</span></p></div>';
+      return;
+    }
+    ui.mount({ workspace, copyText, showToast, escapeMarkup });
+  };
+
+  const renderCssSpecificityCalculator = () => {
+    const ui = window.MarkBenchCssSpecificityCalculator;
+    if (!ui) {
+      workspace.innerHTML = '<div class="tool-workspace__loading"><p>&gt; specificity calculator module unavailable<span class="terminal-cursor">_</span></p></div>';
+      return;
+    }
+    ui.mount({ workspace, copyText, showToast, escapeMarkup });
+  };
+
+  const renderImageFormatConverterResizer = () => {
+    const ui = window.MarkBenchImageFormatConverterResizer;
+    if (!ui) {
+      workspace.innerHTML = '<div class="tool-workspace__loading"><p>&gt; image converter module unavailable<span class="terminal-cursor">_</span></p></div>';
+      return;
+    }
+    ui.mount({ workspace, copyText, showToast, escapeMarkup });
+  };
+
+  const renderResponsiveImageMarkupBuilder = () => {
+    const ui = window.MarkBenchResponsiveImageMarkupBuilder;
+    if (!ui) {
+      workspace.innerHTML = '<div class="tool-workspace__loading"><p>&gt; responsive image builder module unavailable<span class="terminal-cursor">_</span></p></div>';
+      return;
+    }
+    ui.mount({ workspace, copyText, showToast, escapeMarkup });
+  };
+
+  const renderBase64DataUrlConverter = () => {
+    const ui = window.MarkBenchBase64DataUrlConverter;
+    if (!ui) {
+      workspace.innerHTML = '<div class="tool-workspace__loading"><p>&gt; base64 converter module unavailable<span class="terminal-cursor">_</span></p></div>';
+      return;
+    }
+    ui.mount({ workspace, copyText, showToast, escapeMarkup });
+  };
+
+  const renderCodeBlockGenerator = () => {
+    const ui = window.MarkBenchCodeBlockGenerator;
+    if (!ui) {
+      workspace.innerHTML = '<div class="tool-workspace__loading"><p>&gt; code block generator module unavailable<span class="terminal-cursor">_</span></p></div>';
+      return;
+    }
+    ui.mount({ workspace, copyText, showToast, escapeMarkup });
+  };
+
+  const renderCssCustomPropertyBuilder = () => {
+    const ui = window.MarkBenchCssCustomPropertyBuilder;
+    if (!ui) {
+      workspace.innerHTML = '<div class="tool-workspace__loading"><p>&gt; custom property builder module unavailable<span class="terminal-cursor">_</span></p></div>';
       return;
     }
     ui.mount({ workspace, copyText, showToast, escapeMarkup });
@@ -2802,6 +3194,16 @@
   };
 
   if (tool.kind === 'case') renderCaseConverter();
+  else if (tool.kind === 'diff') renderTextDiffViewer();
+  else if (tool.kind === 'regex') renderRegexTesterReplacer();
+  else if (tool.kind === 'url-builder') renderUrlQueryStringBuilder();
+  else if (tool.kind === 'meta-builder') renderMetaTagsOgpBuilder();
+  else if (tool.kind === 'specificity') renderCssSpecificityCalculator();
+  else if (tool.kind === 'image-converter') renderImageFormatConverterResizer();
+  else if (tool.kind === 'responsive-image-builder') renderResponsiveImageMarkupBuilder();
+  else if (tool.kind === 'base64-converter') renderBase64DataUrlConverter();
+  else if (tool.kind === 'code-block') renderCodeBlockGenerator();
+  else if (tool.kind === 'custom-property-builder') renderCssCustomPropertyBuilder();
   else if (tool.kind === 'counter') renderCounter();
   else if (tool.kind === 'slug') renderSlugGenerator();
   else if (tool.kind === 'json') renderJsonFormatter();
@@ -2818,4 +3220,24 @@
   else if (tool.kind === 'fluid-scale') renderFluidScaleGenerator();
   else if (tool.kind === 'width') renderWidthConverter();
   else renderPlaceholder();
+
+  workspace.addEventListener('click', (event) => {
+    const button = event.target.closest('button, input[type="reset"]');
+    const buttonLabel = button instanceof HTMLInputElement ? button.value : button?.textContent;
+    const normalizedButtonLabel = String(buttonLabel || '').trim().toUpperCase();
+    const isResetAction = button
+      && workspace.contains(button)
+      && !button.matches(':disabled')
+      && /^RESET(?:\s|$)/u.test(normalizedButtonLabel);
+    const isClearAction = button
+      && workspace.contains(button)
+      && !button.matches(':disabled')
+      && /^CLEAR(?:\s|$)/u.test(normalizedButtonLabel);
+    if (isResetAction) showToast(RESET_TOAST_MESSAGE);
+    else if (isClearAction) showToast(CLEAR_TOAST_MESSAGE);
+
+    const downloadAction = event.target.closest(DOWNLOAD_ACTION_SELECTOR);
+    if (!downloadAction || !workspace.contains(downloadAction) || downloadAction.hidden || downloadAction.matches(':disabled')) return;
+    showToast(DOWNLOAD_TOAST_MESSAGE, 'download');
+  });
 })();
