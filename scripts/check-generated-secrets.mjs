@@ -3,7 +3,7 @@ import { extname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const TEXT_EXTENSIONS = new Set(['.css', '.html', '.js', '.json', '.map', '.svg', '.txt', '.xml']);
-const FORBIDDEN_MARKERS = ['X-MICROCMS-API-KEY', 'MICROCMS_API_KEY'];
+const FORBIDDEN_MARKERS = ['MICROCMS_API_KEY'];
 
 const isUsableSecret = (value) => {
   const normalized = String(value ?? '').trim();
