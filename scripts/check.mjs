@@ -1,6 +1,8 @@
 import { access, readFile, readdir } from 'node:fs/promises';
 import { dirname, extname, join, resolve } from 'node:path';
 
+import { collectLocalReferences } from './local-references.mjs';
+
 const rootArgument = process.argv.slice(2).find((argument) => !argument.startsWith('-'));
 const root = resolve(process.cwd(), rootArgument || '.');
 const pageDirectories = ['.', 'tools', 'web-parts', 'build-notes'];
@@ -23,9 +25,7 @@ const missing = [];
 for (const htmlFile of htmlFiles) {
   const html = await readFile(join(root, htmlFile), 'utf8');
   htmlCache.set(resolve(root, htmlFile), html);
-  const references = [...html.matchAll(/(?:href|src)="([^"#?]+)(?:[?#][^"]*)?"/g)]
-    .map((match) => match[1])
-    .filter((path) => /^\.\.?\//.test(path));
+  const references = collectLocalReferences(html);
 
   for (const reference of references) {
     const resolvedPath = resolve(root, dirname(htmlFile), reference);
@@ -105,3 +105,4 @@ await import('./check-blog-content.mjs');
 await import('./check-rich-text-sanitizer.mjs');
 await import('./check-microcms-fetch.mjs');
 await import('./check-secret-scanner.mjs');
+await import('./check-local-references.mjs');
