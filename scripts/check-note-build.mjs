@@ -23,7 +23,7 @@ export const checkNoteBuild = async (output, sourceEntries) => {
   assert.ok(buildNotes.includes(`CODING NOTE: ${String(codingNoteCount).padStart(2, '0')}`));
   assert.ok(buildNotes.includes(`CODING_NOTE_ARCHIVE</span><span>${String(codingNoteCount).padStart(2, '0')} NOTES`));
   assert.ok(
-    home.includes(`data-build-notes-count>${String(codingNoteCount + entries.length).padStart(2, '0')} NOTES</span>`),
+    new RegExp(`data-build-notes-count\\s*>${String(codingNoteCount + entries.length).padStart(2, '0')} NOTES<\\/span\\s*>`).test(home),
     'HOME must show the total number of visible BUILD NOTES',
   );
 

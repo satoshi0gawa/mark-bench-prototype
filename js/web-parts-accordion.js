@@ -87,6 +87,79 @@
     });
   });
 
+  document.querySelectorAll('[data-accordion-feature]').forEach((root) => {
+    const items = [...root.children].filter((child) => child.matches?.('.c-accordion__feature-item'));
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const duration = 260;
+    const buttonFor = (item) => item.querySelector(':scope > .c-accordion__feature-heading > .c-accordion__feature-button');
+    const panelFor = (item) => item.querySelector(':scope > .c-accordion__feature-panel');
+    const updateLabels = (button, open) => {
+      const openLabel = button.querySelector('[data-open-label]');
+      const closeLabel = button.querySelector('[data-close-label]');
+      if (openLabel) openLabel.hidden = open;
+      if (closeLabel) closeLabel.hidden = !open;
+    };
+    const afterTransition = (panel) => new Promise((resolve) => {
+      const fallback = window.setTimeout(resolve, duration + 80);
+      panel.addEventListener('transitionend', () => {
+        window.clearTimeout(fallback);
+        resolve();
+      }, { once: true });
+    });
+    const closeItem = async (item) => {
+      const button = buttonFor(item);
+      const panel = panelFor(item);
+      if (!button || !panel || button.getAttribute('aria-expanded') !== 'true') return;
+      button.setAttribute('aria-expanded', 'false');
+      updateLabels(button, false);
+      item.classList.remove('is-open');
+      if (reduceMotion.matches) {
+        panel.hidden = true;
+        return;
+      }
+      panel.style.height = `${panel.getBoundingClientRect().height}px`;
+      panel.style.transition = `height ${duration}ms cubic-bezier(.2, .8, .2, 1)`;
+      panel.getBoundingClientRect();
+      panel.style.height = '0px';
+      await afterTransition(panel);
+      if (button.getAttribute('aria-expanded') === 'false') panel.hidden = true;
+      panel.style.height = '';
+      panel.style.transition = '';
+    };
+    const openItem = async (item) => {
+      const button = buttonFor(item);
+      const panel = panelFor(item);
+      if (!button || !panel || button.getAttribute('aria-expanded') === 'true') return;
+      items.filter((candidate) => candidate !== item).forEach(closeItem);
+      button.setAttribute('aria-expanded', 'true');
+      updateLabels(button, true);
+      item.classList.add('is-open');
+      panel.hidden = false;
+      if (reduceMotion.matches) return;
+      panel.style.height = '0px';
+      panel.style.transition = `height ${duration}ms cubic-bezier(.2, .8, .2, 1)`;
+      panel.getBoundingClientRect();
+      panel.style.height = `${panel.scrollHeight}px`;
+      await afterTransition(panel);
+      if (button.getAttribute('aria-expanded') === 'true') panel.style.height = 'auto';
+      panel.style.transition = '';
+    };
+    items.forEach((item) => {
+      const button = buttonFor(item);
+      const panel = panelFor(item);
+      if (!button || !panel) return;
+      const open = button.getAttribute('aria-expanded') === 'true';
+      item.classList.toggle('is-open', open);
+      panel.hidden = !open;
+      updateLabels(button, open);
+      button.addEventListener('click', () => {
+        const shouldOpen = button.getAttribute('aria-expanded') !== 'true';
+        if (shouldOpen) openItem(item);
+        else closeItem(item);
+      });
+    });
+  });
+
   document.querySelectorAll('[data-accordion-hash]').forEach((root) => {
     const items = directItems(root.querySelector('[data-accordion-group]'));
     const openTarget = (id, updateHash = true) => {

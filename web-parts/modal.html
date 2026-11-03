@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="MARK BENCHのトークンで設計した、Vanilla JavaScript対応のモーダル・ドロワー12パターンです。" />
+    <meta name="description" content="MARK BENCHのトークンで設計した、Vanilla JavaScript対応のモーダル・ドロワー13パターンです。" />
     <meta name="theme-color" content="#18243b" />
     <title>MODAL | MARK BENCH</title>
     <!-- site-meta:start -->
@@ -11,7 +11,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="MARK BENCH" />
     <meta property="og:title" content="MODAL | MARK BENCH" />
-    <meta property="og:description" content="MARK BENCHのトークンで設計した、Vanilla JavaScript対応のモーダル・ドロワー12パターンです。" />
+    <meta property="og:description" content="MARK BENCHのトークンで設計した、Vanilla JavaScript対応のモーダル・ドロワー13パターンです。" />
     <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/modal.html" />
     <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
     <meta property="og:image:width" content="1200" />
@@ -19,7 +19,7 @@
     <meta property="og:locale" content="ja_JP" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="MODAL | MARK BENCH" />
-    <meta name="twitter:description" content="MARK BENCHのトークンで設計した、Vanilla JavaScript対応のモーダル・ドロワー12パターンです。" />
+    <meta name="twitter:description" content="MARK BENCHのトークンで設計した、Vanilla JavaScript対応のモーダル・ドロワー13パターンです。" />
     <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
     <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
@@ -86,8 +86,8 @@
       <header class="part-detail-header">
         <p class="section-index reveal">WEB_PARTS / MODAL</p>
         <h1 class="reveal">MODAL</h1>
-        <p class="part-detail-header__lead reveal">確認、補足情報、フォーム、ナビゲーションを現在の画面に重ねて提示する、Vanilla JavaScript対応のモーダル・ドロワー12パターンです。</p>
-        <div class="part-detail-header__meta reveal"><span>PATTERNS: 12</span><span>TYPE: CSS + JS</span><span>DEPENDENCY: NONE</span></div>
+        <p class="part-detail-header__lead reveal">確認、補足情報、フォーム、ナビゲーションを現在の画面に重ねて提示する、Vanilla JavaScript対応のモーダル・ドロワー13パターンです。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 13</span><span>TYPE: CSS + JS</span><span>DEPENDENCY: NONE</span></div>
         <a class="part-detail-header__anchor reveal" href="#modal-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
       </header>
 
@@ -103,9 +103,10 @@
             <button type="button" aria-pressed="false" data-pattern-keyword="ナビ"># ナビ</button>
             <button type="button" aria-pressed="false" data-pattern-keyword="自動表示"># 自動表示</button>
             <button type="button" aria-pressed="false" data-pattern-keyword="特殊"># 特殊</button>
+            <button type="button" aria-pressed="false" data-pattern-keyword="モーション"># モーション</button>
           </div>
         </div>
-        <p>DISPLAY: <span data-pattern-count>12</span> / 12</p>
+        <p>DISPLAY: <span data-pattern-count>13</span> / 13</p>
       </section>
 
       <div class="part-example-list">
@@ -773,6 +774,120 @@ dialog.addEventListener('close', () =&gt; testButton.focus());
 document.addEventListener('mouseout', onMouseOut);</code></pre></div>
           </div>
           <div class="part-example__note"><strong>USE FOR</strong><p>PCの離脱兆候に反応する補助施策。タッチ端末では時間差表示など別条件を用意します。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js part-example--multi-trigger reveal" data-pattern data-search="基本 情報 モーション 複数入口 shared trigger fade scale slide focus">
+          <header class="part-example__header"><div><span class="part-example__index">MULTI TRIGGER</span><h2>複数の入口で共通モーダルを開く</h2></div><small>SHARED DIALOG</small></header>
+          <div class="part-example__preview"><div class="c-modal c-modal--multi" data-modal-demo><div class="c-modal__triggers"><button class="c-modal__trigger c-modal__trigger--line" type="button" aria-haspopup="dialog" aria-controls="multi-trigger-layer" data-modal-open data-modal-variant="fade">標準 <span aria-hidden="true">→</span></button><button class="c-modal__trigger c-modal__trigger--emphasis" type="button" aria-haspopup="dialog" aria-controls="multi-trigger-layer" data-modal-open data-modal-variant="scale">強調して開く</button><button class="c-modal__trigger c-modal__trigger--compact" type="button" aria-haspopup="dialog" aria-controls="multi-trigger-layer" data-modal-open data-modal-variant="slide"><small>QUICK VIEW</small>コンパクト</button></div><div class="c-modal__layer" id="multi-trigger-layer" role="dialog" aria-modal="true" aria-labelledby="multi-trigger-title" data-modal-layer hidden><div class="c-modal__overlay" data-modal-close></div><div class="c-modal__panel"><button class="c-modal__close" type="button" data-modal-close data-initial-focus aria-label="閉じる">×</button><span class="c-modal__eyebrow">SHARED DIALOG</span><h3 class="c-modal__title" id="multi-trigger-title">共通モーダル</h3><p class="c-modal__text">入口ごとに表示モーションを変えながら、内容と開閉処理を共通化します。</p><button class="c-modal__button" type="button" data-modal-close>内容を確認して閉じる</button></div></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-modal__triggers"&gt;
+  &lt;button class="c-modal__trigger c-modal__trigger--line" type="button"
+    aria-haspopup="dialog" aria-controls="shared-dialog"
+    data-modal-open data-modal-variant="fade"&gt;標準&lt;/button&gt;
+  &lt;button class="c-modal__trigger c-modal__trigger--emphasis" type="button"
+    aria-haspopup="dialog" aria-controls="shared-dialog"
+    data-modal-open data-modal-variant="scale"&gt;強調して開く&lt;/button&gt;
+  &lt;button class="c-modal__trigger c-modal__trigger--compact" type="button"
+    aria-haspopup="dialog" aria-controls="shared-dialog"
+    data-modal-open data-modal-variant="slide"&gt;コンパクト&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;dialog class="c-modal__layer" id="shared-dialog"
+  aria-labelledby="shared-dialog-title"&gt;
+  &lt;section class="c-modal__panel"&gt;
+    &lt;button class="c-modal__close" type="button"
+      data-modal-close aria-label="閉じる"&gt;×&lt;/button&gt;
+    &lt;h2 class="c-modal__title" id="shared-dialog-title"&gt;共通モーダル&lt;/h2&gt;
+    &lt;p class="c-modal__text"&gt;内容と開閉処理を共通化します。&lt;/p&gt;
+  &lt;/section&gt;
+&lt;/dialog&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-modal__triggers {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .55rem;
+}
+.c-modal__trigger--line {
+  color: var(--color-primary, #18243b);
+  background: var(--color-background, #fff);
+}
+.c-modal__trigger--emphasis {
+  border-bottom: 4px solid var(--color-accent-yellow, #ff0);
+}
+.c-modal__trigger--compact {
+  color: var(--color-primary, #18243b);
+  background: var(--color-accent-yellow, #ff0);
+}
+body.is-modal-open { overflow: hidden; }
+@media (prefers-reduced-motion: no-preference) {
+  .c-modal__layer[data-modal-variant="fade"] .c-modal__panel {
+    animation: modal-fade-in 180ms ease both;
+  }
+  .c-modal__layer[data-modal-variant="scale"] .c-modal__panel {
+    animation: modal-scale-in 180ms ease both;
+  }
+  .c-modal__layer[data-modal-variant="slide"] .c-modal__panel {
+    animation: modal-slide-in 180ms ease both;
+  }
+  .c-modal__layer.is-closing .c-modal__panel {
+    animation-direction: reverse;
+  }
+}
+@keyframes modal-fade-in { from { opacity: 0; } }
+@keyframes modal-scale-in { from { opacity: 0; transform: scale(.88); } }
+@keyframes modal-slide-in { from { opacity: 0; transform: translateY(2rem); } }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const dialog = document.querySelector('#shared-dialog');
+const triggers = [...document.querySelectorAll('[aria-controls="shared-dialog"]')];
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+let opener = null;
+let closeTimer = 0;
+
+function lockPage() {
+  const scrollbar = innerWidth - document.documentElement.clientWidth;
+  document.body.style.paddingRight = `${scrollbar}px`;
+  document.body.classList.add('is-modal-open');
+}
+function unlockPage() {
+  document.body.classList.remove('is-modal-open');
+  document.body.style.paddingRight = '';
+}
+function openDialog(trigger) {
+  opener = trigger;
+  dialog.dataset.modalVariant = trigger.dataset.modalVariant || 'fade';
+  lockPage();
+  dialog.showModal();
+  dialog.querySelector('[data-modal-close]').focus();
+}
+function finishClose() {
+  clearTimeout(closeTimer);
+  dialog.classList.remove('is-closing');
+  dialog.close();
+  unlockPage();
+  opener?.focus();
+}
+function closeDialog() {
+  if (!dialog.open || dialog.classList.contains('is-closing')) return;
+  if (reduceMotion.matches) {
+    finishClose();
+    return;
+  }
+  dialog.classList.add('is-closing');
+  closeTimer = setTimeout(finishClose, 200);
+}
+triggers.forEach((trigger) =&gt; {
+  trigger.addEventListener('click', () =&gt; openDialog(trigger));
+});
+dialog.querySelectorAll('[data-modal-close]').forEach((button) =&gt; {
+  button.addEventListener('click', closeDialog);
+});
+dialog.addEventListener('cancel', (event) =&gt; {
+  event.preventDefault();
+  closeDialog();
+});
+dialog.addEventListener('click', (event) =&gt; {
+  if (event.target === dialog) closeDialog();
+});</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>同じ詳細情報へ複数の導線を用意する画面。内容と状態管理を共通化し、入口ごとに見せ方だけを切り替えます。</p></div>
         </section>
       </div>
 

@@ -158,6 +158,96 @@
 .c-tab__menu-item { display: block; width: 100%; min-height: 2.25rem; text-align: left; }
 .c-tab__menu-item.is-active { color: var(--color-text-inverse, #fff); background: var(--color-primary, #18243b); }
 
+/* Content-rich tab patterns. */
+.part-example--content-tab { grid-template-rows: 5.5rem 20rem 33rem 6.5rem; }
+
+.c-tab--content,
+.c-tab--cards { width: min(100%, 34rem); }
+
+.c-tab__content-panel {
+  grid-template-columns: minmax(7rem, 0.8fr) minmax(0, 1.2fr);
+  gap: 1rem;
+  align-items: center;
+  min-height: 12rem;
+}
+.c-tab__content-panel:not([hidden]) { display: grid; }
+.c-tab__media {
+  position: relative;
+  display: grid;
+  min-height: 8rem;
+  overflow: hidden;
+  place-items: center;
+  color: var(--color-text-inverse, #fff);
+  background:
+    linear-gradient(135deg, transparent 50%, rgb(255 255 255 / 10%) 50%),
+    var(--color-primary, #18243b);
+}
+.c-tab__media::after {
+  position: absolute;
+  inset: 0.75rem;
+  border: 1px solid rgb(255 255 255 / 35%);
+  content: "";
+}
+.c-tab__media span { font: 700 2rem/1 var(--font-mono, monospace); }
+.c-tab__content-copy { min-width: 0; }
+.c-tab__content-copy small,
+.c-tab__detail-panel > small {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--color-text-subtle, #667085);
+  font: 700 0.58rem/1.4 var(--font-mono, monospace);
+  letter-spacing: 0.08em;
+}
+.c-tab__content-copy p,
+.c-tab__detail-panel p { margin: 0; }
+
+.c-tab--cards { background: transparent; border: 0; }
+.c-tab--cards .c-tab__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.4rem;
+  border: 0;
+}
+.c-tab--cards .c-tab__tab {
+  display: grid;
+  gap: 0.2rem;
+  min-height: 5rem;
+  text-align: left;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid, #d9dfe8);
+}
+.c-tab--cards .c-tab__tab strong,
+.c-tab--cards .c-tab__tab small { display: block; }
+.c-tab--cards .c-tab__tab small { font-size: 0.52rem; letter-spacing: 0.05em; }
+.c-tab--cards .c-tab__tab.is-active {
+  color: var(--color-text-inverse, #fff);
+  background: var(--color-primary, #18243b);
+  border-color: var(--color-primary, #18243b);
+}
+.c-tab__card-number { color: var(--color-text-subtle, #667085); font-size: 0.58rem; }
+.c-tab--cards .c-tab__tab.is-active .c-tab__card-number { color: var(--color-accent-yellow, #ff0); }
+.c-tab--cards .c-tab__panels {
+  margin-top: 0.5rem;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+}
+.c-tab__detail-panel { min-height: 8.5rem; }
+.c-tab__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.65rem 0;
+  padding: 0;
+  list-style: none;
+}
+.c-tab__tags li {
+  padding: 0.15rem 0.4rem;
+  color: var(--color-primary, #18243b);
+  font: 700 0.52rem/1.4 var(--font-mono, monospace);
+  background: var(--color-primary-soft, #edf1f7);
+  border: 1px solid var(--color-grid, #d9dfe8);
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .c-tab__tab,
   .c-tab__indicator,
@@ -171,10 +261,12 @@
 
 @media (min-width: 1280px) {
   .part-example--with-js { grid-template-rows: 5.5rem 16rem 33rem 6.5rem; }
+  .part-example--content-tab { grid-template-rows: 5.5rem 20rem 33rem 6.5rem; }
 }
 
 @media (max-width: 640px) {
   .part-example--with-js { grid-template-rows: 7rem 14rem 36rem 7.25rem; }
+  .part-example--content-tab { grid-template-rows: 7rem 22rem 36rem 7.25rem; }
   .part-example__code-grid--with-js { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .part-example__code-grid--with-js .part-code { border-bottom: 0; }
   .part-example__code-grid--with-js .part-code--js { border-top: 1px solid #374151; border-right: 0; }
@@ -182,4 +274,15 @@
   .c-tab--vertical { grid-template-columns: 1fr; }
   .c-tab--vertical .c-tab__list { flex-direction: row; }
   .c-tab--vertical .c-tab__tab { flex: 1; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .c-tab__content-panel { grid-template-columns: 1fr; gap: 0.65rem; }
+  .c-tab__media { min-height: 4rem; }
+  .c-tab--cards .c-tab__list { grid-template-columns: 1fr; }
+  .c-tab--cards .c-tab__tab {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    min-height: 3rem;
+  }
 }

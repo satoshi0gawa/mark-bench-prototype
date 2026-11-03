@@ -37,6 +37,15 @@ API作成画面で基本情報とリスト形式を選択した後、`blog-schem
 - MARK BENCH内のページリンクはREFERENCESへ掲載しない
 - MARK BENCH内の関連ページへの導線は、REFERENCESではなくCTAへ集約する
 
+### WEB PARTS記事の作成・公開前チェック
+
+- 草案作成前に、本READMEの本文入力ルールとREFERENCES入力ルールを確認する
+- REFERENCESの全URLを確認し、日本語で閲覧できないページを掲載していないことを確認する
+- REFERENCESにMARK BENCHの公開ページ、GitHub上のMARK BENCH実装ファイルなど、自サイト関連のリンクを掲載していないことを確認する
+- MARK BENCH内の関連ページへ案内する場合は、REFERENCESではなく`relatedWebPart`または該当するCTAへ設定する
+- 調査時に使用した資料と、公開するREFERENCESを分けて確認する
+- 新たに「共通ルール」として合意した記事運用がある場合は、公開作業を終える前に本READMEへの反映要否を判断し、必要な入力ルールと検証項目を更新する
+
 取得したリッチエディタHTMLは`sanitize-html@2.18.1`の許可リストを通してからテンプレートへ挿入する。`h1`、`h2`、スクリプト系要素、イベント属性、危険なURLは検証時に拒否し、許可されていない要素・属性は生成前に除去する。
 
 ## APIキー

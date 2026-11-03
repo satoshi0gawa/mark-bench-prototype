@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Splide 4.1.4で実装する、メッセージ、複数枚カード、同期ギャラリー、フェード表示のスライダー4パターンです。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>SLIDER / Splide | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/slider-splide.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="SLIDER / Splide | MARK BENCH" />
+    <meta property="og:description" content="Splide 4.1.4で実装する、メッセージ、複数枚カード、同期ギャラリー、フェード表示のスライダー4パターンです。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/slider-splide.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SLIDER / Splide | MARK BENCH" />
+    <meta name="twitter:description" content="Splide 4.1.4で実装する、メッセージ、複数枚カード、同期ギャラリー、フェード表示のスライダー4パターンです。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "SLIDER / Splide",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/slider-splide.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/web-parts.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@splidejs/splide@4.1.4/dist/css/splide-core.min.css" />
+    <link rel="stylesheet" href="../css/web-parts-slider-splide.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts-detail" data-parts-detail>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header"><div class="site-header__bar"><nav class="site-breadcrumb-logo" aria-label="パンくずリスト"><a class="site-logo" href="../index.html">MARK BENCH</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><a class="site-breadcrumb-logo__parent" href="./">WEB PARTS</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><span class="site-breadcrumb-logo__current" aria-current="page">SLIDER / Splide</span></nav></div></header>
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション"><a href="../tools/"><strong>TOOLS</strong></a><a href="./" aria-current="location"><strong>WEB PARTS</strong></a><a href="../build-notes/"><strong>BUILD NOTES</strong></a><a href="../about.html"><strong>ABOUT</strong></a></nav>
+
+    <main id="main" tabindex="-1">
+      <header class="part-detail-header">
+        <p class="section-index reveal">WEB_PARTS / SLIDER / Splide</p>
+        <h1 class="reveal">SLIDER / Splide</h1>
+        <p class="part-detail-header__lead reveal">ファーストビュー、実績一覧、画像ギャラリー、重要メッセージなど、複数の情報を自動再生と手動操作の両方で届けるSplide対応スライダー4パターンです。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 04</span><span>TYPE: CSS + JS</span><span>DEPENDENCY: Splide 4.1.4</span></div>
+        <a class="part-detail-header__anchor reveal" href="#slider-splide-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
+      </header>
+
+      <section class="part-detail-controls directory-search directory-keywords" aria-label="Splideスライダーパターンを絞り込み">
+        <div class="directory-keywords__group"><p class="directory-keywords__label">KEYWORDS</p><div class="directory-keywords__list">
+          <button type="button" aria-pressed="false" data-pattern-keyword="基本"># 基本</button><button type="button" aria-pressed="false" data-pattern-keyword="自動再生"># 自動再生</button><button type="button" aria-pressed="false" data-pattern-keyword="複数枚"># 複数枚</button><button type="button" aria-pressed="false" data-pattern-keyword="レスポンシブ"># レスポンシブ</button><button type="button" aria-pressed="false" data-pattern-keyword="ギャラリー"># ギャラリー</button><button type="button" aria-pressed="false" data-pattern-keyword="フェード"># フェード</button><button type="button" aria-pressed="false" data-pattern-keyword="進捗"># 進捗</button>
+        </div></div><p>DISPLAY: <span data-pattern-count>04</span> / 04</p>
+      </section>
+
+      <div class="part-example-list">
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="基本 設計 操作 アクセシビリティ 自動再生 メッセージ 横スライド design operation accessibility slide message hero autoplay arrow pagination keyboard splide">
+          <header class="part-example__header"><div><span class="part-example__index">BASIC / 01</span><h2>メッセージスライド</h2></div><small>MESSAGE SLIDE</small></header>
+          <div class="part-example__preview part-example__preview--splide">
+            <div class="c-splide-shell">
+              <div class="splide c-splide-slider c-splide-slider--message" data-splide-demo="message" aria-label="サービスの特長">
+                <div class="splide__arrows"><button class="splide__arrow splide__arrow--prev" type="button">←</button><button class="splide__arrow splide__arrow--next" type="button">→</button></div>
+                <div class="splide__track"><ul class="splide__list">
+                  <li class="splide__slide"><article class="c-splide-slider__panel"><p class="c-splide-slider__eyebrow">01 / DESIGN</p><h3 class="c-splide-slider__title">役割から順序を決める</h3><p class="c-splide-slider__text">一枚に一つの要点を置き、前後の流れまで含めて構成します。</p></article></li>
+                  <li class="splide__slide"><article class="c-splide-slider__panel"><p class="c-splide-slider__eyebrow">02 / OPERATION</p><h3 class="c-splide-slider__title">自動でも操作を残す</h3><p class="c-splide-slider__text">再生中も矢印・ページ選択・停止から、閲覧ペースを選べます。</p></article></li>
+                  <li class="splide__slide"><article class="c-splide-slider__panel"><p class="c-splide-slider__eyebrow">03 / ACCESSIBILITY</p><h3 class="c-splide-slider__title">動きを止めても伝える</h3><p class="c-splide-slider__text">動きを抑える設定でも、見出しと順序だけで内容を追えるようにします。</p></article></li>
+                </ul></div>
+                <ul class="splide__pagination"></ul>
+                <button class="splide__toggle" type="button"><span class="splide__toggle__play">PLAY</span><span class="splide__toggle__pause">PAUSE</span></button>
+              </div>
+              <p class="c-splide-shell__status" data-splide-status aria-live="polite"></p>
+            </div>
+          </div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;link rel="stylesheet" href="https://unpkg.com/@splidejs/splide@4.1.4/dist/css/splide-core.min.css"&gt;
+&lt;div class="splide c-splide-slider" id="message-slider" aria-label="サービスの特長"&gt;
+  &lt;div class="splide__arrows"&gt;
+    &lt;button class="splide__arrow splide__arrow--prev" type="button"&gt;←&lt;/button&gt;
+    &lt;button class="splide__arrow splide__arrow--next" type="button"&gt;→&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="splide__track"&gt;&lt;ul class="splide__list"&gt;
+    &lt;li class="splide__slide"&gt;&lt;article class="c-splide-slider__panel"&gt;&lt;p&gt;01 / DESIGN&lt;/p&gt;&lt;h2&gt;役割から順序を決める&lt;/h2&gt;&lt;span&gt;一枚に一つの要点を置き、前後の流れまで含めて構成します。&lt;/span&gt;&lt;/article&gt;&lt;/li&gt;
+    &lt;li class="splide__slide"&gt;&lt;article class="c-splide-slider__panel"&gt;&lt;p&gt;02 / OPERATION&lt;/p&gt;&lt;h2&gt;自動でも操作を残す&lt;/h2&gt;&lt;span&gt;再生中も矢印・ページ選択・停止から、閲覧ペースを選べます。&lt;/span&gt;&lt;/article&gt;&lt;/li&gt;
+    &lt;li class="splide__slide"&gt;&lt;article class="c-splide-slider__panel"&gt;&lt;p&gt;03 / ACCESSIBILITY&lt;/p&gt;&lt;h2&gt;動きを止めても伝える&lt;/h2&gt;&lt;span&gt;動きを抑える設定でも、見出しと順序だけで内容を追えるようにします。&lt;/span&gt;&lt;/article&gt;&lt;/li&gt;
+  &lt;/ul&gt;&lt;/div&gt;
+  &lt;ul class="splide__pagination"&gt;&lt;/ul&gt;
+  &lt;button class="splide__toggle" type="button"&gt;&lt;span class="splide__toggle__play"&gt;PLAY&lt;/span&gt;&lt;span class="splide__toggle__pause"&gt;PAUSE&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;
+&lt;script src="https://unpkg.com/@splidejs/splide@4.1.4/dist/js/splide.min.js"&gt;&lt;/script&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-splide-slider,
+.c-splide-slider * { box-sizing: border-box; }
+.c-splide-slider { position: relative; width: min(100%, 42rem); min-width: 0; font-family: sans-serif; }
+.c-splide-slider .splide__track { overflow: hidden; border: 1px solid #18243b; }
+.c-splide-slider__panel { display: grid; min-height: 16rem; padding: 3rem 4.5rem; align-content: end; color: #fff; background: #18243b; }
+.c-splide-slider__panel p { color: #ffff00; font: 700 .7rem/1.3 monospace; }
+.c-splide-slider__panel h2 { margin: .5rem 0; font-size: clamp(1.4rem, 4vw, 2.4rem); }
+.c-splide-slider .splide__arrow { position: absolute; top: 50%; z-index: 2; width: 2.5rem; height: 2.5rem; color: #18243b; background: #fff; border: 1px solid #18243b; border-radius: 50%; transform: translateY(-50%); cursor: pointer; }
+.c-splide-slider .splide__arrow--prev { left: .75rem; }.c-splide-slider .splide__arrow--next { right: .75rem; }
+.c-splide-slider .splide__pagination { display: flex; min-height: 2rem; margin: .5rem 0; padding: 0; justify-content: center; gap: .4rem; }
+.c-splide-slider .splide__pagination__page { width: .7rem; height: .7rem; padding: 0; background: #aeb8c7; border: 0; border-radius: 50%; }
+.c-splide-slider .splide__pagination__page.is-active { background: #18243b; }
+.c-splide-slider .splide__toggle { display: block; margin: auto; padding: .5rem 1rem; background: #fff; border: 1px solid #18243b; }
+.c-splide-slider .splide__toggle__play { display: none; }.c-splide-slider .splide__toggle__pause { display: inline; }
+.c-splide-slider .splide__toggle[aria-label="自動再生を開始"] .splide__toggle__play { display: inline; }.c-splide-slider .splide__toggle[aria-label="自動再生を開始"] .splide__toggle__pause { display: none; }
+.c-splide-slider :is(button):focus-visible { outline: 3px solid #315a9b; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .c-splide-slider * { transition-duration: .01ms !important; } }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const slider = new Splide('#message-slider', {
+  type: 'slide',
+  rewind: true,
+  autoplay: !reduceMotion,
+  interval: 5200,
+  speed: reduceMotion ? 0 : 720,
+  pauseOnHover: true,
+  pauseOnFocus: true,
+  keyboard: 'focused',
+  arrows: true,
+  pagination: true,
+  i18n: { prev: '前のスライドへ', next: '次のスライドへ', play: '自動再生を開始', pause: '自動再生を停止' },
+});
+slider.mount();</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>サービスの特長やキャンペーン訴求など、同じ重要度のメッセージを一枚ずつ順番に提示する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="設計 設定 検証 複数枚 レスポンシブ カード カルーセル design config verify works card carousel loop perPage perMove breakpoint splide">
+          <header class="part-example__header"><div><span class="part-example__index">LAYOUT / 01</span><h2>ワークスカルーセル</h2></div><small>MULTI CARD</small></header>
+          <div class="part-example__preview part-example__preview--splide">
+            <div class="c-splide-shell">
+              <div class="splide c-splide-slider c-splide-slider--cards" data-splide-demo="cards" aria-label="制作事例">
+                <div class="splide__arrows"><button class="splide__arrow splide__arrow--prev" type="button">←</button><button class="splide__arrow splide__arrow--next" type="button">→</button></div>
+                <div class="splide__track"><ul class="splide__list">
+                  <li class="splide__slide"><article class="c-splide-card"><span class="c-splide-card__number">01</span><div class="c-splide-card__visual">DESIGN</div><h3>共通構造を先に決める</h3><p>基本DOMを揃え、差分を設定へ集約します。</p></article></li>
+                  <li class="splide__slide"><article class="c-splide-card"><span class="c-splide-card__number">02</span><div class="c-splide-card__visual">CONFIG</div><h3>用途別に挙動を分ける</h3><p>表示枚数・移動量・再生条件を調整します。</p></article></li>
+                  <li class="splide__slide"><article class="c-splide-card"><span class="c-splide-card__number">03</span><div class="c-splide-card__visual">RESPONSIVE</div><h3>幅ごとに情報量を整える</h3><p>カード数と余白を画面幅に合わせます。</p></article></li>
+                  <li class="splide__slide"><article class="c-splide-card"><span class="c-splide-card__number">04</span><div class="c-splide-card__visual">VERIFY</div><h3>操作と状態を確かめる</h3><p>矢印・キー操作・現在位置を検証します。</p></article></li>
+                </ul></div>
+                <ul class="splide__pagination"></ul>
+                <button class="splide__toggle" type="button"><span class="splide__toggle__play">PLAY</span><span class="splide__toggle__pause">PAUSE</span></button>
+              </div>
+              <p class="c-splide-shell__status" data-splide-status aria-live="polite"></p>
+            </div>
+          </div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;link rel="stylesheet" href="https://unpkg.com/@splidejs/splide@4.1.4/dist/css/splide-core.min.css"&gt;
+&lt;div class="splide c-splide-slider c-splide-slider--cards" id="works-slider" aria-label="制作事例"&gt;
+  &lt;div class="splide__arrows"&gt;&lt;button class="splide__arrow splide__arrow--prev" type="button"&gt;←&lt;/button&gt;&lt;button class="splide__arrow splide__arrow--next" type="button"&gt;→&lt;/button&gt;&lt;/div&gt;
+  &lt;div class="splide__track"&gt;&lt;ul class="splide__list"&gt;
+    &lt;li class="splide__slide"&gt;&lt;article class="c-splide-card"&gt;&lt;span&gt;01 / DESIGN&lt;/span&gt;&lt;h2&gt;共通構造を先に決める&lt;/h2&gt;&lt;p&gt;基本DOMを揃え、差分を設定へ集約します。&lt;/p&gt;&lt;/article&gt;&lt;/li&gt;
+    &lt;li class="splide__slide"&gt;&lt;article class="c-splide-card"&gt;&lt;span&gt;02 / CONFIG&lt;/span&gt;&lt;h2&gt;用途別に挙動を分ける&lt;/h2&gt;&lt;p&gt;表示枚数・移動量・再生条件を調整します。&lt;/p&gt;&lt;/article&gt;&lt;/li&gt;
+    &lt;li class="splide__slide"&gt;&lt;article class="c-splide-card"&gt;&lt;span&gt;03 / RESPONSIVE&lt;/span&gt;&lt;h2&gt;幅ごとに情報量を整える&lt;/h2&gt;&lt;p&gt;カード数と余白を画面幅に合わせます。&lt;/p&gt;&lt;/article&gt;&lt;/li&gt;
+    &lt;li class="splide__slide"&gt;&lt;article class="c-splide-card"&gt;&lt;span&gt;04 / VERIFY&lt;/span&gt;&lt;h2&gt;操作と状態を確かめる&lt;/h2&gt;&lt;p&gt;矢印・キー操作・現在位置を検証します。&lt;/p&gt;&lt;/article&gt;&lt;/li&gt;
+  &lt;/ul&gt;&lt;/div&gt;
+  &lt;ul class="splide__pagination"&gt;&lt;/ul&gt;
+  &lt;button class="splide__toggle" type="button"&gt;&lt;span class="splide__toggle__play"&gt;PLAY&lt;/span&gt;&lt;span class="splide__toggle__pause"&gt;PAUSE&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;
+&lt;script src="https://unpkg.com/@splidejs/splide@4.1.4/dist/js/splide.min.js"&gt;&lt;/script&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-splide-slider,
+.c-splide-slider * { box-sizing: border-box; }
+.c-splide-slider { position: relative; width: min(100%, 42rem); min-width: 0; font-family: sans-serif; }
+.c-splide-slider .splide__track { overflow: hidden; }
+.c-splide-slider--cards .splide__slide { min-height: 14rem; }
+.c-splide-card { height: 100%; padding: 1rem; color: #18243b; background: #fff; border: 1px solid #18243b; border-top: .45rem solid #ffff00; }
+.c-splide-card span { font: 700 .65rem/1 monospace; }
+.c-splide-card h2 { margin: 2rem 0 .5rem; font-size: 1rem; }
+.c-splide-card p { margin: 0; color: #667085; font-size: .75rem; line-height: 1.7; }
+.c-splide-slider .splide__arrow { position: absolute; top: 50%; z-index: 2; width: 2.5rem; height: 2.5rem; background: #fff; border: 1px solid #18243b; border-radius: 50%; transform: translateY(-50%); }
+.c-splide-slider .splide__arrow--prev { left: .75rem; }.c-splide-slider .splide__arrow--next { right: .75rem; }
+.c-splide-slider .splide__pagination { display: flex; min-height: 2rem; margin: .5rem 0; padding: 0; justify-content: center; gap: .4rem; }
+.c-splide-slider .splide__pagination__page { width: .7rem; height: .7rem; padding: 0; background: #aeb8c7; border: 0; border-radius: 50%; }
+.c-splide-slider .splide__pagination__page.is-active { background: #18243b; }
+.c-splide-slider .splide__toggle { display: block; margin: auto; padding: .5rem 1rem; background: #fff; border: 1px solid #18243b; }
+.c-splide-slider .splide__toggle__play { display: none; }.c-splide-slider .splide__toggle__pause { display: inline; }
+.c-splide-slider .splide__toggle[aria-label="自動再生を開始"] .splide__toggle__play { display: inline; }.c-splide-slider .splide__toggle[aria-label="自動再生を開始"] .splide__toggle__pause { display: none; }
+.c-splide-slider button:focus-visible { outline: 3px solid #315a9b; outline-offset: 3px; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const slider = new Splide('#works-slider', {
+  type: 'loop',
+  autoplay: !reduceMotion,
+  interval: 5200,
+  speed: reduceMotion ? 0 : 720,
+  perPage: 2,
+  perMove: 2,
+  gap: '1rem',
+  pauseOnHover: true,
+  pauseOnFocus: true,
+  keyboard: 'focused',
+  breakpoints: { 768: { perPage: 1, perMove: 1 } },
+  i18n: { prev: '前のスライドへ', next: '次のスライドへ', play: '自動再生を開始', pause: '自動再生を停止' },
+});
+slider.mount();</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>制作実績や商品カードなど、複数候補を並べて比較しながら画面幅に応じて表示件数を変える場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="ギャラリー サムネイル 同期 選択 商品画像 制作実績 gallery thumbnail sync navigation product works splide">
+          <header class="part-example__header"><div><span class="part-example__index">GALLERY / 01</span><h2>サムネイル同期ギャラリー</h2></div><small>SYNC NAVIGATION</small></header>
+          <div class="part-example__preview part-example__preview--splide">
+            <div class="c-splide-gallery" data-splide-gallery>
+              <div class="splide c-splide-gallery__main" data-gallery-main aria-label="制作工程ギャラリー">
+                <div class="splide__arrows"><button class="splide__arrow splide__arrow--prev" type="button">←</button><button class="splide__arrow splide__arrow--next" type="button">→</button></div>
+                <div class="splide__track"><ul class="splide__list">
+                  <li class="splide__slide"><article class="c-splide-gallery__panel"><small>01 / FOUNDATION</small><strong>基礎を揃える</strong><span>色・文字・余白の基準を先に確定します。</span></article></li>
+                  <li class="splide__slide"><article class="c-splide-gallery__panel"><small>02 / COMPONENT</small><strong>部品を組み合わせる</strong><span>共通構造を保ちながら用途へ展開します。</span></article></li>
+                  <li class="splide__slide"><article class="c-splide-gallery__panel"><small>03 / INTERACTION</small><strong>操作状態を確かめる</strong><span>hover・focus・activeを実際の流れで確認します。</span></article></li>
+                  <li class="splide__slide"><article class="c-splide-gallery__panel"><small>04 / DELIVERY</small><strong>検証して引き渡す</strong><span>表示幅・操作・参照先を最終確認します。</span></article></li>
+                </ul></div>
+              </div>
+              <div class="splide c-splide-gallery__thumbnails" data-gallery-thumbnails aria-label="表示する工程を選択">
+                <div class="splide__track"><ul class="splide__list">
+                  <li class="splide__slide" aria-label="基礎を揃える"><span class="c-splide-gallery__thumbnail">01<br>BASE</span></li>
+                  <li class="splide__slide" aria-label="部品を組み合わせる"><span class="c-splide-gallery__thumbnail">02<br>PARTS</span></li>
+                  <li class="splide__slide" aria-label="操作状態を確かめる"><span class="c-splide-gallery__thumbnail">03<br>STATE</span></li>
+                  <li class="splide__slide" aria-label="検証して引き渡す"><span class="c-splide-gallery__thumbnail">04<br>CHECK</span></li>
+                </ul></div>
+              </div>
+              <p class="c-splide-shell__status" data-gallery-status aria-live="polite"></p>
+            </div>
+          </div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;link rel="stylesheet" href="https://unpkg.com/@splidejs/splide@4.1.4/dist/css/splide-core.min.css"&gt;
+&lt;div class="c-splide-gallery" data-gallery&gt;
+  &lt;div class="splide c-splide-gallery__main" data-gallery-main aria-label="制作工程ギャラリー"&gt;
+    &lt;div class="splide__arrows"&gt;&lt;button class="splide__arrow splide__arrow--prev" type="button"&gt;←&lt;/button&gt;&lt;button class="splide__arrow splide__arrow--next" type="button"&gt;→&lt;/button&gt;&lt;/div&gt;
+    &lt;div class="splide__track"&gt;&lt;ul class="splide__list"&gt;
+      &lt;li class="splide__slide"&gt;&lt;article class="c-splide-gallery__panel"&gt;&lt;small&gt;01 / FOUNDATION&lt;/small&gt;&lt;h2&gt;基礎を揃える&lt;/h2&gt;&lt;p&gt;色・文字・余白の基準を先に確定します。&lt;/p&gt;&lt;/article&gt;&lt;/li&gt;
+      &lt;li class="splide__slide"&gt;&lt;article class="c-splide-gallery__panel"&gt;&lt;small&gt;02 / COMPONENT&lt;/small&gt;&lt;h2&gt;部品を組み合わせる&lt;/h2&gt;&lt;p&gt;共通構造を保ちながら用途へ展開します。&lt;/p&gt;&lt;/article&gt;&lt;/li&gt;
+      &lt;li class="splide__slide"&gt;&lt;article class="c-splide-gallery__panel"&gt;&lt;small&gt;03 / INTERACTION&lt;/small&gt;&lt;h2&gt;操作状態を確かめる&lt;/h2&gt;&lt;p&gt;hover・focus・activeを実際の流れで確認します。&lt;/p&gt;&lt;/article&gt;&lt;/li&gt;
+      &lt;li class="splide__slide"&gt;&lt;article class="c-splide-gallery__panel"&gt;&lt;small&gt;04 / DELIVERY&lt;/small&gt;&lt;h2&gt;検証して引き渡す&lt;/h2&gt;&lt;p&gt;表示幅・操作・参照先を最終確認します。&lt;/p&gt;&lt;/article&gt;&lt;/li&gt;
+    &lt;/ul&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="splide c-splide-gallery__thumbnails" data-gallery-thumbnails aria-label="表示する工程を選択"&gt;
+    &lt;div class="splide__track"&gt;&lt;ul class="splide__list"&gt;
+      &lt;li class="splide__slide" aria-label="基礎を揃える"&gt;&lt;span class="c-splide-gallery__thumbnail"&gt;01 / BASE&lt;/span&gt;&lt;/li&gt;
+      &lt;li class="splide__slide" aria-label="部品を組み合わせる"&gt;&lt;span class="c-splide-gallery__thumbnail"&gt;02 / PARTS&lt;/span&gt;&lt;/li&gt;
+      &lt;li class="splide__slide" aria-label="操作状態を確かめる"&gt;&lt;span class="c-splide-gallery__thumbnail"&gt;03 / STATE&lt;/span&gt;&lt;/li&gt;
+      &lt;li class="splide__slide" aria-label="検証して引き渡す"&gt;&lt;span class="c-splide-gallery__thumbnail"&gt;04 / CHECK&lt;/span&gt;&lt;/li&gt;
+    &lt;/ul&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;p data-gallery-status aria-live="polite"&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;script src="https://unpkg.com/@splidejs/splide@4.1.4/dist/js/splide.min.js"&gt;&lt;/script&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-splide-gallery,
+.c-splide-gallery * { box-sizing: border-box; }
+.c-splide-gallery { width: min(100%, 42rem); min-width: 0; font-family: sans-serif; }
+.c-splide-gallery__main .splide__track { overflow: hidden; border: 1px solid #18243b; }
+.c-splide-gallery__panel { display: grid; min-height: 13rem; padding: 2rem 4.5rem; align-content: end; color: #fff; background: #18243b; }
+.c-splide-gallery__panel small { color: #ffff00; font: 700 .6rem/1.3 monospace; }
+.c-splide-gallery__panel h2 { margin: .45rem 0; font-size: clamp(1.2rem, 4vw, 1.8rem); }
+.c-splide-gallery__main .splide__arrow { position: absolute; top: 50%; z-index: 2; width: 2.5rem; height: 2.5rem; background: #fff; border: 1px solid #18243b; border-radius: 50%; transform: translateY(-50%); }
+.c-splide-gallery__main .splide__arrow--prev { left: .75rem; }.c-splide-gallery__main .splide__arrow--next { right: .75rem; }
+.c-splide-gallery__thumbnails { margin-top: .75rem; }.c-splide-gallery__thumbnails .splide__track { overflow: hidden; }
+.c-splide-gallery__thumbnail { width: 100%; min-height: 3.25rem; color: #18243b; background: #fff; border: 1px solid #aeb8c7; cursor: pointer; }
+.c-splide-gallery__thumbnails .splide__slide.is-active .c-splide-gallery__thumbnail { color: #fff; background: #18243b; box-shadow: inset 0 -.25rem 0 #ffff00; }
+.c-splide-gallery :is(.splide__arrow, .c-splide-gallery__thumbnails .splide__slide):focus-visible { outline: 3px solid #315a9b; outline-offset: 3px; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const gallery = document.querySelector('[data-gallery]');
+const status = gallery.querySelector('[data-gallery-status]');
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const main = new Splide(gallery.querySelector('[data-gallery-main]'), {
+  type: 'slide', rewind: true, speed: reduceMotion ? 0 : 620,
+  pagination: false, arrows: true, keyboard: 'focused',
+});
+const thumbnails = new Splide(gallery.querySelector('[data-gallery-thumbnails]'), {
+  rewind: true, perPage: 4, perMove: 1, gap: '.5rem',
+  pagination: false, arrows: false, isNavigation: true, keyboard: 'focused',
+});
+const update = () =&gt; {
+  status.textContent = `${String(main.index + 1).padStart(2, '0')} / ${String(main.length).padStart(2, '0')}`;
+};
+main.sync(thumbnails);
+main.on('mounted moved', update);
+main.mount();
+thumbnails.mount();</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>商品画像や制作実績など、一覧性を保ちながら選択した一枚を大きく確認する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="視線 読みやすさ 速度 フェード 進捗 自動再生 ファーストビュー hierarchy readability motion fade story progress hero visual crossfade splide">
+          <header class="part-example__header"><div><span class="part-example__index">MOTION / 01</span><h2>フェードストーリー</h2></div><small>FADE + PROGRESS</small></header>
+          <div class="part-example__preview part-example__preview--splide">
+            <div class="c-splide-shell">
+              <div class="splide c-splide-slider c-splide-slider--fade" data-splide-demo="fade" aria-label="ブランドストーリー">
+                <div class="splide__arrows"><button class="splide__arrow splide__arrow--prev" type="button">←</button><button class="splide__arrow splide__arrow--next" type="button">→</button></div>
+                <div class="splide__track"><ul class="splide__list">
+                  <li class="splide__slide"><article class="c-splide-slider__panel"><p class="c-splide-slider__eyebrow">VISUAL HIERARCHY</p><h3 class="c-splide-slider__title">主役を一枚に絞る</h3><p class="c-splide-slider__text">見出しと要点を同じ位置に保ち、切り替わっても視線を迷わせません。</p></article></li>
+                  <li class="splide__slide"><article class="c-splide-slider__panel"><p class="c-splide-slider__eyebrow">READABILITY</p><h3 class="c-splide-slider__title">文字の読みやすさを守る</h3><p class="c-splide-slider__text">背景が変わっても、色と余白で必要なコントラストを確保します。</p></article></li>
+                  <li class="splide__slide"><article class="c-splide-slider__panel"><p class="c-splide-slider__eyebrow">MOTION CONTROL</p><h3 class="c-splide-slider__title">速度と停止条件を整える</h3><p class="c-splide-slider__text">自動再生と手動操作が競合しない、穏やかな切り替えにします。</p></article></li>
+                </ul></div>
+                <div class="c-splide-progress" role="progressbar" aria-label="スライドの進捗" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1" data-splide-progress><span class="c-splide-progress__bar" data-splide-progress-bar></span></div>
+                <button class="splide__toggle" type="button"><span class="splide__toggle__play">PLAY</span><span class="splide__toggle__pause">PAUSE</span></button>
+              </div>
+              <p class="c-splide-shell__status" data-splide-status aria-live="polite"></p>
+            </div>
+          </div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;link rel="stylesheet" href="https://unpkg.com/@splidejs/splide@4.1.4/dist/css/splide-core.min.css"&gt;
+&lt;div class="splide c-splide-slider c-splide-slider--fade" id="fade-slider" aria-label="ブランドストーリー"&gt;
+  &lt;div class="splide__arrows"&gt;&lt;button class="splide__arrow splide__arrow--prev" type="button"&gt;←&lt;/button&gt;&lt;button class="splide__arrow splide__arrow--next" type="button"&gt;→&lt;/button&gt;&lt;/div&gt;
+  &lt;div class="splide__track"&gt;&lt;ul class="splide__list"&gt;
+    &lt;li class="splide__slide"&gt;&lt;article class="c-splide-slider__panel"&gt;&lt;p&gt;VISUAL HIERARCHY&lt;/p&gt;&lt;h2&gt;主役を一枚に絞る&lt;/h2&gt;&lt;span&gt;見出しと要点を同じ位置に保ち、切り替わっても視線を迷わせません。&lt;/span&gt;&lt;/article&gt;&lt;/li&gt;
+    &lt;li class="splide__slide"&gt;&lt;article class="c-splide-slider__panel"&gt;&lt;p&gt;READABILITY&lt;/p&gt;&lt;h2&gt;文字の読みやすさを守る&lt;/h2&gt;&lt;span&gt;背景が変わっても、色と余白で必要なコントラストを確保します。&lt;/span&gt;&lt;/article&gt;&lt;/li&gt;
+    &lt;li class="splide__slide"&gt;&lt;article class="c-splide-slider__panel"&gt;&lt;p&gt;MOTION CONTROL&lt;/p&gt;&lt;h2&gt;速度と停止条件を整える&lt;/h2&gt;&lt;span&gt;自動再生と手動操作が競合しない、穏やかな切り替えにします。&lt;/span&gt;&lt;/article&gt;&lt;/li&gt;
+  &lt;/ul&gt;&lt;/div&gt;
+  &lt;div class="c-splide-progress" role="progressbar" aria-label="スライドの進捗" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+  &lt;button class="splide__toggle" type="button"&gt;&lt;span class="splide__toggle__play"&gt;PLAY&lt;/span&gt;&lt;span class="splide__toggle__pause"&gt;PAUSE&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;
+&lt;script src="https://unpkg.com/@splidejs/splide@4.1.4/dist/js/splide.min.js"&gt;&lt;/script&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-splide-slider,
+.c-splide-slider * { box-sizing: border-box; }
+.c-splide-slider { position: relative; width: min(100%, 42rem); min-width: 0; font-family: sans-serif; }
+.c-splide-slider .splide__track { overflow: hidden; border: 1px solid #18243b; }
+.c-splide-slider__panel { display: grid; min-height: 16rem; padding: 3rem 4.5rem; align-content: end; color: #fff; background: #18243b; }
+.c-splide-slider__panel p { color: #ffff00; font: 700 .7rem/1.3 monospace; }
+.c-splide-slider__panel h2 { margin: .5rem 0; font-size: clamp(1.4rem, 4vw, 2.4rem); }
+.c-splide-slider .splide__arrow { position: absolute; top: 50%; z-index: 2; width: 2.5rem; height: 2.5rem; background: #fff; border: 1px solid #18243b; border-radius: 50%; transform: translateY(-50%); }
+.c-splide-slider .splide__arrow--prev { left: .75rem; }.c-splide-slider .splide__arrow--next { right: .75rem; }
+.c-splide-progress { height: .3rem; margin-top: .65rem; overflow: hidden; background: #d9dfe8; }
+.c-splide-progress span { display: block; width: 100%; height: 100%; background: #18243b; transform: scaleX(0); transform-origin: left; transition: transform .36s; }
+.c-splide-slider .splide__toggle { display: block; margin: .5rem auto 0; padding: .5rem 1rem; background: #fff; border: 1px solid #18243b; }
+.c-splide-slider .splide__toggle__play { display: none; }.c-splide-slider .splide__toggle__pause { display: inline; }
+.c-splide-slider .splide__toggle[aria-label="自動再生を開始"] .splide__toggle__play { display: inline; }.c-splide-slider .splide__toggle[aria-label="自動再生を開始"] .splide__toggle__pause { display: none; }
+.c-splide-slider button:focus-visible { outline: 3px solid #315a9b; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .c-splide-slider * { transition-duration: .01ms !important; } }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('#fade-slider');
+const progress = root.querySelector('.c-splide-progress');
+const bar = progress.querySelector('span');
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const slider = new Splide(root, {
+  type: 'fade', rewind: true, autoplay: !reduceMotion,
+  interval: 5200, speed: reduceMotion ? 0 : 900,
+  pauseOnHover: true, pauseOnFocus: true,
+  keyboard: 'focused', pagination: false,
+});
+const update = () =&gt; {
+  const current = slider.index + 1;
+  progress.setAttribute('aria-valuenow', String(current));
+  bar.style.transform = `scaleX(${current / slider.length})`;
+};
+slider.on('mounted moved', update);
+slider.mount();</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>写真や大きなメッセージを主役にするファーストビューで、切り替えの存在を進捗線とともに穏やかに伝える場面。</p></div>
+        </section>
+      </div>
+
+      <div class="part-detail-empty" data-pattern-empty hidden><p>[ NO_PATTERNS_FOUND ]</p><p>別のキーワードを選択してください。</p></div>
+
+      <section class="part-common-styles" id="slider-splide-common-styles" aria-labelledby="slider-splide-common-title">
+        <header class="part-common-styles__header reveal"><p class="section-index">COMMON STYLE</p><h2 id="slider-splide-common-title">共通スタイル</h2><p>Splideの基本構造、操作ボタン、ページネーション、フォーカス表示を揃える基礎スタイルです。</p></header>
+        <div class="part-common-styles__code reveal" data-reveal-threshold="0.01"><div class="part-code"><div class="part-code__header"><span>CSS / COMMON</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-splide-slider,
+.c-splide-slider * { box-sizing: border-box; }
+
+.c-splide-slider {
+  position: relative;
+  width: min(100%, 42rem);
+  min-width: 0;
+  color: var(--color-text, #1c2430);
+  font-family: var(--font-sans, sans-serif);
+}
+
+.c-splide-slider .splide__track {
+  overflow: hidden;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-primary, #18243b);
+  border-radius: .35rem;
+}
+
+.c-splide-slider .splide__arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  place-items: center;
+  color: var(--color-primary, #18243b);
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-primary, #18243b);
+  border-radius: 50%;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+.c-splide-slider .splide__arrow--prev { left: .75rem; }
+.c-splide-slider .splide__arrow--next { right: .75rem; }
+.c-splide-slider .splide__arrow:disabled { cursor: not-allowed; opacity: .42; }
+
+.c-splide-slider .splide__pagination {
+  position: static;
+  display: flex;
+  min-height: 2rem;
+  margin: .55rem 0 0;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  gap: .4rem;
+}
+.c-splide-slider .splide__pagination__page {
+  width: .72rem;
+  height: .72rem;
+  padding: 0;
+  background: var(--color-grid-strong, #aeb8c7);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.c-splide-slider .splide__pagination__page.is-active { background: var(--color-primary, #18243b); }
+.c-splide-slider .splide__toggle {
+  display: block;
+  min-width: 5rem;
+  min-height: 2rem;
+  margin: .25rem auto 0;
+  color: var(--color-primary, #18243b);
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-primary, #18243b);
+  cursor: pointer;
+}
+.c-splide-slider .splide__toggle__play { display: none; }
+.c-splide-slider .splide__toggle__pause { display: inline; }
+.c-splide-slider .splide__toggle[aria-label="自動再生を開始"] .splide__toggle__play { display: inline; }
+.c-splide-slider .splide__toggle[aria-label="自動再生を開始"] .splide__toggle__pause { display: none; }
+.c-splide-slider :is(.splide__arrow, .splide__pagination__page, .splide__toggle):focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .c-splide-slider *,
+  .c-splide-slider *::before,
+  .c-splide-slider *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}</code></pre></div></div>
+      </section>
+
+      <footer class="page-footer" aria-label="ページナビゲーション"><a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO WEB PARTS</span></a><a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a></footer>
+    </main>
+
+    <script src="https://unpkg.com/@splidejs/splide@4.1.4/dist/js/splide.min.js" defer></script>
+    <script src="../js/web-parts-detail.js" defer></script>
+    <script src="../js/web-parts-slider-splide.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="MARK BENCHのトークンで設計した、Vanilla JavaScript対応のタブUI 12パターンです。" />
+    <meta name="description" content="MARK BENCHのトークンで設計した、Vanilla JavaScript対応のタブUI 14パターンです。" />
     <meta name="theme-color" content="#18243b" />
     <title>TAB | MARK BENCH</title>
     <!-- site-meta:start -->
@@ -11,7 +11,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="MARK BENCH" />
     <meta property="og:title" content="TAB | MARK BENCH" />
-    <meta property="og:description" content="MARK BENCHのトークンで設計した、Vanilla JavaScript対応のタブUI 12パターンです。" />
+    <meta property="og:description" content="MARK BENCHのトークンで設計した、Vanilla JavaScript対応のタブUI 14パターンです。" />
     <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/tab.html" />
     <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
     <meta property="og:image:width" content="1200" />
@@ -19,7 +19,7 @@
     <meta property="og:locale" content="ja_JP" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="TAB | MARK BENCH" />
-    <meta name="twitter:description" content="MARK BENCHのトークンで設計した、Vanilla JavaScript対応のタブUI 12パターンです。" />
+    <meta name="twitter:description" content="MARK BENCHのトークンで設計した、Vanilla JavaScript対応のタブUI 14パターンです。" />
     <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
     <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
@@ -75,8 +75,8 @@
       <header class="part-detail-header">
         <p class="section-index reveal">WEB_PARTS / TAB</p>
         <h1 class="reveal">TAB</h1>
-        <p class="part-detail-header__lead reveal">設定画面や商品詳細など、関連コンテンツを同じ領域で切り替えて表示する、Vanilla JavaScript対応のタブ12パターンです。</p>
-        <div class="part-detail-header__meta reveal"><span>PATTERNS: 12</span><span>TYPE: CSS + JS</span><span>DEPENDENCY: NONE</span></div>
+        <p class="part-detail-header__lead reveal">設定画面や商品詳細など、関連コンテンツを同じ領域で切り替えて表示する、Vanilla JavaScript対応のタブ14パターンです。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 14</span><span>TYPE: CSS + JS</span><span>DEPENDENCY: NONE</span></div>
         <a class="part-detail-header__anchor reveal" href="#tab-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
       </header>
 
@@ -90,8 +90,9 @@
           <button type="button" aria-pressed="false" data-pattern-keyword="状態連携"># 状態連携</button>
           <button type="button" aria-pressed="false" data-pattern-keyword="タッチ"># タッチ</button>
           <button type="button" aria-pressed="false" data-pattern-keyword="自動"># 自動</button>
+          <button type="button" aria-pressed="false" data-pattern-keyword="コンテンツ"># コンテンツ</button>
         </div></div>
-        <p>DISPLAY: <span data-pattern-count>12</span> / 12</p>
+        <p>DISPLAY: <span data-pattern-count>14</span> / 14</p>
       </section>
 
       <div class="part-example-list">
@@ -785,6 +786,164 @@ select(0);
 start();</code></pre></div>
           </div>
           <div class="part-example__note"><strong>USE FOR</strong><p>新着やランキング。ホバー・フォーカス中は停止し、reduced motionでは自動再生しません。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js part-example--content-tab reveal" data-pattern data-search="コンテンツ 画像 解説 レスポンシブ split media 事例">
+          <header class="part-example__header"><div><span class="part-example__index">CONTENT SPLIT</span><h2>画像と解説を切り替える</h2></div><small>MEDIA + COPY</small></header>
+          <div class="part-example__preview"><div class="c-tab c-tab--content" data-tab-demo><div class="c-tab__list" role="tablist" aria-label="制作工程"><button class="c-tab__tab is-active" id="content-tab-plan" type="button" role="tab" aria-selected="true" aria-controls="content-panel-plan">設計</button><button class="c-tab__tab" id="content-tab-build" type="button" role="tab" aria-selected="false" aria-controls="content-panel-build">実装</button><button class="c-tab__tab" id="content-tab-test" type="button" role="tab" aria-selected="false" aria-controls="content-panel-test">検証</button></div><div class="c-tab__panels"><div class="c-tab__panel c-tab__content-panel" id="content-panel-plan" role="tabpanel" aria-labelledby="content-tab-plan"><div class="c-tab__media" aria-hidden="true"><span>01</span></div><div class="c-tab__content-copy"><small>PLANNING</small><strong>情報の関係を先に設計</strong><p>タブとパネルの対応、表示順、初期状態を整理します。</p></div></div><div class="c-tab__panel c-tab__content-panel" id="content-panel-build" role="tabpanel" aria-labelledby="content-tab-build" hidden><div class="c-tab__media" aria-hidden="true"><span>02</span></div><div class="c-tab__content-copy"><small>BUILD</small><strong>状態更新を一か所へ集約</strong><p>選択状態、フォーカス、表示パネルを同時に更新します。</p></div></div><div class="c-tab__panel c-tab__content-panel" id="content-panel-test" role="tabpanel" aria-labelledby="content-tab-test" hidden><div class="c-tab__media" aria-hidden="true"><span>03</span></div><div class="c-tab__content-copy"><small>TEST</small><strong>入力方法ごとに動作確認</strong><p>クリック、方向キー、Home、Endで切り替えを確認します。</p></div></div></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-tab c-tab--content" data-content-tabs&gt;
+  &lt;div class="c-tab__list" role="tablist" aria-label="制作工程"&gt;
+    &lt;button class="c-tab__tab is-active" id="plan-tab" type="button" role="tab"
+      aria-selected="true" aria-controls="plan-panel"&gt;設計&lt;/button&gt;
+    &lt;button class="c-tab__tab" id="build-tab" type="button" role="tab"
+      aria-selected="false" aria-controls="build-panel"&gt;実装&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="c-tab__panels"&gt;
+    &lt;div class="c-tab__panel c-tab__content-panel" id="plan-panel"
+      role="tabpanel" aria-labelledby="plan-tab"&gt;
+      &lt;div class="c-tab__media" aria-hidden="true"&gt;&lt;span&gt;01&lt;/span&gt;&lt;/div&gt;
+      &lt;div class="c-tab__content-copy"&gt;
+        &lt;small&gt;PLANNING&lt;/small&gt;&lt;strong&gt;情報の関係を先に設計&lt;/strong&gt;
+        &lt;p&gt;タブとパネルの対応、表示順、初期状態を整理します。&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="c-tab__panel c-tab__content-panel" id="build-panel"
+      role="tabpanel" aria-labelledby="build-tab" hidden&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tab--content { width: min(100%, 34rem); }
+.c-tab__content-panel {
+  grid-template-columns: minmax(7rem, .8fr) minmax(0, 1.2fr);
+  gap: 1rem;
+  align-items: center;
+}
+.c-tab__content-panel:not([hidden]) { display: grid; }
+.c-tab__media {
+  display: grid;
+  min-height: 8rem;
+  place-items: center;
+  color: var(--color-text-inverse, #fff);
+  background: var(--color-primary, #18243b);
+}
+.c-tab__media span { font: 700 2rem/1 var(--font-mono, monospace); }
+@media (max-width: 480px) {
+  .c-tab__content-panel { grid-template-columns: 1fr; }
+  .c-tab__media { min-height: 4rem; }
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-content-tabs]');
+const tabs = [...root.querySelectorAll('[role="tab"]')];
+const panels = [...root.querySelectorAll('[role="tabpanel"]')];
+
+function select(index, focus = false) {
+  tabs.forEach((tab, i) =&gt; {
+    const active = i === index;
+    tab.classList.toggle('is-active', active);
+    tab.setAttribute('aria-selected', String(active));
+    tab.tabIndex = active ? 0 : -1;
+    panels[i].hidden = !active;
+  });
+  if (focus) tabs[index].focus();
+}
+tabs.forEach((tab, index) =&gt; {
+  tab.addEventListener('click', () =&gt; select(index));
+  tab.addEventListener('keydown', (event) =&gt; {
+    let next = null;
+    if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+    if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+    if (event.key === 'Home') next = 0;
+    if (event.key === 'End') next = tabs.length - 1;
+    if (next === null) return;
+    event.preventDefault();
+    select(next, true);
+  });
+});
+select(0);</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>制作事例や商品紹介など、ビジュアルと説明を同じ領域で比較するコンテンツ。狭い画面では一列へ切り替えます。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js part-example--content-tab reveal" data-pattern data-search="コンテンツ カード 詳細 選択 レスポンシブ card detail rich">
+          <header class="part-example__header"><div><span class="part-example__index">CARD DETAIL</span><h2>カード選択と詳細を連動</h2></div><small>RICH CONTENT</small></header>
+          <div class="part-example__preview"><div class="c-tab c-tab--cards" data-tab-demo><div class="c-tab__list" role="tablist" aria-label="実装パターン"><button class="c-tab__tab is-active" id="card-tab-structure" type="button" role="tab" aria-selected="true" aria-controls="card-panel-structure"><span class="c-tab__card-number">01</span><strong>構造</strong><small>HTML / ARIA</small></button><button class="c-tab__tab" id="card-tab-state" type="button" role="tab" aria-selected="false" aria-controls="card-panel-state"><span class="c-tab__card-number">02</span><strong>状態</strong><small>JAVASCRIPT</small></button><button class="c-tab__tab" id="card-tab-layout" type="button" role="tab" aria-selected="false" aria-controls="card-panel-layout"><span class="c-tab__card-number">03</span><strong>配置</strong><small>RESPONSIVE</small></button></div><div class="c-tab__panels"><div class="c-tab__panel c-tab__detail-panel" id="card-panel-structure" role="tabpanel" aria-labelledby="card-tab-structure"><small>SEMANTIC STRUCTURE</small><strong>関係性を属性で明示する</strong><ul class="c-tab__tags" aria-label="関連技術"><li>HTML</li><li>ARIA</li><li>FOCUS</li></ul><p>タブとパネルを一対一で関連付け、選択中の項目だけをTabキーの停止位置にします。</p></div><div class="c-tab__panel c-tab__detail-panel" id="card-panel-state" role="tabpanel" aria-labelledby="card-tab-state" hidden><small>STATE MANAGEMENT</small><strong>表示と選択状態を同期する</strong><ul class="c-tab__tags" aria-label="関連技術"><li>JS</li><li>STATE</li><li>HIDDEN</li></ul><p>クリックとキー操作を同じ関数へ集約し、表示の食い違いを防ぎます。</p></div><div class="c-tab__panel c-tab__detail-panel" id="card-panel-layout" role="tabpanel" aria-labelledby="card-tab-layout" hidden><small>ADAPTIVE LAYOUT</small><strong>利用可能幅に合わせて再配置する</strong><ul class="c-tab__tags" aria-label="関連技術"><li>CSS</li><li>GRID</li><li>MOBILE</li></ul><p>情報構造を保ったまま、狭い画面ではカードを一列へ切り替えます。</p></div></div></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-tab c-tab--cards" data-card-tabs&gt;
+  &lt;div class="c-tab__list" role="tablist" aria-label="実装パターン"&gt;
+    &lt;button class="c-tab__tab is-active" id="structure-tab" type="button"
+      role="tab" aria-selected="true" aria-controls="structure-panel"&gt;
+      &lt;span class="c-tab__card-number"&gt;01&lt;/span&gt;
+      &lt;strong&gt;構造&lt;/strong&gt;&lt;small&gt;HTML / ARIA&lt;/small&gt;
+    &lt;/button&gt;
+    &lt;button class="c-tab__tab" id="state-tab" type="button"
+      role="tab" aria-selected="false" aria-controls="state-panel"&gt;...&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="c-tab__panels"&gt;
+    &lt;div class="c-tab__panel c-tab__detail-panel" id="structure-panel"
+      role="tabpanel" aria-labelledby="structure-tab"&gt;
+      &lt;small&gt;SEMANTIC STRUCTURE&lt;/small&gt;
+      &lt;strong&gt;関係性を属性で明示する&lt;/strong&gt;
+      &lt;ul class="c-tab__tags" aria-label="関連技術"&gt;
+        &lt;li&gt;HTML&lt;/li&gt;&lt;li&gt;ARIA&lt;/li&gt;&lt;li&gt;FOCUS&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;p&gt;タブとパネルを一対一で関連付けます。&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="c-tab__panel c-tab__detail-panel" id="state-panel"
+      role="tabpanel" aria-labelledby="state-tab" hidden&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-tab--cards { width: min(100%, 34rem); background: transparent; border: 0; }
+.c-tab--cards .c-tab__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .4rem;
+  border: 0;
+}
+.c-tab--cards .c-tab__tab {
+  display: grid;
+  gap: .2rem;
+  text-align: left;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid, #d9dfe8);
+}
+.c-tab--cards .c-tab__tab.is-active {
+  color: var(--color-text-inverse, #fff);
+  background: var(--color-primary, #18243b);
+}
+.c-tab__tags { display: flex; gap: .35rem; padding: 0; list-style: none; }
+@media (max-width: 480px) {
+  .c-tab--cards .c-tab__list { grid-template-columns: 1fr; }
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-card-tabs]');
+const tabs = [...root.querySelectorAll('[role="tab"]')];
+const panels = [...root.querySelectorAll('[role="tabpanel"]')];
+
+function select(index, focus = false) {
+  tabs.forEach((tab, i) =&gt; {
+    const active = i === index;
+    tab.classList.toggle('is-active', active);
+    tab.setAttribute('aria-selected', String(active));
+    tab.tabIndex = active ? 0 : -1;
+    panels[i].hidden = !active;
+  });
+  if (focus) tabs[index].focus();
+}
+tabs.forEach((tab, index) =&gt; {
+  tab.addEventListener('click', () =&gt; select(index));
+  tab.addEventListener('keydown', (event) =&gt; {
+    const moves = {
+      ArrowLeft: (index - 1 + tabs.length) % tabs.length,
+      ArrowRight: (index + 1) % tabs.length,
+      Home: 0,
+      End: tabs.length - 1
+    };
+    if (!(event.key in moves)) return;
+    event.preventDefault();
+    select(moves[event.key], true);
+  });
+});
+select(0);</code></pre></div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>機能比較やプラン説明など、選択肢そのものにも要約情報を持たせ、詳細を下部で確認するUIに向きます。</p></div>
         </section>
       </div>
 

@@ -35,6 +35,7 @@
       window.clearTimeout(closeTimer);
       isClosing = false;
       returnFocus = opener || document.activeElement;
+      layer.dataset.modalVariant = opener?.dataset.modalVariant || 'fade';
       layer.hidden = false;
       layer.classList.remove('is-closing');
       layer.classList.add('is-open');

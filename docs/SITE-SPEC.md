@@ -71,6 +71,7 @@ microCMSの管理対象は`NOTE to SELF`だけです。CODING NOTE、TOOLS、WEB
 - 主色：ネイビー
 - アクセント：黄色
 - 背景、境界線、テキスト、状態色は共通トークンから参照する
+- 一覧ページのアイテムグリッドは、区切り面に`--color-item-grid-background`、通常アイテムに`--color-item-background`、補助アイテムに`--color-item-background-muted`を使用する
 - 通常文字と背景のコントラストを確保し、色だけに依存した状態表現を避ける
 
 ### レイアウト
@@ -104,6 +105,8 @@ microCMSの管理対象は`NOTE to SELF`だけです。CODING NOTE、TOOLS、WEB
 - JSなしページはHTML・CSS、JSありページはHTML・CSS・JavaScriptを掲載する
 - コード領域は固定高とし、内容が収まらない場合だけ領域内で縦横スクロールする
 - PCは2列、1279px以下は1列表示を基本とする
+- 詳細ページ追加時は`web-parts/index.html`のカテゴリ、総パターン数、READY / PLANNED、一覧下部件数を同時に更新する。一覧を正本とし、引き継ぎ文書へ固定件数を重複記載しない
+- 外部ライブラリを使う詳細ページは、ヘッダーの`DEPENDENCY`へ名称と固定バージョンを表示し、CDN URLも同じバージョンへ固定する
 
 ### BUILD NOTES
 

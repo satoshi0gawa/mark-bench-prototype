@@ -7,6 +7,9 @@
   --color-background: #ffffff;
   --color-background-subtle: #f5f7fa;
   --color-surface: #ffffff;
+  --color-item-grid-background: var(--color-grid);
+  --color-item-background: var(--color-background);
+  --color-item-background-muted: var(--color-background-subtle);
   --color-text: #1c2430;
   --color-text-subtle: #667085;
   --color-text-inverse: #ffffff;

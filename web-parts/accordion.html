@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="FAQ、補足情報、階層メニューをVanilla JavaScriptで開閉するアコーディオン12パターンです。" />
+    <meta name="description" content="FAQ、補足情報、階層メニュー、情報カードをVanilla JavaScriptで開閉するアコーディオン13パターンです。" />
     <meta name="theme-color" content="#18243b" />
     <title>ACCORDION | MARK BENCH</title>
     <!-- site-meta:start -->
@@ -11,7 +11,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="MARK BENCH" />
     <meta property="og:title" content="ACCORDION | MARK BENCH" />
-    <meta property="og:description" content="FAQ、補足情報、階層メニューをVanilla JavaScriptで開閉するアコーディオン12パターンです。" />
+    <meta property="og:description" content="FAQ、補足情報、階層メニュー、情報カードをVanilla JavaScriptで開閉するアコーディオン13パターンです。" />
     <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/accordion.html" />
     <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
     <meta property="og:image:width" content="1200" />
@@ -19,7 +19,7 @@
     <meta property="og:locale" content="ja_JP" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="ACCORDION | MARK BENCH" />
-    <meta name="twitter:description" content="FAQ、補足情報、階層メニューをVanilla JavaScriptで開閉するアコーディオン12パターンです。" />
+    <meta name="twitter:description" content="FAQ、補足情報、階層メニュー、情報カードをVanilla JavaScriptで開閉するアコーディオン13パターンです。" />
     <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
     <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
@@ -70,15 +70,15 @@
       <header class="part-detail-header">
         <p class="section-index reveal">WEB_PARTS / ACCORDION</p>
         <h1 class="reveal">ACCORDION</h1>
-        <p class="part-detail-header__lead reveal">FAQ、仕様の補足、設定項目、階層メニューなど、必要な内容だけを開いて確認できるVanilla JavaScript対応のアコーディオン12パターンです。</p>
-        <div class="part-detail-header__meta reveal"><span>PATTERNS: 12</span><span>TYPE: CSS + JS</span><span>DEPENDENCY: NONE</span></div>
+        <p class="part-detail-header__lead reveal">FAQ、仕様の補足、設定項目、階層メニュー、情報カードなど、必要な内容だけを開いて確認できるVanilla JavaScript対応のアコーディオン13パターンです。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 13</span><span>TYPE: CSS + JS</span><span>DEPENDENCY: NONE</span></div>
         <a class="part-detail-header__anchor reveal" href="#accordion-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
       </header>
 
       <section class="part-detail-controls directory-search directory-keywords" aria-label="アコーディオンパターンを絞り込み">
         <div class="directory-keywords__group"><p class="directory-keywords__label">KEYWORDS</p><div class="directory-keywords__list">
-          <button type="button" aria-pressed="false" data-pattern-keyword="基本"># 基本</button><button type="button" aria-pressed="false" data-pattern-keyword="排他"># 排他</button><button type="button" aria-pressed="false" data-pattern-keyword="FAQ"># FAQ</button><button type="button" aria-pressed="false" data-pattern-keyword="状態"># 状態</button><button type="button" aria-pressed="false" data-pattern-keyword="装飾"># 装飾</button><button type="button" aria-pressed="false" data-pattern-keyword="一括"># 一括</button><button type="button" aria-pressed="false" data-pattern-keyword="検索"># 検索</button><button type="button" aria-pressed="false" data-pattern-keyword="階層"># 階層</button><button type="button" aria-pressed="false" data-pattern-keyword="リンク"># リンク</button>
-        </div></div><p>DISPLAY: <span data-pattern-count>12</span> / 12</p>
+          <button type="button" aria-pressed="false" data-pattern-keyword="基本"># 基本</button><button type="button" aria-pressed="false" data-pattern-keyword="排他"># 排他</button><button type="button" aria-pressed="false" data-pattern-keyword="FAQ"># FAQ</button><button type="button" aria-pressed="false" data-pattern-keyword="状態"># 状態</button><button type="button" aria-pressed="false" data-pattern-keyword="装飾"># 装飾</button><button type="button" aria-pressed="false" data-pattern-keyword="カード"># カード</button><button type="button" aria-pressed="false" data-pattern-keyword="一括"># 一括</button><button type="button" aria-pressed="false" data-pattern-keyword="検索"># 検索</button><button type="button" aria-pressed="false" data-pattern-keyword="階層"># 階層</button><button type="button" aria-pressed="false" data-pattern-keyword="リンク"># リンク</button>
+        </div></div><p>DISPLAY: <span data-pattern-count>13</span> / 13</p>
       </section>
 
       <div class="part-example-list">
@@ -356,6 +356,77 @@ const open = (id) =&gt; {
 root.querySelectorAll('[data-target]').forEach((link) =&gt; link.addEventListener('click', (event) =&gt; { event.preventDefault(); open(link.dataset.target); }));
 if (location.hash) open(location.hash.slice(1));</code></pre></div></div>
           <div class="part-example__note"><strong>USE FOR</strong><p>ヘルプや仕様書の特定項目をURLで共有し、到着時に対象を開いて示す場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js part-example--feature-accordion reveal" data-pattern data-search="装飾 カード 画像 情報 card feature rich content 可変高 排他 ラベル motion">
+          <header class="part-example__header"><div><span class="part-example__index">SURFACE / 02</span><h2>画像付きフィーチャーカード</h2></div><small>RICH CONTENT</small></header>
+          <div class="part-example__preview part-example__preview--accordion"><div class="c-accordion c-accordion--feature" data-accordion-feature><article class="c-accordion__feature-item"><h3 class="c-accordion__feature-heading"><button class="c-accordion__feature-button" id="feature-button-1" type="button" aria-expanded="false" aria-controls="feature-panel-1"><span class="c-accordion__feature-visual c-accordion__feature-visual--structure" aria-hidden="true"><span>01</span></span><span class="c-accordion__feature-body"><span class="c-accordion__feature-meta">HTML / ARIA</span><span class="c-accordion__feature-title">明確な開閉構造</span><span class="c-accordion__feature-summary">見出しと回答パネルを属性で結び、状態を一貫して伝えます。</span><span class="c-accordion__feature-trigger"><span data-open-label>詳細を見る</span><span data-close-label hidden>詳細を閉じる</span><span aria-hidden="true">＋</span></span></span></button></h3><div class="c-accordion__feature-panel" id="feature-panel-1" role="region" aria-labelledby="feature-button-1" hidden><div class="c-accordion__feature-detail"><strong>SEMANTIC STRUCTURE</strong><p><code>aria-expanded</code>と<code>hidden</code>を同期し、操作状態と表示内容を対応させます。</p></div></div></article><article class="c-accordion__feature-item"><h3 class="c-accordion__feature-heading"><button class="c-accordion__feature-button" id="feature-button-2" type="button" aria-expanded="false" aria-controls="feature-panel-2"><span class="c-accordion__feature-visual c-accordion__feature-visual--motion" aria-hidden="true"><span>02</span></span><span class="c-accordion__feature-body"><span class="c-accordion__feature-meta">CSS / JAVASCRIPT</span><span class="c-accordion__feature-title">可変高アニメーション</span><span class="c-accordion__feature-summary">実寸を計測して開閉し、完了後は自動高へ戻します。</span><span class="c-accordion__feature-trigger"><span data-open-label>詳細を見る</span><span data-close-label hidden>詳細を閉じる</span><span aria-hidden="true">＋</span></span></span></button></h3><div class="c-accordion__feature-panel" id="feature-panel-2" role="region" aria-labelledby="feature-button-2" hidden><div class="c-accordion__feature-detail"><strong>STATE &amp; MOTION</strong><p><code>scrollHeight</code>から内容の高さを取得し、文章量や画面幅の変化に追従します。</p></div></div></article></div></div>
+          <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="feature-accordion" data-feature-accordion&gt;
+  &lt;article class="feature-card"&gt;
+    &lt;h3&gt;&lt;button id="card-button-1" type="button" aria-expanded="false" aria-controls="card-panel-1"&gt;
+      &lt;span class="feature-card__visual" aria-hidden="true"&gt;01&lt;/span&gt;
+      &lt;span class="feature-card__body"&gt;&lt;small&gt;HTML / ARIA&lt;/small&gt;&lt;strong&gt;明確な開閉構造&lt;/strong&gt;&lt;span data-open-label&gt;詳細を見る&lt;/span&gt;&lt;span data-close-label hidden&gt;詳細を閉じる&lt;/span&gt;&lt;/span&gt;
+    &lt;/button&gt;&lt;/h3&gt;
+    &lt;div class="feature-card__panel" id="card-panel-1" role="region" aria-labelledby="card-button-1" hidden&gt;&lt;div&gt;詳細情報&lt;/div&gt;&lt;/div&gt;
+  &lt;/article&gt;
+&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.feature-accordion { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+.feature-card { overflow: hidden; background: #fff; border: 1px solid #aeb8c7; }
+.feature-card button { width: 100%; padding: 0; color: #18243b; text-align: left; background: transparent; border: 0; cursor: pointer; }
+.feature-card__visual { display: grid; min-height: 8rem; padding: 1rem; place-items: end start; color: #fff; background: linear-gradient(135deg, #18243b, #315a9b); }
+.feature-card__body { display: grid; gap: .5rem; padding: 1rem; }
+.feature-card.is-open button,
+.feature-card.is-open .feature-card__panel { color: #fff; background: #18243b; }
+.feature-card__panel { overflow: hidden; }
+.feature-card__panel &gt; div { padding: 0 1rem 1rem; }
+@media (max-width: 40rem) { .feature-accordion { grid-template-columns: 1fr; } }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>const root = document.querySelector('[data-feature-accordion]');
+const items = [...root.children];
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+
+const setLabels = (button, open) =&gt; {
+  button.querySelector('[data-open-label]').hidden = open;
+  button.querySelector('[data-close-label]').hidden = !open;
+};
+
+const close = async (item) =&gt; {
+  const button = item.querySelector('button');
+  const panel = item.querySelector('.feature-card__panel');
+  if (button.getAttribute('aria-expanded') !== 'true') return;
+  button.setAttribute('aria-expanded', 'false');
+  setLabels(button, false);
+  item.classList.remove('is-open');
+  if (reduceMotion.matches) { panel.hidden = true; return; }
+  panel.style.height = `${panel.scrollHeight}px`;
+  panel.getBoundingClientRect();
+  panel.style.transition = 'height 260ms ease';
+  panel.style.height = '0px';
+  await new Promise((resolve) =&gt; panel.addEventListener('transitionend', resolve, { once: true }));
+  panel.hidden = true;
+  panel.style.height = panel.style.transition = '';
+};
+
+const open = async (item) =&gt; {
+  items.filter((other) =&gt; other !== item).forEach(close);
+  const button = item.querySelector('button');
+  const panel = item.querySelector('.feature-card__panel');
+  button.setAttribute('aria-expanded', 'true');
+  setLabels(button, true);
+  item.classList.add('is-open');
+  panel.hidden = false;
+  if (reduceMotion.matches) return;
+  panel.style.height = '0px';
+  panel.style.transition = 'height 260ms ease';
+  panel.getBoundingClientRect();
+  panel.style.height = `${panel.scrollHeight}px`;
+  await new Promise((resolve) =&gt; panel.addEventListener('transitionend', resolve, { once: true }));
+  panel.style.height = 'auto';
+  panel.style.transition = '';
+};
+
+items.forEach((item) =&gt; item.querySelector('button').addEventListener('click', () =&gt; {
+  const openNext = item.querySelector('button').getAttribute('aria-expanded') !== 'true';
+  openNext ? open(item) : close(item);
+}));</code></pre></div></div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>画像、要約、分類ラベルを一覧で見せながら、必要なカードだけ詳しい説明へ展開する機能紹介や事例一覧。</p></div>
         </section>
       </div>
 

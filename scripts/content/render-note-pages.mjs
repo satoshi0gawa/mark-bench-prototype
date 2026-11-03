@@ -229,7 +229,7 @@ const updateHomeIndex = async (output, codingNoteCount, noteToSelfCount) => {
   const file = join(output, 'index.html');
   let html = await readFile(file, 'utf8');
   const total = codingNoteCount + noteToSelfCount;
-  const pattern = /(<span class="home-tree__status" data-build-notes-count>)[^<]*(<\/span>)/;
+  const pattern = /(<span class="home-tree__status" data-build-notes-count\s*>)[^<]*(<\/span\s*>)/;
   if (!pattern.test(html)) throw new Error('HOME BUILD NOTES count target not found');
   html = html.replace(pattern, `$1${twoDigits(total)} NOTES$2`);
   await writeFile(file, html);
