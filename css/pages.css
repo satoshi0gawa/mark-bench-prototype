@@ -2097,7 +2097,8 @@ body[data-page="about"] {
 .article-project-meta > div { min-width: 0; padding: 1rem; border-right: var(--border); }
 .article-project-meta > div:last-child { border-right: 0; }
 .article-project-meta dt { color: var(--color-text-subtle); font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.06em; }
-.article-project-meta dd { margin: 0.5rem 0 0; font-family: var(--font-mono); font-size: 0.68rem; font-weight: 700; overflow-wrap: anywhere; }
+.article-project-meta dd { margin: 0.5rem 0 0; font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; line-height: 1.5; overflow-wrap: anywhere; }
+.article-project-meta__separator { display: inline-block; margin-inline: 0.2em; color: var(--color-grid-strong); font-weight: 400; }
 .article-toc { grid-column: 2; grid-row: 2; align-self: start; padding: 2rem var(--page-gutter); border-left: var(--border); }
 .article-toc > p { font-family: var(--font-mono); font-size: 0.65rem; }
 .article-toc ol { padding-left: 1.25rem; font-size: 0.8rem; }

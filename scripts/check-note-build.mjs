@@ -19,7 +19,7 @@ export const checkNoteBuild = async (output, sourceEntries) => {
   assert.equal(count(buildNotes, /<a class="note-row"/g), Math.min(entries.length, 5));
   assert.ok(!archive.includes('test-notetoself'));
   assert.ok(!buildNotes.includes('test-notetoself'));
-  assert.ok(buildNotes.includes('test-codingnote-00.html'), 'CODING NOTE static cards must remain unchanged');
+  assert.ok(buildNotes.includes('coding-note-blogdemo.html'), 'CODING NOTE overview must include the latest published note');
   assert.ok(buildNotes.includes(`CODING NOTE: ${String(codingNoteCount).padStart(2, '0')}`));
   assert.ok(buildNotes.includes(`CODING_NOTE_ARCHIVE</span><span>${String(codingNoteCount).padStart(2, '0')} NOTES`));
   assert.ok(
