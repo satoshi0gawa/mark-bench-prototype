@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="提供されたFigmaデザインカンプから、介護人材派遣サービスのレスポンシブLPを実装。HTML構造、SCSS設計、2種類のスライダー、FAQ、送信しないデモフォーム、アクセシビリティ、検証内容を記録します。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>実装NOTE | 【Figmaデザインカンプ】コーディング演習 | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/build-notes/coding-note/coding-note-demo-lp-care-send.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="実装NOTE | 【Figmaデザインカンプ】コーディング演習 | MARK BENCH" />
+    <meta property="og:description" content="提供されたFigmaデザインカンプから、介護人材派遣サービスのレスポンシブLPを実装。HTML構造、SCSS設計、2種類のスライダー、FAQ、送信しないデモフォーム、アクセシビリティ、検証内容を記録します。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/build-notes/coding-note/coding-note-demo-lp-care-send.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="実装NOTE | 【Figmaデザインカンプ】コーディング演習 | MARK BENCH" />
+    <meta name="twitter:description" content="提供されたFigmaデザインカンプから、介護人材派遣サービスのレスポンシブLPを実装。HTML構造、SCSS設計、2種類のスライダー、FAQ、送信しないデモフォーム、アクセシビリティ、検証内容を記録します。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "BUILD NOTES",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/build-notes/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "CODING NOTE",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/build-notes/coding-note/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "実装NOTE | 【Figmaデザインカンプ】コーディング演習",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/build-notes/coding-note/coding-note-demo-lp-care-send.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../../css/foundation.css" />
+    <link rel="stylesheet" href="../../css/components.css" />
+    <link rel="stylesheet" href="../../css/pages.css" />
+  </head>
+  <body data-site="coding-note" data-page="blog">
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header">
+      <div class="site-header__bar">
+        <nav class="site-breadcrumb-logo" aria-label="パンくずリスト">
+          <a class="site-logo" href="../../index.html">MARK BENCH</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <a class="site-breadcrumb-logo__parent" href="../">BUILD NOTES</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <a class="site-breadcrumb-logo__parent" href="./">CODING NOTE</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <span class="site-breadcrumb-logo__current" aria-current="page">実装NOTE | Figmaコーディング演習</span>
+        </nav>
+      </div>
+    </header>
+
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション">
+      <a href="../../tools/"><strong>TOOLS</strong></a>
+      <a href="../../web-parts/"><strong>WEB PARTS</strong></a>
+      <a href="../" aria-current="location"><strong>BUILD NOTES</strong></a>
+      <a href="../../about.html"><strong>ABOUT</strong></a>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <article class="article-layout" aria-labelledby="article-title">
+        <header class="article-header reveal" data-reveal-order="0">
+          <p class="section-index">CARE_SEND_LP</p>
+          <h1 id="article-title">実装NOTE | 【Figmaデザインカンプ】コーディング演習</h1>
+          <p class="article-header__lead">提供されたFigmaデザインカンプをもとに、介護人材派遣サービス「CareSend」のレスポンシブLPをHTML、SCSS、JavaScriptで実装しました。情報量の多いページを意味のある構造へ整理し、画面幅に応じた配置、スライダー、FAQ、デモフォームを操作できる状態へ落とし込んだ過程を記録します。</p>
+          <div class="note-meta"><span>2026.11.03</span><span>READING TIME: 7–9 MIN</span></div>
+          <dl class="article-project-meta" aria-label="制作情報">
+            <div><dt>TYPE</dt><dd>CODING PRACTICE</dd></div>
+            <div><dt>ROLE</dt><dd>CODING / REVIEW</dd></div>
+            <div><dt>STACK</dt><dd>HTML / SCSS / JAVASCRIPT / SPLIDE</dd></div>
+            <div><dt>STATUS</dt><dd>PORTFOLIO DEMO</dd></div>
+          </dl>
+        </header>
+
+        <aside class="article-toc reveal" data-reveal-order="1" aria-label="目次">
+          <p>CONTENTS</p>
+          <ol>
+            <li><a href="#section-1">制作概要</a></li>
+            <li><a href="#section-2">目的と要件</a></li>
+            <li><a href="#section-3">担当範囲</a></li>
+            <li><a href="#section-4">サイト・ページ構成</a></li>
+            <li><a href="#section-5">技術構成とファイル設計</a></li>
+            <li><a href="#section-6">主要な実装ポイント</a></li>
+            <li><a href="#section-7">レスポンシブとアクセシビリティ</a></li>
+            <li><a href="#section-8">課題と解決</a></li>
+            <li><a href="#section-9">検証と公開</a></li>
+            <li><a href="#section-10">関連リンク</a></li>
+          </ol>
+        </aside>
+
+        <div class="article-body">
+          <section class="article-section reveal" id="section-1" aria-labelledby="section-1-title" data-reveal-threshold="0.01">
+            <p class="section-index">01 / OVERVIEW</p>
+            <h2 id="section-1-title">制作概要</h2>
+            <p>CareSendは、サービスの特徴、導入実績、事例、料金、FAQを伝え、資料請求へつなげる介護人材派遣サービスの架空LPです。提供されたPC・Smartphone用Figmaカンプを基準に、中間幅を補完しながらレスポンシブ実装しました。</p>
+            <p>ページ内には、企業ロゴの自動スクロール、導入事例の手動スライダー、ドロワーメニュー、FAQアコーディオン、資料請求フォームを実装しています。フォームは操作確認用のデモで、入力内容の保存・外部送信・資料の配布は行いません。</p>
+            <div class="article-table-wrap">
+              <table>
+                <caption class="visually-hidden">CareSend LPの制作概要</caption>
+                <thead><tr><th>項目</th><th>内容</th></tr></thead>
+                <tbody>
+                  <tr><td>制作種別</td><td>提供Figmaカンプからのコーディング演習</td></tr>
+                  <tr><td>担当</td><td>HTML / SCSS / JavaScript実装、レスポンシブ、検証・改善</td></tr>
+                  <tr><td>制作時間</td><td>約15時間</td></tr>
+                  <tr><td>対応画面</td><td>PC / Tablet / Smartphone</td></tr>
+                  <tr><td>使用技術</td><td>HTML / SCSS / JavaScript / Splide / Figma</td></tr>
+                  <tr><td>公開区分</td><td>ポートフォリオ用・認証付きデモ環境</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="article-callout"><strong>DEMO DISCLAIMER</strong><p>企業名、実績、数値、人物情報、問い合わせ先は、UI検証用の架空情報です。</p></div>
+          </section>
+
+          <section class="article-section reveal" id="section-2" aria-labelledby="section-2-title" data-reveal-threshold="0.01">
+            <p class="section-index">02 / REQUIREMENTS</p>
+            <h2 id="section-2-title">目的と要件</h2>
+            <p>本制作は、Shogo（しょーごログ運営）さんの教材「【中級】デザインカンプからのコーディング実践演習【JavaScript導入】」を使用した学習課題です。レイアウトとビジュアルは教材から提供されたFigmaカンプを参照しており、デザイン制作は担当していません。</p>
+            <p>課題の目的は、カンプの数値を写すだけでなく、セクションの意味と操作の役割を読み取り、保守できるHTML・SCSS・JavaScriptへ変換することでした。</p>
+            <ol>
+              <li>ランドマークと見出し階層を整え、長いLPの情報構造を追えるようにする。</li>
+              <li>PC・Smartphoneのカンプ間を補完し、Tabletを含む中間幅でも破綻させない。</li>
+              <li>自動で流す情報と利用者が読む情報で、スライダーの操作方法を分ける。</li>
+              <li>FAQとフォームを標準HTMLの機能を基礎に実装する。</li>
+              <li>キーボード操作、フォーカス表示、動きを抑える設定へ対応する。</li>
+              <li>フォームが送信されないことを画面上で明示する。</li>
+              <li>制作確認用デモは検索対象外とし、Basic認証のサーバー設定をソースコードへ含めない。</li>
+            </ol>
+            <p>デザイン再現と同時に、入力、開閉、移動といった状態変化が見た目だけでなく、HTML属性や支援技術向けの情報にも反映されることを重視しました。</p>
+          </section>
+
+          <section class="article-section reveal" id="section-3" aria-labelledby="section-3-title" data-reveal-threshold="0.01">
+            <p class="section-index">03 / SCOPE</p>
+            <h2 id="section-3-title">担当範囲</h2>
+            <p>担当範囲はフロントエンド実装と実装後の検証です。</p>
+            <ol>
+              <li><strong>マークアップ：</strong>Figmaからセクションの関係を読み取り、HTMLのランドマーク、見出し、リスト、フォームへ変換。</li>
+              <li><strong>スタイリング：</strong>SCSSをfoundation、layout、component、page、utilityへ分割し、生成CSSへ反映。</li>
+              <li><strong>レスポンシブ：</strong>PC・Smartphoneのカンプを基準に、Tabletと境界幅のレイアウトを補完。</li>
+              <li><strong>インタラクション：</strong>ドロワー、2種類のスライダー、FAQ、フォーム、スクロール表示を実装。</li>
+              <li><strong>デバッグ：</strong>表示件数、可変高、ボタン状態、フォーカス、画面幅ごとの崩れを修正。</li>
+              <li><strong>セルフレビュー：</strong>構造、表示、操作、キーボード、コンソールエラーを確認。</li>
+            </ol>
+            <div class="article-callout"><strong>SCOPE BOUNDARY</strong><p>提供されたデザインと、自分が担当したコーディング・動作設計・検証の範囲を分けて記載しています。</p></div>
+          </section>
+
+          <section class="article-section reveal" id="section-4" aria-labelledby="section-4-title" data-reveal-threshold="0.01">
+            <p class="section-index">04 / STRUCTURE</p>
+            <h2 id="section-4-title">サイト・ページ構成</h2>
+            <p>ページは、サービス理解から資料請求までを次の順で構成しています。</p>
+            <div class="article-table-wrap">
+              <table>
+                <caption class="visually-hidden">CareSend LPのセクション構成</caption>
+                <thead><tr><th>セクション</th><th>役割</th></tr></thead>
+                <tbody>
+                  <tr><td>Header / Hero</td><td>サービスの第一印象、主要実績、資料請求フォーム</td></tr>
+                  <tr><td>Achievements</td><td>導入実績と企業ロゴの提示</td></tr>
+                  <tr><td>About / Features</td><td>サービスの特徴と利用価値の説明</td></tr>
+                  <tr><td>CTA</td><td>資料請求セクションへのページ内導線</td></tr>
+                  <tr><td>Case Studies</td><td>導入後の変化を事例カードで紹介</td></tr>
+                  <tr><td>Pricing</td><td>初期費用、月額費用、成約手数料の比較</td></tr>
+                  <tr><td>FAQ</td><td>検討時の疑問を開閉式で整理</td></tr>
+                  <tr><td>Download</td><td>資料イメージと2つ目の資料請求フォーム</td></tr>
+                  <tr><td>Footer</td><td>サービス名とページ先頭への導線</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>HEROとページ下部に同じ目的のフォームを置き、最初から資料請求したい利用者と、内容を確認してから行動する利用者の両方に対応しました。CTAはページ下部のフォームへ接続し、デモ上の未確定な外部遷移は設定していません。</p>
+          </section>
+
+          <section class="article-section reveal" id="section-5" aria-labelledby="section-5-title" data-reveal-threshold="0.01">
+            <p class="section-index">05 / ARCHITECTURE</p>
+            <h2 id="section-5-title">技術構成とファイル設計</h2>
+            <p>HTML、スタイル、状態管理の責務を分け、機能の追加や画面幅調整を追いやすくしました。</p>
+            <div class="article-table-wrap">
+              <table>
+                <caption class="visually-hidden">CareSend LPの技術構成</caption>
+                <thead><tr><th>技術・ファイル</th><th>主な役割</th></tr></thead>
+                <tbody>
+                  <tr><td><code>index.html</code></td><td>文書構造、画像、フォーム、FAQ、スライダーのマークアップ</td></tr>
+                  <tr><td><code>scss/foundation/</code></td><td>変数、リセット、基本スタイル、メディアクエリとコンテナのmixin</td></tr>
+                  <tr><td><code>scss/layout/</code></td><td>HeaderとFooter</td></tr>
+                  <tr><td><code>scss/component/</code></td><td>2か所で再利用するフォーム</td></tr>
+                  <tr><td><code>scss/pages/top/</code></td><td>HERO、実績、特徴、事例、料金、FAQ、資料請求のページ固有表現</td></tr>
+                  <tr><td><code>scss/utility/</code></td><td>スクロール表示</td></tr>
+                  <tr><td><code>js/main.js</code></td><td>メニュー、Splide、FAQ、フォーム、スクロール表示の初期化</td></tr>
+                  <tr><td><code>assets/</code></td><td>Splide本体、Auto Scroll拡張、Splide用CSS</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>レイアウトにはFlexboxとGridを使用し、共通コンテナは最大1200pxとしました。文字サイズは375pxから1200pxの間を <code>clamp()</code> で補間し、ブレークポイントは480px、1024px、1025pxを基本にしています。Headerはナビゲーションの必要幅を考慮し、1200px以下でドロワーへ切り替えます。</p>
+            <p>画像には表示寸法を指定し、下層の画像は <code>loading="lazy"</code> と <code>decoding="async"</code> を使用しました。Aboutのメイン画像は <code>picture</code> でPC・Smartphone用を切り替えています。</p>
+          </section>
+
+          <section class="article-section reveal" id="section-6" aria-labelledby="section-6-title" data-reveal-threshold="0.01">
+            <p class="section-index">06 / IMPLEMENTATION</p>
+            <h2 id="section-6-title">主要な実装ポイント</h2>
+
+            <h3>情報の性質に合わせて2種類のスライダーを分ける</h3>
+            <p>導入企業ロゴは、採用実績の広がりを連続的に伝える情報です。そのためSplideのAuto Scroll拡張を使用し、横方向へ自動で流す表示にしました。一方、導入事例は文章を一件ずつ読む必要があるため、自動再生を使わず、矢印で操作するスライダーにしています。</p>
+            <p>事例スライダーはPCで2件ずつ、1024px以下で1件ずつ表示し、現在位置に応じて前後ボタンの <code>disabled</code> と <code>aria-disabled</code> を同期します。同じライブラリを使いながら、用途ごとに移動量、操作方法、画面幅設定を分けました。</p>
+
+            <h3>標準のdetailsを保ちながらFAQを可変高で動かす</h3>
+            <p>FAQは <code>details</code> と <code>summary</code> を使用し、JavaScriptが動かない場合でも標準の開閉操作を残しました。アニメーション時は回答の開始高と内容高を計測し、Web Animations APIで補間します。完了後は高さを <code>auto</code> へ戻し、文章量が変わっても固定値へ依存しない構成にしています。</p>
+            <p><code>prefers-reduced-motion: reduce</code> またはWeb Animations APIが利用できない環境では、アニメーションを行わず開閉状態を即時反映します。</p>
+
+            <h3>送信しないフォームでも入力体験を検証する</h3>
+            <p>フォームは各入力欄を <code>label</code> と関連付け、<code>required</code>、入力型、<code>autocomplete</code> を設定しました。送信時は <code>preventDefault()</code> で通信を止め、<code>reportValidity()</code> によるブラウザ標準の必須入力検証を利用します。</p>
+            <p>入力が有効な場合は送信ボタンを無効化し、送信されない旨を示す <code>role="status"</code> の完了メッセージへフォーカスを移します。実データを扱わずに、入力から結果通知までの操作と読み上げ順を確認できるデモにしました。</p>
+
+            <h3>メニューとスクロール表示を代替可能にする</h3>
+            <p>ドロワーは開閉状態と <code>aria-expanded</code>、操作ラベル、背景スクロール抑止を同期し、リンク選択またはEscapeキーで閉じます。スクロール表示は各セクションが交差した時だけ開始し、表示後は監視を解除します。<code>IntersectionObserver</code> 非対応または動きを抑える設定では、内容を即時表示します。</p>
+          </section>
+
+          <section class="article-section reveal" id="section-7" aria-labelledby="section-7-title" data-reveal-threshold="0.01">
+            <p class="section-index">07 / QUALITY</p>
+            <h2 id="section-7-title">レスポンシブとアクセシビリティ</h2>
+            <p>PCとSmartphoneのカンプ間を単純に縮小せず、情報量と操作方法に応じて段階的に調整しました。</p>
+            <div class="article-table-wrap">
+              <table>
+                <caption class="visually-hidden">CareSend LPのレスポンシブ対応</caption>
+                <thead><tr><th>条件</th><th>表示の切り替え</th></tr></thead>
+                <tbody>
+                  <tr><td>PC</td><td>HEROの説明とフォームを横並びにし、事例を2件ずつ比較表示</td></tr>
+                  <tr><td>1200px以下</td><td>横並びナビゲーションをドロワーへ切り替え</td></tr>
+                  <tr><td>1024px以下</td><td>HEROと資料請求の内容を縦方向へ再配置し、事例を1件表示へ変更</td></tr>
+                  <tr><td>480px以下</td><td>余白、カード、フォーム内の2列入力をSmartphone向けに調整</td></tr>
+                  <tr><td>375〜1200px</td><td>見出し、本文、料金数値を <code>clamp()</code> で補間</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>各セクションを見出しと関連付け、操作ボタンに <code>:focus-visible</code> を用意しています。フォームはラベル、入力型、必須状態、オートコンプリートを設定し、結果通知にはライブリージョンを使用しました。事例スライダーの矢印は現在位置に応じて無効状態を伝え、FAQは標準要素を基礎にしています。</p>
+            <p>自動スクロール、FAQ、セクション表示、ボタンのtransitionは <code>prefers-reduced-motion</code> を考慮します。動きを止めても、情報の閲覧と操作ができる状態を維持します。</p>
+          </section>
+
+          <section class="article-section reveal" id="section-8" aria-labelledby="section-8-title" data-reveal-threshold="0.01">
+            <p class="section-index">08 / CHALLENGES</p>
+            <h2 id="section-8-title">課題と解決</h2>
+            <ol class="article-process-flow" aria-label="課題から結果までの流れ">
+              <li>
+                <div class="article-process-flow__label"><span aria-hidden="true">01</span><strong>課題</strong></div>
+                <p>企業ロゴと導入事例はどちらも横方向へ並ぶ情報ですが、同じスライダー設定では速度と操作性が情報の読み方に合いませんでした。</p>
+              </li>
+              <li>
+                <div class="article-process-flow__label"><span aria-hidden="true">02</span><strong>原因</strong></div>
+                <p>自動で流し続けるロゴ一覧と、内容を一件ずつ読む事例カードで、必要な移動量と操作方法が異なるためです。</p>
+              </li>
+              <li>
+                <div class="article-process-flow__label"><span aria-hidden="true">03</span><strong>解決</strong></div>
+                <p>企業ロゴはAuto Scrollによる連続表示、導入事例は矢印による手動操作へ分離しました。事例はPCで2件、1024px以下で1件ずつ移動し、先頭と末尾では該当する矢印を無効化します。</p>
+              </li>
+              <li>
+                <div class="article-process-flow__label"><span aria-hidden="true">04</span><strong>結果</strong></div>
+                <p>同じSplideを使用しながら情報の役割に合った速度と操作方法を設定し、実績の量と個別事例の内容をPCからSmartphoneまで追いやすい表示にできました。</p>
+              </li>
+            </ol>
+          </section>
+
+          <section class="article-section reveal" id="section-9" aria-labelledby="section-9-title" data-reveal-threshold="0.01">
+            <p class="section-index">09 / REVIEW &amp; DELIVERY</p>
+            <h2 id="section-9-title">検証と公開</h2>
+            <p>実装後は次の観点で確認しました。</p>
+            <ol>
+              <li>ランドマーク、見出し階層、リスト、フォームラベルの関係。</li>
+              <li>PC / Tablet / Smartphoneの配置とページ全体の横スクロール。</li>
+              <li>ドロワーの開閉、リンク選択、Escapeキー、背景スクロール。</li>
+              <li>企業ロゴの自動表示と導入事例の手動操作。</li>
+              <li>FAQの連続開閉、可変高、動きを抑える設定。</li>
+              <li>フォームの必須入力、送信抑止、完了メッセージ、フォーカス移動。</li>
+              <li>Tab移動とフォーカス表示。</li>
+              <li>JavaScriptエラーと未解決アセットの有無。</li>
+            </ol>
+            <p>制作確認用デモには <code>noindex,nofollow</code> を設定しています。Basic認証のサーバー設定はサーバー側で管理し、閲覧案内用の共通認証情報のみ本記事に掲載しています。フォームには、入力内容を送信せず資料も配布しないことを入力欄付近と完了メッセージの両方で明示しています。</p>
+            <p>デモ本体のcanonical、<code>og:url</code>、OGP画像URLは公開先の絶対URLへそろえます。検索公開へ切り替える場合に限り、公開方針を確認して <code>noindex</code> を解除します。</p>
+          </section>
+
+          <section class="article-section reveal" id="section-10" aria-labelledby="section-10-title" data-reveal-threshold="0.01">
+            <p class="section-index">10 / PROJECT LINKS</p>
+            <h2 id="section-10-title">関連リンク</h2>
+            <p>制作物の概要、完成状態、使用教材を目的別に確認できます。LIVE DEMOはBasic認証で保護しているため、下記の共通認証情報を入力してご覧ください。</p>
+            <div class="article-project-links" aria-label="CareSend LP関連リンク">
+              <a class="article-project-link" href="https://so-portfolio.site/coding-challenge/cc-demo-lp-care-send/" target="_blank" rel="noopener noreferrer">
+                <small>PORTFOLIO</small>
+                <strong>制作概要とビジュアルを見る</strong>
+                <span aria-hidden="true">↗</span>
+              </a>
+              <a class="article-project-link" href="https://satoshiogawa.wpx.jp/cc-demo-lp-care-send/" target="_blank" rel="noopener noreferrer">
+                <small>LIVE DEMO</small>
+                <strong>実際のサイトを確認する</strong>
+                <span aria-hidden="true">↗</span>
+              </a>
+              <a class="article-project-link" href="https://note.com/samuraibrass/n/nd1748e42934e?magazine_key=mad296098d928" target="_blank" rel="noopener noreferrer">
+                <small>LEARNING MATERIAL</small>
+                <strong>使用した教材を確認する</strong>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <div class="article-callout article-callout--auth"><strong>BASIC AUTH</strong><p><strong>ユーザー名・パスワード：ccdemo2608</strong></p></div>
+          </section>
+        </div>
+      </article>
+      <footer class="page-footer" aria-label="ページナビゲーション">
+        <a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO CODING NOTE</span></a>
+        <a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a>
+      </footer>
+    </main>
+
+    <script src="../../js/main.js" defer></script>
+  </body>
+</html>

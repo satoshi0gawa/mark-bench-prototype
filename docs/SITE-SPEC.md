@@ -115,9 +115,10 @@ microCMSの管理対象は`NOTE to SELF`だけです。CODING NOTE、TOOLS、WEB
 
 #### CODING NOTE詳細
 
-- `build-notes/coding-note/mark-bench.html`を詳細ページの参照実装とする
+- `build-notes/coding-note/coding-note-mark-bench.html`を詳細ページの参照実装とする
 - 基本構成は、制作概要、目的と要件、担当範囲、サイト構成、技術構成、主要実装、レスポンシブとアクセシビリティ、課題と解決、検証と公開、関連リンクの順とする
 - ヘッダーの制作情報は`.article-project-meta`を使い、TYPE、ROLE、STACK、STATUSを掲載内容に合わせて設定する
+- 「課題と解決」は`.article-process-flow`を使い、課題、原因、解決、結果を4段階のフローとして順番に表示する。結果は最後の段階へ統合し、同内容のコールアウトを重複表示しない
 - ポートフォリオ、完成サイト、Figma、ソースコードなどのCTAは`.article-project-links`へ配置し、存在するリンクだけを表示する
 - ポートフォリオは制作物の概要、CODING NOTEは設計・実装の詳細、完成サイトは動作確認先としてリンクの役割を分ける
 - 記事追加時はCODING NOTE一覧カード、表示件数、パンくずと一覧へ戻る導線をあわせて確認する
