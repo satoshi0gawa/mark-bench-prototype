@@ -2112,6 +2112,7 @@ body[data-page="about"] {
 .article-layout { display: grid; grid-template-columns: minmax(0, 2.4fr) minmax(15rem, 0.8fr); border-bottom: var(--border); }
 .article-header { grid-column: 1 / -1; padding: clamp(2.5rem, 6vw, 5rem) var(--page-gutter) 2rem; border-bottom: var(--border); }
 .article-header h1 { margin-bottom: 2rem; font-size: clamp(1.75rem, 3vw, 3rem); line-height: 0.95; }
+.article-title__suffix { white-space: nowrap; }
 .article-header__lead { color: var(--color-text-subtle); font-size: 1.05rem; }
 .article-project-meta { display: grid; margin: 2rem 0 0; grid-template-columns: repeat(4, minmax(0, 1fr)); border: var(--border); }
 .article-project-meta > div { min-width: 0; padding: 1rem; border-right: var(--border); }

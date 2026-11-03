@@ -3,30 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="MARK BENCHの実装仕様を整理。HTML・CSS・JavaScriptによるUIとツール、microCMSの記事管理、Node.jsの静的生成、GitHub ActionsとGitHub Pagesの公開フローをまとめます。" />
+    <meta
+      name="description"
+      content="MARK BENCHの実装仕様を整理。HTML・CSS・JavaScriptによるUIとツール、microCMSの記事管理、Node.jsの静的生成、GitHub ActionsとGitHub Pagesの公開フローをまとめます。" />
     <meta name="theme-color" content="#18243b" />
     <title>実装NOTE | 【microCMS × 静的サイト】MARK BENCH | MARK BENCH</title>
     <!-- site-meta:start -->
-    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/build-notes/coding-note/coding-note-mark-bench.html" />
+    <link
+      rel="canonical"
+      href="https://satoshi0gawa.github.io/mark-bench-prototype/build-notes/coding-note/coding-note-mark-bench.html" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="MARK BENCH" />
-    <meta property="og:title" content="実装NOTE | 【microCMS × 静的サイト】MARK BENCH | MARK BENCH" />
-    <meta property="og:description" content="MARK BENCHの実装仕様を整理。HTML・CSS・JavaScriptによるUIとツール、microCMSの記事管理、Node.jsの静的生成、GitHub ActionsとGitHub Pagesの公開フローをまとめます。" />
-    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/build-notes/coding-note/coding-note-mark-bench.html" />
-    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta
+      property="og:title"
+      content="実装NOTE | 【microCMS × 静的サイト】MARK BENCH | MARK BENCH" />
+    <meta
+      property="og:description"
+      content="MARK BENCHの実装仕様を整理。HTML・CSS・JavaScriptによるUIとツール、microCMSの記事管理、Node.jsの静的生成、GitHub ActionsとGitHub Pagesの公開フローをまとめます。" />
+    <meta
+      property="og:url"
+      content="https://satoshi0gawa.github.io/mark-bench-prototype/build-notes/coding-note/coding-note-mark-bench.html" />
+    <meta
+      property="og:image"
+      content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="ja_JP" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="実装NOTE | 【microCMS × 静的サイト】MARK BENCH | MARK BENCH" />
-    <meta name="twitter:description" content="MARK BENCHの実装仕様を整理。HTML・CSS・JavaScriptによるUIとツール、microCMSの記事管理、Node.jsの静的生成、GitHub ActionsとGitHub Pagesの公開フローをまとめます。" />
-    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
-    <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="../../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
-    <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <meta
+      name="twitter:title"
+      content="実装NOTE | 【microCMS × 静的サイト】MARK BENCH | MARK BENCH" />
+    <meta
+      name="twitter:description"
+      content="MARK BENCHの実装仕様を整理。HTML・CSS・JavaScriptによるUIとツール、microCMSの記事管理、Node.jsの静的生成、GitHub ActionsとGitHub Pagesの公開フローをまとめます。" />
+    <meta
+      name="twitter:image"
+      content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link
+      rel="icon"
+      href="../../assets/icons/favicon.svg"
+      type="image/svg+xml" />
+    <link
+      rel="icon"
+      href="../../assets/icons/favicon-32.png"
+      type="image/png"
+      sizes="32x32" />
+    <link
+      rel="apple-touch-icon"
+      href="../../assets/icons/apple-touch-icon.png"
+      sizes="180x180" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
     <script type="application/ld+json" data-site-structured-data>
       {
         "@context": "https://schema.org",
@@ -60,7 +90,9 @@
       }
     </script>
     <!-- site-meta:end -->
-    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <script>
+      document.documentElement.classList.replace("no-js", "js");
+    </script>
     <link rel="stylesheet" href="../../css/foundation.css" />
     <link rel="stylesheet" href="../../css/components.css" />
     <link rel="stylesheet" href="../../css/pages.css" />
@@ -71,12 +103,20 @@
       <div class="site-header__bar">
         <nav class="site-breadcrumb-logo" aria-label="パンくずリスト">
           <a class="site-logo" href="../../index.html">MARK BENCH</a>
-          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true"
+            >/</span
+          >
           <a class="site-breadcrumb-logo__parent" href="../">BUILD NOTES</a>
-          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true"
+            >/</span
+          >
           <a class="site-breadcrumb-logo__parent" href="./">CODING NOTE</a>
-          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
-          <span class="site-breadcrumb-logo__current" aria-current="page">実装NOTE | MARK BENCH</span>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true"
+            >/</span
+          >
+          <span class="site-breadcrumb-logo__current" aria-current="page"
+            >実装NOTE | MARK BENCH</span
+          >
         </nav>
       </div>
     </header>
@@ -92,18 +132,62 @@
       <article class="article-layout" aria-labelledby="article-title">
         <header class="article-header reveal" data-reveal-order="0">
           <p class="section-index">MARK BENCH</p>
-          <h1 id="article-title">実装NOTE | 【microCMS × 静的サイト】MARK BENCH</h1>
-          <p class="article-header__lead">Web制作向けのツール、再利用可能なUIパーツ、制作記録を一つの静的サイトへまとめたMARK BENCHについて、要件、担当範囲、構造設計、主要機能、品質確認、公開までを整理します。</p>
+          <h1 id="article-title">
+            実装NOTE |【microCMS × 静的サイト】 <span class="article-title__suffix">MARK BENCH</span>
+          </h1>
+          <p class="article-header__lead">
+            Web制作向けのツール、再利用可能なUIパーツ、制作記録を一つの静的サイトへまとめたMARK
+            BENCHについて、要件、担当範囲、構造設計、主要機能、品質確認、公開までを整理します。
+          </p>
           <div class="note-meta"><span>2026.11.02</span></div>
           <dl class="article-project-meta" aria-label="制作情報">
-            <div><dt>TYPE</dt><dd>STATIC WEB APPLICATION</dd></div>
-            <div><dt>ROLE</dt><dd>DESIGN <span class="article-project-meta__separator" aria-hidden="true">/</span> CODING <span class="article-project-meta__separator" aria-hidden="true">/</span> CONTENT</dd></div>
-            <div><dt>STACK</dt><dd>HTML <span class="article-project-meta__separator" aria-hidden="true">/</span> CSS <span class="article-project-meta__separator" aria-hidden="true">/</span> JAVASCRIPT <span class="article-project-meta__separator" aria-hidden="true">/</span> NODE.JS</dd></div>
-            <div><dt>STATUS</dt><dd>IN DEVELOPMENT</dd></div>
+            <div>
+              <dt>TYPE</dt>
+              <dd>STATIC WEB APPLICATION</dd>
+            </div>
+            <div>
+              <dt>ROLE</dt>
+              <dd>
+                DESIGN
+                <span class="article-project-meta__separator" aria-hidden="true"
+                  >/</span
+                >
+                CODING
+                <span class="article-project-meta__separator" aria-hidden="true"
+                  >/</span
+                >
+                CONTENT
+              </dd>
+            </div>
+            <div>
+              <dt>STACK</dt>
+              <dd>
+                HTML
+                <span class="article-project-meta__separator" aria-hidden="true"
+                  >/</span
+                >
+                CSS
+                <span class="article-project-meta__separator" aria-hidden="true"
+                  >/</span
+                >
+                JAVASCRIPT
+                <span class="article-project-meta__separator" aria-hidden="true"
+                  >/</span
+                >
+                NODE.JS
+              </dd>
+            </div>
+            <div>
+              <dt>STATUS</dt>
+              <dd>IN DEVELOPMENT</dd>
+            </div>
           </dl>
         </header>
 
-        <aside class="article-toc reveal" data-reveal-order="1" aria-label="目次">
+        <aside
+          class="article-toc reveal"
+          data-reveal-order="1"
+          aria-label="目次">
           <p>CONTENTS</p>
           <ol>
             <li><a href="#section-1">制作概要</a></li>
@@ -120,87 +204,233 @@
         </aside>
 
         <div class="article-body">
-          <section class="article-section reveal" id="section-1" aria-labelledby="section-1-title" data-reveal-threshold="0.01">
+          <section
+            class="article-section reveal"
+            id="section-1"
+            aria-labelledby="section-1-title"
+            data-reveal-threshold="0.01">
             <p class="section-index">01 / OVERVIEW</p>
             <h2 id="section-1-title">制作概要</h2>
-            <p>MARK BENCHは、Web制作で繰り返し使う小さなツール、再利用可能なUIパーツ、制作・運用の記録を一か所へ集約するための静的サイトです。機能を使う場所、コードを参照する場所、実装の判断を残す場所を同じサイト内に整理しています。</p>
-            <p>ブラウザで動く機能はHTML、CSS、Vanilla JavaScriptで実装し、記事取得やHTML生成などの公開前処理はNode.jsへ分離しました。生成した静的ファイルはGitHub Actionsを経由してGitHub Pagesへ公開します。</p>
+            <p>
+              MARK
+              BENCHは、Web制作で繰り返し使う小さなツール、再利用可能なUIパーツ、制作・運用の記録を一か所へ集約するための静的サイトです。機能を使う場所、コードを参照する場所、実装の判断を残す場所を同じサイト内に整理しています。
+            </p>
+            <p>
+              ブラウザで動く機能はHTML、CSS、Vanilla
+              JavaScriptで実装し、記事取得やHTML生成などの公開前処理はNode.jsへ分離しました。生成した静的ファイルはGitHub
+              Actionsを経由してGitHub Pagesへ公開します。
+            </p>
             <div class="article-table-wrap">
               <table>
-                <caption class="visually-hidden">MARK BENCHの制作概要</caption>
-                <thead><tr><th>項目</th><th>内容</th></tr></thead>
+                <caption class="visually-hidden">
+                  MARK BENCHの制作概要
+                </caption>
+                <thead>
+                  <tr>
+                    <th>項目</th>
+                    <th>内容</th>
+                  </tr>
+                </thead>
                 <tbody>
-                  <tr><td>制作種別</td><td>Web制作支援ツール・UIリファレンス・制作記録サイト</td></tr>
-                  <tr><td>対象</td><td>Web制作時に機能、実装例、作業記録を参照したい制作者</td></tr>
-                  <tr><td>主要コンテンツ</td><td>TOOLS / WEB PARTS / BUILD NOTES / ABOUT</td></tr>
-                  <tr><td>公開方式</td><td>静的ビルド / GitHub Actions / GitHub Pages</td></tr>
+                  <tr>
+                    <td>制作種別</td>
+                    <td>Web制作支援ツール・UIリファレンス・制作記録サイト</td>
+                  </tr>
+                  <tr>
+                    <td>対象</td>
+                    <td>Web制作時に機能、実装例、作業記録を参照したい制作者</td>
+                  </tr>
+                  <tr>
+                    <td>主要コンテンツ</td>
+                    <td>TOOLS / WEB PARTS / BUILD NOTES / ABOUT</td>
+                  </tr>
+                  <tr>
+                    <td>公開方式</td>
+                    <td>静的ビルド / GitHub Actions / GitHub Pages</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
-            <div class="article-callout"><strong>PROJECT SUMMARY</strong><p>「使う」「見る」「記録する」を一つの構造へまとめ、追加する機能や記事の管理元が判断しやすいサイトを目指しました。</p></div>
+            <div class="article-callout">
+              <strong>PROJECT SUMMARY</strong>
+              <p>
+                「使う」「見る」「記録する」を一つの構造へまとめ、追加する機能や記事の管理元が判断しやすいサイトを目指しました。
+              </p>
+            </div>
           </section>
 
-          <section class="article-section reveal" id="section-2" aria-labelledby="section-2-title" data-reveal-threshold="0.01">
+          <section
+            class="article-section reveal"
+            id="section-2"
+            aria-labelledby="section-2-title"
+            data-reveal-threshold="0.01">
             <p class="section-index">02 / REQUIREMENTS</p>
             <h2 id="section-2-title">目的と要件</h2>
-            <p>制作の起点は、Web制作中に別々の場所へ散らばりやすい変換ツール、UI実装例、技術メモを、共通の操作と見た目で参照できるようにすることでした。</p>
+            <p>
+              制作の起点は、Web制作中に別々の場所へ散らばりやすい変換ツール、UI実装例、技術メモを、共通の操作と見た目で参照できるようにすることでした。
+            </p>
             <ol>
               <li>ツールへの入力内容を原則としてブラウザ内だけで処理する。</li>
-              <li>UIパターンを動作例と実装コードの両方から確認できるようにする。</li>
-              <li>サイト単位の実装記録とテーマ単位の学習記録を分けて蓄積する。</li>
+              <li>
+                UIパターンを動作例と実装コードの両方から確認できるようにする。
+              </li>
+              <li>
+                サイト単位の実装記録とテーマ単位の学習記録を分けて蓄積する。
+              </li>
               <li>320pxからPCまで、主要情報と操作を維持する。</li>
-              <li>キーボード操作、フォーカス表示、動きを抑える設定へ対応する。</li>
+              <li>
+                キーボード操作、フォーカス表示、動きを抑える設定へ対応する。
+              </li>
               <li>検証と静的生成を自動化し、公開物へ認証情報を含めない。</li>
             </ol>
-            <div class="article-callout"><strong>CORE REQUIREMENT</strong><p>機能を増やしても、利用者が「どこで使うか」、制作者が「どこを直すか」を判断できる構造を保ちます。</p></div>
+            <div class="article-callout">
+              <strong>CORE REQUIREMENT</strong>
+              <p>
+                機能を増やしても、利用者が「どこで使うか」、制作者が「どこを直すか」を判断できる構造を保ちます。
+              </p>
+            </div>
           </section>
 
-          <section class="article-section reveal" id="section-3" aria-labelledby="section-3-title" data-reveal-threshold="0.01">
+          <section
+            class="article-section reveal"
+            id="section-3"
+            aria-labelledby="section-3-title"
+            data-reveal-threshold="0.01">
             <p class="section-index">03 / SCOPE</p>
             <h2 id="section-3-title">担当範囲</h2>
-            <p>企画整理、情報設計、ビジュアル設計、フロントエンド実装、コンテンツモデル、検証スクリプト、公開フローまでを一貫して構築しています。外部サービスを使う箇所も、ブラウザ側とビルド側の責務を分けて設計しました。</p>
+            <p>
+              企画整理、情報設計、ビジュアル設計、フロントエンド実装、コンテンツモデル、検証スクリプト、公開フローまでを一貫して構築しています。外部サービスを使う箇所も、ブラウザ側とビルド側の責務を分けて設計しました。
+            </p>
             <div class="article-table-wrap">
               <table>
-                <caption class="visually-hidden">MARK BENCHの担当範囲</caption>
-                <thead><tr><th>領域</th><th>担当内容</th></tr></thead>
+                <caption class="visually-hidden">
+                  MARK BENCHの担当範囲
+                </caption>
+                <thead>
+                  <tr>
+                    <th>領域</th>
+                    <th>担当内容</th>
+                  </tr>
+                </thead>
                 <tbody>
-                  <tr><td>企画・情報設計</td><td>コンテンツ分類、ページ階層、各セクションの役割整理</td></tr>
-                  <tr><td>UIデザイン</td><td>配色、タイポグラフィ、左右レール、カード、記事レイアウト</td></tr>
-                  <tr><td>フロントエンド</td><td>HTML、CSS、Vanilla JavaScriptによるページと機能の実装</td></tr>
-                  <tr><td>コンテンツ基盤</td><td>microCMSスキーマ、取得、検証、サニタイズ、静的HTML生成</td></tr>
-                  <tr><td>品質管理</td><td>ローカル参照、SEO、ツール処理、秘密情報の自動検証</td></tr>
-                  <tr><td>公開</td><td>GitHub ActionsとGitHub Pagesによるビルド・デプロイ</td></tr>
+                  <tr>
+                    <td>企画・情報設計</td>
+                    <td>コンテンツ分類、ページ階層、各セクションの役割整理</td>
+                  </tr>
+                  <tr>
+                    <td>UIデザイン</td>
+                    <td>
+                      配色、タイポグラフィ、左右レール、カード、記事レイアウト
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>フロントエンド</td>
+                    <td>
+                      HTML、CSS、Vanilla JavaScriptによるページと機能の実装
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>コンテンツ基盤</td>
+                    <td>
+                      microCMSスキーマ、取得、検証、サニタイズ、静的HTML生成
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>品質管理</td>
+                    <td>ローカル参照、SEO、ツール処理、秘密情報の自動検証</td>
+                  </tr>
+                  <tr>
+                    <td>公開</td>
+                    <td>GitHub ActionsとGitHub Pagesによるビルド・デプロイ</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
-            <p>NOTE to SELFの記事本文だけをmicroCMSで管理し、TOOLS、WEB PARTS、CODING NOTE、ABOUTはGit上の静的ファイルとして管理しています。</p>
+            <p>
+              NOTE to SELFの記事本文だけをmicroCMSで管理し、TOOLS、WEB
+              PARTS、CODING
+              NOTE、ABOUTはGit上の静的ファイルとして管理しています。
+            </p>
           </section>
 
-          <section class="article-section reveal" id="section-4" aria-labelledby="section-4-title" data-reveal-threshold="0.01">
+          <section
+            class="article-section reveal"
+            id="section-4"
+            aria-labelledby="section-4-title"
+            data-reveal-threshold="0.01">
             <p class="section-index">04 / STRUCTURE</p>
             <h2 id="section-4-title">サイト構成とコンテンツ管理</h2>
-            <p>主要コンテンツをTOOLS、WEB PARTS、BUILD NOTES、ABOUTへ分けています。BUILD NOTESの中でも、サイト単位のCODING NOTEとテーマ単位のNOTE to SELFを分離し、記録の粒度を揃えました。</p>
+            <p>
+              主要コンテンツをTOOLS、WEB PARTS、BUILD
+              NOTES、ABOUTへ分けています。BUILD
+              NOTESの中でも、サイト単位のCODING NOTEとテーマ単位のNOTE to
+              SELFを分離し、記録の粒度を揃えました。
+            </p>
             <div class="article-table-wrap">
               <table>
-                <caption class="visually-hidden">コンテンツの役割と管理方法</caption>
-                <thead><tr><th>コンテンツ</th><th>役割</th><th>管理方法</th></tr></thead>
+                <caption class="visually-hidden">
+                  コンテンツの役割と管理方法
+                </caption>
+                <thead>
+                  <tr>
+                    <th>コンテンツ</th>
+                    <th>役割</th>
+                    <th>管理方法</th>
+                  </tr>
+                </thead>
                 <tbody>
-                  <tr><td>TOOLS</td><td>ブラウザで使うWeb制作ユーティリティ</td><td>Git上のHTML・JavaScript</td></tr>
-                  <tr><td>WEB PARTS</td><td>UIの動作例と実装コード</td><td>Git上のHTML・CSS・JavaScript</td></tr>
-                  <tr><td>CODING NOTE</td><td>1サイトごとの設計・実装記録</td><td>Git上の個別静的HTML</td></tr>
-                  <tr><td>NOTE to SELF</td><td>学習内容と制作上の気づき</td><td>microCMSから静的生成</td></tr>
-                  <tr><td>ABOUT</td><td>サイトの目的と実装方針</td><td>Git上の静的HTML</td></tr>
+                  <tr>
+                    <td>TOOLS</td>
+                    <td>ブラウザで使うWeb制作ユーティリティ</td>
+                    <td>Git上のHTML・JavaScript</td>
+                  </tr>
+                  <tr>
+                    <td>WEB PARTS</td>
+                    <td>UIの動作例と実装コード</td>
+                    <td>Git上のHTML・CSS・JavaScript</td>
+                  </tr>
+                  <tr>
+                    <td>CODING NOTE</td>
+                    <td>1サイトごとの設計・実装記録</td>
+                    <td>Git上の個別静的HTML</td>
+                  </tr>
+                  <tr>
+                    <td>NOTE to SELF</td>
+                    <td>学習内容と制作上の気づき</td>
+                    <td>microCMSから静的生成</td>
+                  </tr>
+                  <tr>
+                    <td>ABOUT</td>
+                    <td>サイトの目的と実装方針</td>
+                    <td>Git上の静的HTML</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
-            <p>microCMSの管理対象をNOTE to SELFへ限定し、生成物の<code>dist/</code>は直接編集しません。CODING NOTEは完成した制作物の入口ではなく、仕様と実装判断を詳しく残す役割を持たせます。</p>
-            <div class="article-callout"><strong>CONTENT RULE</strong><p>制作物の概要はポートフォリオ、詳しい設計・実装はCODING NOTE、テーマ単位の学習記録はNOTE to SELFへ分けます。</p></div>
+            <p>
+              microCMSの管理対象をNOTE to
+              SELFへ限定し、生成物の<code>dist/</code>は直接編集しません。CODING
+              NOTEは完成した制作物の入口ではなく、仕様と実装判断を詳しく残す役割を持たせます。
+            </p>
+            <div class="article-callout">
+              <strong>CONTENT RULE</strong>
+              <p>
+                制作物の概要はポートフォリオ、詳しい設計・実装はCODING
+                NOTE、テーマ単位の学習記録はNOTE to SELFへ分けます。
+              </p>
+            </div>
           </section>
 
-          <section class="article-section reveal" id="section-5" aria-labelledby="section-5-title" data-reveal-threshold="0.01">
+          <section
+            class="article-section reveal"
+            id="section-5"
+            aria-labelledby="section-5-title"
+            data-reveal-threshold="0.01">
             <p class="section-index">05 / ARCHITECTURE</p>
             <h2 id="section-5-title">技術構成とファイル設計</h2>
-            <p>共通値、共通コンポーネント、ページ固有レイアウト、機能別スクリプトを分け、変更の影響範囲を追いやすくしています。色、フォント、余白、コンテンツ幅はCSSカスタムプロパティへまとめました。</p>
+            <p>
+              共通値、共通コンポーネント、ページ固有レイアウト、機能別スクリプトを分け、変更の影響範囲を追いやすくしています。色、フォント、余白、コンテンツ幅はCSSカスタムプロパティへまとめました。
+            </p>
             <pre><code>:root {
   --color-primary: #18243b;
   --color-accent-yellow: #ff0;
@@ -211,97 +441,275 @@
 }</code></pre>
             <div class="article-table-wrap">
               <table>
-                <caption class="visually-hidden">主要ファイルの役割</caption>
-                <thead><tr><th>ファイル</th><th>主な役割</th></tr></thead>
+                <caption class="visually-hidden">
+                  主要ファイルの役割
+                </caption>
+                <thead>
+                  <tr>
+                    <th>ファイル</th>
+                    <th>主な役割</th>
+                  </tr>
+                </thead>
                 <tbody>
-                  <tr><td><code>css/foundation.css</code></td><td>トークン、リセット、基本スタイル、フォーカス表示</td></tr>
-                  <tr><td><code>css/components.css</code></td><td>共通レイアウト、ナビゲーション、ボタン、カード</td></tr>
-                  <tr><td><code>css/pages.css</code></td><td>ページ固有レイアウトと記事表示</td></tr>
-                  <tr><td><code>js/main.js</code></td><td>共通ナビゲーション、表示制御、アニメーション</td></tr>
-                  <tr><td><code>js/tools.js</code></td><td>TOOLS一覧の検索、絞り込み、並び替え</td></tr>
-                  <tr><td><code>scripts/content/</code></td><td>CMS記事の取得、検証、サニタイズ、HTML生成</td></tr>
-                  <tr><td><code>scripts/build.mjs</code></td><td>静的ファイル統合、サイトマップ生成、成果物検証</td></tr>
+                  <tr>
+                    <td><code>css/foundation.css</code></td>
+                    <td>トークン、リセット、基本スタイル、フォーカス表示</td>
+                  </tr>
+                  <tr>
+                    <td><code>css/components.css</code></td>
+                    <td>共通レイアウト、ナビゲーション、ボタン、カード</td>
+                  </tr>
+                  <tr>
+                    <td><code>css/pages.css</code></td>
+                    <td>ページ固有レイアウトと記事表示</td>
+                  </tr>
+                  <tr>
+                    <td><code>js/main.js</code></td>
+                    <td>共通ナビゲーション、表示制御、アニメーション</td>
+                  </tr>
+                  <tr>
+                    <td><code>js/tools.js</code></td>
+                    <td>TOOLS一覧の検索、絞り込み、並び替え</td>
+                  </tr>
+                  <tr>
+                    <td><code>scripts/content/</code></td>
+                    <td>CMS記事の取得、検証、サニタイズ、HTML生成</td>
+                  </tr>
+                  <tr>
+                    <td><code>scripts/build.mjs</code></td>
+                    <td>静的ファイル統合、サイトマップ生成、成果物検証</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
-            <div class="article-callout"><strong>IMPLEMENTATION BOUNDARY</strong><p>画面上の操作はブラウザ側のJavaScript、CMSの記事取得とHTML生成はビルド側のNode.jsが担当します。</p></div>
+            <div class="article-callout">
+              <strong>IMPLEMENTATION BOUNDARY</strong>
+              <p>
+                画面上の操作はブラウザ側のJavaScript、CMSの記事取得とHTML生成はビルド側のNode.jsが担当します。
+              </p>
+            </div>
           </section>
 
-          <section class="article-section reveal" id="section-6" aria-labelledby="section-6-title" data-reveal-threshold="0.01">
+          <section
+            class="article-section reveal"
+            id="section-6"
+            aria-labelledby="section-6-title"
+            data-reveal-threshold="0.01">
             <p class="section-index">06 / IMPLEMENTATION</p>
             <h2 id="section-6-title">主要な実装ポイント</h2>
-            <p>コンテンツごとに利用目的は異なりますが、検索・絞り込み、状態表示、コード参照、静的生成を共通の設計方針で組み立てています。</p>
+            <p>
+              コンテンツごとに利用目的は異なりますが、検索・絞り込み、状態表示、コード参照、静的生成を共通の設計方針で組み立てています。
+            </p>
             <div class="article-table-wrap">
               <table>
-                <caption class="visually-hidden">主要コンテンツの実装ポイント</caption>
-                <thead><tr><th>対象</th><th>実装内容</th><th>設計上のポイント</th></tr></thead>
+                <caption class="visually-hidden">
+                  主要コンテンツの実装ポイント
+                </caption>
+                <thead>
+                  <tr>
+                    <th>対象</th>
+                    <th>実装内容</th>
+                    <th>設計上のポイント</th>
+                  </tr>
+                </thead>
                 <tbody>
-                  <tr><td>TOOLS</td><td>入力、変換、生成、検索、カテゴリー絞り込み、並び替え</td><td>入力内容を原則ブラウザ内で処理し、選択状態を<code>aria-pressed</code>へ同期</td></tr>
-                  <tr><td>WEB PARTS</td><td>動作例、パターン絞り込み、HTML・CSS・JavaScriptのコピー</td><td><code>c-</code>接頭辞とBEMで掲載コードを統一し、コード領域内だけをスクロール</td></tr>
-                  <tr><td>NOTE to SELF</td><td>microCMS取得、データ検証、本文サニタイズ、一覧・詳細生成</td><td>参照リンクや関連CTAをデータがある場合だけ出力</td></tr>
-                  <tr><td>共通UI</td><td>パンくず、主要ナビゲーション、表示演出、現在年の更新</td><td>JavaScriptが無効でも主要情報を読めるHTMLを基礎にする</td></tr>
+                  <tr>
+                    <td>TOOLS</td>
+                    <td>
+                      入力、変換、生成、検索、カテゴリー絞り込み、並び替え
+                    </td>
+                    <td>
+                      入力内容を原則ブラウザ内で処理し、選択状態を<code>aria-pressed</code>へ同期
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>WEB PARTS</td>
+                    <td>
+                      動作例、パターン絞り込み、HTML・CSS・JavaScriptのコピー
+                    </td>
+                    <td>
+                      <code>c-</code
+                      >接頭辞とBEMで掲載コードを統一し、コード領域内だけをスクロール
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>NOTE to SELF</td>
+                    <td>
+                      microCMS取得、データ検証、本文サニタイズ、一覧・詳細生成
+                    </td>
+                    <td>参照リンクや関連CTAをデータがある場合だけ出力</td>
+                  </tr>
+                  <tr>
+                    <td>共通UI</td>
+                    <td>
+                      パンくず、主要ナビゲーション、表示演出、現在年の更新
+                    </td>
+                    <td>
+                      JavaScriptが無効でも主要情報を読めるHTMLを基礎にする
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>
-            <p>TOOLS一覧はカードの<code>data-name</code>、<code>data-search</code>、<code>data-category</code>から検索条件を判定し、URLの<code>category</code>と<code>q</code>から初期状態を復元します。</p>
-            <p>NOTE to SELFでは、記事セクションの配列順から目次と番号を生成します。CMS本文は許可した要素・属性へサニタイズし、ページ構造を担うh1・h2を本文内で使用できないよう検証しています。</p>
-            <div class="article-callout"><strong>SECURITY</strong><p>microCMSの認証情報はビルド環境だけで使用し、公開HTMLやブラウザ側のJavaScriptへ含めません。</p></div>
+            <p>
+              TOOLS一覧はカードの<code>data-name</code>、<code>data-search</code>、<code>data-category</code>から検索条件を判定し、URLの<code>category</code>と<code>q</code>から初期状態を復元します。
+            </p>
+            <p>
+              NOTE to
+              SELFでは、記事セクションの配列順から目次と番号を生成します。CMS本文は許可した要素・属性へサニタイズし、ページ構造を担うh1・h2を本文内で使用できないよう検証しています。
+            </p>
+            <div class="article-callout">
+              <strong>SECURITY</strong>
+              <p>
+                microCMSの認証情報はビルド環境だけで使用し、公開HTMLやブラウザ側のJavaScriptへ含めません。
+              </p>
+            </div>
           </section>
 
-          <section class="article-section reveal" id="section-7" aria-labelledby="section-7-title" data-reveal-threshold="0.01">
+          <section
+            class="article-section reveal"
+            id="section-7"
+            aria-labelledby="section-7-title"
+            data-reveal-threshold="0.01">
             <p class="section-index">07 / QUALITY</p>
             <h2 id="section-7-title">レスポンシブとアクセシビリティ</h2>
-            <p>PCでは左側にパンくず、中央にメインコンテンツ、右側に主要ナビゲーションを配置します。1024px以下ではパンくずとナビゲーションを上部へ移し、メインコンテンツを全幅へ広げます。</p>
+            <p>
+              PCでは左側にパンくず、中央にメインコンテンツ、右側に主要ナビゲーションを配置します。1024px以下ではパンくずとナビゲーションを上部へ移し、メインコンテンツを全幅へ広げます。
+            </p>
             <div class="article-table-wrap">
               <table>
-                <caption class="visually-hidden">画面幅ごとのレイアウト切り替え</caption>
-                <thead><tr><th>条件</th><th>表示の切り替え</th></tr></thead>
+                <caption class="visually-hidden">
+                  画面幅ごとのレイアウト切り替え
+                </caption>
+                <thead>
+                  <tr>
+                    <th>条件</th>
+                    <th>表示の切り替え</th>
+                  </tr>
+                </thead>
                 <tbody>
-                  <tr><td>1025px以上</td><td>左右のレールと中央コンテンツ</td></tr>
-                  <tr><td>1024px以下</td><td>上部パンくず、横並びナビゲーション、全幅のメインエリア</td></tr>
-                  <tr><td>640px以下</td><td>余白、見出し、カード、操作領域を小さい画面向けに調整</td></tr>
-                  <tr><td>WEB PARTSの1280px以上</td><td>パターン一覧を基本2列で表示</td></tr>
+                  <tr>
+                    <td>1025px以上</td>
+                    <td>左右のレールと中央コンテンツ</td>
+                  </tr>
+                  <tr>
+                    <td>1024px以下</td>
+                    <td>
+                      上部パンくず、横並びナビゲーション、全幅のメインエリア
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>640px以下</td>
+                    <td>
+                      余白、見出し、カード、操作領域を小さい画面向けに調整
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>WEB PARTSの1280px以上</td>
+                    <td>パターン一覧を基本2列で表示</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
             <ol>
               <li>本文へ移動するスキップリンクを全ページへ用意します。</li>
               <li>主要操作をキーボードだけで完了できる状態にします。</li>
-              <li><code>:focus-visible</code>によるフォーカス表示を維持します。</li>
-              <li>状態は色だけに依存せず、テキストやARIA属性にも反映します。</li>
-              <li><code>prefers-reduced-motion</code>では不要な動きを省略します。</li>
-              <li>表とコードは要素内でスクロールさせ、ページ全体の横スクロールを防ぎます。</li>
+              <li>
+                <code>:focus-visible</code>によるフォーカス表示を維持します。
+              </li>
+              <li>
+                状態は色だけに依存せず、テキストやARIA属性にも反映します。
+              </li>
+              <li>
+                <code>prefers-reduced-motion</code>では不要な動きを省略します。
+              </li>
+              <li>
+                表とコードは要素内でスクロールさせ、ページ全体の横スクロールを防ぎます。
+              </li>
             </ol>
-            <p>最小表示幅は320pxです。Intersection Observerを利用できない環境では演出を省略し、コンテンツ自体は表示された状態を保ちます。</p>
+            <p>
+              最小表示幅は320pxです。Intersection
+              Observerを利用できない環境では演出を省略し、コンテンツ自体は表示された状態を保ちます。
+            </p>
           </section>
 
-          <section class="article-section reveal" id="section-8" aria-labelledby="section-8-title" data-reveal-threshold="0.01">
+          <section
+            class="article-section reveal"
+            id="section-8"
+            aria-labelledby="section-8-title"
+            data-reveal-threshold="0.01">
             <p class="section-index">08 / CHALLENGES</p>
             <h2 id="section-8-title">課題と解決</h2>
-            <p>静的ページ、ブラウザ内ツール、CMS記事を一つの公開成果物へまとめるため、管理元と実行環境の違いを吸収する必要がありました。</p>
+            <p>
+              静的ページ、ブラウザ内ツール、CMS記事を一つの公開成果物へまとめるため、管理元と実行環境の違いを吸収する必要がありました。
+            </p>
             <div class="article-table-wrap">
               <table>
-                <caption class="visually-hidden">制作上の課題と解決方法</caption>
-                <thead><tr><th>課題</th><th>原因</th><th>解決</th></tr></thead>
+                <caption class="visually-hidden">
+                  制作上の課題と解決方法
+                </caption>
+                <thead>
+                  <tr>
+                    <th>課題</th>
+                    <th>原因</th>
+                    <th>解決</th>
+                  </tr>
+                </thead>
                 <tbody>
-                  <tr><td>静的HTMLとCMS記事を同じサイトへ配置する</td><td>GitとmicroCMSで管理元が異なる</td><td>ビルド時に静的ファイルをコピーし、NOTE to SELFだけを生成して統合</td></tr>
-                  <tr><td>機能の異なるツールへ一貫したUIを提供する</td><td>入力形式と出力形式がツールごとに異なる</td><td>操作領域、状態表示、コピー処理、ドキュメント構造を共通化</td></tr>
-                  <tr><td>小さい画面で表とコードがレイアウトを押し広げる</td><td>内容に固有の最小幅が必要</td><td>ページではなく表・コード領域だけにスクロールを限定</td></tr>
-                  <tr><td>GitHub Pagesのサブパスで参照切れが起きる</td><td>ルート絶対パスがリポジトリ配下URLと一致しない</td><td>相対パスを維持し、ビルド前後のローカル参照を自動検証</td></tr>
+                  <tr>
+                    <td>静的HTMLとCMS記事を同じサイトへ配置する</td>
+                    <td>GitとmicroCMSで管理元が異なる</td>
+                    <td>
+                      ビルド時に静的ファイルをコピーし、NOTE to
+                      SELFだけを生成して統合
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>機能の異なるツールへ一貫したUIを提供する</td>
+                    <td>入力形式と出力形式がツールごとに異なる</td>
+                    <td>
+                      操作領域、状態表示、コピー処理、ドキュメント構造を共通化
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>小さい画面で表とコードがレイアウトを押し広げる</td>
+                    <td>内容に固有の最小幅が必要</td>
+                    <td>ページではなく表・コード領域だけにスクロールを限定</td>
+                  </tr>
+                  <tr>
+                    <td>GitHub Pagesのサブパスで参照切れが起きる</td>
+                    <td>ルート絶対パスがリポジトリ配下URLと一致しない</td>
+                    <td>
+                      相対パスを維持し、ビルド前後のローカル参照を自動検証
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>
-            <div class="article-callout"><strong>RESULT</strong><p>管理元の違いをビルド工程で吸収し、公開後はすべてのコンテンツを同じ静的サイトとして配信できる構成にしました。</p></div>
+            <div class="article-callout">
+              <strong>RESULT</strong>
+              <p>
+                管理元の違いをビルド工程で吸収し、公開後はすべてのコンテンツを同じ静的サイトとして配信できる構成にしました。
+              </p>
+            </div>
           </section>
 
-          <section class="article-section reveal" id="section-9" aria-labelledby="section-9-title" data-reveal-threshold="0.01">
+          <section
+            class="article-section reveal"
+            id="section-9"
+            aria-labelledby="section-9-title"
+            data-reveal-threshold="0.01">
             <p class="section-index">09 / REVIEW &amp; DELIVERY</p>
             <h2 id="section-9-title">検証と公開</h2>
-            <p>HTML構造、ローカル参照、SEO、ツール処理、CMS記事、秘密情報を自動検証します。表示と操作は自動検証だけに頼らず、主要な画面幅とキーボード操作でも確認します。</p>
+            <p>
+              HTML構造、ローカル参照、SEO、ツール処理、CMS記事、秘密情報を自動検証します。表示と操作は自動検証だけに頼らず、主要な画面幅とキーボード操作でも確認します。
+            </p>
             <ol>
               <li>mainとh1の数、IDの重複、スキップリンクを確認します。</li>
               <li>ローカル参照とページ内アンカーのリンク先を確認します。</li>
-              <li>title、description、canonical、OGP、構造化データを確認します。</li>
+              <li>
+                title、description、canonical、OGP、構造化データを確認します。
+              </li>
               <li>TOOLSの入力、出力、コピー、リセット処理を確認します。</li>
               <li>CMS記事データとリッチテキストのサニタイズを確認します。</li>
               <li>生成物へ認証情報が混入していないか確認します。</li>
@@ -312,45 +720,98 @@ npm run check:detail
 npm run build</code></pre>
             <div class="article-table-wrap">
               <table>
-                <caption class="visually-hidden">GitHub Actionsワークフロー</caption>
-                <thead><tr><th>ワークフロー</th><th>起動条件</th><th>主な処理</th></tr></thead>
+                <caption class="visually-hidden">
+                  GitHub Actionsワークフロー
+                </caption>
+                <thead>
+                  <tr>
+                    <th>ワークフロー</th>
+                    <th>起動条件</th>
+                    <th>主な処理</th>
+                  </tr>
+                </thead>
                 <tbody>
-                  <tr><td>Validate</td><td>Pull Request、mainへのpush、手動実行</td><td>ソース検証、詳細ページ検証、Fixtureビルド</td></tr>
-                  <tr><td>Deploy GitHub Pages</td><td>mainへのpush、手動実行、記事更新イベント</td><td>検証、microCMSビルド、成果物の配置、デプロイ</td></tr>
+                  <tr>
+                    <td>Validate</td>
+                    <td>Pull Request、mainへのpush、手動実行</td>
+                    <td>ソース検証、詳細ページ検証、Fixtureビルド</td>
+                  </tr>
+                  <tr>
+                    <td>Deploy GitHub Pages</td>
+                    <td>mainへのpush、手動実行、記事更新イベント</td>
+                    <td>検証、microCMSビルド、成果物の配置、デプロイ</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
-            <p>microCMSの記事更新は<code>microcms_blog_update</code>イベントとして公開ワークフローへ渡します。ビルドとデプロイが成功した場合だけ公開サイトへ反映します。</p>
+            <p>
+              microCMSの記事更新は<code>microcms_blog_update</code>イベントとして公開ワークフローへ渡します。ビルドとデプロイが成功した場合だけ公開サイトへ反映します。
+            </p>
           </section>
 
-          <section class="article-section reveal" id="section-10" aria-labelledby="section-10-title" data-reveal-threshold="0.01">
+          <section
+            class="article-section reveal"
+            id="section-10"
+            aria-labelledby="section-10-title"
+            data-reveal-threshold="0.01">
             <p class="section-index">10 / PROJECT LINKS</p>
             <h2 id="section-10-title">関連リンク</h2>
-            <p>制作物の確認、ソースコード、現行仕様を目的別に分けています。今後のCODING NOTEでは、存在する場合だけPORTFOLIO、LIVE DEMO、FIGMAなどのリンクを同じ形式で追加します。</p>
-            <div class="article-project-links" aria-label="MARK BENCH関連リンク">
-              <a class="article-project-link" href="https://satoshi0gawa.github.io/mark-bench-prototype/" target="_blank" rel="noopener noreferrer">
+            <p>
+              制作物の確認、ソースコード、現行仕様を目的別に分けています。今後のCODING
+              NOTEでは、存在する場合だけPORTFOLIO、LIVE
+              DEMO、FIGMAなどのリンクを同じ形式で追加します。
+            </p>
+            <div
+              class="article-project-links"
+              aria-label="MARK BENCH関連リンク">
+              <a
+                class="article-project-link"
+                href="https://satoshi0gawa.github.io/mark-bench-prototype/"
+                target="_blank"
+                rel="noopener noreferrer">
                 <small>LIVE SITE</small>
                 <strong>MARK BENCHを見る</strong>
                 <span aria-hidden="true">↗</span>
               </a>
-              <a class="article-project-link" href="https://github.com/satoshi0gawa/mark-bench-prototype" target="_blank" rel="noopener noreferrer">
+              <a
+                class="article-project-link"
+                href="https://github.com/satoshi0gawa/mark-bench-prototype"
+                target="_blank"
+                rel="noopener noreferrer">
                 <small>SOURCE CODE</small>
                 <strong>GitHubリポジトリを見る</strong>
                 <span aria-hidden="true">↗</span>
               </a>
-              <a class="article-project-link" href="https://github.com/satoshi0gawa/mark-bench-prototype/blob/main/docs/SITE-SPEC.md" target="_blank" rel="noopener noreferrer">
+              <a
+                class="article-project-link"
+                href="https://github.com/satoshi0gawa/mark-bench-prototype/blob/main/docs/SITE-SPEC.md"
+                target="_blank"
+                rel="noopener noreferrer">
                 <small>SITE SPEC</small>
                 <strong>現行仕様を確認する</strong>
                 <span aria-hidden="true">↗</span>
               </a>
             </div>
-            <div class="article-callout"><strong>TEMPLATE RULE</strong><p>ポートフォリオは制作物の入口、CODING NOTEは設計・実装の詳細、LIVE DEMOは完成状態の確認先として、CTAの役割を分けます。</p></div>
+            <div class="article-callout">
+              <strong>TEMPLATE RULE</strong>
+              <p>
+                ポートフォリオは制作物の入口、CODING
+                NOTEは設計・実装の詳細、LIVE
+                DEMOは完成状態の確認先として、CTAの役割を分けます。
+              </p>
+            </div>
           </section>
         </div>
       </article>
       <footer class="page-footer" aria-label="ページナビゲーション">
-        <a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO CODING NOTE</span></a>
-        <a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a>
+        <a class="page-footer__back" href="./"
+          ><span class="page-footer__icon" aria-hidden="true">←</span
+          ><span>BACK TO CODING NOTE</span></a
+        >
+        <a class="page-footer__top" href="#main"
+          ><span>PAGE TOP</span
+          ><span class="page-footer__icon" aria-hidden="true">↑</span></a
+        >
       </footer>
     </main>
 
