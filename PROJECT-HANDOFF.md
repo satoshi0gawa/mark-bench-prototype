@@ -20,6 +20,8 @@ microCMS関連の作業では、あわせて`microcms/README.md`を確認して�
 - `CODING NOTE`：個別の静的HTMLとして管理
 - microCMS Webhook：`repository_dispatch`の`microcms_blog_update`で自動再ビルド
 - `dist/`：ビルド生成物であり、直接編集しない
+- WEB PARTSのFEEDBACK・MOTIONは各6パターンを実装済み。NAVIGATIONの準備中カード・CATEGORY項目は除去した。分類と模擬動作の範囲は`docs/SITE-SPEC.md`、最新件数は`web-parts/index.html`を参照する
+- 上記2ページは1440px・1024px・390pxでデモの収まりと横溢れ、全デモ操作、KEYWORDS、全コードのCOPY、キーボード操作とコンソールエラーを確認済み。掲載コードだけの独立ページでも動作確認し、動きを抑える分岐は検証用に`matchMedia`の戻り値を再現して確認した。iPhone実機での確認は別途行う
 
 ## 編集時の原則
 

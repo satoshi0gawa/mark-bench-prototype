@@ -107,6 +107,10 @@ microCMSの管理対象は`NOTE to SELF`だけです。CODING NOTE、TOOLS、WEB
 - PCは2列、1279px以下は1列表示を基本とする
 - 詳細ページ追加時は`web-parts/index.html`のカテゴリ、総パターン数、READY / PLANNED、一覧下部件数を同時に更新する。一覧を正本とし、引き継ぎ文書へ固定件数を重複記載しない
 - 外部ライブラリを使う詳細ページは、ヘッダーの`DEPENDENCY`へ名称と固定バージョンを表示し、CDN URLも同じバージョンへ固定する
+- `FEEDBACK`（`web-parts/feedback.html`）は状態の理解と次の操作に特化する。空状態、権限制限、利用上限、複数工程、部分失敗の再試行、満足度評価の6パターンを収録し、ALERT・TOASTの通知表現やLOADINGの待機表現と区分する。権限・処理・回答はブラウザ内の模擬動作であり、実際の認可・外部送信は行わない
+- `MOTION`（`web-parts/motion.html`）は配置と内容の変化を伝える動きに特化する。並び替え、高さ補間、共有要素遷移、絞り込み時の入退場と再配置、SVGライン描画、経路移動の6パターンを収録する。SCROLL-REVEALのスクロール出現やCLICK-EFFECTSの操作反応と区分し、動きを減らす設定では最終状態を即時表示する
+- 広義の`NAVIGATION`準備中カテゴリは除去済み。HAMBURGER MENUやDROPDOWNは個別用途のカテゴリとして維持し、パンくず・ページネーション等を追加する場合も用途別に分類する
+- FEEDBACK・MOTIONの掲載HTML・CSS・JavaScriptは実際のデモと同じ一式を維持する。各CSSブロックは単独利用に必要な基礎設定を含み、共通スタイルセクションは基礎設定の参照用とする
 
 ### BUILD NOTES
 

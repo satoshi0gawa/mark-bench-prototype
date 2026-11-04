@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="FEEDBACKの操作可能なUI 6パターン。空状態、権限制限、利用上限、複数工程、部分失敗、評価回答から、現在の状態と次にできる操作を示すUIです。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>FEEDBACK | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/feedback.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="FEEDBACK | MARK BENCH" />
+    <meta property="og:description" content="FEEDBACKの操作可能なUI 6パターン。空状態、権限制限、利用上限、複数工程、部分失敗、評価回答から、現在の状態と次にできる操作を示すUIです。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/feedback.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="FEEDBACK | MARK BENCH" />
+    <meta name="twitter:description" content="FEEDBACKの操作可能なUI 6パターン。空状態、権限制限、利用上限、複数工程、部分失敗、評価回答から、現在の状態と次にできる操作を示すUIです。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "FEEDBACK",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/feedback.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/web-parts.css" />
+    <link rel="stylesheet" href="../css/web-parts-feedback.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts-detail" data-parts-detail data-parts-kind="feedback">
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header"><div class="site-header__bar"><nav class="site-breadcrumb-logo" aria-label="パンくずリスト"><a class="site-logo" href="../index.html">MARK BENCH</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><a class="site-breadcrumb-logo__parent" href="./">WEB PARTS</a><span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span><span class="site-breadcrumb-logo__current" aria-current="page">FEEDBACK</span></nav></div></header>
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション"><a href="../tools/"><strong>TOOLS</strong></a><a href="./" aria-current="location"><strong>WEB PARTS</strong></a><a href="../build-notes/"><strong>BUILD NOTES</strong></a><a href="../about.html"><strong>ABOUT</strong></a></nav>
+
+    <main id="main" tabindex="-1">
+<header class="part-detail-header"><p class="section-index reveal">WEB_PARTS / FEEDBACK</p><h1 class="reveal">FEEDBACK</h1><p class="part-detail-header__lead reveal">空状態、権限制限、利用上限、複数工程、部分失敗、評価回答から、現在の状態と次にできる操作を示すUIです。管理画面や登録・公開フローなど、操作後の判断を支える場面に使えます。</p><div class="part-detail-header__meta reveal"><span>PATTERNS: 06</span><span>TYPE: CSS + JS</span><span>DEPENDENCY: NONE / VANILLA JS</span></div><a class="part-detail-header__anchor reveal" href="#feedback-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a></header>
+<section class="part-detail-controls directory-search directory-keywords" aria-label="FEEDBACKパターンを絞り込み"><div class="directory-keywords__group"><p class="directory-keywords__label">KEYWORDS</p><div class="directory-keywords__list"><button type="button" aria-pressed="false" data-pattern-keyword="空状態"># 空状態</button><button type="button" aria-pressed="false" data-pattern-keyword="権限"># 権限</button><button type="button" aria-pressed="false" data-pattern-keyword="容量"># 容量</button><button type="button" aria-pressed="false" data-pattern-keyword="工程"># 工程</button><button type="button" aria-pressed="false" data-pattern-keyword="再試行"># 再試行</button><button type="button" aria-pressed="false" data-pattern-keyword="評価"># 評価</button></div></div><p>DISPLAY: <span data-pattern-count>06</span> / 06</p></section>
+<div class="part-example-list"><section class="part-example part-example--with-js reveal" data-pattern data-search="空状態 初回 empty onboarding create 新規作成">
+  <header class="part-example__header"><div><span class="part-example__index">EMPTY / 01</span><h2>初回の空状態</h2></div><small>EMPTY</small></header>
+  <div class="part-example__preview"><div class="c-feedback c-feedback--empty"><h3>まだプロジェクトがありません</h3><p>最初のプロジェクトを追加すると、ここに一覧が表示されます。</p><ul class="c-feedback__list" data-list hidden></ul><div class="c-feedback__actions"><button type="button" data-create>最初のプロジェクトを作成</button><button type="button" data-reset hidden>初期状態に戻す</button></div><p class="c-feedback__status" role="status" data-status></p></div></div>
+  <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre tabindex="0" aria-label="HTMLコード"><code>&lt;div class="c-feedback c-feedback--empty"&gt;&lt;h3&gt;まだプロジェクトがありません&lt;/h3&gt;&lt;p&gt;最初のプロジェクトを追加すると、ここに一覧が表示されます。&lt;/p&gt;&lt;ul class="c-feedback__list" data-list hidden&gt;&lt;/ul&gt;&lt;div class="c-feedback__actions"&gt;&lt;button type="button" data-create&gt;最初のプロジェクトを作成&lt;/button&gt;&lt;button type="button" data-reset hidden&gt;初期状態に戻す&lt;/button&gt;&lt;/div&gt;&lt;p class="c-feedback__status" role="status" data-status&gt;&lt;/p&gt;&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre tabindex="0" aria-label="CSSコード"><code>.c-feedback, .c-feedback * { box-sizing: border-box; }
+.c-feedback { width: min(100%, 28rem); min-width: 0; padding: 1.25rem; color: var(--color-text, #1c2430); font: .8rem/1.7 var(--font-sans, sans-serif); background: var(--color-background, #fff); border: 1px solid var(--color-grid-strong, #aeb8c7); }
+.c-feedback [hidden] { display: none !important; }
+.c-feedback h3 { margin: 0 0 .75rem; font-size: 1rem; line-height: 1.5; }
+.c-feedback p { margin: .6rem 0; }
+.c-feedback button { min-height: 2.75rem; max-width: 100%; padding: .5rem .75rem; color: var(--color-text-inverse, #fff); font: inherit; font-size: .72rem; background: var(--color-primary, #18243b); border: 1px solid var(--color-primary, #18243b); cursor: pointer; }
+.c-feedback button:disabled { opacity: .45; cursor: not-allowed; }
+.c-feedback button:not(:disabled):hover { color: var(--color-primary, #18243b); background: var(--color-primary-soft, #edf1f7); }
+.c-feedback :is(button, input, textarea):focus-visible { outline: 3px solid var(--color-focus, #315a9b); outline-offset: 2px; }
+.c-feedback__actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+.c-feedback__status { min-height: 2.8em; color: var(--color-text-subtle, #667085); }
+.c-feedback label { display: block; }
+.c-feedback :is(input:not([type=radio]):not([type=checkbox]), textarea) { width: 100%; min-width: 0; padding: .6rem; color: inherit; font: inherit; font-size: 1rem; background: var(--color-background, #fff); border: 1px solid var(--color-grid-strong, #aeb8c7); }
+.c-feedback progress { width: 100%; height: .8rem; accent-color: var(--color-primary, #18243b); }
+.c-feedback__list { margin: .75rem 0; padding: 0; list-style: none; }
+.c-feedback__list li { padding: .5rem .65rem; background: var(--color-primary-soft, #edf1f7); border: 1px solid var(--color-grid, #d9dfe8); }
+@media (prefers-reduced-motion: reduce) { .c-feedback *, .c-feedback *::before, .c-feedback *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre tabindex="0" aria-label="JAVASCRIPTコード"><code>(() =&gt; {
+  const root = document.querySelector('.c-feedback--empty');
+  if (!root) return;
+  const create = root.querySelector('[data-create]');
+  const reset = root.querySelector('[data-reset]');
+  const list = root.querySelector('[data-list]');
+  create.addEventListener('click', () =&gt; {
+    const item = document.createElement('li');
+    item.textContent = 'プロジェクト 01 / DRAFT';
+    list.replaceChildren(item); list.hidden = false;
+    root.querySelector('h3').textContent = 'プロジェクト一覧';
+    root.querySelector('p').hidden = true;
+    create.hidden = true; reset.hidden = false; reset.focus();
+    root.querySelector('[data-status]').textContent = 'デモ用プロジェクトを作成しました。';
+  });
+  reset.addEventListener('click', () =&gt; {
+    list.replaceChildren(); list.hidden = true;
+    root.querySelector('h3').textContent = 'まだプロジェクトがありません';
+    root.querySelector('p').hidden = false;
+    create.hidden = false; reset.hidden = true; create.focus();
+    root.querySelector('[data-status]').textContent = '初期状態へ戻しました。';
+  });
+})();</code></pre></div></div>
+  <div class="part-example__note"><strong>USE FOR</strong><p>管理画面や初回利用時に、情報が空である理由と最初の操作を一緒に提示します。データはこのデモ内だけに作成されます。</p></div>
+</section>
+<section class="part-example part-example--with-js reveal" data-pattern data-search="権限 制限 permission access role 閲覧 編集">
+  <header class="part-example__header"><div><span class="part-example__index">ACCESS / 01</span><h2>権限制限パネル</h2></div><small>ACCESS</small></header>
+  <div class="part-example__preview"><div class="c-feedback c-feedback--access"><h3>閲覧モード</h3><p>内容の確認はできます。編集には担当者の許可が必要です。</p><div class="c-feedback__actions"><button type="button" data-edit disabled>内容を編集</button><button type="button" data-request>編集権限を申請</button></div><div class="c-feedback__actions"><button type="button" data-grant disabled>承認を再現</button><button type="button" data-reset>初期状態に戻す</button></div><p class="c-feedback__status" role="status" data-status></p></div></div>
+  <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre tabindex="0" aria-label="HTMLコード"><code>&lt;div class="c-feedback c-feedback--access"&gt;&lt;h3&gt;閲覧モード&lt;/h3&gt;&lt;p&gt;内容の確認はできます。編集には担当者の許可が必要です。&lt;/p&gt;&lt;div class="c-feedback__actions"&gt;&lt;button type="button" data-edit disabled&gt;内容を編集&lt;/button&gt;&lt;button type="button" data-request&gt;編集権限を申請&lt;/button&gt;&lt;/div&gt;&lt;div class="c-feedback__actions"&gt;&lt;button type="button" data-grant disabled&gt;承認を再現&lt;/button&gt;&lt;button type="button" data-reset&gt;初期状態に戻す&lt;/button&gt;&lt;/div&gt;&lt;p class="c-feedback__status" role="status" data-status&gt;&lt;/p&gt;&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre tabindex="0" aria-label="CSSコード"><code>.c-feedback, .c-feedback * { box-sizing: border-box; }
+.c-feedback { width: min(100%, 28rem); min-width: 0; padding: 1.25rem; color: var(--color-text, #1c2430); font: .8rem/1.7 var(--font-sans, sans-serif); background: var(--color-background, #fff); border: 1px solid var(--color-grid-strong, #aeb8c7); }
+.c-feedback [hidden] { display: none !important; }
+.c-feedback h3 { margin: 0 0 .75rem; font-size: 1rem; line-height: 1.5; }
+.c-feedback p { margin: .6rem 0; }
+.c-feedback button { min-height: 2.75rem; max-width: 100%; padding: .5rem .75rem; color: var(--color-text-inverse, #fff); font: inherit; font-size: .72rem; background: var(--color-primary, #18243b); border: 1px solid var(--color-primary, #18243b); cursor: pointer; }
+.c-feedback button:disabled { opacity: .45; cursor: not-allowed; }
+.c-feedback button:not(:disabled):hover { color: var(--color-primary, #18243b); background: var(--color-primary-soft, #edf1f7); }
+.c-feedback :is(button, input, textarea):focus-visible { outline: 3px solid var(--color-focus, #315a9b); outline-offset: 2px; }
+.c-feedback__actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+.c-feedback__status { min-height: 2.8em; color: var(--color-text-subtle, #667085); }
+.c-feedback label { display: block; }
+.c-feedback :is(input:not([type=radio]):not([type=checkbox]), textarea) { width: 100%; min-width: 0; padding: .6rem; color: inherit; font: inherit; font-size: 1rem; background: var(--color-background, #fff); border: 1px solid var(--color-grid-strong, #aeb8c7); }
+.c-feedback progress { width: 100%; height: .8rem; accent-color: var(--color-primary, #18243b); }
+.c-feedback__list { margin: .75rem 0; padding: 0; list-style: none; }
+.c-feedback__list li { padding: .5rem .65rem; background: var(--color-primary-soft, #edf1f7); border: 1px solid var(--color-grid, #d9dfe8); }
+@media (prefers-reduced-motion: reduce) { .c-feedback *, .c-feedback *::before, .c-feedback *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre tabindex="0" aria-label="JAVASCRIPTコード"><code>(() =&gt; {
+  const root = document.querySelector('.c-feedback--access');
+  if (!root) return;
+  const edit = root.querySelector('[data-edit]');
+  const request = root.querySelector('[data-request]');
+  const grant = root.querySelector('[data-grant]');
+  const output = root.querySelector('[data-status]');
+  request.addEventListener('click', () =&gt; {
+    request.disabled = true; grant.disabled = false;
+    output.textContent = 'デモ：申請中です。承認を再現して続けられます。'; grant.focus();
+  });
+  grant.addEventListener('click', () =&gt; {
+    grant.disabled = true; edit.disabled = false;
+    root.querySelector('h3').textContent = '編集可能';
+    root.querySelector('p').textContent = '内容の確認と編集ができます。';
+    output.textContent = 'デモ：承認されました。編集を開始できます。'; edit.focus();
+  });
+  edit.addEventListener('click', () =&gt; { output.textContent = 'デモ：編集画面を開く操作を受け付けました。'; });
+  root.querySelector('[data-reset]').addEventListener('click', () =&gt; {
+    edit.disabled = true; request.disabled = false; grant.disabled = true;
+    root.querySelector('h3').textContent = '閲覧モード';
+    root.querySelector('p').textContent = '内容の確認はできます。編集には担当者の許可が必要です。'; output.textContent = '初期状態へ戻しました。';
+  });
+})();</code></pre></div></div>
+  <div class="part-example__note"><strong>USE FOR</strong><p>共同編集画面で、できる操作と制限理由、申請先を明示します。承認は模擬動作であり、実運用の認可はサーバー側で行います。</p></div>
+</section>
+<section class="part-example part-example--with-js reveal" data-pattern data-search="容量 上限 残量 quota capacity limit 通常 注意">
+  <header class="part-example__header"><div><span class="part-example__index">CAPACITY / 01</span><h2>利用上限・残量表示</h2></div><small>QUOTA</small></header>
+  <div class="part-example__preview"><div class="c-feedback c-feedback--quota"><h3>ストレージの使用量</h3><progress value="60" max="100" aria-label="使用量"></progress><p data-usage>60 / 100 MB 使用中</p><div class="c-feedback__actions"><button type="button" data-add>20 MBを追加</button><button type="button" data-reset>使用量を戻す</button></div><p class="c-feedback__status" role="status" data-status></p></div></div>
+  <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre tabindex="0" aria-label="HTMLコード"><code>&lt;div class="c-feedback c-feedback--quota"&gt;&lt;h3&gt;ストレージの使用量&lt;/h3&gt;&lt;progress value="60" max="100" aria-label="使用量"&gt;&lt;/progress&gt;&lt;p data-usage&gt;60 / 100 MB 使用中&lt;/p&gt;&lt;div class="c-feedback__actions"&gt;&lt;button type="button" data-add&gt;20 MBを追加&lt;/button&gt;&lt;button type="button" data-reset&gt;使用量を戻す&lt;/button&gt;&lt;/div&gt;&lt;p class="c-feedback__status" role="status" data-status&gt;&lt;/p&gt;&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre tabindex="0" aria-label="CSSコード"><code>.c-feedback, .c-feedback * { box-sizing: border-box; }
+.c-feedback { width: min(100%, 28rem); min-width: 0; padding: 1.25rem; color: var(--color-text, #1c2430); font: .8rem/1.7 var(--font-sans, sans-serif); background: var(--color-background, #fff); border: 1px solid var(--color-grid-strong, #aeb8c7); }
+.c-feedback [hidden] { display: none !important; }
+.c-feedback h3 { margin: 0 0 .75rem; font-size: 1rem; line-height: 1.5; }
+.c-feedback p { margin: .6rem 0; }
+.c-feedback button { min-height: 2.75rem; max-width: 100%; padding: .5rem .75rem; color: var(--color-text-inverse, #fff); font: inherit; font-size: .72rem; background: var(--color-primary, #18243b); border: 1px solid var(--color-primary, #18243b); cursor: pointer; }
+.c-feedback button:disabled { opacity: .45; cursor: not-allowed; }
+.c-feedback button:not(:disabled):hover { color: var(--color-primary, #18243b); background: var(--color-primary-soft, #edf1f7); }
+.c-feedback :is(button, input, textarea):focus-visible { outline: 3px solid var(--color-focus, #315a9b); outline-offset: 2px; }
+.c-feedback__actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+.c-feedback__status { min-height: 2.8em; color: var(--color-text-subtle, #667085); }
+.c-feedback label { display: block; }
+.c-feedback :is(input:not([type=radio]):not([type=checkbox]), textarea) { width: 100%; min-width: 0; padding: .6rem; color: inherit; font: inherit; font-size: 1rem; background: var(--color-background, #fff); border: 1px solid var(--color-grid-strong, #aeb8c7); }
+.c-feedback progress { width: 100%; height: .8rem; accent-color: var(--color-primary, #18243b); }
+.c-feedback__list { margin: .75rem 0; padding: 0; list-style: none; }
+.c-feedback__list li { padding: .5rem .65rem; background: var(--color-primary-soft, #edf1f7); border: 1px solid var(--color-grid, #d9dfe8); }
+@media (prefers-reduced-motion: reduce) { .c-feedback *, .c-feedback *::before, .c-feedback *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre tabindex="0" aria-label="JAVASCRIPTコード"><code>(() =&gt; {
+  const root = document.querySelector('.c-feedback--quota');
+  if (!root) return;
+  let used = 60;
+  const add = root.querySelector('[data-add]');
+  const render = () =&gt; {
+    root.querySelector('progress').value = used;
+    root.querySelector('[data-usage]').textContent = used + ' / 100 MB 使用中';
+    add.disabled = used &gt;= 100;
+    root.querySelector('[data-status]').textContent = used &gt;= 100 ? '上限に達しました。不要なデータを整理してください。' : used &gt;= 80 ? '残り容量が少なくなっています。あと20 MB追加できます。' : '容量に余裕があります。';
+  };
+  add.addEventListener('click', () =&gt; { used = Math.min(100, used + 20); render(); });
+  root.querySelector('[data-reset]').addEventListener('click', () =&gt; { used = 60; render(); });
+  render();
+})();</code></pre></div></div>
+  <div class="part-example__note"><strong>USE FOR</strong><p>アップロードや契約プランの利用枠に。残量の説明と操作制御を連動させ、上限後の対処を示します。</p></div>
+</section>
+<section class="part-example part-example--with-js reveal" data-pattern data-search="工程 進捗 中断 完了 progress process cancel retry">
+  <header class="part-example__header"><div><span class="part-example__index">PROCESS / 01</span><h2>複数工程の処理状況</h2></div><small>PROCESS</small></header>
+  <div class="part-example__preview"><div class="c-feedback c-feedback--process"><h3>書き出し処理</h3><ol class="c-feedback__list"><li>1. 準備</li><li>2. 変換</li><li>3. 完了</li></ol><progress value="0" max="3" aria-label="書き出しの進捗"></progress><div class="c-feedback__actions"><button type="button" data-start>処理を開始</button><button type="button" data-cancel disabled>中断</button></div><p>模擬処理：約3秒で完了します。</p><p class="c-feedback__status" role="status" data-status></p></div></div>
+  <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre tabindex="0" aria-label="HTMLコード"><code>&lt;div class="c-feedback c-feedback--process"&gt;&lt;h3&gt;書き出し処理&lt;/h3&gt;&lt;ol class="c-feedback__list"&gt;&lt;li&gt;1. 準備&lt;/li&gt;&lt;li&gt;2. 変換&lt;/li&gt;&lt;li&gt;3. 完了&lt;/li&gt;&lt;/ol&gt;&lt;progress value="0" max="3" aria-label="書き出しの進捗"&gt;&lt;/progress&gt;&lt;div class="c-feedback__actions"&gt;&lt;button type="button" data-start&gt;処理を開始&lt;/button&gt;&lt;button type="button" data-cancel disabled&gt;中断&lt;/button&gt;&lt;/div&gt;&lt;p&gt;模擬処理：約3秒で完了します。&lt;/p&gt;&lt;p class="c-feedback__status" role="status" data-status&gt;&lt;/p&gt;&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre tabindex="0" aria-label="CSSコード"><code>.c-feedback, .c-feedback * { box-sizing: border-box; }
+.c-feedback { width: min(100%, 28rem); min-width: 0; padding: 1.25rem; color: var(--color-text, #1c2430); font: .8rem/1.7 var(--font-sans, sans-serif); background: var(--color-background, #fff); border: 1px solid var(--color-grid-strong, #aeb8c7); }
+.c-feedback [hidden] { display: none !important; }
+.c-feedback h3 { margin: 0 0 .75rem; font-size: 1rem; line-height: 1.5; }
+.c-feedback p { margin: .6rem 0; }
+.c-feedback button { min-height: 2.75rem; max-width: 100%; padding: .5rem .75rem; color: var(--color-text-inverse, #fff); font: inherit; font-size: .72rem; background: var(--color-primary, #18243b); border: 1px solid var(--color-primary, #18243b); cursor: pointer; }
+.c-feedback button:disabled { opacity: .45; cursor: not-allowed; }
+.c-feedback button:not(:disabled):hover { color: var(--color-primary, #18243b); background: var(--color-primary-soft, #edf1f7); }
+.c-feedback :is(button, input, textarea):focus-visible { outline: 3px solid var(--color-focus, #315a9b); outline-offset: 2px; }
+.c-feedback__actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+.c-feedback__status { min-height: 2.8em; color: var(--color-text-subtle, #667085); }
+.c-feedback label { display: block; }
+.c-feedback :is(input:not([type=radio]):not([type=checkbox]), textarea) { width: 100%; min-width: 0; padding: .6rem; color: inherit; font: inherit; font-size: 1rem; background: var(--color-background, #fff); border: 1px solid var(--color-grid-strong, #aeb8c7); }
+.c-feedback progress { width: 100%; height: .8rem; accent-color: var(--color-primary, #18243b); }
+.c-feedback__list { margin: .75rem 0; padding: 0; list-style: none; }
+.c-feedback__list li { padding: .5rem .65rem; background: var(--color-primary-soft, #edf1f7); border: 1px solid var(--color-grid, #d9dfe8); }
+@media (prefers-reduced-motion: reduce) { .c-feedback *, .c-feedback *::before, .c-feedback *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre tabindex="0" aria-label="JAVASCRIPTコード"><code>(() =&gt; {
+  const root = document.querySelector('.c-feedback--process');
+  if (!root) return;
+  let timer = 0;
+  let step = 0;
+  const start = root.querySelector('[data-start]');
+  const cancel = root.querySelector('[data-cancel]');
+  const output = root.querySelector('[data-status]');
+  const labels = ['待機中です。', '準備完了。変換しています。', '変換完了。結果を確認しています。', 'デモ処理が完了しました。'];
+  const render = () =&gt; {
+    root.querySelector('progress').value = step;
+    root.querySelectorAll('li').forEach((li, index) =&gt; {
+      li.dataset.complete = String(index &lt; step);
+      li.textContent = (index &lt; step ? '✓ ' : '') + ['1. 準備', '2. 変換', '3. 完了'][index];
+    });
+    output.textContent = labels[step];
+  };
+  start.addEventListener('click', () =&gt; {
+    clearInterval(timer); step = 0; render();
+    start.disabled = true; cancel.disabled = false;
+    timer = setInterval(() =&gt; {
+      step += 1; render();
+      if (step === 3) { clearInterval(timer); start.disabled = false; start.textContent = 'もう一度開始'; cancel.disabled = true; }
+    }, 900);
+  });
+  cancel.addEventListener('click', () =&gt; {
+    clearInterval(timer); start.disabled = false; cancel.disabled = true;
+    start.textContent = '最初から再試行'; output.textContent = '中断しました。最初から再試行できます。'; start.focus();
+  });
+  render();
+})();</code></pre></div></div>
+  <div class="part-example__note"><strong>USE FOR</strong><p>書き出しやデータ生成で工程ごとの状態と中断後の再試行を提示します。処理そのものはタイマーで再現しています。</p></div>
+</section>
+<section class="part-example part-example--with-js reveal" data-pattern data-search="一括 部分失敗 再試行 batch partial failure retry error">
+  <header class="part-example__header"><div><span class="part-example__index">RECOVERY / 01</span><h2>一括処理の部分失敗</h2></div><small>BATCH</small></header>
+  <div class="part-example__preview"><div class="c-feedback c-feedback--batch"><h3>3件の公開結果</h3><ul class="c-feedback__list"><li>DESIGN NOTE：成功</li><li data-failed>CODE NOTE：失敗（通信タイムアウト）</li><li>TEST NOTE：成功</li></ul><div class="c-feedback__actions"><button type="button" data-retry>失敗した1件を再試行</button><button type="button" data-reset>失敗状態を再現</button></div><p class="c-feedback__status" role="status" data-status></p></div></div>
+  <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre tabindex="0" aria-label="HTMLコード"><code>&lt;div class="c-feedback c-feedback--batch"&gt;&lt;h3&gt;3件の公開結果&lt;/h3&gt;&lt;ul class="c-feedback__list"&gt;&lt;li&gt;DESIGN NOTE：成功&lt;/li&gt;&lt;li data-failed&gt;CODE NOTE：失敗（通信タイムアウト）&lt;/li&gt;&lt;li&gt;TEST NOTE：成功&lt;/li&gt;&lt;/ul&gt;&lt;div class="c-feedback__actions"&gt;&lt;button type="button" data-retry&gt;失敗した1件を再試行&lt;/button&gt;&lt;button type="button" data-reset&gt;失敗状態を再現&lt;/button&gt;&lt;/div&gt;&lt;p class="c-feedback__status" role="status" data-status&gt;&lt;/p&gt;&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre tabindex="0" aria-label="CSSコード"><code>.c-feedback, .c-feedback * { box-sizing: border-box; }
+.c-feedback { width: min(100%, 28rem); min-width: 0; padding: 1.25rem; color: var(--color-text, #1c2430); font: .8rem/1.7 var(--font-sans, sans-serif); background: var(--color-background, #fff); border: 1px solid var(--color-grid-strong, #aeb8c7); }
+.c-feedback [hidden] { display: none !important; }
+.c-feedback h3 { margin: 0 0 .75rem; font-size: 1rem; line-height: 1.5; }
+.c-feedback p { margin: .6rem 0; }
+.c-feedback button { min-height: 2.75rem; max-width: 100%; padding: .5rem .75rem; color: var(--color-text-inverse, #fff); font: inherit; font-size: .72rem; background: var(--color-primary, #18243b); border: 1px solid var(--color-primary, #18243b); cursor: pointer; }
+.c-feedback button:disabled { opacity: .45; cursor: not-allowed; }
+.c-feedback button:not(:disabled):hover { color: var(--color-primary, #18243b); background: var(--color-primary-soft, #edf1f7); }
+.c-feedback :is(button, input, textarea):focus-visible { outline: 3px solid var(--color-focus, #315a9b); outline-offset: 2px; }
+.c-feedback__actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+.c-feedback__status { min-height: 2.8em; color: var(--color-text-subtle, #667085); }
+.c-feedback label { display: block; }
+.c-feedback :is(input:not([type=radio]):not([type=checkbox]), textarea) { width: 100%; min-width: 0; padding: .6rem; color: inherit; font: inherit; font-size: 1rem; background: var(--color-background, #fff); border: 1px solid var(--color-grid-strong, #aeb8c7); }
+.c-feedback progress { width: 100%; height: .8rem; accent-color: var(--color-primary, #18243b); }
+.c-feedback__list { margin: .75rem 0; padding: 0; list-style: none; }
+.c-feedback__list li { padding: .5rem .65rem; background: var(--color-primary-soft, #edf1f7); border: 1px solid var(--color-grid, #d9dfe8); }
+@media (prefers-reduced-motion: reduce) { .c-feedback *, .c-feedback *::before, .c-feedback *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre tabindex="0" aria-label="JAVASCRIPTコード"><code>(() =&gt; {
+  const root = document.querySelector('.c-feedback--batch');
+  if (!root) return;
+  let timer = 0;
+  const retry = root.querySelector('[data-retry]');
+  const failed = root.querySelector('[data-failed]');
+  const output = root.querySelector('[data-status]');
+  retry.addEventListener('click', () =&gt; {
+    retry.disabled = true; failed.textContent = 'CODE NOTE：再試行中';
+    output.textContent = '成功した2件は維持し、失敗した1件だけ再処理しています。';
+    timer = setTimeout(() =&gt; {
+      failed.textContent = 'CODE NOTE：成功'; output.textContent = '3件すべて成功しました。';
+    }, 900);
+  });
+  root.querySelector('[data-reset]').addEventListener('click', () =&gt; {
+    clearTimeout(timer); retry.disabled = false;
+    failed.textContent = 'CODE NOTE：失敗（通信タイムアウト）';
+    output.textContent = '2件成功・1件失敗。失敗した項目を再試行できます。';
+  });
+  output.textContent = '2件成功・1件失敗。失敗した項目を再試行できます。';
+})();</code></pre></div></div>
+  <div class="part-example__note"><strong>USE FOR</strong><p>一括登録・公開などの結果確認に。成功分を維持し、失敗分だけを再実行する流れを模擬的に体験できます。</p></div>
+</section>
+<section class="part-example part-example--with-js reveal" data-pattern data-search="評価 満足度 回答 rating satisfaction review survey">
+  <header class="part-example__header"><div><span class="part-example__index">RESPONSE / 01</span><h2>満足度評価</h2></div><small>RATING</small></header>
+  <div class="part-example__preview"><div class="c-feedback c-feedback--rating"><form><fieldset><legend>このパーツは役に立ちましたか？</legend><div class="c-feedback__ratings"><label><input type="radio" name="feedback-rating" value="1" required> 1</label><label><input type="radio" name="feedback-rating" value="2" required> 2</label><label><input type="radio" name="feedback-rating" value="3" required> 3</label><label><input type="radio" name="feedback-rating" value="4" required> 4</label><label><input type="radio" name="feedback-rating" value="5" required> 5</label></div><p>1：役立たなかった ／ 5：とても役立った</p></fieldset><label>コメント（任意・100文字まで）<textarea maxlength="100" rows="2"></textarea></label><div class="c-feedback__actions"><button type="submit">回答する</button><button type="button" data-reset>回答をやり直す</button></div></form><p class="c-feedback__status" role="status" data-status></p></div></div>
+  <div class="part-example__code-grid part-example__code-grid--with-js"><div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre tabindex="0" aria-label="HTMLコード"><code>&lt;div class="c-feedback c-feedback--rating"&gt;&lt;form&gt;&lt;fieldset&gt;&lt;legend&gt;このパーツは役に立ちましたか？&lt;/legend&gt;&lt;div class="c-feedback__ratings"&gt;&lt;label&gt;&lt;input type="radio" name="feedback-rating" value="1" required&gt; 1&lt;/label&gt;&lt;label&gt;&lt;input type="radio" name="feedback-rating" value="2" required&gt; 2&lt;/label&gt;&lt;label&gt;&lt;input type="radio" name="feedback-rating" value="3" required&gt; 3&lt;/label&gt;&lt;label&gt;&lt;input type="radio" name="feedback-rating" value="4" required&gt; 4&lt;/label&gt;&lt;label&gt;&lt;input type="radio" name="feedback-rating" value="5" required&gt; 5&lt;/label&gt;&lt;/div&gt;&lt;p&gt;1：役立たなかった ／ 5：とても役立った&lt;/p&gt;&lt;/fieldset&gt;&lt;label&gt;コメント（任意・100文字まで）&lt;textarea maxlength="100" rows="2"&gt;&lt;/textarea&gt;&lt;/label&gt;&lt;div class="c-feedback__actions"&gt;&lt;button type="submit"&gt;回答する&lt;/button&gt;&lt;button type="button" data-reset&gt;回答をやり直す&lt;/button&gt;&lt;/div&gt;&lt;/form&gt;&lt;p class="c-feedback__status" role="status" data-status&gt;&lt;/p&gt;&lt;/div&gt;</code></pre></div><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre tabindex="0" aria-label="CSSコード"><code>.c-feedback, .c-feedback * { box-sizing: border-box; }
+.c-feedback { width: min(100%, 28rem); min-width: 0; padding: 1.25rem; color: var(--color-text, #1c2430); font: .8rem/1.7 var(--font-sans, sans-serif); background: var(--color-background, #fff); border: 1px solid var(--color-grid-strong, #aeb8c7); }
+.c-feedback [hidden] { display: none !important; }
+.c-feedback h3 { margin: 0 0 .75rem; font-size: 1rem; line-height: 1.5; }
+.c-feedback p { margin: .6rem 0; }
+.c-feedback button { min-height: 2.75rem; max-width: 100%; padding: .5rem .75rem; color: var(--color-text-inverse, #fff); font: inherit; font-size: .72rem; background: var(--color-primary, #18243b); border: 1px solid var(--color-primary, #18243b); cursor: pointer; }
+.c-feedback button:disabled { opacity: .45; cursor: not-allowed; }
+.c-feedback button:not(:disabled):hover { color: var(--color-primary, #18243b); background: var(--color-primary-soft, #edf1f7); }
+.c-feedback :is(button, input, textarea):focus-visible { outline: 3px solid var(--color-focus, #315a9b); outline-offset: 2px; }
+.c-feedback__actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+.c-feedback__status { min-height: 2.8em; color: var(--color-text-subtle, #667085); }
+.c-feedback label { display: block; }
+.c-feedback :is(input:not([type=radio]):not([type=checkbox]), textarea) { width: 100%; min-width: 0; padding: .6rem; color: inherit; font: inherit; font-size: 1rem; background: var(--color-background, #fff); border: 1px solid var(--color-grid-strong, #aeb8c7); }
+.c-feedback progress { width: 100%; height: .8rem; accent-color: var(--color-primary, #18243b); }
+.c-feedback__list { margin: .75rem 0; padding: 0; list-style: none; }
+.c-feedback__list li { padding: .5rem .65rem; background: var(--color-primary-soft, #edf1f7); border: 1px solid var(--color-grid, #d9dfe8); }
+@media (prefers-reduced-motion: reduce) { .c-feedback *, .c-feedback *::before, .c-feedback *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+.c-feedback__ratings { display: flex; flex-wrap: wrap; gap: .5rem; }.c-feedback__ratings label { display: flex; min-height: 2.75rem; align-items: center; gap: .2rem; }.c-feedback fieldset { min-width: 0; margin: 0 0 .75rem; padding: .6rem; border: 1px solid var(--color-grid, #d9dfe8); }</code></pre></div><div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre tabindex="0" aria-label="JAVASCRIPTコード"><code>(() =&gt; {
+  const root = document.querySelector('.c-feedback--rating');
+  if (!root) return;
+  const form = root.querySelector('form');
+  const output = root.querySelector('[data-status]');
+  form.addEventListener('submit', event =&gt; {
+    event.preventDefault();
+    const rating = new FormData(form).get('feedback-rating');
+    if (!rating) { form.reportValidity(); return; }
+    output.textContent = '評価 ' + rating + ' / 5 を受け付けました（デモ・外部送信なし）。';
+    form.querySelectorAll('input, textarea, button[type=submit]').forEach(el =&gt; { el.disabled = true; });
+  });
+  root.querySelector('[data-reset]').addEventListener('click', () =&gt; {
+    form.querySelectorAll('input, textarea, button[type=submit]').forEach(el =&gt; { el.disabled = false; });
+    form.reset(); output.textContent = '回答を選び直せます。'; form.querySelector('input').focus();
+  });
+})();</code></pre></div></div>
+  <div class="part-example__note"><strong>USE FOR</strong><p>記事や機能の利用後に、段階評価と任意コメントを受け付けます。回答はブラウザ内で完結し、外部へ送信しません。</p></div>
+</section></div>
+<div class="part-detail-empty" data-pattern-empty hidden><p>[ NO_PATTERNS_FOUND ]</p><p>選択中のキーワードを解除してください。</p></div>
+<section class="part-common-styles" id="feedback-common-styles" aria-labelledby="feedback-common-title"><header class="part-common-styles__header reveal"><p class="section-index">FEEDBACK / COMMON_STYLE</p><h2 id="feedback-common-title">共通スタイル</h2><p>状態パネル、操作ボタン、進捗表示、フォーカスを揃える基礎設定です。</p></header><div class="part-common-styles__code"><div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre tabindex="0" aria-label="CSSコード"><code>.c-feedback, .c-feedback * { box-sizing: border-box; }
+.c-feedback { width: min(100%, 28rem); min-width: 0; padding: 1.25rem; color: var(--color-text, #1c2430); font: .8rem/1.7 var(--font-sans, sans-serif); background: var(--color-background, #fff); border: 1px solid var(--color-grid-strong, #aeb8c7); }
+.c-feedback [hidden] { display: none !important; }
+.c-feedback h3 { margin: 0 0 .75rem; font-size: 1rem; line-height: 1.5; }
+.c-feedback p { margin: .6rem 0; }
+.c-feedback button { min-height: 2.75rem; max-width: 100%; padding: .5rem .75rem; color: var(--color-text-inverse, #fff); font: inherit; font-size: .72rem; background: var(--color-primary, #18243b); border: 1px solid var(--color-primary, #18243b); cursor: pointer; }
+.c-feedback button:disabled { opacity: .45; cursor: not-allowed; }
+.c-feedback button:not(:disabled):hover { color: var(--color-primary, #18243b); background: var(--color-primary-soft, #edf1f7); }
+.c-feedback :is(button, input, textarea):focus-visible { outline: 3px solid var(--color-focus, #315a9b); outline-offset: 2px; }
+.c-feedback__actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+.c-feedback__status { min-height: 2.8em; color: var(--color-text-subtle, #667085); }
+.c-feedback label { display: block; }
+.c-feedback :is(input:not([type=radio]):not([type=checkbox]), textarea) { width: 100%; min-width: 0; padding: .6rem; color: inherit; font: inherit; font-size: 1rem; background: var(--color-background, #fff); border: 1px solid var(--color-grid-strong, #aeb8c7); }
+.c-feedback progress { width: 100%; height: .8rem; accent-color: var(--color-primary, #18243b); }
+.c-feedback__list { margin: .75rem 0; padding: 0; list-style: none; }
+.c-feedback__list li { padding: .5rem .65rem; background: var(--color-primary-soft, #edf1f7); border: 1px solid var(--color-grid, #d9dfe8); }
+@media (prefers-reduced-motion: reduce) { .c-feedback *, .c-feedback *::before, .c-feedback *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }</code></pre></div></div></section>
+<footer class="page-footer" aria-label="ページナビゲーション"><a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO WEB PARTS</span></a><a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a></footer>
+</main><script src="../js/web-parts-detail.js" defer></script><script src="../js/web-parts-feedback.js" defer></script><script src="../js/main.js" defer></script></body></html>

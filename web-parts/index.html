@@ -79,7 +79,7 @@
           <h1>WEB PARTS</h1>
           <p class="visually-hidden">Webサイトや業務画面の見出し、操作、情報表示、通知などに繰り返し使えるUIパーツ集です。</p>
         </div>
-        <div class="page-heading__meta reveal"><span>CATEGORIES: 35</span><span>PARTS: 408</span><span>STATUS: 32 READY / 03 PLANNED</span></div>
+        <div class="page-heading__meta reveal"><span>CATEGORIES: 34</span><span>PARTS: 420</span><span>STATUS: 34 READY / 00 PLANNED</span></div>
       </header>
 
       <section class="web-parts-directory" aria-labelledby="parts-directory-title" data-parts-directory>
@@ -120,7 +120,6 @@
               <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="background pattern">BACKGROUND-PATTERN</button>
               <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="background-effect">BACKGROUND-EFFECT</button>
               <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="utility script">UTILITY SCRIPT</button>
-              <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="navigation">NAVIGATION</button>
               <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="feedback">FEEDBACK</button>
               <button type="button" aria-pressed="false" aria-controls="parts-grid" data-parts-category="motion">MOTION</button>
             </div>
@@ -241,7 +240,7 @@
           </a>
           <a class="parts-card parts-card--link" href="./slider-splide.html" data-part-category data-type="js" data-search="slider splide スライダー スプライド carousel カルーセル fade フェード cards カード autoplay 自動再生 responsive レスポンシブ progress 進捗 library ライブラリ">
             <div class="parts-card__meta"><span>CSS / JS</span></div>
-            <div class="parts-card__preview parts-card__preview--splide" aria-hidden="true"><span>01</span><strong>Splide</strong><i>03</i></div>
+            <div class="parts-card__preview parts-card__preview--splide" aria-hidden="true"><div class="parts-card__splide-track"><span></span><span></span><strong><b></b>Splide</strong><span></span><span></span></div></div>
             <h3>SLIDER / Splide</h3>
             <p>Splideを使い、訴求メッセージや制作事例を自動再生と手動操作で見せるスライダーUIです。</p>
             <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
@@ -256,7 +255,7 @@
           <!-- Feedback and system status -->
           <a class="parts-card parts-card--link" href="./alert.html" data-part-category data-type="css" data-search="alert アラート notice info success warning error semantic soft border filled outline icon title dismiss toast banner memo gradient action link error summary form validation 情報 成功 注意 エラー 意味色 罫線 塗り アイコン タイトル 閉じる 通知 バナー メモ グラデーション アクション リンク フォーム 検証">
             <div class="parts-card__meta"><span>CSS</span></div>
-            <div class="parts-card__preview parts-card__preview--alert" aria-hidden="true"><strong>!</strong><span>NOTICE</span></div>
+            <div class="parts-card__preview parts-card__preview--alert" aria-hidden="true"><div class="parts-card__alert-window"><div class="parts-card__alert-panel"><strong>!</strong><span>OK</span></div></div></div>
             <h3>ALERT</h3>
             <p>入力結果、注意事項、エラー、更新情報を、意味と重要度が伝わる形で示す通知表示です。</p>
             <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
@@ -368,35 +367,27 @@
             <p>表示設定、絞り込み、並び替え、リンク・年表記・印刷など、サイト運用を補助する実用スクリプトです。</p>
             <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
           </a>
-          <!-- Planned categories -->
-          <article class="parts-card" data-part-category data-type="js" data-search="navigation ナビゲーション menu breadcrumb pagination drawer">
+          <a class="parts-card parts-card--link" href="./feedback.html" data-part-category data-type="js" data-search="feedback フィードバック empty 空状態 permission 権限 quota 容量 上限 process 工程 progress 進捗 retry 再試行 部分失敗 rating 評価 satisfaction 満足度">
             <div class="parts-card__meta"><span>CSS / JS</span></div>
-            <div class="parts-card__preview" aria-hidden="true"><strong>≡</strong><span>MENU</span></div>
-            <h3>NAVIGATION</h3>
-            <p>サイト内の主要導線、現在地、前後ページへの移動を支えるナビゲーションです。</p>
-            <small>PLANNED</small>
-          </article>
-          <article class="parts-card" data-part-category data-type="css" data-search="feedback alert toast badge status notice error success">
-            <div class="parts-card__meta"><span>CSS</span></div>
-            <div class="parts-card__preview" aria-hidden="true"><strong>!</strong><span>STATUS</span></div>
+            <div class="parts-card__preview parts-card__preview--feedback" aria-hidden="true"><strong>✓</strong><span>STATUS → ACTION</span></div>
             <h3>FEEDBACK</h3>
-            <p>成功、注意、エラー、処理中など、操作やシステムの状態を伝える表示です。</p>
-            <small>PLANNED</small>
-          </article>
-          <article class="parts-card" data-part-category data-type="js" data-search="motion animation transition scroll reveal loading reduced motion">
+            <p>空状態や権限制限、処理結果に応じて、現在の状態と次にできる操作を示すUIです。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
+          <a class="parts-card parts-card--link" href="./motion.html" data-part-category data-type="js" data-search="motion モーション animation transition FLIP layout 配置 並び替え 高さ 共有要素 遷移 filter 絞り込み SVG 描画 経路 path reduced motion">
             <div class="parts-card__meta"><span>CSS / JS</span></div>
-            <div class="parts-card__preview" aria-hidden="true"><strong>●</strong><span>→</span></div>
+            <div class="parts-card__preview parts-card__preview--motion" aria-hidden="true"><span></span><strong>→</strong><span></span></div>
             <h3>MOTION</h3>
-            <p>状態変化、読み込み、スクロールに合わせて視線や操作を導く動きです。</p>
-            <small>PLANNED</small>
-          </article>
+            <p>配置や内容の変化、図形の描画と経路移動を、前後の関係が追える動きで伝えるUIです。</p>
+            <small><span class="parts-card__status"><span class="parts-card__status-label parts-card__status-label--ready">READY</span><span class="parts-card__status-label parts-card__status-label--open" aria-hidden="true">OPEN</span></span><span class="parts-card__arrow" aria-hidden="true">→</span></small>
+          </a>
         </div>
 
         <div class="parts-empty" data-parts-empty hidden>
           <p>[ NO_PARTS_FOUND ]</p>
           <p>カテゴリまたは検索語を変更してください。</p>
         </div>
-        <div class="directory-status" aria-live="polite"><p><span data-parts-count>35</span> CATEGORIES FOUND</p><p>PARTS: 408 / READY</p></div>
+        <div class="directory-status" aria-live="polite"><p><span data-parts-count>34</span> CATEGORIES FOUND</p><p>PARTS: 420 / READY</p></div>
       </section>
 
       <section class="foundations parts-common-styles" aria-labelledby="common-styles-title">

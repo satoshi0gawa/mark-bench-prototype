@@ -410,24 +410,22 @@ body[data-page="web-parts"] .page-heading__main p { max-width: none; }
 }
 .parts-card__preview--click-effects span { color: var(--color-primary); font-size: 1.2rem; }
 .parts-card__preview--tool-tip span { margin-left: 0.6rem; color: var(--color-primary); font-size: 0.72rem; }
-.parts-card__preview--alert { justify-content: center; gap: 0; }
-.parts-card__preview--alert strong {
+.parts-card__preview--alert { justify-content: center; padding-block: .5rem; }
+.parts-card__alert-window { position: relative; width: 7rem; height: 2.8rem; background: var(--color-background); border: 1px solid var(--color-grid-strong); border-top: .65rem solid var(--color-grid); }
+.parts-card__alert-window::before { position: absolute; top: -.43rem; left: .3rem; width: .15rem; height: .15rem; background: var(--color-primary); border-radius: 50%; box-shadow: .3rem 0 var(--color-primary), .6rem 0 var(--color-primary); content: ""; }
+.parts-card__alert-panel { position: absolute; top: -.45rem; left: 50%; display: grid; width: 3.8rem; height: 2.55rem; padding: .35rem .4rem; justify-items: center; align-content: space-between; background: var(--color-background); border: 1px solid var(--color-primary); box-shadow: .2rem .2rem 0 var(--color-primary-soft); transform: translateX(-50%); }
+.parts-card__alert-panel strong {
   display: grid;
-  width: 2rem;
-  height: 2rem;
+  width: .95rem;
+  height: .95rem;
   place-items: center;
-  color: var(--color-text-inverse);
-  background: var(--color-primary);
+  color: var(--color-primary);
+  font: 800 .7rem/1 var(--font-mono);
+  background: var(--color-accent-yellow);
+  border: 1px solid var(--color-primary);
   border-radius: 50%;
 }
-.parts-card__preview--alert span {
-  margin-left: -0.25rem;
-  padding: 0.5rem 0.65rem 0.5rem 0.85rem;
-  color: var(--color-primary);
-  font-size: 0.62rem;
-  background: var(--color-background);
-  border: 1px solid var(--color-primary);
-}
+.parts-card__alert-panel span { justify-self: end; padding: .15rem .35rem; color: var(--color-text-inverse); font: 700 .45rem/1 var(--font-mono); background: var(--color-primary); }
 .parts-card__preview--background-effect { position: relative; isolation: isolate; overflow: hidden; color: var(--color-text-inverse); background: var(--color-primary); }
 .parts-card__preview--background-effect i { position: absolute; width: 0.45rem; height: 0.45rem; background: var(--color-accent-yellow); border-radius: 50%; box-shadow: 1.8rem 1.1rem 0 rgb(255 255 255 / 72%), -1.4rem 1.8rem 0 rgb(127 180 217 / 82%); }
 .parts-card__preview--background-effect i:nth-child(1) { top: 25%; left: 26%; }
@@ -455,30 +453,34 @@ body[data-page="web-parts"] .page-heading__main p { max-width: none; }
 .parts-card__preview--slider { justify-content: center; gap: .45rem; }
 .parts-card__preview--slider strong { padding: .55rem .7rem; color: var(--color-text-inverse); font: 800 .62rem/1 var(--font-mono); background: var(--color-primary); border: 1px solid var(--color-primary); }
 .parts-card__preview--slider button { display: grid; width: 1.75rem; height: 1.75rem; padding: 0; place-items: center; color: var(--color-primary); background: var(--color-background); border: 1px solid var(--color-primary); border-radius: 50%; }
-.parts-card__preview--splide { justify-content: center; gap: 0; }
-.parts-card__preview--splide span,
-.parts-card__preview--splide i { display: grid; min-width: 2rem; min-height: 2rem; padding: .4rem; place-items: center; color: var(--color-primary); font: 800 .58rem/1 var(--font-mono); background: var(--color-background); border: 1px solid var(--color-primary); border-radius: 50%; }
-.parts-card__preview--splide strong { margin-inline: -.2rem; padding: .65rem .85rem; color: var(--color-text-inverse); font: 800 .62rem/1 var(--font-mono); background: var(--color-primary); border: 1px solid var(--color-primary); }
-.parts-card__preview--splide i { color: var(--color-primary); font-style: normal; background: var(--color-accent-yellow); }
+.parts-card__preview--splide { justify-content: center; padding: .5rem 0; background: var(--color-primary-soft); }
+.parts-card__splide-track { display: grid; width: 122%; flex: 0 0 122%; grid-template-columns: 1fr 1fr minmax(5rem, 1.5fr) 1fr 1fr; gap: .5rem; align-items: center; }
+.parts-card__splide-track > span { height: 2.5rem; background: var(--color-background); border: 1px solid var(--color-grid-strong); }
+.parts-card__splide-track > strong { display: flex; min-width: 0; height: 3rem; padding: .4rem; gap: .45rem; align-items: center; justify-content: center; color: var(--color-text-inverse); font: 800 .72rem/1 var(--font-mono); white-space: nowrap; background: var(--color-primary); border-bottom: 2px solid var(--color-accent-yellow); }
+.parts-card__splide-track b { width: .65rem; height: .65rem; flex: 0 0 .65rem; background: var(--color-accent-yellow); transform: rotate(45deg); }
+.parts-card__splide-track b::after { display: block; width: .3rem; height: .3rem; margin: .175rem; background: var(--color-primary); content: ""; }
+.parts-card__preview--splide::before,
+.parts-card__preview--splide::after { position: absolute; z-index: 1; top: 50%; width: .35rem; height: .35rem; border-top: 1px solid var(--color-primary); border-right: 1px solid var(--color-primary); content: ""; }
+.parts-card__preview--splide::before { left: .4rem; transform: translateY(-50%) rotate(-135deg); }
+.parts-card__preview--splide::after { right: .4rem; transform: translateY(-50%) rotate(45deg); }
 .parts-card__preview--accordion { justify-content: center; gap: 0; }
 .parts-card__preview--accordion strong { padding: .55rem .7rem; color: var(--color-primary); font: 800 .58rem/1 var(--font-mono); background: var(--color-background); border: 1px solid var(--color-primary); }
 .parts-card__preview--accordion span { display: grid; width: 1.85rem; height: 1.85rem; margin-left: -1px; place-items: center; color: var(--color-text-inverse); font: 800 .9rem/1 var(--font-mono); background: var(--color-primary); border: 1px solid var(--color-primary); }
-.parts-card__preview--hamburger { justify-content: center; gap: 0; }
+.parts-card__preview--hamburger { flex-direction: column; justify-content: center; gap: .4rem; padding-block: .55rem; color: var(--color-primary); }
 .parts-card__preview--hamburger > span {
   display: grid;
-  width: 2.25rem;
-  height: 2.25rem;
-  padding: .55rem;
-  place-content: center;
-  gap: .22rem;
-  color: var(--color-text-inverse);
-  background: var(--color-primary);
-  border: 1px solid var(--color-primary);
-  border-radius: 50%;
+  width: 1.8rem;
+  gap: .35rem;
 }
-.parts-card__preview--hamburger i { display: block; width: .9rem; height: 1px; background: currentColor; }
-.parts-card__preview--hamburger strong { margin-left: -.15rem; padding: .48rem .65rem .48rem .8rem; color: var(--color-primary); font: 800 .58rem/1 var(--font-mono); background: var(--color-accent-yellow); border: 1px solid var(--color-primary); }
+.parts-card__preview--hamburger i { display: block; width: 100%; height: 2px; background: currentColor; border: 0; border-radius: 999px; }
+.parts-card__preview--hamburger strong { font: 800 .58rem/1 var(--font-mono); letter-spacing: .1em; }
 .parts-card__preview--utility-script { justify-content: center; gap: 0; }
+.parts-card__preview--feedback { justify-content: center; gap: .6rem; }
+.parts-card__preview--feedback strong { padding: .25rem .5rem; color: var(--color-primary); background: var(--color-accent-yellow); border: 1px solid var(--color-primary); }
+.parts-card__preview--feedback span { font-size: .55rem; }
+.parts-card__preview--motion { justify-content: center; gap: 1rem; }
+.parts-card__preview--motion span { width: 1.4rem; height: 1.4rem; background: var(--color-primary-soft); border: 1px solid var(--color-primary); }
+.parts-card__preview--motion span:last-child { background: var(--color-accent-yellow); transform: rotate(45deg); }
 .parts-card__preview--utility-script strong { padding: .55rem .7rem; color: var(--color-text-inverse); font: 800 .62rem/1 var(--font-mono); background: var(--color-primary); border: 1px solid var(--color-primary); }
 .parts-card__preview--utility-script span { display: grid; width: 1.85rem; height: 1.85rem; margin-left: -1px; place-items: center; color: var(--color-primary); font: 800 .8rem/1 var(--font-mono); background: var(--color-accent-yellow); border: 1px solid var(--color-primary); }
 .parts-card__preview--text-effect { justify-content: center; gap: 0.8rem; }
