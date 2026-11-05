@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="MARK BENCHの実装仕様を整理。HTML・CSS・JavaScriptによるUIとツール、microCMSの記事管理、Node.jsの静的生成、GitHub ActionsとGitHub Pagesの公開フローをまとめます。" />
+      content="MARK BENCHの制作・学習記録。Web制作ツールとUIパーツ、microCMSの記事管理、静的生成と公開の仕組み、制作時の役割分担、検証方法、学習中の内容を整理します。" />
     <meta name="theme-color" content="#18243b" />
     <title>【microCMS × 静的サイト】 MARK BENCH | MARK BENCH</title>
     <!-- site-meta:start -->
@@ -19,7 +19,7 @@
       content="【microCMS × 静的サイト】 MARK BENCH | MARK BENCH" />
     <meta
       property="og:description"
-      content="MARK BENCHの実装仕様を整理。HTML・CSS・JavaScriptによるUIとツール、microCMSの記事管理、Node.jsの静的生成、GitHub ActionsとGitHub Pagesの公開フローをまとめます。" />
+      content="MARK BENCHの制作・学習記録。Web制作ツールとUIパーツ、microCMSの記事管理、静的生成と公開の仕組み、制作時の役割分担、検証方法、学習中の内容を整理します。" />
     <meta
       property="og:url"
       content="https://satoshi0gawa.github.io/mark-bench-prototype/build-notes/coding-note/coding-note-mark-bench.html" />
@@ -35,7 +35,7 @@
       content="【microCMS × 静的サイト】 MARK BENCH | MARK BENCH" />
     <meta
       name="twitter:description"
-      content="MARK BENCHの実装仕様を整理。HTML・CSS・JavaScriptによるUIとツール、microCMSの記事管理、Node.jsの静的生成、GitHub ActionsとGitHub Pagesの公開フローをまとめます。" />
+      content="MARK BENCHの制作・学習記録。Web制作ツールとUIパーツ、microCMSの記事管理、静的生成と公開の仕組み、制作時の役割分担、検証方法、学習中の内容を整理します。" />
     <meta
       name="twitter:image"
       content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
@@ -137,8 +137,9 @@
             <span class="article-title__suffix">MARK BENCH</span>
           </h1>
           <p class="article-header__lead">
-            Web制作向けのツール、再利用可能なUIパーツ、制作記録を一つの静的サイトへまとめたMARK
-            BENCHについて、要件、担当範囲、構造設計、主要機能、品質確認、公開までを整理します。
+            MARK
+            BENCHは、Web制作向けのツール、UIパーツ、制作記録をまとめたサイトです。<br />Codexの支援を受けて制作・改善を進めながら、GitHub・GitHub
+            PagesとmicroCMSの運用を学んでいます。<br />本記事では、制作の進め方、現在の実装仕様、検証方法、学習中の内容を整理します。
           </p>
           <div class="note-meta"><span>2026.11.02</span></div>
           <dl class="article-project-meta" aria-label="制作情報">
@@ -149,11 +150,11 @@
             <div>
               <dt>ROLE</dt>
               <dd>
-                DESIGN
+                PLANNING
                 <span class="article-project-meta__separator" aria-hidden="true"
                   >/</span
                 >
-                CODING
+                REVIEW
                 <span class="article-project-meta__separator" aria-hidden="true"
                   >/</span
                 >
@@ -214,12 +215,12 @@
             <h2 id="section-1-title">制作概要</h2>
             <p>
               MARK
-              BENCHは、Web制作で繰り返し使う小さなツール、再利用可能なUIパーツ、制作・運用の記録を一か所へ集約するための静的サイトです。機能を使う場所、コードを参照する場所、実装の判断を残す場所を同じサイト内に整理しています。
+              BENCHは、Web制作で繰り返し使う小さなツール、再利用可能なUIパーツ、制作・運用の記録を一か所へ集約するための静的サイトです。<br />機能を使う場所、コードを参照する場所、実装の判断を残す場所を同じサイト内に整理しています。
             </p>
             <p>
-              ブラウザで動く機能はHTML、CSS、Vanilla
-              JavaScriptで実装し、記事取得やHTML生成などの公開前処理はNode.jsへ分離しました。生成した静的ファイルはGitHub
-              Actionsを経由してGitHub Pagesへ公開します。
+              現在の構成では、ブラウザで動く機能にHTML、CSS、Vanilla
+              JavaScriptを使い、記事取得やHTML生成などの公開前処理にNode.jsを使っています。<br />生成した静的ファイルをGitHub
+              Actions経由でGitHub Pagesへ公開する仕組みです。
             </p>
             <div class="article-table-wrap">
               <table>
@@ -252,12 +253,6 @@
                 </tbody>
               </table>
             </div>
-            <div class="article-callout">
-              <strong>PROJECT SUMMARY</strong>
-              <p>
-                「使う」「見る」「記録する」を一つの構造へまとめ、追加する機能や記事の管理元が判断しやすいサイトを目指しました。
-              </p>
-            </div>
           </section>
 
           <section
@@ -269,6 +264,10 @@
             <h2 id="section-2-title">目的と要件</h2>
             <p>
               制作の起点は、Web制作中に別々の場所へ散らばりやすい変換ツール、UI実装例、技術メモを、共通の操作と見た目で参照できるようにすることでした。
+            </p>
+            <p>
+              学習面では、GitHubでの変更管理、GitHub
+              Pagesへの公開、microCMSによる記事管理を、実際にサイトを運用しながら身につけることを目的としています。<br />次の項目は、制作・改善時に目指している要件です。
             </p>
             <ol>
               <li>ツールへの入力内容を原則としてブラウザ内だけで処理する。</li>
@@ -300,7 +299,7 @@
             <p class="section-index">03 / SCOPE</p>
             <h2 id="section-3-title">担当範囲</h2>
             <p>
-              企画整理、情報設計、ビジュアル設計、フロントエンド実装、コンテンツモデル、検証スクリプト、公開フローまでを一貫して構築しています。外部サービスを使う箇所も、ブラウザ側とビルド側の責務を分けて設計しました。
+              中心となって行っているのは、必要な機能や掲載内容の整理、表示・操作への要望の提示、制作物を見て気づいた点のフィードバックです。<br />HTML・CSSを含むコードの作成・修正、JavaScriptやビルド処理の実装方針、検証スクリプトの作成・実行はCodexに依頼しながら進めています。<br />以下に、制作で扱っている領域と進め方をまとめます。
             </p>
             <div class="article-table-wrap">
               <table>
@@ -310,47 +309,56 @@
                 <thead>
                   <tr>
                     <th>領域</th>
-                    <th>担当内容</th>
+                    <th>制作の進め方</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>企画・情報設計</td>
-                    <td>コンテンツ分類、ページ階層、各セクションの役割整理</td>
+                    <td>
+                      載せたい機能・情報を整理し、コンテンツ分類やページ階層を相談
+                    </td>
                   </tr>
                   <tr>
                     <td>UIデザイン</td>
                     <td>
-                      配色、タイポグラフィ、左右レール、カード、記事レイアウト
+                      画面を見ながら配色・文字・余白・配置の要望を伝え、実装結果を確認
                     </td>
                   </tr>
                   <tr>
                     <td>フロントエンド</td>
                     <td>
-                      HTML、CSS、Vanilla JavaScriptによるページと機能の実装
+                      必要な表示・操作を伝えてコード作成・修正を依頼し、動作を見ながら調整
                     </td>
                   </tr>
                   <tr>
                     <td>コンテンツ基盤</td>
                     <td>
-                      microCMSスキーマ、取得、検証、サニタイズ、静的HTML生成
+                      microCMSでの記事管理を学習し、記事取得・データ検証・本文サニタイズ・静的HTML生成の処理は実装を依頼
                     </td>
                   </tr>
                   <tr>
                     <td>品質管理</td>
-                    <td>ローカル参照、SEO、ツール処理、秘密情報の自動検証</td>
+                    <td>
+                      自動検証の結果と画面・実機での気づきをもとに、問題点を共有して修正を依頼
+                    </td>
                   </tr>
                   <tr>
                     <td>公開</td>
-                    <td>GitHub ActionsとGitHub Pagesによるビルド・デプロイ</td>
+                    <td>
+                      GitHub Actions・GitHub
+                      Pagesの設定と実行結果を確認しながら、変更から公開までの流れを学習
+                    </td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <p>
-              NOTE to SELFの記事本文だけをmicroCMSで管理し、TOOLS、WEB
-              PARTS、CODING
-              NOTE、ABOUTはGit上の静的ファイルとして管理しています。
+              HTML・CSSの知識を土台に、現在はJavaScript、記事取得、静的生成を含む処理の理解を深めている段階です。
+            </p>
+            <p>
+              CODING
+              NOTEも、原稿の草案を用意し、ページ作成を依頼したうえで文章や見せ方を調整する流れで制作しています。
             </p>
           </section>
 
@@ -363,9 +371,9 @@
             <h2 id="section-4-title">サイト構成とコンテンツ管理</h2>
             <p>
               主要コンテンツをTOOLS、WEB PARTS、BUILD
-              NOTES、ABOUTへ分けています。BUILD
+              NOTES、ABOUTへ分けています。<br />BUILD
               NOTESの中でも、サイト単位のCODING NOTEとテーマ単位のNOTE to
-              SELFを分離し、記録の粒度を揃えました。
+              SELFを分離した構成です。
             </p>
             <div class="article-table-wrap">
               <table>
@@ -410,13 +418,13 @@
             </div>
             <p>
               microCMSの管理対象をNOTE to
-              SELFへ限定し、生成物の<code>dist/</code>は直接編集しません。CODING
-              NOTEは完成した制作物の入口ではなく、仕様と実装判断を詳しく残す役割を持たせます。
+              SELFへ限定し、生成物の<code>dist/</code>は直接編集しません。<br />CODING
+              NOTEには、制作物の仕様に加え、改善の過程や学習中の点も残します。
             </p>
             <div class="article-callout">
               <strong>CONTENT RULE</strong>
               <p>
-                制作物の概要はポートフォリオ、詳しい設計・実装はCODING
+                制作物の概要はポートフォリオ、制作方法と詳しい実装仕様はCODING
                 NOTE、テーマ単位の学習記録はNOTE to SELFへ分けます。
               </p>
             </div>
@@ -430,7 +438,7 @@
             <p class="section-index">05 / ARCHITECTURE</p>
             <h2 id="section-5-title">技術構成とファイル設計</h2>
             <p>
-              共通値、共通コンポーネント、ページ固有レイアウト、機能別スクリプトを分け、変更の影響範囲を追いやすくしています。色、フォント、余白、コンテンツ幅はCSSカスタムプロパティへまとめました。
+              サイトは、共通値、共通コンポーネント、ページ固有レイアウト、機能別スクリプトに分かれています。<br />色、フォント、余白、コンテンツ幅はCSSカスタムプロパティで管理する構成です。<br />以下に、現在使っている値と主要ファイルの役割をまとめます。
             </p>
             <pre><code>:root {
   --color-primary: #18243b;
@@ -499,7 +507,7 @@
             <p class="section-index">06 / IMPLEMENTATION</p>
             <h2 id="section-6-title">主要な実装ポイント</h2>
             <p>
-              コンテンツごとに利用目的は異なりますが、検索・絞り込み、状態表示、コード参照、静的生成を共通の設計方針で組み立てています。
+              ここでは、現在のコードがどのように動くかを仕様として整理します。<br />検索・絞り込み、状態表示、コード参照、静的生成について、各コンテンツで使われている仕組みをまとめました。
             </p>
             <div class="article-table-wrap">
               <table>
@@ -557,7 +565,7 @@
             </p>
             <p>
               NOTE to
-              SELFでは、記事セクションの配列順から目次と番号を生成します。CMS本文は許可した要素・属性へサニタイズし、ページ構造を担うh1・h2を本文内で使用できないよう検証しています。
+              SELFでは、記事セクションの配列順から目次と番号を生成します。<br />CMS本文は許可した要素・属性へサニタイズし、ページ構造を担うh1・h2を本文内で使用できないよう検証しています。
             </p>
             <div class="article-callout">
               <strong>SECURITY</strong>
@@ -575,7 +583,7 @@
             <p class="section-index">07 / QUALITY</p>
             <h2 id="section-7-title">レスポンシブとアクセシビリティ</h2>
             <p>
-              PCでは左側にパンくず、中央にメインコンテンツ、右側に主要ナビゲーションを配置します。1024px以下ではパンくずとナビゲーションを上部へ移し、メインコンテンツを全幅へ広げます。
+              PCでは左側にパンくず、中央にメインコンテンツ、右側に主要ナビゲーションを配置します。<br />1024px以下ではパンくずとナビゲーションを上部へ移し、メインコンテンツを全幅へ広げます。
             </p>
             <div class="article-table-wrap">
               <table>
@@ -614,7 +622,7 @@
             </div>
             <ol>
               <li>本文へ移動するスキップリンクを全ページへ用意します。</li>
-              <li>主要操作をキーボードだけで完了できる状態にします。</li>
+              <li>主要操作をキーボードで行えることを目標に対応を進めます。</li>
               <li>
                 <code>:focus-visible</code>によるフォーカス表示を維持します。
               </li>
@@ -629,8 +637,8 @@
               </li>
             </ol>
             <p>
-              最小表示幅は320pxです。Intersection
-              Observerを利用できない環境では演出を省略し、コンテンツ自体は表示された状態を保ちます。
+              最小表示幅は320pxです。<br />Intersection
+              Observerを利用できない環境では演出を省略し、コンテンツ自体は表示する実装です。<br />実装上の対応と、個別の端末・操作で確認できた結果は分けて記録する方針です。
             </p>
           </section>
 
@@ -642,7 +650,7 @@
             <p class="section-index">08 / CHALLENGES</p>
             <h2 id="section-8-title">課題と解決</h2>
             <p>
-              静的ページ、ブラウザ内ツール、CMS記事を一つの公開成果物へまとめるため、管理元と実行環境の違いを吸収する必要がありました。
+              静的ページ、ブラウザ内ツール、CMS記事を一つのサイトへまとめる必要がありました。<br />下表では、制作上の課題と、現在の構成で採用している対応を整理しています。
             </p>
             <div class="article-table-wrap">
               <table>
@@ -690,7 +698,7 @@
             <div class="article-callout">
               <strong>RESULT</strong>
               <p>
-                管理元の違いをビルド工程で吸収し、公開後はすべてのコンテンツを同じ静的サイトとして配信できる構成にしました。
+                現在は、静的ファイルとCMS記事をビルド工程でまとめ、同じ静的サイトとして公開する構成になっています。<br />今後は、管理元の違いがビルドでどう処理されるか、エラー時にどこを確認するかを、コードと実際の操作を対応させながら理解していきたいと考えています。
               </p>
             </div>
           </section>
@@ -703,22 +711,29 @@
             <p class="section-index">09 / REVIEW &amp; DELIVERY</p>
             <h2 id="section-9-title">検証と公開</h2>
             <p>
-              HTML構造、ローカル参照、SEO、ツール処理、CMS記事、秘密情報を自動検証します。表示と操作は自動検証だけに頼らず、主要な画面幅とキーボード操作でも確認します。
+              検証は、スクリプトによる自動チェックと、ブラウザ・実機での表示確認に分かれます。<br />下記は自動チェックが対象とする項目です。<br />画面上の操作や読みやすさは、これらとは別に確認を進めます。
             </p>
             <ol>
-              <li>mainとh1の数、IDの重複、スキップリンクを確認します。</li>
-              <li>ローカル参照とページ内アンカーのリンク先を確認します。</li>
-              <li>
-                title、description、canonical、OGP、構造化データを確認します。
-              </li>
-              <li>TOOLSの入力、出力、コピー、リセット処理を確認します。</li>
-              <li>CMS記事データとリッチテキストのサニタイズを確認します。</li>
-              <li>生成物へ認証情報が混入していないか確認します。</li>
+              <li>mainとh1の数、IDの重複、スキップリンク。</li>
+              <li>ローカル参照とページ内アンカーのリンク先。</li>
+              <li>title、description、canonical、OGP、構造化データ。</li>
+              <li>各ツールの検証スクリプトで定義した入力・出力処理。</li>
+              <li>CMS記事データとリッチテキストのサニタイズ処理。</li>
+              <li>生成物内の認証情報に関する検出ルールへの該当。</li>
             </ol>
             <pre><code>npm run sync:head
 npm run check
 npm run check:detail
 npm run build</code></pre>
+            <p>
+              画面確認では、表示や操作で気づいた問題をスクリーンショットなどで共有し、調査・修正につなげています。<br />例えばSP幅での課題フローの配置や、iPhone実機で一部のテーブル見出しが大きく見える問題がありました。<br />PCの幅を狭めた表示と実機では結果が異なることもあるため、自動チェックの通過と実機での解消確認を分けて扱います。
+            </p>
+            <div class="article-callout">
+              <strong>LEARNING FOCUS</strong>
+              <p>
+                次の学習課題は、変更したファイルと表示の関係を追うこと、ブラウザ側とビルド側の処理の違いを理解すること、公開が失敗した際にログから確認箇所を見つけることです。<br />コードを掲載するだけでなく、自分で説明できる範囲を少しずつ広げていきます。
+              </p>
+            </div>
             <div class="article-table-wrap">
               <table>
                 <caption class="visually-hidden">
@@ -746,7 +761,7 @@ npm run build</code></pre>
               </table>
             </div>
             <p>
-              microCMSの記事更新は<code>microcms_blog_update</code>イベントとして公開ワークフローへ渡します。ビルドとデプロイが成功した場合だけ公開サイトへ反映します。
+              microCMSの記事更新は<code>microcms_blog_update</code>イベントとして公開ワークフローへ渡します。<br />ビルドとデプロイが成功した場合だけ公開サイトへ反映します。
             </p>
           </section>
 
@@ -758,9 +773,7 @@ npm run build</code></pre>
             <p class="section-index">10 / PROJECT LINKS</p>
             <h2 id="section-10-title">関連リンク</h2>
             <p>
-              制作物の確認、ソースコード、現行仕様を目的別に分けています。今後のCODING
-              NOTEでは、存在する場合だけPORTFOLIO、LIVE
-              DEMO、FIGMAなどのリンクを同じ形式で追加します。
+              実際のサイト、公開しているソースコード、現行仕様をそれぞれ確認できます。<br />記事とあわせて、制作・改善を続けているサイトの現在の状態をご覧ください。
             </p>
             <div
               class="article-project-links"
@@ -794,11 +807,9 @@ npm run build</code></pre>
               </a>
             </div>
             <div class="article-callout">
-              <strong>TEMPLATE RULE</strong>
+              <strong>ABOUT THIS NOTE</strong>
               <p>
-                ポートフォリオは制作物の入口、CODING
-                NOTEは設計・実装の詳細、LIVE
-                DEMOは完成状態の確認先として、CTAの役割を分けます。
+                本記事では、現在の実装仕様と学習中の内容をあわせて記録しています。<br />制作・検証を進める中で理解したことや確認できたことに合わせて、内容も見直していきます。
               </p>
             </div>
           </section>
