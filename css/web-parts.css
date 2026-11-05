@@ -1421,6 +1421,8 @@
   .part-example__code-grid { grid-template-columns: 1fr; grid-template-rows: repeat(2, minmax(0, 1fr)); }
   .part-code { border-right: 0; border-bottom: 1px solid #374151; }
   .part-code:last-child { border-bottom: 0; }
+  .part-code pre { overflow-x: hidden; overflow-y: auto; touch-action: pan-y pinch-zoom; }
+  .part-code code { width: 100%; min-width: 0; max-width: 100%; white-space: pre-wrap; overflow-wrap: anywhere; word-break: normal; }
   .part-common-styles__header { grid-template-columns: 1fr; }
   .part-common-styles__header .section-index { grid-column: auto; }
   .part-common-styles__code,
