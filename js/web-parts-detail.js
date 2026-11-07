@@ -4,6 +4,7 @@
 
   const examples = [...page.querySelectorAll('[data-pattern]')];
   const keywordButtons = [...page.querySelectorAll('[data-pattern-keyword]')];
+  const search = page.querySelector('[data-pattern-search]');
   const count = page.querySelector('[data-pattern-count]');
   const empty = page.querySelector('[data-pattern-empty]');
   let activeKeyword = '';
@@ -12,10 +13,12 @@
 
   const update = () => {
     const query = normalize(activeKeyword);
+    const searchQuery = normalize(search?.value || '');
     let visibleCount = 0;
 
     examples.forEach((example) => {
-      const isVisible = !query || (example.dataset.search || '').toLocaleLowerCase('ja').includes(query);
+      const searchable = normalize(example.dataset.search || '');
+      const isVisible = searchable.includes(query) && searchable.includes(searchQuery);
       example.hidden = !isVisible;
       if (isVisible) visibleCount += 1;
     });
@@ -90,5 +93,6 @@
     });
   });
 
+  search?.addEventListener('input', update);
   update();
 })();

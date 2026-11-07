@@ -110,6 +110,7 @@ microCMSの管理対象は`NOTE to SELF`だけです。CODING NOTE、TOOLS、WEB
 - `FEEDBACK`（`web-parts/feedback.html`）は状態の理解と次の操作に特化する。空状態、権限制限、利用上限、複数工程、部分失敗の再試行、満足度評価の6パターンを収録し、ALERT・TOASTの通知表現やLOADINGの待機表現と区分する。権限・処理・回答はブラウザ内の模擬動作であり、実際の認可・外部送信は行わない
 - `MOTION`（`web-parts/motion.html`）は配置と内容の変化を伝える動きに特化する。並び替え、高さ補間、共有要素遷移、絞り込み時の入退場と再配置、SVGライン描画、経路移動の6パターンを収録する。SCROLL-REVEALのスクロール出現やCLICK-EFFECTSの操作反応と区分し、動きを減らす設定では最終状態を即時表示する
 - 広義の`NAVIGATION`準備中カテゴリは除去済み。HAMBURGER MENUやDROPDOWNは個別用途のカテゴリとして維持し、パンくず・ページネーション等を追加する場合も用途別に分類する
+- `BREADCRUMB`（`web-parts/breadcrumb.html`）は、スラッシュ・線の矢印・塗りつぶし矢印の区切り3種と、淡色・濃色の矢印帯2種を収録する。[CSS Stockの参照例](https://pote-chil.com/css-stock/ja/breadcrumb)をもとに、MARK BENCHの配色とテキストラベルで構成する。追加の独自パターンは`PRACTICAL`として、SPで親階層へ戻る（640px以下）・中間階層を`details`で省略／展開・長い現在地名を独立行に表示する3種を収録する。省略／展開のデモは実在するHOME→WEB PARTS→BREADCRUMBの階層で示し、中間リンクを増やしても展開領域が自然に伸びる構造にする。デモはHTMLとCSSで動作し、祖先リンクと現在地をセマンティックに区別する。KEYWORDS・検索・COPYは詳細共通スクリプトで処理する
 - FEEDBACK・MOTIONの掲載HTML・CSS・JavaScriptは実際のデモと同じ一式を維持する。各CSSブロックは単独利用に必要な基礎設定を含み、共通スタイルセクションは基礎設定の参照用とする
 
 ### BUILD NOTES

@@ -268,6 +268,18 @@ body[data-page="web-parts"] .page-heading__main p { max-width: none; }
 .parts-card__preview i { display: block; width: 45%; border-top: 3px solid var(--color-primary); }
 .parts-card--link .parts-card__preview { position: relative; min-height: 4rem; overflow: hidden; isolation: isolate; }
 .parts-card__preview--heading { gap: 0.8rem; justify-content: flex-start; }
+.parts-card__preview--breadcrumb {
+  justify-content: center;
+  gap: .5rem;
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+.parts-card__preview--breadcrumb strong {
+  padding: .3rem .45rem;
+  color: var(--color-text-inverse);
+  font-size: inherit;
+  background: var(--color-primary);
+}
 .parts-card__preview--heading strong {
   display: grid;
   width: 2.35rem;

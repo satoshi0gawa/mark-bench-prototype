@@ -1,0 +1,1306 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="サイト内の現在地と親階層を示すパンくずリストです。記事の詳細、商品カテゴリ、管理画面など、階層の深いページから上位の一覧へ戻る導線に使えます。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>BREADCRUMB | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/breadcrumb.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="BREADCRUMB | MARK BENCH" />
+    <meta property="og:description" content="サイト内の現在地と親階層を示すパンくずリストです。記事の詳細、商品カテゴリ、管理画面など、階層の深いページから上位の一覧へ戻る導線に使えます。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/breadcrumb.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="BREADCRUMB | MARK BENCH" />
+    <meta name="twitter:description" content="サイト内の現在地と親階層を示すパンくずリストです。記事の詳細、商品カテゴリ、管理画面など、階層の深いページから上位の一覧へ戻る導線に使えます。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "BREADCRUMB",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/breadcrumb.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/web-parts.css" />
+    <link rel="stylesheet" href="../css/web-parts-breadcrumb.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts-detail" data-parts-detail>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header">
+      <div class="site-header__bar">
+        <nav class="site-breadcrumb-logo" aria-label="パンくずリスト">
+          <a class="site-logo" href="../index.html">MARK BENCH</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <a class="site-breadcrumb-logo__parent" href="./">WEB PARTS</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <span class="site-breadcrumb-logo__current" aria-current="page">BREADCRUMB</span>
+        </nav>
+      </div>
+    </header>
+
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション">
+      <a href="../tools/"><strong>TOOLS</strong></a>
+      <a href="./" aria-current="location"><strong>WEB PARTS</strong></a>
+      <a href="../build-notes/"><strong>BUILD NOTES</strong></a>
+      <a href="../about.html"><strong>ABOUT</strong></a>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <header class="part-detail-header">
+        <p class="section-index reveal">WEB_PARTS / BREADCRUMB</p>
+        <h1 class="reveal">BREADCRUMB</h1>
+        <p class="part-detail-header__lead reveal">サイト内の現在地と親階層を示すパンくずリストです。記事の詳細、商品カテゴリ、管理画面など、階層の深いページから上位の一覧へ戻る導線に使えます。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 08</span><span>TYPE: CSS</span><span>DEPENDENCY: NONE</span></div>
+        <a class="part-detail-header__anchor reveal" href="#breadcrumb-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
+      </header>
+
+      <section class="part-detail-controls directory-search directory-keywords" aria-label="パンくずリストのパターンを絞り込み">
+        <div class="directory-keywords__group">
+          <p class="directory-keywords__label">KEYWORDS</p>
+          <div class="directory-keywords__list">
+            <button type="button" aria-pressed="false" aria-controls="breadcrumb-patterns" data-pattern-keyword="区切り"># 区切り</button>
+            <button type="button" aria-pressed="false" aria-controls="breadcrumb-patterns" data-pattern-keyword="矢印"># 矢印</button>
+            <button type="button" aria-pressed="false" aria-controls="breadcrumb-patterns" data-pattern-keyword="スラッシュ"># スラッシュ</button>
+            <button type="button" aria-pressed="false" aria-controls="breadcrumb-patterns" data-pattern-keyword="帯"># 帯</button>
+            <button type="button" aria-pressed="false" aria-controls="breadcrumb-patterns" data-pattern-keyword="実務"># 実務</button>
+          </div>
+          <label class="parts-search">
+            <span>SEARCH</span>
+            <input type="search" placeholder="arrow / 帯..." autocomplete="off" aria-controls="breadcrumb-patterns" data-pattern-search />
+          </label>
+        </div>
+        <p aria-live="polite">DISPLAY: <span data-pattern-count>08</span> / 08</p>
+      </section>
+
+      <div class="part-example-list" id="breadcrumb-patterns">
+        <section class="part-example reveal" data-pattern data-search="区切り スラッシュ 記事 ヘッダー slash separator article header breadcrumb パンくず">
+          <header class="part-example__header">
+            <div><span class="part-example__index">SEPARATOR / 01</span><h2>スラッシュ区切り</h2></div>
+            <small>SLASH</small>
+          </header>
+          <div class="part-example__preview">
+            <nav class="c-breadcrumb c-breadcrumb--slash" aria-label="パンくずリストの例（スラッシュ区切り）">
+              <ol class="c-breadcrumb__list" role="list">
+                <li class="c-breadcrumb__item">
+                  <a class="c-breadcrumb__link" href="../index.html">HOME</a>
+                </li>
+                <li class="c-breadcrumb__item">
+                  <span class="c-breadcrumb__separator" aria-hidden="true">/</span>
+                  <a class="c-breadcrumb__link" href="./">WEB PARTS</a>
+                </li>
+                <li class="c-breadcrumb__item">
+                  <span class="c-breadcrumb__separator" aria-hidden="true">/</span>
+                  <span class="c-breadcrumb__current" aria-current="page">BREADCRUMB</span>
+                </li>
+              </ol>
+            </nav>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code">
+              <div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="HTMLコード"><code>&lt;nav class="c-breadcrumb c-breadcrumb--slash" aria-label="パンくずリストの例（スラッシュ区切り）"&gt;
+  &lt;ol class="c-breadcrumb__list" role="list"&gt;
+    &lt;li class="c-breadcrumb__item"&gt;
+      &lt;a class="c-breadcrumb__link" href="../index.html"&gt;HOME&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="c-breadcrumb__item"&gt;
+      &lt;span class="c-breadcrumb__separator" aria-hidden="true"&gt;/&lt;/span&gt;
+      &lt;a class="c-breadcrumb__link" href="./"&gt;WEB PARTS&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="c-breadcrumb__item"&gt;
+      &lt;span class="c-breadcrumb__separator" aria-hidden="true"&gt;/&lt;/span&gt;
+      &lt;span class="c-breadcrumb__current" aria-current="page"&gt;BREADCRUMB&lt;/span&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="CSSコード"><code>/* Layout */
+.c-breadcrumb {
+  max-inline-size: 100%;
+  color: var(--breadcrumb-ink, var(--color-primary, #18243b));
+  font: .75rem/1.5 var(--font-mono, monospace);
+}
+
+.c-breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c-breadcrumb__item {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+/* Ancestor links and current location */
+.c-breadcrumb__link,
+.c-breadcrumb__current {
+  box-sizing: border-box;
+  display: grid;
+  align-content: center;
+  min-inline-size: 0;
+  min-block-size: 2.75rem;
+  padding: .35rem .45rem;
+  overflow-wrap: anywhere;
+}
+
+.c-breadcrumb__link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.c-breadcrumb__link:focus-visible {
+  outline: 2px solid var(--breadcrumb-focus, var(--color-focus, #315a9b));
+  outline-offset: -2px;
+}
+
+.c-breadcrumb__link:active {
+  text-decoration-thickness: .16em;
+}
+
+.c-breadcrumb__current {
+  color: var(--breadcrumb-current, var(--color-primary, #18243b));
+  font-weight: 700;
+}
+
+.c-breadcrumb__separator {
+  flex: none;
+  color: var(--breadcrumb-divider, var(--color-text-subtle, #667085));
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .c-breadcrumb__link:hover {
+    background: var(--breadcrumb-hover, var(--color-primary-soft, #edf1f7));
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .c-breadcrumb__link {
+    transition: background-color var(--transition-fast, 180ms ease);
+  }
+}
+
+.c-breadcrumb--slash .c-breadcrumb__separator {
+  font-weight: 700;
+}</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>記事のヘッダーなど、本文の見出しと並べても階層表示が目立ちすぎない場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="区切り 矢印 カテゴリ chevron arrow separator category breadcrumb パンくず">
+          <header class="part-example__header">
+            <div><span class="part-example__index">SEPARATOR / 02</span><h2>線の矢印</h2></div>
+            <small>CHEVRON</small>
+          </header>
+          <div class="part-example__preview">
+            <nav class="c-breadcrumb c-breadcrumb--chevron" aria-label="パンくずリストの例（線の矢印）">
+              <ol class="c-breadcrumb__list" role="list">
+                <li class="c-breadcrumb__item">
+                  <a class="c-breadcrumb__link" href="../index.html">HOME</a>
+                </li>
+                <li class="c-breadcrumb__item">
+                  <span class="c-breadcrumb__separator" aria-hidden="true"></span>
+                  <a class="c-breadcrumb__link" href="./">WEB PARTS</a>
+                </li>
+                <li class="c-breadcrumb__item">
+                  <span class="c-breadcrumb__separator" aria-hidden="true"></span>
+                  <span class="c-breadcrumb__current" aria-current="page">BREADCRUMB</span>
+                </li>
+              </ol>
+            </nav>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code">
+              <div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="HTMLコード"><code>&lt;nav class="c-breadcrumb c-breadcrumb--chevron" aria-label="パンくずリストの例（線の矢印）"&gt;
+  &lt;ol class="c-breadcrumb__list" role="list"&gt;
+    &lt;li class="c-breadcrumb__item"&gt;
+      &lt;a class="c-breadcrumb__link" href="../index.html"&gt;HOME&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="c-breadcrumb__item"&gt;
+      &lt;span class="c-breadcrumb__separator" aria-hidden="true"&gt;&lt;/span&gt;
+      &lt;a class="c-breadcrumb__link" href="./"&gt;WEB PARTS&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="c-breadcrumb__item"&gt;
+      &lt;span class="c-breadcrumb__separator" aria-hidden="true"&gt;&lt;/span&gt;
+      &lt;span class="c-breadcrumb__current" aria-current="page"&gt;BREADCRUMB&lt;/span&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="CSSコード"><code>/* Layout */
+.c-breadcrumb {
+  max-inline-size: 100%;
+  color: var(--breadcrumb-ink, var(--color-primary, #18243b));
+  font: .75rem/1.5 var(--font-mono, monospace);
+}
+
+.c-breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c-breadcrumb__item {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+/* Ancestor links and current location */
+.c-breadcrumb__link,
+.c-breadcrumb__current {
+  box-sizing: border-box;
+  display: grid;
+  align-content: center;
+  min-inline-size: 0;
+  min-block-size: 2.75rem;
+  padding: .35rem .45rem;
+  overflow-wrap: anywhere;
+}
+
+.c-breadcrumb__link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.c-breadcrumb__link:focus-visible {
+  outline: 2px solid var(--breadcrumb-focus, var(--color-focus, #315a9b));
+  outline-offset: -2px;
+}
+
+.c-breadcrumb__link:active {
+  text-decoration-thickness: .16em;
+}
+
+.c-breadcrumb__current {
+  color: var(--breadcrumb-current, var(--color-primary, #18243b));
+  font-weight: 700;
+}
+
+.c-breadcrumb__separator {
+  flex: none;
+  color: var(--breadcrumb-divider, var(--color-text-subtle, #667085));
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .c-breadcrumb__link:hover {
+    background: var(--breadcrumb-hover, var(--color-primary-soft, #edf1f7));
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .c-breadcrumb__link {
+    transition: background-color var(--transition-fast, 180ms ease);
+  }
+}
+
+.c-breadcrumb--chevron .c-breadcrumb__separator {
+  inline-size: .4rem;
+  block-size: .4rem;
+  border-block-start: 1px solid;
+  border-inline-end: 1px solid;
+  transform: rotate(45deg);
+}</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>カテゴリから詳細への方向を、細い矢印で控えめに示す商品一覧やドキュメント。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="区切り 矢印 塗りつぶし コンパクト solid triangle arrow compact breadcrumb パンくず">
+          <header class="part-example__header">
+            <div><span class="part-example__index">SEPARATOR / 03</span><h2>塗りつぶし矢印</h2></div>
+            <small>SOLID ARROW</small>
+          </header>
+          <div class="part-example__preview">
+            <nav class="c-breadcrumb c-breadcrumb--solid" aria-label="パンくずリストの例（塗りつぶし矢印）">
+              <ol class="c-breadcrumb__list" role="list">
+                <li class="c-breadcrumb__item">
+                  <a class="c-breadcrumb__link" href="../index.html">HOME</a>
+                </li>
+                <li class="c-breadcrumb__item">
+                  <span class="c-breadcrumb__separator" aria-hidden="true"></span>
+                  <a class="c-breadcrumb__link" href="./">WEB PARTS</a>
+                </li>
+                <li class="c-breadcrumb__item">
+                  <span class="c-breadcrumb__separator" aria-hidden="true"></span>
+                  <span class="c-breadcrumb__current" aria-current="page">BREADCRUMB</span>
+                </li>
+              </ol>
+            </nav>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code">
+              <div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="HTMLコード"><code>&lt;nav class="c-breadcrumb c-breadcrumb--solid" aria-label="パンくずリストの例（塗りつぶし矢印）"&gt;
+  &lt;ol class="c-breadcrumb__list" role="list"&gt;
+    &lt;li class="c-breadcrumb__item"&gt;
+      &lt;a class="c-breadcrumb__link" href="../index.html"&gt;HOME&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="c-breadcrumb__item"&gt;
+      &lt;span class="c-breadcrumb__separator" aria-hidden="true"&gt;&lt;/span&gt;
+      &lt;a class="c-breadcrumb__link" href="./"&gt;WEB PARTS&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="c-breadcrumb__item"&gt;
+      &lt;span class="c-breadcrumb__separator" aria-hidden="true"&gt;&lt;/span&gt;
+      &lt;span class="c-breadcrumb__current" aria-current="page"&gt;BREADCRUMB&lt;/span&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="CSSコード"><code>/* Layout */
+.c-breadcrumb {
+  max-inline-size: 100%;
+  color: var(--breadcrumb-ink, var(--color-primary, #18243b));
+  font: .75rem/1.5 var(--font-mono, monospace);
+}
+
+.c-breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c-breadcrumb__item {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+/* Ancestor links and current location */
+.c-breadcrumb__link,
+.c-breadcrumb__current {
+  box-sizing: border-box;
+  display: grid;
+  align-content: center;
+  min-inline-size: 0;
+  min-block-size: 2.75rem;
+  padding: .35rem .45rem;
+  overflow-wrap: anywhere;
+}
+
+.c-breadcrumb__link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.c-breadcrumb__link:focus-visible {
+  outline: 2px solid var(--breadcrumb-focus, var(--color-focus, #315a9b));
+  outline-offset: -2px;
+}
+
+.c-breadcrumb__link:active {
+  text-decoration-thickness: .16em;
+}
+
+.c-breadcrumb__current {
+  color: var(--breadcrumb-current, var(--color-primary, #18243b));
+  font-weight: 700;
+}
+
+.c-breadcrumb__separator {
+  flex: none;
+  color: var(--breadcrumb-divider, var(--color-text-subtle, #667085));
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .c-breadcrumb__link:hover {
+    background: var(--breadcrumb-hover, var(--color-primary-soft, #edf1f7));
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .c-breadcrumb__link {
+    transition: background-color var(--transition-fast, 180ms ease);
+  }
+}
+
+.c-breadcrumb--solid .c-breadcrumb__separator {
+  inline-size: .35rem;
+  block-size: .5rem;
+  background: currentColor;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>小さな画面で、階層の区切りに使う記号の幅を抑えたい場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="帯 矢印 淡色 灰色 管理画面 soft band arrow dashboard breadcrumb パンくず">
+          <header class="part-example__header">
+            <div><span class="part-example__index">BAND / 01</span><h2>淡色の矢印帯</h2></div>
+            <small>SOFT BAND</small>
+          </header>
+          <div class="part-example__preview">
+            <nav class="c-breadcrumb c-breadcrumb--band" aria-label="パンくずリストの例（淡色の矢印帯）">
+              <ol class="c-breadcrumb__list" role="list">
+                <li class="c-breadcrumb__item">
+                  <a class="c-breadcrumb__link" href="../index.html">HOME</a>
+                </li>
+                <li class="c-breadcrumb__item">
+                  <span class="c-breadcrumb__separator" aria-hidden="true"></span>
+                  <a class="c-breadcrumb__link" href="./">WEB PARTS</a>
+                </li>
+                <li class="c-breadcrumb__item">
+                  <span class="c-breadcrumb__separator" aria-hidden="true"></span>
+                  <span class="c-breadcrumb__current" aria-current="page">BREADCRUMB</span>
+                </li>
+              </ol>
+            </nav>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code">
+              <div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="HTMLコード"><code>&lt;nav class="c-breadcrumb c-breadcrumb--band" aria-label="パンくずリストの例（淡色の矢印帯）"&gt;
+  &lt;ol class="c-breadcrumb__list" role="list"&gt;
+    &lt;li class="c-breadcrumb__item"&gt;
+      &lt;a class="c-breadcrumb__link" href="../index.html"&gt;HOME&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="c-breadcrumb__item"&gt;
+      &lt;span class="c-breadcrumb__separator" aria-hidden="true"&gt;&lt;/span&gt;
+      &lt;a class="c-breadcrumb__link" href="./"&gt;WEB PARTS&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="c-breadcrumb__item"&gt;
+      &lt;span class="c-breadcrumb__separator" aria-hidden="true"&gt;&lt;/span&gt;
+      &lt;span class="c-breadcrumb__current" aria-current="page"&gt;BREADCRUMB&lt;/span&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="CSSコード"><code>/* Layout */
+.c-breadcrumb {
+  max-inline-size: 100%;
+  color: var(--breadcrumb-ink, var(--color-primary, #18243b));
+  font: .75rem/1.5 var(--font-mono, monospace);
+}
+
+.c-breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c-breadcrumb__item {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+/* Ancestor links and current location */
+.c-breadcrumb__link,
+.c-breadcrumb__current {
+  box-sizing: border-box;
+  display: grid;
+  align-content: center;
+  min-inline-size: 0;
+  min-block-size: 2.75rem;
+  padding: .35rem .45rem;
+  overflow-wrap: anywhere;
+}
+
+.c-breadcrumb__link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.c-breadcrumb__link:focus-visible {
+  outline: 2px solid var(--breadcrumb-focus, var(--color-focus, #315a9b));
+  outline-offset: -2px;
+}
+
+.c-breadcrumb__link:active {
+  text-decoration-thickness: .16em;
+}
+
+.c-breadcrumb__current {
+  color: var(--breadcrumb-current, var(--color-primary, #18243b));
+  font-weight: 700;
+}
+
+.c-breadcrumb__separator {
+  flex: none;
+  color: var(--breadcrumb-divider, var(--color-text-subtle, #667085));
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .c-breadcrumb__link:hover {
+    background: var(--breadcrumb-hover, var(--color-primary-soft, #edf1f7));
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .c-breadcrumb__link {
+    transition: background-color var(--transition-fast, 180ms ease);
+  }
+}
+
+.c-breadcrumb--band .c-breadcrumb__list {
+  box-sizing: border-box;
+  padding: .25rem;
+  background: var(--breadcrumb-surface, var(--color-primary-soft, #edf1f7));
+  border: 1px solid var(--breadcrumb-border, var(--color-grid-strong, #aeb8c7));
+}
+
+.c-breadcrumb--band .c-breadcrumb__separator {
+  inline-size: .55rem;
+  block-size: 2.35rem;
+  background: currentColor;
+  clip-path: polygon(0 0, 100% 50%, 0 100%, 0 87%, 75% 50%, 0 13%);
+}</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>管理画面で、淡い帯を使って階層リンクを本文から区切る場面。</p></div>
+        </section>
+
+        <section class="part-example reveal" data-pattern data-search="帯 矢印 濃色 カラー 強調 dark contrast band arrow breadcrumb パンくず">
+          <header class="part-example__header">
+            <div><span class="part-example__index">BAND / 02</span><h2>濃色の矢印帯</h2></div>
+            <small>CONTRAST BAND</small>
+          </header>
+          <div class="part-example__preview">
+            <nav class="c-breadcrumb c-breadcrumb--band c-breadcrumb--band-strong" aria-label="パンくずリストの例（濃色の矢印帯）">
+              <ol class="c-breadcrumb__list" role="list">
+                <li class="c-breadcrumb__item">
+                  <a class="c-breadcrumb__link" href="../index.html">HOME</a>
+                </li>
+                <li class="c-breadcrumb__item">
+                  <span class="c-breadcrumb__separator" aria-hidden="true"></span>
+                  <a class="c-breadcrumb__link" href="./">WEB PARTS</a>
+                </li>
+                <li class="c-breadcrumb__item">
+                  <span class="c-breadcrumb__separator" aria-hidden="true"></span>
+                  <span class="c-breadcrumb__current" aria-current="page">BREADCRUMB</span>
+                </li>
+              </ol>
+            </nav>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code">
+              <div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="HTMLコード"><code>&lt;nav class="c-breadcrumb c-breadcrumb--band c-breadcrumb--band-strong" aria-label="パンくずリストの例（濃色の矢印帯）"&gt;
+  &lt;ol class="c-breadcrumb__list" role="list"&gt;
+    &lt;li class="c-breadcrumb__item"&gt;
+      &lt;a class="c-breadcrumb__link" href="../index.html"&gt;HOME&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="c-breadcrumb__item"&gt;
+      &lt;span class="c-breadcrumb__separator" aria-hidden="true"&gt;&lt;/span&gt;
+      &lt;a class="c-breadcrumb__link" href="./"&gt;WEB PARTS&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="c-breadcrumb__item"&gt;
+      &lt;span class="c-breadcrumb__separator" aria-hidden="true"&gt;&lt;/span&gt;
+      &lt;span class="c-breadcrumb__current" aria-current="page"&gt;BREADCRUMB&lt;/span&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="CSSコード"><code>/* Layout */
+.c-breadcrumb {
+  max-inline-size: 100%;
+  color: var(--breadcrumb-ink, var(--color-primary, #18243b));
+  font: .75rem/1.5 var(--font-mono, monospace);
+}
+
+.c-breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c-breadcrumb__item {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+/* Ancestor links and current location */
+.c-breadcrumb__link,
+.c-breadcrumb__current {
+  box-sizing: border-box;
+  display: grid;
+  align-content: center;
+  min-inline-size: 0;
+  min-block-size: 2.75rem;
+  padding: .35rem .45rem;
+  overflow-wrap: anywhere;
+}
+
+.c-breadcrumb__link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.c-breadcrumb__link:focus-visible {
+  outline: 2px solid var(--breadcrumb-focus, var(--color-focus, #315a9b));
+  outline-offset: -2px;
+}
+
+.c-breadcrumb__link:active {
+  text-decoration-thickness: .16em;
+}
+
+.c-breadcrumb__current {
+  color: var(--breadcrumb-current, var(--color-primary, #18243b));
+  font-weight: 700;
+}
+
+.c-breadcrumb__separator {
+  flex: none;
+  color: var(--breadcrumb-divider, var(--color-text-subtle, #667085));
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .c-breadcrumb__link:hover {
+    background: var(--breadcrumb-hover, var(--color-primary-soft, #edf1f7));
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .c-breadcrumb__link {
+    transition: background-color var(--transition-fast, 180ms ease);
+  }
+}
+
+.c-breadcrumb--band .c-breadcrumb__list {
+  box-sizing: border-box;
+  padding: .25rem;
+  background: var(--breadcrumb-surface, var(--color-primary-soft, #edf1f7));
+  border: 1px solid var(--breadcrumb-border, var(--color-grid-strong, #aeb8c7));
+}
+
+.c-breadcrumb--band .c-breadcrumb__separator {
+  inline-size: .55rem;
+  block-size: 2.35rem;
+  background: currentColor;
+  clip-path: polygon(0 0, 100% 50%, 0 100%, 0 87%, 75% 50%, 0 13%);
+}
+
+.c-breadcrumb--band-strong {
+  --breadcrumb-surface: var(--color-primary, #18243b);
+  --breadcrumb-border: var(--color-primary, #18243b);
+  --breadcrumb-ink: var(--color-text-inverse, #fff);
+  --breadcrumb-current: var(--color-accent-yellow, #ff0);
+  --breadcrumb-divider: var(--color-grid-strong, #aeb8c7);
+  --breadcrumb-focus: var(--color-accent-yellow, #ff0);
+  --breadcrumb-hover: var(--color-primary-hover, #263a5e);
+}</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>階層の深いセクションで、ネイビーの帯と黄色の現在地ラベルで現在地を強調する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--breadcrumb-practical reveal" data-pattern data-search="実務 レスポンシブ 親階層 戻る モバイル responsive parent back mobile breadcrumb パンくず">
+          <header class="part-example__header">
+            <div><span class="part-example__index">PRACTICAL / 01</span><h2>SPで親階層へ戻る</h2></div>
+            <small>PARENT LINK</small>
+          </header>
+          <div class="part-example__preview">
+            <nav class="c-breadcrumb c-breadcrumb--parent" aria-label="パンくずリストの例（SPで親階層へ戻る）">
+              <ol class="c-breadcrumb__list" role="list">
+                <li class="c-breadcrumb__item"><a class="c-breadcrumb__link" href="../index.html">HOME</a></li>
+                <li class="c-breadcrumb__item c-breadcrumb__item--parent">
+                  <span class="c-breadcrumb__separator" aria-hidden="true">/</span>
+                  <a class="c-breadcrumb__link" href="./"><span class="c-breadcrumb__back" aria-hidden="true">←</span>WEB PARTS</a>
+                </li>
+                <li class="c-breadcrumb__item"><span class="c-breadcrumb__separator" aria-hidden="true">/</span><span class="c-breadcrumb__current" aria-current="page">BREADCRUMB</span></li>
+              </ol>
+            </nav>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code">
+              <div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="HTMLコード"><code>&lt;nav class="c-breadcrumb c-breadcrumb--parent" aria-label="パンくずリストの例（SPで親階層へ戻る）"&gt;
+  &lt;ol class="c-breadcrumb__list" role="list"&gt;
+    &lt;li class="c-breadcrumb__item"&gt;&lt;a class="c-breadcrumb__link" href="../index.html"&gt;HOME&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="c-breadcrumb__item c-breadcrumb__item--parent"&gt;
+      &lt;span class="c-breadcrumb__separator" aria-hidden="true"&gt;/&lt;/span&gt;
+      &lt;a class="c-breadcrumb__link" href="./"&gt;&lt;span class="c-breadcrumb__back" aria-hidden="true"&gt;←&lt;/span&gt;WEB PARTS&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="c-breadcrumb__item"&gt;&lt;span class="c-breadcrumb__separator" aria-hidden="true"&gt;/&lt;/span&gt;&lt;span class="c-breadcrumb__current" aria-current="page"&gt;BREADCRUMB&lt;/span&gt;&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="CSSコード"><code>/* Layout */
+.c-breadcrumb {
+  max-inline-size: 100%;
+  color: var(--breadcrumb-ink, var(--color-primary, #18243b));
+  font: .75rem/1.5 var(--font-mono, monospace);
+}
+
+.c-breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c-breadcrumb__item {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+/* Ancestor links and current location */
+.c-breadcrumb__link,
+.c-breadcrumb__current {
+  box-sizing: border-box;
+  display: grid;
+  align-content: center;
+  min-inline-size: 0;
+  min-block-size: 2.75rem;
+  padding: .35rem .45rem;
+  overflow-wrap: anywhere;
+}
+
+.c-breadcrumb__link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.c-breadcrumb__link:focus-visible {
+  outline: 2px solid var(--breadcrumb-focus, var(--color-focus, #315a9b));
+  outline-offset: -2px;
+}
+
+.c-breadcrumb__link:active {
+  text-decoration-thickness: .16em;
+}
+
+.c-breadcrumb__current {
+  color: var(--breadcrumb-current, var(--color-primary, #18243b));
+  font-weight: 700;
+}
+
+.c-breadcrumb__separator {
+  flex: none;
+  color: var(--breadcrumb-divider, var(--color-text-subtle, #667085));
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .c-breadcrumb__link:hover {
+    background: var(--breadcrumb-hover, var(--color-primary-soft, #edf1f7));
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .c-breadcrumb__link {
+    transition: background-color var(--transition-fast, 180ms ease);
+  }
+}
+
+/* Full trail on desktop; direct parent on small screens */
+.c-breadcrumb__back {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .c-breadcrumb--parent .c-breadcrumb__item:not(.c-breadcrumb__item--parent) {
+    display: none;
+  }
+
+  .c-breadcrumb--parent .c-breadcrumb__separator {
+    display: none;
+  }
+
+  .c-breadcrumb--parent .c-breadcrumb__link {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+  }
+
+  .c-breadcrumb__back {
+    display: inline;
+  }
+}</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>スマートフォンで階層表示を簡潔にし、ひとつ上の一覧へ戻る導線を優先する場面。</p></div>
+        </section>
+
+
+        <section class="part-example part-example--breadcrumb-practical reveal" data-pattern data-search="実務 省略 展開 深い階層 詳細 ellipsis overflow collapse expand details deep breadcrumb パンくず">
+          <header class="part-example__header">
+            <div><span class="part-example__index">PRACTICAL / 02</span><h2>中間階層を省略・展開</h2></div>
+            <small>EXPAND ANCESTORS</small>
+          </header>
+          <div class="part-example__preview">
+            <nav class="c-breadcrumb c-breadcrumb--collapse" aria-label="パンくずリストの例（中間階層を省略・展開）">
+              <ol class="c-breadcrumb__list" role="list">
+                <li class="c-breadcrumb__item"><a class="c-breadcrumb__link" href="../index.html">HOME</a></li>
+                <li class="c-breadcrumb__item">
+                  <details class="c-breadcrumb__fold">
+                    <summary class="c-breadcrumb__summary" aria-label="省略した上位階層を表示・非表示"><span aria-hidden="true">…</span></summary>
+                    <ol class="c-breadcrumb__ancestors" role="list">
+                      <li class="c-breadcrumb__item"><a class="c-breadcrumb__link" href="./">WEB PARTS</a></li>
+                    </ol>
+                  </details>
+                </li>
+                <li class="c-breadcrumb__item"><span class="c-breadcrumb__current" aria-current="page">BREADCRUMB</span></li>
+              </ol>
+            </nav>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code">
+              <div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="HTMLコード"><code>&lt;nav class="c-breadcrumb c-breadcrumb--collapse" aria-label="パンくずリストの例（中間階層を省略・展開）"&gt;
+  &lt;ol class="c-breadcrumb__list" role="list"&gt;
+    &lt;li class="c-breadcrumb__item"&gt;&lt;a class="c-breadcrumb__link" href="../index.html"&gt;HOME&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="c-breadcrumb__item"&gt;
+      &lt;details class="c-breadcrumb__fold"&gt;
+        &lt;summary class="c-breadcrumb__summary" aria-label="省略した上位階層を表示・非表示"&gt;&lt;span aria-hidden="true"&gt;…&lt;/span&gt;&lt;/summary&gt;
+        &lt;ol class="c-breadcrumb__ancestors" role="list"&gt;
+          &lt;li class="c-breadcrumb__item"&gt;&lt;a class="c-breadcrumb__link" href="./"&gt;WEB PARTS&lt;/a&gt;&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/details&gt;
+    &lt;/li&gt;
+    &lt;li class="c-breadcrumb__item"&gt;&lt;span class="c-breadcrumb__current" aria-current="page"&gt;BREADCRUMB&lt;/span&gt;&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="CSSコード"><code>/* Layout */
+.c-breadcrumb {
+  max-inline-size: 100%;
+  color: var(--breadcrumb-ink, var(--color-primary, #18243b));
+  font: .75rem/1.5 var(--font-mono, monospace);
+}
+
+.c-breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c-breadcrumb__item {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+/* Ancestor links and current location */
+.c-breadcrumb__link,
+.c-breadcrumb__current {
+  box-sizing: border-box;
+  display: grid;
+  align-content: center;
+  min-inline-size: 0;
+  min-block-size: 2.75rem;
+  padding: .35rem .45rem;
+  overflow-wrap: anywhere;
+}
+
+.c-breadcrumb__link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.c-breadcrumb__link:focus-visible {
+  outline: 2px solid var(--breadcrumb-focus, var(--color-focus, #315a9b));
+  outline-offset: -2px;
+}
+
+.c-breadcrumb__link:active {
+  text-decoration-thickness: .16em;
+}
+
+.c-breadcrumb__current {
+  color: var(--breadcrumb-current, var(--color-primary, #18243b));
+  font-weight: 700;
+}
+
+.c-breadcrumb__separator {
+  flex: none;
+  color: var(--breadcrumb-divider, var(--color-text-subtle, #667085));
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .c-breadcrumb__link:hover {
+    background: var(--breadcrumb-hover, var(--color-primary-soft, #edf1f7));
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .c-breadcrumb__link {
+    transition: background-color var(--transition-fast, 180ms ease);
+  }
+}
+
+/* Native disclosure keeps hidden ancestors keyboard accessible */
+.c-breadcrumb--collapse .c-breadcrumb__list {
+  align-items: flex-start;
+}
+
+.c-breadcrumb__fold {
+  min-inline-size: 0;
+}
+
+.c-breadcrumb__summary {
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  min-inline-size: 2.75rem;
+  min-block-size: 2.75rem;
+  padding: .35rem .6rem;
+  color: inherit;
+  background: var(--color-primary-soft, #edf1f7);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+  cursor: pointer;
+  list-style: none;
+}
+
+.c-breadcrumb__summary::-webkit-details-marker {
+  display: none;
+}
+
+.c-breadcrumb__summary:focus-visible {
+  outline: 2px solid var(--color-focus, #315a9b);
+  outline-offset: -2px;
+}
+
+.c-breadcrumb__fold[open] .c-breadcrumb__summary {
+  color: var(--color-text-inverse, #fff);
+  background: var(--color-primary, #18243b);
+}
+
+.c-breadcrumb__ancestors {
+  display: grid;
+  gap: .25rem;
+  margin: .5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .c-breadcrumb__summary:hover {
+    border-color: currentColor;
+  }
+}</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>階層が深い商品カテゴリやドキュメントで、中間階層を必要なときに開いて移動する場面。</p></div>
+        </section>
+
+
+        <section class="part-example part-example--breadcrumb-practical reveal" data-pattern data-search="実務 長い 現在地 記事名 商品名 折り返し 独立行 long title wrap article product breadcrumb パンくず">
+          <header class="part-example__header">
+            <div><span class="part-example__index">PRACTICAL / 03</span><h2>長い現在地名を独立行に</h2></div>
+            <small>LONG PAGE TITLE</small>
+          </header>
+          <div class="part-example__preview">
+            <nav class="c-breadcrumb c-breadcrumb--title" aria-label="パンくずリストの例（長い現在地名を独立行に）">
+              <ol class="c-breadcrumb__list" role="list">
+                <li class="c-breadcrumb__item"><a class="c-breadcrumb__link" href="../index.html">HOME</a></li>
+                <li class="c-breadcrumb__item"><span class="c-breadcrumb__separator" aria-hidden="true">/</span><a class="c-breadcrumb__link" href="./">WEB PARTS</a></li>
+                <li class="c-breadcrumb__item"><span class="c-breadcrumb__current" aria-current="page">パンくずリストのデザインと実務で使えるパターンの選び方</span></li>
+              </ol>
+            </nav>
+          </div>
+          <div class="part-example__code-grid">
+            <div class="part-code">
+              <div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="HTMLコード"><code>&lt;nav class="c-breadcrumb c-breadcrumb--title" aria-label="パンくずリストの例（長い現在地名を独立行に）"&gt;
+  &lt;ol class="c-breadcrumb__list" role="list"&gt;
+    &lt;li class="c-breadcrumb__item"&gt;&lt;a class="c-breadcrumb__link" href="../index.html"&gt;HOME&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="c-breadcrumb__item"&gt;&lt;span class="c-breadcrumb__separator" aria-hidden="true"&gt;/&lt;/span&gt;&lt;a class="c-breadcrumb__link" href="./"&gt;WEB PARTS&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="c-breadcrumb__item"&gt;&lt;span class="c-breadcrumb__current" aria-current="page"&gt;パンくずリストのデザインと実務で使えるパターンの選び方&lt;/span&gt;&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="CSSコード"><code>/* Layout */
+.c-breadcrumb {
+  max-inline-size: 100%;
+  color: var(--breadcrumb-ink, var(--color-primary, #18243b));
+  font: .75rem/1.5 var(--font-mono, monospace);
+}
+
+.c-breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c-breadcrumb__item {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+/* Ancestor links and current location */
+.c-breadcrumb__link,
+.c-breadcrumb__current {
+  box-sizing: border-box;
+  display: grid;
+  align-content: center;
+  min-inline-size: 0;
+  min-block-size: 2.75rem;
+  padding: .35rem .45rem;
+  overflow-wrap: anywhere;
+}
+
+.c-breadcrumb__link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.c-breadcrumb__link:focus-visible {
+  outline: 2px solid var(--breadcrumb-focus, var(--color-focus, #315a9b));
+  outline-offset: -2px;
+}
+
+.c-breadcrumb__link:active {
+  text-decoration-thickness: .16em;
+}
+
+.c-breadcrumb__current {
+  color: var(--breadcrumb-current, var(--color-primary, #18243b));
+  font-weight: 700;
+}
+
+.c-breadcrumb__separator {
+  flex: none;
+  color: var(--breadcrumb-divider, var(--color-text-subtle, #667085));
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .c-breadcrumb__link:hover {
+    background: var(--breadcrumb-hover, var(--color-primary-soft, #edf1f7));
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .c-breadcrumb__link {
+    transition: background-color var(--transition-fast, 180ms ease);
+  }
+}
+
+/* A full-width current location preserves the complete title */
+.c-breadcrumb--title {
+  inline-size: 100%;
+}
+
+.c-breadcrumb--title .c-breadcrumb__item:last-child {
+  flex-basis: 100%;
+  padding-block-start: .5rem;
+  border-block-start: 1px solid var(--color-grid-strong, #aeb8c7);
+}
+
+.c-breadcrumb--title .c-breadcrumb__current {
+  border-inline-start: 3px solid var(--color-primary, #18243b);
+  font-family: var(--font-sans, sans-serif);
+  font-size: .875rem;
+}</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>長い記事名や商品名を省略せずに表示し、上位階層と現在地を読み分けやすくする場面。</p></div>
+        </section>
+      </div>
+
+      <div class="part-detail-empty" data-pattern-empty hidden>
+        <p>[ NO_PATTERNS_FOUND ]</p>
+        <p>キーワードの選択や検索語を変更してください。</p>
+      </div>
+
+      <section class="part-common-styles" id="breadcrumb-common-styles" aria-labelledby="breadcrumb-common-title">
+        <header class="part-common-styles__header reveal">
+          <p class="section-index">BREADCRUMB / COMMON_STYLE</p>
+          <h2 id="breadcrumb-common-title">共通スタイル</h2>
+          <p>階層の折り返し、祖先リンク、現在地の強調、フォーカス表示を揃える基礎設定です。</p>
+        </header>
+        <div class="part-common-styles__code">
+          <div class="part-code">
+              <div class="part-code__header"><span>CSS / COMMON</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="CSS / COMMONコード"><code>/* Layout */
+.c-breadcrumb {
+  max-inline-size: 100%;
+  color: var(--breadcrumb-ink, var(--color-primary, #18243b));
+  font: .75rem/1.5 var(--font-mono, monospace);
+}
+
+.c-breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c-breadcrumb__item {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+/* Ancestor links and current location */
+.c-breadcrumb__link,
+.c-breadcrumb__current {
+  box-sizing: border-box;
+  display: grid;
+  align-content: center;
+  min-inline-size: 0;
+  min-block-size: 2.75rem;
+  padding: .35rem .45rem;
+  overflow-wrap: anywhere;
+}
+
+.c-breadcrumb__link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.c-breadcrumb__link:focus-visible {
+  outline: 2px solid var(--breadcrumb-focus, var(--color-focus, #315a9b));
+  outline-offset: -2px;
+}
+
+.c-breadcrumb__link:active {
+  text-decoration-thickness: .16em;
+}
+
+.c-breadcrumb__current {
+  color: var(--breadcrumb-current, var(--color-primary, #18243b));
+  font-weight: 700;
+}
+
+.c-breadcrumb__separator {
+  flex: none;
+  color: var(--breadcrumb-divider, var(--color-text-subtle, #667085));
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .c-breadcrumb__link:hover {
+    background: var(--breadcrumb-hover, var(--color-primary-soft, #edf1f7));
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .c-breadcrumb__link {
+    transition: background-color var(--transition-fast, 180ms ease);
+  }
+}</code></pre>
+            </div>
+        </div>
+      </section>
+
+      <footer class="page-footer" aria-label="ページナビゲーション">
+        <a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO WEB PARTS</span></a>
+        <a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a>
+      </footer>
+    </main>
+
+    <script src="../js/web-parts-detail.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>
