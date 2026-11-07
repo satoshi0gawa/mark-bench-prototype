@@ -4,6 +4,13 @@
   workspace.dataset.toolWorkspaceInitialized = 'true';
 
   const definitions = {
+    'flexbox-generator': {
+      number: 'CSS_TOOLS', title: 'Flexbox Generator',
+      summary: '方向・整列・折り返し・余白を視覚的に調整し、FlexboxのCSSとHTMLを生成します。',
+      status: 'READY', version: '0.1.1', updated: '2026.11.07', kind: 'flexbox',
+      steps: ['プリセットまたはSAMPLEから配置の出発点を選択します。', '方向・整列・折り返し・gapと子要素の伸縮を調整します。', 'プレビューと主軸・交差軸の説明を確認します。逆順でも読み上げ順は変わりません。', 'COPY CSS・COPY HTMLで結果を使用します。CLEARで初期設定へ戻ります。'],
+      specs: [['OUTPUT', 'CSS + HTML'], ['PRESETS', '4 Layouts'], ['ITEMS', '1–24'], ['GAP', '0–128px'], ['BASIS', '0–480px / Main Axis'], ['HEIGHT', '160–640px'], ['STORAGE', 'None']],
+    },
     'text-case-converter': {
       number: 'TEXT_TOOLS',
       title: 'Text Case Converter',
@@ -332,7 +339,8 @@
   const showToast = (message, tone = 'default') => {
     const isStateToast = message === RESET_TOAST_MESSAGE || message === CLEAR_TOAST_MESSAGE;
     const isActionToast = tone === 'copy' || tone === 'download';
-    if (!toast || (!isStateToast && !isActionToast)) return;
+    const isSettingsReset = key === 'flexbox-generator' && tone === 'reset' && message === '表示内容をリセットしました。';
+    if (!toast || (!isStateToast && !isActionToast && !isSettingsReset)) return;
     window.clearTimeout(toastTimer);
     window.clearTimeout(toastHideTimer);
     toast.textContent = message;
@@ -3194,6 +3202,7 @@
   };
 
   if (tool.kind === 'case') renderCaseConverter();
+  else if (tool.kind === 'flexbox') window.MarkBenchFlexboxGenerator.mount({ workspace, copyText, showToast });
   else if (tool.kind === 'diff') renderTextDiffViewer();
   else if (tool.kind === 'regex') renderRegexTesterReplacer();
   else if (tool.kind === 'url-builder') renderUrlQueryStringBuilder();
@@ -3222,6 +3231,7 @@
   else renderPlaceholder();
 
   workspace.addEventListener('click', (event) => {
+    if (event.target.closest('[data-flex-clear]')) return;
     const button = event.target.closest('button, input[type="reset"]');
     const buttonLabel = button instanceof HTMLInputElement ? button.value : button?.textContent;
     const normalizedButtonLabel = String(buttonLabel || '').trim().toUpperCase();

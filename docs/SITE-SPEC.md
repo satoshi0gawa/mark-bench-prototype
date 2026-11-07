@@ -97,6 +97,8 @@ microCMSの管理対象は`NOTE to SELF`だけです。CODING NOTE、TOOLS、WEB
 - ツール処理は原則ブラウザ内で完結し、入力内容を外部送信しない
 - 詳細ページはツール本体、使い方、仕様、共通フッターで構成する
 - ツール追加時は一覧カード、件数、対応する検証スクリプトも更新する
+- `Flexbox Generator`（`tools/flexbox-generator.html`／Flexbox生成）はCSSカテゴリに配置する。方向・主軸／交差軸の整列・折り返し・align-content・gap・paddingと、共通のflex-basis／grow／shrink、1〜24個のアイテムを調整し、CSSとHTMLを生成する。CARDS・CENTER・HEADER・STACKの4プリセットを収録する。固定高さ（160〜640px）も出力し、プレビューの色と番号の装飾は出力へ含めない。逆順表示でもDOM順は変わらず、実コンテンツの読み順・はみ出しは利用先で確認する
+- Flexbox Generatorの数値は範囲内の整数のみを受け付ける。空欄・無効値では項目別エラーと集計状態を表示し、出力・プレビューを消してCOPYを無効にする。CLEARは初期設定へ戻して「表示内容をリセットしました。」を通知する。既存ツールのCLEAR通知は維持する。検証は`npm run check:flexbox`を使用する。参考資料は[WebToolBoxのFlexbox生成](https://wtoolbox.net/src/tools/css/flexbox-gen/)とし、機能の調査だけに使用し、UIとコードはMARK BENCH向けに作成する
 
 ### WEB PARTS
 
