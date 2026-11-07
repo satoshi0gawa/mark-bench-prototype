@@ -28,8 +28,8 @@
       else state[key] = value;
     }
     if (Object.keys(errors).length) return { valid: false, errors, css: '', html: '' };
-    const css = `.c-flex-layout {\n  display: flex;\n  flex-direction: ${state.direction};\n  justify-content: ${state.justify};\n  align-items: ${state.align};\n  flex-wrap: ${state.wrap};\n  align-content: ${state.content};\n  gap: ${state.gap}px;\n  padding: ${state.padding}px;\n  height: ${state.height}px;\n  box-sizing: border-box;\n}\n\n.c-flex-layout__item {\n  flex: ${state.grow} ${state.shrink} ${state.basis}px;\n  min-width: 0;\n  min-height: 0;\n  box-sizing: border-box;\n}`;
-    const html = `<div class="c-flex-layout">\n${Array.from({ length: state.count }, (_, i) => `  <div class="c-flex-layout__item">Item ${i + 1}</div>`).join('\n')}\n</div>`;
+    const css = `.flex-layout {\n  display: flex;\n  flex-direction: ${state.direction};\n  justify-content: ${state.justify};\n  align-items: ${state.align};\n  flex-wrap: ${state.wrap};\n  align-content: ${state.content};\n  gap: ${state.gap}px;\n  padding: ${state.padding}px;\n  height: ${state.height}px;\n  box-sizing: border-box;\n}\n\n.flex-layout__item {\n  flex: ${state.grow} ${state.shrink} ${state.basis}px;\n  min-width: 0;\n  min-height: 0;\n  box-sizing: border-box;\n}`;
+    const html = `<div class="flex-layout">\n${Array.from({ length: state.count }, (_, i) => `  <div class="flex-layout__item">Item ${i + 1}</div>`).join('\n')}\n</div>`;
     return { valid: true, errors, state, css, html };
   };
   const mount = ({ workspace, copyText, showToast }) => {

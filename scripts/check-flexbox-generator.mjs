@@ -3,7 +3,11 @@ await import('../js/flexbox-generator.js');
 const { generate, defaults, ranges, choices, presets } = globalThis.MarkBenchFlexboxGenerator;
 const standard = generate();
 assert.equal(standard.valid, true);
-assert.equal((standard.html.match(/class="c-flex-layout__item"/g) || []).length, 6);
+assert.equal((standard.html.match(/class="flex-layout__item"/g) || []).length, 6);
+assert.match(standard.css, /^\.flex-layout \{/);
+assert.match(standard.css, /\.flex-layout__item \{/);
+assert.match(standard.html, /^<div class="flex-layout">/);
+assert.doesNotMatch(standard.css + standard.html, /c-flex-layout/);
 assert.match(standard.css, /flex: 0 1 120px/);
 for (const [key, [min, max]] of Object.entries(ranges)) {
   for (const value of [min, max, String(min), String(max)]) assert.equal(generate({ [key]: value }).valid, true, `${key}: ${value}`);
@@ -20,7 +24,7 @@ for (const [key, values] of Object.entries(choices)) {
 }
 for (const preset of Object.values(presets)) assert.equal(generate(preset).valid, true);
 assert.match(generate({ direction: 'column', grow: 2, shrink: 0, basis: 48 }).css, /flex: 2 0 48px/);
-assert.equal((generate({ count: 24 }).html.match(/class="c-flex-layout__item"/g) || []).length, 24);
+assert.equal((generate({ count: 24 }).html.match(/class="flex-layout__item"/g) || []).length, 24);
 const original = { ...defaults };
 generate(original);
 assert.deepEqual(original, defaults);
