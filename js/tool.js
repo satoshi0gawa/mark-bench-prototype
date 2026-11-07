@@ -4,6 +4,13 @@
   workspace.dataset.toolWorkspaceInitialized = 'true';
 
   const definitions = {
+    'css-grid-generator': {
+      number: 'CSS_TOOLS', title: 'CSS Grid Generator',
+      summary: '列数・行数・gap・配置を視覚的に調整し、CSS GridのCSSとHTMLを生成します。',
+      status: 'READY', version: '0.1.1', updated: '2026.11.07', kind: 'css-grid',
+      steps: ["プリセットまたはSAMPLEからレイアウトを選択します。","列・行・gap・整列と自動配置を調整します。auto-fit／auto-fillでは最小列幅を指定します。","必要に応じて先頭アイテムのspanを設定し、プレビューと読み順の注意を確認します。","COPY CSS・COPY HTMLで結果を使用します。CLEARで初期設定へ戻ります。"],
+      specs: [["OUTPUT","CSS + HTML"],["COLUMNS","1–12 / Auto Repeat"],["ROWS","1–12 + Implicit"],["ITEMS","1–48"],["GAPS","0–128px / Each Axis"],["HEIGHT","160–640px"],["STORAGE","None"]],
+    },
     'flexbox-generator': {
       number: 'CSS_TOOLS', title: 'Flexbox Generator',
       summary: '方向・整列・折り返し・余白を視覚的に調整し、FlexboxのCSSとHTMLを生成します。',
@@ -339,7 +346,7 @@
   const showToast = (message, tone = 'default') => {
     const isStateToast = message === RESET_TOAST_MESSAGE || message === CLEAR_TOAST_MESSAGE;
     const isActionToast = tone === 'copy' || tone === 'download';
-    const isSettingsReset = key === 'flexbox-generator' && tone === 'reset' && message === '表示内容をリセットしました。';
+    const isSettingsReset = ['flexbox-generator', 'css-grid-generator'].includes(key) && tone === 'reset' && message === '表示内容をリセットしました。';
     if (!toast || (!isStateToast && !isActionToast && !isSettingsReset)) return;
     window.clearTimeout(toastTimer);
     window.clearTimeout(toastHideTimer);
@@ -3202,6 +3209,7 @@
   };
 
   if (tool.kind === 'case') renderCaseConverter();
+  else if (tool.kind === 'css-grid') window.MarkBenchCssGridGenerator.mount({ workspace, copyText, showToast });
   else if (tool.kind === 'flexbox') window.MarkBenchFlexboxGenerator.mount({ workspace, copyText, showToast });
   else if (tool.kind === 'diff') renderTextDiffViewer();
   else if (tool.kind === 'regex') renderRegexTesterReplacer();
@@ -3231,7 +3239,7 @@
   else renderPlaceholder();
 
   workspace.addEventListener('click', (event) => {
-    if (event.target.closest('[data-flex-clear]')) return;
+    if (event.target.closest('[data-flex-clear], [data-grid-clear]')) return;
     const button = event.target.closest('button, input[type="reset"]');
     const buttonLabel = button instanceof HTMLInputElement ? button.value : button?.textContent;
     const normalizedButtonLabel = String(buttonLabel || '').trim().toUpperCase();
