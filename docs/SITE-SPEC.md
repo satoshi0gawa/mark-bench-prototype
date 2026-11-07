@@ -98,6 +98,7 @@ microCMSの管理対象は`NOTE to SELF`だけです。CODING NOTE、TOOLS、WEB
 - 詳細ページはツール本体、使い方、仕様、共通フッターで構成する
 - 詳細ページの`dl.tool-header__meta`は`--page-gutter`内に配置し、左右端と項目間に共通の区切り線を表示する。全項目の内側余白は1.25remで統一し、先頭のSTATUSも同じ左余白を持たせる。PC・Tabletは4列、SPは1列とし、SPでも左右端の罫線と余白を維持する
 - ツール追加時は一覧カード、件数、対応する検証スクリプトも更新する
+- 公開中30ツールのLAST UPDATEDは2026/07/24（金）を開始基準日とし、当時のTOOLS一覧順で翌7/25（土）から毎週土・日に1件ずつ、11/01（日）まで割り当てる。`js/tool.js`の`updated`と各詳細HTMLの`data-tool-updated`を`YYYY.MM.DD`で同期する。割当はツールIDに紐付く確定値とし、以後の一覧並べ替えで振り直さない。`npm run check:detail`の承認済み日付表で全30件の網羅・曜日・重複・JavaScript／HTMLの一致を検証する
 - `CSS Minifier`の圧縮結果欄（`textarea[data-minifier-output]`）は背景色`#e5e7eb`・文字色`#18243b`とする
 - `CSS Minifier`（`tools/css-minifier.html`／CSS圧縮）はCSSカテゴリの先頭に置く。CSSを入力後180msで自動圧縮し、SAMPLE・CLEAR・COPY CSS、ライセンスコメント保持（初期ON）・末尾セミコロン省略（初期ON）、文字数・UTF-8バイト数・削減バイト数・削減率を表示する。上限100,000文字・括弧128段で、空欄・構文エラー・上限超過時は古い結果を消してCOPYを無効にする。エラーは行・列付きで表示し、IME変換中は処理を待つ。CLEARは入力と設定を初期化し「表示内容をリセットしました。」を通知する。処理・コピーはブラウザ内で完結し、入力CSSを実行・描画しない
 - CSS圧縮は固定版`css-tree` 3.2.1（MIT）のローカル配布を使う。字句解析で括弧・文字列・URL・コメントの閉じ忘れを検出し、構文木から空白を削減する。通常の子孫セレクター・calc演算子・文字列・URL・ネスト・@layer等を保持し、数値／色の短縮、ルール統合・並べ替え・互換性変換は行わない。CSS変数や未解析のRaw値は空白・コメントを含めて保持するため、コメント削除設定の対象外。プロパティ値の妥当性やブラウザ互換性の判定、SCSS／Less、ソースマップ再生成は対象外。一般コメントとsourceMappingURLコメントは除去し、`/*!`コメントは既定で保持する。参考は[WebToolBox](https://wtoolbox.net/src/tools/css/css-minifier/)の操作・集計構成と[CSSTree公式](https://github.com/csstree/csstree)。ベンダー更新は依存版を固定して`npm run sync:minifier-engine`を実行し、同梱MITライセンスを維持する。検証は`npm run check:minifier`

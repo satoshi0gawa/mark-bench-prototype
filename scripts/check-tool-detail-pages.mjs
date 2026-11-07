@@ -23,7 +23,6 @@ const partsDirectory = await readFile(new URL('../web-parts/index.html', import.
 
 assert.match(toolScript, /setText\('\[data-site-breadcrumb-current\]', tool\.title\);/u);
 assert.doesNotMatch(toolScript, /tool\.title\.toUpperCase\(\)/u);
-assert.equal((toolScript.match(/updated: '2026\.11\.01',/gu) || []).length, 26);
 assert.match(toolScript, /setText\('\[data-tool-updated\]', tool\.updated\);/u);
 assert.doesNotMatch(toolScript, /version: '0\.[12]\.0'/u);
 assert.match(toolScript, /const RESET_TOAST_MESSAGE = '表示をリセットしました。';/u);
@@ -180,12 +179,59 @@ const breadcrumbTitles = {
   'width-converter.html': 'Width Converter',
 };
 
+// Approved allocation: 2026-07-24 Friday anchor, then one tool each Saturday/Sunday.
+const expectedUpdateDates = {
+  'text-case-converter': '2026.07.25',
+  'directory-tree-generator': '2026.07.26',
+  'markdown-preview-editor': '2026.08.01',
+  'code-block-generator': '2026.08.02',
+  'bem-class-builder': '2026.08.08',
+  'image-format-converter-resizer': '2026.08.09',
+  'text-diff-viewer': '2026.08.15',
+  'regex-tester-replacer': '2026.08.16',
+  'width-converter': '2026.08.22',
+  'text-formatter': '2026.08.23',
+  'character-counter': '2026.08.29',
+  'unicode-inspector': '2026.08.30',
+  'slug-generator': '2026.09.05',
+  'url-query-string-builder': '2026.09.06',
+  'meta-tags-ogp-builder': '2026.09.12',
+  'base64-data-url-converter': '2026.09.13',
+  'html-table-builder': '2026.09.19',
+  'html-escape-converter': '2026.09.20',
+  'numeric-character-reference-converter': '2026.09.26',
+  'json-formatter': '2026.09.27',
+  'css-minifier': '2026.10.03',
+  'flexbox-generator': '2026.10.04',
+  'css-grid-generator': '2026.10.10',
+  'border-radius-generator': '2026.10.11',
+  'fluid-scale-generator': '2026.10.17',
+  'css-specificity-calculator': '2026.10.18',
+  'css-custom-property-builder': '2026.10.24',
+  'color-format-converter': '2026.10.25',
+  'px-rem-converter': '2026.10.31',
+  'responsive-image-markup-builder': '2026.11.01',
+};
+const definitionDates = new Map([...toolScript.matchAll(/^    '([^']+)': \{[\s\S]*?\bupdated: '(\d{4}\.\d{2}\.\d{2})'/gmu)]
+  .map(([, id, updated]) => [id, updated]));
+assert.deepEqual([...definitionDates.keys()].sort(), Object.keys(expectedUpdateDates).sort(), 'All tool definitions should have an approved date');
+assert.deepEqual(Object.keys(breadcrumbTitles).map(file => file.replace(/\.html$/u, '')).sort(), Object.keys(expectedUpdateDates).sort(), 'All detail pages should be covered');
+assert.equal(new Set(Object.values(expectedUpdateDates)).size, 30, 'Each tool should have its own date');
+for (const [index, [id, updated]] of Object.entries(expectedUpdateDates).entries()) {
+  const date = new Date(Date.UTC(2026, 6, 25 + Math.floor(index / 2) * 7 + index % 2));
+  const expected = date.toISOString().slice(0, 10).replaceAll('-', '.');
+  assert.equal(updated, expected, `${id} should follow the approved weekend allocation`);
+  assert.ok([0, 6].includes(date.getUTCDay()), `${id} should be allocated to a weekend`);
+  assert.equal(definitionDates.get(id), updated, `${id} JavaScript date should match the approved date`);
+}
+
 for (const [file, title] of Object.entries(breadcrumbTitles)) {
   const page = await readFile(new URL(`../tools/${file}`, import.meta.url), 'utf8');
   const match = page.match(/data-site-breadcrumb-current[^>]*>([^<]*)</u);
   assert.equal(match?.[1], title, `${file} should use its page title in the current breadcrumb`);
   assert.match(page, /class="privacy-note__body"/u, `${file} should wrap the privacy note body for the mobile layout`);
-  assert.ok(page.includes(`<dt>LAST UPDATED</dt><dd data-tool-updated>${['flexbox-generator.html', 'css-grid-generator.html', 'border-radius-generator.html', 'css-minifier.html'].includes(file) ? '2026.11.07' : '2026.11.01'}</dd>`), `${file} should expose the current update date`);
+  const updated = expectedUpdateDates[file.replace(/\.html$/u, '')];
+  assert.ok(page.includes(`<dt>LAST UPDATED</dt><dd data-tool-updated>${updated}</dd>`), `${file} HTML date should match the approved JavaScript date`);
   assert.match(page, /data-tool-version>0\.[12]\.1<\/dd>/u, `${file} should expose the incremented patch version`);
   assert.doesNotMatch(page, /<dt>UPDATED<\/dt>/u, `${file} should use the LAST UPDATED label`);
 }
