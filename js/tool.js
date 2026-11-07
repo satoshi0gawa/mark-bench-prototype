@@ -4,6 +4,13 @@
   workspace.dataset.toolWorkspaceInitialized = 'true';
 
   const definitions = {
+    'css-minifier': {
+      number: 'CSS_TOOLS', title: 'CSS Minifier',
+      summary: 'CSSのコメントと余分な空白を削減し、圧縮結果とUTF-8の削減量を確認します。',
+      status: 'READY', version: '0.1.1', updated: '2026.11.07', kind: 'css-minifier',
+      steps: ['CSSを入力するか、SAMPLEでサンプルを読み込みます。', 'ライセンスコメントの保持と末尾セミコロンの省略を選択します。', '自動更新される圧縮結果・バイト数・削減率を確認します。', 'COPY CSSで結果をコピーします。CLEARで入力と設定をリセットします。'],
+      specs: [['INPUT', 'CSS Stylesheet'], ['OUTPUT', 'Minified CSS'], ['LIMIT', '100,000 Characters / 128 Nesting Levels'], ['METRICS', 'UTF-8 Bytes / Characters'], ['COMMENTS', 'Optional /*! License */ Preservation'], ['ENGINE', 'CSSTree 3.2.1 / MIT'], ['STORAGE', 'None']],
+    },
     'border-radius-generator': {
       number: 'CSS_TOOLS', title: 'Border Radius Generator',
       summary: '4隅の角丸・全角統一・楕円の半径を視覚的に調整し、border-radiusのCSSとHTMLを生成します。',
@@ -353,7 +360,7 @@
   const showToast = (message, tone = 'default') => {
     const isStateToast = message === RESET_TOAST_MESSAGE || message === CLEAR_TOAST_MESSAGE;
     const isActionToast = tone === 'copy' || tone === 'download';
-    const isSettingsReset = ['flexbox-generator', 'css-grid-generator', 'border-radius-generator'].includes(key) && tone === 'reset' && message === '表示内容をリセットしました。';
+    const isSettingsReset = ['flexbox-generator', 'css-grid-generator', 'border-radius-generator', 'css-minifier'].includes(key) && tone === 'reset' && message === '表示内容をリセットしました。';
     if (!toast || (!isStateToast && !isActionToast && !isSettingsReset)) return;
     window.clearTimeout(toastTimer);
     window.clearTimeout(toastHideTimer);
@@ -3216,6 +3223,7 @@
   };
 
   if (tool.kind === 'case') renderCaseConverter();
+  else if (tool.kind === 'css-minifier') window.MarkBenchCssMinifier.mount({ workspace, copyText, showToast });
   else if (tool.kind === 'border-radius') window.MarkBenchBorderRadiusGenerator.mount({ workspace, copyText, showToast });
   else if (tool.kind === 'css-grid') window.MarkBenchCssGridGenerator.mount({ workspace, copyText, showToast });
   else if (tool.kind === 'flexbox') window.MarkBenchFlexboxGenerator.mount({ workspace, copyText, showToast });
@@ -3247,7 +3255,7 @@
   else renderPlaceholder();
 
   workspace.addEventListener('click', (event) => {
-    if (event.target.closest('[data-flex-clear], [data-grid-clear], [data-radius-clear]')) return;
+    if (event.target.closest('[data-flex-clear], [data-grid-clear], [data-radius-clear], [data-minifier-clear]')) return;
     const button = event.target.closest('button, input[type="reset"]');
     const buttonLabel = button instanceof HTMLInputElement ? button.value : button?.textContent;
     const normalizedButtonLabel = String(buttonLabel || '').trim().toUpperCase();

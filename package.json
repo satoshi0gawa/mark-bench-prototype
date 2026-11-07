@@ -38,6 +38,8 @@
     "check:numeric": "node scripts/check-numeric-character-reference-converter.mjs",
     "check:fluid": "node scripts/check-fluid-scale-generator.mjs",
     "check:radius": "node scripts/check-border-radius-generator.mjs",
+    "check:minifier": "node scripts/check-css-minifier.mjs",
+    "sync:minifier-engine": "node scripts/sync-css-minifier-engine.mjs",
     "check:grid": "node scripts/check-css-grid-generator.mjs",
     "check:flexbox": "node scripts/check-flexbox-generator.mjs",
     "check:width": "node scripts/check-width-converter.mjs",
@@ -52,6 +54,7 @@
     "node": ">=22.12"
   },
   "dependencies": {
+    "css-tree": "3.2.1",
     "sanitize-html": "2.18.1"
   }
 }
