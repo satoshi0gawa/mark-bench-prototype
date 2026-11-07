@@ -90,7 +90,7 @@ assert.match(componentStyles, /--breadcrumb-font-size: 0\.875rem;/u);
 assert.match(componentStyles, /body\[data-page="blog"\]:has\(\.article-layout\) \.site-breadcrumb-logo__current/u);
 assert.doesNotMatch(componentStyles, /body\[data-page="(?:tools|blog)"\][^{]*\.site-breadcrumb-logo[^{}]*\{[^}]*font-size:/u);
 assert.match(toolsDirectory, /<div class="page-heading__main reveal">\s*<h1>TOOLS<\/h1>\s*<p class="visually-hidden">[^<]+<\/p>/u);
-assert.match(toolsDirectory, /<div class="page-heading__meta reveal"><span>CATEGORIES: 04<\/span><span>TOOLS: 28<\/span><span>STATUS: 28 READY \/ 00 PLANNED<\/span><\/div>/u);
+assert.match(toolsDirectory, /<div class="page-heading__meta reveal"><span>CATEGORIES: 04<\/span><span>TOOLS: 29<\/span><span>STATUS: 29 READY \/ 00 PLANNED<\/span><\/div>/u);
 assert.match(toolsDirectory, /<footer class="page-footer" aria-label="ページナビゲーション">[\s\S]*?BACK TO HOME[\s\S]*?PAGE TOP[\s\S]*?<\/footer>/u);
 assert.match(partsDirectory, /<div class="page-heading__main reveal">\s*<h1>WEB PARTS<\/h1>\s*<p class="visually-hidden">[^<]+<\/p>/u);
 assert.doesNotMatch(toolsDirectory, /tool-card__category|TOOL_\d{3}/u);
@@ -105,7 +105,7 @@ assert.doesNotMatch(styles, /\.tool-grid--directory \.tool-card:nth-child\(2n\) 
 
 const expectedToolIndex = { text: 'TEXT_TOOLS', code: 'CODE_TOOLS', css: 'CSS_TOOLS', image: 'IMAGE_TOOLS' };
 const directoryCards = [...toolsDirectory.matchAll(/<article class="tool-card"[^>]*data-category="([^"]+)"[^>]*>\s*<div class="tool-card__meta"><span>([^<]+)<\/span>/gu)];
-assert.equal(directoryCards.length, 28);
+assert.equal(directoryCards.length, 29);
 directoryCards.forEach(([, category, index]) => {
   assert.equal(index, expectedToolIndex[category], `${category} cards should expose the detail page section index`);
 });
@@ -133,6 +133,7 @@ const expectedDirectoryOrder = [
   'json-formatter',
   'flexbox-generator',
   'css-grid-generator',
+  'border-radius-generator',
   'fluid-scale-generator',
   'css-specificity-calculator',
   'css-custom-property-builder',
@@ -146,6 +147,7 @@ assert.deepEqual(orderedDirectoryCards.map(({ id }) => id), expectedDirectoryOrd
 assert.deepEqual([...new Set(orderedDirectoryCards.slice(6).map(({ category }) => category))], ['text', 'code', 'css', 'image']);
 
 const breadcrumbTitles = {
+  'border-radius-generator.html': 'Border Radius Generator',
   'css-grid-generator.html': 'CSS Grid Generator',
   'flexbox-generator.html': 'Flexbox Generator',
   'text-case-converter.html': 'Text Case Converter',
@@ -181,7 +183,7 @@ for (const [file, title] of Object.entries(breadcrumbTitles)) {
   const match = page.match(/data-site-breadcrumb-current[^>]*>([^<]*)</u);
   assert.equal(match?.[1], title, `${file} should use its page title in the current breadcrumb`);
   assert.match(page, /class="privacy-note__body"/u, `${file} should wrap the privacy note body for the mobile layout`);
-  assert.ok(page.includes(`<dt>LAST UPDATED</dt><dd data-tool-updated>${['flexbox-generator.html', 'css-grid-generator.html'].includes(file) ? '2026.11.07' : '2026.11.01'}</dd>`), `${file} should expose the current update date`);
+  assert.ok(page.includes(`<dt>LAST UPDATED</dt><dd data-tool-updated>${['flexbox-generator.html', 'css-grid-generator.html', 'border-radius-generator.html'].includes(file) ? '2026.11.07' : '2026.11.01'}</dd>`), `${file} should expose the current update date`);
   assert.match(page, /data-tool-version>0\.[12]\.1<\/dd>/u, `${file} should expose the incremented patch version`);
   assert.doesNotMatch(page, /<dt>UPDATED<\/dt>/u, `${file} should use the LAST UPDATED label`);
 }

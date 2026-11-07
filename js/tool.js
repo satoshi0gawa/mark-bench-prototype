@@ -4,6 +4,13 @@
   workspace.dataset.toolWorkspaceInitialized = 'true';
 
   const definitions = {
+    'border-radius-generator': {
+      number: 'CSS_TOOLS', title: 'Border Radius Generator',
+      summary: '4隅の角丸・全角統一・楕円の半径を視覚的に調整し、border-radiusのCSSとHTMLを生成します。',
+      status: 'READY', version: '0.1.1', updated: '2026.11.07', kind: 'border-radius',
+      steps: ["プリセットまたはSAMPLEから角の形を選択します。","全角統一・4隅個別・楕円8値のモードとpx／%を選びます。単位切替は数値を保持し、換算しません。","スライダーまたは数値入力で半径・幅・高さを調整し、プレビューを確認します。","COPY CSS・COPY HTML、またはCOPY VALUEで角丸の宣言だけをコピーします。CLEARで初期設定へ戻ります。"],
+      specs: [["MODES","Uniform / 4 Corners / Elliptical"],["UNITS","px / %"],["RADIUS","0–500px / 0–100%"],["SIZE","80–480px / Each Axis"],["PRESETS","6 Shapes"],["OUTPUT","CSS / HTML / Declaration"],["STORAGE","None"]],
+    },
     'css-grid-generator': {
       number: 'CSS_TOOLS', title: 'CSS Grid Generator',
       summary: '列数・行数・gap・配置を視覚的に調整し、CSS GridのCSSとHTMLを生成します。',
@@ -346,7 +353,7 @@
   const showToast = (message, tone = 'default') => {
     const isStateToast = message === RESET_TOAST_MESSAGE || message === CLEAR_TOAST_MESSAGE;
     const isActionToast = tone === 'copy' || tone === 'download';
-    const isSettingsReset = ['flexbox-generator', 'css-grid-generator'].includes(key) && tone === 'reset' && message === '表示内容をリセットしました。';
+    const isSettingsReset = ['flexbox-generator', 'css-grid-generator', 'border-radius-generator'].includes(key) && tone === 'reset' && message === '表示内容をリセットしました。';
     if (!toast || (!isStateToast && !isActionToast && !isSettingsReset)) return;
     window.clearTimeout(toastTimer);
     window.clearTimeout(toastHideTimer);
@@ -3209,6 +3216,7 @@
   };
 
   if (tool.kind === 'case') renderCaseConverter();
+  else if (tool.kind === 'border-radius') window.MarkBenchBorderRadiusGenerator.mount({ workspace, copyText, showToast });
   else if (tool.kind === 'css-grid') window.MarkBenchCssGridGenerator.mount({ workspace, copyText, showToast });
   else if (tool.kind === 'flexbox') window.MarkBenchFlexboxGenerator.mount({ workspace, copyText, showToast });
   else if (tool.kind === 'diff') renderTextDiffViewer();
@@ -3239,7 +3247,7 @@
   else renderPlaceholder();
 
   workspace.addEventListener('click', (event) => {
-    if (event.target.closest('[data-flex-clear], [data-grid-clear]')) return;
+    if (event.target.closest('[data-flex-clear], [data-grid-clear], [data-radius-clear]')) return;
     const button = event.target.closest('button, input[type="reset"]');
     const buttonLabel = button instanceof HTMLInputElement ? button.value : button?.textContent;
     const normalizedButtonLabel = String(buttonLabel || '').trim().toUpperCase();

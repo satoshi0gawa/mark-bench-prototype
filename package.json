@@ -37,6 +37,7 @@
     "check:color": "node scripts/check-color-format-converter.mjs",
     "check:numeric": "node scripts/check-numeric-character-reference-converter.mjs",
     "check:fluid": "node scripts/check-fluid-scale-generator.mjs",
+    "check:radius": "node scripts/check-border-radius-generator.mjs",
     "check:grid": "node scripts/check-css-grid-generator.mjs",
     "check:flexbox": "node scripts/check-flexbox-generator.mjs",
     "check:width": "node scripts/check-width-converter.mjs",
