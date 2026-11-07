@@ -101,8 +101,8 @@
 }
 
 .c-breadcrumb--band .c-breadcrumb__separator {
-  inline-size: .55rem;
-  block-size: 2.35rem;
+  inline-size: .6rem;
+  block-size: 1.1rem;
   background: currentColor;
   clip-path: polygon(0 0, 100% 50%, 0 100%, 0 87%, 75% 50%, 0 13%);
 }
@@ -211,18 +211,24 @@
 }
 
 /* Page preview grows with the expanded ancestor list. */
-.part-example--breadcrumb-practical {
-  grid-template-rows: 5.5rem minmax(13rem, auto) 16rem 6.5rem;
+.part-example--breadcrumb-expand {
+  align-self: start;
+  grid-template-rows: 5.5rem minmax(13rem, max-content) 16rem 6.5rem;
 }
 
-@media (max-width: 1279px) {
-  .part-example--breadcrumb-practical {
-    grid-template-rows: 5.5rem minmax(13rem, auto) 25rem 6.5rem;
+.part-example--breadcrumb-expand .part-example__preview {
+  height: auto;
+  min-block-size: min-content;
+}
+
+@media (min-width: 1280px) {
+  .part-example--breadcrumb-expand {
+    grid-template-rows: 5.5rem minmax(13rem, max-content) 25rem 6.5rem;
   }
 }
 
 @media (max-width: 640px) {
-  .part-example--breadcrumb-practical {
-    grid-template-rows: 7rem minmax(11rem, auto) 24rem 7.25rem;
+  .part-example--breadcrumb-expand {
+    grid-template-rows: 7rem minmax(11rem, max-content) 24rem 7.25rem;
   }
 }
