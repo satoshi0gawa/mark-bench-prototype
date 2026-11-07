@@ -7,6 +7,7 @@ import { checkNoteBuild } from './check-note-build.mjs';
 import { CONTENT_SOURCES, loadBlogEntries } from './content/load-blog-entries.mjs';
 import { renderNotePages } from './content/render-note-pages.mjs';
 import { writeHomeToolsCount, checkHomeToolsCount } from './content/render-home-tools-count.mjs';
+import { writeHomeWebPartsCount, checkHomeWebPartsCount } from './content/render-home-web-parts-count.mjs';
 import { collectHtmlFiles, pageUrl } from './site-pages.mjs';
 
 await import('./check-seo.mjs');
@@ -40,6 +41,8 @@ await renderNotePages({ output, entries: noteEntries });
 await checkNoteBuild(output, noteEntries);
 await writeHomeToolsCount(output);
 await checkHomeToolsCount(output);
+await writeHomeWebPartsCount(output);
+await checkHomeWebPartsCount(output);
 
 const escapeXml = (value) =>
   value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');

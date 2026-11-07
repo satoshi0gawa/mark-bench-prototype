@@ -2,6 +2,7 @@ import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { extname, join, normalize } from 'node:path';
 import { renderHomeToolsCount } from './content/render-home-tools-count.mjs';
+import { renderHomeWebPartsCount } from './content/render-home-web-parts-count.mjs';
 
 const root = process.cwd();
 const port = Number(process.env.PORT || 4173);
@@ -32,8 +33,12 @@ const server = createServer(async (request, response) => {
     if (!info.isFile()) throw new Error('Not a file');
     let content = await readFile(filePath);
     if (filePath === join(root, 'index.html')) {
-      const directory = await readFile(join(root, 'tools/index.html'), 'utf8');
-      content = renderHomeToolsCount(content.toString('utf8'), directory);
+      const [toolsDirectory, partsDirectory] = await Promise.all([
+        readFile(join(root, 'tools/index.html'), 'utf8'),
+        readFile(join(root, 'web-parts/index.html'), 'utf8'),
+      ]);
+      content = renderHomeToolsCount(content.toString('utf8'), toolsDirectory);
+      content = renderHomeWebPartsCount(content, partsDirectory);
     }
     response.writeHead(200, { 'Content-Type': mimeTypes[extname(filePath)] || 'application/octet-stream' });
     response.end(content);

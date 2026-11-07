@@ -110,6 +110,7 @@ microCMSの管理対象は`NOTE to SELF`だけです。CODING NOTE、TOOLS、WEB
 ### WEB PARTS
 
 - 一覧でカテゴリ、パターン数、状態を管理する
+- HOMEのWEB PARTSカテゴリ件数は`web-parts/index.html`の`.parts-card[data-part-category]`を正本とし、ビルド時に`dist/index.html`の`span[data-web-parts-count]`へ自動生成する。READY・準備中を含む全カードを集計し、コメント・スクリプト・テンプレート内の見本は除外する。Fixture・CMSビルドとも生成後にカード数との一致を検証する。`npm run dev`も同じ処理を適用するため、カテゴリ追加時にHOMEの数値を手動更新する必要はない。ファイルを直接開いた場合はソース内の初期表示値となる。`npm run check:parts-count`（`npm run check`にも含む）で追加・削除・不一致の検出と一覧のCATEGORIESとの一致を確認する
 - 一覧の初期順は、案件をまたいだ採用場面の広さ、主要操作・情報理解への寄与、再利用のしやすさから判断する実務優先順とする。アクセス解析等の実測順位ではなく編集上の推定とし、基礎的な情報表示・入力、ナビゲーション・開閉、状態表示、実用補助・スライダー、レイアウト・操作表現、任意の装飾・演出の順を目安にする。上位はHEADING・BUTTON・CARD・LIST・CSS-FORM・FORM・TABLEとする
 - CATEGORYと一覧カードは同じDOM順に揃え、視覚表示・キーボード移動・読み上げの順を一致させる。正確な並び順は`web-parts/index.html`を正本とし、新規パーツも用途と優先度に応じた位置へ追加する。絞り込み後も元の優先順を維持する
 - 詳細ページの掲載コードは`c-`接頭辞とBEM形式で統一する
@@ -177,6 +178,7 @@ npm run build
 | `npm run check:sanitize` | CMS本文のサニタイズ |
 | `npm run check:secrets` | 公開成果物への秘密情報混入 |
 | `npm run check:note-build` | NOTE to SELFのFixture生成 |
+| `npm run check:parts-count` | HOMEのWEB PARTSカテゴリ件数の自動生成・一覧との整合性 |
 
 ツール固有処理を変更した場合は、`package.json`に定義された対応する`check:*`も実行します。
 

@@ -43,6 +43,7 @@
     "check:width": "node scripts/check-width-converter.mjs",
     "check:detail": "node scripts/check-tool-detail-pages.mjs",
     "check:tools-count": "node scripts/check-home-tools-count.mjs",
+    "check:parts-count": "node scripts/check-home-web-parts-count.mjs",
     "build": "node scripts/build.mjs --source=fixture",
     "build:fixture": "node scripts/build.mjs --source=fixture",
     "build:cms": "node scripts/build.mjs --source=microcms"
