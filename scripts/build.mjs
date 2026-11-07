@@ -6,6 +6,7 @@ import { checkGeneratedSecrets } from './check-generated-secrets.mjs';
 import { checkNoteBuild } from './check-note-build.mjs';
 import { CONTENT_SOURCES, loadBlogEntries } from './content/load-blog-entries.mjs';
 import { renderNotePages } from './content/render-note-pages.mjs';
+import { writeHomeToolsCount, checkHomeToolsCount } from './content/render-home-tools-count.mjs';
 import { collectHtmlFiles, pageUrl } from './site-pages.mjs';
 
 await import('./check-seo.mjs');
@@ -37,6 +38,8 @@ for (const file of await readdir(join(output, 'build-notes/note-to-self'))) {
 
 await renderNotePages({ output, entries: noteEntries });
 await checkNoteBuild(output, noteEntries);
+await writeHomeToolsCount(output);
+await checkHomeToolsCount(output);
 
 const escapeXml = (value) =>
   value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');

@@ -45,15 +45,13 @@ assert.match(page, /data-tool-steps/u);
 assert.match(page, /page-footer/u);
 
 const directory = await readFile(new URL('../tools/index.html', import.meta.url), 'utf8');
-assert.match(directory, /TOOLS: 25/u);
-assert.match(directory, /data-filter="all">ALL <span>25<\/span>/u);
-assert.match(directory, /data-filter="image">IMAGE <span>02<\/span>/u);
+// Directory counts are checked centrally by check:tools-count.
 assert.match(directory, /data-keyword="画像変換"/u);
 assert.match(directory, /data-id="image-format-converter-resizer"/u);
 assert.match(directory, /href="\.\/image-format-converter-resizer\.html"/u);
 
 const home = await readFile(new URL('../index.html', import.meta.url), 'utf8');
-assert.match(home, /25 TOOLS/u);
+assert.match(home, /data-tools-count/u);
 
 const controller = await readFile(new URL('../js/tool.js', import.meta.url), 'utf8');
 assert.match(controller, /'image-format-converter-resizer'/u);

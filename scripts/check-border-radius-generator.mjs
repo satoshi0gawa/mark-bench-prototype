@@ -7,6 +7,9 @@ assert.equal(initial.radius, '24px');
 assert.match(initial.css, /^\.radius-shape \{/);
 assert.equal(initial.html, '<div class="radius-shape"></div>');
 assert.doesNotMatch(initial.css + initial.html, /c-radius/);
+assert.match(initial.css, /background-color: #e5e7eb;/);
+assert.match(generate({ shapeColor: '#123456' }).css, /background-color: #123456;/);
+assert.equal(generate({ stageColor: '#ABCDEF' }).css, initial.css);
 assert.deepEqual(compress([1, 1, 1, 1]), [1]);
 assert.deepEqual(compress([1, 2, 1, 2]), [1, 2]);
 assert.deepEqual(compress([1, 2, 3, 2]), [1, 2, 3]);
@@ -33,8 +36,10 @@ for (const unit of ['px', '%']) for (const key of ['width', 'height', ...radiusK
     assert.equal(result.html, '');
   }
 }
-for (const stageColor of ['#ABCDEF', '#000000', '#123456']) assert.equal(generate({ stageColor }).valid, true);
-for (const stageColor of ['red', '#abc', '#12345z', '<script>', null]) assert.equal(generate({ stageColor }).valid, false);
+for (const key of ['stageColor', 'shapeColor']) {
+  for (const value of ['#ABCDEF', '#000000', '#123456']) assert.equal(generate({ [key]: value }).valid, true);
+  for (const value of ['red', '#abc', '#12345z', '<script>', null]) assert.equal(generate({ [key]: value }).valid, false);
+}
 assert.equal(generate({ mode: 'uniform', h0: '', v0: 'bad' }).valid, true);
 for (const preset of Object.values(presets)) assert.equal(generate(preset).valid, true);
 const source = { ...defaults };

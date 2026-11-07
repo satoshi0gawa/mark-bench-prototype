@@ -71,14 +71,12 @@ assert.match(page, /js\/numeric-character-reference-converter\.js/u);
 assert.match(page, /data-tool-workspace/u);
 
 const directory = await readFile(new URL('../tools/index.html', import.meta.url), 'utf8');
-assert.match(directory, /TOOLS: 25/u);
-assert.match(directory, /data-filter="all">ALL <span>25<\/span>/u);
-assert.match(directory, /data-filter="code">CODE <span>08<\/span>/u);
+// Directory counts are checked centrally by check:tools-count.
 assert.match(directory, /data-id="numeric-character-reference-converter"/u);
 assert.match(directory, /href="\.\/numeric-character-reference-converter\.html"/u);
 
 const home = await readFile(new URL('../index.html', import.meta.url), 'utf8');
-assert.match(home, /25 TOOLS/u);
+assert.match(home, /data-tools-count/u);
 
 const controller = await readFile(new URL('../js/tool.js', import.meta.url), 'utf8');
 assert.match(controller, /kind: 'numeric-reference'/u);

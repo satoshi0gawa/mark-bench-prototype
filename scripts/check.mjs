@@ -106,3 +106,4 @@ await import('./check-rich-text-sanitizer.mjs');
 await import('./check-microcms-fetch.mjs');
 await import('./check-secret-scanner.mjs');
 await import('./check-local-references.mjs');
+await import('./check-home-tools-count.mjs');

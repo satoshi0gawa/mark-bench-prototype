@@ -8,8 +8,8 @@
       number: 'CSS_TOOLS', title: 'Border Radius Generator',
       summary: '4隅の角丸・全角統一・楕円の半径を視覚的に調整し、border-radiusのCSSとHTMLを生成します。',
       status: 'READY', version: '0.1.1', updated: '2026.11.07', kind: 'border-radius',
-      steps: ["プリセットまたはSAMPLEから角の形を選択します。","全角統一・4隅個別・楕円8値のモードとpx／%を選びます。単位切替は数値を保持し、換算しません。","スライダーまたは数値入力で半径・幅・高さを調整し、プレビューを確認します。","COPY CSS・COPY HTML、またはCOPY VALUEで角丸の宣言だけをコピーします。CLEARで初期設定へ戻ります。"],
-      specs: [["MODES","Uniform / 4 Corners / Elliptical"],["UNITS","px / %"],["RADIUS","0–500px / 0–100%"],["SIZE","80–480px / Each Axis"],["PRESETS","6 Shapes"],["OUTPUT","CSS / HTML / Declaration"],["STORAGE","None"]],
+      steps: ["プリセットまたはSAMPLEから角の形を選択します。","全角統一・4隅個別・楕円8値のモードとpx／%を選びます。単位切替は数値を保持し、換算しません。","スライダーまたは数値入力で半径・幅・高さを調整し、プレビューを確認します。","COPY CSS・COPY HTMLで結果をコピーします。CLEARで初期設定へ戻ります。"],
+      specs: [["MODES","Uniform / 4 Corners / Elliptical"],["UNITS","px / %"],["RADIUS","0–500px / 0–100%"],["SIZE","80–480px / Each Axis"],["PRESETS","6 Shapes"],["OUTPUT","CSS + HTML"],["STORAGE","None"]],
     },
     'css-grid-generator': {
       number: 'CSS_TOOLS', title: 'CSS Grid Generator',

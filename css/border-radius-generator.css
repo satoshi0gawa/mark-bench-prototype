@@ -14,7 +14,7 @@
 .radius-generator__field [aria-invalid="true"] { border-color: var(--color-accent-yellow); }
 .radius-generator__error { display: block; margin-top: 0.25rem; color: var(--color-accent-yellow); font-size: 0.7rem; }
 .radius-generator__error:empty { display: none; }
-.radius-generator__preview { min-width: 0; }
+.radius-generator__preview { display: grid; min-width: 0; grid-template-rows: auto auto minmax(22rem, 1fr); }
 .radius-generator__preview > p { margin: 0; padding: 0.8rem 1rem; font-size: 0.72rem; }
 .radius-generator__stage { max-width: 100%; padding: 1rem; overflow: auto; background: var(--color-code-surface); }
 .radius-generator__status { margin: 0; padding: 1rem; font: 0.65rem var(--font-mono); border-block: 1px solid #374151; }
@@ -42,15 +42,13 @@ body[data-tool-id="border-radius-generator"] .tool-workspace button[data-radius-
 .radius-generator__presets button:nth-child(3) { border-right: 0; }
 .radius-generator__presets button:nth-child(-n + 3) { border-bottom: 1px solid #374151; }
 .radius-generator__pair { display: grid; grid-template-columns: minmax(0, 1fr) 5rem; align-items: center; gap: 0.5rem; }
-.radius-generator__pair input[type="range"] { padding: 0; accent-color: var(--color-accent-yellow); border: 0; }
+.radius-generator__pair input[type="range"] { padding: 0; accent-color: #e5e7eb; border: 0; }
 .radius-generator__pair input[type="color"] { padding: 0.2rem; }
 .radius-generator__hint, .radius-generator__color { grid-column: 1 / -1; }
 .radius-generator__hint { margin: 0; font-size: 0.7rem; }
-.radius-generator__stage { padding: 0; }
-.radius-generator__canvas { display: grid; box-sizing: border-box; width: max-content; min-width: 100%; min-height: 22rem; padding: 1.5rem; place-items: center; }
-[data-radius-shape] { box-sizing: border-box; background-color: var(--color-accent-yellow); }
-.radius-generator__value { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
-.radius-generator__value code { min-width: 0; font-size: 0.75rem; overflow-wrap: anywhere; }
+.radius-generator__stage { display: grid; min-height: 0; padding: 0; }
+.radius-generator__canvas { display: grid; box-sizing: border-box; width: max-content; min-width: 100%; min-height: 22rem; height: 100%; padding: 1.5rem; place-items: center; }
+[data-radius-shape] { box-sizing: border-box; background-color: #e5e7eb; }
 .radius-generator__guide { padding: 0 var(--page-gutter) 2rem; }
 .radius-generator__guide p { margin-top: 0; font-size: 0.85rem; }
 .radius-generator__guide a { text-underline-offset: 0.2em; }

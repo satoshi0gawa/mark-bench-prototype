@@ -2,7 +2,7 @@
   'use strict';
   const corners = ['top-left', 'top-right', 'bottom-right', 'bottom-left'];
   const choices = { mode: ['uniform', 'corners', 'ellipse'], unit: ['px', '%'] };
-  const defaults = { mode: 'corners', unit: 'px', width: 280, height: 200, uniform: 24, h0: 24, h1: 24, h2: 24, h3: 24, v0: 24, v1: 24, v2: 24, v3: 24, stageColor: '#202b40' };
+  const defaults = { mode: 'corners', unit: 'px', width: 280, height: 200, uniform: 24, h0: 24, h1: 24, h2: 24, h3: 24, v0: 24, v1: 24, v2: 24, v3: 24, stageColor: '#202b40', shapeColor: '#e5e7eb' };
   const presets = {
     card: { ...defaults },
     pill: { ...defaults, mode: 'uniform', uniform: 240, height: 96 },
@@ -30,7 +30,9 @@
       if (!Number.isInteger(value) || value < min || value > max) errors[key] = `${min}〜${max}の整数を入力してください。`;
       else state[key] = value;
     }
-    if (typeof state.stageColor !== 'string' || !/^#[\da-f]{6}$/i.test(state.stageColor)) errors.stageColor = '#から始まる6桁のHEX色を入力してください。';
+    for (const key of ['stageColor', 'shapeColor']) {
+      if (typeof state[key] !== 'string' || !/^#[\da-f]{6}$/i.test(state[key])) errors[key] = '#から始まる6桁のHEX色を入力してください。';
+    }
     if (Object.keys(errors).length) return { valid: false, errors, css: '', html: '' };
     const horizontal = corners.map((_, i) => state.mode === 'uniform' ? state.uniform : state[`h${i}`]);
     const vertical = state.mode === 'ellipse' ? corners.map((_, i) => state[`v${i}`]) : [...horizontal];
@@ -40,7 +42,7 @@
     const y = vertical.map(value => state.unit === '%' ? value * state.height / 100 : value);
     const normalized = x[0] + x[1] > state.width || x[2] + x[3] > state.width || y[0] + y[3] > state.height || y[1] + y[2] > state.height;
     const declaration = `border-radius: ${radius};`;
-    const css = `.radius-shape {\n  width: ${state.width}px;\n  height: ${state.height}px;\n  ${declaration}\n  background-color: #ffff00;\n  box-sizing: border-box;\n}`;
+    const css = `.radius-shape {\n  width: ${state.width}px;\n  height: ${state.height}px;\n  ${declaration}\n  background-color: ${state.shapeColor};\n  box-sizing: border-box;\n}`;
     const html = '<div class="radius-shape"></div>';
     return { valid: true, errors, state, radius, horizontal, vertical, normalized, declaration, css, html };
   };
@@ -54,15 +56,15 @@
       <div class="radius-generator__field"><label for="radius-mode">指定モード</label><select id="radius-mode" data-radius-field="mode" aria-describedby="radius-error-mode"><option value="uniform">UNIFORM／全角統一</option><option value="corners">4 CORNERS／4隅個別</option><option value="ellipse">ELLIPTICAL／楕円8値</option></select><span class="radius-generator__error" id="radius-error-mode"></span></div>
       <div class="radius-generator__field"><label for="radius-unit">半径の単位</label><select id="radius-unit" data-radius-field="unit" aria-describedby="radius-error-unit"><option>px</option><option>%</option></select><span class="radius-generator__error" id="radius-error-unit"></span></div>
       ${['width', 'height', ...radiusKeys].map(pair).join('')}
-      <div class="radius-generator__field radius-generator__color"><label for="radius-stageColor">プレビュー背景色（出力対象外）</label><div class="radius-generator__pair"><input type="color" aria-label="プレビュー背景色を選択" data-radius-color /><input type="text" id="radius-stageColor" data-radius-field="stageColor" maxlength="7" spellcheck="false" autocapitalize="off" aria-describedby="radius-error-stageColor" /></div><span class="radius-generator__error" id="radius-error-stageColor"></span></div>
+      ${Object.entries({ shapeColor: '図形色（CSSに出力）', stageColor: 'プレビュー背景色（出力対象外）' }).map(([key, label]) => `<div class="radius-generator__field radius-generator__color"><label for="radius-${key}">${label}</label><div class="radius-generator__pair"><input type="color" aria-label="${label}を選択" data-radius-color="${key}" /><input type="text" id="radius-${key}" data-radius-field="${key}" maxlength="7" spellcheck="false" autocapitalize="off" aria-describedby="radius-error-${key}" /></div><span class="radius-generator__error" id="radius-error-${key}"></span></div>`).join('')}
       <p class="radius-generator__hint">半径は左上→右上→右下→左下の順です。単位・モードを切り替えても入力値は保持します。単位変更は数値を保って再解釈し、換算しません。</p>
       </section><section class="radius-generator__preview" aria-labelledby="radius-preview-title"><div class="workspace-panel__header"><h3 id="radius-preview-title">LIVE PREVIEW</h3></div><p data-radius-summary></p><div class="radius-generator__stage" tabindex="0" role="region" aria-label="角丸プレビュー・矢印キーでスクロール"><div class="radius-generator__canvas"><div data-radius-shape aria-hidden="true"></div></div></div>
-      <p class="radius-generator__value"><code data-radius-value></code><button type="button" data-radius-copy="declaration">COPY VALUE</button></p><p data-radius-note></p><p>%の水平半径は要素の幅、垂直半径は高さが基準です。どちらかの半径が0の角は直角になります。寸法は縮小せず、広い図形は領域内をスクロールして確認できます。</p><p>CSSには幅・高さ・黄色背景を含めます。プレビュー背景色は含めません。border-radiusだけを使う場合はCOPY VALUEを選択してください。</p></section></div>
+      </section></div>
       <p class="radius-generator__status" role="status" aria-live="polite" data-radius-status></p>
       <div class="radius-generator__outputs">${['css', 'html'].map(type => `<section><div class="workspace-panel__header"><label for="radius-output-${type}">OUTPUT / ${type.toUpperCase()}</label><button type="button" data-radius-copy="${type}">COPY ${type.toUpperCase()}</button></div><textarea id="radius-output-${type}" data-radius-output="${type}" readonly spellcheck="false" aria-label="生成${type.toUpperCase()}"></textarea></section>`).join('')}</div></div>`;
     const fields = [...workspace.querySelectorAll('[data-radius-field]')];
     const ranges = [...workspace.querySelectorAll('[data-radius-range]')];
-    const color = workspace.querySelector('[data-radius-color]');
+    const colors = [...workspace.querySelectorAll('[data-radius-color]')];
     const shape = workspace.querySelector('[data-radius-shape]');
     let result;
     const render = () => {
@@ -82,22 +84,20 @@
         workspace.querySelector(`[data-radius-limit="${key}"]`).textContent = `${min}–${max}${key === 'width' || key === 'height' ? 'px' : raw.unit}`;
         workspace.querySelector(`[data-radius-group="${key}"]`).hidden = field.disabled;
       });
-      if (!result.errors.stageColor) color.value = raw.stageColor;
+      colors.forEach(color => { if (!result.errors[color.dataset.radiusColor]) color.value = raw[color.dataset.radiusColor]; });
       workspace.querySelector('[data-radius-status]').textContent = result.valid ? `READY / ${raw.mode === 'ellipse' ? '8' : raw.mode === 'uniform' ? '1' : '4'} VALUES / CSS + HTML` : `INVALID INPUT / ${Object.keys(result.errors).length} ERRORS — 設定を確認してください。`;
       workspace.querySelector('[data-radius-summary]').textContent = result.valid ? `${result.state.width} × ${result.state.height}px / ${result.state.unit} / ${result.state.mode.toUpperCase()}` : '無効な設定のためプレビューを停止しています。';
-      workspace.querySelector('[data-radius-value]').textContent = result.valid ? result.declaration : '—';
-      workspace.querySelector('[data-radius-note]').textContent = result.valid && result.normalized ? 'RADIUS NORMALIZATION：隣り合う半径の合計が辺の長さを超えるため、ブラウザがすべての半径を同比率で縮小して描画します。CSSには指定値を出力します。' : '半径の入力値と寸法から、ブラウザが実際の角の形を描画します。';
       for (const type of ['css', 'html']) workspace.querySelector(`[data-radius-output="${type}"]`).value = result[type];
       workspace.querySelectorAll('[data-radius-copy]').forEach(button => { button.disabled = !result.valid; });
       shape.hidden = !result.valid;
       if (!result.valid) return;
-      Object.assign(shape.style, { width: `${result.state.width}px`, height: `${result.state.height}px`, borderRadius: result.radius });
+      Object.assign(shape.style, { width: `${result.state.width}px`, height: `${result.state.height}px`, borderRadius: result.radius, backgroundColor: result.state.shapeColor });
       workspace.querySelector('.radius-generator__stage').style.backgroundColor = result.state.stageColor;
     };
     const apply = state => { fields.forEach(field => { field.value = state[field.dataset.radiusField]; }); render(); };
     fields.forEach(field => field.addEventListener('input', render));
     ranges.forEach(slider => slider.addEventListener('input', () => { workspace.querySelector(`[data-radius-field="${slider.dataset.radiusRange}"]`).value = slider.value; render(); }));
-    color.addEventListener('input', () => { workspace.querySelector('[data-radius-field="stageColor"]').value = color.value; render(); });
+    colors.forEach(color => color.addEventListener('input', () => { workspace.querySelector(`[data-radius-field="${color.dataset.radiusColor}"]`).value = color.value; render(); }));
     workspace.querySelector('[data-radius-sample]').addEventListener('click', () => apply(presets.blob));
     workspace.querySelector('[data-radius-clear]').addEventListener('click', () => { apply(defaults); fields[0].focus(); showToast('表示内容をリセットしました。', 'reset'); });
     workspace.querySelectorAll('[data-radius-preset]').forEach(button => button.addEventListener('click', () => apply(presets[button.dataset.radiusPreset])));

@@ -1,6 +1,7 @@
 import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { extname, join, normalize } from 'node:path';
+import { renderHomeToolsCount } from './content/render-home-tools-count.mjs';
 
 const root = process.cwd();
 const port = Number(process.env.PORT || 4173);
@@ -29,7 +30,11 @@ const server = createServer(async (request, response) => {
       info = await stat(filePath);
     }
     if (!info.isFile()) throw new Error('Not a file');
-    const content = await readFile(filePath);
+    let content = await readFile(filePath);
+    if (filePath === join(root, 'index.html')) {
+      const directory = await readFile(join(root, 'tools/index.html'), 'utf8');
+      content = renderHomeToolsCount(content.toString('utf8'), directory);
+    }
     response.writeHead(200, { 'Content-Type': mimeTypes[extname(filePath)] || 'application/octet-stream' });
     response.end(content);
   } catch {

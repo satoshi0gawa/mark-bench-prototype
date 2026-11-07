@@ -74,14 +74,12 @@ assert.match(page, /js\/width-converter-ui\.js/u);
 assert.match(page, /全角・半角を変換・検査/u);
 
 const directory = await readFile(new URL('../tools/index.html', import.meta.url), 'utf8');
-assert.match(directory, /TOOLS: 25/u);
-assert.match(directory, /data-filter="all">ALL <span>25<\/span>/u);
-assert.match(directory, /data-filter="text">TEXT <span>09<\/span>/u);
+// Directory counts are checked centrally by check:tools-count.
 assert.match(directory, /data-id="width-converter"/u);
 assert.match(directory, /href="\.\/width-converter\.html"/u);
 
 const home = await readFile(new URL('../index.html', import.meta.url), 'utf8');
-assert.match(home, /25 TOOLS/u);
+assert.match(home, /data-tools-count/u);
 
 const controller = await readFile(new URL('../js/tool.js', import.meta.url), 'utf8');
 assert.match(controller, /kind: 'width'/u);

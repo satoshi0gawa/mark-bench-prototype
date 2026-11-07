@@ -75,12 +75,10 @@ const styles = await readFile(new URL('../css/pages.css', import.meta.url), 'utf
 assert.match(styles, /\.bem-builder__structure-value \{ max-width: 100%; overflow-wrap: anywhere; \}/u);
 
 const directory = await readFile(new URL('../tools/index.html', import.meta.url), 'utf8');
-assert.match(directory, /TOOLS: 25/u);
-assert.match(directory, /data-filter="all">ALL <span>25<\/span>/u);
-assert.match(directory, /data-filter="css">CSS <span>06<\/span>/u);
+// Directory counts are checked centrally by check:tools-count.
 assert.match(directory, /href="\.\/bem-class-builder\.html"/u);
 
 const home = await readFile(new URL('../index.html', import.meta.url), 'utf8');
-assert.match(home, /25 TOOLS/u);
+assert.match(home, /data-tools-count/u);
 
 console.log('BEM Class Builder checks passed.');

@@ -823,8 +823,6 @@ body[data-page="web-parts"] .page-heading__main p { max-width: none; }
 .tool-header__main > p:last-child { color: var(--color-text-subtle); }
 .tool-header__meta { display: grid; margin: 0; padding-inline: var(--page-gutter); }
 .tool-header__meta > div { display: flex; min-height: 6rem; padding: 1.25rem; flex-direction: column; justify-content: center; border-bottom: var(--border); }
-.tool-header__meta > div:first-child { padding-left: 0; }
-.tool-header__meta > div:last-child { padding-right: 0; }
 .tool-header__meta > div:last-child { border-bottom: 0; }
 .tool-header__meta dt { color: var(--color-text-subtle); font-family: var(--font-mono); font-size: 0.58rem; }
 .tool-header__meta dd { width: fit-content; max-width: 100%; margin: 0.35rem 0 0; padding: 0.4rem 0.55rem; color: var(--color-text-inverse); font-family: var(--font-mono); font-size: 0.78rem; background-image: linear-gradient(var(--color-primary), var(--color-primary)); background-repeat: no-repeat; background-position: left; background-size: 100% 100%; }
@@ -2590,6 +2588,7 @@ body[data-page="about"] {
 .tool-header__main { border-right: 0; border-bottom: var(--border); }
 .tool-header__meta { grid-template-columns: repeat(4, 1fr); }
 .tool-header__meta > div { border-right: var(--border); border-bottom: 0; }
+.tool-header__meta > div:first-child { border-left: var(--border); }
 .workspace-grid { grid-template-columns: 1fr; }
 .workspace-grid--text-diff { grid-template-columns: 1fr; }
 .workspace-grid--regex { grid-template-columns: 1fr; }
@@ -2806,7 +2805,7 @@ body[data-page="about"] {
   .parts-grid { grid-template-columns: 1fr; }
   .parts-card:nth-child(n) { min-height: 19rem; }
   .tool-header__meta { grid-template-columns: 1fr; }
-  .tool-header__meta > div { padding-inline: 0; border-right: 0; border-bottom: var(--border); }
+  .tool-header__meta > div { border-left: var(--border); border-bottom: var(--border); }
   .workspace-section { padding-inline: 0; }
   .workspace-section__label, .privacy-note { margin-inline: 1rem; }
   .privacy-note { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0.35rem 0.5rem; align-items: center; }
