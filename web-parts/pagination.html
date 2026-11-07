@@ -1,0 +1,2207 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="一覧を複数のページに分け、目的の情報へ移動するためのページネーションです。記事一覧、検索結果、商品カタログ、管理画面で、ページ番号や前後の項目を選ぶ導線に使えます。デモではサンプルのページ情報を切り替えられます。" />
+    <meta name="theme-color" content="#18243b" />
+    <title>PAGINATION | MARK BENCH</title>
+    <!-- site-meta:start -->
+    <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/pagination.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MARK BENCH" />
+    <meta property="og:title" content="PAGINATION | MARK BENCH" />
+    <meta property="og:description" content="一覧を複数のページに分け、目的の情報へ移動するためのページネーションです。記事一覧、検索結果、商品カタログ、管理画面で、ページ番号や前後の項目を選ぶ導線に使えます。デモではサンプルのページ情報を切り替えられます。" />
+    <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/pagination.html" />
+    <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PAGINATION | MARK BENCH" />
+    <meta name="twitter:description" content="一覧を複数のページに分け、目的の情報へ移動するためのページネーションです。記事一覧、検索結果、商品カタログ、管理画面で、ページ番号や前後の項目を選ぶ導線に使えます。デモではサンプルのページ情報を切り替えられます。" />
+    <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+    <script type="application/ld+json" data-site-structured-data>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "MARK BENCH",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WEB PARTS",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "PAGINATION",
+            "item": "https://satoshi0gawa.github.io/mark-bench-prototype/web-parts/pagination.html"
+          }
+        ]
+      }
+    </script>
+    <!-- site-meta:end -->
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/web-parts.css" />
+    <link rel="stylesheet" href="../css/web-parts-pagination.css" />
+  </head>
+  <body data-site="coding-note" data-page="web-parts-detail" data-parts-detail data-parts-kind="pagination">
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header">
+      <div class="site-header__bar">
+        <nav class="site-breadcrumb-logo" aria-label="パンくずリスト">
+          <a class="site-logo" href="../index.html">MARK BENCH</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <a class="site-breadcrumb-logo__parent" href="./">WEB PARTS</a>
+          <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
+          <span class="site-breadcrumb-logo__current" aria-current="page">PAGINATION</span>
+        </nav>
+      </div>
+    </header>
+
+    <nav class="site-rail-navigation" aria-label="主要ナビゲーション">
+      <a href="../tools/"><strong>TOOLS</strong></a>
+      <a href="./" aria-current="location"><strong>WEB PARTS</strong></a>
+      <a href="../build-notes/"><strong>BUILD NOTES</strong></a>
+      <a href="../about.html"><strong>ABOUT</strong></a>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <header class="part-detail-header">
+        <p class="section-index reveal">WEB_PARTS / PAGINATION</p>
+        <h1 class="reveal">PAGINATION</h1>
+        <p class="part-detail-header__lead reveal">一覧を複数のページに分け、目的の情報へ移動するためのページネーションです。記事一覧、検索結果、商品カタログ、管理画面で、ページ番号や前後の項目を選ぶ導線に使えます。デモではサンプルのページ情報を切り替えられます。</p>
+        <div class="part-detail-header__meta reveal"><span>PATTERNS: 06</span><span>TYPE: CSS + JS</span><span>DEPENDENCY: NONE</span></div>
+        <a class="part-detail-header__anchor reveal" href="#pagination-common-styles"><span>COMMON STYLE</span><span aria-hidden="true">↓</span></a>
+      </header>
+
+      <section class="part-detail-controls directory-search directory-keywords" aria-label="ページネーションのパターンを絞り込み">
+        <div class="directory-keywords__group">
+          <p class="directory-keywords__label">KEYWORDS</p>
+          <div class="directory-keywords__list">
+            <button type="button" aria-pressed="false" aria-controls="pagination-patterns" data-pattern-keyword="番号"># 番号</button>
+            <button type="button" aria-pressed="false" aria-controls="pagination-patterns" data-pattern-keyword="省略"># 省略</button>
+            <button type="button" aria-pressed="false" aria-controls="pagination-patterns" data-pattern-keyword="前後"># 前後</button>
+            <button type="button" aria-pressed="false" aria-controls="pagination-patterns" data-pattern-keyword="件数"># 件数</button>
+            <button type="button" aria-pressed="false" aria-controls="pagination-patterns" data-pattern-keyword="記事"># 記事</button>
+          </div>
+          <label class="parts-search">
+            <span>SEARCH</span>
+            <input type="search" placeholder="number / 件数..." autocomplete="off" aria-controls="pagination-patterns" data-pattern-search />
+          </label>
+        </div>
+        <p aria-live="polite">DISPLAY: <span data-pattern-count>06</span> / 06</p>
+      </section>
+
+      <div class="part-example-list" id="pagination-patterns">
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="番号 基本 前後 少数 一覧 number numbered basic previous next list pagination ページネーション ページ送り">
+          <header class="part-example__header">
+            <div><span class="part-example__index">NUMBER / 01</span><h2>基本の番号リンク</h2></div>
+            <small>NUMBERED</small>
+          </header>
+          <div class="part-example__preview">
+            <div class="c-pagination c-pagination--numbers" id="pagination-numbered" data-pagination="numbers" data-total="30" data-size="10" data-initial="2">
+              <p class="c-pagination__content" role="status" aria-atomic="true" tabindex="-1" data-content>DEMO / 項目 11–20</p>
+              <nav aria-label="ページ送りの例（基本の番号リンク）">
+                <div class="c-pagination__controls" data-controls>
+                  <a class="c-pagination__control" aria-label="前のページへ" href="?pagination-numbered=1#pagination-numbered" data-page="1" rel="prev">←</a>
+                  <ul class="c-pagination__pages" role="list">
+                    <li class="c-pagination__item"><a class="c-pagination__control" aria-label="1ページへ" href="?pagination-numbered=1#pagination-numbered" data-page="1">1</a></li>
+                    <li class="c-pagination__item"><span class="c-pagination__control" aria-label="2ページ（現在のページ）" aria-current="page" tabindex="-1">2</span></li>
+                    <li class="c-pagination__item"><a class="c-pagination__control" aria-label="3ページへ" href="?pagination-numbered=3#pagination-numbered" data-page="3">3</a></li>
+                  </ul>
+                  <a class="c-pagination__control" aria-label="次のページへ" href="?pagination-numbered=3#pagination-numbered" data-page="3" rel="next">→</a>
+                </div>
+              </nav>
+            </div>
+          </div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code">
+              <div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="HTMLコード"><code>&lt;div class=&quot;c-pagination c-pagination--numbers&quot; id=&quot;pagination-numbered&quot; data-pagination=&quot;numbers&quot; data-total=&quot;30&quot; data-size=&quot;10&quot; data-initial=&quot;2&quot;&gt;
+  &lt;p class=&quot;c-pagination__content&quot; role=&quot;status&quot; aria-atomic=&quot;true&quot; tabindex=&quot;-1&quot; data-content&gt;DEMO / 項目 11–20&lt;/p&gt;
+  &lt;nav aria-label=&quot;ページ送りの例（基本の番号リンク）&quot;&gt;
+    &lt;div class=&quot;c-pagination__controls&quot; data-controls&gt;
+      &lt;a class=&quot;c-pagination__control&quot; aria-label=&quot;前のページへ&quot; href=&quot;?pagination-numbered=1#pagination-numbered&quot; data-page=&quot;1&quot; rel=&quot;prev&quot;&gt;←&lt;/a&gt;
+      &lt;ul class=&quot;c-pagination__pages&quot; role=&quot;list&quot;&gt;
+        &lt;li class=&quot;c-pagination__item&quot;&gt;&lt;a class=&quot;c-pagination__control&quot; aria-label=&quot;1ページへ&quot; href=&quot;?pagination-numbered=1#pagination-numbered&quot; data-page=&quot;1&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;c-pagination__item&quot;&gt;&lt;span class=&quot;c-pagination__control&quot; aria-label=&quot;2ページ（現在のページ）&quot; aria-current=&quot;page&quot; tabindex=&quot;-1&quot;&gt;2&lt;/span&gt;&lt;/li&gt;
+        &lt;li class=&quot;c-pagination__item&quot;&gt;&lt;a class=&quot;c-pagination__control&quot; aria-label=&quot;3ページへ&quot; href=&quot;?pagination-numbered=3#pagination-numbered&quot; data-page=&quot;3&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;a class=&quot;c-pagination__control&quot; aria-label=&quot;次のページへ&quot; href=&quot;?pagination-numbered=3#pagination-numbered&quot; data-page=&quot;3&quot; rel=&quot;next&quot;&gt;→&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="CSSコード"><code>/* Portable pagination styles */
+.c-pagination,
+.c-pagination * {
+  box-sizing: border-box;
+}
+
+.c-pagination {
+  max-inline-size: 100%;
+  color: var(--color-primary, #18243b);
+  font: .75rem/1.5 var(--font-mono, monospace);
+}
+
+.c-pagination__content {
+  margin: 0 0 .75rem;
+  color: var(--color-text-subtle, #667085);
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+.c-pagination__controls,
+.c-pagination__pages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: .25rem;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+.c-pagination__pages {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c-pagination__item {
+  display: flex;
+}
+
+.c-pagination__control,
+.c-pagination__position {
+  display: grid;
+  place-items: center;
+  min-inline-size: 2.75rem;
+  min-block-size: 2.75rem;
+  padding: .5rem;
+  color: inherit;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+  text-align: center;
+  text-decoration: none;
+}
+
+.c-pagination__control[aria-current=&quot;page&quot;] {
+  color: var(--color-accent-yellow, #ff0);
+  font-weight: 700;
+  background: var(--color-primary, #18243b);
+  border-color: var(--color-primary, #18243b);
+}
+
+.c-pagination__control[aria-disabled=&quot;true&quot;] {
+  color: var(--color-text-subtle, #667085);
+  background: var(--color-primary-soft, #edf1f7);
+  border-style: dashed;
+}
+
+.c-pagination :is(a, [tabindex]):focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: 2px;
+}
+
+.c-pagination a:active {
+  box-shadow: inset 0 0 0 2px currentColor;
+}
+
+.c-pagination__position {
+  min-inline-size: 4rem;
+  border-color: transparent;
+  background: transparent;
+  font-weight: 700;
+}
+
+.c-pagination__gap {
+  display: grid;
+  place-items: center;
+  min-inline-size: 1rem;
+  min-block-size: 2.75rem;
+}
+
+.c-pagination__pages--small {
+  display: none;
+}
+
+.c-pagination__range {
+  margin: .65rem 0 0;
+  color: var(--color-text-subtle, #667085);
+  text-align: center;
+}
+
+.c-pagination--article {
+  inline-size: min(100%, 26rem);
+}
+
+.c-pagination--article .c-pagination__controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: .5rem;
+}
+
+.c-pagination--article .c-pagination__control {
+  min-inline-size: 0;
+  padding: .6rem;
+  overflow-wrap: anywhere;
+  white-space: pre-line;
+  font-family: var(--font-sans, sans-serif);
+}
+
+@media (max-width: 640px) {
+  .c-pagination__pages--wide {
+    display: none;
+  }
+
+  .c-pagination__pages--small {
+    display: flex;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .c-pagination a:hover {
+    background: var(--color-primary-soft, #edf1f7);
+    border-color: var(--color-primary, #18243b);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .c-pagination a {
+    transition: background-color var(--transition-fast, 180ms ease), border-color var(--transition-fast, 180ms ease);
+  }
+}</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="JAVASCRIPTコード"><code>(() =&gt; {
+  function mountPagination(root) {
+    const mode = root.dataset.pagination;
+    const total = Number(root.dataset.total);
+    const size = Number(root.dataset.size);
+    const pages = Math.ceil(total / size);
+    const initial = Number(root.dataset.initial);
+    const key = root.id;
+    const controls = root.querySelector('[data-controls]');
+    const content = root.querySelector('[data-content]');
+    const titles = ['現在地が伝わるUI', '操作の状態を整える', '小さな画面で読みやすく'];
+    let current = initial;
+
+    function readPage() {
+      const raw = new URL(location.href).searchParams.get(key);
+      if (raw === null) return initial;
+      const value = Number(raw);
+      return Number.isSafeInteger(value) &amp;&amp; value &gt;= 1 &amp;&amp; value &lt;= pages ? value : 1;
+    }
+
+    function make(tag, className, text) {
+      const element = document.createElement(tag);
+      element.className = className;
+      if (text !== undefined) element.textContent = text;
+      return element;
+    }
+
+    function control(page, text, label, relation, isNumber = false) {
+      const valid = page &gt;= 1 &amp;&amp; page &lt;= pages &amp;&amp; (isNumber || page !== current);
+      const selected = isNumber &amp;&amp; page === current;
+      const element = make(valid &amp;&amp; !selected ? 'a' : 'span', 'c-pagination__control', text);
+      element.setAttribute('aria-label', label);
+      if (!valid) element.setAttribute('aria-disabled', 'true');
+      if (selected) {
+        element.setAttribute('aria-current', 'page');
+        element.tabIndex = -1;
+      } else if (valid) {
+        const url = new URL(location.href);
+        url.searchParams.set(key, String(page));
+        url.hash = key;
+        element.href = url.href;
+        element.dataset.page = String(page);
+        if (relation) element.rel = relation;
+      }
+      return element;
+    }
+
+    function numbers(compact) {
+      const list = make('ul', 'c-pagination__pages' + (mode === 'ellipsis' ? compact ? ' c-pagination__pages--small' : ' c-pagination__pages--wide' : ''));
+      list.setAttribute('role', 'list');
+      const selected = mode === 'ellipsis'
+        ? [...new Set([1, pages, current, ...(compact ? [] : [current - 1, current + 1])])].filter(page =&gt; page &gt;= 1 &amp;&amp; page &lt;= pages).sort((a, b) =&gt; a - b)
+        : Array.from({ length: pages }, (_, index) =&gt; index + 1);
+      let previous = 0;
+      selected.forEach(page =&gt; {
+        if (previous &amp;&amp; page - previous &gt; 1) {
+          const gap = make('li', 'c-pagination__gap', '…');
+          gap.setAttribute('aria-label', '中間のページを省略');
+          list.append(gap);
+        }
+        const item = make('li', 'c-pagination__item');
+        item.append(control(page, String(page), page + 'ページ' + (page === current ? '（現在のページ）' : 'へ'), undefined, true));
+        list.append(item);
+        previous = page;
+      });
+      return list;
+    }
+
+    function position() {
+      const element = make('span', 'c-pagination__position', current + ' / ' + pages);
+      element.setAttribute('aria-label', '全' + pages + 'ページ中' + current + 'ページ目');
+      element.setAttribute('aria-current', 'page');
+      element.tabIndex = -1;
+      return element;
+    }
+
+    function render(page, focus = false) {
+      current = page;
+      const first = (page - 1) * size + 1;
+      const last = Math.min(page * size, total);
+      content.textContent = mode === 'article'
+        ? page + ' / ' + pages + '　' + titles[page - 1]
+        : 'DEMO / 項目 ' + first + '–' + last;
+      controls.replaceChildren();
+      if (mode === 'article') {
+        controls.append(
+          control(page - 1, '← 前の記事' + (page &gt; 1 ? '\n' + titles[page - 2] : ''), '前の記事' + (page &gt; 1 ? '：' + titles[page - 2] : ''), 'prev'),
+          control(page + 1, '次の記事 →' + (page &lt; pages ? '\n' + titles[page] : ''), '次の記事' + (page &lt; pages ? '：' + titles[page] : ''), 'next'),
+        );
+      } else {
+        if (mode === 'jump') controls.append(control(1, '«', '先頭のページへ'));
+        controls.append(control(page - 1, '←', '前のページへ', 'prev'));
+        if (mode === 'numbers' || mode === 'ellipsis') {
+          controls.append(numbers(false));
+          if (mode === 'ellipsis') controls.append(numbers(true));
+        } else {
+          controls.append(position());
+        }
+        controls.append(control(page + 1, '→', '次のページへ', 'next'));
+        if (mode === 'jump') controls.append(control(pages, '»', '最後のページへ'));
+      }
+      if (mode === 'range') root.querySelector('[data-range]').textContent = '全' + total + '件中 ' + first + '–' + last + '件';
+      if (focus) {
+        const target = [...controls.querySelectorAll('[aria-current=&quot;page&quot;]')].find(element =&gt; element.getClientRects().length) || content;
+        target.focus({ preventScroll: true });
+      }
+    }
+
+    controls.addEventListener('click', event =&gt; {
+      const link = event.target.closest('a[data-page]');
+      if (!link || !controls.contains(link) || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+      event.preventDefault();
+      const page = Number(link.dataset.page);
+      try {
+        const url = new URL(location.href);
+        url.searchParams.set(key, String(page));
+        url.hash = key;
+        history.pushState(null, '', url.href);
+        window.dispatchEvent(new Event('pagination:change'));
+      } catch {
+        // The demo still works when a local file cannot update browser history.
+      }
+      render(page, true);
+    });
+    window.addEventListener('popstate', () =&gt; render(readPage()));
+    window.addEventListener('pagination:change', () =&gt; render(readPage()));
+    render(readPage());
+  }
+
+  document.querySelectorAll('[data-pagination=&quot;numbers&quot;]').forEach(mountPagination);
+})();</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>記事一覧など、全ページの番号を並べて移動先を選べる小規模な一覧。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="番号 省略 両端 多数 レスポンシブ 検索 ellipsis overflow first last responsive search pagination ページネーション ページ送り">
+          <header class="part-example__header">
+            <div><span class="part-example__index">NUMBER / 02</span><h2>両端を残して中間を省略</h2></div>
+            <small>ELLIPSIS</small>
+          </header>
+          <div class="part-example__preview">
+            <div class="c-pagination c-pagination--ellipsis" id="pagination-ellipsis" data-pagination="ellipsis" data-total="420" data-size="10" data-initial="7">
+              <p class="c-pagination__content" role="status" aria-atomic="true" tabindex="-1" data-content>DEMO / 項目 61–70</p>
+              <nav aria-label="ページ送りの例（両端を残して中間を省略）">
+                <div class="c-pagination__controls" data-controls>
+                  <a class="c-pagination__control" aria-label="前のページへ" href="?pagination-ellipsis=6#pagination-ellipsis" data-page="6" rel="prev">←</a>
+                  <ul class="c-pagination__pages c-pagination__pages--wide" role="list">
+                    <li class="c-pagination__item"><a class="c-pagination__control" aria-label="1ページへ" href="?pagination-ellipsis=1#pagination-ellipsis" data-page="1">1</a></li>
+                    <li class="c-pagination__gap" aria-label="中間のページを省略">…</li>
+                    <li class="c-pagination__item"><a class="c-pagination__control" aria-label="6ページへ" href="?pagination-ellipsis=6#pagination-ellipsis" data-page="6">6</a></li>
+                    <li class="c-pagination__item"><span class="c-pagination__control" aria-label="7ページ（現在のページ）" aria-current="page" tabindex="-1">7</span></li>
+                    <li class="c-pagination__item"><a class="c-pagination__control" aria-label="8ページへ" href="?pagination-ellipsis=8#pagination-ellipsis" data-page="8">8</a></li>
+                    <li class="c-pagination__gap" aria-label="中間のページを省略">…</li>
+                    <li class="c-pagination__item"><a class="c-pagination__control" aria-label="42ページへ" href="?pagination-ellipsis=42#pagination-ellipsis" data-page="42">42</a></li>
+                  </ul>
+                  <ul class="c-pagination__pages c-pagination__pages--small" role="list">
+                    <li class="c-pagination__item"><a class="c-pagination__control" aria-label="1ページへ" href="?pagination-ellipsis=1#pagination-ellipsis" data-page="1">1</a></li>
+                    <li class="c-pagination__gap" aria-label="中間のページを省略">…</li>
+                    <li class="c-pagination__item"><span class="c-pagination__control" aria-label="7ページ（現在のページ）" aria-current="page" tabindex="-1">7</span></li>
+                    <li class="c-pagination__gap" aria-label="中間のページを省略">…</li>
+                    <li class="c-pagination__item"><a class="c-pagination__control" aria-label="42ページへ" href="?pagination-ellipsis=42#pagination-ellipsis" data-page="42">42</a></li>
+                  </ul>
+                  <a class="c-pagination__control" aria-label="次のページへ" href="?pagination-ellipsis=8#pagination-ellipsis" data-page="8" rel="next">→</a>
+                </div>
+              </nav>
+            </div>
+          </div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code">
+              <div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="HTMLコード"><code>&lt;div class=&quot;c-pagination c-pagination--ellipsis&quot; id=&quot;pagination-ellipsis&quot; data-pagination=&quot;ellipsis&quot; data-total=&quot;420&quot; data-size=&quot;10&quot; data-initial=&quot;7&quot;&gt;
+  &lt;p class=&quot;c-pagination__content&quot; role=&quot;status&quot; aria-atomic=&quot;true&quot; tabindex=&quot;-1&quot; data-content&gt;DEMO / 項目 61–70&lt;/p&gt;
+  &lt;nav aria-label=&quot;ページ送りの例（両端を残して中間を省略）&quot;&gt;
+    &lt;div class=&quot;c-pagination__controls&quot; data-controls&gt;
+      &lt;a class=&quot;c-pagination__control&quot; aria-label=&quot;前のページへ&quot; href=&quot;?pagination-ellipsis=6#pagination-ellipsis&quot; data-page=&quot;6&quot; rel=&quot;prev&quot;&gt;←&lt;/a&gt;
+      &lt;ul class=&quot;c-pagination__pages c-pagination__pages--wide&quot; role=&quot;list&quot;&gt;
+        &lt;li class=&quot;c-pagination__item&quot;&gt;&lt;a class=&quot;c-pagination__control&quot; aria-label=&quot;1ページへ&quot; href=&quot;?pagination-ellipsis=1#pagination-ellipsis&quot; data-page=&quot;1&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;c-pagination__gap&quot; aria-label=&quot;中間のページを省略&quot;&gt;…&lt;/li&gt;
+        &lt;li class=&quot;c-pagination__item&quot;&gt;&lt;a class=&quot;c-pagination__control&quot; aria-label=&quot;6ページへ&quot; href=&quot;?pagination-ellipsis=6#pagination-ellipsis&quot; data-page=&quot;6&quot;&gt;6&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;c-pagination__item&quot;&gt;&lt;span class=&quot;c-pagination__control&quot; aria-label=&quot;7ページ（現在のページ）&quot; aria-current=&quot;page&quot; tabindex=&quot;-1&quot;&gt;7&lt;/span&gt;&lt;/li&gt;
+        &lt;li class=&quot;c-pagination__item&quot;&gt;&lt;a class=&quot;c-pagination__control&quot; aria-label=&quot;8ページへ&quot; href=&quot;?pagination-ellipsis=8#pagination-ellipsis&quot; data-page=&quot;8&quot;&gt;8&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;c-pagination__gap&quot; aria-label=&quot;中間のページを省略&quot;&gt;…&lt;/li&gt;
+        &lt;li class=&quot;c-pagination__item&quot;&gt;&lt;a class=&quot;c-pagination__control&quot; aria-label=&quot;42ページへ&quot; href=&quot;?pagination-ellipsis=42#pagination-ellipsis&quot; data-page=&quot;42&quot;&gt;42&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;ul class=&quot;c-pagination__pages c-pagination__pages--small&quot; role=&quot;list&quot;&gt;
+        &lt;li class=&quot;c-pagination__item&quot;&gt;&lt;a class=&quot;c-pagination__control&quot; aria-label=&quot;1ページへ&quot; href=&quot;?pagination-ellipsis=1#pagination-ellipsis&quot; data-page=&quot;1&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;c-pagination__gap&quot; aria-label=&quot;中間のページを省略&quot;&gt;…&lt;/li&gt;
+        &lt;li class=&quot;c-pagination__item&quot;&gt;&lt;span class=&quot;c-pagination__control&quot; aria-label=&quot;7ページ（現在のページ）&quot; aria-current=&quot;page&quot; tabindex=&quot;-1&quot;&gt;7&lt;/span&gt;&lt;/li&gt;
+        &lt;li class=&quot;c-pagination__gap&quot; aria-label=&quot;中間のページを省略&quot;&gt;…&lt;/li&gt;
+        &lt;li class=&quot;c-pagination__item&quot;&gt;&lt;a class=&quot;c-pagination__control&quot; aria-label=&quot;42ページへ&quot; href=&quot;?pagination-ellipsis=42#pagination-ellipsis&quot; data-page=&quot;42&quot;&gt;42&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;a class=&quot;c-pagination__control&quot; aria-label=&quot;次のページへ&quot; href=&quot;?pagination-ellipsis=8#pagination-ellipsis&quot; data-page=&quot;8&quot; rel=&quot;next&quot;&gt;→&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="CSSコード"><code>/* Portable pagination styles */
+.c-pagination,
+.c-pagination * {
+  box-sizing: border-box;
+}
+
+.c-pagination {
+  max-inline-size: 100%;
+  color: var(--color-primary, #18243b);
+  font: .75rem/1.5 var(--font-mono, monospace);
+}
+
+.c-pagination__content {
+  margin: 0 0 .75rem;
+  color: var(--color-text-subtle, #667085);
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+.c-pagination__controls,
+.c-pagination__pages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: .25rem;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+.c-pagination__pages {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c-pagination__item {
+  display: flex;
+}
+
+.c-pagination__control,
+.c-pagination__position {
+  display: grid;
+  place-items: center;
+  min-inline-size: 2.75rem;
+  min-block-size: 2.75rem;
+  padding: .5rem;
+  color: inherit;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+  text-align: center;
+  text-decoration: none;
+}
+
+.c-pagination__control[aria-current=&quot;page&quot;] {
+  color: var(--color-accent-yellow, #ff0);
+  font-weight: 700;
+  background: var(--color-primary, #18243b);
+  border-color: var(--color-primary, #18243b);
+}
+
+.c-pagination__control[aria-disabled=&quot;true&quot;] {
+  color: var(--color-text-subtle, #667085);
+  background: var(--color-primary-soft, #edf1f7);
+  border-style: dashed;
+}
+
+.c-pagination :is(a, [tabindex]):focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: 2px;
+}
+
+.c-pagination a:active {
+  box-shadow: inset 0 0 0 2px currentColor;
+}
+
+.c-pagination__position {
+  min-inline-size: 4rem;
+  border-color: transparent;
+  background: transparent;
+  font-weight: 700;
+}
+
+.c-pagination__gap {
+  display: grid;
+  place-items: center;
+  min-inline-size: 1rem;
+  min-block-size: 2.75rem;
+}
+
+.c-pagination__pages--small {
+  display: none;
+}
+
+.c-pagination__range {
+  margin: .65rem 0 0;
+  color: var(--color-text-subtle, #667085);
+  text-align: center;
+}
+
+.c-pagination--article {
+  inline-size: min(100%, 26rem);
+}
+
+.c-pagination--article .c-pagination__controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: .5rem;
+}
+
+.c-pagination--article .c-pagination__control {
+  min-inline-size: 0;
+  padding: .6rem;
+  overflow-wrap: anywhere;
+  white-space: pre-line;
+  font-family: var(--font-sans, sans-serif);
+}
+
+@media (max-width: 640px) {
+  .c-pagination__pages--wide {
+    display: none;
+  }
+
+  .c-pagination__pages--small {
+    display: flex;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .c-pagination a:hover {
+    background: var(--color-primary-soft, #edf1f7);
+    border-color: var(--color-primary, #18243b);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .c-pagination a {
+    transition: background-color var(--transition-fast, 180ms ease), border-color var(--transition-fast, 180ms ease);
+  }
+}</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="JAVASCRIPTコード"><code>(() =&gt; {
+  function mountPagination(root) {
+    const mode = root.dataset.pagination;
+    const total = Number(root.dataset.total);
+    const size = Number(root.dataset.size);
+    const pages = Math.ceil(total / size);
+    const initial = Number(root.dataset.initial);
+    const key = root.id;
+    const controls = root.querySelector('[data-controls]');
+    const content = root.querySelector('[data-content]');
+    const titles = ['現在地が伝わるUI', '操作の状態を整える', '小さな画面で読みやすく'];
+    let current = initial;
+
+    function readPage() {
+      const raw = new URL(location.href).searchParams.get(key);
+      if (raw === null) return initial;
+      const value = Number(raw);
+      return Number.isSafeInteger(value) &amp;&amp; value &gt;= 1 &amp;&amp; value &lt;= pages ? value : 1;
+    }
+
+    function make(tag, className, text) {
+      const element = document.createElement(tag);
+      element.className = className;
+      if (text !== undefined) element.textContent = text;
+      return element;
+    }
+
+    function control(page, text, label, relation, isNumber = false) {
+      const valid = page &gt;= 1 &amp;&amp; page &lt;= pages &amp;&amp; (isNumber || page !== current);
+      const selected = isNumber &amp;&amp; page === current;
+      const element = make(valid &amp;&amp; !selected ? 'a' : 'span', 'c-pagination__control', text);
+      element.setAttribute('aria-label', label);
+      if (!valid) element.setAttribute('aria-disabled', 'true');
+      if (selected) {
+        element.setAttribute('aria-current', 'page');
+        element.tabIndex = -1;
+      } else if (valid) {
+        const url = new URL(location.href);
+        url.searchParams.set(key, String(page));
+        url.hash = key;
+        element.href = url.href;
+        element.dataset.page = String(page);
+        if (relation) element.rel = relation;
+      }
+      return element;
+    }
+
+    function numbers(compact) {
+      const list = make('ul', 'c-pagination__pages' + (mode === 'ellipsis' ? compact ? ' c-pagination__pages--small' : ' c-pagination__pages--wide' : ''));
+      list.setAttribute('role', 'list');
+      const selected = mode === 'ellipsis'
+        ? [...new Set([1, pages, current, ...(compact ? [] : [current - 1, current + 1])])].filter(page =&gt; page &gt;= 1 &amp;&amp; page &lt;= pages).sort((a, b) =&gt; a - b)
+        : Array.from({ length: pages }, (_, index) =&gt; index + 1);
+      let previous = 0;
+      selected.forEach(page =&gt; {
+        if (previous &amp;&amp; page - previous &gt; 1) {
+          const gap = make('li', 'c-pagination__gap', '…');
+          gap.setAttribute('aria-label', '中間のページを省略');
+          list.append(gap);
+        }
+        const item = make('li', 'c-pagination__item');
+        item.append(control(page, String(page), page + 'ページ' + (page === current ? '（現在のページ）' : 'へ'), undefined, true));
+        list.append(item);
+        previous = page;
+      });
+      return list;
+    }
+
+    function position() {
+      const element = make('span', 'c-pagination__position', current + ' / ' + pages);
+      element.setAttribute('aria-label', '全' + pages + 'ページ中' + current + 'ページ目');
+      element.setAttribute('aria-current', 'page');
+      element.tabIndex = -1;
+      return element;
+    }
+
+    function render(page, focus = false) {
+      current = page;
+      const first = (page - 1) * size + 1;
+      const last = Math.min(page * size, total);
+      content.textContent = mode === 'article'
+        ? page + ' / ' + pages + '　' + titles[page - 1]
+        : 'DEMO / 項目 ' + first + '–' + last;
+      controls.replaceChildren();
+      if (mode === 'article') {
+        controls.append(
+          control(page - 1, '← 前の記事' + (page &gt; 1 ? '\n' + titles[page - 2] : ''), '前の記事' + (page &gt; 1 ? '：' + titles[page - 2] : ''), 'prev'),
+          control(page + 1, '次の記事 →' + (page &lt; pages ? '\n' + titles[page] : ''), '次の記事' + (page &lt; pages ? '：' + titles[page] : ''), 'next'),
+        );
+      } else {
+        if (mode === 'jump') controls.append(control(1, '«', '先頭のページへ'));
+        controls.append(control(page - 1, '←', '前のページへ', 'prev'));
+        if (mode === 'numbers' || mode === 'ellipsis') {
+          controls.append(numbers(false));
+          if (mode === 'ellipsis') controls.append(numbers(true));
+        } else {
+          controls.append(position());
+        }
+        controls.append(control(page + 1, '→', '次のページへ', 'next'));
+        if (mode === 'jump') controls.append(control(pages, '»', '最後のページへ'));
+      }
+      if (mode === 'range') root.querySelector('[data-range]').textContent = '全' + total + '件中 ' + first + '–' + last + '件';
+      if (focus) {
+        const target = [...controls.querySelectorAll('[aria-current=&quot;page&quot;]')].find(element =&gt; element.getClientRects().length) || content;
+        target.focus({ preventScroll: true });
+      }
+    }
+
+    controls.addEventListener('click', event =&gt; {
+      const link = event.target.closest('a[data-page]');
+      if (!link || !controls.contains(link) || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+      event.preventDefault();
+      const page = Number(link.dataset.page);
+      try {
+        const url = new URL(location.href);
+        url.searchParams.set(key, String(page));
+        url.hash = key;
+        history.pushState(null, '', url.href);
+        window.dispatchEvent(new Event('pagination:change'));
+      } catch {
+        // The demo still works when a local file cannot update browser history.
+      }
+      render(page, true);
+    });
+    window.addEventListener('popstate', () =&gt; render(readPage()));
+    window.addEventListener('pagination:change', () =&gt; render(readPage()));
+    render(readPage());
+  }
+
+  document.querySelectorAll('[data-pagination=&quot;ellipsis&quot;]').forEach(mountPagination);
+})();</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>検索結果や商品カタログで、全体の規模を示しながら近いページへ移動する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="前後 現在位置 分数 コンパクト モバイル compact fraction previous next mobile pagination ページネーション ページ送り">
+          <header class="part-example__header">
+            <div><span class="part-example__index">COMPACT / 01</span><h2>前後リンクと現在位置</h2></div>
+            <small>PREVIOUS / NEXT</small>
+          </header>
+          <div class="part-example__preview">
+            <div class="c-pagination c-pagination--compact" id="pagination-compact" data-pagination="compact" data-total="80" data-size="10" data-initial="3">
+              <p class="c-pagination__content" role="status" aria-atomic="true" tabindex="-1" data-content>DEMO / 項目 21–30</p>
+              <nav aria-label="ページ送りの例（前後リンクと現在位置）">
+                <div class="c-pagination__controls" data-controls>
+                  <a class="c-pagination__control" aria-label="前のページへ" href="?pagination-compact=2#pagination-compact" data-page="2" rel="prev">←</a>
+                  <span class="c-pagination__position" aria-label="全8ページ中3ページ目" aria-current="page" tabindex="-1">3 / 8</span>
+                  <a class="c-pagination__control" aria-label="次のページへ" href="?pagination-compact=4#pagination-compact" data-page="4" rel="next">→</a>
+                </div>
+              </nav>
+            </div>
+          </div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code">
+              <div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="HTMLコード"><code>&lt;div class=&quot;c-pagination c-pagination--compact&quot; id=&quot;pagination-compact&quot; data-pagination=&quot;compact&quot; data-total=&quot;80&quot; data-size=&quot;10&quot; data-initial=&quot;3&quot;&gt;
+  &lt;p class=&quot;c-pagination__content&quot; role=&quot;status&quot; aria-atomic=&quot;true&quot; tabindex=&quot;-1&quot; data-content&gt;DEMO / 項目 21–30&lt;/p&gt;
+  &lt;nav aria-label=&quot;ページ送りの例（前後リンクと現在位置）&quot;&gt;
+    &lt;div class=&quot;c-pagination__controls&quot; data-controls&gt;
+      &lt;a class=&quot;c-pagination__control&quot; aria-label=&quot;前のページへ&quot; href=&quot;?pagination-compact=2#pagination-compact&quot; data-page=&quot;2&quot; rel=&quot;prev&quot;&gt;←&lt;/a&gt;
+      &lt;span class=&quot;c-pagination__position&quot; aria-label=&quot;全8ページ中3ページ目&quot; aria-current=&quot;page&quot; tabindex=&quot;-1&quot;&gt;3 / 8&lt;/span&gt;
+      &lt;a class=&quot;c-pagination__control&quot; aria-label=&quot;次のページへ&quot; href=&quot;?pagination-compact=4#pagination-compact&quot; data-page=&quot;4&quot; rel=&quot;next&quot;&gt;→&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="CSSコード"><code>/* Portable pagination styles */
+.c-pagination,
+.c-pagination * {
+  box-sizing: border-box;
+}
+
+.c-pagination {
+  max-inline-size: 100%;
+  color: var(--color-primary, #18243b);
+  font: .75rem/1.5 var(--font-mono, monospace);
+}
+
+.c-pagination__content {
+  margin: 0 0 .75rem;
+  color: var(--color-text-subtle, #667085);
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+.c-pagination__controls,
+.c-pagination__pages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: .25rem;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+.c-pagination__pages {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c-pagination__item {
+  display: flex;
+}
+
+.c-pagination__control,
+.c-pagination__position {
+  display: grid;
+  place-items: center;
+  min-inline-size: 2.75rem;
+  min-block-size: 2.75rem;
+  padding: .5rem;
+  color: inherit;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+  text-align: center;
+  text-decoration: none;
+}
+
+.c-pagination__control[aria-current=&quot;page&quot;] {
+  color: var(--color-accent-yellow, #ff0);
+  font-weight: 700;
+  background: var(--color-primary, #18243b);
+  border-color: var(--color-primary, #18243b);
+}
+
+.c-pagination__control[aria-disabled=&quot;true&quot;] {
+  color: var(--color-text-subtle, #667085);
+  background: var(--color-primary-soft, #edf1f7);
+  border-style: dashed;
+}
+
+.c-pagination :is(a, [tabindex]):focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: 2px;
+}
+
+.c-pagination a:active {
+  box-shadow: inset 0 0 0 2px currentColor;
+}
+
+.c-pagination__position {
+  min-inline-size: 4rem;
+  border-color: transparent;
+  background: transparent;
+  font-weight: 700;
+}
+
+.c-pagination__gap {
+  display: grid;
+  place-items: center;
+  min-inline-size: 1rem;
+  min-block-size: 2.75rem;
+}
+
+.c-pagination__pages--small {
+  display: none;
+}
+
+.c-pagination__range {
+  margin: .65rem 0 0;
+  color: var(--color-text-subtle, #667085);
+  text-align: center;
+}
+
+.c-pagination--article {
+  inline-size: min(100%, 26rem);
+}
+
+.c-pagination--article .c-pagination__controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: .5rem;
+}
+
+.c-pagination--article .c-pagination__control {
+  min-inline-size: 0;
+  padding: .6rem;
+  overflow-wrap: anywhere;
+  white-space: pre-line;
+  font-family: var(--font-sans, sans-serif);
+}
+
+@media (max-width: 640px) {
+  .c-pagination__pages--wide {
+    display: none;
+  }
+
+  .c-pagination__pages--small {
+    display: flex;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .c-pagination a:hover {
+    background: var(--color-primary-soft, #edf1f7);
+    border-color: var(--color-primary, #18243b);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .c-pagination a {
+    transition: background-color var(--transition-fast, 180ms ease), border-color var(--transition-fast, 180ms ease);
+  }
+}</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="JAVASCRIPTコード"><code>(() =&gt; {
+  function mountPagination(root) {
+    const mode = root.dataset.pagination;
+    const total = Number(root.dataset.total);
+    const size = Number(root.dataset.size);
+    const pages = Math.ceil(total / size);
+    const initial = Number(root.dataset.initial);
+    const key = root.id;
+    const controls = root.querySelector('[data-controls]');
+    const content = root.querySelector('[data-content]');
+    const titles = ['現在地が伝わるUI', '操作の状態を整える', '小さな画面で読みやすく'];
+    let current = initial;
+
+    function readPage() {
+      const raw = new URL(location.href).searchParams.get(key);
+      if (raw === null) return initial;
+      const value = Number(raw);
+      return Number.isSafeInteger(value) &amp;&amp; value &gt;= 1 &amp;&amp; value &lt;= pages ? value : 1;
+    }
+
+    function make(tag, className, text) {
+      const element = document.createElement(tag);
+      element.className = className;
+      if (text !== undefined) element.textContent = text;
+      return element;
+    }
+
+    function control(page, text, label, relation, isNumber = false) {
+      const valid = page &gt;= 1 &amp;&amp; page &lt;= pages &amp;&amp; (isNumber || page !== current);
+      const selected = isNumber &amp;&amp; page === current;
+      const element = make(valid &amp;&amp; !selected ? 'a' : 'span', 'c-pagination__control', text);
+      element.setAttribute('aria-label', label);
+      if (!valid) element.setAttribute('aria-disabled', 'true');
+      if (selected) {
+        element.setAttribute('aria-current', 'page');
+        element.tabIndex = -1;
+      } else if (valid) {
+        const url = new URL(location.href);
+        url.searchParams.set(key, String(page));
+        url.hash = key;
+        element.href = url.href;
+        element.dataset.page = String(page);
+        if (relation) element.rel = relation;
+      }
+      return element;
+    }
+
+    function numbers(compact) {
+      const list = make('ul', 'c-pagination__pages' + (mode === 'ellipsis' ? compact ? ' c-pagination__pages--small' : ' c-pagination__pages--wide' : ''));
+      list.setAttribute('role', 'list');
+      const selected = mode === 'ellipsis'
+        ? [...new Set([1, pages, current, ...(compact ? [] : [current - 1, current + 1])])].filter(page =&gt; page &gt;= 1 &amp;&amp; page &lt;= pages).sort((a, b) =&gt; a - b)
+        : Array.from({ length: pages }, (_, index) =&gt; index + 1);
+      let previous = 0;
+      selected.forEach(page =&gt; {
+        if (previous &amp;&amp; page - previous &gt; 1) {
+          const gap = make('li', 'c-pagination__gap', '…');
+          gap.setAttribute('aria-label', '中間のページを省略');
+          list.append(gap);
+        }
+        const item = make('li', 'c-pagination__item');
+        item.append(control(page, String(page), page + 'ページ' + (page === current ? '（現在のページ）' : 'へ'), undefined, true));
+        list.append(item);
+        previous = page;
+      });
+      return list;
+    }
+
+    function position() {
+      const element = make('span', 'c-pagination__position', current + ' / ' + pages);
+      element.setAttribute('aria-label', '全' + pages + 'ページ中' + current + 'ページ目');
+      element.setAttribute('aria-current', 'page');
+      element.tabIndex = -1;
+      return element;
+    }
+
+    function render(page, focus = false) {
+      current = page;
+      const first = (page - 1) * size + 1;
+      const last = Math.min(page * size, total);
+      content.textContent = mode === 'article'
+        ? page + ' / ' + pages + '　' + titles[page - 1]
+        : 'DEMO / 項目 ' + first + '–' + last;
+      controls.replaceChildren();
+      if (mode === 'article') {
+        controls.append(
+          control(page - 1, '← 前の記事' + (page &gt; 1 ? '\n' + titles[page - 2] : ''), '前の記事' + (page &gt; 1 ? '：' + titles[page - 2] : ''), 'prev'),
+          control(page + 1, '次の記事 →' + (page &lt; pages ? '\n' + titles[page] : ''), '次の記事' + (page &lt; pages ? '：' + titles[page] : ''), 'next'),
+        );
+      } else {
+        if (mode === 'jump') controls.append(control(1, '«', '先頭のページへ'));
+        controls.append(control(page - 1, '←', '前のページへ', 'prev'));
+        if (mode === 'numbers' || mode === 'ellipsis') {
+          controls.append(numbers(false));
+          if (mode === 'ellipsis') controls.append(numbers(true));
+        } else {
+          controls.append(position());
+        }
+        controls.append(control(page + 1, '→', '次のページへ', 'next'));
+        if (mode === 'jump') controls.append(control(pages, '»', '最後のページへ'));
+      }
+      if (mode === 'range') root.querySelector('[data-range]').textContent = '全' + total + '件中 ' + first + '–' + last + '件';
+      if (focus) {
+        const target = [...controls.querySelectorAll('[aria-current=&quot;page&quot;]')].find(element =&gt; element.getClientRects().length) || content;
+        target.focus({ preventScroll: true });
+      }
+    }
+
+    controls.addEventListener('click', event =&gt; {
+      const link = event.target.closest('a[data-page]');
+      if (!link || !controls.contains(link) || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+      event.preventDefault();
+      const page = Number(link.dataset.page);
+      try {
+        const url = new URL(location.href);
+        url.searchParams.set(key, String(page));
+        url.hash = key;
+        history.pushState(null, '', url.href);
+        window.dispatchEvent(new Event('pagination:change'));
+      } catch {
+        // The demo still works when a local file cannot update browser history.
+      }
+      render(page, true);
+    });
+    window.addEventListener('popstate', () =&gt; render(readPage()));
+    window.addEventListener('pagination:change', () =&gt; render(readPage()));
+    render(readPage());
+  }
+
+  document.querySelectorAll('[data-pagination=&quot;compact&quot;]').forEach(mountPagination);
+})();</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>スマートフォンの一覧など、前後への移動と現在位置を簡潔に示す場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="前後 先頭 末尾 ジャンプ 管理画面 first last jump boundary dashboard pagination ページネーション ページ送り">
+          <header class="part-example__header">
+            <div><span class="part-example__index">COMPACT / 02</span><h2>先頭・末尾へ移動</h2></div>
+            <small>FIRST / LAST</small>
+          </header>
+          <div class="part-example__preview">
+            <div class="c-pagination c-pagination--jump" id="pagination-jump" data-pagination="jump" data-total="120" data-size="10" data-initial="3">
+              <p class="c-pagination__content" role="status" aria-atomic="true" tabindex="-1" data-content>DEMO / 項目 21–30</p>
+              <nav aria-label="ページ送りの例（先頭・末尾へ移動）">
+                <div class="c-pagination__controls" data-controls>
+                  <a class="c-pagination__control" aria-label="先頭のページへ" href="?pagination-jump=1#pagination-jump" data-page="1">«</a>
+                  <a class="c-pagination__control" aria-label="前のページへ" href="?pagination-jump=2#pagination-jump" data-page="2" rel="prev">←</a>
+                  <span class="c-pagination__position" aria-label="全12ページ中3ページ目" aria-current="page" tabindex="-1">3 / 12</span>
+                  <a class="c-pagination__control" aria-label="次のページへ" href="?pagination-jump=4#pagination-jump" data-page="4" rel="next">→</a>
+                  <a class="c-pagination__control" aria-label="最後のページへ" href="?pagination-jump=12#pagination-jump" data-page="12">»</a>
+                </div>
+              </nav>
+            </div>
+          </div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code">
+              <div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="HTMLコード"><code>&lt;div class=&quot;c-pagination c-pagination--jump&quot; id=&quot;pagination-jump&quot; data-pagination=&quot;jump&quot; data-total=&quot;120&quot; data-size=&quot;10&quot; data-initial=&quot;3&quot;&gt;
+  &lt;p class=&quot;c-pagination__content&quot; role=&quot;status&quot; aria-atomic=&quot;true&quot; tabindex=&quot;-1&quot; data-content&gt;DEMO / 項目 21–30&lt;/p&gt;
+  &lt;nav aria-label=&quot;ページ送りの例（先頭・末尾へ移動）&quot;&gt;
+    &lt;div class=&quot;c-pagination__controls&quot; data-controls&gt;
+      &lt;a class=&quot;c-pagination__control&quot; aria-label=&quot;先頭のページへ&quot; href=&quot;?pagination-jump=1#pagination-jump&quot; data-page=&quot;1&quot;&gt;«&lt;/a&gt;
+      &lt;a class=&quot;c-pagination__control&quot; aria-label=&quot;前のページへ&quot; href=&quot;?pagination-jump=2#pagination-jump&quot; data-page=&quot;2&quot; rel=&quot;prev&quot;&gt;←&lt;/a&gt;
+      &lt;span class=&quot;c-pagination__position&quot; aria-label=&quot;全12ページ中3ページ目&quot; aria-current=&quot;page&quot; tabindex=&quot;-1&quot;&gt;3 / 12&lt;/span&gt;
+      &lt;a class=&quot;c-pagination__control&quot; aria-label=&quot;次のページへ&quot; href=&quot;?pagination-jump=4#pagination-jump&quot; data-page=&quot;4&quot; rel=&quot;next&quot;&gt;→&lt;/a&gt;
+      &lt;a class=&quot;c-pagination__control&quot; aria-label=&quot;最後のページへ&quot; href=&quot;?pagination-jump=12#pagination-jump&quot; data-page=&quot;12&quot;&gt;»&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="CSSコード"><code>/* Portable pagination styles */
+.c-pagination,
+.c-pagination * {
+  box-sizing: border-box;
+}
+
+.c-pagination {
+  max-inline-size: 100%;
+  color: var(--color-primary, #18243b);
+  font: .75rem/1.5 var(--font-mono, monospace);
+}
+
+.c-pagination__content {
+  margin: 0 0 .75rem;
+  color: var(--color-text-subtle, #667085);
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+.c-pagination__controls,
+.c-pagination__pages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: .25rem;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+.c-pagination__pages {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c-pagination__item {
+  display: flex;
+}
+
+.c-pagination__control,
+.c-pagination__position {
+  display: grid;
+  place-items: center;
+  min-inline-size: 2.75rem;
+  min-block-size: 2.75rem;
+  padding: .5rem;
+  color: inherit;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+  text-align: center;
+  text-decoration: none;
+}
+
+.c-pagination__control[aria-current=&quot;page&quot;] {
+  color: var(--color-accent-yellow, #ff0);
+  font-weight: 700;
+  background: var(--color-primary, #18243b);
+  border-color: var(--color-primary, #18243b);
+}
+
+.c-pagination__control[aria-disabled=&quot;true&quot;] {
+  color: var(--color-text-subtle, #667085);
+  background: var(--color-primary-soft, #edf1f7);
+  border-style: dashed;
+}
+
+.c-pagination :is(a, [tabindex]):focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: 2px;
+}
+
+.c-pagination a:active {
+  box-shadow: inset 0 0 0 2px currentColor;
+}
+
+.c-pagination__position {
+  min-inline-size: 4rem;
+  border-color: transparent;
+  background: transparent;
+  font-weight: 700;
+}
+
+.c-pagination__gap {
+  display: grid;
+  place-items: center;
+  min-inline-size: 1rem;
+  min-block-size: 2.75rem;
+}
+
+.c-pagination__pages--small {
+  display: none;
+}
+
+.c-pagination__range {
+  margin: .65rem 0 0;
+  color: var(--color-text-subtle, #667085);
+  text-align: center;
+}
+
+.c-pagination--article {
+  inline-size: min(100%, 26rem);
+}
+
+.c-pagination--article .c-pagination__controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: .5rem;
+}
+
+.c-pagination--article .c-pagination__control {
+  min-inline-size: 0;
+  padding: .6rem;
+  overflow-wrap: anywhere;
+  white-space: pre-line;
+  font-family: var(--font-sans, sans-serif);
+}
+
+@media (max-width: 640px) {
+  .c-pagination__pages--wide {
+    display: none;
+  }
+
+  .c-pagination__pages--small {
+    display: flex;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .c-pagination a:hover {
+    background: var(--color-primary-soft, #edf1f7);
+    border-color: var(--color-primary, #18243b);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .c-pagination a {
+    transition: background-color var(--transition-fast, 180ms ease), border-color var(--transition-fast, 180ms ease);
+  }
+}</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="JAVASCRIPTコード"><code>(() =&gt; {
+  function mountPagination(root) {
+    const mode = root.dataset.pagination;
+    const total = Number(root.dataset.total);
+    const size = Number(root.dataset.size);
+    const pages = Math.ceil(total / size);
+    const initial = Number(root.dataset.initial);
+    const key = root.id;
+    const controls = root.querySelector('[data-controls]');
+    const content = root.querySelector('[data-content]');
+    const titles = ['現在地が伝わるUI', '操作の状態を整える', '小さな画面で読みやすく'];
+    let current = initial;
+
+    function readPage() {
+      const raw = new URL(location.href).searchParams.get(key);
+      if (raw === null) return initial;
+      const value = Number(raw);
+      return Number.isSafeInteger(value) &amp;&amp; value &gt;= 1 &amp;&amp; value &lt;= pages ? value : 1;
+    }
+
+    function make(tag, className, text) {
+      const element = document.createElement(tag);
+      element.className = className;
+      if (text !== undefined) element.textContent = text;
+      return element;
+    }
+
+    function control(page, text, label, relation, isNumber = false) {
+      const valid = page &gt;= 1 &amp;&amp; page &lt;= pages &amp;&amp; (isNumber || page !== current);
+      const selected = isNumber &amp;&amp; page === current;
+      const element = make(valid &amp;&amp; !selected ? 'a' : 'span', 'c-pagination__control', text);
+      element.setAttribute('aria-label', label);
+      if (!valid) element.setAttribute('aria-disabled', 'true');
+      if (selected) {
+        element.setAttribute('aria-current', 'page');
+        element.tabIndex = -1;
+      } else if (valid) {
+        const url = new URL(location.href);
+        url.searchParams.set(key, String(page));
+        url.hash = key;
+        element.href = url.href;
+        element.dataset.page = String(page);
+        if (relation) element.rel = relation;
+      }
+      return element;
+    }
+
+    function numbers(compact) {
+      const list = make('ul', 'c-pagination__pages' + (mode === 'ellipsis' ? compact ? ' c-pagination__pages--small' : ' c-pagination__pages--wide' : ''));
+      list.setAttribute('role', 'list');
+      const selected = mode === 'ellipsis'
+        ? [...new Set([1, pages, current, ...(compact ? [] : [current - 1, current + 1])])].filter(page =&gt; page &gt;= 1 &amp;&amp; page &lt;= pages).sort((a, b) =&gt; a - b)
+        : Array.from({ length: pages }, (_, index) =&gt; index + 1);
+      let previous = 0;
+      selected.forEach(page =&gt; {
+        if (previous &amp;&amp; page - previous &gt; 1) {
+          const gap = make('li', 'c-pagination__gap', '…');
+          gap.setAttribute('aria-label', '中間のページを省略');
+          list.append(gap);
+        }
+        const item = make('li', 'c-pagination__item');
+        item.append(control(page, String(page), page + 'ページ' + (page === current ? '（現在のページ）' : 'へ'), undefined, true));
+        list.append(item);
+        previous = page;
+      });
+      return list;
+    }
+
+    function position() {
+      const element = make('span', 'c-pagination__position', current + ' / ' + pages);
+      element.setAttribute('aria-label', '全' + pages + 'ページ中' + current + 'ページ目');
+      element.setAttribute('aria-current', 'page');
+      element.tabIndex = -1;
+      return element;
+    }
+
+    function render(page, focus = false) {
+      current = page;
+      const first = (page - 1) * size + 1;
+      const last = Math.min(page * size, total);
+      content.textContent = mode === 'article'
+        ? page + ' / ' + pages + '　' + titles[page - 1]
+        : 'DEMO / 項目 ' + first + '–' + last;
+      controls.replaceChildren();
+      if (mode === 'article') {
+        controls.append(
+          control(page - 1, '← 前の記事' + (page &gt; 1 ? '\n' + titles[page - 2] : ''), '前の記事' + (page &gt; 1 ? '：' + titles[page - 2] : ''), 'prev'),
+          control(page + 1, '次の記事 →' + (page &lt; pages ? '\n' + titles[page] : ''), '次の記事' + (page &lt; pages ? '：' + titles[page] : ''), 'next'),
+        );
+      } else {
+        if (mode === 'jump') controls.append(control(1, '«', '先頭のページへ'));
+        controls.append(control(page - 1, '←', '前のページへ', 'prev'));
+        if (mode === 'numbers' || mode === 'ellipsis') {
+          controls.append(numbers(false));
+          if (mode === 'ellipsis') controls.append(numbers(true));
+        } else {
+          controls.append(position());
+        }
+        controls.append(control(page + 1, '→', '次のページへ', 'next'));
+        if (mode === 'jump') controls.append(control(pages, '»', '最後のページへ'));
+      }
+      if (mode === 'range') root.querySelector('[data-range]').textContent = '全' + total + '件中 ' + first + '–' + last + '件';
+      if (focus) {
+        const target = [...controls.querySelectorAll('[aria-current=&quot;page&quot;]')].find(element =&gt; element.getClientRects().length) || content;
+        target.focus({ preventScroll: true });
+      }
+    }
+
+    controls.addEventListener('click', event =&gt; {
+      const link = event.target.closest('a[data-page]');
+      if (!link || !controls.contains(link) || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+      event.preventDefault();
+      const page = Number(link.dataset.page);
+      try {
+        const url = new URL(location.href);
+        url.searchParams.set(key, String(page));
+        url.hash = key;
+        history.pushState(null, '', url.href);
+        window.dispatchEvent(new Event('pagination:change'));
+      } catch {
+        // The demo still works when a local file cannot update browser history.
+      }
+      render(page, true);
+    });
+    window.addEventListener('popstate', () =&gt; render(readPage()));
+    window.addEventListener('pagination:change', () =&gt; render(readPage()));
+    render(readPage());
+  }
+
+  document.querySelectorAll('[data-pagination=&quot;jump&quot;]').forEach(mountPagination);
+})();</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>履歴や管理画面の一覧で、前後移動に加えて先頭・末尾へすぐ戻りたい場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="件数 表示範囲 総数 検索 テーブル range count total results table search pagination ページネーション ページ送り">
+          <header class="part-example__header">
+            <div><span class="part-example__index">CONTEXT / 01</span><h2>表示範囲と総件数を併記</h2></div>
+            <small>RESULT RANGE</small>
+          </header>
+          <div class="part-example__preview">
+            <div class="c-pagination c-pagination--range" id="pagination-range" data-pagination="range" data-total="124" data-size="20" data-initial="3">
+              <p class="c-pagination__content" role="status" aria-atomic="true" tabindex="-1" data-content>DEMO / 項目 41–60</p>
+              <nav aria-label="ページ送りの例（表示範囲と総件数を併記）">
+                <div class="c-pagination__controls" data-controls>
+                  <a class="c-pagination__control" aria-label="前のページへ" href="?pagination-range=2#pagination-range" data-page="2" rel="prev">←</a>
+                  <span class="c-pagination__position" aria-label="全7ページ中3ページ目" aria-current="page" tabindex="-1">3 / 7</span>
+                  <a class="c-pagination__control" aria-label="次のページへ" href="?pagination-range=4#pagination-range" data-page="4" rel="next">→</a>
+                </div>
+              </nav>
+              <p class="c-pagination__range" data-range>全124件中 41–60件</p>
+            </div>
+          </div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code">
+              <div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="HTMLコード"><code>&lt;div class=&quot;c-pagination c-pagination--range&quot; id=&quot;pagination-range&quot; data-pagination=&quot;range&quot; data-total=&quot;124&quot; data-size=&quot;20&quot; data-initial=&quot;3&quot;&gt;
+  &lt;p class=&quot;c-pagination__content&quot; role=&quot;status&quot; aria-atomic=&quot;true&quot; tabindex=&quot;-1&quot; data-content&gt;DEMO / 項目 41–60&lt;/p&gt;
+  &lt;nav aria-label=&quot;ページ送りの例（表示範囲と総件数を併記）&quot;&gt;
+    &lt;div class=&quot;c-pagination__controls&quot; data-controls&gt;
+      &lt;a class=&quot;c-pagination__control&quot; aria-label=&quot;前のページへ&quot; href=&quot;?pagination-range=2#pagination-range&quot; data-page=&quot;2&quot; rel=&quot;prev&quot;&gt;←&lt;/a&gt;
+      &lt;span class=&quot;c-pagination__position&quot; aria-label=&quot;全7ページ中3ページ目&quot; aria-current=&quot;page&quot; tabindex=&quot;-1&quot;&gt;3 / 7&lt;/span&gt;
+      &lt;a class=&quot;c-pagination__control&quot; aria-label=&quot;次のページへ&quot; href=&quot;?pagination-range=4#pagination-range&quot; data-page=&quot;4&quot; rel=&quot;next&quot;&gt;→&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+  &lt;p class=&quot;c-pagination__range&quot; data-range&gt;全124件中 41–60件&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="CSSコード"><code>/* Portable pagination styles */
+.c-pagination,
+.c-pagination * {
+  box-sizing: border-box;
+}
+
+.c-pagination {
+  max-inline-size: 100%;
+  color: var(--color-primary, #18243b);
+  font: .75rem/1.5 var(--font-mono, monospace);
+}
+
+.c-pagination__content {
+  margin: 0 0 .75rem;
+  color: var(--color-text-subtle, #667085);
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+.c-pagination__controls,
+.c-pagination__pages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: .25rem;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+.c-pagination__pages {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c-pagination__item {
+  display: flex;
+}
+
+.c-pagination__control,
+.c-pagination__position {
+  display: grid;
+  place-items: center;
+  min-inline-size: 2.75rem;
+  min-block-size: 2.75rem;
+  padding: .5rem;
+  color: inherit;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+  text-align: center;
+  text-decoration: none;
+}
+
+.c-pagination__control[aria-current=&quot;page&quot;] {
+  color: var(--color-accent-yellow, #ff0);
+  font-weight: 700;
+  background: var(--color-primary, #18243b);
+  border-color: var(--color-primary, #18243b);
+}
+
+.c-pagination__control[aria-disabled=&quot;true&quot;] {
+  color: var(--color-text-subtle, #667085);
+  background: var(--color-primary-soft, #edf1f7);
+  border-style: dashed;
+}
+
+.c-pagination :is(a, [tabindex]):focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: 2px;
+}
+
+.c-pagination a:active {
+  box-shadow: inset 0 0 0 2px currentColor;
+}
+
+.c-pagination__position {
+  min-inline-size: 4rem;
+  border-color: transparent;
+  background: transparent;
+  font-weight: 700;
+}
+
+.c-pagination__gap {
+  display: grid;
+  place-items: center;
+  min-inline-size: 1rem;
+  min-block-size: 2.75rem;
+}
+
+.c-pagination__pages--small {
+  display: none;
+}
+
+.c-pagination__range {
+  margin: .65rem 0 0;
+  color: var(--color-text-subtle, #667085);
+  text-align: center;
+}
+
+.c-pagination--article {
+  inline-size: min(100%, 26rem);
+}
+
+.c-pagination--article .c-pagination__controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: .5rem;
+}
+
+.c-pagination--article .c-pagination__control {
+  min-inline-size: 0;
+  padding: .6rem;
+  overflow-wrap: anywhere;
+  white-space: pre-line;
+  font-family: var(--font-sans, sans-serif);
+}
+
+@media (max-width: 640px) {
+  .c-pagination__pages--wide {
+    display: none;
+  }
+
+  .c-pagination__pages--small {
+    display: flex;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .c-pagination a:hover {
+    background: var(--color-primary-soft, #edf1f7);
+    border-color: var(--color-primary, #18243b);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .c-pagination a {
+    transition: background-color var(--transition-fast, 180ms ease), border-color var(--transition-fast, 180ms ease);
+  }
+}</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="JAVASCRIPTコード"><code>(() =&gt; {
+  function mountPagination(root) {
+    const mode = root.dataset.pagination;
+    const total = Number(root.dataset.total);
+    const size = Number(root.dataset.size);
+    const pages = Math.ceil(total / size);
+    const initial = Number(root.dataset.initial);
+    const key = root.id;
+    const controls = root.querySelector('[data-controls]');
+    const content = root.querySelector('[data-content]');
+    const titles = ['現在地が伝わるUI', '操作の状態を整える', '小さな画面で読みやすく'];
+    let current = initial;
+
+    function readPage() {
+      const raw = new URL(location.href).searchParams.get(key);
+      if (raw === null) return initial;
+      const value = Number(raw);
+      return Number.isSafeInteger(value) &amp;&amp; value &gt;= 1 &amp;&amp; value &lt;= pages ? value : 1;
+    }
+
+    function make(tag, className, text) {
+      const element = document.createElement(tag);
+      element.className = className;
+      if (text !== undefined) element.textContent = text;
+      return element;
+    }
+
+    function control(page, text, label, relation, isNumber = false) {
+      const valid = page &gt;= 1 &amp;&amp; page &lt;= pages &amp;&amp; (isNumber || page !== current);
+      const selected = isNumber &amp;&amp; page === current;
+      const element = make(valid &amp;&amp; !selected ? 'a' : 'span', 'c-pagination__control', text);
+      element.setAttribute('aria-label', label);
+      if (!valid) element.setAttribute('aria-disabled', 'true');
+      if (selected) {
+        element.setAttribute('aria-current', 'page');
+        element.tabIndex = -1;
+      } else if (valid) {
+        const url = new URL(location.href);
+        url.searchParams.set(key, String(page));
+        url.hash = key;
+        element.href = url.href;
+        element.dataset.page = String(page);
+        if (relation) element.rel = relation;
+      }
+      return element;
+    }
+
+    function numbers(compact) {
+      const list = make('ul', 'c-pagination__pages' + (mode === 'ellipsis' ? compact ? ' c-pagination__pages--small' : ' c-pagination__pages--wide' : ''));
+      list.setAttribute('role', 'list');
+      const selected = mode === 'ellipsis'
+        ? [...new Set([1, pages, current, ...(compact ? [] : [current - 1, current + 1])])].filter(page =&gt; page &gt;= 1 &amp;&amp; page &lt;= pages).sort((a, b) =&gt; a - b)
+        : Array.from({ length: pages }, (_, index) =&gt; index + 1);
+      let previous = 0;
+      selected.forEach(page =&gt; {
+        if (previous &amp;&amp; page - previous &gt; 1) {
+          const gap = make('li', 'c-pagination__gap', '…');
+          gap.setAttribute('aria-label', '中間のページを省略');
+          list.append(gap);
+        }
+        const item = make('li', 'c-pagination__item');
+        item.append(control(page, String(page), page + 'ページ' + (page === current ? '（現在のページ）' : 'へ'), undefined, true));
+        list.append(item);
+        previous = page;
+      });
+      return list;
+    }
+
+    function position() {
+      const element = make('span', 'c-pagination__position', current + ' / ' + pages);
+      element.setAttribute('aria-label', '全' + pages + 'ページ中' + current + 'ページ目');
+      element.setAttribute('aria-current', 'page');
+      element.tabIndex = -1;
+      return element;
+    }
+
+    function render(page, focus = false) {
+      current = page;
+      const first = (page - 1) * size + 1;
+      const last = Math.min(page * size, total);
+      content.textContent = mode === 'article'
+        ? page + ' / ' + pages + '　' + titles[page - 1]
+        : 'DEMO / 項目 ' + first + '–' + last;
+      controls.replaceChildren();
+      if (mode === 'article') {
+        controls.append(
+          control(page - 1, '← 前の記事' + (page &gt; 1 ? '\n' + titles[page - 2] : ''), '前の記事' + (page &gt; 1 ? '：' + titles[page - 2] : ''), 'prev'),
+          control(page + 1, '次の記事 →' + (page &lt; pages ? '\n' + titles[page] : ''), '次の記事' + (page &lt; pages ? '：' + titles[page] : ''), 'next'),
+        );
+      } else {
+        if (mode === 'jump') controls.append(control(1, '«', '先頭のページへ'));
+        controls.append(control(page - 1, '←', '前のページへ', 'prev'));
+        if (mode === 'numbers' || mode === 'ellipsis') {
+          controls.append(numbers(false));
+          if (mode === 'ellipsis') controls.append(numbers(true));
+        } else {
+          controls.append(position());
+        }
+        controls.append(control(page + 1, '→', '次のページへ', 'next'));
+        if (mode === 'jump') controls.append(control(pages, '»', '最後のページへ'));
+      }
+      if (mode === 'range') root.querySelector('[data-range]').textContent = '全' + total + '件中 ' + first + '–' + last + '件';
+      if (focus) {
+        const target = [...controls.querySelectorAll('[aria-current=&quot;page&quot;]')].find(element =&gt; element.getClientRects().length) || content;
+        target.focus({ preventScroll: true });
+      }
+    }
+
+    controls.addEventListener('click', event =&gt; {
+      const link = event.target.closest('a[data-page]');
+      if (!link || !controls.contains(link) || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+      event.preventDefault();
+      const page = Number(link.dataset.page);
+      try {
+        const url = new URL(location.href);
+        url.searchParams.set(key, String(page));
+        url.hash = key;
+        history.pushState(null, '', url.href);
+        window.dispatchEvent(new Event('pagination:change'));
+      } catch {
+        // The demo still works when a local file cannot update browser history.
+      }
+      render(page, true);
+    });
+    window.addEventListener('popstate', () =&gt; render(readPage()));
+    window.addEventListener('pagination:change', () =&gt; render(readPage()));
+    render(readPage());
+  }
+
+  document.querySelectorAll('[data-pagination=&quot;range&quot;]').forEach(mountPagination);
+})();</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>検索結果やデータ一覧で、全件数と現在表示している範囲を確認する場面。</p></div>
+        </section>
+
+        <section class="part-example part-example--with-js reveal" data-pattern data-search="前後 記事 タイトル 読み物 ブログ article title editorial blog previous next pagination ページネーション ページ送り">
+          <header class="part-example__header">
+            <div><span class="part-example__index">CONTEXT / 02</span><h2>記事タイトル付き前後リンク</h2></div>
+            <small>ARTICLE LINKS</small>
+          </header>
+          <div class="part-example__preview">
+            <div class="c-pagination c-pagination--article" id="pagination-article" data-pagination="article" data-total="3" data-size="1" data-initial="2">
+              <p class="c-pagination__content" role="status" aria-atomic="true" tabindex="-1" data-content>2 / 3　操作の状態を整える</p>
+              <nav aria-label="ページ送りの例（記事タイトル付き前後リンク）">
+                <div class="c-pagination__controls" data-controls>
+                  <a class="c-pagination__control" aria-label="前の記事：現在地が伝わるUI" href="?pagination-article=1#pagination-article" data-page="1" rel="prev">← 前の記事
+            現在地が伝わるUI</a>
+                  <a class="c-pagination__control" aria-label="次の記事：小さな画面で読みやすく" href="?pagination-article=3#pagination-article" data-page="3" rel="next">次の記事 →
+            小さな画面で読みやすく</a>
+                </div>
+              </nav>
+            </div>
+          </div>
+          <div class="part-example__code-grid part-example__code-grid--with-js">
+            <div class="part-code">
+              <div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="HTMLコード"><code>&lt;div class=&quot;c-pagination c-pagination--article&quot; id=&quot;pagination-article&quot; data-pagination=&quot;article&quot; data-total=&quot;3&quot; data-size=&quot;1&quot; data-initial=&quot;2&quot;&gt;
+  &lt;p class=&quot;c-pagination__content&quot; role=&quot;status&quot; aria-atomic=&quot;true&quot; tabindex=&quot;-1&quot; data-content&gt;2 / 3　操作の状態を整える&lt;/p&gt;
+  &lt;nav aria-label=&quot;ページ送りの例（記事タイトル付き前後リンク）&quot;&gt;
+    &lt;div class=&quot;c-pagination__controls&quot; data-controls&gt;
+      &lt;a class=&quot;c-pagination__control&quot; aria-label=&quot;前の記事：現在地が伝わるUI&quot; href=&quot;?pagination-article=1#pagination-article&quot; data-page=&quot;1&quot; rel=&quot;prev&quot;&gt;← 前の記事
+現在地が伝わるUI&lt;/a&gt;
+      &lt;a class=&quot;c-pagination__control&quot; aria-label=&quot;次の記事：小さな画面で読みやすく&quot; href=&quot;?pagination-article=3#pagination-article&quot; data-page=&quot;3&quot; rel=&quot;next&quot;&gt;次の記事 →
+小さな画面で読みやすく&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="CSSコード"><code>/* Portable pagination styles */
+.c-pagination,
+.c-pagination * {
+  box-sizing: border-box;
+}
+
+.c-pagination {
+  max-inline-size: 100%;
+  color: var(--color-primary, #18243b);
+  font: .75rem/1.5 var(--font-mono, monospace);
+}
+
+.c-pagination__content {
+  margin: 0 0 .75rem;
+  color: var(--color-text-subtle, #667085);
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+.c-pagination__controls,
+.c-pagination__pages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: .25rem;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+.c-pagination__pages {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c-pagination__item {
+  display: flex;
+}
+
+.c-pagination__control,
+.c-pagination__position {
+  display: grid;
+  place-items: center;
+  min-inline-size: 2.75rem;
+  min-block-size: 2.75rem;
+  padding: .5rem;
+  color: inherit;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+  text-align: center;
+  text-decoration: none;
+}
+
+.c-pagination__control[aria-current=&quot;page&quot;] {
+  color: var(--color-accent-yellow, #ff0);
+  font-weight: 700;
+  background: var(--color-primary, #18243b);
+  border-color: var(--color-primary, #18243b);
+}
+
+.c-pagination__control[aria-disabled=&quot;true&quot;] {
+  color: var(--color-text-subtle, #667085);
+  background: var(--color-primary-soft, #edf1f7);
+  border-style: dashed;
+}
+
+.c-pagination :is(a, [tabindex]):focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: 2px;
+}
+
+.c-pagination a:active {
+  box-shadow: inset 0 0 0 2px currentColor;
+}
+
+.c-pagination__position {
+  min-inline-size: 4rem;
+  border-color: transparent;
+  background: transparent;
+  font-weight: 700;
+}
+
+.c-pagination__gap {
+  display: grid;
+  place-items: center;
+  min-inline-size: 1rem;
+  min-block-size: 2.75rem;
+}
+
+.c-pagination__pages--small {
+  display: none;
+}
+
+.c-pagination__range {
+  margin: .65rem 0 0;
+  color: var(--color-text-subtle, #667085);
+  text-align: center;
+}
+
+.c-pagination--article {
+  inline-size: min(100%, 26rem);
+}
+
+.c-pagination--article .c-pagination__controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: .5rem;
+}
+
+.c-pagination--article .c-pagination__control {
+  min-inline-size: 0;
+  padding: .6rem;
+  overflow-wrap: anywhere;
+  white-space: pre-line;
+  font-family: var(--font-sans, sans-serif);
+}
+
+@media (max-width: 640px) {
+  .c-pagination__pages--wide {
+    display: none;
+  }
+
+  .c-pagination__pages--small {
+    display: flex;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .c-pagination a:hover {
+    background: var(--color-primary-soft, #edf1f7);
+    border-color: var(--color-primary, #18243b);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .c-pagination a {
+    transition: background-color var(--transition-fast, 180ms ease), border-color var(--transition-fast, 180ms ease);
+  }
+}</code></pre>
+            </div>
+            <div class="part-code">
+              <div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="JAVASCRIPTコード"><code>(() =&gt; {
+  function mountPagination(root) {
+    const mode = root.dataset.pagination;
+    const total = Number(root.dataset.total);
+    const size = Number(root.dataset.size);
+    const pages = Math.ceil(total / size);
+    const initial = Number(root.dataset.initial);
+    const key = root.id;
+    const controls = root.querySelector('[data-controls]');
+    const content = root.querySelector('[data-content]');
+    const titles = ['現在地が伝わるUI', '操作の状態を整える', '小さな画面で読みやすく'];
+    let current = initial;
+
+    function readPage() {
+      const raw = new URL(location.href).searchParams.get(key);
+      if (raw === null) return initial;
+      const value = Number(raw);
+      return Number.isSafeInteger(value) &amp;&amp; value &gt;= 1 &amp;&amp; value &lt;= pages ? value : 1;
+    }
+
+    function make(tag, className, text) {
+      const element = document.createElement(tag);
+      element.className = className;
+      if (text !== undefined) element.textContent = text;
+      return element;
+    }
+
+    function control(page, text, label, relation, isNumber = false) {
+      const valid = page &gt;= 1 &amp;&amp; page &lt;= pages &amp;&amp; (isNumber || page !== current);
+      const selected = isNumber &amp;&amp; page === current;
+      const element = make(valid &amp;&amp; !selected ? 'a' : 'span', 'c-pagination__control', text);
+      element.setAttribute('aria-label', label);
+      if (!valid) element.setAttribute('aria-disabled', 'true');
+      if (selected) {
+        element.setAttribute('aria-current', 'page');
+        element.tabIndex = -1;
+      } else if (valid) {
+        const url = new URL(location.href);
+        url.searchParams.set(key, String(page));
+        url.hash = key;
+        element.href = url.href;
+        element.dataset.page = String(page);
+        if (relation) element.rel = relation;
+      }
+      return element;
+    }
+
+    function numbers(compact) {
+      const list = make('ul', 'c-pagination__pages' + (mode === 'ellipsis' ? compact ? ' c-pagination__pages--small' : ' c-pagination__pages--wide' : ''));
+      list.setAttribute('role', 'list');
+      const selected = mode === 'ellipsis'
+        ? [...new Set([1, pages, current, ...(compact ? [] : [current - 1, current + 1])])].filter(page =&gt; page &gt;= 1 &amp;&amp; page &lt;= pages).sort((a, b) =&gt; a - b)
+        : Array.from({ length: pages }, (_, index) =&gt; index + 1);
+      let previous = 0;
+      selected.forEach(page =&gt; {
+        if (previous &amp;&amp; page - previous &gt; 1) {
+          const gap = make('li', 'c-pagination__gap', '…');
+          gap.setAttribute('aria-label', '中間のページを省略');
+          list.append(gap);
+        }
+        const item = make('li', 'c-pagination__item');
+        item.append(control(page, String(page), page + 'ページ' + (page === current ? '（現在のページ）' : 'へ'), undefined, true));
+        list.append(item);
+        previous = page;
+      });
+      return list;
+    }
+
+    function position() {
+      const element = make('span', 'c-pagination__position', current + ' / ' + pages);
+      element.setAttribute('aria-label', '全' + pages + 'ページ中' + current + 'ページ目');
+      element.setAttribute('aria-current', 'page');
+      element.tabIndex = -1;
+      return element;
+    }
+
+    function render(page, focus = false) {
+      current = page;
+      const first = (page - 1) * size + 1;
+      const last = Math.min(page * size, total);
+      content.textContent = mode === 'article'
+        ? page + ' / ' + pages + '　' + titles[page - 1]
+        : 'DEMO / 項目 ' + first + '–' + last;
+      controls.replaceChildren();
+      if (mode === 'article') {
+        controls.append(
+          control(page - 1, '← 前の記事' + (page &gt; 1 ? '\n' + titles[page - 2] : ''), '前の記事' + (page &gt; 1 ? '：' + titles[page - 2] : ''), 'prev'),
+          control(page + 1, '次の記事 →' + (page &lt; pages ? '\n' + titles[page] : ''), '次の記事' + (page &lt; pages ? '：' + titles[page] : ''), 'next'),
+        );
+      } else {
+        if (mode === 'jump') controls.append(control(1, '«', '先頭のページへ'));
+        controls.append(control(page - 1, '←', '前のページへ', 'prev'));
+        if (mode === 'numbers' || mode === 'ellipsis') {
+          controls.append(numbers(false));
+          if (mode === 'ellipsis') controls.append(numbers(true));
+        } else {
+          controls.append(position());
+        }
+        controls.append(control(page + 1, '→', '次のページへ', 'next'));
+        if (mode === 'jump') controls.append(control(pages, '»', '最後のページへ'));
+      }
+      if (mode === 'range') root.querySelector('[data-range]').textContent = '全' + total + '件中 ' + first + '–' + last + '件';
+      if (focus) {
+        const target = [...controls.querySelectorAll('[aria-current=&quot;page&quot;]')].find(element =&gt; element.getClientRects().length) || content;
+        target.focus({ preventScroll: true });
+      }
+    }
+
+    controls.addEventListener('click', event =&gt; {
+      const link = event.target.closest('a[data-page]');
+      if (!link || !controls.contains(link) || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+      event.preventDefault();
+      const page = Number(link.dataset.page);
+      try {
+        const url = new URL(location.href);
+        url.searchParams.set(key, String(page));
+        url.hash = key;
+        history.pushState(null, '', url.href);
+        window.dispatchEvent(new Event('pagination:change'));
+      } catch {
+        // The demo still works when a local file cannot update browser history.
+      }
+      render(page, true);
+    });
+    window.addEventListener('popstate', () =&gt; render(readPage()));
+    window.addEventListener('pagination:change', () =&gt; render(readPage()));
+    render(readPage());
+  }
+
+  document.querySelectorAll('[data-pagination=&quot;article&quot;]').forEach(mountPagination);
+})();</code></pre>
+            </div>
+          </div>
+          <div class="part-example__note"><strong>USE FOR</strong><p>ブログや連載記事の末尾で、前後の記事名を確かめて読み進める場面。</p></div>
+        </section>
+      </div>
+
+      <div class="part-detail-empty" data-pattern-empty hidden>
+        <p>[ NO_PATTERNS_FOUND ]</p>
+        <p>キーワードの選択や検索語を変更してください。</p>
+      </div>
+
+      <section class="part-common-styles" id="pagination-common-styles" aria-labelledby="pagination-common-title">
+        <header class="part-common-styles__header reveal">
+          <p class="section-index">PAGINATION / COMMON_STYLE</p>
+          <h2 id="pagination-common-title">共通スタイル</h2>
+          <p>ページ番号、前後リンク、現在ページ、非活性状態の表示を揃える基礎設定です。</p>
+        </header>
+        <div class="part-common-styles__code">
+          <div class="part-code">
+              <div class="part-code__header"><span>CSS / COMMON</span><button type="button" data-copy-code>COPY</button></div>
+              <pre tabindex="0" aria-label="CSS / COMMONコード"><code>/* Portable pagination styles */
+.c-pagination,
+.c-pagination * {
+  box-sizing: border-box;
+}
+
+.c-pagination {
+  max-inline-size: 100%;
+  color: var(--color-primary, #18243b);
+  font: .75rem/1.5 var(--font-mono, monospace);
+}
+
+.c-pagination__content {
+  margin: 0 0 .75rem;
+  color: var(--color-text-subtle, #667085);
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+.c-pagination__controls,
+.c-pagination__pages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: .25rem;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+.c-pagination__pages {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c-pagination__item {
+  display: flex;
+}
+
+.c-pagination__control,
+.c-pagination__position {
+  display: grid;
+  place-items: center;
+  min-inline-size: 2.75rem;
+  min-block-size: 2.75rem;
+  padding: .5rem;
+  color: inherit;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+  text-align: center;
+  text-decoration: none;
+}
+
+.c-pagination__control[aria-current=&quot;page&quot;] {
+  color: var(--color-accent-yellow, #ff0);
+  font-weight: 700;
+  background: var(--color-primary, #18243b);
+  border-color: var(--color-primary, #18243b);
+}
+
+.c-pagination__control[aria-disabled=&quot;true&quot;] {
+  color: var(--color-text-subtle, #667085);
+  background: var(--color-primary-soft, #edf1f7);
+  border-style: dashed;
+}
+
+.c-pagination :is(a, [tabindex]):focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: 2px;
+}
+
+.c-pagination a:active {
+  box-shadow: inset 0 0 0 2px currentColor;
+}
+
+.c-pagination__position {
+  min-inline-size: 4rem;
+  border-color: transparent;
+  background: transparent;
+  font-weight: 700;
+}
+
+.c-pagination__gap {
+  display: grid;
+  place-items: center;
+  min-inline-size: 1rem;
+  min-block-size: 2.75rem;
+}
+
+.c-pagination__pages--small {
+  display: none;
+}
+
+.c-pagination__range {
+  margin: .65rem 0 0;
+  color: var(--color-text-subtle, #667085);
+  text-align: center;
+}
+
+.c-pagination--article {
+  inline-size: min(100%, 26rem);
+}
+
+.c-pagination--article .c-pagination__controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: .5rem;
+}
+
+.c-pagination--article .c-pagination__control {
+  min-inline-size: 0;
+  padding: .6rem;
+  overflow-wrap: anywhere;
+  white-space: pre-line;
+  font-family: var(--font-sans, sans-serif);
+}
+
+@media (max-width: 640px) {
+  .c-pagination__pages--wide {
+    display: none;
+  }
+
+  .c-pagination__pages--small {
+    display: flex;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .c-pagination a:hover {
+    background: var(--color-primary-soft, #edf1f7);
+    border-color: var(--color-primary, #18243b);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .c-pagination a {
+    transition: background-color var(--transition-fast, 180ms ease), border-color var(--transition-fast, 180ms ease);
+  }
+}</code></pre>
+            </div>
+        </div>
+      </section>
+
+      <footer class="page-footer" aria-label="ページナビゲーション">
+        <a class="page-footer__back" href="./"><span class="page-footer__icon" aria-hidden="true">←</span><span>BACK TO WEB PARTS</span></a>
+        <a class="page-footer__top" href="#main"><span>PAGE TOP</span><span class="page-footer__icon" aria-hidden="true">↑</span></a>
+      </footer>
+    </main>
+
+    <script src="../js/web-parts-detail.js" defer></script>
+    <script src="../js/web-parts-pagination.js" defer></script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>

@@ -24,6 +24,7 @@ microCMS関連の作業では、あわせて`microcms/README.md`を確認して�
 - 上記2ページは1440px・1024px・390pxでデモの収まりと横溢れ、全デモ操作、KEYWORDS、全コードのCOPY、キーボード操作とコンソールエラーを確認済み。掲載コードだけの独立ページでも動作確認し、動きを抑える分岐は検証用に`matchMedia`の戻り値を再現して確認した。iPhone実機での確認は別途行う
 
 - WEB PARTSのBREADCRUMBはCSSのみの8パターン。参照元の5種に、SPで親階層へ戻る・中間階層を省略／展開・長い現在地名を独立行に表示する実務向け3種を追加。分類と参照元は`docs/SITE-SPEC.md`、最新件数は`web-parts/index.html`を参照する
+- WEB PARTSのPAGINATIONはVanilla JavaScriptで操作できる6パターン。設計・調査元・サンプル動作の範囲は`docs/web-parts-pagination.md`、最新件数は`web-parts/index.html`を参照する
 
 ## 編集時の原則
 

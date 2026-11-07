@@ -113,6 +113,7 @@ microCMSの管理対象は`NOTE to SELF`だけです。CODING NOTE、TOOLS、WEB
 - `BREADCRUMB`（`web-parts/breadcrumb.html`）は、スラッシュ・線の矢印・塗りつぶし矢印の区切り3種と、淡色・濃色の矢印帯2種を収録する。[CSS Stockの参照例](https://pote-chil.com/css-stock/ja/breadcrumb)をもとに、MARK BENCHの配色とテキストラベルで構成する。追加の独自パターンは`PRACTICAL`として、SPで親階層へ戻る（640px以下）・中間階層を`details`で省略／展開・長い現在地名を独立行に表示する3種を収録する。省略／展開のデモは実在するHOME→WEB PARTS→BREADCRUMBの階層で示し、中間リンクを増やしても展開領域が自然に伸びる構造にする。デモはHTMLとCSSで動作し、祖先リンクと現在地をセマンティックに区別する。KEYWORDS・検索・COPYは詳細共通スクリプトで処理する
 - FEEDBACK・MOTIONの掲載HTML・CSS・JavaScriptは実際のデモと同じ一式を維持する。各CSSブロックは単独利用に必要な基礎設定を含み、共通スタイルセクションは基礎設定の参照用とする
 - BREADCRUMBのプレビュー・コード領域の高さは詳細ページ共通設定に揃える。プレビューはPC・小型ノートPCで`13rem`、SPで`11rem`。内容に応じた高さの拡張は「中間階層を省略・展開」のプレビューだけに適用する
+- `PAGINATION`（`web-parts/pagination.html`）は番号リンク、中間省略、前後＋現在位置、先頭・末尾移動、表示範囲＋総件数、記事タイトル付き前後リンクの6パターン。分類・調査元・検証方針は[ページネーションの設計](web-parts-pagination.md)を参照する。デモはVanilla JavaScriptでサンプルのページ情報を切り替え、パターン別のURLクエリとブラウザ履歴を同期する。現在ページには`aria-current="page"`、移動できない前後リンクにはリンクを持たない`span`と`aria-disabled="true"`を使用する。KEYWORDS・検索・COPYは詳細共通スクリプトを使い、掲載HTML・CSS・JavaScriptは各パターンだけで動作する一式にする
 
 ### BUILD NOTES
 
