@@ -27,6 +27,7 @@ microCMS関連の作業では、あわせて`microcms/README.md`を確認して�
 - WEB PARTSのPAGINATIONはVanilla JavaScriptで操作できる6パターン。設計・調査元・サンプル動作の範囲は`docs/web-parts-pagination.md`、最新件数は`web-parts/index.html`を参照する
 - WEB PARTS一覧は実務上の汎用性・有用性を基準に並べ替え済み。CATEGORYとカードは同順とし、追加時の配置基準は`docs/SITE-SPEC.md`のWEB PARTS節を参照する
 - HOMEのWEB PARTSカテゴリ件数は一覧カードからビルド時と開発サーバー配信時に自動生成する。HOMEの数値は手動更新不要。仕様は`docs/SITE-SPEC.md`、回帰検証は`npm run check:parts-count`（`check`にも含む）を参照する
+- TEXT-EFFECTの一度だけ再生する6種は各デモの初回画面内表示で開始し、クリック・REPLAYでも再生可能。掲載コードにも同じ処理を含める。仕様は`docs/SITE-SPEC.md`、回帰検証は`npm run check:text-effect`（`check`にも含む）を参照する
 
 ## 編集時の原則
 

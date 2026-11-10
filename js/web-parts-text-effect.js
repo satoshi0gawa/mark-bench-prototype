@@ -16,9 +16,28 @@
   };
 
   const replayClass = (element, className = 'is-active') => {
+    element.classList.add('is-resetting');
     element.classList.remove(className);
     void element.offsetWidth;
+    element.classList.remove('is-resetting');
     element.classList.add(className);
+  };
+
+  const playOnFirstView = (element, play) => {
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      play();
+      return;
+    }
+    let started = false;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (started || !entry.isIntersecting || entry.intersectionRatio < 0.35) return;
+        started = true;
+        observer.unobserve(element);
+        requestAnimationFrame(play);
+      });
+    }, { threshold: 0.35, rootMargin: '0px 0px -10% 0px' });
+    observer.observe(element);
   };
 
   document.querySelectorAll('[data-text-effect-scramble]').forEach((element) => {
@@ -44,23 +63,23 @@
       }, 38);
     };
     element.addEventListener('click', play);
-    play();
+    playOnFirstView(element, play);
   });
 
   document.querySelectorAll('[data-text-effect-reveal]').forEach((element) => {
     const { spans } = splitCharacters(element);
     spans.forEach((span, index) => { span.style.transitionDelay = `${index * 45}ms`; });
-    if (reduceMotion) element.classList.add('is-active');
-    else requestAnimationFrame(() => element.classList.add('is-active'));
-    element.addEventListener('click', () => replayClass(element));
+    const play = () => replayClass(element);
+    element.addEventListener('click', play);
+    playOnFirstView(element, play);
   });
 
   document.querySelectorAll('[data-text-effect-sweep]').forEach((element) => {
     const { spans } = splitCharacters(element);
     spans.forEach((span, index) => { span.style.transitionDelay = `${index * 55}ms`; });
-    if (reduceMotion) element.classList.add('is-active');
-    else requestAnimationFrame(() => element.classList.add('is-active'));
-    element.addEventListener('click', () => replayClass(element));
+    const play = () => replayClass(element);
+    element.addEventListener('click', play);
+    playOnFirstView(element, play);
   });
 
   document.querySelectorAll('[data-text-effect-rotate]').forEach((element) => {
@@ -182,19 +201,17 @@
     const play = () => {
       if (reduceMotion) return;
       spans.forEach((span, index) => {
-        span.style.transition = 'none';
         span.style.setProperty('--scatter-x', `${(Math.random() * 140 - 70).toFixed(1)}px`);
         span.style.setProperty('--scatter-y', `${(Math.random() * 80 - 40).toFixed(1)}px`);
         span.style.setProperty('--scatter-rotate', `${(Math.random() * 160 - 80).toFixed(1)}deg`);
         span.style.transitionDelay = `${index * 35}ms`;
       });
-      element.classList.add('is-scattered');
+      element.classList.add('is-resetting', 'is-scattered');
       void element.offsetWidth;
-      spans.forEach((span) => { span.style.transition = ''; });
-      element.classList.remove('is-scattered');
+      element.classList.remove('is-resetting', 'is-scattered');
     };
     element.addEventListener('click', play);
-    play();
+    playOnFirstView(element, play);
   });
 
   document.querySelectorAll('[data-text-effect-typewriter]').forEach((root) => {
@@ -219,7 +236,7 @@
     };
 
     replay.addEventListener('click', play);
-    play();
+    playOnFirstView(root, play);
   });
 
   document.querySelectorAll('[data-text-effect-lines]').forEach((root) => {
@@ -227,20 +244,7 @@
     const play = () => replayClass(root);
     replay.addEventListener('click', play);
 
-    if (reduceMotion) {
-      root.classList.add('is-active');
-    } else if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          play();
-          observer.unobserve(root);
-        });
-      }, { threshold: 0.45 });
-      observer.observe(root);
-    } else {
-      play();
-    }
+    playOnFirstView(root, play);
   });
 
   document.querySelectorAll('[data-text-effect-neon]').forEach((element) => {

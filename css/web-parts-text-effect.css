@@ -37,6 +37,7 @@ button.c-text-effect {
   outline-offset: 3px;
 }
 .c-text-effect > span { display: inline-block; }
+.c-text-effect.is-resetting span { transition: none !important; }
 
 .c-text-effect--scramble {
   color: var(--color-focus, #315a9b);
@@ -153,6 +154,17 @@ button.c-text-effect--glitch {
   min-height: 2.1rem;
   margin: 0;
   font-family: var(--font-mono, monospace);
+}
+.c-text-effect__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 .c-text-effect__caret {
   display: inline-block;

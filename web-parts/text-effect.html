@@ -109,23 +109,91 @@
           <header class="part-example__header"><div><span class="part-example__index">REPLAY / 01</span><h2>スクランブル解読</h2></div><small>CLICK / RANDOM</small></header>
           <div class="part-example__preview"><button class="c-text-effect c-text-effect--scramble" type="button" data-text-effect-scramble>HELLO JAVASCRIPT</button></div>
           <div class="part-example__code-grid part-example__code-grid--with-js">
-            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-text-effect c-text-effect--scramble"
-  type="button" data-scramble&gt;HELLO JAVASCRIPT&lt;/button&gt;</code></pre></div>
-            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-text-effect { min-height: 5rem; padding: 1rem; font: 900 1.2rem monospace; border: 1px solid #aeb8c7; cursor: pointer; }
-.c-text-effect--scramble { color: #315a9b; background: #fff; }
-.c-text-effect:focus-visible { outline: 3px solid #315a9b; outline-offset: 3px; }</code></pre></div>
-            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-scramble]').forEach((element) =&gt; {
-  const original = element.textContent; element.setAttribute('aria-label', original); const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&amp;'; let timer = 0;
-  const play = () =&gt; {
-    clearInterval(timer); if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    let frame = 0; timer = setInterval(() =&gt; {
-      const fixed = Math.floor(frame / 3);
-      element.textContent = [...original].map((char, index) =&gt; char === ' ' || index &lt; fixed ? char : chars[Math.floor(Math.random() * chars.length)]).join('');
-      frame += 1; if (fixed &gt;= original.length) { clearInterval(timer); element.textContent = original; }
-    }, 38);
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class=&quot;c-text-effect c-text-effect--scramble&quot; type=&quot;button&quot; data-text-effect-scramble&gt;HELLO JAVASCRIPT&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-text-effect,
+.c-text-effect * { box-sizing: border-box; }
+.c-text-effect {
+  position: relative;
+  width: min(100%, 24rem);
+  margin: 0;
+  color: var(--color-primary, #18243b);
+  font: 900 clamp(1rem, 3vw, 1.45rem)/1.4 var(--font-sans, sans-serif);
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+button.c-text-effect {
+  min-height: 5rem;
+  padding: 1rem;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+  cursor: pointer;
+}
+.c-text-effect:focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: 3px;
+}
+.c-text-effect &gt; span { display: inline-block; }
+.c-text-effect.is-resetting span { transition: none !important; }
+
+.c-text-effect--scramble {
+  color: var(--color-focus, #315a9b);
+  font-family: var(--font-mono, monospace);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .c-text-effect,
+  .c-text-effect * { animation: none !important; transition-duration: 0.01ms !important; }
+  .c-text-effect--reveal &gt; span,
+  .c-text-effect--sweep &gt; span,
+  .c-text-effect--assemble &gt; span,
+  .c-text-effect__line &gt; span { opacity: 1; transform: none; }
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>(() =&gt; {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const playOnFirstView = (element, play) =&gt; {
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      play();
+      return;
+    }
+    let started = false;
+    const observer = new IntersectionObserver((entries) =&gt; {
+      entries.forEach((entry) =&gt; {
+        if (started || !entry.isIntersecting || entry.intersectionRatio &lt; 0.35) return;
+        started = true;
+        observer.unobserve(element);
+        requestAnimationFrame(play);
+      });
+    }, { threshold: 0.35, rootMargin: '0px 0px -10% 0px' });
+    observer.observe(element);
   };
-  element.addEventListener('click', play); play();
-});</code></pre></div>
+
+  document.querySelectorAll('[data-text-effect-scramble]').forEach((element) =&gt; {
+    const original = element.textContent.trim();
+    element.setAttribute('aria-label', original);
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&amp;+*';
+    let timer = 0;
+    const play = () =&gt; {
+      window.clearInterval(timer);
+      if (reduceMotion) { element.textContent = original; return; }
+      let frame = 0;
+      timer = window.setInterval(() =&gt; {
+        const fixed = Math.floor(frame / 3);
+        element.textContent = [...original].map((character, index) =&gt; {
+          if (character === ' ' || index &lt; fixed) return character;
+          return characters[Math.floor(Math.random() * characters.length)];
+        }).join('');
+        frame += 1;
+        if (fixed &gt;= original.length) {
+          window.clearInterval(timer);
+          element.textContent = original;
+        }
+      }, 38);
+    };
+    element.addEventListener('click', play);
+    playOnFirstView(element, play);
+  });
+})();</code></pre></div>
           </div>
           <div class="part-example__note"><strong>USE FOR</strong><p>テクノロジー系のヒーローやサービス名で、文字が解読される過程をクリックで再生する場面。</p></div>
         </section>
@@ -134,18 +202,97 @@
           <header class="part-example__header"><div><span class="part-example__index">REPLAY / 02</span><h2>1文字ずつ出現</h2></div><small>CHARACTER REVEAL</small></header>
           <div class="part-example__preview"><button class="c-text-effect c-text-effect--reveal" type="button" data-text-effect-reveal>ふわっと1文字ずつ現れます</button></div>
           <div class="part-example__code-grid part-example__code-grid--with-js">
-            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-text-effect c-text-effect--reveal"
-  type="button" data-char-reveal&gt;ふわっと1文字ずつ現れます&lt;/button&gt;</code></pre></div>
-            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-text-effect { min-height: 5rem; padding: 1rem; color: #18243b; font: 900 1.1rem sans-serif; background: #fff; border: 1px solid #aeb8c7; }
-.c-text-effect span { display: inline-block; opacity: 0; transform: translateY(.8rem); transition: opacity .42s, transform .42s; }
-.c-text-effect.is-active span { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) { .c-text-effect span { opacity: 1; transform: none; } }</code></pre></div>
-            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-char-reveal]').forEach((element) =&gt; {
-  const text = element.textContent; element.textContent = ''; element.setAttribute('aria-label', text);
-  [...text].forEach((char, index) =&gt; { const span = document.createElement('span'); span.textContent = char === ' ' ? '\u00a0' : char; span.setAttribute('aria-hidden', 'true'); span.style.transitionDelay = `${index * 45}ms`; element.append(span); });
-  const play = () =&gt; { element.classList.remove('is-active'); void element.offsetWidth; element.classList.add('is-active'); };
-  element.addEventListener('click', play); requestAnimationFrame(play);
-});</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class=&quot;c-text-effect c-text-effect--reveal&quot; type=&quot;button&quot; data-text-effect-reveal&gt;ふわっと1文字ずつ現れます&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-text-effect,
+.c-text-effect * { box-sizing: border-box; }
+.c-text-effect {
+  position: relative;
+  width: min(100%, 24rem);
+  margin: 0;
+  color: var(--color-primary, #18243b);
+  font: 900 clamp(1rem, 3vw, 1.45rem)/1.4 var(--font-sans, sans-serif);
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+button.c-text-effect {
+  min-height: 5rem;
+  padding: 1rem;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+  cursor: pointer;
+}
+.c-text-effect:focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: 3px;
+}
+.c-text-effect &gt; span { display: inline-block; }
+.c-text-effect.is-resetting span { transition: none !important; }
+
+.c-text-effect--reveal &gt; span {
+  opacity: 0;
+  transform: translateY(0.8rem);
+  transition: opacity 420ms ease, transform 420ms ease;
+}
+.c-text-effect--reveal.is-active &gt; span { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .c-text-effect,
+  .c-text-effect * { animation: none !important; transition-duration: 0.01ms !important; }
+  .c-text-effect--reveal &gt; span,
+  .c-text-effect--sweep &gt; span,
+  .c-text-effect--assemble &gt; span,
+  .c-text-effect__line &gt; span { opacity: 1; transform: none; }
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>(() =&gt; {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const splitCharacters = (element) =&gt; {
+    const text = element.textContent.trim();
+    element.textContent = '';
+    element.setAttribute('aria-label', text);
+    const spans = [...text].map((character) =&gt; {
+      const span = document.createElement('span');
+      span.textContent = character === ' ' ? '\u00a0' : character;
+      span.setAttribute('aria-hidden', 'true');
+      element.append(span);
+      return span;
+    });
+    return { text, spans };
+  };
+
+  const replayClass = (element, className = 'is-active') =&gt; {
+    element.classList.add('is-resetting');
+    element.classList.remove(className);
+    void element.offsetWidth;
+    element.classList.remove('is-resetting');
+    element.classList.add(className);
+  };
+
+  const playOnFirstView = (element, play) =&gt; {
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      play();
+      return;
+    }
+    let started = false;
+    const observer = new IntersectionObserver((entries) =&gt; {
+      entries.forEach((entry) =&gt; {
+        if (started || !entry.isIntersecting || entry.intersectionRatio &lt; 0.35) return;
+        started = true;
+        observer.unobserve(element);
+        requestAnimationFrame(play);
+      });
+    }, { threshold: 0.35, rootMargin: '0px 0px -10% 0px' });
+    observer.observe(element);
+  };
+
+  document.querySelectorAll('[data-text-effect-reveal]').forEach((element) =&gt; {
+    const { spans } = splitCharacters(element);
+    spans.forEach((span, index) =&gt; { span.style.transitionDelay = `${index * 45}ms`; });
+    const play = () =&gt; replayClass(element);
+    element.addEventListener('click', play);
+    playOnFirstView(element, play);
+  });
+})();</code></pre></div>
           </div>
           <div class="part-example__note"><strong>USE FOR</strong><p>短い日本語見出しや導入文を、読み順に沿って穏やかに提示する場面。</p></div>
         </section>
@@ -154,18 +301,96 @@
           <header class="part-example__header"><div><span class="part-example__index">REPLAY / 03</span><h2>読み上げハイライト</h2></div><small>COLOR SWEEP</small></header>
           <div class="part-example__preview"><button class="c-text-effect c-text-effect--sweep" type="button" data-text-effect-sweep>左から順に色づいていきます</button></div>
           <div class="part-example__code-grid part-example__code-grid--with-js">
-            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-text-effect c-text-effect--sweep"
-  type="button" data-sweep&gt;左から順に色づいていきます&lt;/button&gt;</code></pre></div>
-            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-text-effect { min-height: 5rem; padding: 1rem; font: 900 1.1rem sans-serif; background: #fff; border: 1px solid #aeb8c7; }
-.c-text-effect span { display: inline-block; color: #aeb8c7; transition: color .32s; }
-.c-text-effect.is-active span { color: #315a9b; }
-@media (prefers-reduced-motion: reduce) { .c-text-effect span { color: #315a9b; } }</code></pre></div>
-            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-sweep]').forEach((element) =&gt; {
-  const text = element.textContent; element.textContent = ''; element.setAttribute('aria-label', text);
-  [...text].forEach((char, index) =&gt; { const span = document.createElement('span'); span.textContent = char === ' ' ? '\u00a0' : char; span.setAttribute('aria-hidden', 'true'); span.style.transitionDelay = `${index * 55}ms`; element.append(span); });
-  const play = () =&gt; { element.classList.remove('is-active'); void element.offsetWidth; element.classList.add('is-active'); };
-  element.addEventListener('click', play); requestAnimationFrame(play);
-});</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class=&quot;c-text-effect c-text-effect--sweep&quot; type=&quot;button&quot; data-text-effect-sweep&gt;左から順に色づいていきます&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-text-effect,
+.c-text-effect * { box-sizing: border-box; }
+.c-text-effect {
+  position: relative;
+  width: min(100%, 24rem);
+  margin: 0;
+  color: var(--color-primary, #18243b);
+  font: 900 clamp(1rem, 3vw, 1.45rem)/1.4 var(--font-sans, sans-serif);
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+button.c-text-effect {
+  min-height: 5rem;
+  padding: 1rem;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+  cursor: pointer;
+}
+.c-text-effect:focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: 3px;
+}
+.c-text-effect &gt; span { display: inline-block; }
+.c-text-effect.is-resetting span { transition: none !important; }
+
+.c-text-effect--sweep &gt; span {
+  color: var(--color-grid-strong, #aeb8c7);
+  transition: color 320ms ease;
+}
+.c-text-effect--sweep.is-active &gt; span { color: var(--color-focus, #315a9b); }
+
+@media (prefers-reduced-motion: reduce) {
+  .c-text-effect,
+  .c-text-effect * { animation: none !important; transition-duration: 0.01ms !important; }
+  .c-text-effect--reveal &gt; span,
+  .c-text-effect--sweep &gt; span,
+  .c-text-effect--assemble &gt; span,
+  .c-text-effect__line &gt; span { opacity: 1; transform: none; }
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>(() =&gt; {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const splitCharacters = (element) =&gt; {
+    const text = element.textContent.trim();
+    element.textContent = '';
+    element.setAttribute('aria-label', text);
+    const spans = [...text].map((character) =&gt; {
+      const span = document.createElement('span');
+      span.textContent = character === ' ' ? '\u00a0' : character;
+      span.setAttribute('aria-hidden', 'true');
+      element.append(span);
+      return span;
+    });
+    return { text, spans };
+  };
+
+  const replayClass = (element, className = 'is-active') =&gt; {
+    element.classList.add('is-resetting');
+    element.classList.remove(className);
+    void element.offsetWidth;
+    element.classList.remove('is-resetting');
+    element.classList.add(className);
+  };
+
+  const playOnFirstView = (element, play) =&gt; {
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      play();
+      return;
+    }
+    let started = false;
+    const observer = new IntersectionObserver((entries) =&gt; {
+      entries.forEach((entry) =&gt; {
+        if (started || !entry.isIntersecting || entry.intersectionRatio &lt; 0.35) return;
+        started = true;
+        observer.unobserve(element);
+        requestAnimationFrame(play);
+      });
+    }, { threshold: 0.35, rootMargin: '0px 0px -10% 0px' });
+    observer.observe(element);
+  };
+
+  document.querySelectorAll('[data-text-effect-sweep]').forEach((element) =&gt; {
+    const { spans } = splitCharacters(element);
+    spans.forEach((span, index) =&gt; { span.style.transitionDelay = `${index * 55}ms`; });
+    const play = () =&gt; replayClass(element);
+    element.addEventListener('click', play);
+    playOnFirstView(element, play);
+  });
+})();</code></pre></div>
           </div>
           <div class="part-example__note"><strong>USE FOR</strong><p>手順名や短いメッセージを左から順に追わせ、読む方向を明確にしたい場面。</p></div>
         </section>
@@ -308,17 +533,100 @@
           <header class="part-example__header"><div><span class="part-example__index">RANDOM / 02</span><h2>バラけて集合</h2></div><small>SCATTER / ASSEMBLE</small></header>
           <div class="part-example__preview"><button class="c-text-effect c-text-effect--assemble" type="button" data-text-effect-assemble>散らばって、集まる</button></div>
           <div class="part-example__code-grid part-example__code-grid--with-js">
-            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class="c-text-effect c-text-effect--assemble" type="button" data-assemble&gt;散らばって、集まる&lt;/button&gt;</code></pre></div>
-            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-text-effect { min-height: 5rem; padding: 1rem; color: #18243b; font: 900 1.2rem sans-serif; background: #fff; border: 1px solid #aeb8c7; }
-.c-text-effect span { display: inline-block; transition: opacity .56s, transform .56s cubic-bezier(.2,.7,.3,1); }
-.c-text-effect.is-scattered span { opacity: 0; transform: translate(var(--x), var(--y)) rotate(var(--r)); }
-@media (prefers-reduced-motion: reduce) { .c-text-effect span { opacity: 1; transform: none; } }</code></pre></div>
-            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-assemble]').forEach((element) =&gt; {
-  const text = element.textContent; element.textContent = ''; element.setAttribute('aria-label', text);
-  const spans = [...text].map((char) =&gt; { const span = document.createElement('span'); span.textContent = char === ' ' ? '\u00a0' : char; span.setAttribute('aria-hidden', 'true'); element.append(span); return span; });
-  const play = () =&gt; { if (matchMedia('(prefers-reduced-motion: reduce)').matches) return; spans.forEach((span, index) =&gt; { span.style.transition = 'none'; span.style.setProperty('--x', `${Math.random() * 140 - 70}px`); span.style.setProperty('--y', `${Math.random() * 80 - 40}px`); span.style.setProperty('--r', `${Math.random() * 160 - 80}deg`); span.style.transitionDelay = `${index * 35}ms`; }); element.classList.add('is-scattered'); void element.offsetWidth; spans.forEach((span) =&gt; { span.style.transition = ''; }); element.classList.remove('is-scattered'); };
-  element.addEventListener('click', play); play();
-});</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;button class=&quot;c-text-effect c-text-effect--assemble&quot; type=&quot;button&quot; data-text-effect-assemble&gt;散らばって、集まる&lt;/button&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-text-effect,
+.c-text-effect * { box-sizing: border-box; }
+.c-text-effect {
+  position: relative;
+  width: min(100%, 24rem);
+  margin: 0;
+  color: var(--color-primary, #18243b);
+  font: 900 clamp(1rem, 3vw, 1.45rem)/1.4 var(--font-sans, sans-serif);
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+button.c-text-effect {
+  min-height: 5rem;
+  padding: 1rem;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+  cursor: pointer;
+}
+.c-text-effect:focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: 3px;
+}
+.c-text-effect &gt; span { display: inline-block; }
+.c-text-effect.is-resetting span { transition: none !important; }
+
+.c-text-effect--assemble &gt; span {
+  transition: opacity 560ms ease, transform 560ms cubic-bezier(.2, .7, .3, 1);
+}
+.c-text-effect--assemble.is-scattered &gt; span {
+  opacity: 0;
+  transform: translate(var(--scatter-x), var(--scatter-y)) rotate(var(--scatter-rotate));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .c-text-effect,
+  .c-text-effect * { animation: none !important; transition-duration: 0.01ms !important; }
+  .c-text-effect--reveal &gt; span,
+  .c-text-effect--sweep &gt; span,
+  .c-text-effect--assemble &gt; span,
+  .c-text-effect__line &gt; span { opacity: 1; transform: none; }
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>(() =&gt; {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const splitCharacters = (element) =&gt; {
+    const text = element.textContent.trim();
+    element.textContent = '';
+    element.setAttribute('aria-label', text);
+    const spans = [...text].map((character) =&gt; {
+      const span = document.createElement('span');
+      span.textContent = character === ' ' ? '\u00a0' : character;
+      span.setAttribute('aria-hidden', 'true');
+      element.append(span);
+      return span;
+    });
+    return { text, spans };
+  };
+
+  const playOnFirstView = (element, play) =&gt; {
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      play();
+      return;
+    }
+    let started = false;
+    const observer = new IntersectionObserver((entries) =&gt; {
+      entries.forEach((entry) =&gt; {
+        if (started || !entry.isIntersecting || entry.intersectionRatio &lt; 0.35) return;
+        started = true;
+        observer.unobserve(element);
+        requestAnimationFrame(play);
+      });
+    }, { threshold: 0.35, rootMargin: '0px 0px -10% 0px' });
+    observer.observe(element);
+  };
+
+  document.querySelectorAll('[data-text-effect-assemble]').forEach((element) =&gt; {
+    const { spans } = splitCharacters(element);
+    const play = () =&gt; {
+      if (reduceMotion) return;
+      spans.forEach((span, index) =&gt; {
+        span.style.setProperty('--scatter-x', `${(Math.random() * 140 - 70).toFixed(1)}px`);
+        span.style.setProperty('--scatter-y', `${(Math.random() * 80 - 40).toFixed(1)}px`);
+        span.style.setProperty('--scatter-rotate', `${(Math.random() * 160 - 80).toFixed(1)}deg`);
+        span.style.transitionDelay = `${index * 35}ms`;
+      });
+      element.classList.add('is-resetting', 'is-scattered');
+      void element.offsetWidth;
+      element.classList.remove('is-resetting', 'is-scattered');
+    };
+    element.addEventListener('click', play);
+    playOnFirstView(element, play);
+  });
+})();</code></pre></div>
           </div>
           <div class="part-example__note"><strong>USE FOR</strong><p>キャンペーンタイトルや章の導入で、毎回異なる散らばり方から文字を集合させる場面。</p></div>
         </section>
@@ -346,38 +654,141 @@
           <header class="part-example__header"><div><span class="part-example__index">PRACTICAL ADDITION / 01</span><h2>文字数可変タイプライター</h2></div><small>ORIGINAL / TYPEWRITER</small></header>
           <div class="part-example__preview">
             <div class="c-text-effect c-text-effect--typewriter" data-text-effect-typewriter data-text="BUILD BETTER INTERFACES">
-              <p class="c-text-effect__type-line"><span class="visually-hidden">BUILD BETTER INTERFACES</span><span data-typewriter-output aria-hidden="true"></span><span class="c-text-effect__caret" aria-hidden="true"></span></p>
+              <p class="c-text-effect__type-line"><span class="c-text-effect__sr-only">BUILD BETTER INTERFACES</span><span data-typewriter-output aria-hidden="true"></span><span class="c-text-effect__caret" aria-hidden="true"></span></p>
               <button class="c-text-effect__replay" type="button" data-typewriter-replay>REPLAY</button>
             </div>
           </div>
           <div class="part-example__code-grid part-example__code-grid--with-js">
-            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-text-effect c-text-effect--typewriter" data-typewriter data-text="BUILD BETTER INTERFACES"&gt;
-  &lt;p class="c-text-effect__line"&gt;
-    &lt;span class="c-text-effect__sr"&gt;BUILD BETTER INTERFACES&lt;/span&gt;
-    &lt;span data-output aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="c-text-effect__caret" aria-hidden="true"&gt;&lt;/span&gt;
-  &lt;/p&gt;
-  &lt;button type="button" data-replay&gt;REPLAY&lt;/button&gt;
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class=&quot;c-text-effect c-text-effect--typewriter&quot; data-text-effect-typewriter data-text=&quot;BUILD BETTER INTERFACES&quot;&gt;
+  &lt;p class=&quot;c-text-effect__type-line&quot;&gt;&lt;span class=&quot;c-text-effect__sr-only&quot;&gt;BUILD BETTER INTERFACES&lt;/span&gt;&lt;span data-typewriter-output aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;&lt;span class=&quot;c-text-effect__caret&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+  &lt;button class=&quot;c-text-effect__replay&quot; type=&quot;button&quot; data-typewriter-replay&gt;REPLAY&lt;/button&gt;
 &lt;/div&gt;</code></pre></div>
-            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-text-effect { display: grid; min-height: 8.5rem; padding: 1.25rem; gap: 1rem; place-items: center; color: #fff; font: 900 1.15rem monospace; background: #111827; }
-.c-text-effect__line { min-height: 2.1rem; margin: 0; }
-.c-text-effect__caret { display: inline-block; width: .12em; height: 1.05em; margin-left: .14em; vertical-align: -.12em; background: #ff0; animation: caret .7s step-end infinite; }
-.c-text-effect button { min-height: 2.35rem; padding: .55rem .8rem; color: #18243b; font: 700 .7rem monospace; background: #ff0; border: 1px solid #ff0; cursor: pointer; }
-.c-text-effect button:disabled { color: #94a3b8; background: #334155; border-color: #475569; cursor: wait; }
-.c-text-effect button:focus-visible { outline: 3px solid #315a9b; outline-offset: 3px; }
-.c-text-effect__sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-@keyframes caret { 50% { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .c-text-effect__caret { animation: none; } }</code></pre></div>
-            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-typewriter]').forEach((root) =&gt; {
-  const text = root.dataset.text || ''; const output = root.querySelector('[data-output]'); const replay = root.querySelector('[data-replay]'); let timer = 0;
-  const play = () =&gt; {
-    clearTimeout(timer); output.textContent = '';
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { output.textContent = text; return; }
-    replay.disabled = true; let index = 0;
-    const type = () =&gt; { output.textContent = text.slice(0, index + 1); index += 1; if (index &lt; text.length) timer = setTimeout(type, 72); else replay.disabled = false; };
-    type();
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-text-effect,
+.c-text-effect * { box-sizing: border-box; }
+.c-text-effect {
+  position: relative;
+  width: min(100%, 24rem);
+  margin: 0;
+  color: var(--color-primary, #18243b);
+  font: 900 clamp(1rem, 3vw, 1.45rem)/1.4 var(--font-sans, sans-serif);
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+button.c-text-effect {
+  min-height: 5rem;
+  padding: 1rem;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+  cursor: pointer;
+}
+.c-text-effect:focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: 3px;
+}
+.c-text-effect &gt; span { display: inline-block; }
+.c-text-effect.is-resetting span { transition: none !important; }
+
+.c-text-effect--typewriter {
+  display: grid;
+  min-height: 8.5rem;
+  padding: 1.25rem;
+  gap: 1rem;
+  place-items: center;
+  color: #fff;
+  background: var(--color-code-background, #111827);
+}
+.c-text-effect__type-line {
+  min-height: 2.1rem;
+  margin: 0;
+  font-family: var(--font-mono, monospace);
+}
+.c-text-effect__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.c-text-effect__caret {
+  display: inline-block;
+  width: 0.12em;
+  height: 1.05em;
+  margin-left: 0.14em;
+  vertical-align: -0.12em;
+  background: var(--color-accent-yellow, #ff0);
+  animation: text-effect-caret 700ms step-end infinite;
+}
+.c-text-effect__replay {
+  min-height: 2.35rem;
+  padding: 0.55rem 0.8rem;
+  color: var(--color-primary, #18243b);
+  font: 700 0.66rem/1 var(--font-mono, monospace);
+  background: var(--color-accent-yellow, #ff0);
+  border: 1px solid var(--color-accent-yellow, #ff0);
+  cursor: pointer;
+}
+.c-text-effect__replay:disabled { color: #94a3b8; background: #334155; border-color: #475569; cursor: wait; }
+.c-text-effect__replay:focus-visible { outline: 3px solid var(--color-focus, #315a9b); outline-offset: 3px; }
+
+@keyframes text-effect-caret { 50% { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .c-text-effect,
+  .c-text-effect * { animation: none !important; transition-duration: 0.01ms !important; }
+  .c-text-effect--reveal &gt; span,
+  .c-text-effect--sweep &gt; span,
+  .c-text-effect--assemble &gt; span,
+  .c-text-effect__line &gt; span { opacity: 1; transform: none; }
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>(() =&gt; {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const playOnFirstView = (element, play) =&gt; {
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      play();
+      return;
+    }
+    let started = false;
+    const observer = new IntersectionObserver((entries) =&gt; {
+      entries.forEach((entry) =&gt; {
+        if (started || !entry.isIntersecting || entry.intersectionRatio &lt; 0.35) return;
+        started = true;
+        observer.unobserve(element);
+        requestAnimationFrame(play);
+      });
+    }, { threshold: 0.35, rootMargin: '0px 0px -10% 0px' });
+    observer.observe(element);
   };
-  replay.addEventListener('click', play); play();
-});</code></pre></div>
+
+  document.querySelectorAll('[data-text-effect-typewriter]').forEach((root) =&gt; {
+    const text = root.dataset.text || '';
+    const output = root.querySelector('[data-typewriter-output]');
+    const replay = root.querySelector('[data-typewriter-replay]');
+    let timer = 0;
+
+    const play = () =&gt; {
+      window.clearTimeout(timer);
+      output.textContent = '';
+      if (reduceMotion) { output.textContent = text; return; }
+      replay.disabled = true;
+      let index = 0;
+      const type = () =&gt; {
+        output.textContent = text.slice(0, index + 1);
+        index += 1;
+        if (index &lt; text.length) timer = window.setTimeout(type, 72);
+        else replay.disabled = false;
+      };
+      type();
+    };
+
+    replay.addEventListener('click', play);
+    playOnFirstView(root, play);
+  });
+})();</code></pre></div>
           </div>
           <div class="part-example__note"><strong>USE FOR</strong><p>ヒーローコピー、開発実績、端末風UIで、文言の長さをCSSの文字数指定へ同期せず再生したい場面。</p></div>
         </section>
@@ -392,26 +803,116 @@
             </div>
           </div>
           <div class="part-example__code-grid part-example__code-grid--with-js">
-            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-text-effect c-text-effect--lines" data-lines&gt;
-  &lt;p&gt;&lt;span style="--delay: 0ms"&gt;IDEAS BECOME&lt;/span&gt;&lt;/p&gt;
-  &lt;p&gt;&lt;span style="--delay: 120ms"&gt;CLEAR INTERFACES&lt;/span&gt;&lt;/p&gt;
-  &lt;button type="button" data-replay&gt;REPLAY&lt;/button&gt;
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class=&quot;c-text-effect c-text-effect--line-reveal&quot; data-text-effect-lines&gt;
+  &lt;p class=&quot;c-text-effect__line&quot;&gt;&lt;span style=&quot;--line-delay: 0ms&quot;&gt;IDEAS BECOME&lt;/span&gt;&lt;/p&gt;
+  &lt;p class=&quot;c-text-effect__line&quot;&gt;&lt;span style=&quot;--line-delay: 120ms&quot;&gt;CLEAR INTERFACES&lt;/span&gt;&lt;/p&gt;
+  &lt;button class=&quot;c-text-effect__replay&quot; type=&quot;button&quot; data-lines-replay&gt;REPLAY&lt;/button&gt;
 &lt;/div&gt;</code></pre></div>
-            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-text-effect { display: grid; min-height: 9rem; padding: 1.25rem; gap: .18rem; place-items: center; color: #18243b; font: 900 1.2rem sans-serif; border: 1px solid #aeb8c7; }
-.c-text-effect p { margin: 0; overflow: hidden; line-height: 1.25; }
-.c-text-effect p span { display: block; opacity: 0; transform: translateY(110%); transition: opacity .52s ease, transform .62s cubic-bezier(.2,.7,.3,1); transition-delay: var(--delay); }
-.c-text-effect.is-active p span { opacity: 1; transform: none; }
-.c-text-effect button { margin-top: .7rem; min-height: 2.35rem; padding: .55rem .8rem; color: #fff; font: 700 .7rem monospace; background: #18243b; border: 1px solid #18243b; cursor: pointer; }
-.c-text-effect button:focus-visible { outline: 3px solid #315a9b; outline-offset: 3px; }
-@media (prefers-reduced-motion: reduce) { .c-text-effect p span { opacity: 1; transform: none; } }</code></pre></div>
-            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-lines]').forEach((root) =&gt; {
-  const play = () =&gt; { root.classList.remove('is-active'); void root.offsetWidth; root.classList.add('is-active'); };
-  root.querySelector('[data-replay]').addEventListener('click', play);
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { root.classList.add('is-active'); return; }
-  if (!('IntersectionObserver' in window)) { play(); return; }
-  const observer = new IntersectionObserver((entries) =&gt; entries.forEach((entry) =&gt; { if (!entry.isIntersecting) return; play(); observer.unobserve(root); }), { threshold: .45 });
-  observer.observe(root);
-});</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-text-effect,
+.c-text-effect * { box-sizing: border-box; }
+.c-text-effect {
+  position: relative;
+  width: min(100%, 24rem);
+  margin: 0;
+  color: var(--color-primary, #18243b);
+  font: 900 clamp(1rem, 3vw, 1.45rem)/1.4 var(--font-sans, sans-serif);
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+button.c-text-effect {
+  min-height: 5rem;
+  padding: 1rem;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+  cursor: pointer;
+}
+.c-text-effect:focus-visible {
+  outline: 3px solid var(--color-focus, #315a9b);
+  outline-offset: 3px;
+}
+.c-text-effect &gt; span { display: inline-block; }
+.c-text-effect.is-resetting span { transition: none !important; }
+
+.c-text-effect--line-reveal {
+  display: grid;
+  min-height: 9rem;
+  padding: 1.25rem;
+  gap: 0.18rem;
+  place-items: center;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+}
+.c-text-effect__line {
+  margin: 0;
+  overflow: hidden;
+  line-height: 1.25;
+}
+.c-text-effect__line &gt; span {
+  display: block;
+  opacity: 0;
+  transform: translateY(110%);
+  transition: opacity 520ms ease, transform 620ms cubic-bezier(.2, .7, .3, 1);
+  transition-delay: var(--line-delay, 0ms);
+}
+.c-text-effect--line-reveal.is-active .c-text-effect__line &gt; span { opacity: 1; transform: none; }
+.c-text-effect--line-reveal .c-text-effect__replay { margin-top: 0.7rem; color: #fff; background: var(--color-primary, #18243b); border-color: var(--color-primary, #18243b); }
+
+.c-text-effect__replay {
+  min-height: 2.35rem;
+  padding: 0.55rem 0.8rem;
+  color: var(--color-primary, #18243b);
+  font: 700 0.66rem/1 var(--font-mono, monospace);
+  background: var(--color-accent-yellow, #ff0);
+  border: 1px solid var(--color-accent-yellow, #ff0);
+  cursor: pointer;
+}
+.c-text-effect__replay:disabled { color: #94a3b8; background: #334155; border-color: #475569; cursor: wait; }
+.c-text-effect__replay:focus-visible { outline: 3px solid var(--color-focus, #315a9b); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .c-text-effect,
+  .c-text-effect * { animation: none !important; transition-duration: 0.01ms !important; }
+  .c-text-effect--reveal &gt; span,
+  .c-text-effect--sweep &gt; span,
+  .c-text-effect--assemble &gt; span,
+  .c-text-effect__line &gt; span { opacity: 1; transform: none; }
+}</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>(() =&gt; {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const replayClass = (element, className = 'is-active') =&gt; {
+    element.classList.add('is-resetting');
+    element.classList.remove(className);
+    void element.offsetWidth;
+    element.classList.remove('is-resetting');
+    element.classList.add(className);
+  };
+
+  const playOnFirstView = (element, play) =&gt; {
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      play();
+      return;
+    }
+    let started = false;
+    const observer = new IntersectionObserver((entries) =&gt; {
+      entries.forEach((entry) =&gt; {
+        if (started || !entry.isIntersecting || entry.intersectionRatio &lt; 0.35) return;
+        started = true;
+        observer.unobserve(element);
+        requestAnimationFrame(play);
+      });
+    }, { threshold: 0.35, rootMargin: '0px 0px -10% 0px' });
+    observer.observe(element);
+  };
+
+  document.querySelectorAll('[data-text-effect-lines]').forEach((root) =&gt; {
+    const replay = root.querySelector('[data-lines-replay]');
+    const play = () =&gt; replayClass(root);
+    replay.addEventListener('click', play);
+
+    playOnFirstView(root, play);
+  });
+})();</code></pre></div>
           </div>
           <div class="part-example__note"><strong>USE FOR</strong><p>ヒーローやセクション導入の複数行見出しを、行単位で短く読みやすく登場させる場面。</p></div>
         </section>
@@ -423,17 +924,15 @@
         <div class="part-common-styles__header"><p class="section-index">TEXT-EFFECT / COMMON_STYLE</p><h2 id="text-effect-common-styles-title">共通スタイル</h2><p>文字演出の表示幅、フォーカス表示、文字分割後の基本配置を揃えるスタイルです。</p></div>
         <div class="part-common-styles__code"><div class="part-code"><div class="part-code__header"><span>CSS / COMMON</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-text-effect,
 .c-text-effect * { box-sizing: border-box; }
-
 .c-text-effect {
   position: relative;
   width: min(100%, 24rem);
   margin: 0;
   color: var(--color-primary, #18243b);
   font: 900 clamp(1rem, 3vw, 1.45rem)/1.4 var(--font-sans, sans-serif);
-  letter-spacing: .04em;
+  letter-spacing: 0.04em;
   text-align: center;
 }
-
 button.c-text-effect {
   min-height: 5rem;
   padding: 1rem;
@@ -441,21 +940,12 @@ button.c-text-effect {
   border: 1px solid var(--color-grid-strong, #aeb8c7);
   cursor: pointer;
 }
-
 .c-text-effect:focus-visible {
   outline: 3px solid var(--color-focus, #315a9b);
   outline-offset: 3px;
 }
-
 .c-text-effect &gt; span { display: inline-block; }
-
-@media (prefers-reduced-motion: reduce) {
-  .c-text-effect,
-  .c-text-effect * {
-    animation: none !important;
-    transition-duration: .01ms !important;
-  }
-}</code></pre></div></div>
+.c-text-effect.is-resetting span { transition: none !important; }</code></pre></div></div>
       </section>
 
       <footer class="page-footer" aria-label="ページナビゲーション">
