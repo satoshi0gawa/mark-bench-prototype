@@ -7,11 +7,13 @@
       callback();
       return;
     }
+    let started = false;
     const observer = new IntersectionObserver((entries) => {
-      if (!entries[0]?.isIntersecting) return;
+      if (started || !entries.some(entry => entry.isIntersecting && entry.intersectionRatio >= 0.35)) return;
+      started = true;
       observer.disconnect();
-      callback();
-    }, { threshold: 0.45 });
+      requestAnimationFrame(callback);
+    }, { threshold: 0.35, rootMargin: '0px 0px -10% 0px' });
     observer.observe(element);
   };
 
@@ -55,8 +57,13 @@
 
     const play = () => {
       cancelAnimationFrame(frame);
+      if (reduceMotion) {
+        ring.style.setProperty('--counter-progress', target);
+        output.textContent = String(target);
+        return;
+      }
       const startedAt = performance.now();
-      const duration = reduceMotion ? 1 : 1200;
+      const duration = 1200;
       const step = (now) => {
         const progress = Math.min((now - startedAt) / duration, 1);
         const value = target * (1 - Math.pow(1 - progress, 3));
@@ -75,6 +82,7 @@
     const digits = root.querySelector('[data-counter-roll-digits]');
     const replay = root.querySelector('[data-counter-replay]');
     const columns = [];
+    let timers = [];
     String(root.dataset.to || '0').split('').forEach((character) => {
       if (/\d/.test(character)) {
         const column = document.createElement('span');
@@ -100,6 +108,8 @@
     });
 
     const play = () => {
+      timers.forEach(window.clearTimeout);
+      timers = [];
       columns.forEach(({ strip }) => {
         strip.style.transition = 'none';
         strip.style.transform = 'translateY(0)';
@@ -107,9 +117,13 @@
       void digits.offsetWidth;
       columns.forEach(({ strip, value }, index) => {
         strip.style.transition = reduceMotion ? 'none' : '';
-        window.setTimeout(() => {
+        if (reduceMotion) {
           strip.style.transform = `translateY(-${value}em)`;
-        }, reduceMotion ? 0 : index * 100);
+          return;
+        }
+        timers.push(window.setTimeout(() => {
+          strip.style.transform = `translateY(-${value}em)`;
+        }, index * 100));
       });
     };
 

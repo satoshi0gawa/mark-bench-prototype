@@ -109,3 +109,4 @@ await import('./check-local-references.mjs');
 await import('./check-home-tools-count.mjs');
 await import('./check-home-web-parts-count.mjs');
 await import('./check-text-effect.mjs');
+await import('./check-web-parts-viewport.mjs');

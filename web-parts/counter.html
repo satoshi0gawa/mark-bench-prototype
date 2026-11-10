@@ -93,34 +93,108 @@
           <header class="part-example__header"><div><span class="part-example__index">NUMBER / 01</span><h2>数値カウントアップ</h2></div><small>BASIC COUNT</small></header>
           <div class="part-example__preview"><div class="c-counter" data-counter-value data-to="1280" data-duration="1400"><div class="c-counter__panel"><p class="c-counter__eyebrow">TOTAL PROJECTS</p><span class="c-counter__value" data-counter-output>0</span><span class="c-counter__unit">件</span><p class="c-counter__label">累計制作実績</p><button class="c-counter__button" type="button" data-counter-replay>REPLAY</button></div></div></div>
           <div class="part-example__code-grid part-example__code-grid--with-js">
-            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-counter" data-count data-to="1280" data-duration="1400"&gt;
-  &lt;p class="c-counter__label"&gt;累計制作実績&lt;/p&gt;
-  &lt;span class="c-counter__value" data-output&gt;0&lt;/span&gt;&lt;span&gt;件&lt;/span&gt;
-  &lt;button type="button" data-replay&gt;REPLAY&lt;/button&gt;
-&lt;/div&gt;</code></pre></div>
-            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-counter { padding: 1rem; text-align: center; font-family: sans-serif; background: #fff; border: 1px solid #aeb8c7; }
-.c-counter__label { margin: 0; color: #667085; font-size: .72rem; }
-.c-counter__value { display: inline-block; margin-top: .4rem; color: #18243b; font: 700 2.5rem/1 monospace; font-variant-numeric: tabular-nums; }
-.c-counter button { display: block; margin: .75rem auto 0; padding: .5rem .75rem; color: #fff; background: #18243b; border: 0; cursor: pointer; }
-.c-counter button:focus-visible { outline: 3px solid #315a9b; outline-offset: 3px; }</code></pre></div>
-            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-count]').forEach((root) =&gt; {
-  const output = root.querySelector('[data-output]');
-  const target = Number(root.dataset.to);
-  const duration = Number(root.dataset.duration || 1400);
-  let frame = 0;
-  const play = () =&gt; {
-    cancelAnimationFrame(frame);
-    const start = performance.now();
-    const step = (now) =&gt; {
-      const progress = Math.min((now - start) / duration, 1);
-      output.textContent = Math.round(target * (1 - Math.pow(1 - progress, 3)));
-      if (progress &lt; 1) frame = requestAnimationFrame(step);
-    };
-    frame = requestAnimationFrame(step);
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class=&quot;c-counter&quot; data-counter-value data-to=&quot;1280&quot; data-duration=&quot;1400&quot;&gt;&lt;div class=&quot;c-counter__panel&quot;&gt;&lt;p class=&quot;c-counter__eyebrow&quot;&gt;TOTAL PROJECTS&lt;/p&gt;&lt;span class=&quot;c-counter__value&quot; data-counter-output&gt;0&lt;/span&gt;&lt;span class=&quot;c-counter__unit&quot;&gt;件&lt;/span&gt;&lt;p class=&quot;c-counter__label&quot;&gt;累計制作実績&lt;/p&gt;&lt;button class=&quot;c-counter__button&quot; type=&quot;button&quot; data-counter-replay&gt;REPLAY&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-counter,
+.c-counter * { box-sizing: border-box; }
+
+.c-counter {
+  width: min(100%, 21rem);
+  color: var(--color-text, #1c2430);
+  font-family: var(--font-sans, sans-serif);
+  text-align: center;
+}
+
+.c-counter__panel {
+  padding: 1rem;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+}
+
+.c-counter__eyebrow,
+.c-counter__label {
+  margin: 0;
+  color: var(--color-text-subtle, #667085);
+  font: 700 0.62rem/1.5 var(--font-mono, monospace);
+  letter-spacing: 0.04em;
+}
+
+.c-counter__value {
+  display: inline-block;
+  margin-top: 0.35rem;
+  color: var(--color-primary, #18243b);
+  font: 700 clamp(2rem, 6vw, 3rem)/1 var(--font-mono, monospace);
+  font-variant-numeric: tabular-nums;
+}
+
+.c-counter__unit { margin-left: 0.25rem; font-size: 0.72rem; font-weight: 700; }
+
+.c-counter__button {
+  min-height: 2.35rem;
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  color: var(--color-text-inverse, #fff);
+  font: 700 0.64rem/1.2 var(--font-mono, monospace);
+  background: var(--color-primary, #18243b);
+  border: 1px solid var(--color-primary, #18243b);
+  cursor: pointer;
+}
+
+.c-counter__button:hover:not(:disabled) { background: var(--color-primary-hover, #263a5e); }
+.c-counter__button:disabled { color: var(--color-text-subtle, #667085); background: var(--color-primary-soft, #edf1f7); border-color: var(--color-grid-strong, #aeb8c7); cursor: not-allowed; }
+.c-counter__button:focus-visible { outline: 3px solid var(--color-focus, #315a9b); outline-offset: 3px; }
+
+.c-counter--accent .c-counter__panel { border-left: 0.4rem solid var(--color-accent-yellow, #ff0); text-align: left; }
+
+</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>(() =&gt; {
+  const reduceMotion = window.matchMedia(&#x27;(prefers-reduced-motion: reduce)&#x27;).matches;
+
+const whenVisible = (element, callback) =&gt; {
+    if (reduceMotion || !(&#x27;IntersectionObserver&#x27; in window)) {
+      callback();
+      return;
+    }
+    let started = false;
+    const observer = new IntersectionObserver((entries) =&gt; {
+      if (started || !entries.some(entry =&gt; entry.isIntersecting &amp;&amp; entry.intersectionRatio &gt;= 0.35)) return;
+      started = true;
+      observer.disconnect();
+      requestAnimationFrame(callback);
+    }, { threshold: 0.35, rootMargin: &#x27;0px 0px -10% 0px&#x27; });
+    observer.observe(element);
   };
-  root.querySelector('[data-replay]').addEventListener('click', play);
-  play();
-});</code></pre></div>
+
+document.querySelectorAll(&#x27;[data-counter-value]&#x27;).forEach((root) =&gt; {
+    const output = root.querySelector(&#x27;[data-counter-output]&#x27;);
+    const replay = root.querySelector(&#x27;[data-counter-replay]&#x27;);
+    const target = Number(root.dataset.to || 0);
+    const duration = Number(root.dataset.duration || 1200);
+    const formatter = root.dataset.format === &#x27;comma&#x27;
+      ? (value) =&gt; value.toLocaleString(&#x27;ja-JP&#x27;)
+      : (value) =&gt; String(value);
+    let frame = 0;
+
+    const play = () =&gt; {
+      cancelAnimationFrame(frame);
+      if (reduceMotion) {
+        output.textContent = formatter(target);
+        return;
+      }
+      const startedAt = performance.now();
+      const step = (now) =&gt; {
+        const progress = Math.min((now - startedAt) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        output.textContent = formatter(Math.round(target * eased));
+        if (progress &lt; 1) frame = requestAnimationFrame(step);
+      };
+      output.textContent = &#x27;0&#x27;;
+      frame = requestAnimationFrame(step);
+    };
+
+    replay?.addEventListener(&#x27;click&#x27;, play);
+    whenVisible(root, play);
+  });
+})();</code></pre></div>
           </div>
           <div class="part-example__note"><strong>USE FOR</strong><p>コーポレートサイトや採用ページで、制作実績、導入社数、社員数などの確定値へ視線を集める場面。</p></div>
         </section>
@@ -129,33 +203,108 @@
           <header class="part-example__header"><div><span class="part-example__index">NUMBER / 02</span><h2>カンマ区切りカウント</h2></div><small>FORMATTED</small></header>
           <div class="part-example__preview"><div class="c-counter c-counter--accent" data-counter-value data-to="128540" data-duration="1600" data-format="comma"><div class="c-counter__panel"><p class="c-counter__eyebrow">TOTAL MEMBERS</p><span class="c-counter__value" data-counter-output>0</span><span class="c-counter__unit">人</span><p class="c-counter__label">累計会員数</p><button class="c-counter__button" type="button" data-counter-replay>REPLAY</button></div></div></div>
           <div class="part-example__code-grid part-example__code-grid--with-js">
-            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-count-comma" data-count-comma data-to="128540"&gt;
-  &lt;p&gt;累計会員数&lt;/p&gt;
-  &lt;strong data-output&gt;0&lt;/strong&gt;&lt;span&gt;人&lt;/span&gt;
-  &lt;button type="button" data-replay&gt;REPLAY&lt;/button&gt;
-&lt;/div&gt;</code></pre></div>
-            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-count-comma { padding: 1rem; font-family: sans-serif; background: #fff; border: 1px solid #aeb8c7; border-left: .4rem solid #ff0; }
-.c-count-comma p { margin: 0 0 .4rem; color: #667085; font-size: .72rem; }
-.c-count-comma strong { color: #18243b; font: 700 2.25rem/1 monospace; font-variant-numeric: tabular-nums; }
-.c-count-comma button { display: block; margin-top: .75rem; padding: .5rem .75rem; color: #fff; background: #18243b; border: 0; }</code></pre></div>
-            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-count-comma]').forEach((root) =&gt; {
-  const output = root.querySelector('[data-output]');
-  const target = Number(root.dataset.to);
-  let frame = 0;
-  const play = () =&gt; {
-    cancelAnimationFrame(frame);
-    const start = performance.now();
-    const step = (now) =&gt; {
-      const progress = Math.min((now - start) / 1600, 1);
-      const value = Math.round(target * (1 - Math.pow(1 - progress, 3)));
-      output.textContent = value.toLocaleString('ja-JP');
-      if (progress &lt; 1) frame = requestAnimationFrame(step);
-    };
-    frame = requestAnimationFrame(step);
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class=&quot;c-counter c-counter--accent&quot; data-counter-value data-to=&quot;128540&quot; data-duration=&quot;1600&quot; data-format=&quot;comma&quot;&gt;&lt;div class=&quot;c-counter__panel&quot;&gt;&lt;p class=&quot;c-counter__eyebrow&quot;&gt;TOTAL MEMBERS&lt;/p&gt;&lt;span class=&quot;c-counter__value&quot; data-counter-output&gt;0&lt;/span&gt;&lt;span class=&quot;c-counter__unit&quot;&gt;人&lt;/span&gt;&lt;p class=&quot;c-counter__label&quot;&gt;累計会員数&lt;/p&gt;&lt;button class=&quot;c-counter__button&quot; type=&quot;button&quot; data-counter-replay&gt;REPLAY&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-counter,
+.c-counter * { box-sizing: border-box; }
+
+.c-counter {
+  width: min(100%, 21rem);
+  color: var(--color-text, #1c2430);
+  font-family: var(--font-sans, sans-serif);
+  text-align: center;
+}
+
+.c-counter__panel {
+  padding: 1rem;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+}
+
+.c-counter__eyebrow,
+.c-counter__label {
+  margin: 0;
+  color: var(--color-text-subtle, #667085);
+  font: 700 0.62rem/1.5 var(--font-mono, monospace);
+  letter-spacing: 0.04em;
+}
+
+.c-counter__value {
+  display: inline-block;
+  margin-top: 0.35rem;
+  color: var(--color-primary, #18243b);
+  font: 700 clamp(2rem, 6vw, 3rem)/1 var(--font-mono, monospace);
+  font-variant-numeric: tabular-nums;
+}
+
+.c-counter__unit { margin-left: 0.25rem; font-size: 0.72rem; font-weight: 700; }
+
+.c-counter__button {
+  min-height: 2.35rem;
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  color: var(--color-text-inverse, #fff);
+  font: 700 0.64rem/1.2 var(--font-mono, monospace);
+  background: var(--color-primary, #18243b);
+  border: 1px solid var(--color-primary, #18243b);
+  cursor: pointer;
+}
+
+.c-counter__button:hover:not(:disabled) { background: var(--color-primary-hover, #263a5e); }
+.c-counter__button:disabled { color: var(--color-text-subtle, #667085); background: var(--color-primary-soft, #edf1f7); border-color: var(--color-grid-strong, #aeb8c7); cursor: not-allowed; }
+.c-counter__button:focus-visible { outline: 3px solid var(--color-focus, #315a9b); outline-offset: 3px; }
+
+.c-counter--accent .c-counter__panel { border-left: 0.4rem solid var(--color-accent-yellow, #ff0); text-align: left; }
+
+</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>(() =&gt; {
+  const reduceMotion = window.matchMedia(&#x27;(prefers-reduced-motion: reduce)&#x27;).matches;
+
+const whenVisible = (element, callback) =&gt; {
+    if (reduceMotion || !(&#x27;IntersectionObserver&#x27; in window)) {
+      callback();
+      return;
+    }
+    let started = false;
+    const observer = new IntersectionObserver((entries) =&gt; {
+      if (started || !entries.some(entry =&gt; entry.isIntersecting &amp;&amp; entry.intersectionRatio &gt;= 0.35)) return;
+      started = true;
+      observer.disconnect();
+      requestAnimationFrame(callback);
+    }, { threshold: 0.35, rootMargin: &#x27;0px 0px -10% 0px&#x27; });
+    observer.observe(element);
   };
-  root.querySelector('[data-replay]').addEventListener('click', play);
-  play();
-});</code></pre></div>
+
+document.querySelectorAll(&#x27;[data-counter-value]&#x27;).forEach((root) =&gt; {
+    const output = root.querySelector(&#x27;[data-counter-output]&#x27;);
+    const replay = root.querySelector(&#x27;[data-counter-replay]&#x27;);
+    const target = Number(root.dataset.to || 0);
+    const duration = Number(root.dataset.duration || 1200);
+    const formatter = root.dataset.format === &#x27;comma&#x27;
+      ? (value) =&gt; value.toLocaleString(&#x27;ja-JP&#x27;)
+      : (value) =&gt; String(value);
+    let frame = 0;
+
+    const play = () =&gt; {
+      cancelAnimationFrame(frame);
+      if (reduceMotion) {
+        output.textContent = formatter(target);
+        return;
+      }
+      const startedAt = performance.now();
+      const step = (now) =&gt; {
+        const progress = Math.min((now - startedAt) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        output.textContent = formatter(Math.round(target * eased));
+        if (progress &lt; 1) frame = requestAnimationFrame(step);
+      };
+      output.textContent = &#x27;0&#x27;;
+      frame = requestAnimationFrame(step);
+    };
+
+    replay?.addEventListener(&#x27;click&#x27;, play);
+    whenVisible(root, play);
+  });
+})();</code></pre></div>
           </div>
           <div class="part-example__note"><strong>USE FOR</strong><p>会員数、販売数、売上など桁数の多い値を、読み間違いにくい形式で提示する場面。</p></div>
         </section>
@@ -164,35 +313,119 @@
           <header class="part-example__header"><div><span class="part-example__index">PROGRESS / 01</span><h2>円形プログレス</h2></div><small>RING</small></header>
           <div class="part-example__preview"><div class="c-counter" data-counter-ring data-to="82"><div class="c-counter-ring__graphic" data-counter-ring-graphic><span class="c-counter-ring__value"><b data-counter-ring-output>0</b>%</span></div><p class="c-counter__label">顧客満足度</p><button class="c-counter__button" type="button" data-counter-replay>REPLAY</button></div></div>
           <div class="part-example__code-grid part-example__code-grid--with-js">
-            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-ring" data-ring data-to="82"&gt;
-  &lt;div class="c-ring__graphic" data-graphic&gt;&lt;b data-output&gt;0&lt;/b&gt;%&lt;/div&gt;
-  &lt;p&gt;顧客満足度&lt;/p&gt;
-  &lt;button type="button" data-replay&gt;REPLAY&lt;/button&gt;
-&lt;/div&gt;</code></pre></div>
-            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-ring { text-align: center; font-family: sans-serif; }
-.c-ring__graphic { --p: 0; position: relative; display: grid; width: 7rem; height: 7rem; margin: auto; place-items: center; background: conic-gradient(#18243b calc(var(--p) * 1%), #edf1f7 0); border-radius: 50%; }
-.c-ring__graphic::before { position: absolute; inset: .75rem; background: #fff; border-radius: 50%; content: ""; }
-.c-ring__graphic b, .c-ring__graphic { font: 700 1.5rem monospace; }
-.c-ring__graphic b { position: relative; }
-.c-ring button { padding: .5rem .75rem; color: #fff; background: #18243b; border: 0; }</code></pre></div>
-            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-ring]').forEach((root) =&gt; {
-  const graphic = root.querySelector('[data-graphic]');
-  const output = root.querySelector('[data-output]');
-  const target = Math.min(100, Number(root.dataset.to));
-  const play = () =&gt; {
-    const start = performance.now();
-    const step = (now) =&gt; {
-      const progress = Math.min((now - start) / 1200, 1);
-      const value = target * (1 - Math.pow(1 - progress, 3));
-      graphic.style.setProperty('--p', value);
-      output.textContent = Math.round(value);
-      if (progress &lt; 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class=&quot;c-counter&quot; data-counter-ring data-to=&quot;82&quot;&gt;&lt;div class=&quot;c-counter-ring__graphic&quot; data-counter-ring-graphic&gt;&lt;span class=&quot;c-counter-ring__value&quot;&gt;&lt;b data-counter-ring-output&gt;0&lt;/b&gt;%&lt;/span&gt;&lt;/div&gt;&lt;p class=&quot;c-counter__label&quot;&gt;顧客満足度&lt;/p&gt;&lt;button class=&quot;c-counter__button&quot; type=&quot;button&quot; data-counter-replay&gt;REPLAY&lt;/button&gt;&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-counter,
+.c-counter * { box-sizing: border-box; }
+
+.c-counter {
+  width: min(100%, 21rem);
+  color: var(--color-text, #1c2430);
+  font-family: var(--font-sans, sans-serif);
+  text-align: center;
+}
+
+.c-counter__panel {
+  padding: 1rem;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+}
+
+.c-counter__eyebrow,
+.c-counter__label {
+  margin: 0;
+  color: var(--color-text-subtle, #667085);
+  font: 700 0.62rem/1.5 var(--font-mono, monospace);
+  letter-spacing: 0.04em;
+}
+
+.c-counter__value {
+  display: inline-block;
+  margin-top: 0.35rem;
+  color: var(--color-primary, #18243b);
+  font: 700 clamp(2rem, 6vw, 3rem)/1 var(--font-mono, monospace);
+  font-variant-numeric: tabular-nums;
+}
+
+.c-counter__unit { margin-left: 0.25rem; font-size: 0.72rem; font-weight: 700; }
+
+.c-counter__button {
+  min-height: 2.35rem;
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  color: var(--color-text-inverse, #fff);
+  font: 700 0.64rem/1.2 var(--font-mono, monospace);
+  background: var(--color-primary, #18243b);
+  border: 1px solid var(--color-primary, #18243b);
+  cursor: pointer;
+}
+
+.c-counter__button:hover:not(:disabled) { background: var(--color-primary-hover, #263a5e); }
+.c-counter__button:disabled { color: var(--color-text-subtle, #667085); background: var(--color-primary-soft, #edf1f7); border-color: var(--color-grid-strong, #aeb8c7); cursor: not-allowed; }
+.c-counter__button:focus-visible { outline: 3px solid var(--color-focus, #315a9b); outline-offset: 3px; }
+
+.c-counter--accent .c-counter__panel { border-left: 0.4rem solid var(--color-accent-yellow, #ff0); text-align: left; }
+
+.c-counter-ring__graphic {
+  --counter-progress: 0;
+  position: relative;
+  display: grid;
+  width: 7rem;
+  height: 7rem;
+  margin: 0 auto;
+  place-items: center;
+  background: conic-gradient(var(--color-primary, #18243b) calc(var(--counter-progress) * 1%), var(--color-primary-soft, #edf1f7) 0);
+  border-radius: 50%;
+}
+.c-counter-ring__graphic::before { position: absolute; inset: 0.75rem; background: var(--color-background, #fff); border-radius: 50%; content: &quot;&quot;; }
+.c-counter-ring__value { position: relative; font: 700 1.6rem/1 var(--font-mono, monospace); font-variant-numeric: tabular-nums; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>(() =&gt; {
+  const reduceMotion = window.matchMedia(&#x27;(prefers-reduced-motion: reduce)&#x27;).matches;
+
+const whenVisible = (element, callback) =&gt; {
+    if (reduceMotion || !(&#x27;IntersectionObserver&#x27; in window)) {
+      callback();
+      return;
+    }
+    let started = false;
+    const observer = new IntersectionObserver((entries) =&gt; {
+      if (started || !entries.some(entry =&gt; entry.isIntersecting &amp;&amp; entry.intersectionRatio &gt;= 0.35)) return;
+      started = true;
+      observer.disconnect();
+      requestAnimationFrame(callback);
+    }, { threshold: 0.35, rootMargin: &#x27;0px 0px -10% 0px&#x27; });
+    observer.observe(element);
   };
-  root.querySelector('[data-replay]').addEventListener('click', play);
-  play();
-});</code></pre></div>
+
+document.querySelectorAll(&#x27;[data-counter-ring]&#x27;).forEach((root) =&gt; {
+    const ring = root.querySelector(&#x27;[data-counter-ring-graphic]&#x27;);
+    const output = root.querySelector(&#x27;[data-counter-ring-output]&#x27;);
+    const replay = root.querySelector(&#x27;[data-counter-replay]&#x27;);
+    const target = Math.min(100, Math.max(0, Number(root.dataset.to || 0)));
+    let frame = 0;
+
+    const play = () =&gt; {
+      cancelAnimationFrame(frame);
+      if (reduceMotion) {
+        ring.style.setProperty(&#x27;--counter-progress&#x27;, target);
+        output.textContent = String(target);
+        return;
+      }
+      const startedAt = performance.now();
+      const duration = 1200;
+      const step = (now) =&gt; {
+        const progress = Math.min((now - startedAt) / duration, 1);
+        const value = target * (1 - Math.pow(1 - progress, 3));
+        ring.style.setProperty(&#x27;--counter-progress&#x27;, value);
+        output.textContent = String(Math.round(value));
+        if (progress &lt; 1) frame = requestAnimationFrame(step);
+      };
+      frame = requestAnimationFrame(step);
+    };
+
+    replay?.addEventListener(&#x27;click&#x27;, play);
+    whenVisible(root, play);
+  });
+})();</code></pre></div>
           </div>
           <div class="part-example__note"><strong>USE FOR</strong><p>満足度、達成率、スキルレベルなど、100を基準にした進捗を数字と面積で同時に示す場面。</p></div>
         </section>
@@ -201,38 +434,142 @@
           <header class="part-example__header"><div><span class="part-example__index">PROGRESS / 02</span><h2>数字ロール</h2></div><small>ODOMETER</small></header>
           <div class="part-example__preview"><div class="c-counter" data-counter-roll data-to="2,489"><div class="c-counter__panel"><p class="c-counter__eyebrow">DOWNLOADS</p><span class="c-counter-roll__digits" data-counter-roll-digits aria-label="2,489"></span><span class="c-counter__unit">回</span><p class="c-counter__label">累計ダウンロード</p><button class="c-counter__button" type="button" data-counter-replay>REPLAY</button></div></div></div>
           <div class="part-example__code-grid part-example__code-grid--with-js">
-            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class="c-roll" data-roll data-to="2,489"&gt;
-  &lt;span class="c-roll__digits" data-digits aria-label="2,489"&gt;&lt;/span&gt;
-  &lt;span&gt;回&lt;/span&gt;
-  &lt;button type="button" data-replay&gt;REPLAY&lt;/button&gt;
-&lt;/div&gt;</code></pre></div>
-            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-roll { text-align: center; font-family: sans-serif; }
-.c-roll__digits { display: inline-flex; overflow: hidden; color: #18243b; font: 700 2.4rem/1 monospace; }
-.c-roll__column { display: block; height: 1em; overflow: hidden; }
-.c-roll__strip { display: flex; flex-direction: column; transition: transform 1.2s cubic-bezier(.16, 1, .3, 1); }
-.c-roll__strip span { display: block; height: 1em; }
-.c-roll button { display: block; margin: .75rem auto 0; padding: .5rem .75rem; }</code></pre></div>
-            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>document.querySelectorAll('[data-roll]').forEach((root) =&gt; {
-  const digits = root.querySelector('[data-digits]');
-  const columns = [];
-  [...root.dataset.to].forEach((character) =&gt; {
-    if (!/\d/.test(character)) { const separator = document.createElement('span'); separator.textContent = character; separator.setAttribute('aria-hidden', 'true'); digits.append(separator); return; }
-    const column = document.createElement('span');
-    const strip = document.createElement('span');
-    column.className = 'c-roll__column'; column.setAttribute('aria-hidden', 'true'); strip.className = 'c-roll__strip';
-    for (let n = 0; n &lt; 10; n += 1) { const digit = document.createElement('span'); digit.textContent = n; strip.append(digit); }
-    column.append(strip); digits.append(column); columns.push([strip, Number(character)]);
-  });
-  const play = () =&gt; {
-    columns.forEach(([strip]) =&gt; { strip.style.transition = 'none'; strip.style.transform = 'translateY(0)'; });
-    void digits.offsetWidth;
-    columns.forEach(([strip, value], index) =&gt; {
-      strip.style.transition = '';
-      setTimeout(() =&gt; { strip.style.transform = `translateY(-${value}em)`; }, index * 100);
-    });
+            <div class="part-code"><div class="part-code__header"><span>HTML</span><button type="button" data-copy-code>COPY</button></div><pre><code>&lt;div class=&quot;c-counter&quot; data-counter-roll data-to=&quot;2,489&quot;&gt;&lt;div class=&quot;c-counter__panel&quot;&gt;&lt;p class=&quot;c-counter__eyebrow&quot;&gt;DOWNLOADS&lt;/p&gt;&lt;span class=&quot;c-counter-roll__digits&quot; data-counter-roll-digits aria-label=&quot;2,489&quot;&gt;&lt;/span&gt;&lt;span class=&quot;c-counter__unit&quot;&gt;回&lt;/span&gt;&lt;p class=&quot;c-counter__label&quot;&gt;累計ダウンロード&lt;/p&gt;&lt;button class=&quot;c-counter__button&quot; type=&quot;button&quot; data-counter-replay&gt;REPLAY&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;</code></pre></div>
+            <div class="part-code"><div class="part-code__header"><span>CSS</span><button type="button" data-copy-code>COPY</button></div><pre><code>.c-counter,
+.c-counter * { box-sizing: border-box; }
+
+.c-counter {
+  width: min(100%, 21rem);
+  color: var(--color-text, #1c2430);
+  font-family: var(--font-sans, sans-serif);
+  text-align: center;
+}
+
+.c-counter__panel {
+  padding: 1rem;
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-grid-strong, #aeb8c7);
+}
+
+.c-counter__eyebrow,
+.c-counter__label {
+  margin: 0;
+  color: var(--color-text-subtle, #667085);
+  font: 700 0.62rem/1.5 var(--font-mono, monospace);
+  letter-spacing: 0.04em;
+}
+
+.c-counter__value {
+  display: inline-block;
+  margin-top: 0.35rem;
+  color: var(--color-primary, #18243b);
+  font: 700 clamp(2rem, 6vw, 3rem)/1 var(--font-mono, monospace);
+  font-variant-numeric: tabular-nums;
+}
+
+.c-counter__unit { margin-left: 0.25rem; font-size: 0.72rem; font-weight: 700; }
+
+.c-counter__button {
+  min-height: 2.35rem;
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  color: var(--color-text-inverse, #fff);
+  font: 700 0.64rem/1.2 var(--font-mono, monospace);
+  background: var(--color-primary, #18243b);
+  border: 1px solid var(--color-primary, #18243b);
+  cursor: pointer;
+}
+
+.c-counter__button:hover:not(:disabled) { background: var(--color-primary-hover, #263a5e); }
+.c-counter__button:disabled { color: var(--color-text-subtle, #667085); background: var(--color-primary-soft, #edf1f7); border-color: var(--color-grid-strong, #aeb8c7); cursor: not-allowed; }
+.c-counter__button:focus-visible { outline: 3px solid var(--color-focus, #315a9b); outline-offset: 3px; }
+
+.c-counter--accent .c-counter__panel { border-left: 0.4rem solid var(--color-accent-yellow, #ff0); text-align: left; }
+
+.c-counter-roll__digits {
+  display: inline-flex;
+  margin-top: 0.4rem;
+  overflow: hidden;
+  align-items: flex-start;
+  color: var(--color-primary, #18243b);
+  font: 700 2.3rem/1 var(--font-mono, monospace);
+  font-variant-numeric: tabular-nums;
+}
+.c-counter-roll__column { display: block; height: 1em; overflow: hidden; }
+.c-counter-roll__strip { display: flex; flex-direction: column; transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+.c-counter-roll__strip span { display: block; height: 1em; line-height: 1; }
+.c-counter-roll__separator { display: block; }</code></pre></div>
+            <div class="part-code part-code--js"><div class="part-code__header"><span>JAVASCRIPT</span><button type="button" data-copy-code>COPY</button></div><pre><code>(() =&gt; {
+  const reduceMotion = window.matchMedia(&#x27;(prefers-reduced-motion: reduce)&#x27;).matches;
+
+const whenVisible = (element, callback) =&gt; {
+    if (reduceMotion || !(&#x27;IntersectionObserver&#x27; in window)) {
+      callback();
+      return;
+    }
+    let started = false;
+    const observer = new IntersectionObserver((entries) =&gt; {
+      if (started || !entries.some(entry =&gt; entry.isIntersecting &amp;&amp; entry.intersectionRatio &gt;= 0.35)) return;
+      started = true;
+      observer.disconnect();
+      requestAnimationFrame(callback);
+    }, { threshold: 0.35, rootMargin: &#x27;0px 0px -10% 0px&#x27; });
+    observer.observe(element);
   };
-  root.querySelector('[data-replay]').addEventListener('click', play); play();
-});</code></pre></div>
+
+document.querySelectorAll(&#x27;[data-counter-roll]&#x27;).forEach((root) =&gt; {
+    const digits = root.querySelector(&#x27;[data-counter-roll-digits]&#x27;);
+    const replay = root.querySelector(&#x27;[data-counter-replay]&#x27;);
+    const columns = [];
+    let timers = [];
+    String(root.dataset.to || &#x27;0&#x27;).split(&#x27;&#x27;).forEach((character) =&gt; {
+      if (/\d/.test(character)) {
+        const column = document.createElement(&#x27;span&#x27;);
+        const strip = document.createElement(&#x27;span&#x27;);
+        column.className = &#x27;c-counter-roll__column&#x27;;
+        column.setAttribute(&#x27;aria-hidden&#x27;, &#x27;true&#x27;);
+        strip.className = &#x27;c-counter-roll__strip&#x27;;
+        for (let value = 0; value &lt;= 9; value += 1) {
+          const digit = document.createElement(&#x27;span&#x27;);
+          digit.textContent = String(value);
+          strip.appendChild(digit);
+        }
+        column.appendChild(strip);
+        digits.appendChild(column);
+        columns.push({ strip, value: Number(character) });
+      } else {
+        const separator = document.createElement(&#x27;span&#x27;);
+        separator.className = &#x27;c-counter-roll__separator&#x27;;
+        separator.setAttribute(&#x27;aria-hidden&#x27;, &#x27;true&#x27;);
+        separator.textContent = character;
+        digits.appendChild(separator);
+      }
+    });
+
+    const play = () =&gt; {
+      timers.forEach(window.clearTimeout);
+      timers = [];
+      columns.forEach(({ strip }) =&gt; {
+        strip.style.transition = &#x27;none&#x27;;
+        strip.style.transform = &#x27;translateY(0)&#x27;;
+      });
+      void digits.offsetWidth;
+      columns.forEach(({ strip, value }, index) =&gt; {
+        strip.style.transition = reduceMotion ? &#x27;none&#x27; : &#x27;&#x27;;
+        if (reduceMotion) {
+          strip.style.transform = `translateY(-${value}em)`;
+          return;
+        }
+        timers.push(window.setTimeout(() =&gt; {
+          strip.style.transform = `translateY(-${value}em)`;
+        }, index * 100));
+      });
+    };
+
+    replay?.addEventListener(&#x27;click&#x27;, play);
+    whenVisible(root, play);
+  });
+})();</code></pre></div>
           </div>
           <div class="part-example__note"><strong>USE FOR</strong><p>ダウンロード数や販売数など、機械式メーターの印象で桁ごとの変化を強調したい場面。</p></div>
         </section>

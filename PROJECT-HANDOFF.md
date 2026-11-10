@@ -28,6 +28,7 @@ microCMS関連の作業では、あわせて`microcms/README.md`を確認して�
 - WEB PARTS一覧は実務上の汎用性・有用性を基準に並べ替え済み。CATEGORYとカードは同順とし、追加時の配置基準は`docs/SITE-SPEC.md`のWEB PARTS節を参照する
 - HOMEのWEB PARTSカテゴリ件数は一覧カードからビルド時と開発サーバー配信時に自動生成する。HOMEの数値は手動更新不要。仕様は`docs/SITE-SPEC.md`、回帰検証は`npm run check:parts-count`（`check`にも含む）を参照する
 - TEXT-EFFECTの一度だけ再生する6種は各デモの初回画面内表示で開始し、クリック・REPLAYでも再生可能。掲載コードにも同じ処理を含める。仕様は`docs/SITE-SPEC.md`、回帰検証は`npm run check:text-effect`（`check`にも含む）を参照する
+- 全WEB PARTSの開始処理点検でCOUNTER4種とSCROLL-REVEALの出現9種を修正済み。画面外待機とONCEのREPLAY、掲載コードの単独動作は`npm run check:parts-viewport`（`check`にも含む）で確認する。調査範囲は`docs/web-parts-animation-audit.md`、仕様は`docs/SITE-SPEC.md`を参照する
 
 ## 編集時の原則
 

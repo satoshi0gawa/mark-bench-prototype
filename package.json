@@ -47,6 +47,7 @@
     "check:tools-count": "node scripts/check-home-tools-count.mjs",
     "check:parts-count": "node scripts/check-home-web-parts-count.mjs",
     "check:text-effect": "node scripts/check-text-effect.mjs",
+    "check:parts-viewport": "node scripts/check-web-parts-viewport.mjs",
     "build": "node scripts/build.mjs --source=fixture",
     "build:fixture": "node scripts/build.mjs --source=fixture",
     "build:cms": "node scripts/build.mjs --source=microcms"

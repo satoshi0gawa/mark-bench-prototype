@@ -6,7 +6,7 @@
     const targets = [...demo.querySelectorAll('[data-scroll-target]')];
     targets.forEach((target) => target.classList.remove('is-revealed'));
     demo.querySelectorAll('[data-scroll-lazy]').forEach((target) => target.classList.remove('is-loaded'));
-    viewport?.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    viewport?.scrollTo({ top: 0, behavior: 'instant' });
     afterReset?.();
   };
 
@@ -15,26 +15,39 @@
     const targets = [...demo.querySelectorAll('[data-scroll-target]')];
     if (!viewport || !targets.length) return;
 
+    const show = (target) => {
+      target.classList.add('is-revealed');
+      if (target.matches('[data-scroll-lazy]')) {
+        const image = target.querySelector('img[data-src]');
+        image?.addEventListener('load', () => target.classList.add('is-loaded'), { once: true });
+        if (image && !image.getAttribute('src')) image.src = image.dataset.src;
+        if (image?.complete) target.classList.add('is-loaded');
+      }
+    };
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      targets.forEach(show);
+      demo.querySelector('[data-scroll-reset]')?.addEventListener('click', () => viewport.scrollTo({ top: 0, behavior: 'instant' }));
+      const mode = demo.querySelector('[data-scroll-mode]');
+      if (mode) mode.disabled = true;
+      return;
+    }
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         const target = entry.target;
-        if (entry.isIntersecting) {
-          target.classList.add('is-revealed');
-          if (target.matches('[data-scroll-lazy]')) {
-            const image = target.querySelector('img[data-src]');
-            if (image && !image.src) image.src = image.dataset.src;
-            image?.addEventListener('load', () => target.classList.add('is-loaded'), { once: true });
-            if (image?.complete) target.classList.add('is-loaded');
-          }
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.45) {
+          show(target);
           if (demo.dataset.once === 'true') observer.unobserve(target);
         } else if (demo.dataset.once !== 'true') {
           target.classList.remove('is-revealed');
         }
       });
-    }, { root: viewport, threshold: 0.45 });
+    }, { threshold: [0, 0.45] });
 
     targets.forEach((target) => observer.observe(target));
-    demo.querySelector('[data-scroll-reset]')?.addEventListener('click', () => resetViewport(demo));
+    demo.querySelector('[data-scroll-reset]')?.addEventListener('click', () => {
+      resetViewport(demo);
+      targets.forEach((target) => observer.observe(target));
+    });
 
     demo.querySelector('[data-scroll-mode]')?.addEventListener('click', (event) => {
       const useOnce = demo.dataset.once !== 'true';
@@ -76,11 +89,15 @@
     const root = demo.querySelector('[data-morph-root]');
     const panels = [...demo.querySelectorAll('[data-morph-color]')];
     if (!viewport || !root || !panels.length) return;
+    if (!('IntersectionObserver' in window)) {
+      root.style.setProperty('--morph-color', panels[0].dataset.morphColor);
+      return;
+    }
     const observer = new IntersectionObserver((entries) => {
       const visible = entries.filter((entry) => entry.isIntersecting)
         .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
       if (visible) root.style.setProperty('--morph-color', visible.target.dataset.morphColor);
-    }, { root: viewport, threshold: [0.35, 0.65] });
+    }, { threshold: [0.35, 0.65] });
     panels.forEach((panel) => observer.observe(panel));
     demo.querySelector('[data-scroll-reset]')?.addEventListener('click', () => resetViewport(demo, () => {
       root.style.setProperty('--morph-color', panels[0].dataset.morphColor);
