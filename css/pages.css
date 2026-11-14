@@ -778,9 +778,6 @@ body[data-page="web-parts"] .page-heading__main p { max-width: none; }
 .coding-note-card h3 { margin: 0 0 1rem; font-size: var(--build-log-item-title-size); line-height: 1.35; }
 .coding-note-card__action { display: flex; grid-row: 4; justify-content: space-between; font-family: var(--font-mono); font-size: var(--build-log-item-meta-size); font-weight: 700; }
 .coding-note-card__action i { font-size: 1rem; font-style: normal; }
-.coding-note-card:hover { color: var(--color-text-inverse); background: var(--color-primary); }
-.coding-note-card:hover .coding-note-card__meta { color: inherit; }
-.coding-note-card:hover .coding-note-card__action i,
 .coding-note-card:focus-visible .coding-note-card__action i { transform: translateX(var(--link-arrow-shift)); }
 .coding-note-card--view-all { background: var(--color-item-background-muted); }
 .coding-note-card--view-all h3 { font-family: var(--font-mono); letter-spacing: 0.02em; }
@@ -809,8 +806,6 @@ body[data-page="web-parts"] .page-heading__main p { max-width: none; }
 .build-log-overview__footer { display: grid; min-height: 4rem; padding: 1rem var(--build-log-item-inline-gutter, var(--page-gutter)); grid-template-columns: 10rem 1fr 8rem 2rem; gap: 1rem; align-items: center; color: var(--color-text); font-family: var(--font-mono); font-size: 0.62rem; font-weight: 700; text-decoration: none; background: var(--color-background-subtle); border-top: var(--border); }
 .build-log-overview__footer > span:first-child { grid-column: 1 / 4; }
 .build-log-overview__footer-arrow { grid-column: 4; font-size: 1rem; }
-.build-log-overview__footer:hover { color: var(--color-text-inverse); background: var(--color-primary); }
-.build-log-overview__footer:hover .build-log-overview__footer-arrow,
 .build-log-overview__footer:focus-visible .build-log-overview__footer-arrow { transform: translateX(var(--link-arrow-shift)); }
 .title-lowercase { font-size: 0.58em; letter-spacing: 0; }
 .tool-grid--directory { border: 0; }
@@ -2301,17 +2296,22 @@ body[data-page="about"] {
 @media (hover: hover) and (pointer: fine) {
   .directory-keywords__list button:hover { color: var(--color-text-inverse); background: var(--color-primary-hover); border-color: var(--color-primary-hover); }
 
+  .coding-note-card:hover,
+  .build-log-overview__footer:hover,
   .note-row:not(.is-disabled):hover {
     color: var(--color-text-inverse);
     background: var(--color-primary);
   }
 
+  .coding-note-card:hover .coding-note-card__meta,
   .note-row:not(.is-disabled):hover span,
   .note-row:not(.is-disabled):hover time,
   .note-row:not(.is-disabled):hover small {
     color: inherit;
   }
 
+  .coding-note-card:hover .coding-note-card__action i,
+  .build-log-overview__footer:hover .build-log-overview__footer-arrow,
   .note-row[href]:hover > i {
     transform: translateX(var(--link-arrow-shift));
   }
