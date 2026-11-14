@@ -51,7 +51,7 @@ const breadcrumbLabels = {
 
 export const breadcrumbsForPage = (htmlFile, pageTitle) => {
   const normalized = normalizePath(htmlFile);
-  const crumbs = [{ name: siteConfig.name, item: siteConfig.baseUrl }];
+  const crumbs = [{ name: 'HOME', item: siteConfig.baseUrl }];
   if (normalized === 'index.html') return crumbs;
 
   const directory = posix.dirname(normalized);

@@ -156,7 +156,7 @@ ${renderMetaBlock(htmlFile, article)}
     <header class="site-header">
       <div class="site-header__bar">
         <nav class="site-breadcrumb-logo" aria-label="パンくずリスト">
-          <a class="site-logo" href="../../index.html">MARK BENCH</a>
+          <a class="site-logo" href="../../index.html">HOME</a>
           <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
           <a class="site-breadcrumb-logo__parent" href="../">BUILD NOTES</a>
           <span class="site-breadcrumb-logo__separator" aria-hidden="true">/</span>
