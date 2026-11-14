@@ -19,7 +19,13 @@ export const checkNoteBuild = async (output, sourceEntries) => {
   assert.equal(count(buildNotes, /<a class="note-row"/g), Math.min(entries.length, 5));
   assert.ok(!archive.includes('test-notetoself'));
   assert.ok(!buildNotes.includes('test-notetoself'));
-  assert.ok(buildNotes.includes('coding-note-blogdemo.html'), 'CODING NOTE overview must include the latest published note');
+  const [latestCodingNote] =
+    codingArchive.match(/<a class="coding-note-card" href="\.\/([^"]+)"/)?.slice(1) || [];
+  assert.ok(latestCodingNote, 'CODING NOTE archive must list a published note');
+  assert.ok(
+    buildNotes.includes(`href="./coding-note/${latestCodingNote}"`),
+    'CODING NOTE overview must include the latest published note',
+  );
   assert.ok(buildNotes.includes(`CODING NOTE: ${String(codingNoteCount).padStart(2, '0')}`));
   assert.ok(buildNotes.includes(`CODING_NOTE_ARCHIVE</span><span>${String(codingNoteCount).padStart(2, '0')} NOTES`));
   assert.ok(
