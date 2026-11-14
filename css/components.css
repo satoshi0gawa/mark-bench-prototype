@@ -40,6 +40,12 @@
   text-underline-offset: 0.2em;
 }
 
+body[data-page="home"] .site-breadcrumb-logo .site-logo {
+  color: var(--color-text);
+  font-weight: 700;
+  text-decoration: none;
+}
+
 .site-breadcrumb-logo__separator,
 .site-breadcrumb-logo__current {
   letter-spacing: 0.02em;
