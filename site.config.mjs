@@ -3,7 +3,7 @@ import { basename } from 'node:path';
 export const siteConfig = Object.freeze({
   name: 'MARK BENCH',
   baseUrl: 'https://satoshi0gawa.github.io/mark-bench-prototype/',
-  defaultDescription: 'Web制作に役立つツール、再利用可能なWEB PARTS、実装・運用の制作記録を集約したナレッジサイト。',
+  defaultDescription: 'MARK BENCHは、Web制作に役立つツールや繰り返し使えるUIパーツを公開し、設計・実装・検証での試行錯誤や改善を記録するサイトです。',
   language: 'ja',
   locale: 'ja_JP',
   themeColor: '#18243b',
