@@ -2405,6 +2405,7 @@ body[data-page="about"] {
 
   .article-project-link:hover small { color: inherit; }
   .article-project-link:hover > span { transform: translate(0.15rem, -0.15rem); }
+  .article-project-link--internal:hover > span { transform: translateX(0.15rem); }
 }
 
 .result-row button:not(:disabled):focus-visible {
