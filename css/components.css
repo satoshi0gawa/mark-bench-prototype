@@ -29,17 +29,15 @@
   color: var(--color-text);
   font-family: var(--font-mono);
   font-size: var(--breadcrumb-font-size);
-  font-weight: 700;
 }
 
-.site-logo,
+.site-breadcrumb-logo .site-logo,
 .site-breadcrumb-logo__parent {
   flex: none;
-  text-decoration: none;
-}
-
-.site-breadcrumb-logo__parent {
   color: var(--color-text-subtle);
+  font-weight: 400;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
 .site-breadcrumb-logo__separator,
@@ -58,7 +56,8 @@
 
 .site-breadcrumb-logo__current {
   min-width: 0;
-  color: var(--color-text-subtle);
+  color: var(--color-text);
+  font-weight: 700;
 }
 
 @media (min-width: 1025px) {
