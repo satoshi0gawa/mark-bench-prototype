@@ -646,3 +646,11 @@ body[data-page="tools"][data-tool-id] .toast {
   .tool-grid { grid-template-columns: 1fr; }
   .tool-card { min-height: 22rem; }
 }
+
+@media (max-width: 1024px) {
+  body[data-page="blog"]:has(.article-layout) .site-breadcrumb-logo__current--full-title {
+    overflow: visible;
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+}

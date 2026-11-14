@@ -106,7 +106,7 @@
       ? {
           element: breadcrumbCurrent,
           text: breadcrumbCurrentValue,
-          language: 'en',
+          language: breadcrumbCurrent.lang || 'en',
           startAt: performance.now() + 180,
         }
       : logoText

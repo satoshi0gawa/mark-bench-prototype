@@ -3,23 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="デイトラ提供のPhotoshopカンプをもとに、架空の住宅会社のLPをコーディング。写真とテキストの分離、PC／SP画像の出し分け、コンテナクエリ、メニューのフォーカス制御を解説します。" />
+    <meta name="description" content="デイトラ提供のPhotoshopカンプを使った住宅会社LPの制作・学習記録。写真と文字の分離、画面幅に応じた画像選択、コンテナクエリ、メニュー操作、公開時の確認項目を整理します。" />
     <meta name="theme-color" content="#18243b" />
-    <title>実装NOTE ｜ Photoshopカンプから住宅会社LPを実装した記録 | MARK BENCH</title>
+    <title>Photoshopカンプから住宅会社LPを実装した記録 | MARK BENCH</title>
     <!-- site-meta:start -->
     <link rel="canonical" href="https://satoshi0gawa.github.io/mark-bench-prototype/build-notes/coding-note/coding-note-demo-lp-photoshop.html" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="MARK BENCH" />
-    <meta property="og:title" content="実装NOTE ｜ Photoshopカンプから住宅会社LPを実装した記録 | MARK BENCH" />
-    <meta property="og:description" content="デイトラ提供のPhotoshopカンプをもとに、架空の住宅会社のLPをコーディング。写真とテキストの分離、PC／SP画像の出し分け、コンテナクエリ、メニューのフォーカス制御を解説します。" />
+    <meta property="og:title" content="Photoshopカンプから住宅会社LPを実装した記録 | MARK BENCH" />
+    <meta property="og:description" content="デイトラ提供のPhotoshopカンプを使った住宅会社LPの制作・学習記録。写真と文字の分離、画面幅に応じた画像選択、コンテナクエリ、メニュー操作、公開時の確認項目を整理します。" />
     <meta property="og:url" content="https://satoshi0gawa.github.io/mark-bench-prototype/build-notes/coding-note/coding-note-demo-lp-photoshop.html" />
     <meta property="og:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="ja_JP" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="実装NOTE ｜ Photoshopカンプから住宅会社LPを実装した記録 | MARK BENCH" />
-    <meta name="twitter:description" content="デイトラ提供のPhotoshopカンプをもとに、架空の住宅会社のLPをコーディング。写真とテキストの分離、PC／SP画像の出し分け、コンテナクエリ、メニューのフォーカス制御を解説します。" />
+    <meta name="twitter:title" content="Photoshopカンプから住宅会社LPを実装した記録 | MARK BENCH" />
+    <meta name="twitter:description" content="デイトラ提供のPhotoshopカンプを使った住宅会社LPの制作・学習記録。写真と文字の分離、画面幅に応じた画像選択、コンテナクエリ、メニュー操作、公開時の確認項目を整理します。" />
     <meta name="twitter:image" content="https://satoshi0gawa.github.io/mark-bench-prototype/assets/og/og-default.png" />
     <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="../../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
@@ -53,7 +53,7 @@
           {
             "@type": "ListItem",
             "position": 4,
-            "name": "実装NOTE ｜ Photoshopカンプから住宅会社LPを実装した記録",
+            "name": "Photoshopカンプから住宅会社LPを実装した記録",
             "item": "https://satoshi0gawa.github.io/mark-bench-prototype/build-notes/coding-note/coding-note-demo-lp-photoshop.html"
           }
         ]
@@ -84,9 +84,7 @@
           <span class="site-breadcrumb-logo__separator" aria-hidden="true"
             >/</span
           >
-          <span class="site-breadcrumb-logo__current" aria-current="page"
-            >酒田工務店LP</span
-          >
+          <span class="site-breadcrumb-logo__current site-breadcrumb-logo__current--full-title" aria-current="page" lang="ja">Photoshopカンプから住宅会社LPを実装した記録</span>
         </nav>
       </div>
     </header>
@@ -103,13 +101,13 @@
         <header class="article-header reveal" data-reveal-order="0">
           <p class="section-index">PHOTOSHOP_HOUSING_LP</p>
           <h1 id="article-title">Photoshopカンプから<wbr />住宅会社LPを実装した記録</h1>
-          <p class="article-header__lead">Photoshopのカンプには、特定の画面幅での写真の見え方や文字の位置が示されています。<br />Webページとして再現するには、画面幅が変わったときに何を保ち、何を変えるかも決める必要があります。<br />架空の住宅会社「酒田工務店」のLPを題材に、カンプから読み取った見た目をHTML、CSS、JavaScriptへどう落とし込んだかをまとめます。</p>
+          <p class="article-header__lead">Photoshopのカンプには、特定の画面幅での写真の見え方や文字の位置が示されています。<br />Webページとして再現するには、画面幅が変わったときに何を保ち、何を変えるかも考える必要があります。<br />架空の住宅会社「酒田工務店」のLPを題材に、カンプをWebページにするための実装と、制作を振り返る際の学習ポイントを整理します。</p>
           <div class="note-meta">
             <time datetime="2026-11-14">2026.11.14</time><span>READING TIME: 5–7 MIN</span>
           </div>
           <dl class="article-project-meta" aria-label="制作情報">
             <div><dt>TYPE</dt><dd>CODING PRACTICE</dd></div>
-            <div><dt>ROLE</dt><dd>CODING</dd></div>
+            <div><dt>ROLE</dt><dd>LEARNER</dd></div>
             <div><dt>STACK</dt><dd>HTML <span class="article-project-meta__separator" aria-hidden="true">/</span> CSS <span class="article-project-meta__separator" aria-hidden="true">/</span> JAVASCRIPT</dd></div>
             <div><dt>STATUS</dt><dd>PORTFOLIO DEMO</dd></div>
           </dl>
@@ -135,19 +133,19 @@
           <section class="article-section reveal" id="section-1" aria-labelledby="section-1-title" data-reveal-threshold="0.01">
             <p class="section-index">01 / OVERVIEW</p>
             <h2 id="section-1-title">制作概要</h2>
-            <p>酒田工務店は、住宅の写真、家づくりのコンセプト、6件の施工実績、お知らせ、問い合わせ案内を1ページで紹介する制作デモです。<br />デイトラの有料教材「Photoshopのデザインカンプからコーディング」で提供されたカンプをもとに、フロントエンドのコーディングを担当しました。</p>
+            <p>酒田工務店は、住宅の写真、家づくりのコンセプト、6件の施工実績、お知らせ、問い合わせ案内を1ページで紹介する制作デモです。<br />デイトラの教材で提供されたPhotoshopカンプをもとにしたコーディング演習で、写真と文字を画面幅に合わせて表示する方法を扱います。</p>
           </section>
 
           <section class="article-section reveal" id="section-2" aria-labelledby="section-2-title" data-reveal-threshold="0.01">
             <p class="section-index">02 / PURPOSE &amp; REQUIREMENTS</p>
             <h2 id="section-2-title">目的と要件</h2>
-            <p>写真の構図と文字の読みやすさを保ちながら、PCとスマートフォンのカンプの違いを一つのHTMLで表現することが演習の中心です。<br />写真に重なるコピーもブラウザ上のテキストとして扱い、画面幅に応じて折り返しや文字サイズを調整できるようにしました。<br />スマートフォンでは、メニューを開いて目的のセクションに移動できるようにしています。</p>
+            <p>写真の構図と文字の読みやすさを保ちながら、PCとスマートフォンのカンプの違いを一つのHTMLで表現することが演習の中心です。<br />写真に重なるコピーはHTMLのテキストとして扱い、画面幅に応じて折り返しや文字サイズを調整できる構成です。<br />スマートフォンでは、メニューを経由して目的のセクションへ移動する構成を採用しています。</p>
           </section>
 
           <section class="article-section reveal" id="section-3" aria-labelledby="section-3-title" data-reveal-threshold="0.01">
             <p class="section-index">03 / SCOPE</p>
             <h2 id="section-3-title">担当範囲</h2>
-            <p>担当は、見出しやナビゲーションのマークアップ、CSSによる配色・余白・レイアウトの再現、PC／SP画像の出し分け、JavaScriptによるメニューの開閉とフォーカス管理です。<br />Photoshopカンプはデイトラの教材提供です。<br />実装対象はHOMEの1ページで、会社概要やFAQなどの下層ページ、問い合わせの送信処理は対象外です。</p>
+            <p>Photoshopカンプはデイトラの教材で提供されたものです。<br />演習の対象はHOMEの1ページで、見出しやナビゲーションのマークアップ、CSSでの見た目の再現、PC／SP画像の出し分け、メニューの開閉とフォーカス管理を扱います。<br />会社概要やFAQなどの下層ページ、問い合わせの送信処理は演習の対象外です。</p>
           </section>
 
           <section class="article-section reveal" id="section-4" aria-labelledby="section-4-title" data-reveal-threshold="0.01">
@@ -200,11 +198,11 @@
             <h2 id="section-6-title">主要な実装ポイント</h2>
             <h3>写真とテキストを分けて、構図を切り替える</h3>
 
-            <p>カンプ上で重なっている写真とコピーを、<code>picture</code> とHTMLの見出し・段落に分けました。<br />写真は画面幅に応じて <code>source</code> の候補と <code>img</code> の既定画像を切り替えます。<br />ヒーローだけでなく、コンセプトと施工実績にもこの方法を使い、写真の見せ方と文字の折り返しを個別に調整できるようにしました。</p>
+            <p>カンプ上で重なっている写真とコピーは、<code>picture</code> とHTMLの見出し・段落に分けた構成です。<br />ブラウザは画面幅などの条件に応じて <code>source</code> の画像候補を選び、適用できる候補がなければ <code>img</code> の既定画像を使います。<br />ヒーロー、コンセプト、施工実績にこの方法を使い、写真の構図と文字の折り返しを個別に調整できる構成です。</p>
 
-            <h3>情報が収まる幅で、お知らせと問い合わせ欄を再配置する</h3>
+            <h3>お知らせ欄の幅に合わせて、日付・区分と本文を並べる</h3>
 
-            <p>施工実績のカード列数はビューポート幅に応じて調整します。<br />一方、お知らせと問い合わせ欄は各セクションの幅をコンテナクエリで参照しています。<br />お知らせは幅が取れると日付・区分・本文が横に並び、幅が狭いと日付・区分の下に本文が続きます。</p>
+            <p>施工実績のカード列数はビューポート幅を基準に切り替わります。<br />お知らせ欄のレイアウトは、コンテナクエリでお知らせ欄自体の幅を参照する構成です。<br />幅が広いと日付・区分と本文が横に並び、狭いと日付・区分の下に本文が続きます。</p>
 
             <h3>メニューの見た目と操作状態を同期する</h3>
 
@@ -229,7 +227,7 @@
               </table>
             </div>
 
-            <p>ダイアログ内ではTabとShift+Tabでフォーカスを巡回でき、閉じた後は操作の流れに合う位置へ移動します。<br /><code>:focus-visible</code> でキーボード操作時の輪郭を表示し、動きを抑える設定ではメニューのフェードを省略します。<br />ダイアログを初期化できない場合は、ヘッダーのリンクを残します。</p>
+            <p>メニューは <code>:focus-visible</code> でフォーカスの輪郭を表示し、動きを抑える設定ではフェードを省略する構成です。<br />ダイアログを初期化できない場合に備え、ヘッダーにはセクションへ移動するリンクを用意しています。<br />TabとShift+Tabでの移動や、閉じた後のフォーカス位置は、実際のキーボード操作で確認する項目です。</p>
           </section>
 
           <section class="article-section reveal" id="section-8" aria-labelledby="section-8-title" data-reveal-threshold="0.01">
@@ -252,13 +250,13 @@
                 <div class="article-process-flow__label">
                   <span aria-hidden="true">03</span><strong>解決</strong>
                 </div>
-                <p>文字サイズ・行間・余白はレイアウトを組む基準として読み取り、文字はHTML、配置はCSSで再現しました。<br />写真はPCとSPで見せたい範囲を比べ、構図が異なるものを用途別の画像として用意しました。</p>
+                <p>文字サイズ・行間・余白をレイアウトの基準とし、文字をHTML、配置をCSSで表現する構成です。<br />構図が異なる写真は、PC用とSP用の画像を表示条件に応じて選びます。</p>
               </li>
               <li>
                 <div class="article-process-flow__label">
                   <span aria-hidden="true">04</span><strong>結果</strong>
                 </div>
-                <p>ヒーローは幅に応じて別の構図に切り替わり、コピーの折り返しやサイズはブラウザ上で調整できるようになりました。<br />この実装をきっかけに、カンプの数値の読み取り、レイヤーの重なり、画像の書き出し範囲を学び直し、DESIGN WORKFLOWの「Web制作で使うPhotoshop TIPS」にまとめました。</p>
+                <p>ヒーローは画面幅に応じて構図を切り替え、コピーの折り返しやサイズを別に調整できる構成です。<br />カンプの数値の読み取り、レイヤーの重なり、画像の書き出し範囲が、制作を振り返る際の学習ポイントです。</p>
               </li>
             </ol>
           </section>
@@ -266,7 +264,14 @@
           <section class="article-section reveal" id="section-9" aria-labelledby="section-9-title" data-reveal-threshold="0.01">
             <p class="section-index">09 / REVIEW &amp; DELIVERY</p>
             <h2 id="section-9-title">検証と公開</h2>
-            <p>PC用とSP用の画面でヒーロー画像の切り替えを確認し、メニューを構成するJavaScript 2ファイルは構文チェックを通過しました。<br />公開デモは認証前にHTTP 401、閲覧用のBasic認証後にHTTP 200となることを確認しました。<br />公開HTMLには <code>noindex,nofollow</code> が設定されています。</p>
+            <p>公開デモにはBasic認証があります。<br />2026年11月14日に、認証情報を付けないHEADリクエストでHTTP 401を確認しました。</p>
+            <h3>表示・操作と公開設定の確認項目</h3>
+            <ul>
+              <li>PCとスマートフォンの表示幅で、ヒーローなどに選ばれる画像とコピーの折り返し。</li>
+              <li>メニューを構成するJavaScriptファイルの構文。</li>
+              <li>Tab・Shift+Tabでの移動、Escapeやページ内リンクを使った後のフォーカス位置、動きを抑える設定での表示。</li>
+              <li>認証後のHTTP応答と公開HTMLにおける <code>noindex,nofollow</code> の有無。</li>
+            </ul>
 
             <p>住宅会社、施工実績、お知らせ、連絡先は架空の内容です。<br />資料請求・メール・電話の案内は操作を示すための表示で、送信、電話発信、購入、資料配布は行いません。</p>
           </section>
@@ -281,7 +286,7 @@
                 <span aria-hidden="true">↗</span>
               </a>
               <a class="article-project-link" href="https://daily-trial-pocket.com/collections/all" target="_blank" rel="noopener noreferrer">
-                <small>LEARNING MATERIAL</small>
+                <small>COURSE CATALOG</small>
                 <strong>デイトラポケットの講座一覧</strong>
                 <span aria-hidden="true">↗</span>
               </a>
