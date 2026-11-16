@@ -4,6 +4,14 @@
   workspace.dataset.toolWorkspaceInitialized = 'true';
 
   const definitions = {
+    'placeholder-image-generator': {
+      number: 'IMAGE_TOOLS',
+      title: 'Placeholder Image Generator',
+      summary: '寸法・色・文字を設定して、モック用のダミー画像をブラウザ内で作成します。',
+      status: 'READY', version: '0.1.1', updated: '2026.11.16', kind: 'placeholder-image',
+      steps: ['プリセットまたは幅・高さを指定します。', '背景色・文字色・表示テキストを設定します。空欄では寸法が表示されます。', '形式を選択し、プレビューとファイル容量を確認します。', 'DOWNLOAD IMAGEで保存します。COPY HTMLは保存した画像を参照するimgタグをコピーします。'],
+      specs: [['SIZE', '1–4,096px / Up to 8,388,608 pixels'], ['OUTPUT', 'PNG / JPEG / SVG / WebP / AVIF (browser support)'], ['QUALITY', '10–100% / JPEG, WebP, AVIF'], ['TEXT', '120 Characters / Single Line'], ['STORAGE', 'None']],
+    },
     'css-minifier': {
       number: 'CSS_TOOLS', title: 'CSS Minifier',
       summary: 'CSSのコメントと余分な空白を削減し、圧縮結果とUTF-8の削減量を確認します。',
@@ -360,7 +368,7 @@
   const showToast = (message, tone = 'default') => {
     const isStateToast = message === RESET_TOAST_MESSAGE || message === CLEAR_TOAST_MESSAGE;
     const isActionToast = tone === 'copy' || tone === 'download';
-    const isSettingsReset = ['flexbox-generator', 'css-grid-generator', 'border-radius-generator', 'css-minifier'].includes(key) && tone === 'reset' && message === '表示内容をリセットしました。';
+    const isSettingsReset = ['flexbox-generator', 'css-grid-generator', 'border-radius-generator', 'css-minifier', 'placeholder-image-generator'].includes(key) && tone === 'reset' && message === '表示内容をリセットしました。';
     if (!toast || (!isStateToast && !isActionToast && !isSettingsReset)) return;
     window.clearTimeout(toastTimer);
     window.clearTimeout(toastHideTimer);
@@ -3223,6 +3231,7 @@
   };
 
   if (tool.kind === 'case') renderCaseConverter();
+  else if (tool.kind === 'placeholder-image') window.MarkBenchPlaceholderImageGenerator.mount({ workspace, copyText, showToast });
   else if (tool.kind === 'css-minifier') window.MarkBenchCssMinifier.mount({ workspace, copyText, showToast });
   else if (tool.kind === 'border-radius') window.MarkBenchBorderRadiusGenerator.mount({ workspace, copyText, showToast });
   else if (tool.kind === 'css-grid') window.MarkBenchCssGridGenerator.mount({ workspace, copyText, showToast });
@@ -3255,7 +3264,7 @@
   else renderPlaceholder();
 
   workspace.addEventListener('click', (event) => {
-    if (event.target.closest('[data-flex-clear], [data-grid-clear], [data-radius-clear], [data-minifier-clear]')) return;
+    if (event.target.closest('[data-flex-clear], [data-grid-clear], [data-radius-clear], [data-minifier-clear], [data-placeholder-clear]')) return;
     const button = event.target.closest('button, input[type="reset"]');
     const buttonLabel = button instanceof HTMLInputElement ? button.value : button?.textContent;
     const normalizedButtonLabel = String(buttonLabel || '').trim().toUpperCase();

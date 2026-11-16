@@ -89,7 +89,7 @@ assert.match(componentStyles, /--breadcrumb-font-size: 0\.875rem;/u);
 assert.match(componentStyles, /body\[data-page="blog"\]:has\(\.article-layout\) \.site-breadcrumb-logo__current/u);
 assert.doesNotMatch(componentStyles, /body\[data-page="(?:tools|blog)"\][^{]*\.site-breadcrumb-logo[^{}]*\{[^}]*font-size:/u);
 assert.match(toolsDirectory, /<div class="page-heading__main reveal">\s*<h1>TOOLS<\/h1>\s*<p class="visually-hidden">[^<]+<\/p>/u);
-assert.match(toolsDirectory, /<div class="page-heading__meta reveal"><span>CATEGORIES: 04<\/span><span>TOOLS: 30<\/span><span>STATUS: 30 READY \/ 00 PLANNED<\/span><\/div>/u);
+assert.match(toolsDirectory, /<div class="page-heading__meta reveal"><span>CATEGORIES: 04<\/span><span>TOOLS: 31<\/span><span>STATUS: 31 READY \/ 00 PLANNED<\/span><\/div>/u);
 assert.match(toolsDirectory, /<footer class="page-footer" aria-label="ページナビゲーション">[\s\S]*?BACK TO HOME[\s\S]*?PAGE TOP[\s\S]*?<\/footer>/u);
 assert.match(partsDirectory, /<div class="page-heading__main reveal">\s*<h1>WEB PARTS<\/h1>\s*<p class="visually-hidden">[^<]+<\/p>/u);
 assert.doesNotMatch(toolsDirectory, /tool-card__category|TOOL_\d{3}/u);
@@ -104,7 +104,7 @@ assert.doesNotMatch(styles, /\.tool-grid--directory \.tool-card:nth-child\(2n\) 
 
 const expectedToolIndex = { text: 'TEXT_TOOLS', code: 'CODE_TOOLS', css: 'CSS_TOOLS', image: 'IMAGE_TOOLS' };
 const directoryCards = [...toolsDirectory.matchAll(/<article class="tool-card"[^>]*data-category="([^"]+)"[^>]*>\s*<div class="tool-card__meta"><span>([^<]+)<\/span>/gu)];
-assert.equal(directoryCards.length, 30);
+assert.equal(directoryCards.length, 31);
 directoryCards.forEach(([, category, index]) => {
   assert.equal(index, expectedToolIndex[category], `${category} cards should expose the detail page section index`);
 });
@@ -115,6 +115,7 @@ const expectedDirectoryOrder = [
   'markdown-preview-editor',
   'code-block-generator',
   'bem-class-builder',
+  'placeholder-image-generator',
   'image-format-converter-resizer',
   'text-diff-viewer',
   'regex-tester-replacer',
@@ -144,9 +145,11 @@ const expectedDirectoryOrder = [
 const orderedDirectoryCards = [...toolsDirectory.matchAll(/data-tool-card data-id="([^"]+)" data-category="([^"]+)"/gu)]
   .map(([, id, category]) => ({ id, category }));
 assert.deepEqual(orderedDirectoryCards.map(({ id }) => id), expectedDirectoryOrder);
-assert.deepEqual([...new Set(orderedDirectoryCards.slice(6).map(({ category }) => category))], ['text', 'code', 'css', 'image']);
+const firstGroupedCard = expectedDirectoryOrder.indexOf('text-diff-viewer');
+assert.deepEqual([...new Set(orderedDirectoryCards.slice(firstGroupedCard).map(({ category }) => category))], ['text', 'code', 'css', 'image']);
 
 const breadcrumbTitles = {
+  'placeholder-image-generator.html': 'Placeholder Image Generator',
   'css-minifier.html': 'CSS Minifier',
   'border-radius-generator.html': 'Border Radius Generator',
   'css-grid-generator.html': 'CSS Grid Generator',
@@ -214,8 +217,8 @@ const expectedUpdateDates = {
 };
 const definitionDates = new Map([...toolScript.matchAll(/^    '([^']+)': \{[\s\S]*?\bupdated: '(\d{4}\.\d{2}\.\d{2})'/gmu)]
   .map(([, id, updated]) => [id, updated]));
-assert.deepEqual([...definitionDates.keys()].sort(), Object.keys(expectedUpdateDates).sort(), 'All tool definitions should have an approved date');
-assert.deepEqual(Object.keys(breadcrumbTitles).map(file => file.replace(/\.html$/u, '')).sort(), Object.keys(expectedUpdateDates).sort(), 'All detail pages should be covered');
+assert.deepEqual([...definitionDates.keys()].sort(), [...expectedDirectoryOrder].sort(), 'All tools should have a JavaScript update date');
+assert.deepEqual(Object.keys(breadcrumbTitles).map(file => file.replace(/\.html$/u, '')).sort(), [...expectedDirectoryOrder].sort(), 'All detail pages should be covered');
 assert.equal(new Set(Object.values(expectedUpdateDates)).size, 30, 'Each tool should have its own date');
 for (const [index, [id, updated]] of Object.entries(expectedUpdateDates).entries()) {
   const date = new Date(Date.UTC(2026, 6, 25 + Math.floor(index / 2) * 7 + index % 2));
@@ -230,8 +233,8 @@ for (const [file, title] of Object.entries(breadcrumbTitles)) {
   const match = page.match(/data-site-breadcrumb-current[^>]*>([^<]*)</u);
   assert.equal(match?.[1], title, `${file} should use its page title in the current breadcrumb`);
   assert.match(page, /class="privacy-note__body"/u, `${file} should wrap the privacy note body for the mobile layout`);
-  const updated = expectedUpdateDates[file.replace(/\.html$/u, '')];
-  assert.ok(page.includes(`<dt>LAST UPDATED</dt><dd data-tool-updated>${updated}</dd>`), `${file} HTML date should match the approved JavaScript date`);
+  const updated = definitionDates.get(file.replace(/\.html$/u, ''));
+  assert.ok(page.includes(`<dt>LAST UPDATED</dt><dd data-tool-updated>${updated}</dd>`), `${file} HTML date should match the JavaScript date`);
   assert.match(page, /data-tool-version>0\.[12]\.1<\/dd>/u, `${file} should expose the incremented patch version`);
   assert.doesNotMatch(page, /<dt>UPDATED<\/dt>/u, `${file} should use the LAST UPDATED label`);
 }

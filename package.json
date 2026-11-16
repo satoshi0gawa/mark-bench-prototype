@@ -38,6 +38,7 @@
     "check:numeric": "node scripts/check-numeric-character-reference-converter.mjs",
     "check:fluid": "node scripts/check-fluid-scale-generator.mjs",
     "check:radius": "node scripts/check-border-radius-generator.mjs",
+    "check:placeholder-image": "node scripts/check-placeholder-image-generator.mjs",
     "check:minifier": "node scripts/check-css-minifier.mjs",
     "sync:minifier-engine": "node scripts/sync-css-minifier-engine.mjs",
     "check:grid": "node scripts/check-css-grid-generator.mjs",

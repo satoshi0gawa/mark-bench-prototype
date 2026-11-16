@@ -3512,6 +3512,7 @@ body[data-page="tools"][data-tool-id] .tool-workspace :is(button, a):is(
   [data-width-copy],
   [data-download-markdown],
   [data-image-download],
+  [data-placeholder-download],
   [data-fluid-download],
   [data-base64-download]
 ) {
@@ -3559,6 +3560,7 @@ body[data-page="tools"][data-tool-id] .tool-workspace :is(button, a):is(
   [data-width-copy],
   [data-download-markdown],
   [data-image-download],
+  [data-placeholder-download],
   [data-fluid-download],
   [data-base64-download]
 ):not(:disabled):focus-visible {
@@ -3603,6 +3605,7 @@ body[data-page="tools"][data-tool-id] .tool-workspace :is(button, a):is(
     [data-width-copy],
     [data-download-markdown],
     [data-image-download],
+    [data-placeholder-download],
     [data-fluid-download],
     [data-base64-download]
   ):not(:disabled):hover {
