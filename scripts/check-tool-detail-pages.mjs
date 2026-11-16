@@ -113,10 +113,11 @@ const expectedDirectoryOrder = [
   'text-case-converter',
   'directory-tree-generator',
   'markdown-preview-editor',
-  'code-block-generator',
   'bem-class-builder',
   'placeholder-image-generator',
   'image-format-converter-resizer',
+  'flexbox-generator',
+  'css-grid-generator',
   'text-diff-viewer',
   'regex-tester-replacer',
   'width-converter',
@@ -127,13 +128,12 @@ const expectedDirectoryOrder = [
   'url-query-string-builder',
   'meta-tags-ogp-builder',
   'base64-data-url-converter',
+  'code-block-generator',
   'html-table-builder',
   'html-escape-converter',
   'numeric-character-reference-converter',
   'json-formatter',
   'css-minifier',
-  'flexbox-generator',
-  'css-grid-generator',
   'border-radius-generator',
   'fluid-scale-generator',
   'css-specificity-calculator',
@@ -146,7 +146,8 @@ const orderedDirectoryCards = [...toolsDirectory.matchAll(/data-tool-card data-i
   .map(([, id, category]) => ({ id, category }));
 assert.deepEqual(orderedDirectoryCards.map(({ id }) => id), expectedDirectoryOrder);
 const firstGroupedCard = expectedDirectoryOrder.indexOf('text-diff-viewer');
-assert.deepEqual([...new Set(orderedDirectoryCards.slice(firstGroupedCard).map(({ category }) => category))], ['text', 'code', 'css', 'image']);
+const groupedCategories = orderedDirectoryCards.slice(firstGroupedCard).map(({ category }) => category);
+assert.deepEqual(groupedCategories.filter((category, index) => category !== groupedCategories[index - 1]), ['text', 'code', 'css', 'image']);
 
 const breadcrumbTitles = {
   'placeholder-image-generator.html': 'Placeholder Image Generator',
