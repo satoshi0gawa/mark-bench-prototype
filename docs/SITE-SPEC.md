@@ -71,6 +71,8 @@ microCMSの管理対象は`NOTE to SELF`だけです。CODING NOTE、TOOLS、WEB
 - 主色：ネイビー
 - アクセント：黄色
 - 背景、境界線、テキスト、状態色は共通トークンから参照する
+- 基本背景はシルバーグレーの `#E6E6E9`（`--color-background`）、区切り罫線は `#BDC2CB`（`--color-grid`）、補助文字は `#515C70`（`--color-text-subtle`）とする
+- WEB PARTS一覧の検索欄とFORMデモの入力境界には `#788395`（`--color-input-border`）を使う
 - 一覧ページのアイテムグリッドは、区切り面に`--color-item-grid-background`、通常アイテムに`--color-item-background`、補助アイテムに`--color-item-background-muted`を使用する
 - 通常文字と背景のコントラストを確保し、色だけに依存した状態表現を避ける
 
