@@ -71,13 +71,13 @@
             <label class="placeholder-image__wide" for="placeholder-preset">サイズプリセット
               <select id="placeholder-preset" data-placeholder-preset>
                 <option value="">CUSTOM</option>
-                <option value="800x450">800 × 450 / 16:9</option>
+                <option value="800x450">800 × 450 / ARTICLE COVER</option>
                 <option value="600x600">600 × 600 / PRODUCT THUMBNAIL</option>
                 <option value="1080x1080">1080 × 1080 / SOCIAL POST</option>
                 <option value="728x90">728 × 90 / BANNER</option>
                 <option value="1200x630">1200 × 630 / OGP</option>
-                <option value="1080x1350">1080 × 1350 / PORTRAIT</option>
-                <option value="1920x1080">1920 × 1080 / FULL HD</option>
+                <option value="1080x1350">1080 × 1350 / SOCIAL POST (4:5)</option>
+                <option value="1920x1080">1920 × 1080 / VIDEO THUMBNAIL</option>
               </select>
             </label>
             ${numeric('width', '幅（px）', 1, MAX_EDGE)}${numeric('height', '高さ（px）', 1, MAX_EDGE)}
