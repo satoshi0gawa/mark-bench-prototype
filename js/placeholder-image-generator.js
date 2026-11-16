@@ -72,8 +72,8 @@
               <select id="placeholder-preset" data-placeholder-preset>
                 <option value="">CUSTOM</option>
                 <option value="800x450">800 × 450 / 16:9</option>
-                <option value="600x600">600 × 600 / SQUARE</option>
-                <option value="1080x1080">1080 × 1080 / スクエア</option>
+                <option value="600x600">600 × 600 / PRODUCT THUMBNAIL</option>
+                <option value="1080x1080">1080 × 1080 / SOCIAL POST</option>
                 <option value="728x90">728 × 90 / BANNER</option>
                 <option value="1200x630">1200 × 630 / OGP</option>
                 <option value="1080x1350">1080 × 1350 / PORTRAIT</option>
