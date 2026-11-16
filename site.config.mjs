@@ -10,7 +10,7 @@ export const siteConfig = Object.freeze({
   defaultOgImage: 'assets/og/og-default.png',
   faviconSvg: 'assets/icons/favicon.svg',
   faviconPng: 'assets/icons/favicon-32.png',
-  appleTouchIcon: 'assets/icons/apple-touch-icon.png',
+  appleTouchIcon: 'assets/icons/apple-touch-icon-silver.png',
   googleFontsUrl:
     'https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Space+Mono:wght@400;700&display=swap',
 });

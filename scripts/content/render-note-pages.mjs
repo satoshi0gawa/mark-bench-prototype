@@ -2,7 +2,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
 import { siteConfig } from '../../site.config.mjs';
-import { assetUrl, breadcrumbsForPage, pageUrl } from '../site-pages.mjs';
+import { assetUrl, breadcrumbsForPage, pageUrl, relativeAssetPath } from '../site-pages.mjs';
 
 const escapeHtml = (value) => String(value)
   .replaceAll('&', '&amp;')
@@ -70,7 +70,7 @@ const renderMetaBlock = (htmlFile, article) => {
     <meta name="twitter:image" content="${escapeAttribute(ogImage)}" />
     <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="../../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
-    <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="apple-touch-icon" href="${escapeAttribute(relativeAssetPath(htmlFile, siteConfig.appleTouchIcon))}" sizes="180x180" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="${escapeAttribute(siteConfig.googleFontsUrl)}" />
